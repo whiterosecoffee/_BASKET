@@ -1,8 +1,17 @@
 # Changelog
 
+## 0.4.1 — 2026-10-16
+- Correct TTD terminology to **Time to Die**: hard validity expiry for observations and computations.
+- Add local-first, append-only JSONL ingestion and polling runtime with predetermined paths and source-adapter contracts.
+- Add dependency-aware expiry, feed configuration, status reporting and unit tests.
+- Feeds are disabled until live provider adapters and a persistent worker are configured; no claim of ongoing updates or validated CI.
+- Clarify that dead records remain for replay but are never current NAV inputs.
+
+# Changelog
+
 ## 0.4.0 — 2026-10-16
 - Specify USDJPY as a first-class FX market entity with independent traversal and USD-first conversion.
-- Define per-field TTD freshness windows, provenance, stale/unavailable/conflicted states and a freshness evaluation module.
+- Define per-field TTD (Time to Die) expiration windows, provenance, stale/unavailable/conflicted states and a freshness evaluation module.
 - Specify dynamic mark-to-market SFTBY NAV with FX decomposition by asset, debt, expenses, cash, hedges and maturity.
 - Mark live FX and latest-trade access as unavailable under the tested Massive entitlement; do not claim live NAV.
 - Require dated ownership/share counts, non-double-counted fund exposures and explicit provisional valuation flags.
