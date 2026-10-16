@@ -1,0 +1,20 @@
+{
+  "schema": "relationships@1",
+  "entity_id": "OPENAI",
+  "pools": [],
+  "upstream": [],
+  "downstream": [],
+  "ownership": [
+    {
+      "target": "SFTBY",
+      "type": "investor",
+      "share": 0.13,
+      "effective_at": "2026-10-01",
+      "confidence": "verified",
+      "sources": [
+        "https://group.softbank/en/news/press/20261001"
+      ]
+    }
+  ],
+  "other": []
+}
