@@ -1,0 +1,155 @@
+{
+  "schema": "basket.github_evidence@1",
+  "observed_at": "2026-10-16T21:45:54Z",
+  "repository": "whiterosecoffee/_BASKET",
+  "main_commit": "4319c6c959387f2a1df333b6a86f6f94e57710e3",
+  "issues": [
+    {
+      "number": 1,
+      "state": "open",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/1"
+    },
+    {
+      "number": 8,
+      "state": "open",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/8"
+    },
+    {
+      "number": 9,
+      "state": "open",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/9"
+    },
+    {
+      "number": 11,
+      "state": "open",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/11"
+    },
+    {
+      "number": 12,
+      "state": "open",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/12"
+    },
+    {
+      "number": 16,
+      "state": "open",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/16"
+    }
+  ],
+  "pull_requests": [
+    {
+      "number": 2,
+      "head_branch": "work/1-conversation-sparks-orchestration",
+      "head_sha": "93ed834c165f44b7aef2c07ab2af4fd5f07dc5d5",
+      "changed_paths": [
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "README.md",
+        "architecture/VERSIONING.md",
+        "architecture/version-manifest.json",
+        "orchestration/LAUNCHPAD.md",
+        "orchestration/PROJECT_INSTRUCTIONS.md",
+        "orchestration/README.md",
+        "orchestration/handoffs.md",
+        "orchestration/launch-pack.md",
+        "orchestration/sparks.json",
+        "orchestration/strategic-review-2026-10-16.md",
+        "orchestration/validate_sparks.py",
+        "orchestration/validate_versions.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/2",
+      "base_branch": "main",
+      "state": "open",
+      "draft": true,
+      "merged": false
+    },
+    {
+      "number": 10,
+      "head_branch": "work/8-sftby-relationship-integrity",
+      "head_sha": "9917c4c8c4e1d9a7cc7ec043de1096f689e80441",
+      "changed_paths": [
+        "research/graph/SFTBY/relationships-context-2026-10-16.json",
+        "tickers/SFTBY/relationships.json"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/10",
+      "base_branch": "main",
+      "state": "open",
+      "draft": true,
+      "merged": false
+    },
+    {
+      "number": 13,
+      "head_branch": "work/9-b01-independent-ci-validation",
+      "head_sha": "a4a4a1702c241cb9502fa511a3035a0628e64f47",
+      "changed_paths": [
+        ".github/workflows/validate.yml",
+        "tests/integration/test_relationship_contract.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/13",
+      "base_branch": "main",
+      "state": "open",
+      "draft": true,
+      "merged": false
+    },
+    {
+      "number": 14,
+      "head_branch": "work/12-b03-canonical-issuer-events",
+      "head_sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+      "changed_paths": [
+        "research/events/README.md",
+        "research/events/SFTBY/2026-10-16-initial-ledger.json",
+        "research/events/validate.py",
+        "tickers/SFTBY/events.json"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/14",
+      "base_branch": "main",
+      "state": "open",
+      "draft": true,
+      "merged": false
+    },
+    {
+      "number": 15,
+      "head_branch": "work/11-market-fx-observation-replay",
+      "head_sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+      "changed_paths": [
+        "runtime/observations.py",
+        "runtime/test_observations.py",
+        "tests/test_ttd.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/15",
+      "base_branch": "main",
+      "state": "open",
+      "draft": true,
+      "merged": false
+    }
+  ],
+  "workflow_runs": [
+    {
+      "id": 38956838273,
+      "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38956838273",
+      "head_sha": "9917c4c8c4e1d9a7cc7ec043de1096f689e80441",
+      "conclusion": "success",
+      "name": "Validate BASKET data"
+    },
+    {
+      "id": 38956961596,
+      "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38956961596",
+      "head_sha": "a4a4a1702c241cb9502fa511a3035a0628e64f47",
+      "conclusion": "failure",
+      "name": "Validate BASKET data"
+    },
+    {
+      "id": 38957102730,
+      "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957102730",
+      "head_sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+      "conclusion": "failure",
+      "name": "Validate BASKET data"
+    },
+    {
+      "id": 38957274923,
+      "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957274923",
+      "head_sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+      "conclusion": "failure",
+      "name": "Validate BASKET data"
+    }
+  ]
+}
