@@ -1,6 +1,6 @@
 # Cross-domain handoff protocol
 
-**Active dependencies as of 2026-10-16:** contract/schema #3 → canonical SFTBY graph migration #4 → independent CI verification #5. These are *handoff issues*, not worker issue/branch assignments. Receiving conversations each create their own new issue and branch when launched.
+**Active handoffs as of 2026-10-16:** immediate #4 (B05, lossless canonical SFTBY relationship normalization to existing schema) → #5 (B01, strict CI verification). Optional later #3 (B00, reusable long-term schema/valuation boundary). These are *handoff issues*, not worker issue/branch assignments. Receiving conversations each create their own new issue and branch when launched.
 
 **Trigger:** A spark needs any change outside its `write_paths`, or its proposed change collides with an active issue/PR. It must **not** edit the target.
 
