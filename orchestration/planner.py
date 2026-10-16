@@ -241,7 +241,7 @@ def run_plan(queue, library, registry, evidence, active_ids=None):
     return {
         "schema": "basket.planner_decision@1",
         "source_evidence_observed_at": evidence["observed_at"],
-        "source_is_live": False,
+        "continuous_background_monitoring": False,
         "source_fetched_this_invocation": False,
         "active_worker_count_known": not active_unknown,
         "queue_version": queue["queue_version"],
