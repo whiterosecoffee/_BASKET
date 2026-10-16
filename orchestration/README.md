@@ -15,7 +15,7 @@ This project is organized around persistent **objectives** and **exclusive write
 
 | Spark | Workstream | Priority | Exclusive write paths | Depends on |
 |---|---|---|---|---|
-| B00 | Orchestrator & Contracts | P0 | `AGENTS.md`, `orchestration/**` | — |
+| B00 | Orchestrator & Contracts | P0 | `AGENTS.md`, `orchestration/**`, `architecture/**`, `schemas/**`, `README.md`, `CHANGELOG.md` | — |
 | B01 | Integrity & CI Rescue | P0 | `tests/**`, `.github/workflows/**` | B00 |
 | B02 | Market Feeds, FX & TTD | P0 | `runtime/**`, `fx/**`, `tickers/*/history.jsonl`, `tickers/*/history.meta.json`, `tickers/*/intraday/**`, `tickers/*/live/**` | B00 |
 | B03 | Earnings & Event Ledger | P0 | `tickers/*/events.json`, `research/filings/**`, `research/events/**` | B00 |
