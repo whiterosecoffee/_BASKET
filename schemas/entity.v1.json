@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema",
+    "id",
+    "type",
+    "currency",
+    "shape"
+  ],
+  "properties": {
+    "schema": {
+      "const": "entity@1"
+    },
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "public_equity",
+        "private_company",
+        "other"
+      ]
+    },
+    "currency": {
+      "type": "string"
+    },
+    "shape": {
+      "type": "object",
+      "required": [
+        "status",
+        "segments",
+        "capabilities",
+        "constraints",
+        "economic_pools"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "unresearched",
+            "partial",
+            "researched"
+          ]
+        },
+        "segments": {
+          "type": "array"
+        },
+        "capabilities": {
+          "type": "array"
+        },
+        "constraints": {
+          "type": "array"
+        },
+        "economic_pools": {
+          "type": "array"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
