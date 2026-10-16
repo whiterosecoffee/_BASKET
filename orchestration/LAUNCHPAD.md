@@ -10,7 +10,7 @@ This page is a **human-friendly launch queue**, not a substitute for live GitHub
 - **Ready to launch:** B05 relationship-contract repair (handoff #4); B01 independent test/CI verification (handoff #5).
 - **Independent next launch:** B02 price/FX/TTD history and snapshot runtime (handoff #7).
 - **Blocked from release:** strict SFTBY relationship schema compliance and passing `Validate BASKET data` CI. Narrative tests passing do not lift this blocker.
-- **Dormant:** other 19 sparks; activating dormant sparks should be justified by verified dependencies, not by conversation count.
+- **Dormant:** other 18 sparks; activating dormant sparks should be justified by verified dependencies, not by conversation count.
 
 **Important distinction:** A handoff issue is **not** the receiving conversation's new worker issue. Each newly opened chat claims its handoff, creates a *different* new issue and its own branch from the latest `main`; it then links both.
 
