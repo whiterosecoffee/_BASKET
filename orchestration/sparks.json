@@ -1,7 +1,7 @@
 {
   "project": "_BASKET",
   "repository": "whiterosecoffee/_BASKET",
-  "catalog_version": "1.3.0",
+  "catalog_version": "1.4.0",
   "as_of": "2026-10-16",
   "source_coverage": "Partial reconstruction from accessible conversation excerpts, memory, historical MRIE workstream artifacts and GitHub source tree. No complete raw ChatGPT transcript export. Repo audited on 2026-10-16; CI failure identified in relationships schema mismatch.",
   "bootstrap_policy": "Each launched NEW conversation creates its own issue then unique branch. Dormant sparks do NOT have pre-created issues or branches. Project instructions should direct ChatGPT to read AGENTS.md and this catalog.",
@@ -29,7 +29,9 @@
     "bootstrap_if_unmerged": "Until PR #2 is merged, new worker may READ AGENTS.md and orchestration/sparks.json from work/1-conversation-sparks-orchestration, but MUST create a distinct new issue and branch from current main. After merging PR #2, main becomes the authoritative instruction source.",
     "ci_repair_first": "B05 can preserve six additional SFTBY relationship top-level fields losslessly in B05-owned research/graph sidecar while retaining permitted canonical relationship properties, without waiting for B00 optional schema evolution. B01 independently verifies strict validation.",
     "full_instructions_delivery": "When user requests Project Instructions or changes, return their COMPLETE current text in ONE copyable block. Do not split or provide only diffs.",
-    "versioning_policy": "Core SemVer, catalog SemVer, schema major, data append-only revisions and engine algorithm/config versions are distinct. New core releases require gates and explicit authorization."
+    "versioning_policy": "Core SemVer, catalog SemVer, schema major, data append-only revisions and engine algorithm/config versions are distinct. New core releases require gates and explicit authorization.",
+    "worker_resolution": "Every worker posts the basket.worker_resolution@1 payload with acceptance IDs, CI/test outcomes and URLs, changed paths, blockers, handoffs, unknowns and next action. B00 independently validates it against fetched GitHub evidence; see orchestration/WORKER_PROTOCOL.md.",
+    "readiness": "A worker can be component verified without being integrated. A merged PR still needs main CI verification; no auto merge."
   },
   "write_ownership": [
     {
@@ -864,50 +866,48 @@
   "launch_sequence": [
     {
       "wave": 0,
-      "gate": "Bootstrap before PR #2 is merged",
+      "gate": "Four initial worker PRs remain draft and unmerged; require explicit review and merge authorization",
       "launch": [
-        "B05",
-        "B01"
+        "B00"
       ],
-      "aim": "Read temporary policy from PR #2 branch; each worker creates own issue and branch from main. B05 losslessly separates SFTBY non-schema fields into research/graph; B01 verifies CI. Merge the fix first with authorization."
+      "aim": "Review PR #10 B05 lossless schema repair, then PR #2 orchestration/protocol, then PR #13 B01 CI; run independent combined main CI. Keep #16 separate."
     },
     {
       "wave": 1,
-      "gate": "Baseline CI green and PR #2 merged to main",
+      "gate": "R1+R2 strict schema/CI repair integrated",
       "launch": [
         "B02",
-        "B03",
-        "B21"
+        "B03"
       ],
-      "aim": "Official worker instructions on main; make quote/FX TTD, issuer events and narrative provenance operational. B00 may undertake longer-term schema changes separately."
+      "aim": "Resume existing worker issues #11 and #12 on their OWN branches; run their unit tests and complete historical replay and source coverage. They already exist: do not launch duplicate chats merely to repeat this scope."
     },
     {
       "wave": 2,
-      "gate": "G1 and prerequisites for a joined report",
+      "gate": "Worker protocol + CI evidence usable; available capacity at most 3 developing workers",
       "launch": [
-        "B06",
+        "B21",
+        "B06"
+      ],
+      "aim": "New workers each create their own issue/branch, validate narrative hypothesis methods and descriptive traversal against B02 as-of data. B06 outputs remain non-probabilistic."
+    },
+    {
+      "wave": 3,
+      "gate": "Point-in-time events/history usable",
+      "launch": [
         "B09",
         "B10",
         "B11"
       ],
-      "aim": "Traversal and three pilot holdings; research may proceed while downstream live/NAV/forecast outputs remain gated."
+      "aim": "Three company pilots; no current USD NAV when constituents or FX stale."
     },
     {
-      "wave": 3,
-      "gate": "G2 + G3",
+      "wave": 4,
+      "gate": "Reproducible three-holdings pilot",
       "launch": [
         "B04",
         "B07",
         "B08",
-        "B17"
-      ],
-      "aim": "Economic valuation, statistical calibration, deployment and market composites built on verified inputs."
-    },
-    {
-      "wave": 4,
-      "gate": "G4 pilot proven",
-      "launch": [
-        "B00",
+        "B17",
         "B12",
         "B13",
         "B14",
@@ -917,7 +917,7 @@
         "B19",
         "B20"
       ],
-      "aim": "Shared ontology improvements and full AI supply-chain expansion after demonstrable pilot."
+      "aim": "Broader economics, calibration, deployment and thematic research only after appropriate gates."
     }
   ],
   "handoffs": [
@@ -962,6 +962,16 @@
       "title": "Implement immutable feed/dataset snapshot manifests and TTD-aware replay",
       "url": "https://github.com/whiterosecoffee/_BASKET/issues/7",
       "status": "open"
+    },
+    {
+      "issue": 16,
+      "spark": "B05",
+      "title": "OpenAI investment/accounting relationship reconciliation; separate future objective after B05 schema repair",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/16",
+      "depends_on": [
+        14
+      ],
+      "status": "open_unclaimed_followup"
     }
   ],
   "versioning": {
@@ -972,5 +982,24 @@
     "next_candidate": "0.5.0",
     "candidate_status": "planned_unreleased",
     "instruction_format": "Full complete instructions as one copyable block when requested"
+  },
+  "worker_protocol": {
+    "version": "1.0.0",
+    "task_schema": "schemas/worker-task.v1.json",
+    "resolution_schema": "schemas/worker-resolution.v1.json",
+    "github_evidence_schema": "schemas/worker-evidence.v1.json",
+    "policy": "orchestration/WORKER_PROTOCOL.md",
+    "evaluator": "orchestration/worker_protocol.py",
+    "tests": "orchestration/tests/test_worker_protocol.py",
+    "examples": "orchestration/examples/",
+    "canonical_status": "GitHub issue/PR/CI data fetched at time of orchestrator evaluation, not worker chat claims",
+    "constraints": [
+      "new issue and unique branch per chat",
+      "all changed PR paths within spark ownership",
+      "CI success verified on exact PR head SHA",
+      "component verified is not merged",
+      "release never auto-authorized",
+      "unknown timestamps remain null"
+    ]
   }
 }
