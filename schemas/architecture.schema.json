@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BASKET Architecture",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "schema",
+    "status",
+    "purpose",
+    "principles",
+    "objectives",
+    "assessment",
+    "structure",
+    "data_contract",
+    "version_policy"
+  ],
+  "properties": {
+    "id": {
+      "const": "basket.architecture"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "schema": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "design",
+        "experimental",
+        "implemented",
+        "validated",
+        "deprecated"
+      ]
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "principles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "objectives": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "weight",
+          "maturity"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "maturity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "assessment": {
+      "type": "object",
+      "required": [
+        "weighted_score",
+        "scale",
+        "implementation_verified"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "weighted_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "scale": {
+          "const": 10
+        },
+        "implementation_verified": {
+          "type": "boolean"
+        }
+      }
+    },
+    "structure": {
+      "type": "object"
+    },
+    "data_contract": {
+      "type": "object"
+    },
+    "engines": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "roadmap": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "version_policy": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}
