@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased — v0.5.0 candidate (not shipped)
+- Introduce worker task, resolution and GitHub evidence schemas plus offline B00 evaluator and negative tests; integration in B01 CI remains pending.
 - Proposed independent conversation branching, domain ownership, handoff issues and 22 scoped launch sparks.
 - Proposed complete ChatGPT Project Instructions in one maintained block and separate version tracks for core, orchestration, schemas, datasets, engines and reports.
 - Add formal release manifest and evidence gates; do NOT raise the declared 0.4.1 baseline until validated and authorized.
