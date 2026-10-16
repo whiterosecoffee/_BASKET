@@ -1,7 +1,7 @@
 {
   "project": "_BASKET",
   "repository": "whiterosecoffee/_BASKET",
-  "catalog_version": "1.4.0",
+  "catalog_version": "1.5.0",
   "as_of": "2026-10-16",
   "source_coverage": "Partial reconstruction from accessible conversation excerpts, memory, historical MRIE workstream artifacts and GitHub source tree. No complete raw ChatGPT transcript export. Repo audited on 2026-10-16; CI failure identified in relationships schema mismatch.",
   "bootstrap_policy": "Each launched NEW conversation creates its own issue then unique branch. Dormant sparks do NOT have pre-created issues or branches. Project instructions should direct ChatGPT to read AGENTS.md and this catalog.",
@@ -31,7 +31,9 @@
     "full_instructions_delivery": "When user requests Project Instructions or changes, return their COMPLETE current text in ONE copyable block. Do not split or provide only diffs.",
     "versioning_policy": "Core SemVer, catalog SemVer, schema major, data append-only revisions and engine algorithm/config versions are distinct. New core releases require gates and explicit authorization.",
     "worker_resolution": "Every worker posts the basket.worker_resolution@1 payload with acceptance IDs, CI/test outcomes and URLs, changed paths, blockers, handoffs, unknowns and next action. B00 independently validates it against fetched GitHub evidence; see orchestration/WORKER_PROTOCOL.md.",
-    "readiness": "A worker can be component verified without being integrated. A merged PR still needs main CI verification; no auto merge."
+    "readiness": "A worker can be component verified without being integrated. A merged PR still needs main CI verification; no auto merge.",
+    "reusable_workers": "Use B00 planner queue and reusable capability profiles; one new worker issue/branch per new conversation, even when role/recipe is reused. A worker can compose roles but must not cross domain write paths.",
+    "queue_honesty": "Queue ordering is a heuristic, not a prediction or completion claim; GitHub is authoritative for issue/PR state and no active-worker count may be inferred from draft PRs alone."
   },
   "write_ownership": [
     {
@@ -1000,6 +1002,26 @@
       "component verified is not merged",
       "release never auto-authorized",
       "unknown timestamps remain null"
-    ]
+    ],
+    "planner_task_id": "task_queue_id (optional) links new issue-based task to reusable queue task T-nnn"
+  },
+  "planner": {
+    "version": "1.0.0",
+    "library": "orchestration/planner/worker-library.json",
+    "task_queue": "orchestration/planner/queue.json",
+    "schemas": [
+      "schemas/worker-library.v1.json",
+      "schemas/task-queue.v1.json"
+    ],
+    "guide": "orchestration/planner/README.md",
+    "planner": "orchestration/planner.py",
+    "read_only_evidence": "orchestration/github_snapshot.py",
+    "validation": "orchestration/validate_planner.py",
+    "tests": [
+      "orchestration/tests/test_planner.py",
+      "orchestration/tests/test_github_snapshot.py"
+    ],
+    "profile_reuse": "Profiles/recipes can be recombined across tasks but never grant write access beyond the one assigned spark's paths.",
+    "task_truth": "GitHub issues/PRs/CI fetched at planning time; queue.json is proposed objectives and dependencies, not live status."
   }
 }
