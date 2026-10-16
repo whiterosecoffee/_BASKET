@@ -42,7 +42,7 @@
           "impact",
           "effort",
           "mode",
-          "profile",
+          "profiles",
           "recipe",
           "capabilities",
           "depends_on",
@@ -91,10 +91,6 @@
               "resume_existing_worker",
               "launch_new_worker"
             ]
-          },
-          "profile": {
-            "type": "string",
-            "pattern": "^[a-z][a-z0-9_]*$"
           },
           "recipe": {
             "type": "string",
@@ -177,6 +173,15 @@
           },
           "worker_prompt_details": {
             "type": "string"
+          },
+          "profiles": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            }
           }
         }
       }
