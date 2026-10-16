@@ -47,7 +47,7 @@
       "reason": "Origination handoff for current record normalization."
     }
   ],
-  "claimed_at": "2026-10-16T19:42:00Z",
+  "claimed_at": null,
   "state": "review",
-  "note": "B00 backfilled example from issue #8 and PR #10; historical task timestamp reflects approximate sample and must not be interpreted as exact worker claim event."
+  "note": "Backfilled B00 example from verified GitHub issue #8 and draft PR #10; original claim time was not independently checked."
 }
