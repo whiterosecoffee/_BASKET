@@ -141,7 +141,7 @@ def head_ci_green(pr, runs, workflow_name="Validate BASKET data"):
                r["name"] == workflow_name for r in runs.values())
 
 
-def run_plan(queue, library, registry, evidence, active_ids=()):
+def run_plan(queue, library, registry, evidence, active_ids=None):
     """Return reproducible queue; status is derived, never asserted as live."""
     errors = validate_plan(queue, library, registry)
     if errors:
@@ -151,8 +151,9 @@ def run_plan(queue, library, registry, evidence, active_ids=()):
     tasks = queue["tasks"]
     issues, prs, runs = evidence_maps(evidence)
     by_id = {t["id"]: t for t in tasks}
-    active = set(active_ids)
-    if len(active) != len(tuple(active_ids)) or not active.issubset(by_id):
+    active_unknown = active_ids is None
+    active = set(active_ids or ())
+    if len(active) != len(tuple(active_ids or ())) or not active.issubset(by_id):
         raise ValueError("active tasks must be unique known task IDs")
     if any(by_id[tid]["mode"] == "orchestrator_review" for tid in active):
         raise ValueError("B00 orchestrator review does not count as a worker slot")
@@ -231,13 +232,15 @@ def run_plan(queue, library, registry, evidence, active_ids=()):
                         "warnings": warnings})
     entries.sort(key=lambda e: (not e["ready_for_action"],
                                 -e["score_for_ordering_only"], e["id"]))
-    slots = max(0, queue["active_worker_limit"] - len(active))
+    slots = None if active_unknown else max(0, queue["active_worker_limit"] - len(active))
     new_launches = [e for e in entries if e["state"] == "ready_new_worker"]
-    proposed = new_launches[0]["id"] if new_launches and slots else None
+    proposed = new_launches[0]["id"] if new_launches and slots is not None and slots > 0 else None
     return {
         "schema": "basket.planner_decision@1",
         "source_evidence_observed_at": evidence["observed_at"],
         "source_is_live": False,
+        "source_fetched_this_invocation": False,
+        "active_worker_count_known": not active_unknown,
         "queue_version": queue["queue_version"],
         "library_version": library["library_version"],
         "active_worker_limit": queue["active_worker_limit"],
@@ -283,12 +286,29 @@ def main():
     parser.add_argument("--library", default=str(PLANNER / "worker-library.json"))
     parser.add_argument("--catalog", default=str(ROOT / "orchestration/sparks.json"))
     parser.add_argument("--evidence", default=str(ROOT / "orchestration/examples/github-evidence-2026-10-16.json"))
-    parser.add_argument("--active", action="append", default=[], help="Confirmed currently code-writing worker task ID")
+    parser.add_argument("--active", action="append", default=None,
+                        help="Confirmed currently code-writing worker task ID")
+    parser.add_argument("--assume-none-active", action="store_true",
+                        help="Explicitly declare zero active code-writing workers")
+    parser.add_argument("--live-github", action="store_true",
+                        help="Fetch fresh read-only GitHub issue/PR/CI evidence; never substitute cached status")
     parser.add_argument("--next-worker", action="store_true", help="Also print next new worker launch prompt")
     args = parser.parse_args()
-    queue, library, catalog, evidence = map(
-        load, (args.queue, args.library, args.catalog, args.evidence))
-    result = run_plan(queue, library, catalog, evidence, args.active)
+    queue, library, catalog = map(load, (args.queue, args.library, args.catalog))
+    if args.live_github:
+        from github_snapshot import EvidenceUnavailable, collect, fetch_json
+        import os
+        try:
+            evidence = collect(queue, lambda path: fetch_json(path, os.environ.get("GITHUB_TOKEN")))
+        except EvidenceUnavailable as exc:
+            parser.error(str(exc))
+    else:
+        evidence = load(args.evidence)
+    if args.assume_none_active and args.active:
+        parser.error("--assume-none-active conflicts with --active")
+    active_ids = [] if args.assume_none_active else args.active
+    result = run_plan(queue, library, catalog, evidence, active_ids)
+    result["source_fetched_this_invocation"] = args.live_github
     print(json.dumps(result, indent=2))
     if args.next_worker and result["next_new_worker"]:
         print("\nNEXT NEW WORKER PROMPT:\n" +
