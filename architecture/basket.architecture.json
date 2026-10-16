@@ -1,8 +1,8 @@
 {
   "id": "basket.architecture",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "schema": "architecture.schema@1.0.0",
-  "status": "design",
+  "status": "experimental",
   "updated": "2026-10-16",
   "purpose": "Evidence-driven intelligence linking economic value, directed capital and demand flows, market pricing and actionable traversal scenarios.",
   "questions": [
@@ -142,5 +142,25 @@
     "minor": "Backward-compatible extensions",
     "patch": "Clarifications and corrections",
     "history": "Never reinterpret old records without explicit schema version and migration"
+  },
+  "implementation": {
+    "status": "partial",
+    "completed": [
+      "262 split-adjusted daily OHLCV records per ticker for AAOI, CRWV, SFTBY",
+      "Per-ticker independent JSONL histories and metadata",
+      "Versioned contextual JSON schemas",
+      "Validation script and GitHub Actions workflow"
+    ],
+    "pending": [
+      "Verified GitHub Actions pass",
+      "Corporate-action reconciliation beyond provider adjusted flag",
+      "Incremental ingestion scheduling and revision reconciliation",
+      "Economic and traversal engines",
+      "Entity research and economic graph population",
+      "Backtesting and calibration"
+    ],
+    "source": "Massive",
+    "data_through": "2026-10-15",
+    "records_per_ticker": 262
   }
 }
