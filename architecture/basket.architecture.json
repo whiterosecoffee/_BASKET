@@ -1,6 +1,6 @@
 {
   "id": "basket.architecture",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "schema": "architecture.schema@1.0.0",
   "status": "experimental",
   "updated": "2026-10-16",
@@ -149,7 +149,10 @@
       "262 split-adjusted daily OHLCV records per ticker for AAOI, CRWV, SFTBY",
       "Per-ticker independent JSONL histories and metadata",
       "Versioned contextual JSON schemas",
-      "Validation script and GitHub Actions workflow"
+      "Validation script and GitHub Actions workflow",
+      "326 historical JPYUSD FX daily bars",
+      "SFTBY historical NAV reference translated to USD",
+      "SFTBY 200-session to intraday deterministic report"
     ],
     "pending": [
       "Verified GitHub Actions pass",
@@ -157,10 +160,20 @@
       "Incremental ingestion scheduling and revision reconciliation",
       "Economic and traversal engines",
       "Entity research and economic graph population",
-      "Backtesting and calibration"
+      "Backtesting and calibration",
+      "Complete current SFTBY holdings inventory and reconcile USD NAV",
+      "Japanese parent 9984.T prices and verified ADR mechanics",
+      "Automated replay and CI verification"
     ],
     "source": "Massive",
     "data_through": "2026-10-15",
     "records_per_ticker": 262
+  },
+  "reporting_currency": "USD",
+  "fx_policy": {
+    "reporting_currency": "USD",
+    "foreign_asset_conversion": "Use historical date-aligned exchange rates; retain original currency, FX pair, source and timestamp as provenance",
+    "no_stale_conversion": "Never mix foreign values and USD without a documented conversion basis",
+    "foreign_market_prices": "Verify venue, corporate actions and ADR/share conversion before cross-market comparisons"
   }
 }
