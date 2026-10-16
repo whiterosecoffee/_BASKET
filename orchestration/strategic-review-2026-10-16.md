@@ -65,7 +65,7 @@ Report contract:
 | Gate | Definition of done | Owner |
 |---|---|---|
 | G0 | AGENTS and sparks on main; issue/branch created per conversation; no conflicting writes | B00 |
-| G1 | CI green with relationship data/schema correctly reconciled and strict validation intact | B00 + B05 + B01 |
+| G1 | CI green after lossless SFTBY relationship normalization with strict validation intact; B00 contract evolution if later needed | B05 + B01 |
 | G2 | Replayable single-provider ingestion, FX time alignment, TTD/entitlement tests and explicit unavailable statuses | B02 |
 | G3 | Event, graph and narrative evidence can link source IDs, as-of times, contradicted claims, company files | B03 + B05 + B21 |
 | G4 | 3-holdings deterministic report with descriptive traversal and scenario assumptions | B06 + B09/B10/B11 |
@@ -73,8 +73,8 @@ Report contract:
 | G6 | Secured hosted tool/worker with observable health, cost, rate-limit and recovery behavior | B08 |
 
 ## Recommended worker activation
-1. **Review/merge PR #2 when authorized**, and launch B00 contract-focused follow-up for the schema/data model (its own issue/branch).
-2. **Wave 1:** B01 integrity gate (handoff #5); B05 relationship reconciliation (handoff #4); B02 feed/TTD; B03 event ledger; B21 narrative/claims. Start at most 3–5 at a time.
+1. **Bootstrap before PR #2 merges:** launch B05 using the PR #2 branch as a read-only source of AGENTS/sparks while creating a fresh branch from main. Normalize existing SFTBY relationship data with a lossless sidecar under B05-owned `research/graph/**`, preserving all six out-of-contract fields and citations. B01 independently verifies CI; merge approved fix before PR #2, then review/merge PR #2 when authorized. B00 optional schema redesign is no longer critical-path.
+2. **Wave 1 after PR #2 merges:** B02 feed/TTD, B03 event ledger and B21 narrative/claims; B05/B01 have addressed the CI blocker. Start at most 3–5 active conversations.
 3. **Wave 2:** B06 traversal, B09 SFTBY, B10 CRWV and B11 AAOI. Company research can proceed while upstream calculations remain blocked; do not claim live NAV or trade probabilities.
 4. **Wave 3:** B04 economics, B07 calibration, B08 tool deployment and B17 composite signals.
 5. **Wave 4:** ARM, OpenAI, NVDA, optics, telco/cable, memory and full supply-chain expansion only after the vertical slice is reproducible.
