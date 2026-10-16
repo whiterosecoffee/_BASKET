@@ -2,12 +2,13 @@
 
 > **Start here:** [Conversation Launchpad](LAUNCHPAD.md) — actual launch order, ready-to-paste prompts, worker status and branch-per-conversation bootstrap. The 22-spark registry below is a reference catalog, **not** a request to open 22 chats.
 
+**Start planning here:** [Reusable worker planner & queue](planner/README.md) — live-evidence task priorities, composed profiles, and next new-chat prompt.  
 **Worker reporting and evaluation:** [WORKER_PROTOCOL.md](WORKER_PROTOCOL.md) — task/resolution schemas, evidence checks, model tests and required response payload.  
 **Complete Project Instructions (single block):** [PROJECT_INSTRUCTIONS.md](PROJECT_INSTRUCTIONS.md)  
 **Release policy:** [VERSIONING.md](../architecture/VERSIONING.md) · **Version manifest:** [version-manifest.json](../architecture/version-manifest.json)  
 Core baseline: **0.4.1 declared**; target **0.5.0 planned, NOT released**. Catalog version **1.3.0** is independent of the core.
 
-**Catalog:** v1.4.0 · **Objective domains:** 22 · **Coverage:** accessible excerpts and existing artifacts, NOT a full transcript export.
+**Catalog:** v1.5.0 · **Objective domains:** 22 · **Coverage:** accessible excerpts and existing artifacts, NOT a full transcript export.
 
 Each spark is a **ready-to-launch workstream**, not an automatically spawned chat. New conversations must read `AGENTS.md` and `orchestration/sparks.json` from **GitHub main**, inspect existing issues/PR file changes, create their **own new GitHub issue and branch** `work/<issue-number>-<objective-slug>`, then modify only exclusively owned files. Dormant sparks have no branches or worker issues.
 
