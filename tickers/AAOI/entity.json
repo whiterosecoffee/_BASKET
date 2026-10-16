@@ -1,0 +1,13 @@
+{
+  "schema": "entity@1",
+  "id": "AAOI",
+  "type": "public_equity",
+  "currency": "USD",
+  "shape": {
+    "status": "unresearched",
+    "segments": [],
+    "capabilities": [],
+    "constraints": [],
+    "economic_pools": []
+  }
+}
