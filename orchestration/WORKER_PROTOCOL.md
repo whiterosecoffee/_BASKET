@@ -28,6 +28,11 @@ Do not commit a continually mutable central worker-status file as authoritative 
 
 A worker may be `component_verified` and `integration_blocked` in different dimensions. A green branch workflow is not a GA release. Keep finance data freshness independent from task-state recency.
 
+## Planner task vs worker issue task
+B00 maintains a reusable plan queue in `orchestration/planner/queue.json`. A queue entry such as `T-006` is a **planned objective** and does not imply a worker conversation exists. When a user starts a new conversation, that chat creates its **own new issue** and issue-bound `task_id` such as `B21-17`; it may optionally record `task_queue_id: "T-006"`. Task recipes and capability profiles are reusable and combinable, but no recipe grants write access outside the assigned spark.
+
+Run `python orchestration/planner.py --live-github --active T-004 --active T-005 --next-worker` only when those active workers are confirmed. If activity is unknown, omit `--active` and the tool refrains from recommending an additional new chat. The historical evidence fixture cannot establish live status. See [planner guide](planner/README.md).
+
 ## Minimum task claim
 
 Post a fenced JSON object in the new **worker issue** matching `schemas/worker-task.v1.json`: `schema`, `task_id` (e.g. `B05-8`), `spark_id`, `issue`, `branch`, `objective`, `write_paths`, `acceptance`, `dependencies`, `claimed_at`, `state`. Use `null` rather than inventing an unknown claim timestamp. Stable criteria `A1`, `A2` identify independently testable acceptance conditions.
