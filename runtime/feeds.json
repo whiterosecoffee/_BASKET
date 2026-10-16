@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "term": "TTD = Time to Die",
+  "clock": "UTC",
+  "storage_root": "runtime",
+  "feeds": [
+    {
+      "id": "SFTBY_5M",
+      "entity_id": "SFTBY",
+      "kind": "equity_intraday",
+      "path": "tickers/SFTBY/live/5m.jsonl",
+      "ttd_seconds": 360,
+      "interval_seconds": 300,
+      "source": "adapter_required",
+      "enabled": false,
+      "depends_on": []
+    },
+    {
+      "id": "ARM_1M",
+      "entity_id": "ARM",
+      "kind": "equity_intraday",
+      "path": "tickers/ARM/live/1m.jsonl",
+      "ttd_seconds": 90,
+      "interval_seconds": 60,
+      "source": "adapter_required",
+      "enabled": false,
+      "depends_on": []
+    },
+    {
+      "id": "JPYUSD_1M",
+      "entity_id": "FX_JPYUSD",
+      "kind": "fx_intraday",
+      "path": "fx/JPYUSD/live/1m.jsonl",
+      "ttd_seconds": 90,
+      "interval_seconds": 60,
+      "source": "adapter_required",
+      "enabled": false,
+      "depends_on": []
+    },
+    {
+      "id": "SFTBY_NAV",
+      "entity_id": "SFTBY",
+      "kind": "computed_nav",
+      "path": "tickers/SFTBY/live/nav.jsonl",
+      "ttd_seconds": 60,
+      "interval_seconds": 60,
+      "source": "computed",
+      "enabled": false,
+      "depends_on": [
+        "SFTBY_5M",
+        "ARM_1M",
+        "JPYUSD_1M"
+      ]
+    }
+  ],
+  "policy": {
+    "clock_skew_seconds": 10,
+    "on_dead": "invalidate",
+    "on_unavailable": "mark_unavailable",
+    "on_dependency_dead": "invalidate",
+    "on_fetch_error": "record_error_do_not_extend_TTD",
+    "retention": "append_only; revisions use new record_id and supersedes; never silently overwrite",
+    "time_to_die_rule": "min(observed_at+ttd_seconds, dependencies expires_at, computation_created_at+computation_ttd_seconds)",
+    "runtime": "Local process or hosted persistent worker; GitHub repository alone does not execute recurring ingestion"
+  }
+}
