@@ -1,5 +1,46 @@
 {
   "schema": "events@1",
   "entity_id": "SFTBY",
-  "events": []
+  "events": [
+    {
+      "id": "SFTBY-2026-10-01-openai-followon-third-tranche",
+      "type": "financing",
+      "effective_at": "2026-10-01",
+      "available_at": "2026-10-01",
+      "sources": [
+        "https://group.softbank/en/news/press/20261001"
+      ],
+      "metrics": {
+        "lifecycle": "funded",
+        "amount_usd": 10000000000,
+        "cumulative_followon_usd": 30000000000,
+        "original_currency": "USD",
+        "accounting_group": "SFTBY-OpenAI-2026-followon",
+        "incremental_usd": 10000000000,
+        "precision": "date_only"
+      },
+      "implications": [
+        "Third tranche of previously announced follow-on; USD 10 billion is included in USD 30 billion completed follow-on, not additive."
+      ]
+    },
+    {
+      "id": "SFTBY-2026-10-08-sarawak-framework",
+      "type": "partnership",
+      "effective_at": "2026-10-08",
+      "available_at": "2026-10-08",
+      "sources": [
+        "https://group.softbank/en/news/press/20261008"
+      ],
+      "metrics": {
+        "lifecycle": "signed_framework",
+        "project_status": "exploratory",
+        "committed_capex_usd": null,
+        "contracted_revenue_usd": null,
+        "precision": "date_only"
+      },
+      "implications": [
+        "Exploration agreement only, not evidence of committed capex, completed capacity or backlog."
+      ]
+    }
+  ]
 }
