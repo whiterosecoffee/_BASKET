@@ -1,7 +1,7 @@
 {
   "project": "_BASKET",
   "repository": "whiterosecoffee/_BASKET",
-  "catalog_version": "1.2.0",
+  "catalog_version": "1.3.0",
   "as_of": "2026-10-16",
   "source_coverage": "Partial reconstruction from accessible conversation excerpts, memory, historical MRIE workstream artifacts and GitHub source tree. No complete raw ChatGPT transcript export. Repo audited on 2026-10-16; CI failure identified in relationships schema mismatch.",
   "bootstrap_policy": "Each launched NEW conversation creates its own issue then unique branch. Dormant sparks do NOT have pre-created issues or branches. Project instructions should direct ChatGPT to read AGENTS.md and this catalog.",
@@ -27,7 +27,9 @@
     "data_plane": "Runtime market observations require authenticated entitled provider + persistent worker. ChatGPT and GitHub do not themselves provide a polling runtime.",
     "dependency_semantics": "Catalog dependencies flag contracts and necessary coordination, not automatic blockers for read-only research; release gates define when outputs may be described as operational.",
     "bootstrap_if_unmerged": "Until PR #2 is merged, new worker may READ AGENTS.md and orchestration/sparks.json from work/1-conversation-sparks-orchestration, but MUST create a distinct new issue and branch from current main. After merging PR #2, main becomes the authoritative instruction source.",
-    "ci_repair_first": "B05 can preserve six additional SFTBY relationship top-level fields losslessly in B05-owned research/graph sidecar while retaining permitted canonical relationship properties, without waiting for B00 optional schema evolution. B01 independently verifies strict validation."
+    "ci_repair_first": "B05 can preserve six additional SFTBY relationship top-level fields losslessly in B05-owned research/graph sidecar while retaining permitted canonical relationship properties, without waiting for B00 optional schema evolution. B01 independently verifies strict validation.",
+    "full_instructions_delivery": "When user requests Project Instructions or changes, return their COMPLETE current text in ONE copyable block. Do not split or provide only diffs.",
+    "versioning_policy": "Core SemVer, catalog SemVer, schema major, data append-only revisions and engine algorithm/config versions are distinct. New core releases require gates and explicit authorization."
   },
   "write_ownership": [
     {
@@ -944,5 +946,14 @@
       ],
       "status": "open"
     }
-  ]
+  ],
+  "versioning": {
+    "manifest": "architecture/version-manifest.json",
+    "policy": "architecture/VERSIONING.md",
+    "project_instructions": "orchestration/PROJECT_INSTRUCTIONS.md",
+    "core_declared": "0.4.1",
+    "next_candidate": "0.5.0",
+    "candidate_status": "planned_unreleased",
+    "instruction_format": "Full complete instructions as one copyable block when requested"
+  }
 }
