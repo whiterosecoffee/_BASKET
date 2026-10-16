@@ -1,0 +1,146 @@
+{
+  "id": "basket.architecture",
+  "version": "0.1.0",
+  "schema": "architecture.schema@1.0.0",
+  "status": "design",
+  "updated": "2026-10-16",
+  "purpose": "Evidence-driven intelligence linking economic value, directed capital and demand flows, market pricing and actionable traversal scenarios.",
+  "questions": [
+    "What is the business's economic reality?",
+    "How does value transmit between entities?",
+    "What is already priced in?",
+    "What is the traversal position, direction, velocity and conditional path?"
+  ],
+  "principles": [
+    "Per-entity independent history",
+    "JSONL for progressive observations, JSON for contextual knowledge",
+    "Entity describes economic shape",
+    "Relationships describe pool position/share and upstream/downstream USD flows",
+    "Events describe earnings, partnerships, contracts, regime changes and implications",
+    "No personal holdings required",
+    "Separate verified observations, hypotheses, model outputs",
+    "Evidence provenance and as-of timestamps",
+    "No double counting across economic pools",
+    "Reproducible versioned analytics"
+  ],
+  "objectives": [
+    {
+      "id": "economics",
+      "weight": 20,
+      "maturity": 4
+    },
+    {
+      "id": "cross_entity",
+      "weight": 20,
+      "maturity": 5
+    },
+    {
+      "id": "traversal",
+      "weight": 20,
+      "maturity": 5
+    },
+    {
+      "id": "integrity",
+      "weight": 15,
+      "maturity": 5
+    },
+    {
+      "id": "calibration",
+      "weight": 10,
+      "maturity": 2
+    },
+    {
+      "id": "orchestration",
+      "weight": 10,
+      "maturity": 3
+    },
+    {
+      "id": "efficiency",
+      "weight": 5,
+      "maturity": 7
+    }
+  ],
+  "assessment": {
+    "kind": "subjective_design_maturity",
+    "weighted_score": 4.45,
+    "scale": 10,
+    "implementation_verified": false
+  },
+  "structure": {
+    "shared": [
+      "schemas/",
+      "engines/traversal/",
+      "engines/valuation/",
+      "engines/economics/",
+      "engines/capital-flow/",
+      "engines/regime/",
+      "orchestrator/"
+    ],
+    "per_entity_root": "tickers/<entity_id>/",
+    "files": {
+      "entity.json": {
+        "format": "json",
+        "meaning": "Shape: segments, capabilities, capital intensity, constraints, competitive position and pools"
+      },
+      "relationships.json": {
+        "format": "json",
+        "meaning": "Contextual directed ownership, pool share, upstream/downstream USD flows, timing, evidence and uncertainty"
+      },
+      "events.json": {
+        "format": "json",
+        "meaning": "Structured earnings, contracts, partnerships, funding and regime-change catalysts"
+      },
+      "history.jsonl": {
+        "format": "jsonl",
+        "meaning": "Progressive time-ordered market, operating, financial and valuation observations; >=200 daily bars for eligible public tickers"
+      }
+    }
+  },
+  "data_contract": {
+    "schema_version_pinned": true,
+    "observation_identity": [
+      "entity_id",
+      "kind",
+      "timeframe",
+      "interval_start",
+      "adjustment_basis"
+    ],
+    "time_fields": [
+      "effective_at",
+      "available_at",
+      "ingested_at"
+    ],
+    "corrections": "append revisions; do not silently overwrite",
+    "public_market": "Daily OHLCV with source and corporate action basis",
+    "private_entities": "Dated financial, operating and valuation observations; no invented public OHLCV",
+    "provenance": "Source IDs and confidence for material claims"
+  },
+  "engines": [
+    "traversal",
+    "valuation",
+    "economics",
+    "capital-flow",
+    "relationships",
+    "regime"
+  ],
+  "gaps": [
+    "Formalize pool ontology and flow reconciliation",
+    "Specify traversal outputs and horizon-specific models",
+    "Implement durable history ingestion and corrections",
+    "Backtest and calibrate probabilities",
+    "Establish evidence lifecycle and source verification"
+  ],
+  "roadmap": [
+    "Economic ontology",
+    "Analytical contracts",
+    "Versioned schemas and persistence",
+    "Deterministic engines and tests",
+    "Orchestration and evaluation"
+  ],
+  "version_policy": {
+    "major": "Breaking contracts and migrations",
+    "minor": "Backward-compatible extensions",
+    "patch": "Clarifications and corrections",
+    "history": "Never reinterpret old records without explicit schema version and migration"
+  }
+}
