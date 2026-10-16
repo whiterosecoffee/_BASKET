@@ -1,5 +1,7 @@
 # _BASKET — Independent Conversation Sparks
 
+> **Start here:** [Conversation Launchpad](LAUNCHPAD.md) — actual launch order, ready-to-paste prompts, worker status and branch-per-conversation bootstrap. The 22-spark registry below is a reference catalog, **not** a request to open 22 chats.
+
 **Complete Project Instructions (single block):** [PROJECT_INSTRUCTIONS.md](PROJECT_INSTRUCTIONS.md)  
 **Release policy:** [VERSIONING.md](../architecture/VERSIONING.md) · **Version manifest:** [version-manifest.json](../architecture/version-manifest.json)  
 Core baseline: **0.4.1 declared**; target **0.5.0 planned, NOT released**. Catalog version **1.3.0** is independent of the core.
