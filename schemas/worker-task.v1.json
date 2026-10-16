@@ -157,8 +157,12 @@
       }
     },
     "claimed_at": {
-      "type": "string",
-      "format": "date-time"
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Null when the actual GitHub issue creation/claim instant has not been independently verified. Never fabricate a timestamp."
     },
     "state": {
       "enum": [
