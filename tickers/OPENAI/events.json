@@ -1,0 +1,23 @@
+{
+  "schema": "events@1",
+  "entity_id": "OPENAI",
+  "events": [
+    {
+      "id": "openai-softbank-third-tranche-2026-10-01",
+      "type": "financing",
+      "effective_at": "2026-10-01",
+      "available_at": "2026-10-01",
+      "sources": [
+        "https://group.softbank/en/news/press/20261001"
+      ],
+      "metrics": {
+        "softbank_final_tranche_usd": 10000000000,
+        "softbank_cumulative_investment_usd": 64600000000,
+        "softbank_approx_ownership": 0.13
+      },
+      "implications": [
+        "SoftBank completed announced 2026 follow-on financing; cumulative investment is not current market value."
+      ]
+    }
+  ]
+}
