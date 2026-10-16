@@ -1,9 +1,10 @@
 # _BASKET — Live-work launchpad (historical snapshot: 2026-10-16)
 
-**Owner:** B00 issue #1 · **PR:** [#2](https://github.com/whiterosecoffee/_BASKET/pull/2) (draft / unmerged at snapshot time) · **Catalog:** 1.4.0 (not yet on main).
+**Owner:** B00 issue #1 · **PR:** [#2](https://github.com/whiterosecoffee/_BASKET/pull/2) (draft / unmerged at snapshot time) · **Catalog:** 1.5.0 (not yet on main).
 
 **Purpose:** one clear work queue, not 22 simultaneous conversations. Re-fetch GitHub issues/PRs and current CI **before** relaying any state as current. Dates and branch snapshots here are historical evidence, not live surveillance.
 
+**Queue source:** [Planner & active task DAG](planner/README.md), [queue.json](planner/queue.json), [worker-library.json](planner/worker-library.json). This document is a historical human-readable snapshot; rerun the planner with fresh GitHub evidence for actionable status.  
 **Protocol:** [WORKER_PROTOCOL.md](WORKER_PROTOCOL.md) defines the task and resolution payloads, independent GitHub evidence evaluation, acceptance criteria, non-overlapping paths, and CI SHA reconciliation. [PROJECT_INSTRUCTIONS.md](PROJECT_INSTRUCTIONS.md) contains the complete ChatGPT Project Instructions in one copyable block.
 
 ## Four first-wave worker reports — source-checked at 2026-10-16
