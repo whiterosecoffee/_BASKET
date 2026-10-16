@@ -969,7 +969,7 @@
       "title": "OpenAI investment/accounting relationship reconciliation; separate future objective after B05 schema repair",
       "url": "https://github.com/whiterosecoffee/_BASKET/issues/16",
       "depends_on": [
-        14
+        12
       ],
       "status": "open_unclaimed_followup"
     }
