@@ -1,0 +1,113 @@
+{
+  "schema": "basket.worker_resolution@1",
+  "task_id": "B05-8",
+  "spark_id": "B05",
+  "issue": {
+    "number": 8,
+    "url": "https://github.com/whiterosecoffee/_BASKET/issues/8"
+  },
+  "branch": {
+    "name": "work/8-sftby-relationship-integrity",
+    "base": "main"
+  },
+  "pr": {
+    "number": 10,
+    "url": "https://github.com/whiterosecoffee/_BASKET/pull/10",
+    "head_sha": "9917c4c8c4e1d9a7cc7ec043de1096f689e80441",
+    "state": "open",
+    "draft": true,
+    "merged": false
+  },
+  "reported_at": "2026-10-16T21:45:54Z",
+  "disposition": "component_verified",
+  "changed_paths": [
+    "research/graph/SFTBY/relationships-context-2026-10-16.json",
+    "tickers/SFTBY/relationships.json"
+  ],
+  "checks": [
+    {
+      "id": "C1",
+      "kind": "workflow",
+      "result": "pass",
+      "execution": "ci",
+      "evidence_urls": [
+        "https://github.com/whiterosecoffee/_BASKET/actions/runs/38956838273"
+      ],
+      "revision": "9917c4c8c4e1d9a7cc7ec043de1096f689e80441",
+      "note": "Validate BASKET data workflow success on B05 PR head."
+    },
+    {
+      "id": "C2",
+      "kind": "manual_review",
+      "result": "pass",
+      "execution": "github_review",
+      "evidence_urls": [
+        "https://github.com/whiterosecoffee/_BASKET/pull/10"
+      ],
+      "revision": "9917c4c8c4e1d9a7cc7ec043de1096f689e80441",
+      "note": "B00 review: six fields rehomed, relationship arrays retained; reconstruction evidence described in PR."
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "A1",
+      "result": "pass",
+      "evidence_urls": [
+        "https://github.com/whiterosecoffee/_BASKET/actions/runs/38956838273"
+      ]
+    },
+    {
+      "id": "A2",
+      "result": "pass",
+      "evidence_urls": [
+        "https://github.com/whiterosecoffee/_BASKET/pull/10"
+      ],
+      "note": "Source SHA and reconstruction recorded in B05 pull request."
+    },
+    {
+      "id": "A3",
+      "result": "pass",
+      "evidence_urls": [
+        "https://github.com/whiterosecoffee/_BASKET/pull/10"
+      ],
+      "note": "Existing OpenAI edge unchanged; historical NAV archived separately."
+    }
+  ],
+  "blockers": [
+    {
+      "kind": "integration",
+      "reason": "PR #10 remains draft and unmerged; authorization and integration/revalidation required.",
+      "blocking": true,
+      "pr_number": 10
+    }
+  ],
+  "handoffs": [
+    {
+      "issue_number": 4,
+      "target_spark": "B05",
+      "state": "completed"
+    },
+    {
+      "issue_number": 16,
+      "target_spark": "B05",
+      "state": "requested",
+      "reason": "New downstream OpenAI investment reconciliation; not part of completed schema-fix acceptance."
+    }
+  ],
+  "claims": [
+    {
+      "claim": "The schema fix passes strict GitHub Actions validation on the B05 PR head.",
+      "class": "source_fact",
+      "status": "verified",
+      "source_urls": [
+        "https://github.com/whiterosecoffee/_BASKET/actions/runs/38956838273"
+      ]
+    }
+  ],
+  "unknowns": [
+    "No full integrated main CI run after B05 merge, because PR #10 remains unmerged.",
+    "Handoff #16 is not implemented in this PR."
+  ],
+  "next_action": "B00 review PR #10, obtain merge authorization, integrate and re-run independent combined CI.",
+  "report_classification": "self_report_unverified_until_b00_evidence_check"
+}
