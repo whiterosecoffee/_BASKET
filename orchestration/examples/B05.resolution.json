@@ -18,7 +18,7 @@
     "draft": true,
     "merged": false
   },
-  "reported_at": "2026-10-16T21:45:54Z",
+  "reported_at": null,
   "disposition": "component_verified",
   "changed_paths": [
     "research/graph/SFTBY/relationships-context-2026-10-16.json",
