@@ -88,7 +88,8 @@
       "id": "R3",
       "requirement": "Manifest/catalog/schema contracts validate and all release notes identify actual implementation limits",
       "status": "pending",
-      "owner": "B00"
+      "owner": "B00",
+      "ci_handoff_issue": 6
     },
     {
       "id": "R4",
@@ -107,6 +108,8 @@
     "The current main Actions data validator fails on SFTBY relationships fields not permitted by relationships@1.",
     "Narrative tests passing is limited evidence for a separate unit, not whole-system validation.",
     "No GitHub release object was returned by the release-listing API at preparation time; Git tags were not independently verified.",
-    "Version manifest describes desired release governance; it does not itself make v0.5.0 a shipped release."
-  ]
+    "Version manifest describes desired release governance; it does not itself make v0.5.0 a shipped release.",
+    "B01 handoff #6 adds version validators to CI; B02 handoff #7 is future snapshot/TTD work and does not satisfy live data release claims."
+  ],
+  "future_data_versioning_handoff_issue": 7
 }
