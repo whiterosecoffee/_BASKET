@@ -1,7 +1,7 @@
 {
   "project": "_BASKET",
   "repository": "whiterosecoffee/_BASKET",
-  "catalog_version": "1.1.0",
+  "catalog_version": "1.1.1",
   "as_of": "2026-10-16",
   "source_coverage": "Partial reconstruction from accessible conversation excerpts, memory, historical MRIE workstream artifacts and GitHub source tree. No complete raw ChatGPT transcript export. Repo audited on 2026-10-16; CI failure identified in relationships schema mismatch.",
   "bootstrap_policy": "Each launched NEW conversation creates its own issue then unique branch. Dormant sparks do NOT have pre-created issues or branches. Project instructions should direct ChatGPT to read AGENTS.md and this catalog.",
@@ -24,7 +24,8 @@
     "collision_policy": "Exclusive writes are enforced by checking open issue scopes AND active PR changed files; a spark launch while another worker owns the same file must narrow its target or hand off.",
     "evidence_temporality": "Separate fact effective date, observation date, first available date, ingest date, period end, and expiration by data class.",
     "merge_readiness": "Orchestration PR #2 must be available on main before new sparks read AGENTS.md from main. Do not merge without authorization.",
-    "data_plane": "Runtime market observations require authenticated entitled provider + persistent worker. ChatGPT and GitHub do not themselves provide a polling runtime."
+    "data_plane": "Runtime market observations require authenticated entitled provider + persistent worker. ChatGPT and GitHub do not themselves provide a polling runtime.",
+    "dependency_semantics": "Catalog dependencies flag contracts and necessary coordination, not automatic blockers for read-only research; release gates define when outputs may be described as operational."
   },
   "write_ownership": [
     {
@@ -863,30 +864,30 @@
       "launch": [
         "B00"
       ],
-      "aim": "Make workflow bootstrap discoverable from main and resolve baseline schema extension."
+      "aim": "Review/merge orchestration PR #2 after authorization. Launch B00 shared-schema handoff #3 as an independent NEW conversation/issue/branch for the current validation defect."
     },
     {
       "wave": 1,
-      "gate": "G0 -> G1 and pilot prerequisites",
+      "gate": "G0 -> G1 baseline integrity and evidence foundation",
       "launch": [
         "B01",
+        "B05",
         "B02",
         "B03",
         "B21"
       ],
-      "aim": "CI + facts/TTD + narrative provenance; these can operate in parallel with disjoint writes."
+      "aim": "CI handoff #5, relationships migration handoff #4, price/FX TTD, issuer events and narrative falsification. Active cap 3–5."
     },
     {
       "wave": 2,
-      "gate": "G1/G2 where outputs require passing tests",
+      "gate": "G1 and input readiness",
       "launch": [
         "B06",
-        "B05",
         "B09",
         "B10",
         "B11"
       ],
-      "aim": "Traversal + relationship graph + 3 company research pilots. Research can start while data feed/graph downstream calculations remain blocked."
+      "aim": "Traversal engine and three principal holding company analyses. Research starts independently; joined NAV and trade probabilities remain gated."
     },
     {
       "wave": 3,
@@ -913,6 +914,36 @@
         "B20"
       ],
       "aim": "Broaden economic intelligence without losing core operational reliability."
+    }
+  ],
+  "handoffs": [
+    {
+      "issue": 3,
+      "spark": "B00",
+      "title": "Shared SFTBY relationship/valuation contract separation",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/3",
+      "status": "open"
+    },
+    {
+      "issue": 4,
+      "spark": "B05",
+      "title": "Canonical SFTBY relationship data migration",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/4",
+      "depends_on": [
+        3
+      ],
+      "status": "open"
+    },
+    {
+      "issue": 5,
+      "spark": "B01",
+      "title": "Independent CI and regression verification",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/5",
+      "depends_on": [
+        3,
+        4
+      ],
+      "status": "open"
     }
   ]
 }
