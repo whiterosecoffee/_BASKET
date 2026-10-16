@@ -1,0 +1,22 @@
+{
+  "schema": "fx.daily@1",
+  "pair": "JPYUSD",
+  "quote_currency": "USD",
+  "base_currency": "JPY",
+  "source": "Massive",
+  "date_range": [
+    "2025-10-01",
+    "2026-10-15"
+  ],
+  "count": 326,
+  "fields": [
+    "timestamp_ms",
+    "open",
+    "high",
+    "low",
+    "close",
+    "tick_volume"
+  ],
+  "time_basis": "UTC",
+  "note": "FX tick volume is not equity share volume; match by date and document cross-market timing."
+}
