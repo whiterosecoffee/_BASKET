@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Market daily positional record",
+  "type": "array",
+  "prefixItems": [
+    {
+      "type": "integer",
+      "minimum": 0
+    },
+    {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    {
+      "type": "number",
+      "minimum": 0
+    },
+    {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    }
+  ],
+  "minItems": 8,
+  "maxItems": 8,
+  "description": "[timestamp_ms,open,high,low,close,volume,vwap,transactions]; validation of OHLC inequalities handled by test script."
+}
