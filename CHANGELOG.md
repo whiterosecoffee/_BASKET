@@ -1,4 +1,8 @@
-# Changelog
+## Unreleased — v0.5.0 candidate (not shipped)
+- Proposed independent conversation branching, domain ownership, handoff issues and 22 scoped launch sparks.
+- Proposed complete ChatGPT Project Instructions in one maintained block and separate version tracks for core, orchestration, schemas, datasets, engines and reports.
+- Add formal release manifest and evidence gates; do NOT raise the declared 0.4.1 baseline until validated and authorized.
+- Pending: strict SFTBY relationships schema/data reconciliation, passing CI, PR review/merge and an authorized immutable release tag.
 
 ## 0.4.1 — 2026-10-16
 - Correct TTD terminology to **Time to Die**: hard validity expiry for observations and computations.
@@ -6,8 +10,6 @@
 - Add dependency-aware expiry, feed configuration, status reporting and unit tests.
 - Feeds are disabled until live provider adapters and a persistent worker are configured; no claim of ongoing updates or validated CI.
 - Clarify that dead records remain for replay but are never current NAV inputs.
-
-# Changelog
 
 ## 0.4.0 — 2026-10-16
 - Specify USDJPY as a first-class FX market entity with independent traversal and USD-first conversion.
