@@ -37,7 +37,7 @@ class PlannerTests(unittest.TestCase):
 
     def test_task_queue_is_not_a_live_status_claim(self):
         out = self.plan()
-        self.assertFalse(out["source_is_live"])
+        self.assertFalse(out["continuous_background_monitoring"] )
         self.assertTrue(out["no_automatic_merge"])
         self.assertTrue(out["no_automatic_issue_or_branch_creation"])
         self.assertEqual(out["source_evidence_observed_at"],
