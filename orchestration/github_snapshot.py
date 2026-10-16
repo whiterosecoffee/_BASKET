@@ -13,7 +13,6 @@ import json
 import os
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -89,18 +88,14 @@ def collect(queue, fetch):
             "changed_paths": sorted(set(f["filename"] for f in files)),
         })
     relevant_sha = {main, *(r["head_sha"] for r in prs)}
-    recent = paged(fetch, path + "/actions/runs?branch=main", max_pages=10)
-    # Include pull_request jobs, not only main-branch jobs.
+    # Read recent runs across all branches; never treat missing history as CI success.
     all_runs = fetch(path + "/actions/runs?per_page=100")
     if not isinstance(all_runs, dict) or "workflow_runs" not in all_runs:
         raise EvidenceUnavailable("Missing workflow run response")
     raw_runs = all_runs["workflow_runs"]
     if not isinstance(raw_runs, list):
         raise EvidenceUnavailable("Malformed workflow runs")
-    # The main-only query can be truncated; this is historical run discovery,
-    # not a promise of all prior CI runs.
-    for row in recent:
-        raw_runs.append(row)
+    # The most recent 100 runs may omit older PR evidence; missing runs are unknown.
     runs = {}
     for row in raw_runs:
         if row.get("head_sha") not in relevant_sha:
