@@ -1,6 +1,6 @@
 # _BASKET — Independent Conversation Sparks
 
-**Catalog:** v1.1.0 · **Objective domains:** 22 · **Coverage:** accessible excerpts and existing artifacts, NOT a full transcript export.
+**Catalog:** v1.1.1 · **Objective domains:** 22 · **Coverage:** accessible excerpts and existing artifacts, NOT a full transcript export.
 
 Each spark is a **ready-to-launch workstream**, not an automatically spawned chat. New conversations must read `AGENTS.md` and `orchestration/sparks.json` from **GitHub main**, inspect existing issues/PR file changes, create their **own new GitHub issue and branch** `work/<issue-number>-<objective-slug>`, then modify only exclusively owned files. Dormant sparks have no branches or worker issues.
 
