@@ -1,0 +1,22 @@
+{
+  "schema": "market.intraday@1",
+  "entity_id": "SFTBY",
+  "source": "Massive",
+  "timeframe": "5m",
+  "session_date": "2026-10-16",
+  "as_of_last_bar": "2026-10-16T15:00:00.000Z",
+  "records": 28,
+  "fields": [
+    "timestamp_ms",
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume",
+    "vwap",
+    "transactions"
+  ],
+  "adjusted": true,
+  "status": "partial_session",
+  "note": "Provider response includes premarket OTC bars; no claim of completed session. Missing 5m bars may indicate no qualifying trades."
+}
