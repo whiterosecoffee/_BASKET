@@ -1,9 +1,9 @@
 {
   "project": "_BASKET",
   "repository": "whiterosecoffee/_BASKET",
-  "catalog_version": "1.0.0",
+  "catalog_version": "1.1.0",
   "as_of": "2026-10-16",
-  "source_coverage": "Partial reconstruction from accessible in-project conversation summaries, memory, retrieved MRIE v0.9 workstreams and current repository. Not an exhaustive raw chat transcript export.",
+  "source_coverage": "Partial reconstruction from accessible conversation excerpts, memory, historical MRIE workstream artifacts and GitHub source tree. No complete raw ChatGPT transcript export. Repo audited on 2026-10-16; CI failure identified in relationships schema mismatch.",
   "bootstrap_policy": "Each launched NEW conversation creates its own issue then unique branch. Dormant sparks do NOT have pre-created issues or branches. Project instructions should direct ChatGPT to read AGENTS.md and this catalog.",
   "global_rules": {
     "reporting_currency": "USD",
@@ -19,7 +19,12 @@
     "no_cross_domain_writes": true,
     "cross_domain_action": "Create linked GitHub dependency issue and provide ready-to-paste handoff prompt",
     "non_merge": "Work on branch, PR review, never auto-merge",
-    "issue_branch_rule": "work/<issue-number>-<objective-slug>"
+    "issue_branch_rule": "work/<issue-number>-<objective-slug>",
+    "tests_policy": "Unit tests follow engine/ticker domain; B01 owns integration tests, validator and CI workflow. Contract changes follow B00 and require handoffs.",
+    "collision_policy": "Exclusive writes are enforced by checking open issue scopes AND active PR changed files; a spark launch while another worker owns the same file must narrow its target or hand off.",
+    "evidence_temporality": "Separate fact effective date, observation date, first available date, ingest date, period end, and expiration by data class.",
+    "merge_readiness": "Orchestration PR #2 must be available on main before new sparks read AGENTS.md from main. Do not merge without authorization.",
+    "data_plane": "Runtime market observations require authenticated entitled provider + persistent worker. ChatGPT and GitHub do not themselves provide a polling runtime."
   },
   "write_ownership": [
     {
@@ -47,7 +52,11 @@
       "owner": "B00"
     },
     {
-      "path": "tests/**",
+      "path": "tests/validate_stores.py",
+      "owner": "B01"
+    },
+    {
+      "path": "tests/integration/**",
       "owner": "B01"
     },
     {
@@ -79,6 +88,14 @@
       "owner": "B02"
     },
     {
+      "path": "engines/economics/freshness.py",
+      "owner": "B02"
+    },
+    {
+      "path": "tests/test_ttd.py",
+      "owner": "B02"
+    },
+    {
       "path": "tickers/*/events.json",
       "owner": "B03"
     },
@@ -91,7 +108,7 @@
       "owner": "B03"
     },
     {
-      "path": "engines/economics/**",
+      "path": "engines/economics/models/**",
       "owner": "B04"
     },
     {
@@ -221,6 +238,18 @@
     {
       "path": "research/CHTR/**",
       "owner": "B20"
+    },
+    {
+      "path": "engines/narrative/**",
+      "owner": "B21"
+    },
+    {
+      "path": "research/narrative/**",
+      "owner": "B21"
+    },
+    {
+      "path": "tests/test_narrative.py",
+      "owner": "B21"
     }
   ],
   "legacy_conversation_map": [
@@ -257,7 +286,8 @@
         "B08",
         "B15",
         "B18",
-        "B19"
+        "B19",
+        "B21"
       ],
       "notes": "Earnings and financing, lifecycle economics, bottlenecks, falsification and deployment"
     },
@@ -288,7 +318,8 @@
       "sparks": [
         "B13",
         "B03",
-        "B05"
+        "B05",
+        "B21"
       ],
       "notes": "Synthetic/private valuation versus actual transactions, neocloud transmission and false assumptions"
     },
@@ -334,15 +365,16 @@
       "dependencies": [],
       "first_task": "Audit open issues, identify collision risks, maintain issue→branch→owner registry and contract change requests.",
       "acceptance": "Every workstream has disjoint write permissions, linked issues and an explicit integration sequence.",
-      "launch_prompt": "Adopt _BASKET Spark B00: Orchestrator & Contracts. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: AGENTS.md, orchestration/**, architecture/**, schemas/**, README.md, CHANGELOG.md. Objective: Coordinate issue/branch lifecycle, file ownership, interfaces, integration sequencing, and dependency handoffs. First task: Audit open issues, identify collision risks, maintain issue→branch→owner registry and contract change requests. Acceptance: Every workstream has disjoint write permissions, linked issues and an explicit integration sequence. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B00: Orchestrator & Contracts. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: AGENTS.md, orchestration/**, architecture/**, schemas/**, README.md, CHANGELOG.md. Your READ scope: architecture/**, schemas/**, .github/workflows/**. Objective: Coordinate issue/branch lifecycle, file ownership, interfaces, integration sequencing, and dependency handoffs. First task: Audit open issues, identify collision risks, maintain issue→branch→owner registry and contract change requests. Acceptance: Every workstream has disjoint write permissions, linked issues and an explicit integration sequence. Dependencies: none. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B01",
       "title": "Integrity & CI Rescue",
       "priority": "P0",
-      "objective": "Repair and verify GitHub Actions validation failures without changing schemas, engine logic or market data.",
+      "objective": "Own independent CI, integration validation, schema checks and data-quality gates. Triage failures and route source-data/schema corrections to their owners, without masking failing assertions.",
       "write_paths": [
-        "tests/**",
+        "tests/validate_stores.py",
+        "tests/integration/**",
         ".github/workflows/**"
       ],
       "read_paths": [
@@ -353,9 +385,9 @@
       "dependencies": [
         "B00"
       ],
-      "first_task": "Fetch failed workflow logs/annotations on main; reproduce cause; propose minimum CI/test corrections; send domain issues for bad production data or schemas.",
+      "first_task": "Reproduce GitHub Action 38926002189: relationships schema rejects extra SFTBY fields. File handoffs to B00 schema owner and B05 relationships owner; independently verify their fixes. Do not simply disable additionalProperties or silence the validator.",
       "acceptance": "Action completes successfully on branch, with CI evidence and no suppressed failures.",
-      "launch_prompt": "Adopt _BASKET Spark B01: Integrity & CI Rescue. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: tests/**, .github/workflows/**. Objective: Repair and verify GitHub Actions validation failures without changing schemas, engine logic or market data. First task: Fetch failed workflow logs/annotations on main; reproduce cause; propose minimum CI/test corrections; send domain issues for bad production data or schemas. Acceptance: Action completes successfully on branch, with CI evidence and no suppressed failures. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B01: Integrity & CI Rescue. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: tests/validate_stores.py, tests/integration/**, .github/workflows/**. Your READ scope: schemas/**, tickers/**, runtime/**. Objective: Own independent CI, integration validation, schema checks and data-quality gates. Triage failures and route source-data/schema corrections to their owners, without masking failing assertions. First task: Reproduce GitHub Action 38926002189: relationships schema rejects extra SFTBY fields. File handoffs to B00 schema owner and B05 relationships owner; independently verify their fixes. Do not simply disable additionalProperties or silence the validator. Acceptance: Action completes successfully on branch, with CI evidence and no suppressed failures. Dependencies: B00. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B02",
@@ -368,7 +400,9 @@
         "tickers/*/history.jsonl",
         "tickers/*/history.meta.json",
         "tickers/*/intraday/**",
-        "tickers/*/live/**"
+        "tickers/*/live/**",
+        "engines/economics/freshness.py",
+        "tests/test_ttd.py"
       ],
       "read_paths": [
         "schemas/**",
@@ -379,7 +413,7 @@
       ],
       "first_task": "Audit feed configurations and disabled adapters; implement sample/replay validation; verify historical 262 equity bars and 326 FX bars; never imply a live feed without a working authorized adapter.",
       "acceptance": "Each observation identifies provider, as-of, ingestion time, FX basis and expiry; replay is reproducible; dead records never appear as current.",
-      "launch_prompt": "Adopt _BASKET Spark B02: Market Feeds, FX & TTD. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: runtime/**, fx/**, tickers/*/history.jsonl, tickers/*/history.meta.json, tickers/*/intraday/**, tickers/*/live/**. Objective: Implement verifiable, append-only market ingestion, timestamped corrections, data entitlement checks, 200-session backfill and dependency-aware Time to Die. First task: Audit feed configurations and disabled adapters; implement sample/replay validation; verify historical 262 equity bars and 326 FX bars; never imply a live feed without a working authorized adapter. Acceptance: Each observation identifies provider, as-of, ingestion time, FX basis and expiry; replay is reproducible; dead records never appear as current. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B02: Market Feeds, FX & TTD. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: runtime/**, fx/**, tickers/*/history.jsonl, tickers/*/history.meta.json, tickers/*/intraday/**, tickers/*/live/**, engines/economics/freshness.py, tests/test_ttd.py. Your READ scope: schemas/**, engines/economics/freshness.py. Objective: Implement verifiable, append-only market ingestion, timestamped corrections, data entitlement checks, 200-session backfill and dependency-aware Time to Die. First task: Audit feed configurations and disabled adapters; implement sample/replay validation; verify historical 262 equity bars and 326 FX bars; never imply a live feed without a working authorized adapter. Acceptance: Each observation identifies provider, as-of, ingestion time, FX basis and expiry; replay is reproducible; dead records never appear as current. Dependencies: B00. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B03",
@@ -401,7 +435,7 @@
       ],
       "first_task": "Import and verify the 2026-10-16 MRIE earnings-watch backfill; distinguish announced, authorized, signed, completed, funded and hypothetical transactions.",
       "acceptance": "Deduplicate event/accession IDs, distinguish event date from publication date, log contradictions, and issue handoffs for ticker analyses.",
-      "launch_prompt": "Adopt _BASKET Spark B03: Earnings & Event Ledger. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: tickers/*/events.json, research/filings/**, research/events/**. Objective: Capture SEC/IR filings, contracts, earnings, deal lifecycle and sourced corrections into point-in-time event histories. First task: Import and verify the 2026-10-16 MRIE earnings-watch backfill; distinguish announced, authorized, signed, completed, funded and hypothetical transactions. Acceptance: Deduplicate event/accession IDs, distinguish event date from publication date, log contradictions, and issue handoffs for ticker analyses. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B03: Earnings & Event Ledger. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: tickers/*/events.json, research/filings/**, research/events/**. Your READ scope: schemas/events.v1.json, tickers/**, research/**. Objective: Capture SEC/IR filings, contracts, earnings, deal lifecycle and sourced corrections into point-in-time event histories. First task: Import and verify the 2026-10-16 MRIE earnings-watch backfill; distinguish announced, authorized, signed, completed, funded and hypothetical transactions. Acceptance: Deduplicate event/accession IDs, distinguish event date from publication date, log contradictions, and issue handoffs for ticker analyses. Dependencies: B00. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B04",
@@ -409,7 +443,7 @@
       "priority": "P1",
       "objective": "Model long-life AI capital assets, contracted revenue, margins, debt, free cash flow, pool share and scenario fair-value deltas.",
       "write_paths": [
-        "engines/economics/**",
+        "engines/economics/models/**",
         "engines/valuation/**",
         "research/models/**"
       ],
@@ -424,7 +458,7 @@
       ],
       "first_task": "Specify 5–7+ year cohort models for GPU infrastructure; show sensitivity to utilization, refresh credits, financing, residual value, taxes and dilution.",
       "acceptance": "Separates reported facts from assumptions, normalized results from scenarios and point-in-time inputs from look-ahead information.",
-      "launch_prompt": "Adopt _BASKET Spark B04: Company Economics & Valuation. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: engines/economics/**, engines/valuation/**, research/models/**. Objective: Model long-life AI capital assets, contracted revenue, margins, debt, free cash flow, pool share and scenario fair-value deltas. First task: Specify 5–7+ year cohort models for GPU infrastructure; show sensitivity to utilization, refresh credits, financing, residual value, taxes and dilution. Acceptance: Separates reported facts from assumptions, normalized results from scenarios and point-in-time inputs from look-ahead information. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B04: Company Economics & Valuation. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: engines/economics/models/**, engines/valuation/**, research/models/**. Your READ scope: tickers/**, fx/**, research/**. Objective: Model long-life AI capital assets, contracted revenue, margins, debt, free cash flow, pool share and scenario fair-value deltas. First task: Specify 5–7+ year cohort models for GPU infrastructure; show sensitivity to utilization, refresh credits, financing, residual value, taxes and dilution. Acceptance: Separates reported facts from assumptions, normalized results from scenarios and point-in-time inputs from look-ahead information. Dependencies: B02, B03. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B05",
@@ -447,7 +481,7 @@
       ],
       "first_task": "Define anti-double-counting pool ontology and approval workflow for research-proposed edges; reconcile SFTBY, NVDA, OpenAI, ARM, NOK and CRWV links.",
       "acceptance": "Each relationship records source, effective date, evidence, contractual status, flow/stock dimension, confidence and contradictory evidence.",
-      "launch_prompt": "Adopt _BASKET Spark B05: Ownership & Economic Graph. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: tickers/*/relationships.json, engines/relationships/**, research/graph/**. Objective: Own canonical ownership, contracts, shared economic pools, counterparty exposures and directed USD cash-flow relationships. First task: Define anti-double-counting pool ontology and approval workflow for research-proposed edges; reconcile SFTBY, NVDA, OpenAI, ARM, NOK and CRWV links. Acceptance: Each relationship records source, effective date, evidence, contractual status, flow/stock dimension, confidence and contradictory evidence. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B05: Ownership & Economic Graph. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: tickers/*/relationships.json, engines/relationships/**, research/graph/**. Your READ scope: tickers/**, research/**, schemas/relationships.v1.json. Objective: Own canonical ownership, contracts, shared economic pools, counterparty exposures and directed USD cash-flow relationships. First task: Define anti-double-counting pool ontology and approval workflow for research-proposed edges; reconcile SFTBY, NVDA, OpenAI, ARM, NOK and CRWV links. Acceptance: Each relationship records source, effective date, evidence, contractual status, flow/stock dimension, confidence and contradictory evidence. Dependencies: B00, B03. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B06",
@@ -469,7 +503,7 @@
       ],
       "first_task": "Audit existing range.py and sftby_zoom.py; build reproducible factor outputs and counterfactual trim/reentry calculations including missed rebounds and trading friction.",
       "acceptance": "Produces observable measures separately from uncalibrated probabilities; runs with explicitly timestamped inputs.",
-      "launch_prompt": "Adopt _BASKET Spark B06: Traversal & Cycle Engine. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: engines/traversal/**, research/traversal/**. Objective: Compute 1m/5m/daily 5/20/60/200-session range position, direction, acceleration, price/volume velocity and scenario traversal. First task: Audit existing range.py and sftby_zoom.py; build reproducible factor outputs and counterfactual trim/reentry calculations including missed rebounds and trading friction. Acceptance: Produces observable measures separately from uncalibrated probabilities; runs with explicitly timestamped inputs. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B06: Traversal & Cycle Engine. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: engines/traversal/**, research/traversal/**. Your READ scope: tickers/*/history.jsonl, tickers/*/intraday/**, fx/**, engines/composites/**. Objective: Compute 1m/5m/daily 5/20/60/200-session range position, direction, acceleration, price/volume velocity and scenario traversal. First task: Audit existing range.py and sftby_zoom.py; build reproducible factor outputs and counterfactual trim/reentry calculations including missed rebounds and trading friction. Acceptance: Produces observable measures separately from uncalibrated probabilities; runs with explicitly timestamped inputs. Dependencies: B02. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B07",
@@ -491,7 +525,7 @@
       ],
       "first_task": "Design point-in-time backtests with held-out segments and baselines; measure false positives, drawdowns, calibration and rebuy misses.",
       "acceptance": "No reported forecast accuracy or probability without backtest data, procedure and confidence bounds.",
-      "launch_prompt": "Adopt _BASKET Spark B07: Calibration, Falsification & Risk. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: engines/calibration/**, research/calibration/**. Objective: Walk-forward validate signals, scenarios, regime transitions, downside floors and trim-cycle profitability under fees and execution lag. First task: Design point-in-time backtests with held-out segments and baselines; measure false positives, drawdowns, calibration and rebuy misses. Acceptance: No reported forecast accuracy or probability without backtest data, procedure and confidence bounds. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B07: Calibration, Falsification & Risk. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: engines/calibration/**, research/calibration/**. Your READ scope: tickers/**, engines/traversal/**, engines/valuation/**. Objective: Walk-forward validate signals, scenarios, regime transitions, downside floors and trim-cycle profitability under fees and execution lag. First task: Design point-in-time backtests with held-out segments and baselines; measure false positives, drawdowns, calibration and rebuy misses. Acceptance: No reported forecast accuracy or probability without backtest data, procedure and confidence bounds. Dependencies: B06, B04. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B08",
@@ -513,7 +547,7 @@
       ],
       "first_task": "Specify minimal authenticated read API for ticker snapshot, traversal, events, freshness and issue status; assess Render deployment and secrets handling.",
       "acceptance": "Runs from an actual connected host, includes access controls and health checks, never treats chat/GitHub as an always-on poller.",
-      "launch_prompt": "Adopt _BASKET Spark B08: Service & Tool Deployment. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: services/**, deployment/**. Objective: Make _BASKET callable through authenticated API/MCP with secure worker hosting and durable runtime, distinct from the data ingestion implementation. First task: Specify minimal authenticated read API for ticker snapshot, traversal, events, freshness and issue status; assess Render deployment and secrets handling. Acceptance: Runs from an actual connected host, includes access controls and health checks, never treats chat/GitHub as an always-on poller. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B08: Service & Tool Deployment. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: services/**, deployment/**. Your READ scope: runtime/**, schemas/**, orchestration/**. Objective: Make _BASKET callable through authenticated API/MCP with secure worker hosting and durable runtime, distinct from the data ingestion implementation. First task: Specify minimal authenticated read API for ticker snapshot, traversal, events, freshness and issue status; assess Render deployment and secrets handling. Acceptance: Runs from an actual connected host, includes access controls and health checks, never treats chat/GitHub as an always-on poller. Dependencies: B02, B01. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B09",
@@ -536,7 +570,7 @@
       ],
       "first_task": "Inventory current official holdings and dates; distinguish public/private funds, commitments, cash/debt, currency denomination and non-double-counted ownership; flag absent Japanese price history.",
       "acceptance": "Publish dated holdings ledger and provisional NAV sensitivity without mixing market/filing timestamps or extrapolating ADR ratios.",
-      "launch_prompt": "Adopt _BASKET Spark B09: SFTBY Parent NAV & Holdings. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: tickers/SFTBY/entity.json, research/SFTBY/**. Objective: Reconcile SoftBank full holdings, financial exposure and ownership look-through, Japanese 9984.T ADR mechanics, USD-based NAV and USD/JPY liabilities. First task: Inventory current official holdings and dates; distinguish public/private funds, commitments, cash/debt, currency denomination and non-double-counted ownership; flag absent Japanese price history. Acceptance: Publish dated holdings ledger and provisional NAV sensitivity without mixing market/filing timestamps or extrapolating ADR ratios. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B09: SFTBY Parent NAV & Holdings. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: tickers/SFTBY/entity.json, research/SFTBY/**. Your READ scope: fx/**, tickers/ARM/**, tickers/OPENAI/**, tickers/SFTBY/history.jsonl. Objective: Reconcile SoftBank full holdings, financial exposure and ownership look-through, Japanese 9984.T ADR mechanics, USD-based NAV and USD/JPY liabilities. First task: Inventory current official holdings and dates; distinguish public/private funds, commitments, cash/debt, currency denomination and non-double-counted ownership; flag absent Japanese price history. Acceptance: Publish dated holdings ledger and provisional NAV sensitivity without mixing market/filing timestamps or extrapolating ADR ratios. Dependencies: B02, B05. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B10",
@@ -558,7 +592,7 @@
       ],
       "first_task": "Recover financing ladder, live dilution status, contracted vs powered capacity, utilization, residuals and NVIDIA upgrade economics.",
       "acceptance": "Produce sourced operating bridges and scenarios, explicitly separating 5–7 year unit economics from current fair value.",
-      "launch_prompt": "Adopt _BASKET Spark B10: CRWV GPU Lifecycle. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: tickers/CRWV/entity.json, research/CRWV/**. Objective: Study CoreWeave economics, hardware refresh, debt/capital structure, commissioning, contract backlog and neocloud transmission risk. First task: Recover financing ladder, live dilution status, contracted vs powered capacity, utilization, residuals and NVIDIA upgrade economics. Acceptance: Produce sourced operating bridges and scenarios, explicitly separating 5–7 year unit economics from current fair value. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B10: CRWV GPU Lifecycle. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: tickers/CRWV/entity.json, research/CRWV/**. Your READ scope: tickers/CRWV/history.jsonl, research/filings/**, engines/valuation/**. Objective: Study CoreWeave economics, hardware refresh, debt/capital structure, commissioning, contract backlog and neocloud transmission risk. First task: Recover financing ladder, live dilution status, contracted vs powered capacity, utilization, residuals and NVIDIA upgrade economics. Acceptance: Produce sourced operating bridges and scenarios, explicitly separating 5–7 year unit economics from current fair value. Dependencies: B03, B04. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B11",
@@ -579,7 +613,7 @@
       ],
       "first_task": "Reconcile issuer financials and completed equity raise; quantify unit/margin/scale pathways while separating confirmed customer orders from industry forecasts.",
       "acceptance": "Sourced company model; no unverified direct LITE→AAOI supplier claims; graph/event changes only through handoffs.",
-      "launch_prompt": "Adopt _BASKET Spark B11: AAOI Optical Manufacturing. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: tickers/AAOI/entity.json, research/AAOI/**. Objective: Analyze AAOI optical transceiver demand, production capacity, margins, capital intensity, customers, dilution, competitor positioning and trading catalysts. First task: Reconcile issuer financials and completed equity raise; quantify unit/margin/scale pathways while separating confirmed customer orders from industry forecasts. Acceptance: Sourced company model; no unverified direct LITE→AAOI supplier claims; graph/event changes only through handoffs. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B11: AAOI Optical Manufacturing. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: tickers/AAOI/entity.json, research/AAOI/**. Your READ scope: research/themes/optical/**, research/filings/**, tickers/AAOI/history.jsonl. Objective: Analyze AAOI optical transceiver demand, production capacity, margins, capital intensity, customers, dilution, competitor positioning and trading catalysts. First task: Reconcile issuer financials and completed equity raise; quantify unit/margin/scale pathways while separating confirmed customer orders from industry forecasts. Acceptance: Sourced company model; no unverified direct LITE→AAOI supplier claims; graph/event changes only through handoffs. Dependencies: B03. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B12",
@@ -600,7 +634,7 @@
       ],
       "first_task": "Decompose design wins, royalty timing, architecture mix, concentration and valuation multiple sensitivity under AI-server growth.",
       "acceptance": "Independent ARM model with separate operating drivers, market expectation and SoftBank ownership exposure.",
-      "launch_prompt": "Adopt _BASKET Spark B12: ARM Royalties & Compute Mix. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: tickers/ARM/entity.json, research/ARM/**. Objective: Model Arm royalty growth by ISA/core complexity, custom silicon share, CPU deployments, licensing terms and SoftBank look-through. First task: Decompose design wins, royalty timing, architecture mix, concentration and valuation multiple sensitivity under AI-server growth. Acceptance: Independent ARM model with separate operating drivers, market expectation and SoftBank ownership exposure. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B12: ARM Royalties & Compute Mix. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: tickers/ARM/entity.json, research/ARM/**. Your READ scope: tickers/SFTBY/**, research/SFTBY/**, tickers/ARM/history.jsonl. Objective: Model Arm royalty growth by ISA/core complexity, custom silicon share, CPU deployments, licensing terms and SoftBank look-through. First task: Decompose design wins, royalty timing, architecture mix, concentration and valuation multiple sensitivity under AI-server growth. Acceptance: Independent ARM model with separate operating drivers, market expectation and SoftBank ownership exposure. Dependencies: B09. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B13",
@@ -622,7 +656,7 @@
       ],
       "first_task": "Trace Hyperliquid/TradeXYZ-style private market perp valuation methodology, liquidity, basis, financing transmission and contradictory assumptions.",
       "acceptance": "Separate verified corporate value from thin-liquidity synthetic signals; publish falsifiable hypotheses and exact source dates.",
-      "launch_prompt": "Adopt _BASKET Spark B13: OpenAI & Anthropic Private Value. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: tickers/OPENAI/entity.json, research/OPENAI/**. Objective: Analyze OpenAI economics, fundraises, investor stakes, GPU/compute commitments and speculative perp valuation signals versus Anthropic. First task: Trace Hyperliquid/TradeXYZ-style private market perp valuation methodology, liquidity, basis, financing transmission and contradictory assumptions. Acceptance: Separate verified corporate value from thin-liquidity synthetic signals; publish falsifiable hypotheses and exact source dates. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B13: OpenAI & Anthropic Private Value. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: tickers/OPENAI/entity.json, research/OPENAI/**. Your READ scope: research/SFTBY/**, tickers/CRWV/**, research/filings/**. Objective: Analyze OpenAI economics, fundraises, investor stakes, GPU/compute commitments and speculative perp valuation signals versus Anthropic. First task: Trace Hyperliquid/TradeXYZ-style private market perp valuation methodology, liquidity, basis, financing transmission and contradictory assumptions. Acceptance: Separate verified corporate value from thin-liquidity synthetic signals; publish falsifiable hypotheses and exact source dates. Dependencies: B09, B10. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B14",
@@ -644,7 +678,7 @@
       ],
       "first_task": "Model hyperscaler and neocloud demand, refresh economics, chip and networking revenue pools and supply-chain expectations.",
       "acceptance": "Document risks to the thesis that NVDA is the least-tapped, best risk-adjusted capital surface; proposed graph edges go to B05.",
-      "launch_prompt": "Adopt _BASKET Spark B14: NVIDIA Compute Moat & Capital Loop. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: tickers/NVDA/entity.json, research/NVDA/**. Objective: Analyze NVIDIA's demand indicators, CUDA switching cost, GPU lifecycle/upgrade credits, investments, strategic partnerships and valuation expectations. First task: Model hyperscaler and neocloud demand, refresh economics, chip and networking revenue pools and supply-chain expectations. Acceptance: Document risks to the thesis that NVDA is the least-tapped, best risk-adjusted capital surface; proposed graph edges go to B05. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B14: NVIDIA Compute Moat & Capital Loop. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: tickers/NVDA/entity.json, research/NVDA/**. Your READ scope: tickers/CRWV/**, research/filings/**, research/graph/**. Objective: Analyze NVIDIA's demand indicators, CUDA switching cost, GPU lifecycle/upgrade credits, investments, strategic partnerships and valuation expectations. First task: Model hyperscaler and neocloud demand, refresh economics, chip and networking revenue pools and supply-chain expectations. Acceptance: Document risks to the thesis that NVDA is the least-tapped, best risk-adjusted capital surface; proposed graph edges go to B05. Dependencies: B03, B04. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B15",
@@ -664,7 +698,7 @@
       ],
       "first_task": "Map LITE versus COHR capacity and NVDA investment/purchasing relationships, avoiding double-counting within the optical TAM.",
       "acceptance": "Report verified supply agreements, market-pool decomposition, uncertainties and handoff requests to ticker/graph owners.",
-      "launch_prompt": "Adopt _BASKET Spark B15: Optical Bottlenecks: LITE/COHR. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: research/themes/optical/**. Objective: Analyze laser and photonics capacity, wafer yields, transceiver/CPO transitions and whether optics bottlenecks transfer economics to AAOI. First task: Map LITE versus COHR capacity and NVDA investment/purchasing relationships, avoiding double-counting within the optical TAM. Acceptance: Report verified supply agreements, market-pool decomposition, uncertainties and handoff requests to ticker/graph owners. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B15: Optical Bottlenecks: LITE/COHR. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: research/themes/optical/**. Your READ scope: tickers/AAOI/**, research/filings/**. Objective: Analyze laser and photonics capacity, wafer yields, transceiver/CPO transitions and whether optics bottlenecks transfer economics to AAOI. First task: Map LITE versus COHR capacity and NVDA investment/purchasing relationships, avoiding double-counting within the optical TAM. Acceptance: Report verified supply agreements, market-pool decomposition, uncertainties and handoff requests to ticker/graph owners. Dependencies: B11, B05. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B16",
@@ -684,7 +718,7 @@
       ],
       "first_task": "Validate CHTR's claimed 250MW deployable capacity, upgrade spend/FCF inflection, Cox transaction facts, service announcements and GPU leaseback economics.",
       "acceptance": "Quantify sourced power/capacity/cost advantages and separate signed deals from possible partnerships.",
-      "launch_prompt": "Adopt _BASKET Spark B16: Telco Edge: CHTR/TMUS/NOK. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: research/themes/edge/**. Objective: Research low-latency edge inference enabled by telcos/cable, DOCSIS 4, cable power/cooling/security footprints, CHTR/Cox and NVIDIA partnership hypotheses. First task: Validate CHTR's claimed 250MW deployable capacity, upgrade spend/FCF inflection, Cox transaction facts, service announcements and GPU leaseback economics. Acceptance: Quantify sourced power/capacity/cost advantages and separate signed deals from possible partnerships. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B16: Telco Edge: CHTR/TMUS/NOK. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: research/themes/edge/**. Your READ scope: research/graph/**, research/filings/**, tickers/**. Objective: Research low-latency edge inference enabled by telcos/cable, DOCSIS 4, cable power/cooling/security footprints, CHTR/Cox and NVIDIA partnership hypotheses. First task: Validate CHTR's claimed 250MW deployable capacity, upgrade spend/FCF inflection, Cox transaction facts, service announcements and GPU leaseback economics. Acceptance: Quantify sourced power/capacity/cost advantages and separate signed deals from possible partnerships. Dependencies: B05. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B17",
@@ -705,7 +739,7 @@
       ],
       "first_task": "Define weighted role map NVDA/MSFT/DELL/HPE/ORCL/IBM/INTC/SYM/ABB/TTMI/AAON/CHTR and source point-in-time benchmark returns.",
       "acceptance": "No automatic trade instructions; explicit composite drivers, sensitivity and independent traversal measures for AAOI/CRWV/SFTBY.",
-      "launch_prompt": "Adopt _BASKET Spark B17: Cross-Market Signal Composite. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: engines/composites/**, research/composites/**. Objective: Build contextual AI-market signal composites separating parents, sector leaders, safe havens, backlog proxies and emerging bottlenecks. First task: Define weighted role map NVDA/MSFT/DELL/HPE/ORCL/IBM/INTC/SYM/ABB/TTMI/AAON/CHTR and source point-in-time benchmark returns. Acceptance: No automatic trade instructions; explicit composite drivers, sensitivity and independent traversal measures for AAOI/CRWV/SFTBY. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B17: Cross-Market Signal Composite. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: engines/composites/**, research/composites/**. Your READ scope: tickers/**, engines/traversal/**. Objective: Build contextual AI-market signal composites separating parents, sector leaders, safe havens, backlog proxies and emerging bottlenecks. First task: Define weighted role map NVDA/MSFT/DELL/HPE/ORCL/IBM/INTC/SYM/ABB/TTMI/AAON/CHTR and source point-in-time benchmark returns. Acceptance: No automatic trade instructions; explicit composite drivers, sensitivity and independent traversal measures for AAOI/CRWV/SFTBY. Dependencies: B02, B06. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B18",
@@ -726,7 +760,7 @@
       ],
       "first_task": "Verify MU fiscal 2026 10-K contract and cash-related obligations; distinguish RPO, customer deposits, letters of credit, authorizations and booked revenue.",
       "acceptance": "Sourced scenarios without multiplying overlapping obligations into fictitious revenue.",
-      "launch_prompt": "Adopt _BASKET Spark B18: MU Memory Contract Economics. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: tickers/MU/entity.json, research/MU/**. Objective: Build Micron's memory supply, HBM constraints, multi-year take-or-pay terms, deposits, revenue recognition and valuation sensitivities. First task: Verify MU fiscal 2026 10-K contract and cash-related obligations; distinguish RPO, customer deposits, letters of credit, authorizations and booked revenue. Acceptance: Sourced scenarios without multiplying overlapping obligations into fictitious revenue. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B18: MU Memory Contract Economics. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: tickers/MU/entity.json, research/MU/**. Your READ scope: research/filings/**, research/themes/supply-chain/**. Objective: Build Micron's memory supply, HBM constraints, multi-year take-or-pay terms, deposits, revenue recognition and valuation sensitivities. First task: Verify MU fiscal 2026 10-K contract and cash-related obligations; distinguish RPO, customer deposits, letters of credit, authorizations and booked revenue. Acceptance: Sourced scenarios without multiplying overlapping obligations into fictitious revenue. Dependencies: B03, B04. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B19",
@@ -748,7 +782,7 @@
       ],
       "first_task": "Identify verified supplier contracts, nested TAM, customer concentration, double-counted purchasing/financing, and downside bottleneck shocks.",
       "acceptance": "Publish timestamped evidence, distinct TAM layers, bullish/bearish alternative graphs and handoff prompts for canonical relationships.",
-      "launch_prompt": "Adopt _BASKET Spark B19: AI Supply Chain & Profit Pools. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: research/themes/supply-chain/**. Objective: Map end-to-end AI compute/network/optical/power/automation capacity bottlenecks, end-market spending and 2027–2031 economic profit-pool transmission. First task: Identify verified supplier contracts, nested TAM, customer concentration, double-counted purchasing/financing, and downside bottleneck shocks. Acceptance: Publish timestamped evidence, distinct TAM layers, bullish/bearish alternative graphs and handoff prompts for canonical relationships. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B19: AI Supply Chain & Profit Pools. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: research/themes/supply-chain/**. Your READ scope: research/themes/optical/**, research/themes/edge/**, research/graph/**, tickers/**. Objective: Map end-to-end AI compute/network/optical/power/automation capacity bottlenecks, end-market spending and 2027–2031 economic profit-pool transmission. First task: Identify verified supplier contracts, nested TAM, customer concentration, double-counted purchasing/financing, and downside bottleneck shocks. Acceptance: Publish timestamped evidence, distinct TAM layers, bullish/bearish alternative graphs and handoff prompts for canonical relationships. Dependencies: B05, B04. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B20",
@@ -768,7 +802,117 @@
       ],
       "first_task": "Build source-grounded operating timeline and cash-flow bridge with separate speculative 250MW edge economics.",
       "acceptance": "Company-level economics separated from cross-sector edge hypothesis; send contract edges to B05.",
-      "launch_prompt": "Adopt _BASKET Spark B20: CHTR Cable Edge Economics. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: tickers/CHTR/entity.json, research/CHTR/**. Objective: Research Charter standalone DOCSIS 4 completion, Cox integration, network service offerings, FCF unlock and edge capacity valuation. First task: Build source-grounded operating timeline and cash-flow bridge with separate speculative 250MW edge economics. Acceptance: Company-level economics separated from cross-sector edge hypothesis; send contract edges to B05. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Launch _BASKET Spark B20: CHTR Cable Edge Economics. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: tickers/CHTR/entity.json, research/CHTR/**. Your READ scope: research/themes/edge/**, research/filings/**. Objective: Research Charter standalone DOCSIS 4 completion, Cox integration, network service offerings, FCF unlock and edge capacity valuation. First task: Build source-grounded operating timeline and cash-flow bridge with separate speculative 250MW edge economics. Acceptance: Company-level economics separated from cross-sector edge hypothesis; send contract edges to B05. Dependencies: B16. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
+    },
+    {
+      "id": "B21",
+      "title": "Narrative, Claims & Falsification Engine",
+      "priority": "P0",
+      "objective": "Own deterministic processing of externally reported market narratives, assumptions, contradictory evidence, counterfactuals, validity windows and cross-entity hypothesis records; never promote a report into an observed fact by inference.",
+      "write_paths": [
+        "engines/narrative/**",
+        "research/narrative/**",
+        "tests/test_narrative.py"
+      ],
+      "read_paths": [
+        "research/events/**",
+        "research/filings/**",
+        "tickers/**",
+        "runtime/**",
+        "schemas/**"
+      ],
+      "dependencies": [
+        "B00",
+        "B03"
+      ],
+      "first_task": "Audit engines/narrative/engine.py and the CoreWeave/OpenAI/Anthropic 2026-10-16 case, including claim-vs-fact classification, effective/observed/available timestamps, provenance, staleness and sensitivity calculations. Build adversarial fixtures and explain why reported private perpetual pricing is not company equity value.",
+      "acceptance": "Every emitted derived claim includes immutable source IDs, declared method, point-in-time availability, TTD dependencies, falsifiers, scenario status, and explicit competing explanations; tests demonstrate no lookahead, expired-input suppression and no unsupported causal inference.",
+      "launch_prompt": "Launch _BASKET Spark B21: Narrative, Claims & Falsification Engine. Read AGENTS.md and orchestration/sparks.json from CURRENT GITHUB MAIN; verify they are merged. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: engines/narrative/**, research/narrative/**, tests/test_narrative.py. Your READ scope: research/events/**, research/filings/**, tickers/**, runtime/**, schemas/**. Objective: Own deterministic processing of externally reported market narratives, assumptions, contradictory evidence, counterfactuals, validity windows and cross-entity hypothesis records; never promote a report into an observed fact by inference. First task: Audit engines/narrative/engine.py and the CoreWeave/OpenAI/Anthropic 2026-10-16 case, including claim-vs-fact classification, effective/observed/available timestamps, provenance, staleness and sensitivity calculations. Build adversarial fixtures and explain why reported private perpetual pricing is not company equity value. Acceptance: Every emitted derived claim includes immutable source IDs, declared method, point-in-time availability, TTD dependencies, falsifiers, scenario status, and explicit competing explanations; tests demonstrate no lookahead, expired-input suppression and no unsupported causal inference. Dependencies: B00, B03. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
+    }
+  ],
+  "pilot": {
+    "objective": "First reproducible three-holdings traversal and intelligence report for SFTBY, CRWV and AAOI, joined to observable compute/FX/financial narrative evidence.",
+    "must_return": [
+      "price/bar source and exact as_of or unavailable",
+      "daily 5/20/60/200 traversal",
+      "intraday short-horizon only if data entitled and fresh",
+      "event/relationship evidence and conflict flags",
+      "mechanical scenarios with assumptions and falsifiers",
+      "risk/costs of trimming vs holding",
+      "data age and model version"
+    ],
+    "non_goals": [
+      "calibrated next-day probabilities without walk-forward tests",
+      "live NAV when holdings/FX/ADR ratios are unresolved",
+      "fake continuous feed when adapters disabled",
+      "self-directed trading or uncited conviction"
+    ],
+    "acceptance_gates": [
+      "G0: orchestration registry published to main; every task has branch/issue and non-overlapping ownership.",
+      "G1: CI green; canonical entity/event/relationship schemas validate with no relaxed constraints just to pass.",
+      "G2: at least one replayable market feed with explicit TTD and entitlement status; historical and live separated.",
+      "G3: timestamped, source-linked narrative + event ledger, ownership relationship graph and company research can be joined without double counting.",
+      "G4: deterministic report for SFTBY/CRWV/AAOI with range, direction, volume/price velocity and reproducible scenario assumptions.",
+      "G5: walk-forward calibration on held-out windows before any predictive probabilities or risk-adjusted trim edge claims."
+    ]
+  },
+  "launch_sequence": [
+    {
+      "wave": 0,
+      "gate": "Review/merge existing PR #2 after approval, then B00 owns shared contracts.",
+      "launch": [
+        "B00"
+      ],
+      "aim": "Make workflow bootstrap discoverable from main and resolve baseline schema extension."
+    },
+    {
+      "wave": 1,
+      "gate": "G0 -> G1 and pilot prerequisites",
+      "launch": [
+        "B01",
+        "B02",
+        "B03",
+        "B21"
+      ],
+      "aim": "CI + facts/TTD + narrative provenance; these can operate in parallel with disjoint writes."
+    },
+    {
+      "wave": 2,
+      "gate": "G1/G2 where outputs require passing tests",
+      "launch": [
+        "B06",
+        "B05",
+        "B09",
+        "B10",
+        "B11"
+      ],
+      "aim": "Traversal + relationship graph + 3 company research pilots. Research can start while data feed/graph downstream calculations remain blocked."
+    },
+    {
+      "wave": 3,
+      "gate": "G2 + G3",
+      "launch": [
+        "B04",
+        "B07",
+        "B08",
+        "B17"
+      ],
+      "aim": "Valuation, calibration, deployment, and cross-market composites built on verified inputs."
+    },
+    {
+      "wave": 4,
+      "gate": "Proof from pilot",
+      "launch": [
+        "B12",
+        "B13",
+        "B14",
+        "B15",
+        "B16",
+        "B18",
+        "B19",
+        "B20"
+      ],
+      "aim": "Broaden economic intelligence without losing core operational reliability."
     }
   ]
 }
