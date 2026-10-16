@@ -1,0 +1,26 @@
+name: Narrative engine tests
+on:
+  push:
+    paths:
+      - 'engines/narrative/**'
+      - 'tests/test_narrative.py'
+      - '.github/workflows/narrative.yml'
+  pull_request:
+    paths:
+      - 'engines/narrative/**'
+      - 'tests/test_narrative.py'
+      - '.github/workflows/narrative.yml'
+jobs:
+  narrative:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test deterministic narrative replay
+        run: python -m unittest discover -s tests -p 'test_narrative.py' -v
+      - name: Smoke audit and extrapolation
+        run: |
+          python engines/narrative/engine.py audit engines/narrative/cases/coreweave_2026-10-16.jsonl --at 2026-10-16T15:00:00Z > /tmp/basket_narrative_audit.json
+          python engines/narrative/engine.py extrapolate engines/narrative/cases/coreweave_2026-10-16.jsonl --at 2026-10-16T15:00:00Z > /tmp/basket_narrative_derived.json
