@@ -13,7 +13,7 @@ Separation:
 - B03 owns ticker `events.json`; ticker researchers submit verified event proposals, not direct writes.
 - B05 owns ticker `relationships.json`; company/theme researchers submit edge proposals, not direct writes.
 - Company sparks own only their respective `entity.json` and `research/<entity>/**`.
-- B01 owns shared test suite and CI workflows; code workers provide reproducible test requests and can validate locally without modifying those paths.
+- Domain unit tests follow code ownership: B02 owns `tests/test_ttd.py`; B21 owns `tests/test_narrative.py`; new domain tests should be placed in owned module test paths or get B00/B01 ownership arbitration. B01 owns shared `tests/validate_stores.py`, `tests/integration/**` and `.github/workflows/**` only.
 - B00 owns `AGENTS.md`, `orchestration/**`, `architecture/**`, `schemas/**`, root `README.md`/`CHANGELOG.md` and cross-domain contract arbitration.
 
 ## Cross-domain requests
@@ -24,3 +24,8 @@ No direct commits to main. Commit only to your branch; PR to main; never self-me
 
 ## Required issue output
 At initialization report: `Spark ID | Issue URL | Branch | Objective | Write paths | Dependencies | Next task`. A PR should state validation evidence, changed files, linked issues and outstanding handoffs. Existing archived or incomplete conversations are context, not automatic authorization to modify another scope.
+
+## Launch discipline, state and data-plane boundary
+Before starting a new work branch, read the current registry **from main** and verify that its PR has merged. Never assume the registry is on main just because it exists in another conversation's branch. Check active issue ownership and PR changed files; exact path strings alone do not protect against subtree/glob overlaps or multiple active workers using the same spark. Scope can be narrowed, but not silently expanded. Keep at most 3–5 worker conversations active initially; downstream research can proceed while data/computations are blocked, but may not claim a verified inference.
+
+GitHub owns source code, schemas, contracts and reproducible manifests. Time-sensitive minute bars and continuous JSONL writing need a durable local or hosted data plane and entitlement-aware adapters. GitHub and ChatGPT are **not** live polling workers. Standardize event effective, observed, first available, ingested and period-end times; always separate the value's observation freshness from the lifetime of its historical truth.
