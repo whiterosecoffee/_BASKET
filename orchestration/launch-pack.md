@@ -1,6 +1,6 @@
 # _BASKET — Essential Conversation Launch Pack
 
-**Prerequisite:** Review and authorize merge of PR #2 into `main`. Until then, the starter file exists only in the orchestration branch. Every *new* conversation reads the merged `AGENTS.md` + `orchestration/sparks.json` and creates its own NEW GitHub issue and branch; these prompts never preassign the currently active branch.
+**Prerequisite:** Review and authorize merge of PR #2 into `main`. Confirmed cross-domain handoffs: [B00 contract #3](https://github.com/whiterosecoffee/_BASKET/issues/3), [B05 SFTBY migration #4](https://github.com/whiterosecoffee/_BASKET/issues/4), and [B01 CI verification #5](https://github.com/whiterosecoffee/_BASKET/issues/5). Until then, the starter file exists only in the orchestration branch. Every *new* conversation reads the merged `AGENTS.md` + `orchestration/sparks.json` and creates its own NEW GitHub issue and branch; these prompts never preassign the currently active branch.
 
 ## W0: Contract steward — B00
 ```text
