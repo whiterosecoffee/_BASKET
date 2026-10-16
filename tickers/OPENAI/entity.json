@@ -1,0 +1,18 @@
+{
+  "schema": "entity@1",
+  "id": "OPENAI",
+  "type": "private_company",
+  "currency": "USD",
+  "shape": {
+    "status": "partial",
+    "segments": [
+      {
+        "name": "AI models and services",
+        "source": "https://group.softbank/en/ir/investors/management_policy"
+      }
+    ],
+    "capabilities": [],
+    "constraints": [],
+    "economic_pools": []
+  }
+}
