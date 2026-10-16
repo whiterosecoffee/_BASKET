@@ -1,0 +1,330 @@
+{
+  "schema": "basket.task_queue@1",
+  "queue_version": "1.0.0",
+  "as_of": "2026-10-16",
+  "active_worker_limit": 3,
+  "tasks": [
+    {
+      "id": "T-001",
+      "spark_id": "B00",
+      "title": "Review B05 relationship fix",
+      "objective": "Review B05 PR #10 strict lossless relationship/schema repair and its exact successful branch CI before seeking explicit merge authorization.",
+      "priority": "P0",
+      "impact": 5,
+      "effort": 1,
+      "mode": "orchestrator_review",
+      "profiles": [
+        "integration_steward"
+      ],
+      "recipe": "integration_review",
+      "capabilities": [
+        "github_evidence",
+        "integration_gate"
+      ],
+      "depends_on": [],
+      "acceptance": [
+        "Verify changed paths and six-field reconstruction.",
+        "Confirm PR-head strict CI run 38956838273.",
+        "Record review; no merge without authorization."
+      ],
+      "write_scope": [],
+      "issue_number": 8,
+      "pr_number": 10,
+      "source_handoff_issues": [
+        4
+      ],
+      "worker_prompt_details": "Do not bundle the later OpenAI graph reconciliation handoff #16 into the already completed schema fix."
+    },
+    {
+      "id": "T-002",
+      "spark_id": "B00",
+      "title": "Review orchestration integration",
+      "objective": "After approved B05 integration, review draft PR #2 containing spark registry, protocols and versioning; verify schema/methodology CI readiness.",
+      "priority": "P0",
+      "impact": 5,
+      "effort": 2,
+      "mode": "orchestrator_review",
+      "profiles": [
+        "integration_steward"
+      ],
+      "recipe": "integration_review",
+      "capabilities": [
+        "github_evidence",
+        "integration_gate"
+      ],
+      "depends_on": [
+        {
+          "task_id": "T-001",
+          "gate": "merged",
+          "reason": "Integrate strict canonical SFTBY data before evaluating combined main CI."
+        }
+      ],
+      "acceptance": [
+        "Check protocol schemas, instructions and PR #2 owned files.",
+        "Require integrated strict CI evidence and explicit merge authorization."
+      ],
+      "write_scope": [],
+      "issue_number": 1,
+      "pr_number": 2,
+      "source_handoff_issues": [],
+      "worker_prompt_details": "Existing issue #1 and B00 branch; do not create new issue in this conversation."
+    },
+    {
+      "id": "T-003",
+      "spark_id": "B01",
+      "title": "Integrate independent CI gates",
+      "objective": "Resume B01 #9 PR #13 once B05 and orchestration are integrated, run strict data, worker-protocol, version and ownership validations on real CI.",
+      "priority": "P0",
+      "impact": 5,
+      "effort": 2,
+      "mode": "resume_existing_worker",
+      "profiles": [
+        "qa_reviewer"
+      ],
+      "recipe": "independent_ci",
+      "capabilities": [
+        "adversarial_validation",
+        "github_evidence"
+      ],
+      "depends_on": [
+        {
+          "task_id": "T-001",
+          "gate": "merged",
+          "reason": "B05 canonical record must be in main."
+        },
+        {
+          "task_id": "T-002",
+          "gate": "merged",
+          "reason": "B00 validators and fixtures must be in main."
+        }
+      ],
+      "acceptance": [
+        "Regression and strict data validation run on current integration commit.",
+        "Worker protocol adversarial fixtures run in CI.",
+        "No missing validators are counted as skipped successes."
+      ],
+      "write_scope": [
+        "tests/validate_stores.py",
+        "tests/integration/**",
+        ".github/workflows/**"
+      ],
+      "issue_number": 9,
+      "pr_number": 13,
+      "source_handoff_issues": [
+        5,
+        6
+      ],
+      "worker_prompt_details": "Continue same B01 worker conversation and issue #9 if still accessible; otherwise create a separate new issue+branch and handoff, never reuse old branch."
+    },
+    {
+      "id": "T-004",
+      "spark_id": "B02",
+      "title": "Complete observation replay tests",
+      "objective": "Resume B02 #11 PR #15 to execute tests and extend deterministic historical and JPY/USD replay with verifiable TTD and unavailable provider states.",
+      "priority": "P0",
+      "impact": 5,
+      "effort": 4,
+      "mode": "resume_existing_worker",
+      "profiles": [
+        "data_engineer",
+        "qa_reviewer"
+      ],
+      "recipe": "historical_replay",
+      "capabilities": [
+        "immutable_replay",
+        "implementation",
+        "adversarial_validation"
+      ],
+      "depends_on": [],
+      "acceptance": [
+        "Execute real offline unit and revision-replay tests.",
+        "Integrate existing 200+ daily sessions and historical FX into deterministic replay.",
+        "Prove cross-feed expiration, correction chronology and Windows locking.",
+        "Explicitly report provider entitlement and persistent-worker gaps."
+      ],
+      "write_scope": [
+        "runtime/**",
+        "fx/**",
+        "tickers/*/history.jsonl",
+        "tickers/*/history.meta.json",
+        "tickers/*/intraday/**",
+        "tickers/*/live/**",
+        "engines/economics/freshness.py",
+        "tests/test_ttd.py"
+      ],
+      "issue_number": 11,
+      "pr_number": 15,
+      "source_handoff_issues": [
+        7
+      ],
+      "worker_prompt_details": "Existing B02 task remains incomplete. Do not start a duplicate B02 conversation just to repeat branch work."
+    },
+    {
+      "id": "T-005",
+      "spark_id": "B03",
+      "title": "Complete issuer ledger replay",
+      "objective": "Resume B03 #12 PR #14 to run event/schema tests and expand primary-source earnings and financing coverage beyond two SoftBank records.",
+      "priority": "P0",
+      "impact": 4,
+      "effort": 4,
+      "mode": "resume_existing_worker",
+      "profiles": [
+        "evidence_researcher",
+        "data_engineer",
+        "qa_reviewer"
+      ],
+      "recipe": "issuer_ledger",
+      "capabilities": [
+        "source_audit",
+        "immutable_replay",
+        "adversarial_validation"
+      ],
+      "depends_on": [],
+      "acceptance": [
+        "Run schema and revision replay tests against issuer events.",
+        "Source-verify additional SFTBY, CRWV, AAOI, NVDA records.",
+        "Preserve unknown publication and ingestion timestamps as unknown.",
+        "Keep funding tranches, commitments and revenue separate."
+      ],
+      "write_scope": [
+        "tickers/*/events.json",
+        "research/filings/**",
+        "research/events/**"
+      ],
+      "issue_number": 12,
+      "pr_number": 14,
+      "source_handoff_issues": [],
+      "worker_prompt_details": "Existing PR #14 is preliminary; do not claim comprehensive event coverage."
+    },
+    {
+      "id": "T-006",
+      "spark_id": "B21",
+      "title": "Launch narrative falsification pilot",
+      "objective": "Launch a fresh B21 worker to validate CoreWeave/OpenAI/Anthropic claims, causal alternatives, source availability and sensitivity assumptions.",
+      "priority": "P1",
+      "impact": 4,
+      "effort": 3,
+      "mode": "launch_new_worker",
+      "profiles": [
+        "evidence_researcher",
+        "inference_analyst"
+      ],
+      "recipe": "narrative_analysis",
+      "capabilities": [
+        "source_audit",
+        "hypothesis_falsification"
+      ],
+      "depends_on": [
+        {
+          "task_id": "T-005",
+          "gate": "issue_exists",
+          "reason": "B03 already has a source ledger for early collaboration; its entire PR need not be merged before independent narrative auditing."
+        }
+      ],
+      "acceptance": [
+        "Create brand-new worker issue and branch from latest main.",
+        "Prove no lookahead and reported claim/fact distinction.",
+        "Record competing hypotheses and falsifying observations."
+      ],
+      "write_scope": [
+        "engines/narrative/**",
+        "research/narrative/**",
+        "tests/test_narrative.py"
+      ],
+      "issue_number": null,
+      "pr_number": null,
+      "source_handoff_issues": [],
+      "worker_prompt_details": "Use B21 owned files only; ask B03 for canonical-event changes."
+    },
+    {
+      "id": "T-007",
+      "spark_id": "B06",
+      "title": "Launch reproducible traversal",
+      "objective": "Launch B06 after B02 snapshot foundation is integrated to compute 5/20/60/200-session descriptive traversal and risk-aware trim scenarios.",
+      "priority": "P1",
+      "impact": 4,
+      "effort": 3,
+      "mode": "launch_new_worker",
+      "profiles": [
+        "data_engineer",
+        "contract_engineer",
+        "inference_analyst"
+      ],
+      "recipe": "economic_traversal",
+      "capabilities": [
+        "immutable_replay",
+        "implementation",
+        "economic_sensitivity"
+      ],
+      "depends_on": [
+        {
+          "task_id": "T-004",
+          "gate": "merged",
+          "reason": "Versioned B02 market history/replay contract must be integrated first."
+        }
+      ],
+      "acceptance": [
+        "Use dated SFTBY, CRWV and AAOI history and FX.",
+        "Report position, direction, velocity and volume without invented probabilities.",
+        "Include execution costs, slippage and missed rebounds."
+      ],
+      "write_scope": [
+        "engines/traversal/**",
+        "research/traversal/**"
+      ],
+      "issue_number": null,
+      "pr_number": null,
+      "source_handoff_issues": [],
+      "worker_prompt_details": "Source history read-only from B02; do not write price or FX records."
+    },
+    {
+      "id": "T-008",
+      "spark_id": "B05",
+      "title": "Reconcile SoftBank OpenAI exposure",
+      "objective": "Create a NEW independently scoped B05 conversation for handoff #16; reconcile cumulative OpenAI investment, tranches and ~13% issuer-reported stake without fund/NAV double-counting.",
+      "priority": "P1",
+      "impact": 4,
+      "effort": 3,
+      "mode": "launch_new_worker",
+      "profiles": [
+        "evidence_researcher",
+        "contract_engineer",
+        "inference_analyst"
+      ],
+      "recipe": "graph_reconcile",
+      "capabilities": [
+        "source_audit",
+        "contract_governance",
+        "hypothesis_falsification"
+      ],
+      "depends_on": [
+        {
+          "task_id": "T-005",
+          "gate": "merged",
+          "reason": "Verify and integrate originating B03 canonical event first."
+        },
+        {
+          "task_id": "T-001",
+          "gate": "merged",
+          "reason": "Keep schema repair independent before later graph changes."
+        }
+      ],
+      "acceptance": [
+        "Read B03 source statements, identify transaction vs ownership vs NAV categories.",
+        "Prove no additive duplication of funding tranches/funds.",
+        "Keep relationship schema strict and historical marks dated."
+      ],
+      "write_scope": [
+        "tickers/*/relationships.json",
+        "engines/relationships/**",
+        "research/graph/**"
+      ],
+      "issue_number": null,
+      "pr_number": null,
+      "source_handoff_issues": [
+        16
+      ],
+      "worker_prompt_details": "Do not reuse completed B05 worker #8 branch; start a fresh issue and branch for this new objective."
+    }
+  ]
+}
