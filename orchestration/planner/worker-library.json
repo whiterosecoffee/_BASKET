@@ -1,0 +1,323 @@
+{
+  "schema": "basket.worker_library@1",
+  "library_version": "1.0.0",
+  "capabilities": [
+    {
+      "id": "source_audit",
+      "description": "Verify issuer/SEC/provider evidence, economic meaning, and point-in-time source availability.",
+      "required_evidence": [
+        "primary_source",
+        "uncertainty_audit"
+      ],
+      "artifacts": [
+        "source ledger",
+        "dated provenance"
+      ]
+    },
+    {
+      "id": "contract_governance",
+      "description": "Enforce strict versioned JSON contracts and lossless data migration boundaries.",
+      "required_evidence": [
+        "schema_validation",
+        "pr_diff"
+      ],
+      "artifacts": [
+        "validated contract",
+        "migration mapping"
+      ]
+    },
+    {
+      "id": "immutable_replay",
+      "description": "Implement or test immutable event/market revisions and replay with availability cutoffs.",
+      "required_evidence": [
+        "as_of_replay",
+        "unit_test"
+      ],
+      "artifacts": [
+        "replay fixture",
+        "snapshot identifier"
+      ]
+    },
+    {
+      "id": "implementation",
+      "description": "Develop isolated domain-owned code with negative and reproducibility tests.",
+      "required_evidence": [
+        "unit_test",
+        "pr_diff"
+      ],
+      "artifacts": [
+        "domain code diff",
+        "test results"
+      ]
+    },
+    {
+      "id": "adversarial_validation",
+      "description": "Test expected failures, strict schema rejection, cross-owner collisions and evidence drift.",
+      "required_evidence": [
+        "unit_test",
+        "ci"
+      ],
+      "artifacts": [
+        "regression coverage",
+        "CI SHA"
+      ]
+    },
+    {
+      "id": "github_evidence",
+      "description": "Reconcile issue/branch/PR changed paths and exact CI SHA; block unsupported status claims.",
+      "required_evidence": [
+        "pr_diff",
+        "human_review"
+      ],
+      "artifacts": [
+        "independent review",
+        "readiness assessment"
+      ]
+    },
+    {
+      "id": "integration_gate",
+      "description": "Coordinate approved integration steps, current-main CI reruns and release gates.",
+      "required_evidence": [
+        "ci",
+        "human_review"
+      ],
+      "artifacts": [
+        "reviewed merge sequence",
+        "main CI status"
+      ]
+    },
+    {
+      "id": "hypothesis_falsification",
+      "description": "Separate facts from claims and scenarios; record alternatives and falsifiable conditions.",
+      "required_evidence": [
+        "uncertainty_audit",
+        "primary_source"
+      ],
+      "artifacts": [
+        "claim ledger",
+        "falsifier set"
+      ]
+    },
+    {
+      "id": "economic_sensitivity",
+      "description": "Compute conditional USD scenarios from dated inputs without invented probabilities or NAV precision.",
+      "required_evidence": [
+        "as_of_replay",
+        "uncertainty_audit"
+      ],
+      "artifacts": [
+        "scenario bridge",
+        "input validity"
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "evidence_researcher",
+      "description": "Reusable primary-source researcher for event, issuer and economic claims.",
+      "capabilities": [
+        "source_audit",
+        "hypothesis_falsification"
+      ],
+      "constraints": [
+        "Research may be read-only outside task owner paths.",
+        "Never label issuer statements independently verified economic reality."
+      ]
+    },
+    {
+      "id": "contract_engineer",
+      "description": "Reusable schema and migration engineer with lossless preserving methods.",
+      "capabilities": [
+        "contract_governance",
+        "implementation",
+        "adversarial_validation"
+      ],
+      "constraints": [
+        "Modify only owning spark contract/data paths.",
+        "Cross-domain schema changes require B00 contract ownership."
+      ]
+    },
+    {
+      "id": "data_engineer",
+      "description": "Reusable immutable data, snapshots and point-in-time replay implementation role.",
+      "capabilities": [
+        "immutable_replay",
+        "implementation"
+      ],
+      "constraints": [
+        "No claims of a live feed without provider entitlements and persistent worker.",
+        "Historical data remains append-only."
+      ]
+    },
+    {
+      "id": "qa_reviewer",
+      "description": "Reusable independent validation role comparing PR head to actual tests and CI.",
+      "capabilities": [
+        "adversarial_validation",
+        "github_evidence"
+      ],
+      "constraints": [
+        "CI workflows and integration tests belong exclusively to B01.",
+        "A passing branch job is not a production release."
+      ]
+    },
+    {
+      "id": "integration_steward",
+      "description": "Reusable B00 release-planning and approval-gate reviewer.",
+      "capabilities": [
+        "github_evidence",
+        "integration_gate"
+      ],
+      "constraints": [
+        "Never merge/tag without explicit user authorization.",
+        "Review main CI after authorized integration."
+      ]
+    },
+    {
+      "id": "inference_analyst",
+      "description": "Reusable narrative, economic causality and scenario-analysis role.",
+      "capabilities": [
+        "hypothesis_falsification",
+        "economic_sensitivity"
+      ],
+      "constraints": [
+        "No uncalibrated trading probabilities.",
+        "Honor data TTD and original currencies."
+      ]
+    }
+  ],
+  "recipes": [
+    {
+      "id": "integration_review",
+      "description": "Review evidence, integration authorization and retest main.",
+      "steps": [
+        {
+          "capability": "github_evidence",
+          "output": "PR and CI review"
+        },
+        {
+          "capability": "integration_gate",
+          "output": "authorized merge plan"
+        }
+      ]
+    },
+    {
+      "id": "lossless_migration",
+      "description": "Separate canonical schema fields from historical context and verify reconstruction.",
+      "steps": [
+        {
+          "capability": "source_audit",
+          "output": "context source audit"
+        },
+        {
+          "capability": "contract_governance",
+          "output": "strict schema mapping"
+        },
+        {
+          "capability": "adversarial_validation",
+          "output": "reconstruction/regression results"
+        }
+      ]
+    },
+    {
+      "id": "independent_ci",
+      "description": "Run exact-commit regression and schema checks without masking failures.",
+      "steps": [
+        {
+          "capability": "adversarial_validation",
+          "output": "negative tests"
+        },
+        {
+          "capability": "github_evidence",
+          "output": "CI status at head"
+        }
+      ]
+    },
+    {
+      "id": "historical_replay",
+      "description": "Add point-in-time replay and deterministic immutable snapshot evidence.",
+      "steps": [
+        {
+          "capability": "immutable_replay",
+          "output": "snapshot algorithm"
+        },
+        {
+          "capability": "implementation",
+          "output": "regression fixtures"
+        },
+        {
+          "capability": "adversarial_validation",
+          "output": "negative replay tests"
+        }
+      ]
+    },
+    {
+      "id": "issuer_ledger",
+      "description": "Capture event sources/lifecycles and replay revisions.",
+      "steps": [
+        {
+          "capability": "source_audit",
+          "output": "primary event evidence"
+        },
+        {
+          "capability": "immutable_replay",
+          "output": "dated event revision"
+        },
+        {
+          "capability": "adversarial_validation",
+          "output": "anti-double-counting checks"
+        }
+      ]
+    },
+    {
+      "id": "narrative_analysis",
+      "description": "Audit reported stories, alternatives and falsification against dated source facts.",
+      "steps": [
+        {
+          "capability": "source_audit",
+          "output": "claim provenance"
+        },
+        {
+          "capability": "hypothesis_falsification",
+          "output": "alternatives/falsifiers"
+        }
+      ]
+    },
+    {
+      "id": "economic_traversal",
+      "description": "Compute reproducible USD time-window descriptive traversal/sensitivity.",
+      "steps": [
+        {
+          "capability": "immutable_replay",
+          "output": "as-of data cut"
+        },
+        {
+          "capability": "implementation",
+          "output": "traversal engine"
+        },
+        {
+          "capability": "economic_sensitivity",
+          "output": "scenario/risk bridge"
+        }
+      ]
+    },
+    {
+      "id": "graph_reconcile",
+      "description": "Separate canonical economic exposure and overlapping ownership structures.",
+      "steps": [
+        {
+          "capability": "source_audit",
+          "output": "dated exposure source"
+        },
+        {
+          "capability": "contract_governance",
+          "output": "graph consistency"
+        },
+        {
+          "capability": "hypothesis_falsification",
+          "output": "anti-double-counting checks"
+        }
+      ]
+    }
+  ]
+}
