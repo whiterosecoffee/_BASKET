@@ -18,6 +18,9 @@ for folder in sorted((root/"tickers").iterdir()):
   except Exception as exc: errors.append(f"{p}: {exc}")
  p=folder/"history.jsonl"
  if not p.exists(): errors.append(f"{p}: missing");continue
+ if json.loads((folder/"entity.json").read_text()).get("type")!="public_equity":
+  print(f"{folder.name}: private/non-public history (daily OHLCV not required)")
+  continue
  prev=-1; count=0
  for i,line in enumerate(p.read_text().splitlines(),1):
   try:
