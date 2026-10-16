@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.0 — 2026-10-16
+- Specify USDJPY as a first-class FX market entity with independent traversal and USD-first conversion.
+- Define per-field TTD freshness windows, provenance, stale/unavailable/conflicted states and a freshness evaluation module.
+- Specify dynamic mark-to-market SFTBY NAV with FX decomposition by asset, debt, expenses, cash, hedges and maturity.
+- Mark live FX and latest-trade access as unavailable under the tested Massive entitlement; do not claim live NAV.
+- Require dated ownership/share counts, non-double-counted fund exposures and explicit provisional valuation flags.
+- Pending: live provider, holdings reconciliation, working NAV calculation and validated TTD pipeline.
+
+# Changelog
+
 ## 0.3.0 — 2026-10-16
 - Adopt USD as the mandatory reporting currency across entity, NAV, traversal and relationship outputs.
 - Persist 326 JPYUSD historical daily FX observations; retain original-currency and conversion metadata.
