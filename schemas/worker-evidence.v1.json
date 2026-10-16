@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/whiterosecoffee/_BASKET/blob/main/schemas/worker-evidence.v1.json",
+  "title": "_BASKET GitHub evidence snapshot v1",
+  "description": "Point-in-time connector observations to be checked by B00, not live state and not inferred from worker prose.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "observed_at",
+    "repository",
+    "main_commit",
+    "issues",
+    "pull_requests",
+    "workflow_runs"
+  ],
+  "properties": {
+    "schema": {
+      "const": "basket.github_evidence@1"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "repository": {
+      "const": "whiterosecoffee/_BASKET"
+    },
+    "main_commit": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "number",
+          "state",
+          "url"
+        ],
+        "properties": {
+          "number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "state": {
+            "enum": [
+              "open",
+              "closed"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pull_requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "number",
+          "url",
+          "head_branch",
+          "head_sha",
+          "base_branch",
+          "state",
+          "draft",
+          "merged",
+          "changed_paths"
+        ],
+        "properties": {
+          "number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "head_branch": {
+            "type": "string"
+          },
+          "head_sha": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{40}$"
+          },
+          "base_branch": {
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "open",
+              "closed"
+            ]
+          },
+          "draft": {
+            "type": "boolean"
+          },
+          "merged": {
+            "type": "boolean"
+          },
+          "changed_paths": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "workflow_runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "url",
+          "head_sha",
+          "conclusion",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "head_sha": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{40}$"
+          },
+          "conclusion": {
+            "enum": [
+              "success",
+              "failure",
+              "skipped",
+              "cancelled",
+              "timed_out",
+              "neutral",
+              "action_required",
+              "pending"
+            ]
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
