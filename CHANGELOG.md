@@ -1,3 +1,5 @@
+# Changelog
+
 ## Unreleased — v0.5.0 candidate (not shipped)
 - Proposed independent conversation branching, domain ownership, handoff issues and 22 scoped launch sparks.
 - Proposed complete ChatGPT Project Instructions in one maintained block and separate version tracks for core, orchestration, schemas, datasets, engines and reports.
