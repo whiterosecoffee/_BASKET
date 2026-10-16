@@ -1,6 +1,6 @@
 {
   "id": "basket.architecture",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "schema": "architecture.schema@1.0.0",
   "status": "experimental",
   "updated": "2026-10-16",
@@ -152,7 +152,8 @@
       "Validation script and GitHub Actions workflow",
       "326 historical JPYUSD FX daily bars",
       "SFTBY historical NAV reference translated to USD",
-      "SFTBY 200-session to intraday deterministic report"
+      "SFTBY 200-session to intraday deterministic report",
+      "TTD local JSONL ingestion and expiry module, feed registry, and unit tests committed (execution unverified)"
     ],
     "pending": [
       "Verified GitHub Actions pass",
@@ -167,7 +168,10 @@
       "Live market and FX entitlement/provider needed; Massive latest-trade and conversion endpoints returned NOT_ENTITLED",
       "Automated TTD freshness enforcement",
       "Dynamic mark-to-market holdings ledger with confirmed share counts",
-      "USDJPY shock decomposition of debt, costs, cash and NAV"
+      "USDJPY shock decomposition of debt, costs, cash and NAV",
+      "Live source adapters, durable always-on worker and validated automated refresh",
+      "Cross-feed invalidation and dependency recomputation",
+      "Multi-writer locking and provider revision reconciliation"
     ],
     "source": "Massive",
     "data_through": "2026-10-15",
@@ -198,7 +202,7 @@
     }
   },
   "data_freshness": {
-    "definition": "TTD is a per-field maximum permitted observation age; TTL for storage retention is separate",
+    "definition": "TTD = Time to Die: maximum valid lifetime of an observation or calculation; separate from data retention. Dead values remain historical but cannot be represented as current.",
     "statuses": [
       "fresh",
       "stale",
@@ -206,7 +210,7 @@
       "conflicted",
       "provisional"
     ],
-    "policy": "On read, compute age against source available_at/observed_at and TTD; stale values must be refreshed or excluded from current NAV, never silently rolled forward.",
+    "policy": "Local-first append-only JSONL: scheduled/event-triggered source adapters persist dated observations; dead or missing dependencies invalidate dependent calculations. Failure to refresh never extends TTD.",
     "profiles": {
       "market_intraday": {
         "ttd_seconds": 300,
@@ -247,7 +251,16 @@
       "currency",
       "fx_as_of",
       "evidence_type"
-    ]
+    ],
+    "ttd_semantics": {
+      "observation": "observed_at + ttd_seconds",
+      "computation": "minimum of computed_at + calculation_ttd_seconds, own observation expiration, and all dependency expirations",
+      "stale_history": "Retain dead records for historical replay, never silently substitute for current results",
+      "execution": "Independent persistent local worker, not GitHub repository or interactive chat",
+      "predetermined_paths": "runtime/feeds.json",
+      "runtime": "runtime/ttd.py",
+      "configuration": "All feeds disabled until authenticated entitled adapters are configured"
+    }
   },
   "nav_model": {
     "reporting_currency": "USD",
