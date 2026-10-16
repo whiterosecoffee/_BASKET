@@ -1,11 +1,15 @@
 # _BASKET — Essential Conversation Launch Pack
 
-**Prerequisite:** Review and authorize merge of PR #2 into `main`. Confirmed cross-domain handoffs: [B00 contract #3](https://github.com/whiterosecoffee/_BASKET/issues/3), [B05 SFTBY migration #4](https://github.com/whiterosecoffee/_BASKET/issues/4), and [B01 CI verification #5](https://github.com/whiterosecoffee/_BASKET/issues/5). Until then, the starter file exists only in the orchestration branch. Every *new* conversation reads the merged `AGENTS.md` + `orchestration/sparks.json` and creates its own NEW GitHub issue and branch; these prompts never preassign the currently active branch.
+**Bootstrap exception:** PR #2 is currently a draft on `work/1-conversation-sparks-orchestration`. Launch B05 immediately by reading AGENTS.md and the catalog **from that branch**, then create a NEW worker issue and UNIQUE branch from **main**. This is a temporary read-only instruction source, not branch reuse. After B05 repair and B01 CI verification, review/merge PR #2 when authorized. Confirmed cross-domain handoffs: [B00 contract #3](https://github.com/whiterosecoffee/_BASKET/issues/3), [B05 SFTBY migration #4](https://github.com/whiterosecoffee/_BASKET/issues/4), and [B01 CI verification #5](https://github.com/whiterosecoffee/_BASKET/issues/5). Until then, the starter file exists only in the orchestration branch. Every *new* conversation reads the merged `AGENTS.md` + `orchestration/sparks.json` and creates its own NEW GitHub issue and branch; these prompts never preassign the currently active branch.
 
-## W0: Contract steward — B00
+## W0: Start here — B05 lossless CI repair (then B01 verification)
+
+Read the B05 launch prompt below **first**, using the bootstrap branch for instructions if PR #2 is unmerged. B05 preserves SFTBY's extra research/valuation/coverage fields as a new `research/graph/**` sidecar while keeping the canonical relationship record valid under the existing schema. B00 schema redesign is a separate, nonblocking improvement.
+
+## Longer-term contract steward — B00
 ```text
 Launch spark B00 — Shared Contract Reconciliation.
-Create a new issue and unique branch from main; do not reuse the orchestration branch.
+Create a new issue and unique branch from main; do not reuse the orchestration branch. If PR #2 has not yet merged, read its rules as read-only from `work/1-conversation-sparks-orchestration`.
 Inspect the failing SFTBY relationship-schema validation run 38926002189.
 Define where holdings look-through, NAV references, coverage metadata and acquisition pipeline data properly belong; update only owned shared schemas/architecture plus migration instructions. Do not edit tickers/SFTBY/relationships.json or CI scripts. Open precise linked handoffs to B05 for data migration and B01 for validation checks. Prove the revised schema's strictness and backwards compatibility or versioned migration.
 ```
@@ -19,7 +23,7 @@ Launch spark B01 — Integrity and CI Rescue. Create your own issue and new bran
 
 ### B05 — Canonical relationship graph
 ```text
-Launch spark B05 — Relationship Graph and SFTBY Reconciliation. Create your own issue and new branch. Inspect SFTBY relationships.json and schemas/relationships.v1.json; perform point-in-time stock/flow, ownership, fund, NAV and acquisition-status separation. Write only canonical relationships files and relationship engine/research graph under B05 ownership; ask B00 for any contract change; send event changes to B03. Remove accidental mixing by explicit versioned, tested migration rather than dropping useful evidence. Acceptance: canonical relationship data valid, dated, USD-aware and non-double-counted.
+Launch spark B05 — Relationship Graph and SFTBY Reconciliation. Create your own issue and new branch. Inspect SFTBY relationships.json and schemas/relationships.v1.json; first preserve top-level as_of, scope, coverage, named_exposures, pipeline and nav_reference_usd losslessly under owned research/graph/** and keep only existing-schema-allowed fields in canonical relationships.json. Perform point-in-time stock/flow, ownership, fund, NAV and acquisition-status separation. Write only canonical relationships files and relationship engine/research graph under B05 ownership; ask B00 for an optional longer-term contract change if needed; send event changes to B03. Remove accidental mixing by explicit versioned, tested migration rather than dropping useful evidence. Acceptance: canonical relationship data valid, dated, USD-aware and non-double-counted.
 ```
 
 ### B02 — Historical and live feed truth
