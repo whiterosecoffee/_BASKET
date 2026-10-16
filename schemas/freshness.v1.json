@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Time-to-data observation contract",
+  "type": "object",
+  "required": [
+    "entity_id",
+    "field",
+    "value",
+    "currency",
+    "observed_at",
+    "available_at",
+    "ingested_at",
+    "source",
+    "ttd_seconds",
+    "freshness_status",
+    "evidence_type"
+  ],
+  "properties": {
+    "entity_id": {
+      "type": "string"
+    },
+    "field": {
+      "type": "string"
+    },
+    "value": {
+      "type": [
+        "number",
+        "string",
+        "null"
+      ]
+    },
+    "currency": {
+      "type": "string"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "available_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ingested_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string"
+    },
+    "ttd_seconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "freshness_status": {
+      "enum": [
+        "fresh",
+        "stale",
+        "unavailable",
+        "conflicted",
+        "provisional"
+      ]
+    },
+    "evidence_type": {
+      "enum": [
+        "market",
+        "filing",
+        "company_disclosure",
+        "contract",
+        "estimate",
+        "hypothesis"
+      ]
+    },
+    "fx_as_of": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}
