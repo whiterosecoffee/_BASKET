@@ -195,7 +195,10 @@ def run_plan(queue, library, registry, evidence, active_ids=None):
             warnings.append("GitHub evidence missing claimed worker PR")
         gate_blocks = dependency(t)
         branch_ci = bool(pr and head_ci_green(pr, runs))
-        if pr and pr["merged"]:
+        if (t["issue_number"] is not None and not issue) or (
+                t["pr_number"] is not None and not pr):
+            state = "evidence_unavailable"
+        elif pr and pr["merged"]:
             state = "integrated_main_ci_unverified"
             if any(run["head_sha"] == evidence["main_commit"] and
                    run["name"] == "Validate BASKET data" and
