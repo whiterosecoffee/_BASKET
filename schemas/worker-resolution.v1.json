@@ -115,8 +115,12 @@
       ]
     },
     "reported_at": {
-      "type": "string",
-      "format": "date-time"
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time",
+      "description": "Null when the worker report time is not independently established."
     },
     "disposition": {
       "enum": [
