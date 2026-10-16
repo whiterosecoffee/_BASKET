@@ -1,6 +1,6 @@
 {
   "schema": "basket.github_evidence@1",
-  "observed_at": "2026-10-16T21:45:54Z",
+  "observed_at": null,
   "repository": "whiterosecoffee/_BASKET",
   "main_commit": "4319c6c959387f2a1df333b6a86f6f94e57710e3",
   "issues": [
@@ -151,5 +151,6 @@
       "conclusion": "failure",
       "name": "Validate BASKET data"
     }
-  ]
+  ],
+  "capture_mode": "reconstructed_fixture"
 }
