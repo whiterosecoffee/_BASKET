@@ -1,0 +1,30 @@
+{
+  "schema": "market.daily@1",
+  "entity_id": "SFTBY",
+  "source": "Massive",
+  "endpoint": "/v2/aggs/ticker/{ticker}/range/1/day/{from}/{to}",
+  "params": {
+    "adjusted": true,
+    "sort": "asc",
+    "limit": 5000
+  },
+  "fields": [
+    "timestamp_ms",
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume",
+    "vwap",
+    "transactions"
+  ],
+  "currency": "USD",
+  "timezone": "America/New_York",
+  "adjustment_basis": "split_adjusted",
+  "interval": "1d",
+  "start": "2025-10-01",
+  "end": "2026-10-15",
+  "records": 262,
+  "record_status": "completed_daily_bars",
+  "notes": "Source provider timestamp interpreted as market-session date; source request retrieved 2026-10-16. Provider may revise records."
+}
