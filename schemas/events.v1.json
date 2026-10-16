@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema",
+    "entity_id",
+    "events"
+  ],
+  "properties": {
+    "schema": {
+      "const": "events@1"
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "effective_at",
+          "sources"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "earnings",
+              "guidance",
+              "partnership",
+              "contract",
+              "financing",
+              "acquisition",
+              "regime_change",
+              "other"
+            ]
+          },
+          "effective_at": {
+            "type": "string"
+          },
+          "available_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "metrics": {
+            "type": "object"
+          },
+          "implications": {
+            "type": "array"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
