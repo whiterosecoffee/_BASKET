@@ -1,10 +1,10 @@
 # _BASKET — Independent Conversation Sparks
 
-**Catalog:** v1.1.1 · **Objective domains:** 22 · **Coverage:** accessible excerpts and existing artifacts, NOT a full transcript export.
+**Catalog:** v1.2.0 · **Objective domains:** 22 · **Coverage:** accessible excerpts and existing artifacts, NOT a full transcript export.
 
 Each spark is a **ready-to-launch workstream**, not an automatically spawned chat. New conversations must read `AGENTS.md` and `orchestration/sparks.json` from **GitHub main**, inspect existing issues/PR file changes, create their **own new GitHub issue and branch** `work/<issue-number>-<objective-slug>`, then modify only exclusively owned files. Dormant sparks have no branches or worker issues.
 
-**Important:** Until draft PR #2 is reviewed and merged with authorization, these files exist only on `work/1-conversation-sparks-orchestration`. Do NOT tell new conversations to read them from main before that merge.
+**Bootstrap:** Until PR #2 merges, new workers READ `AGENTS.md` and the spark catalog from `work/1-conversation-sparks-orchestration`, but CREATE their own issue and branch from current `main`. After approval/merge, read these documents from `main`.
 
 ## Launching a spark
 Open a new chat inside the _BASKET ChatGPT Project; enter **`Launch spark B01`** or paste the full `launch_prompt` field for B01 from the JSON catalog. The issue+branch initialization should be automatic if GitHub permissions are active. Conversation tools cannot directly launch a second ChatGPT conversation, so user action is needed. New chat != just continuing this thread.
@@ -16,7 +16,7 @@ Open a new chat inside the _BASKET ChatGPT Project; enter **`Launch spark B01`**
 - **Wave 3:** B04, B07, B08, B17 — Valuation, calibration, deployment, and cross-market composites built on verified inputs. Gate: G2 + G3.
 - **Wave 4:** B12, B13, B14, B15, B16, B18, B19, B20 — Broaden economic intelligence without losing core operational reliability. Gate: Proof from pilot.
 
-**Concurrent active worker recommendation:** 3–5. Research may continue in its own files while output calculations remain blocked by missing upstream data, ownership or CI.
+**Immediate pilot launch:** B05 first (handoff #4) to restore strict schema compliance losslessly without a schema change; B01 (handoff #5) independently verifies CI. Then review/merge PR #2 with authorization. **Concurrent active worker recommendation:** 3–5. Research may continue in its own files while output calculations remain blocked by missing upstream data, ownership or CI.
 
 ## Authoritative ownership
 | Spark | Workstream | Priority | Exclusive write paths | Depends on |
