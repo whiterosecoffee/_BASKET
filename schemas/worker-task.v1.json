@@ -176,6 +176,14 @@
     },
     "note": {
       "type": "string"
+    },
+    "task_queue_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^T-[0-9]{3}$",
+      "description": "Optional durable B00 planner queue identifier; not the new worker issue/task ID."
     }
   }
 }
