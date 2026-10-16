@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased — v0.5.0 candidate (not shipped)
+- Add reusable/composable worker profiles, task-DAG queue, read-only GitHub evidence refresh and priority planner; no autonomous conversation launch or background executor.
 - Introduce worker task, resolution and GitHub evidence schemas plus offline B00 evaluator and negative tests; integration in B01 CI remains pending.
 - Proposed independent conversation branching, domain ownership, handoff issues and 22 scoped launch sparks.
 - Proposed complete ChatGPT Project Instructions in one maintained block and separate version tracks for core, orchestration, schemas, datasets, engines and reports.
