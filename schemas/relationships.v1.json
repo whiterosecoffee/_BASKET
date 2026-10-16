@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema",
+    "entity_id",
+    "pools",
+    "upstream",
+    "downstream",
+    "ownership",
+    "other"
+  ],
+  "properties": {
+    "schema": {
+      "const": "relationships@1"
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "pools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "role"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "size_usd": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "share": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "as_of": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "upstream": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    },
+    "downstream": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    },
+    "ownership": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    },
+    "other": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    }
+  },
+  "$defs": {
+    "edge": {
+      "type": "object",
+      "required": [
+        "target",
+        "type",
+        "sources"
+      ],
+      "properties": {
+        "target": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "flow_usd": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "flow_period": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "share": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "effective_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "verified",
+            "estimated",
+            "hypothesis",
+            "unknown"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
