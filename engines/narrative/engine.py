@@ -162,6 +162,36 @@ def extrapolate(records, asof):
                              "customer_level_cashflow_without_disclosures"]}
 
 
+
+def sensitivity(records, asof, private_equity_valuation_usd_b, valuation_move_pct):
+    """Explicit SFTBY look-through scenario, NEVER a reported or current NAV mark."""
+    if private_equity_valuation_usd_b <= 0:
+        raise ValueError("valuation must be positive")
+    shares = [r for r in records if
+              r["entity"] == "SFTBY" and r["metric"] == "OPENAI_ownership_fraction"
+              and r["kind"] == "fact" and r["status"] == "confirmed"
+              and r["source"]["tier"] == "primary" and freshness(r, asof) == "alive"]
+    if not shares:
+        return {"evaluated_at": iso(asof), "state": "unavailable",
+                "reason": "No live primary verified SFTBY ownership input"}
+    sh = sorted(shares, key=lambda r: r["observed_at"])[-1]
+    percent = sh["value"]
+    if not 0 <= percent <= 1:
+        raise ValueError("invalid ownership fraction")
+    return {
+        "evaluated_at": iso(asof), "classification": "conditional_sensitivity_not_NAV",
+        "inputs": [sh["id"]], "scenario_assumptions": {
+            "OPENAI_equity_valuation_usd_b": private_equity_valuation_usd_b,
+            "valuation_move_pct": valuation_move_pct,
+            "unchanged_ownership_fraction": percent,
+            "fx": "USD-native; no conversion performed"
+        },
+        "gross_stake_value_usd_b": round(percent * private_equity_valuation_usd_b, 4),
+        "gross_stake_change_usd_b": round(
+            percent * private_equity_valuation_usd_b * valuation_move_pct / 100, 4),
+        "caveat": "Not SoftBank NAV or accounting fair value. Ignores security preferences, fund-level economics, dilution, financing, tax, control and private-company illiquidity."
+    }
+
 def append(path, new):
     validate(new)
     p = pathlib.Path(path)
@@ -176,10 +206,12 @@ def append(path, new):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("action", choices=("audit", "extrapolate", "append"))
+    parser.add_argument("action", choices=("audit", "extrapolate", "sensitivity", "append"))
     parser.add_argument("jsonl")
     parser.add_argument("--at", help="UTC evaluation timestamp (required for reproducible replay)")
     parser.add_argument("--input", help="JSON file with new record for append")
+    parser.add_argument("--valuation-usd-b", type=float, help="Explicit hypothetical OpenAI equity valuation in USD billions")
+    parser.add_argument("--move-pct", type=float, default=-4.0, help="Hypothetical valuation move in percentage points")
     args = parser.parse_args()
     if args.action == "append":
         if not args.input:
@@ -190,7 +222,14 @@ def main():
     if not args.at:
         parser.error("--at is required: do not use implicit clock for research replay")
     rows, instant = load(args.jsonl), when(args.at)
-    result = audit(rows, instant) if args.action == "audit" else extrapolate(rows, instant)
+    if args.action == "audit":
+        result = audit(rows, instant)
+    elif args.action == "extrapolate":
+        result = extrapolate(rows, instant)
+    else:
+        if args.valuation_usd_b is None:
+            parser.error("--valuation-usd-b required for sensitivity")
+        result = sensitivity(rows, instant, args.valuation_usd_b, args.move_pct)
     print(json.dumps(result, indent=2))
 
 
