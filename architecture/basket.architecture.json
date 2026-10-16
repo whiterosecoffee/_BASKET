@@ -1,6 +1,6 @@
 {
   "id": "basket.architecture",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "schema": "architecture.schema@1.0.0",
   "status": "experimental",
   "updated": "2026-10-16",
@@ -163,7 +163,11 @@
       "Backtesting and calibration",
       "Complete current SFTBY holdings inventory and reconcile USD NAV",
       "Japanese parent 9984.T prices and verified ADR mechanics",
-      "Automated replay and CI verification"
+      "Automated replay and CI verification",
+      "Live market and FX entitlement/provider needed; Massive latest-trade and conversion endpoints returned NOT_ENTITLED",
+      "Automated TTD freshness enforcement",
+      "Dynamic mark-to-market holdings ledger with confirmed share counts",
+      "USDJPY shock decomposition of debt, costs, cash and NAV"
     ],
     "source": "Massive",
     "data_through": "2026-10-15",
@@ -175,5 +179,95 @@
     "foreign_asset_conversion": "Use historical date-aligned exchange rates; retain original currency, FX pair, source and timestamp as provenance",
     "no_stale_conversion": "Never mix foreign values and USD without a documented conversion basis",
     "foreign_market_prices": "Verify venue, corporate actions and ADR/share conversion before cross-market comparisons"
+  },
+  "market_entities": {
+    "FX_USDJPY": {
+      "id": "FX_USDJPY",
+      "market": "forex",
+      "base": "USD",
+      "quote": "JPY",
+      "storage": "fx/JPYUSD/history.jsonl",
+      "inversion": "USDJPY = 1 / JPYUSD",
+      "reporting_currency": "USD",
+      "requirements": [
+        "independent daily and intraday history",
+        "cross-market timestamp alignment",
+        "FX shock sensitivity and rate regimes",
+        "do not infer real-time prices from delayed daily observations"
+      ]
+    }
+  },
+  "data_freshness": {
+    "definition": "TTD is a per-field maximum permitted observation age; TTL for storage retention is separate",
+    "statuses": [
+      "fresh",
+      "stale",
+      "unavailable",
+      "conflicted",
+      "provisional"
+    ],
+    "policy": "On read, compute age against source available_at/observed_at and TTD; stale values must be refreshed or excluded from current NAV, never silently rolled forward.",
+    "profiles": {
+      "market_intraday": {
+        "ttd_seconds": 300,
+        "requirements": "Exchange/provider timestamps; if no entitlement or active feed, stale/unavailable"
+      },
+      "market_daily": {
+        "ttd_seconds": 86400,
+        "requirements": "Completed session, provider and adjustment metadata"
+      },
+      "fx_intraday": {
+        "ttd_seconds": 300,
+        "requirements": "Same effective time as related asset whenever possible"
+      },
+      "ownership": {
+        "ttd_seconds": 2592000,
+        "requirements": "Reconfirm on company disclosures and corporate actions; unknown after deadline"
+      },
+      "balance_sheet": {
+        "ttd_seconds": 7776000,
+        "requirements": "Quarterly filing plus event-driven updates"
+      },
+      "private_valuation": {
+        "ttd_seconds": 2592000,
+        "requirements": "Latest disclosed round/transaction; not automatically market value"
+      },
+      "event": {
+        "ttd_seconds": 86400,
+        "requirements": "Recheck material news and filings"
+      }
+    },
+    "required_fields": [
+      "observed_at",
+      "available_at",
+      "ingested_at",
+      "source",
+      "ttd_seconds",
+      "freshness_status",
+      "currency",
+      "fx_as_of",
+      "evidence_type"
+    ]
+  },
+  "nav_model": {
+    "reporting_currency": "USD",
+    "valuation_as_of": "timestamped snapshot",
+    "components": [
+      "publicly traded stakes marked to verified market prices and confirmed share counts",
+      "private stakes valued with dated scenario estimates and uncertainty",
+      "fund investments with look-through ownership and non-double-counted fund-level adjustments",
+      "cash, debt and commitments by currency and maturity",
+      "FX exposures by currency including operating costs and cash flows",
+      "hedges and derivatives",
+      "taxes, holding-company discounts and contingent liabilities"
+    ],
+    "requirements": [
+      "Separate static historical reported NAV from derived mark-to-market NAV",
+      "Do not extrapolate ownership or split adjustments",
+      "FX scenario sensitivities distinguish denomination, operating location and hedges",
+      "Every contribution records provenance, TTD, confidence and model version",
+      "If a material component is stale, derived NAV must be marked provisional/unavailable"
+    ],
+    "formula": "USD_NAV = USD_equivalent(assets - liabilities + net hedges - other adjustments), with dated positions, FX and no double counting"
   }
 }
