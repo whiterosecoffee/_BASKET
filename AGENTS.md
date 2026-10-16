@@ -14,7 +14,7 @@ Separation:
 - B05 owns ticker `relationships.json`; company/theme researchers submit edge proposals, not direct writes.
 - Company sparks own only their respective `entity.json` and `research/<entity>/**`.
 - B01 owns shared test suite and CI workflows; code workers provide reproducible test requests and can validate locally without modifying those paths.
-- B00 owns `AGENTS.md`, orchestration docs and cross-domain contract arbitration.
+- B00 owns `AGENTS.md`, `orchestration/**`, `architecture/**`, `schemas/**`, root `README.md`/`CHANGELOG.md` and cross-domain contract arbitration.
 
 ## Cross-domain requests
 Create an issue labeled/described as a dependency (labels if available), referencing the source issue and owner spark. Include requested contract/data change, reason, verified sources, input/output expectations, acceptance criteria and exact file scope. Provide a ready-to-paste prompt for the domain's conversation. Continue unrelated work; do not claim the receiving conversation has acted until it has retrieved the issue.
