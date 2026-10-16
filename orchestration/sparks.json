@@ -31,6 +31,22 @@
       "owner": "B00"
     },
     {
+      "path": "architecture/**",
+      "owner": "B00"
+    },
+    {
+      "path": "schemas/**",
+      "owner": "B00"
+    },
+    {
+      "path": "README.md",
+      "owner": "B00"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "owner": "B00"
+    },
+    {
       "path": "tests/**",
       "owner": "B01"
     },
@@ -304,7 +320,11 @@
       "objective": "Coordinate issue/branch lifecycle, file ownership, interfaces, integration sequencing, and dependency handoffs.",
       "write_paths": [
         "AGENTS.md",
-        "orchestration/**"
+        "orchestration/**",
+        "architecture/**",
+        "schemas/**",
+        "README.md",
+        "CHANGELOG.md"
       ],
       "read_paths": [
         "architecture/**",
@@ -314,7 +334,7 @@
       "dependencies": [],
       "first_task": "Audit open issues, identify collision risks, maintain issue→branch→owner registry and contract change requests.",
       "acceptance": "Every workstream has disjoint write permissions, linked issues and an explicit integration sequence.",
-      "launch_prompt": "Adopt _BASKET Spark B00: Orchestrator & Contracts. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: AGENTS.md, orchestration/**. Objective: Coordinate issue/branch lifecycle, file ownership, interfaces, integration sequencing, and dependency handoffs. First task: Audit open issues, identify collision risks, maintain issue→branch→owner registry and contract change requests. Acceptance: Every workstream has disjoint write permissions, linked issues and an explicit integration sequence. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
+      "launch_prompt": "Adopt _BASKET Spark B00: Orchestrator & Contracts. Read AGENTS.md and orchestration/sparks.json from the current main branch. Verify open issues and ownership collisions. Create a NEW GitHub issue for this conversation and a UNIQUE work/<issue>-<slug> branch from current main before modifying files. You own ONLY: AGENTS.md, orchestration/**, architecture/**, schemas/**, README.md, CHANGELOG.md. Objective: Coordinate issue/branch lifecycle, file ownership, interfaces, integration sequencing, and dependency handoffs. First task: Audit open issues, identify collision risks, maintain issue→branch→owner registry and contract change requests. Acceptance: Every workstream has disjoint write permissions, linked issues and an explicit integration sequence. Do not change another domain; create an actionable dependency issue + handoff prompt for its owner. Keep all results timestamped, USD-denominated, source-linked and TTD-aware. Commit only to your branch and open a draft PR for review; do not merge without authorization."
     },
     {
       "id": "B01",
