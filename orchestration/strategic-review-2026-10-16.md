@@ -74,7 +74,7 @@ Report contract:
 
 ## Recommended worker activation
 1. **Review/merge PR #2 when authorized**, and launch B00 contract-focused follow-up for the schema/data model (its own issue/branch).
-2. **Wave 1:** B01 integrity gate; B05 relationship reconciliation; B02 feed/TTD; B03 event ledger; B21 narrative/claims. Start at most 3–5 at a time.
+2. **Wave 1:** B01 integrity gate (handoff #5); B05 relationship reconciliation (handoff #4); B02 feed/TTD; B03 event ledger; B21 narrative/claims. Start at most 3–5 at a time.
 3. **Wave 2:** B06 traversal, B09 SFTBY, B10 CRWV and B11 AAOI. Company research can proceed while upstream calculations remain blocked; do not claim live NAV or trade probabilities.
 4. **Wave 3:** B04 economics, B07 calibration, B08 tool deployment and B17 composite signals.
 5. **Wave 4:** ARM, OpenAI, NVDA, optics, telco/cable, memory and full supply-chain expansion only after the vertical slice is reproducible.
