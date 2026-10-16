@@ -1,0 +1,53 @@
+{
+  "schema": "basket.worker_task@1",
+  "task_id": "B05-8",
+  "spark_id": "B05",
+  "issue": {
+    "number": 8,
+    "url": "https://github.com/whiterosecoffee/_BASKET/issues/8"
+  },
+  "branch": {
+    "name": "work/8-sftby-relationship-integrity",
+    "base": "main"
+  },
+  "objective": "Normalize SFTBY relationships to existing strict relationships@1 while preserving all extra source context and historical USD NAV losslessly.",
+  "write_paths": [
+    "tickers/SFTBY/relationships.json",
+    "research/graph/SFTBY/**"
+  ],
+  "read_paths": [
+    "schemas/relationships.v1.json",
+    "tickers/SFTBY/events.json"
+  ],
+  "acceptance": [
+    {
+      "id": "A1",
+      "criterion": "Canonical relationship record passes strict existing schema validation.",
+      "evidence_class": "ci",
+      "mandatory": true
+    },
+    {
+      "id": "A2",
+      "criterion": "Six displaced contextual fields are preserved losslessly and reconstruct the original record.",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A3",
+      "criterion": "Existing ownership relationships and historical NAV provenance remain intact.",
+      "evidence_class": "code_review",
+      "mandatory": true
+    }
+  ],
+  "dependencies": [
+    {
+      "issue_number": 4,
+      "kind": "handoff",
+      "blocks_completion": false,
+      "reason": "Origination handoff for current record normalization."
+    }
+  ],
+  "claimed_at": "2026-10-16T19:42:00Z",
+  "state": "review",
+  "note": "B00 backfilled example from issue #8 and PR #10; historical task timestamp reflects approximate sample and must not be interpreted as exact worker claim event."
+}
