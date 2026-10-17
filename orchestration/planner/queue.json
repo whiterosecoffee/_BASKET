@@ -476,7 +476,9 @@
         "Enumerate every registered ticker and required schema element against exact main commit and relevant open PR file changes.",
         "Report per-entity existence (absent/present/branch-only), strict schema validity, empty vs sourced vs reconciled content, daily/intraday session coverage and gaps, FX requirements, timestamps and TTD, engine readiness.",
         "Produce machine-readable coverage denominators, missing/invalid/stale states and owner-tagged gap list; do not create fabricated placeholder data.",
-        "Cross-reference existing B02/B03/B05/B19/company tasks instead of opening duplicate workers; request B01 independent coverage regression through a linked handoff."
+        "Cross-reference existing B02/B03/B05/B19/company tasks instead of opening duplicate workers; request B01 independent coverage regression through a linked handoff.",
+        "Reconcile coverage with open B19 expansion PR #23 and economic-flow contract PR #22; distinguish proposed branch-only research from integrated canonical facts.",
+        "Record each discovered gap as an existing queue-task acceptance amendment or new B00-reviewed queue item; do not leave actionable gaps solely in issue comments."
       ],
       "write_scope": [
         "orchestration/**"
@@ -516,7 +518,8 @@
       "acceptance": [
         "Store exactly one canonical source- and date-attributed proposed/unverified research seed for S1-S8 and NVDA-H01-H06 with prior-art families, falsifiers and explicit dependencies.",
         "Reference existing B03/B05/B04/B06/B19/B14 responsibilities without copying canonical facts or changing their owned files.",
-        "Keep NVDA as a case study, not a validated valuation conclusion; defer point-in-time rankings and causal claims."
+        "Keep NVDA as a case study, not a validated valuation conclusion; defer point-in-time rankings and causal claims.",
+        "Cross-reference B00 economic-flow architecture draft PR #22 as read-only dependency; avoid introducing a parallel capital-to-profit contract."
       ],
       "write_scope": [
         "research/narrative/**"
@@ -526,7 +529,7 @@
       "source_handoff_issues": [
         1
       ],
-      "worker_prompt_details": "Source handoff issue #1 comment 6229556803. No branch until B00 launches this work after prerequisites; do not displace P0 integrity, CI or TTD."
+      "worker_prompt_details": "Source handoff issue #1 comment 6229556803. No branch until B00 launches this work after prerequisites; do not displace P0 integrity, CI or TTD. B00 PR #22 proposes architecture/ECONOMIC_FLOW_GRAPH.md; read as provisional and do not duplicate its contract."
     }
   ]
 }
