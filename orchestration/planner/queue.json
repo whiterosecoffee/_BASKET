@@ -1,6 +1,6 @@
 {
   "schema": "basket.task_queue@1",
-  "queue_version": "1.0.0",
+  "queue_version": "1.1.0",
   "as_of": "2026-10-16",
   "active_worker_limit": 3,
   "tasks": [
@@ -325,6 +325,127 @@
         16
       ],
       "worker_prompt_details": "Do not reuse completed B05 worker #8 branch; start a fresh issue and branch for this new objective."
+    },
+    {
+      "id": "T-009",
+      "spark_id": "B01",
+      "title": "Execute comprehensive worker QC",
+      "objective": "New B01 worker implements mandatory strict CI execution for B00 worker scope, attempts, goals and planner tests on real runner, including adversarial cases and exact main SHA.",
+      "priority": "P0",
+      "impact": 5,
+      "effort": 2,
+      "mode": "launch_new_worker",
+      "profiles": [
+        "qa_reviewer"
+      ],
+      "recipe": "independent_ci",
+      "capabilities": [
+        "adversarial_validation",
+        "github_evidence"
+      ],
+      "depends_on": [
+        {
+          "task_id": "T-003",
+          "gate": "merged",
+          "reason": "Core B01 strict workflow and B00 files are now available on main."
+        }
+      ],
+      "acceptance": [
+        "Create a new B01 issue and unique branch, link handoff #6; do not reuse closed B01 issue #9.",
+        "Run all orchestration unittest, planner, worker scope and attempts validators as mandatory CI steps.",
+        "Catch faulty contracts, fake success, stale run SHAs and cross-owner paths; do not disable strict stores.",
+        "Pass PR-head and post-merge main CI; record exact test counts and remaining failures."
+      ],
+      "write_scope": [
+        "tests/validate_stores.py",
+        "tests/integration/**",
+        ".github/workflows/**"
+      ],
+      "issue_number": null,
+      "pr_number": null,
+      "source_handoff_issues": [
+        6
+      ],
+      "worker_prompt_details": "B01 prior issue #9 is closed; this is a genuinely NEW worker. Review changed workflow, required jobs, and avoid broad scope drift."
+    },
+    {
+      "id": "T-010",
+      "spark_id": "B19",
+      "title": "Complete revenue-pool evidence bridge",
+      "objective": "Continue existing B19 #17 PR #18: turn structured revenue-pool resource files into source-ranked quarterly evidence and customer-gateway flow reconciliations.",
+      "priority": "P1",
+      "impact": 4,
+      "effort": 3,
+      "mode": "resume_existing_worker",
+      "profiles": [
+        "evidence_researcher",
+        "inference_analyst"
+      ],
+      "recipe": "narrative_analysis",
+      "capabilities": [
+        "source_audit",
+        "hypothesis_falsification"
+      ],
+      "depends_on": [],
+      "acceptance": [
+        "Verify revenue pool/quarterly source intake IDs and explicit missing-data state; avoid invented financial observations.",
+        "Separate OEM intermediate revenue from customer-facing demand; document overlapping hyperscaler/neocloud purchases.",
+        "Run B19 domain validation, commit exclusively to research/themes/supply-chain/**, and post acceptance evidence.",
+        "Record B03 canonical-event and B05 relationship handoffs rather than editing those files."
+      ],
+      "write_scope": [
+        "research/themes/supply-chain/**"
+      ],
+      "issue_number": 17,
+      "pr_number": 18,
+      "source_handoff_issues": [],
+      "worker_prompt_details": "Already has an independent worker and PR; resume SAME session and existing branch, never start duplicate work."
+    },
+    {
+      "id": "T-011",
+      "spark_id": "B09",
+      "title": "Build date-sensitive SFTBY holdings ledger",
+      "objective": "Launch B09 for official issuer holdings and net asset value reconciliation, preserving USD and FX source with original JPY basis and nested fund ownership limitations.",
+      "priority": "P1",
+      "impact": 4,
+      "effort": 4,
+      "mode": "launch_new_worker",
+      "profiles": [
+        "evidence_researcher",
+        "inference_analyst",
+        "contract_engineer"
+      ],
+      "recipe": "graph_reconcile",
+      "capabilities": [
+        "source_audit",
+        "contract_governance",
+        "hypothesis_falsification"
+      ],
+      "depends_on": [
+        {
+          "task_id": "T-004",
+          "gate": "merged",
+          "reason": "B02 FX and price replay contract must be stable before live-use USD NAV."
+        },
+        {
+          "task_id": "T-008",
+          "gate": "merged",
+          "reason": "B05 economic exposure reconciliation must prevent duplicate fund exposure."
+        }
+      ],
+      "acceptance": [
+        "Build official as-of holdings inventory with look-through limitations and parent/fund/non-additive dimensions.",
+        "Produce dated NAV sensitivities with original currency, FX date, data TTD and sources.",
+        "Report holdings completeness, missing shares/financing and known uncertainty; no invented current NAV."
+      ],
+      "write_scope": [
+        "tickers/SFTBY/entity.json",
+        "research/SFTBY/**"
+      ],
+      "issue_number": null,
+      "pr_number": null,
+      "source_handoff_issues": [],
+      "worker_prompt_details": "No branch until predecessor acceptance; B09 may conduct read-only source research earlier but not commit valuation marked current."
     }
   ]
 }
