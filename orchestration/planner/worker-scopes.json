@@ -2,7 +2,7 @@
   "schema": "basket.worker_scopes@1",
   "version": "1.0.0",
   "source_queue_version": "1.0.0",
-  "source_spark_catalog_version": "1.5.0",
+  "source_spark_catalog_version": "1.6.0",
   "scopes": [
     {
       "task_id": "T-001",
