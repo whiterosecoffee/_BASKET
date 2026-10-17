@@ -38,4 +38,32 @@ class ExecutionLoopTests(unittest.TestCase):
         self.assertEqual(by["T-007"]["qc_phase"],"blocked")
         self.assertEqual(by["T-008"]["qc_phase"],"blocked")
 
+    def test_decision_fails_closed_without_fresh_evidence(self):
+        review = loop.reconcile(self.q, self.lib, self.reg, self.ev, [])
+        out = loop.decide_next(review)
+        self.assertFalse(out["fresh_evidence_confirmed"])
+        self.assertEqual(out["side_effects_executed"], [])
+        self.assertFalse(out["automatic_merge"])
+        self.assertFalse(out["automatic_worker_launch"])
+        self.assertTrue(all(d["decision_class"] != "automatic_safe"
+                            for d in out["ordered_decisions"]))
+
+    def test_decision_preserves_approval_gate(self):
+        review = loop.reconcile(self.q, self.lib, self.reg, self.ev, [])
+        out = loop.decide_next(review, fresh_evidence=True)
+        by_id = {d["task_id"]: d for d in out["ordered_decisions"]}
+        self.assertEqual(by_id["T-001"]["decision_class"],
+                         "requires_authorization")
+        self.assertEqual(by_id["T-004"]["decision_class"], "requires_owner")
+        self.assertEqual(by_id["T-007"]["decision_class"], "requires_evidence")
+        self.assertNotEqual(out["selected"]["task_id"], "T-001")
+
+    def test_safe_local_checks_are_declared_not_executed(self):
+        review = loop.reconcile(self.q, self.lib, self.reg, self.ev, [])
+        out = loop.decide_next(review)
+        self.assertGreaterEqual(len(out["safe_local_checks"]), 3)
+        self.assertEqual(out["checks_executed"], [])
+        self.assertEqual(out["side_effects_executed"], [])
+
+
 if __name__ == "__main__": unittest.main()
