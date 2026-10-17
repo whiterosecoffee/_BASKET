@@ -1,0 +1,27 @@
+{
+  "schema": "mrie-b19-gateway-hypotheses@1",
+  "authority": "research_only_noncanonical",
+  "canonical_target": "tickers/<entity_id>/relationships.json",
+  "canonical_owner": "B05",
+  "gateways": [
+    "MSFT",
+    "AMZN",
+    "GOOG",
+    "META",
+    "ORCL",
+    "IBM",
+    "CRWV",
+    "NBIS",
+    "TMUS",
+    "CHTR",
+    "DELL",
+    "HPE"
+  ],
+  "rules": [
+    "Depth belongs to commercial path not entity",
+    "Final payer, contracting buyer and financing entity are distinct",
+    "Never promote hypotheses into canonical edges without B05 evidence review",
+    "Revenue, capex, RPO, backlog and financing cannot be summed"
+  ],
+  "hypotheses": []
+}

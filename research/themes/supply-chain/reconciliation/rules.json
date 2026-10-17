@@ -1,0 +1,12 @@
+{
+  "schema": "mrie-reconciliation@1",
+  "principles": [
+    "Final-demand ledger counts final customer expenditure once",
+    "Supplier-to-supplier transfers tracked as intermediate revenue",
+    "Customer capex is not automatically AI-only",
+    "Backlog and RPO are not current-quarter revenue",
+    "Direct, indirect, potential and ownership exposure must be distinct",
+    "Quarter timing, currencies, accounting scopes and consolidation must reconcile"
+  ],
+  "unresolved_allocations": []
+}

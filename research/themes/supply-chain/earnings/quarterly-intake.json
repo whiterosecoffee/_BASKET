@@ -1,0 +1,22 @@
+{
+  "schema": "mrie-b19-earnings-proposals@1",
+  "authority": "research_only_noncanonical",
+  "canonical_target": "tickers/<entity_id>/events.json",
+  "canonical_owner": "B03",
+  "currency": "USD",
+  "proposals": [],
+  "required_fields": [
+    "entity_id",
+    "fiscal_period",
+    "period_end",
+    "published_at",
+    "source_url",
+    "metric",
+    "value_usd",
+    "classification",
+    "available_at",
+    "ingested_at",
+    "revision_id"
+  ],
+  "note": "Proposals must be reviewed by B03; no duplicate canonical issuer events or independent quarterly earnings truth."
+}
