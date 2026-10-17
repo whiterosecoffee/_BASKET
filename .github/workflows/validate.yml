@@ -10,5 +10,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install jsonschema==4.23.0
-      - run: python tests/validate_stores.py
+      - name: Install strict schema validator
+        run: pip install jsonschema==4.23.0
+      - name: Regression — relationships v1 rejects unexpected top-level fields
+        run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
+      - name: Validate ticker stores (strict; failures are release blockers)
+        run: python tests/validate_stores.py
+      # B00 owns these scripts in PR #2. Run them independently of the
+      # production data gate once present; no skipped/suppressed data failures.
+      - name: Validate version and release metadata (after B00 integration)
+        if: ${{ !cancelled() && hashFiles('orchestration/validate_versions.py') != '' }}
+        run: python orchestration/validate_versions.py
+      - name: Validate spark registry and exclusive ownership (after B00 integration)
+        if: ${{ !cancelled() && hashFiles('orchestration/validate_sparks.py') != '' }}
+        run: python orchestration/validate_sparks.py
