@@ -1,7 +1,7 @@
 {
   "project": "_BASKET",
   "repository": "whiterosecoffee/_BASKET",
-  "catalog_version": "1.5.0",
+  "catalog_version": "1.6.0",
   "as_of": "2026-10-16",
   "source_coverage": "Partial reconstruction from accessible conversation excerpts, memory, historical MRIE workstream artifacts and GitHub source tree. No complete raw ChatGPT transcript export. Repo audited on 2026-10-16; CI failure identified in relationships schema mismatch.",
   "bootstrap_policy": "Each launched NEW conversation creates its own issue then unique branch. Dormant sparks do NOT have pre-created issues or branches. Project instructions should direct ChatGPT to read AGENTS.md and this catalog.",
@@ -33,7 +33,8 @@
     "worker_resolution": "Every worker posts the basket.worker_resolution@1 payload with acceptance IDs, CI/test outcomes and URLs, changed paths, blockers, handoffs, unknowns and next action. B00 independently validates it against fetched GitHub evidence; see orchestration/WORKER_PROTOCOL.md.",
     "readiness": "A worker can be component verified without being integrated. A merged PR still needs main CI verification; no auto merge.",
     "reusable_workers": "Use B00 planner queue and reusable capability profiles; one new worker issue/branch per new conversation, even when role/recipe is reused. A worker can compose roles but must not cross domain write paths.",
-    "queue_honesty": "Queue ordering is a heuristic, not a prediction or completion claim; GitHub is authoritative for issue/PR state and no active-worker count may be inferred from draft PRs alone."
+    "queue_honesty": "Queue ordering is a heuristic, not a prediction or completion claim; GitHub is authoritative for issue/PR state and no active-worker count may be inferred from draft PRs alone.",
+    "worker_learning": "Each attempt logs a concrete step, success/failure, evidence, resolution, retry ancestry, and measured (not invented) effort. QC rejects unsupported passes/claimed efficiency; adopted lessons require successful retries."
   },
   "write_ownership": [
     {
@@ -1022,6 +1023,11 @@
       "orchestration/tests/test_github_snapshot.py"
     ],
     "profile_reuse": "Profiles/recipes can be recombined across tasks but never grant write access beyond the one assigned spark's paths.",
-    "task_truth": "GitHub issues/PRs/CI fetched at planning time; queue.json is proposed objectives and dependencies, not live status."
+    "task_truth": "GitHub issues/PRs/CI fetched at planning time; queue.json is proposed objectives and dependencies, not live status.",
+    "worker_scopes": "orchestration/planner/worker-scopes.json",
+    "worker_scope_validator": "orchestration/validate_worker_scopes.py",
+    "attempt_schema": "schemas/worker-attempts.v1.json",
+    "attempt_evaluator": "orchestration/validate_worker_attempts.py",
+    "lesson_policy": "Only evidence-verified procedural lessons may become reusable playbook updates; no automatic model-weight training or expansion of file authority."
   }
 }
