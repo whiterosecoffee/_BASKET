@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "_BASKET worker attempt and learning ledger v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "task_id",
+    "spark_id",
+    "attempts",
+    "lessons",
+    "evaluation"
+  ],
+  "properties": {
+    "schema": {
+      "const": "basket.worker_attempts@1"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^T-[0-9]{3}$"
+    },
+    "spark_id": {
+      "type": "string",
+      "pattern": "^B[0-9]{2}$"
+    },
+    "attempts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "attempt_id",
+          "step_id",
+          "state",
+          "action",
+          "result",
+          "evidence",
+          "resolution",
+          "time_spent_seconds",
+          "tool_calls",
+          "retry_of"
+        ],
+        "properties": {
+          "attempt_id": {
+            "type": "string",
+            "pattern": "^T-[0-9]{3}-A[0-9]{3}$"
+          },
+          "step_id": {
+            "type": "string",
+            "pattern": "^T-[0-9]{3}-S[0-9]+$"
+          },
+          "state": {
+            "enum": [
+              "passed",
+              "failed",
+              "blocked",
+              "unverified"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "minLength": 5
+          },
+          "result": {
+            "type": "string",
+            "minLength": 5
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "resolution": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "time_spent_seconds": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "tool_calls": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "retry_of": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "lessons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "lesson_id",
+          "from_attempt",
+          "failure_pattern",
+          "corrective_procedure",
+          "validation",
+          "status"
+        ],
+        "properties": {
+          "lesson_id": {
+            "type": "string",
+            "pattern": "^L-[0-9]{3}$"
+          },
+          "from_attempt": {
+            "type": "string"
+          },
+          "failure_pattern": {
+            "type": "string",
+            "minLength": 8
+          },
+          "corrective_procedure": {
+            "type": "string",
+            "minLength": 8
+          },
+          "validation": {
+            "type": "string",
+            "minLength": 8
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "tested",
+              "adopted",
+              "rejected"
+            ]
+          }
+        }
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "passed",
+        "failed",
+        "blocked",
+        "unverified",
+        "total_attempts",
+        "measured_time_seconds",
+        "measured_tool_calls",
+        "first_pass_rate"
+      ],
+      "properties": {
+        "passed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "failed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "blocked": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unverified": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_attempts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "measured_time_seconds": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "measured_tool_calls": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "first_pass_rate": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}
