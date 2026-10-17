@@ -1,6 +1,6 @@
 {
   "schema": "basket.task_queue@1",
-  "queue_version": "1.2.0",
+  "queue_version": "1.3.0",
   "as_of": "2026-10-17",
   "active_worker_limit": 3,
   "tasks": [
@@ -455,15 +455,14 @@
       "priority": "P1",
       "impact": 5,
       "effort": 3,
-      "mode": "launch_new_worker",
+      "mode": "orchestrator_review",
       "profiles": [
-        "integration_steward",
-        "qa_reviewer"
+        "integration_steward"
       ],
       "recipe": "integration_review",
       "capabilities": [
         "github_evidence",
-        "contract_governance"
+        "integration_gate"
       ],
       "depends_on": [
         {
@@ -488,7 +487,7 @@
       "source_handoff_issues": [
         1
       ],
-      "worker_prompt_details": "Seed and gap recorded in issue #1 comment 6229599463; this task is a planned B00 implementation milestone, not proof of completed inventory. Queue registration performed in #24; launch no additional worker until sequenced."
+      "worker_prompt_details": "Seed and gap recorded in issue #1 comment 6229599463; this task is a planned B00 implementation milestone, not proof of completed inventory. Queue registration performed in #24; launch no additional worker until sequenced. Existing B00 worker issue #24 and branch work/24-register-coverage-research-milestones own planner registration; do not create another issue for T-012."
     },
     {
       "id": "T-013",
@@ -530,6 +529,41 @@
         1
       ],
       "worker_prompt_details": "Source handoff issue #1 comment 6229556803. No branch until B00 launches this work after prerequisites; do not displace P0 integrity, CI or TTD. B00 PR #22 proposes architecture/ECONOMIC_FLOW_GRAPH.md; read as provisional and do not duplicate its contract."
+    },
+    {
+      "id": "T-014",
+      "spark_id": "B00",
+      "title": "Automate evidence-gated planner decisions",
+      "objective": "Implement an executable low-ambiguity decision policy that prioritizes verified unblocked queue actions, automatically performs safe read-only checks and deterministic local validations, records an auditable decision and explicitly identifies actions requiring human or cross-domain gates.",
+      "priority": "P0",
+      "impact": 5,
+      "effort": 3,
+      "mode": "orchestrator_review",
+      "profiles": [
+        "integration_steward"
+      ],
+      "recipe": "integration_review",
+      "capabilities": [
+        "github_evidence",
+        "integration_gate"
+      ],
+      "depends_on": [],
+      "acceptance": [
+        "Define a machine-readable decision classification: automatic_safe, requires_evidence, requires_owner, requires_authorization; use current GitHub evidence rather than historical fixtures for operational decisions.",
+        "Select the highest-priority actionable task and exact next executable validation; on failure record blocker and move to the next independent task rather than asking routine permission.",
+        "Fail closed on stale/unavailable evidence, unknown worker capacity, path collisions and incomplete CI; never automatically merge, release, trade, or claim a live service.",
+        "Add deterministic regression tests for no-op, blocked, failed check, owner conflict and priority advancement; ensure B01 independent CI handoff for mandatory tests.",
+        "Make every actionable handoff map to a queue ID or an existing queue item acceptance criterion."
+      ],
+      "write_scope": [
+        "orchestration/**"
+      ],
+      "issue_number": 24,
+      "pr_number": null,
+      "source_handoff_issues": [
+        1
+      ],
+      "worker_prompt_details": "Same B00 planning conversation/issue #24; do not launch duplicate worker. Existing execution_loop.py is pure and no persistent scheduler is verified. Implement bounded local actions only, with no unauthorized GitHub mutations."
     }
   ]
 }
