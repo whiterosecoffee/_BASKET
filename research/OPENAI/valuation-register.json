@@ -97,6 +97,22 @@
       "notes": "Foundation controlled PBC and held 26% plus contingent warrants as of closing; NOT necessarily fraction after 2026 financings."
     },
     {
+      "id": "OPENAI-2025-10-28-FOUNDATION-130B",
+      "measurement": "historical_foundation_share_value",
+      "value": 130,
+      "unit": "USD_billion",
+      "approximate": true,
+      "observation_on": "2025-10-28",
+      "available_on": "2025-10-28",
+      "source_ids": [
+        "openai-structure-2025"
+      ],
+      "source_class": "issuer_statement",
+      "basis": "foundation_26pct_share_value_at_2025_recapitalization",
+      "status": "historical_issuer_estimate_not_2026_mark",
+      "notes": "OpenAI says 26% Foundation stake was worth about $130B at recap; implies roughly $500B company equity at that 2025 basis before rights/dilution; not a 2026 valuation or transaction price."
+    },
+    {
       "id": "OPENAI-2026-02-27-ROUND-ANNOUNCED",
       "measurement": "announced_round_amount",
       "value": 110,
