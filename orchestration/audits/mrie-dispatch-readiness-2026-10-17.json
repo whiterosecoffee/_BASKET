@@ -2,7 +2,7 @@
   "schema": "basket.dispatch_readiness@1",
   "as_of": "2026-10-17",
   "source_repository": "whiterosecoffee/_BASKET",
-  "source_queue_version": "1.1.0",
+  "source_queue_version": "1.1.0 main; 1.3.0 proposed PR #25",
   "source": "GitHub main task queue + live GitHub fetched issues/PR metadata",
   "spark_id": "B00",
   "issue": "https://github.com/whiterosecoffee/_BASKET/issues/32",
@@ -148,12 +148,34 @@
       "id": "b08_present",
       "result": "fail",
       "note": "B08 deployment MUST be scheduled; missing is an intentional failing coverage test"
+    },
+    {
+      "id": "pr25_task_id_collision_checked",
+      "result": "pass",
+      "note": "T-012/T-013/T-014 reserved; B08 new task T-015"
+    },
+    {
+      "id": "pr25_branch_ci_basic",
+      "result": "pass",
+      "note": "CI success at #25 head, full B00 and B01 acceptance tests not independently verified"
     }
   ],
-  "tests_passed": 7,
+  "tests_passed": 9,
   "tests_failed": 1,
   "documented_gap": "B08 deployment task absent from main queue; handoff #34 created; queue.json is already owned by active PR #25, do not edit in audit branch.",
   "actions": [
+    {
+      "rank": 0,
+      "priority": "P0",
+      "task_id": "T-014 branch-only",
+      "owner": "B00",
+      "state": "PR #25 branch proposed; base CI success",
+      "issue": 24,
+      "pr": 25,
+      "action": "Review candidate automated_safe/evidence/owner/authorization classifications, verify regression failures and source freshness; do not merge without authorization.",
+      "exit": "Exact main-sha evidence, independent worker QC on PR and reproducible checks.",
+      "gate": "Branch-only until PR #25 integration"
+    },
     {
       "rank": 1,
       "priority": "P0",
@@ -193,14 +215,14 @@
     {
       "rank": 4,
       "priority": "P0",
-      "task_id": "T-012 proposed",
+      "task_id": "T-015 proposed",
       "owner": "B08",
       "state": "handoff_created_not_queue_registered",
       "issue": 34,
       "pr": null,
       "action": "After scope contract review, launch B08 runtime worker from handoff #34; integrate v10 via owned services/deployment paths; Render authenticated MCP/REST service, persistence, scheduler, monitoring, version pinning.",
       "exit": "Real reachable service URL, auth negative tests, verified ChatGPT-to-MRIE MCP roundtrip, durable restart persistence, error/uptime metrics, reproducible CI.",
-      "gate": "Queue addition by B00 issue #24 PR #25 owner; runtime worker issue/branch must be created only when launched."
+      "gate": "Queue registration via B00 PR #25 owner; do not create B08 worker branch until launch"
     },
     {
       "rank": 5,
@@ -265,7 +287,7 @@
     {
       "rank": 10,
       "priority": "P1",
-      "task_id": "T-013 proposed",
+      "task_id": "T-016 proposed",
       "owner": "B04",
       "state": "unregistered_missing_capability",
       "issue": 30,
@@ -277,7 +299,7 @@
     {
       "rank": 11,
       "priority": "P1",
-      "task_id": "T-014 proposed",
+      "task_id": "T-017 proposed",
       "owner": "B07",
       "state": "unregistered_missing_capability",
       "issue": null,
@@ -314,7 +336,39 @@
         "issue": 24,
         "owner": "B00 queue editor of PR #25",
         "state": "notification_needed"
+      },
+      {
+        "issue": 34,
+        "owner": "B08",
+        "state": "requested",
+        "proposed_queue_task": "T-015"
       }
     ]
+  },
+  "observed_pr25_queue_extension": {
+    "pr": 25,
+    "queue_version": "1.3.0",
+    "reserved_task_ids": {
+      "T-012": "B00 coverage audit",
+      "T-013": "B21 capital-capture research seed",
+      "T-014": "B00 evidence-gated planner decisions"
+    },
+    "workflow_run": 39003287840,
+    "conclusion": "success",
+    "note": "CI workflow success is limited to checks configured on that run; additional B01 gates pending"
+  },
+  "pr_dependency_review": {
+    "pr14": {
+      "run": 38957274923,
+      "status": "failure",
+      "failure_reason": "SFTBY relationships@1 baseline fields",
+      "context": "Pre-B05 merge; requires refresh from latest main and rerun"
+    },
+    "pr15": {
+      "run": 38957102730,
+      "status": "failure",
+      "failure_reason": "SFTBY relationships@1 baseline fields",
+      "context": "Pre-B05 merge; requires refresh from latest main and rerun"
+    }
   }
 }
