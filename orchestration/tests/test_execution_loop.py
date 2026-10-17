@@ -66,4 +66,46 @@ class ExecutionLoopTests(unittest.TestCase):
         self.assertEqual(out["side_effects_executed"], [])
 
 
+    def test_safe_check_failure_does_not_stop_next_check(self):
+        class Result:
+            def __init__(self, code):
+                self.returncode = code
+                self.stdout = ""
+                self.stderr = "failure" if code else ""
+        calls = []
+        def fake_runner(argv, **kwargs):
+            calls.append((argv, kwargs))
+            return Result(1 if len(calls) == 1 else 0)
+        out = loop.run_safe_checks(
+            runner=fake_runner, check_ids=["planner_structure", "worker_scope"])
+        self.assertEqual([r["status"] for r in out["results"]],
+                         ["failed", "passed"])
+        self.assertFalse(out["all_passed"])
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(out["mutating_actions_executed"], [])
+
+    def test_safe_check_rejects_untrusted_commands(self):
+        for ids in (["arbitrary_command"], ["worker_scope", "worker_scope"]):
+            with self.assertRaises(ValueError):
+                loop.run_safe_checks(check_ids=ids)
+
+    def test_safe_check_timeout_is_recorded_and_next_check_runs(self):
+        import subprocess
+        class Result:
+            returncode = 0
+            stdout = ""
+            stderr = ""
+        calls = []
+        def fake_runner(argv, **kwargs):
+            calls.append(argv)
+            if len(calls) == 1:
+                raise subprocess.TimeoutExpired(argv, 1)
+            return Result()
+        out = loop.run_safe_checks(
+            runner=fake_runner, check_ids=["planner_structure", "worker_scope"],
+            timeout_seconds=1)
+        self.assertEqual([r["status"] for r in out["results"]],
+                         ["timeout", "passed"])
+
+
 if __name__ == "__main__": unittest.main()
