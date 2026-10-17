@@ -1,6 +1,6 @@
 # _BASKET — Live-work launchpad (historical snapshot: 2026-10-16)
 
-**Owner:** B00 issue #1 · **PR:** [#2](https://github.com/whiterosecoffee/_BASKET/pull/2) (draft / unmerged at snapshot time) · **Catalog:** 1.5.0 (not yet on main).
+**Owner:** B00 issue #1 · **PR:** [#2](https://github.com/whiterosecoffee/_BASKET/pull/2) (draft / unmerged at snapshot time) · **Catalog:** 1.6.0 (not yet on main).
 
 **Purpose:** one clear work queue, not 22 simultaneous conversations. Re-fetch GitHub issues/PRs and current CI **before** relaying any state as current. Dates and branch snapshots here are historical evidence, not live surveillance.
 
