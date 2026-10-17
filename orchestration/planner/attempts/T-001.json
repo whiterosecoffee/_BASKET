@@ -1,0 +1,56 @@
+{
+  "schema": "basket.worker_attempts@1",
+  "task_id": "T-001",
+  "spark_id": "B00",
+  "attempts": [
+    {
+      "attempt_id": "T-001-A001",
+      "step_id": "T-001-S1",
+      "state": "failed",
+      "action": "Try merging reviewed draft PR before marking ready",
+      "result": "GitHub refused draft PR merge, HTTP 405",
+      "evidence": [
+        "https://github.com/whiterosecoffee/_BASKET/pull/10"
+      ],
+      "resolution": "Mark reviewed and tested draft PR ready; pin expected head SHA; retry on same task.",
+      "time_spent_seconds": null,
+      "tool_calls": 1,
+      "retry_of": null
+    },
+    {
+      "attempt_id": "T-001-A002",
+      "step_id": "T-001-S1",
+      "state": "passed",
+      "action": "Mark PR ready and squash merge at exact reviewed SHA",
+      "result": "PR #10 merged to main at c3a97124c37ecc7e6c5fa5219006b60be4c3efa4",
+      "evidence": [
+        "https://github.com/whiterosecoffee/_BASKET/pull/10",
+        "https://github.com/whiterosecoffee/_BASKET/actions/runs/38985832799"
+      ],
+      "resolution": "Integrated and exact-main SHA validation succeeded.",
+      "time_spent_seconds": null,
+      "tool_calls": 2,
+      "retry_of": "T-001-A001"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson_id": "L-001",
+      "from_attempt": "T-001-A001",
+      "failure_pattern": "GitHub rejects merge operations when the PR remains draft",
+      "corrective_procedure": "After exact-commit QC, transition PR to ready-for-review before invoking merge with expected_head_sha.",
+      "validation": "A subsequent commit-pinned merge succeeded, followed by passing main-branch validation run 38985832799.",
+      "status": "adopted"
+    }
+  ],
+  "evaluation": {
+    "passed": 1,
+    "failed": 1,
+    "blocked": 0,
+    "unverified": 0,
+    "total_attempts": 2,
+    "measured_time_seconds": null,
+    "measured_tool_calls": 3,
+    "first_pass_rate": 0
+  }
+}

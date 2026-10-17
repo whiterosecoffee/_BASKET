@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "_BASKET reusable worker capability library v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "library_version",
+    "capabilities",
+    "profiles",
+    "recipes"
+  ],
+  "properties": {
+    "schema": {
+      "const": "basket.worker_library@1"
+    },
+    "library_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "description",
+          "required_evidence",
+          "artifacts"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 12
+          },
+          "required_evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "enum": [
+                "primary_source",
+                "schema_validation",
+                "unit_test",
+                "ci",
+                "pr_diff",
+                "as_of_replay",
+                "uncertainty_audit",
+                "human_review"
+              ]
+            }
+          },
+          "artifacts": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "description",
+          "capabilities",
+          "constraints"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 12
+          },
+          "capabilities": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            }
+          },
+          "constraints": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "recipes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "description",
+          "steps"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 12
+          },
+          "steps": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "capability",
+                "output"
+              ],
+              "properties": {
+                "capability": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9_]*$"
+                },
+                "output": {
+                  "type": "string",
+                  "minLength": 4
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

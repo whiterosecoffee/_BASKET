@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "manifest_version": "1.0.0",
+  "project": "_BASKET",
+  "repository": "whiterosecoffee/_BASKET",
+  "prepared_at": "2026-10-16",
+  "release_authority": "GitHub main plus explicitly approved immutable release tag; branch artifacts are candidates",
+  "core": {
+    "declared_architecture_version": "0.4.1",
+    "declared_in": "architecture/basket.architecture.json",
+    "baseline_status": "historically_declared_not_a_verified_git_release",
+    "baseline_main_commit": "4319c6c959387f2a1df333b6a86f6f94e57710e3",
+    "next_candidate": "0.5.0",
+    "candidate_name": "Orchestrated Foundation",
+    "candidate_status": "planned_unreleased",
+    "release_tag_on_approval": "v0.5.0",
+    "release_tag_created": false
+  },
+  "orchestration": {
+    "catalog_path": "orchestration/sparks.json",
+    "catalog_version": "1.6.0",
+    "instruction_path": "orchestration/PROJECT_INSTRUCTIONS.md",
+    "protocol_path": "AGENTS.md",
+    "status": "candidate_on_orchestration_branch"
+  },
+  "schema_contracts": [
+    {
+      "logical_contract": "architecture",
+      "path": "schemas/architecture.schema.json",
+      "version_policy": "independent"
+    },
+    {
+      "logical_contract": "entity",
+      "path": "schemas/entity.v1.json",
+      "major": 1
+    },
+    {
+      "logical_contract": "events",
+      "path": "schemas/events.v1.json",
+      "major": 1
+    },
+    {
+      "logical_contract": "relationships",
+      "path": "schemas/relationships.v1.json",
+      "major": 1
+    },
+    {
+      "logical_contract": "market_daily_history",
+      "path": "schemas/history/market.daily.v1.json",
+      "major": 1
+    },
+    {
+      "logical_contract": "freshness",
+      "path": "schemas/freshness.v1.json",
+      "major": 1
+    },
+    {
+      "logical_contract": "worker_task",
+      "path": "schemas/worker-task.v1.json",
+      "major": 1,
+      "status": "candidate_on_orchestration_branch"
+    },
+    {
+      "logical_contract": "worker_resolution",
+      "path": "schemas/worker-resolution.v1.json",
+      "major": 1,
+      "status": "candidate_on_orchestration_branch"
+    },
+    {
+      "logical_contract": "worker_evidence",
+      "path": "schemas/worker-evidence.v1.json",
+      "major": 1,
+      "status": "candidate_on_orchestration_branch"
+    },
+    {
+      "logical_contract": "worker_library",
+      "path": "schemas/worker-library.v1.json",
+      "major": 1,
+      "status": "candidate_on_orchestration_branch"
+    },
+    {
+      "logical_contract": "task_queue",
+      "path": "schemas/task-queue.v1.json",
+      "major": 1,
+      "status": "candidate_on_orchestration_branch"
+    },
+    {
+      "logical_contract": "worker_attempts",
+      "path": "schemas/worker-attempts.v1.json",
+      "major": 1,
+      "status": "candidate_on_orchestration_branch"
+    }
+  ],
+  "version_domains": {
+    "core": "SemVer in architecture and changelog; Git tag only after reviewed merged release candidate",
+    "catalog": "SemVer in sparks.json, separately evolvable before a core release",
+    "schema": "Per-contract major version and validated explicit migration for incompatible changes",
+    "data": "Append-only immutable observations/revisions and reproducible snapshot manifest digests, not repository version increments per tick",
+    "engine": "Per-engine algorithm/config version, source commit SHA, input snapshot digest and point-in-time as_of",
+    "report": "Exact code revision, engine versions, input hashes/TTDs and generation timestamp"
+  },
+  "candidate_gates": [
+    {
+      "id": "R0",
+      "requirement": "Orchestration instructions and catalog approved, merged and retrievable from main",
+      "status": "pending",
+      "owner": "B00"
+    },
+    {
+      "id": "R1",
+      "requirement": "Strict SFTBY relationship schema reconciliation with no loss of historical evidence",
+      "status": "blocked",
+      "owner": "B05",
+      "handoff_issue": 4
+    },
+    {
+      "id": "R2",
+      "requirement": "Validation and required CI jobs green on intended release commit",
+      "status": "blocked",
+      "owner": "B01",
+      "handoff_issue": 5
+    },
+    {
+      "id": "R3",
+      "requirement": "Manifest/catalog/schema contracts validate and all release notes identify actual implementation limits",
+      "status": "pending",
+      "owner": "B00",
+      "ci_handoff_issue": 6
+    },
+    {
+      "id": "R4",
+      "requirement": "User explicitly authorizes merge/release tag creation after evidence review",
+      "status": "requires_user_authorization",
+      "owner": "user"
+    }
+  ],
+  "out_of_scope_for_v0_5_0": [
+    "Continuous live market data or an entitled provider",
+    "Calibrated predictive probabilities",
+    "Complete SFTBY holdings or current USD NAV",
+    "Hosted MCP/API production operations"
+  ],
+  "candidate_implementation_notes": [
+    "The current main Actions data validator fails on SFTBY relationships fields not permitted by relationships@1.",
+    "Narrative tests passing is limited evidence for a separate unit, not whole-system validation.",
+    "No GitHub release object was returned by the release-listing API at preparation time; Git tags were not independently verified.",
+    "Version manifest describes desired release governance; it does not itself make v0.5.0 a shipped release.",
+    "B01 handoff #6 adds version validators to CI; B02 handoff #7 is future snapshot/TTD work and does not satisfy live data release claims.",
+    "Worker protocol schemas and offline B00 evaluator are committed on orchestration draft PR #2; independent execution and B01 CI integration are pending.",
+    "B00 reusable worker planner with read-only GitHub snapshots, task queue DAG and recombinable profiles committed to draft PR #2; CI execution pending B01 handoff #6."
+  ],
+  "future_data_versioning_handoff_issue": 7
+}

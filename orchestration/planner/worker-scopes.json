@@ -1,0 +1,473 @@
+{
+  "schema": "basket.worker_scopes@1",
+  "version": "1.0.0",
+  "source_queue_version": "1.0.0",
+  "source_spark_catalog_version": "1.6.0",
+  "scopes": [
+    {
+      "task_id": "T-001",
+      "spark_id": "B00",
+      "owner_issue": 8,
+      "existing_pr": 10,
+      "mode": "orchestrator_review",
+      "objective": "Review B05 PR #10 strict lossless relationship/schema repair and its exact successful branch CI before seeking explicit merge authorization.",
+      "exclusive_write_paths": [
+        "AGENTS.md",
+        "orchestration/**",
+        "architecture/**",
+        "schemas/**",
+        "README.md",
+        "CHANGELOG.md"
+      ],
+      "read_paths": [
+        "architecture/**",
+        "schemas/**",
+        ".github/workflows/**"
+      ],
+      "dependencies": [],
+      "acceptance": [
+        "Verify changed paths and six-field reconstruction.",
+        "Confirm PR-head strict CI run 38956838273.",
+        "Record review; no merge without authorization."
+      ],
+      "recipe": "integration_review",
+      "steps": [
+        {
+          "step_id": "T-001-S1",
+          "capability": "github_evidence",
+          "deliverable": "PR and CI review",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-001-S2",
+          "capability": "integration_gate",
+          "deliverable": "authorized merge plan",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-002",
+      "spark_id": "B00",
+      "owner_issue": 1,
+      "existing_pr": 2,
+      "mode": "orchestrator_review",
+      "objective": "After approved B05 integration, review draft PR #2 containing spark registry, protocols and versioning; verify schema/methodology CI readiness.",
+      "exclusive_write_paths": [
+        "AGENTS.md",
+        "orchestration/**",
+        "architecture/**",
+        "schemas/**",
+        "README.md",
+        "CHANGELOG.md"
+      ],
+      "read_paths": [
+        "architecture/**",
+        "schemas/**",
+        ".github/workflows/**"
+      ],
+      "dependencies": [
+        {
+          "task_id": "T-001",
+          "gate": "merged",
+          "reason": "Integrate strict canonical SFTBY data before evaluating combined main CI."
+        }
+      ],
+      "acceptance": [
+        "Check protocol schemas, instructions and PR #2 owned files.",
+        "Require integrated strict CI evidence and explicit merge authorization."
+      ],
+      "recipe": "integration_review",
+      "steps": [
+        {
+          "step_id": "T-002-S1",
+          "capability": "github_evidence",
+          "deliverable": "PR and CI review",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-002-S2",
+          "capability": "integration_gate",
+          "deliverable": "authorized merge plan",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-003",
+      "spark_id": "B01",
+      "owner_issue": 9,
+      "existing_pr": 13,
+      "mode": "resume_existing_worker",
+      "objective": "Resume B01 #9 PR #13 once B05 and orchestration are integrated, run strict data, worker-protocol, version and ownership validations on real CI.",
+      "exclusive_write_paths": [
+        "tests/validate_stores.py",
+        "tests/integration/**",
+        ".github/workflows/**"
+      ],
+      "read_paths": [
+        "schemas/**",
+        "tickers/**",
+        "runtime/**"
+      ],
+      "dependencies": [
+        {
+          "task_id": "T-001",
+          "gate": "merged",
+          "reason": "B05 canonical record must be in main."
+        },
+        {
+          "task_id": "T-002",
+          "gate": "merged",
+          "reason": "B00 validators and fixtures must be in main."
+        }
+      ],
+      "acceptance": [
+        "Regression and strict data validation run on current integration commit.",
+        "Worker protocol adversarial fixtures run in CI.",
+        "No missing validators are counted as skipped successes."
+      ],
+      "recipe": "independent_ci",
+      "steps": [
+        {
+          "step_id": "T-003-S1",
+          "capability": "adversarial_validation",
+          "deliverable": "negative tests",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-003-S2",
+          "capability": "github_evidence",
+          "deliverable": "CI status at head",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-004",
+      "spark_id": "B02",
+      "owner_issue": 11,
+      "existing_pr": 15,
+      "mode": "resume_existing_worker",
+      "objective": "Resume B02 #11 PR #15 to execute tests and extend deterministic historical and JPY/USD replay with verifiable TTD and unavailable provider states.",
+      "exclusive_write_paths": [
+        "runtime/**",
+        "fx/**",
+        "tickers/*/history.jsonl",
+        "tickers/*/history.meta.json",
+        "tickers/*/intraday/**",
+        "tickers/*/live/**",
+        "engines/economics/freshness.py",
+        "tests/test_ttd.py"
+      ],
+      "read_paths": [
+        "schemas/**",
+        "engines/economics/freshness.py"
+      ],
+      "dependencies": [],
+      "acceptance": [
+        "Execute real offline unit and revision-replay tests.",
+        "Integrate existing 200+ daily sessions and historical FX into deterministic replay.",
+        "Prove cross-feed expiration, correction chronology and Windows locking.",
+        "Explicitly report provider entitlement and persistent-worker gaps."
+      ],
+      "recipe": "historical_replay",
+      "steps": [
+        {
+          "step_id": "T-004-S1",
+          "capability": "immutable_replay",
+          "deliverable": "snapshot algorithm",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-004-S2",
+          "capability": "implementation",
+          "deliverable": "regression fixtures",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-004-S3",
+          "capability": "adversarial_validation",
+          "deliverable": "negative replay tests",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-005",
+      "spark_id": "B03",
+      "owner_issue": 12,
+      "existing_pr": 14,
+      "mode": "resume_existing_worker",
+      "objective": "Resume B03 #12 PR #14 to run event/schema tests and expand primary-source earnings and financing coverage beyond two SoftBank records.",
+      "exclusive_write_paths": [
+        "tickers/*/events.json",
+        "research/filings/**",
+        "research/events/**"
+      ],
+      "read_paths": [
+        "schemas/events.v1.json",
+        "tickers/**",
+        "research/**"
+      ],
+      "dependencies": [],
+      "acceptance": [
+        "Run schema and revision replay tests against issuer events.",
+        "Source-verify additional SFTBY, CRWV, AAOI, NVDA records.",
+        "Preserve unknown publication and ingestion timestamps as unknown.",
+        "Keep funding tranches, commitments and revenue separate."
+      ],
+      "recipe": "issuer_ledger",
+      "steps": [
+        {
+          "step_id": "T-005-S1",
+          "capability": "source_audit",
+          "deliverable": "primary event evidence",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-005-S2",
+          "capability": "immutable_replay",
+          "deliverable": "dated event revision",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-005-S3",
+          "capability": "adversarial_validation",
+          "deliverable": "anti-double-counting checks",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-006",
+      "spark_id": "B21",
+      "owner_issue": null,
+      "existing_pr": null,
+      "mode": "launch_new_worker",
+      "objective": "Launch a fresh B21 worker to validate CoreWeave/OpenAI/Anthropic claims, causal alternatives, source availability and sensitivity assumptions.",
+      "exclusive_write_paths": [
+        "engines/narrative/**",
+        "research/narrative/**",
+        "tests/test_narrative.py"
+      ],
+      "read_paths": [
+        "research/events/**",
+        "research/filings/**",
+        "tickers/**",
+        "runtime/**",
+        "schemas/**"
+      ],
+      "dependencies": [
+        {
+          "task_id": "T-005",
+          "gate": "issue_exists",
+          "reason": "B03 already has a source ledger for early collaboration; its entire PR need not be merged before independent narrative auditing."
+        }
+      ],
+      "acceptance": [
+        "Create brand-new worker issue and branch from latest main.",
+        "Prove no lookahead and reported claim/fact distinction.",
+        "Record competing hypotheses and falsifying observations."
+      ],
+      "recipe": "narrative_analysis",
+      "steps": [
+        {
+          "step_id": "T-006-S1",
+          "capability": "source_audit",
+          "deliverable": "claim provenance",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-006-S2",
+          "capability": "hypothesis_falsification",
+          "deliverable": "alternatives/falsifiers",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-007",
+      "spark_id": "B06",
+      "owner_issue": null,
+      "existing_pr": null,
+      "mode": "launch_new_worker",
+      "objective": "Launch B06 after B02 snapshot foundation is integrated to compute 5/20/60/200-session descriptive traversal and risk-aware trim scenarios.",
+      "exclusive_write_paths": [
+        "engines/traversal/**",
+        "research/traversal/**"
+      ],
+      "read_paths": [
+        "tickers/*/history.jsonl",
+        "tickers/*/intraday/**",
+        "fx/**",
+        "engines/composites/**"
+      ],
+      "dependencies": [
+        {
+          "task_id": "T-004",
+          "gate": "merged",
+          "reason": "Versioned B02 market history/replay contract must be integrated first."
+        }
+      ],
+      "acceptance": [
+        "Use dated SFTBY, CRWV and AAOI history and FX.",
+        "Report position, direction, velocity and volume without invented probabilities.",
+        "Include execution costs, slippage and missed rebounds."
+      ],
+      "recipe": "economic_traversal",
+      "steps": [
+        {
+          "step_id": "T-007-S1",
+          "capability": "immutable_replay",
+          "deliverable": "as-of data cut",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-007-S2",
+          "capability": "implementation",
+          "deliverable": "traversal engine",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-007-S3",
+          "capability": "economic_sensitivity",
+          "deliverable": "scenario/risk bridge",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-008",
+      "spark_id": "B05",
+      "owner_issue": null,
+      "existing_pr": null,
+      "mode": "launch_new_worker",
+      "objective": "Create a NEW independently scoped B05 conversation for handoff #16; reconcile cumulative OpenAI investment, tranches and ~13% issuer-reported stake without fund/NAV double-counting.",
+      "exclusive_write_paths": [
+        "tickers/*/relationships.json",
+        "engines/relationships/**",
+        "research/graph/**"
+      ],
+      "read_paths": [
+        "tickers/**",
+        "research/**",
+        "schemas/relationships.v1.json"
+      ],
+      "dependencies": [
+        {
+          "task_id": "T-005",
+          "gate": "merged",
+          "reason": "Verify and integrate originating B03 canonical event first."
+        },
+        {
+          "task_id": "T-001",
+          "gate": "merged",
+          "reason": "Keep schema repair independent before later graph changes."
+        }
+      ],
+      "acceptance": [
+        "Read B03 source statements, identify transaction vs ownership vs NAV categories.",
+        "Prove no additive duplication of funding tranches/funds.",
+        "Keep relationship schema strict and historical marks dated."
+      ],
+      "recipe": "graph_reconcile",
+      "steps": [
+        {
+          "step_id": "T-008-S1",
+          "capability": "source_audit",
+          "deliverable": "dated exposure source",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-008-S2",
+          "capability": "contract_governance",
+          "deliverable": "graph consistency",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-008-S3",
+          "capability": "hypothesis_falsification",
+          "deliverable": "anti-double-counting checks",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    }
+  ]
+}
