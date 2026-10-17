@@ -18,7 +18,7 @@
   },
   "orchestration": {
     "catalog_path": "orchestration/sparks.json",
-    "catalog_version": "1.5.0",
+    "catalog_version": "1.6.0",
     "instruction_path": "orchestration/PROJECT_INSTRUCTIONS.md",
     "protocol_path": "AGENTS.md",
     "status": "candidate_on_orchestration_branch"
@@ -81,6 +81,12 @@
     {
       "logical_contract": "task_queue",
       "path": "schemas/task-queue.v1.json",
+      "major": 1,
+      "status": "candidate_on_orchestration_branch"
+    },
+    {
+      "logical_contract": "worker_attempts",
+      "path": "schemas/worker-attempts.v1.json",
       "major": 1,
       "status": "candidate_on_orchestration_branch"
     }
