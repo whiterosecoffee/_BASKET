@@ -86,3 +86,6 @@ Existing tasks with an open PR may require more tests or source coverage. Their 
 - Requeue incomplete work under the same conversation only if its issue/branch still belongs to that conversation. When cross-chat handoff is necessary, create a new issue/branch and link the old evidence.
 - B01 integrates `validate_planner.py` and planner tests into CI through handoff #6; B00 does not edit CI workflows.
 - No action in these scripts creates an issue, opens a ChatGPT conversation, merges a PR, or schedules persistent background work.
+
+## Closed-loop QC controller
+Run `python orchestration/execution_loop.py` to create a side-effect-free task action plan from source evidence. Its Q0–Q6 checkpoints are described in [EXECUTION_LOOP.md](../EXECUTION_LOOP.md). B00 chooses outcome-level milestones; substeps remain inside a task and failed QC returns to the same worker rather than spawning another conversation. It does not claim any tests have executed or automatically merge code. B01 handoff #6 should run the controller fixture tests in CI.
