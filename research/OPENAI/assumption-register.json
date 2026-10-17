@@ -1,0 +1,241 @@
+{
+  "schema": "basket.preipo_assumption_register@1",
+  "entity_id": "OPENAI",
+  "as_of_date": "2026-10-17",
+  "items": [
+    {
+      "id": "OAI-ASSUME-001",
+      "claim": "perp_mark_equates_to_equity_fair_value",
+      "state": "invalid_category_equivalence",
+      "explanation": "Derivative implied total valuation is not a financed share transaction; contract oracle and leverage may dominate short-term repricing.",
+      "verification_checks": [
+        "EntropyIO/Hyperliquid contract spec",
+        "snapshot of mark, index, funding, OI and spread",
+        "common-equivalent share price bridge"
+      ],
+      "falsifiers": [
+        "Market oracle is not based on ownership claims",
+        "large divergence between financing and perp persists"
+      ],
+      "source_url": "https://tradeinzone.in/heres-how-the-coreweave-sell-off-is-affecting-openai-vs-anthropic-valuations/",
+      "review_state": "open",
+      "as_of_date": "2026-10-17",
+      "adjudication_policy": "require direct primary evidence for contradiction; maintain competing explanations, as_of and source availability; no automatic probabilities",
+      "impact_domains": [
+        "OPENAI",
+        "SFTBY",
+        "CRWV"
+      ]
+    },
+    {
+      "id": "OAI-ASSUME-002",
+      "claim": "all_122bn_round_cash_usable",
+      "state": "unsupported",
+      "explanation": "Closed funding round reports $122B committed, not evidence each contribution was unrestricted cash available on March 31.",
+      "verification_checks": [
+        "tranche closing confirmations",
+        "restricted cash/collateral note",
+        "issuer cash flow and funding dates"
+      ],
+      "falsifiers": [
+        "no confirmation of full cash settlement"
+      ],
+      "source_url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+      "review_state": "open",
+      "as_of_date": "2026-10-17",
+      "adjudication_policy": "require direct primary evidence for contradiction; maintain competing explanations, as_of and source availability; no automatic probabilities",
+      "impact_domains": [
+        "OPENAI",
+        "SFTBY",
+        "CRWV"
+      ]
+    },
+    {
+      "id": "OAI-ASSUME-003",
+      "claim": "growth_50bn_is_gaap_fiscal_revenue",
+      "state": "invalid_category_equivalence",
+      "explanation": "September annualized figure is attributed third-party reporting and may not match annual GAAP or Anthropic channel scope.",
+      "verification_checks": [
+        "monthly and quarterly audited sales",
+        "channel gross/net principal-agent policy",
+        "net retention and compute COGS"
+      ],
+      "falsifiers": [
+        "quarterly statements diverge from one-month annualization"
+      ],
+      "source_url": "https://www.reuters.com/business/openais-annualized-revenue-20-billion-less-than-previously-signaled-ft-reports-2026-10-08/",
+      "review_state": "open",
+      "as_of_date": "2026-10-17",
+      "adjudication_policy": "require direct primary evidence for contradiction; maintain competing explanations, as_of and source availability; no automatic probabilities",
+      "impact_domains": [
+        "OPENAI",
+        "SFTBY",
+        "CRWV"
+      ]
+    },
+    {
+      "id": "OAI-ASSUME-004",
+      "claim": "approx_13pct_equals_SBG_parent_net_equity",
+      "state": "unsupported",
+      "explanation": "Disclosed SBG exposure via SVF2 preferred-share interests does not reconcile fund fees, dilution, parent-attributable fractions or security waterfall.",
+      "verification_checks": [
+        "SVF2 ownership and financial interest",
+        "fund waterfall and carry",
+        "latest actual conversion terms"
+      ],
+      "falsifiers": [
+        "fund economic payout differs from raw 13% times issuer value"
+      ],
+      "source_url": "https://group.softbank/en/news/press/20261001",
+      "review_state": "open",
+      "as_of_date": "2026-10-17",
+      "adjudication_policy": "require direct primary evidence for contradiction; maintain competing explanations, as_of and source availability; no automatic probabilities",
+      "impact_domains": [
+        "OPENAI",
+        "SFTBY",
+        "CRWV"
+      ]
+    },
+    {
+      "id": "OAI-ASSUME-005",
+      "claim": "add_13pct_OPENAI_to_reported_SFTBY_NAV",
+      "state": "contradicted_by_nav_method",
+      "explanation": "Official SFTBY NAV already includes SBG share of SVF2 NAV; incremental addition would double count.",
+      "verification_checks": [
+        "fund NAV composition",
+        "itemized base OpenAI fair value"
+      ],
+      "falsifiers": [
+        "OpenAI exposure is already embedded in SVF2"
+      ],
+      "source_url": "https://group.softbank/en/ir/stock/sotp",
+      "review_state": "open",
+      "as_of_date": "2026-10-17",
+      "adjudication_policy": "require direct primary evidence for contradiction; maintain competing explanations, as_of and source availability; no automatic probabilities",
+      "impact_domains": [
+        "OPENAI",
+        "SFTBY",
+        "CRWV"
+      ]
+    },
+    {
+      "id": "OAI-ASSUME-006",
+      "claim": "CRWV_credit_caused_OPENAI_perp_move",
+      "state": "unresolved_causality",
+      "explanation": "Stock/credit price correlation plus customer contract does not prove equity-value causal change.",
+      "verification_checks": [
+        "timed credit returns/bond yields",
+        "perp oracle/funding/depth/liquidations",
+        "relative market indexes",
+        "OpenAI company-specific news"
+      ],
+      "falsifiers": [
+        "perp change precedes credit change",
+        "sector and funding factors fully explain variation",
+        "operating compute service availability maintained"
+      ],
+      "source_url": "https://tradeinzone.in/heres-how-the-coreweave-sell-off-is-affecting-openai-vs-anthropic-valuations/",
+      "review_state": "open",
+      "as_of_date": "2026-10-17",
+      "adjudication_policy": "require direct primary evidence for contradiction; maintain competing explanations, as_of and source availability; no automatic probabilities",
+      "impact_domains": [
+        "OPENAI",
+        "SFTBY",
+        "CRWV"
+      ]
+    },
+    {
+      "id": "OAI-ASSUME-007",
+      "claim": "greater_contract_face_value_equals_greater_loss",
+      "state": "unresolved_causality",
+      "explanation": "Net disruption sensitivity requires replacement costs, SLAs, prepayments, alternate vendors and timing, not headline contract amounts.",
+      "verification_checks": [
+        "OpenAI share of compute contracted",
+        "net replacement capacity cost",
+        "supplier financial resilience",
+        "customer termination rights"
+      ],
+      "falsifiers": [
+        "alternate supply removes loss",
+        "OpenAI negotiates lower prices after credit stress"
+      ],
+      "source_url": "https://tradeinzone.in/heres-how-the-coreweave-sell-off-is-affecting-openai-vs-anthropic-valuations/",
+      "review_state": "open",
+      "as_of_date": "2026-10-17",
+      "adjudication_policy": "require direct primary evidence for contradiction; maintain competing explanations, as_of and source availability; no automatic probabilities",
+      "impact_domains": [
+        "OPENAI",
+        "SFTBY",
+        "CRWV"
+      ]
+    },
+    {
+      "id": "OAI-ASSUME-008",
+      "claim": "foundation_2025_cap_table_remains_current",
+      "state": "unsupported",
+      "explanation": "Foundation 26% holding and warrants refer to 2025 capitalization and subsequent financing may dilute and reprice all categories.",
+      "verification_checks": [
+        "updated 2026 cap table",
+        "warrant exercise/dilution rules",
+        "preferred conversion rights"
+      ],
+      "falsifiers": [
+        "2026 official cap table differs"
+      ],
+      "source_url": "https://openai.com/our-structure/",
+      "review_state": "open",
+      "as_of_date": "2026-10-17",
+      "adjudication_policy": "require direct primary evidence for contradiction; maintain competing explanations, as_of and source availability; no automatic probabilities",
+      "impact_domains": [
+        "OPENAI",
+        "SFTBY",
+        "CRWV"
+      ]
+    },
+    {
+      "id": "OAI-ASSUME-009",
+      "claim": "premoney_730_and_postmoney_852_are_separate_marks",
+      "state": "contradicted_by_issuer_disclosure",
+      "explanation": "Both describe same capital raise, not an independent $122B mark-to-market gain.",
+      "verification_checks": [
+        "closed financing consideration",
+        "security prices and preference"
+      ],
+      "falsifiers": [
+        "issuer explains 730+122=852 for one raise"
+      ],
+      "source_url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+      "review_state": "open",
+      "as_of_date": "2026-10-17",
+      "adjudication_policy": "require direct primary evidence for contradiction; maintain competing explanations, as_of and source availability; no automatic probabilities",
+      "impact_domains": [
+        "OPENAI",
+        "SFTBY",
+        "CRWV"
+      ]
+    },
+    {
+      "id": "OAI-ASSUME-010",
+      "claim": "cloud_lease_commitments_equal_economic_losses",
+      "state": "unsupported",
+      "explanation": "Multiyear gross contract obligations are commitments; project NPV depends on unit prices, optionality, utilization, delivery, and revenue.",
+      "verification_checks": [
+        "capacity delivery/commitment schedules",
+        "gross margin per token/workload",
+        "pay-as-used vs take-or-pay terms"
+      ],
+      "falsifiers": [
+        "utilization and prices yield positive incremental contribution"
+      ],
+      "source_url": "https://openai.com/index/scaling-ai-for-everyone/",
+      "review_state": "open",
+      "as_of_date": "2026-10-17",
+      "adjudication_policy": "require direct primary evidence for contradiction; maintain competing explanations, as_of and source availability; no automatic probabilities",
+      "impact_domains": [
+        "OPENAI",
+        "SFTBY",
+        "CRWV"
+      ]
+    }
+  ]
+}
