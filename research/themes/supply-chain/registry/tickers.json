@@ -1,0 +1,347 @@
+{
+  "schema": "mrie-research-tickers@1",
+  "as_of": "2026-10-16",
+  "coverage": "working research universe; reconcile with canonical registry",
+  "tickers": [
+    {
+      "ticker": "SFTBY",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "CRWV",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "AAOI",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "NVDA",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "MSFT",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "DELL",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "HPE",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "IBM",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "ORCL",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "ARM",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "INTC",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "SYM",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "PAYP",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "ABBNY",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "TMUS",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "DTEGY",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "TSM",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "MU",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "AVGO",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "AMD",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "ANET",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "VRT",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "LITE",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "COHR",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "QQQ",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "SMH",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "NBIS",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "AMZN",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "GOOG",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "META",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "NOW",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "PLTR",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "ISRG",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "IONQ",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "QBTS",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "RGTI",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "HON",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "CRM",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "SAP",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "ROK",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "TER",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "FANUY",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "NOK",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "CHTR",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "VZ",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "T",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "PANW",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "CRWD",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "ZS",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "FTNT",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "ASML",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "AMAT",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "LRCX",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "KLAC",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "MRVL",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "FN",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "CIEN",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "ETN",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "GEV",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "CEG",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "VST",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "SMCI",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "TSLA",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "MBLY",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "VEEV",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "AXON",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "RXRX",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    },
+    {
+      "ticker": "SDGR",
+      "earnings_status": "unverified",
+      "economic_roles": []
+    }
+  ]
+}
