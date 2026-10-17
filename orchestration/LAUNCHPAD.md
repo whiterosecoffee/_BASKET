@@ -1,5 +1,7 @@
 # _BASKET — Live-work launchpad (historical snapshot: 2026-10-16)
 
+**Next batch:** [Goal hierarchy](planner/goals.json), [Execution order and worker prompts](planner/NEXT_BATCH.md), [11-task queue](planner/queue.json). The three foundation PRs (#10, #2, #13) are merged and main strict CI passed at `5bf7fc14`; B02 #15, B03 #14 and B19 #18 remain draft. B01 worker-QC handoff #6 is the next new-chat priority when worker capacity permits. Refresh GitHub before claiming this status current.
+
 **Owner:** B00 issue #1 · **PR:** [#2](https://github.com/whiterosecoffee/_BASKET/pull/2) (draft / unmerged at snapshot time) · **Catalog:** 1.6.0 (not yet on main).
 
 **Purpose:** one clear work queue, not 22 simultaneous conversations. Re-fetch GitHub issues/PRs and current CI **before** relaying any state as current. Dates and branch snapshots here are historical evidence, not live surveillance.
