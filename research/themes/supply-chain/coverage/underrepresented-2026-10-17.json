@@ -1,0 +1,562 @@
+{
+  "schema": "basket.b19-underrepresented-coverage@1",
+  "as_of": "2026-10-17",
+  "spark": "B19",
+  "issue": 21,
+  "branch": "work/21-underrepresented-ticker-coverage",
+  "scope": "read-only gap proposals for B19 research; not canonical ticker registration or verified portfolio positions",
+  "compared_to": "research/themes/supply-chain/registry/tickers.json on PR #18 branch work/17-mrie-revenue-pool-resources, fetched 2026-10-17",
+  "prioritization": "P0: missing economic choke point or customer capture; P1: adjacency or potential recurring driver; P2: research optionality. No valuations or buy ratings.",
+  "candidates": [
+    {
+      "ticker": "AMKR",
+      "layer": "advanced_packaging",
+      "priority": "P0",
+      "role_hypothesis": "Trace packaging/tool capacity, Nvidia and foundry interfaces; avoid double-counting chip sales.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [
+        {
+          "class": "issuer_statement",
+          "url": "https://ir.amkor.com/news-releases/news-release-details/amkor-technology-announces-strategic-partnership-nvidia-expand",
+          "claim": "2026-07-23 issuer announcement of $1.5bn multi-year Nvidia advanced packaging/development agreement; commitment/prepayment not realized revenue."
+        }
+      ],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "ASX",
+      "layer": "advanced_packaging",
+      "priority": "P0",
+      "role_hypothesis": "Trace packaging/tool capacity, Nvidia and foundry interfaces; avoid double-counting chip sales.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "BESI",
+      "layer": "advanced_packaging",
+      "priority": "P0",
+      "role_hypothesis": "Trace packaging/tool capacity, Nvidia and foundry interfaces; avoid double-counting chip sales.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [
+        {
+          "class": "third_party_report",
+          "url": "https://www.reuters.com/business/besi-shares-fall-report-asml-is-working-rival-hybrid-bonding-product-2026-10-16/",
+          "claim": "2026-10-16 report of possible future ASML hybrid-bonding competition; not issuer-confirmed."
+        }
+      ],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "ONTO",
+      "layer": "advanced_packaging",
+      "priority": "P0",
+      "role_hypothesis": "Trace packaging/tool capacity, Nvidia and foundry interfaces; avoid double-counting chip sales.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "ALAB",
+      "layer": "interconnect_photonics",
+      "priority": "P0",
+      "role_hypothesis": "Trace serializer, retimer, optical components and physical scale bottlenecks; separate design wins from recognized revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "CRDO",
+      "layer": "interconnect_photonics",
+      "priority": "P0",
+      "role_hypothesis": "Trace serializer, retimer, optical components and physical scale bottlenecks; separate design wins from recognized revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "MTSI",
+      "layer": "interconnect_photonics",
+      "priority": "P0",
+      "role_hypothesis": "Trace serializer, retimer, optical components and physical scale bottlenecks; separate design wins from recognized revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "POET",
+      "layer": "interconnect_photonics",
+      "priority": "P0",
+      "role_hypothesis": "Trace serializer, retimer, optical components and physical scale bottlenecks; separate design wins from recognized revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "PWR",
+      "layer": "power_grid_cooling",
+      "priority": "P0",
+      "role_hypothesis": "Trace utility connection, switchgear, HVAC, power-distribution and construction value; project spend is not supplier revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "MOD",
+      "layer": "power_grid_cooling",
+      "priority": "P0",
+      "role_hypothesis": "Trace utility connection, switchgear, HVAC, power-distribution and construction value; project spend is not supplier revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "NVT",
+      "layer": "power_grid_cooling",
+      "priority": "P0",
+      "role_hypothesis": "Trace utility connection, switchgear, HVAC, power-distribution and construction value; project spend is not supplier revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "HUBB",
+      "layer": "power_grid_cooling",
+      "priority": "P0",
+      "role_hypothesis": "Trace utility connection, switchgear, HVAC, power-distribution and construction value; project spend is not supplier revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "POWL",
+      "layer": "power_grid_cooling",
+      "priority": "P0",
+      "role_hypothesis": "Trace utility connection, switchgear, HVAC, power-distribution and construction value; project spend is not supplier revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "WDC",
+      "layer": "storage_data",
+      "priority": "P0",
+      "role_hypothesis": "Trace storage, flash and data persistence spend apart from DRAM/HBM.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "STX",
+      "layer": "storage_data",
+      "priority": "P0",
+      "role_hypothesis": "Trace storage, flash and data persistence spend apart from DRAM/HBM.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "PSTG",
+      "layer": "storage_data",
+      "priority": "P0",
+      "role_hypothesis": "Trace storage, flash and data persistence spend apart from DRAM/HBM.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "SNOW",
+      "layer": "enterprise_data_application",
+      "priority": "P0",
+      "role_hypothesis": "Separate customer software budgets, AI-attributable consumption and cloud pass-through compute cost.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [
+        {
+          "class": "issuer_ir",
+          "url": "https://investors.snowflake.com/overview/default.aspx",
+          "claim": "Issuer identifies multi-cloud data, analytics, AI and application workloads; AI incremental dollars not quantified in this artifact."
+        }
+      ],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "MDB",
+      "layer": "enterprise_data_application",
+      "priority": "P0",
+      "role_hypothesis": "Separate customer software budgets, AI-attributable consumption and cloud pass-through compute cost.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [
+        {
+          "class": "issuer_ir",
+          "url": "https://investors.mongodb.com/",
+          "claim": "Issuer identifies database, real-time analysis and AI retrieval workloads; incremental AI attribution unverified."
+        }
+      ],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "DDOG",
+      "layer": "enterprise_data_application",
+      "priority": "P0",
+      "role_hypothesis": "Separate customer software budgets, AI-attributable consumption and cloud pass-through compute cost.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "CFLT",
+      "layer": "enterprise_data_application",
+      "priority": "P0",
+      "role_hypothesis": "Separate customer software budgets, AI-attributable consumption and cloud pass-through compute cost.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "ESTC",
+      "layer": "enterprise_data_application",
+      "priority": "P0",
+      "role_hypothesis": "Separate customer software budgets, AI-attributable consumption and cloud pass-through compute cost.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "EMR",
+      "layer": "industrial_robotics",
+      "priority": "P1",
+      "role_hypothesis": "Trace controllers, sensing, warehouses, autonomy and labor-substitution ROI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "CGNX",
+      "layer": "industrial_robotics",
+      "priority": "P1",
+      "role_hypothesis": "Trace controllers, sensing, warehouses, autonomy and labor-substitution ROI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "KION.DE",
+      "layer": "industrial_robotics",
+      "priority": "P1",
+      "role_hypothesis": "Trace controllers, sensing, warehouses, autonomy and labor-substitution ROI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "PATH",
+      "layer": "industrial_robotics",
+      "priority": "P1",
+      "role_hypothesis": "Trace controllers, sensing, warehouses, autonomy and labor-substitution ROI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "OUST",
+      "layer": "industrial_robotics",
+      "priority": "P1",
+      "role_hypothesis": "Trace controllers, sensing, warehouses, autonomy and labor-substitution ROI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "BE",
+      "layer": "energy_nuclear",
+      "priority": "P1",
+      "role_hypothesis": "Track contracted/financed capacity separately from prospective generation and capacity claims.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "OKLO",
+      "layer": "energy_nuclear",
+      "priority": "P1",
+      "role_hypothesis": "Track contracted/financed capacity separately from prospective generation and capacity claims.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "BWXT",
+      "layer": "energy_nuclear",
+      "priority": "P1",
+      "role_hypothesis": "Track contracted/financed capacity separately from prospective generation and capacity claims.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "CCJ",
+      "layer": "energy_nuclear",
+      "priority": "P1",
+      "role_hypothesis": "Track contracted/financed capacity separately from prospective generation and capacity claims.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "OKTA",
+      "layer": "cyber_identity",
+      "priority": "P1",
+      "role_hypothesis": "Track identity, security, network control plane and share of incremental enterprise AI spending.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "CYBR",
+      "layer": "cyber_identity",
+      "priority": "P1",
+      "role_hypothesis": "Track identity, security, network control plane and share of incremental enterprise AI spending.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "NET",
+      "layer": "cyber_identity",
+      "priority": "P1",
+      "role_hypothesis": "Track identity, security, network control plane and share of incremental enterprise AI spending.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "CDNS",
+      "layer": "design_engineering",
+      "priority": "P1",
+      "role_hypothesis": "Track semiconductor design tool revenue and industrial engineering software tied to next product cycles.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "SNPS",
+      "layer": "design_engineering",
+      "priority": "P1",
+      "role_hypothesis": "Track semiconductor design tool revenue and industrial engineering software tied to next product cycles.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "ADSK",
+      "layer": "design_engineering",
+      "priority": "P1",
+      "role_hypothesis": "Track semiconductor design tool revenue and industrial engineering software tied to next product cycles.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "PTC",
+      "layer": "design_engineering",
+      "priority": "P1",
+      "role_hypothesis": "Track semiconductor design tool revenue and industrial engineering software tied to next product cycles.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "BSX",
+      "layer": "robotics_healthcare",
+      "priority": "P2",
+      "role_hypothesis": "Study direct clinical automation and procedural recurring revenue; do not equate all medtech sales with AI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "SYK",
+      "layer": "robotics_healthcare",
+      "priority": "P2",
+      "role_hypothesis": "Study direct clinical automation and procedural recurring revenue; do not equate all medtech sales with AI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "AKAM",
+      "layer": "distributed_access",
+      "priority": "P1",
+      "role_hypothesis": "Trace inference edge, colocation pricing, network adjacencies and lease/financing commitments.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "EQIX",
+      "layer": "distributed_access",
+      "priority": "P1",
+      "role_hypothesis": "Trace inference edge, colocation pricing, network adjacencies and lease/financing commitments.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    },
+    {
+      "ticker": "DLR",
+      "layer": "distributed_access",
+      "priority": "P1",
+      "role_hypothesis": "Trace inference edge, colocation pricing, network adjacencies and lease/financing commitments.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate"
+    }
+  ],
+  "controls": [
+    "All tickers are proposals; exchange, corporate identity, listing and current tradability must be confirmed before canonical registration.",
+    "Research watchlist membership differs from canonical membership; never treat no entry here as absent in canonical repo.",
+    "Measure issuer AI-attributable revenue with quarterly reports and explicit allocation, not total reported revenue or inferred share.",
+    "Trace consumer capital origin -> OEM/gateway -> suppliers -> retained FCF; reconcile each flow to prevent double-counting.",
+    "Distinguish capacity, backlog, contract/prepayment and revenue; dated USD sources with original currency and FX for foreign issuers.",
+    "Record counterparty terms and exposure as hypothesis until sourced; map edges via B05 and events via B03.",
+    "Do not use current price, P/E, real-time availability, or investment ratings without timestamped sourced observations.",
+    "Score capital duration, passthrough share, customer concentrations, financial risk and substitute technologies before investable basket admission."
+  ],
+  "open_questions": [
+    "Which missing candidates have financially material disclosed AI revenue?",
+    "What is the final-customer revenue pool size, bypass paths and percent captured by each intermediary?",
+    "Which capacity-constrained suppliers retain economics rather than competitors supplying substitution?",
+    "Do direct AI application revenues outweigh infrastructure financing and depreciation burden?"
+  ],
+  "followup_owner_requests": {
+    "B00": "Arbitrate canonical universe additions and schema integration; do not write ticker entities from B19.",
+    "B03": "Verify issuer quarterly filings and event economics.",
+    "B05": "Verify relationship edges and payer-to-payee tiers.",
+    "B19": "Integrate this scoped gap file into research registry after #18 coordination."
+  }
+}
