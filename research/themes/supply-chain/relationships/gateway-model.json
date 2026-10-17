@@ -1,5 +1,8 @@
 {
-  "schema": "mrie-gateway-research@1",
+  "schema": "mrie-b19-gateway-hypotheses@1",
+  "authority": "research_only_noncanonical",
+  "canonical_target": "tickers/<entity_id>/relationships.json",
+  "canonical_owner": "B05",
   "gateways": [
     "MSFT",
     "AMZN",
@@ -15,11 +18,10 @@
     "HPE"
   ],
   "rules": [
-    "Depth belongs to transaction path, not ticker",
-    "Separate final payer from contracting buyer and financing entity",
-    "Keep revenue, capex, backlog, RPO and financing as different measures",
-    "Do not infer customer allocations from total supplier revenue"
+    "Depth belongs to commercial path not entity",
+    "Final payer, contracting buyer and financing entity are distinct",
+    "Never promote hypotheses into canonical edges without B05 evidence review",
+    "Revenue, capex, RPO, backlog and financing cannot be summed"
   ],
-  "edges": [],
-  "status": "unverified"
+  "hypotheses": []
 }
