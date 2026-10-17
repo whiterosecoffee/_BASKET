@@ -93,3 +93,28 @@ Run `python orchestration/execution_loop.py` to create a side-effect-free task a
 ## Outcome goals and next batch
 
 The next execution sequence is controlled by [`goals.json`](goals.json) (four explicit outcomes, five milestones) and [`queue.json`](queue.json) v1.1.0 (11 bounded tasks), with one compiled scope per task. For complete **ready-to-paste receiver prompts** and prerequisites, read [`NEXT_BATCH.md`](NEXT_BATCH.md). Run `python orchestration/validate_goals.py` to verify every planned task belongs to exactly one milestone and dependencies are acyclic. Goal/milestone exit statuses are not inferred solely from worker prose: current GitHub PRs and mandatory QC evidence determine integration status. B02, B03 and B19 are already initiated workstreams; resume, do not clone their branches across chats.
+
+
+## Evidence-gated next-action controller (candidate on PR #25)
+
+The controller now exposes an **opt-in**, bounded local validation mode:
+
+```bash
+python orchestration/execution_loop.py --run-safe-checks
+```
+
+This command uses the historical fixture by default and therefore **does not**
+assert live GitHub status or automatically advance task state. It executes only
+four hardcoded repository-local checks (planner structure, orchestration unit
+tests, worker scope and worker attempts) without a shell, records individual
+pass/fail/timeout/unavailable results, and continues independent checks after a
+failure. The JSON report is an observation from this invocation, not proof of
+remote CI or merge readiness. It does not open issues, launch ChatGPT sessions,
+commit, merge, release or trade. A persistent scheduler and authenticated fresh
+GitHub-evidence ingestion remain separate unimplemented requirements.
+
+The `decide_next` pure policy classifies actions as `automatic_safe`,
+`requires_evidence`, `requires_owner`, or `requires_authorization`. Never
+pass `fresh_evidence=True` without independently collecting a current GitHub
+snapshot and checking its provenance. For integration decisions require exact
+PR-head and main CI evidence, not just these local checks.
