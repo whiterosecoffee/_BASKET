@@ -53,8 +53,10 @@ def reconcile(queue, library, registry, evidence, active_ids=None):
                 phase, action, owner = "capacity_unknown", "Confirm active code-writing workers before dispatch.", "B00"
             elif plan["worker_slots_remaining"] <= 0:
                 phase, action, owner = "capacity_full", "Finish or pause a current writer before starting a new conversation.", "B00"
+            elif item["id"] != plan["next_new_worker"]:
+                phase, action, owner = "queued_for_slot", "Preserve priority order; do not dispatch until a worker slot is available.", "B00"
             else:
-                phase, action, owner = "dispatch_ready", "Start one new domain conversation using task recipe, then claim issue and unique branch.", "B00"
+                phase, action, owner = "dispatch_ready", "Start exactly one new domain conversation using the task recipe and claim a unique issue/branch.", "B00"
         elif item["state"] in ("blocked_upstream", "evidence_unavailable"):
             phase, action, owner = "blocked", "Collect missing evidence or satisfy explicit dependency gates; do not infer completion.", "B00"
         else:
