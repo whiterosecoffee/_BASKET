@@ -85,6 +85,66 @@ def reconcile(queue, library, registry, evidence, active_ids=None):
     }
 
 
+
+# Explicit policy: a priority score never grants mutation permission.
+DECISION_CLASS = {
+    "accepted": "automatic_safe",
+    "post_merge_qc": "requires_evidence",
+    "approval_review": "requires_authorization",
+    "qc_rework": "requires_owner",
+    "dispatch_ready": "requires_owner",
+    "capacity_unknown": "requires_evidence",
+    "capacity_full": "requires_owner",
+    "queued_for_slot": "requires_owner",
+    "blocked": "requires_evidence",
+    "unverified": "requires_evidence",
+}
+SAFE_LOCAL_CHECKS = (
+    ("planner_structure", "python orchestration/validate_planner.py"),
+    ("orchestration_unit_tests",
+     "python -m unittest discover -s orchestration/tests -p 'test_*.py' -v"),
+    ("worker_scope", "python orchestration/validate_worker_scopes.py"),
+    ("worker_attempts", "python orchestration/validate_worker_attempts.py"),
+)
+
+
+def decide_next(review, *, fresh_evidence=False):
+    """Pure next-step decision. Never executes commands or mutates GitHub."""
+    decisions = []
+    for item in review["actions"]:
+        category = DECISION_CLASS[item["qc_phase"]]
+        if not fresh_evidence and category == "automatic_safe":
+            category = "requires_evidence"
+        decisions.append({
+            "task_id": item["task_id"],
+            "decision_class": category,
+            "reason": item["next_action"],
+            "blockers": item["blocking_dependencies"],
+        })
+    selected = next((x for x in decisions
+                     if x["decision_class"] == "automatic_safe"), None)
+    if selected is None:
+        selected = next((x for x in decisions
+                         if x["decision_class"] != "requires_authorization"
+                         and not x["blockers"]), None)
+    return {
+        "schema": "basket.execution_decision@1",
+        "queue_version": review["queue_version"],
+        "fresh_evidence_confirmed": bool(fresh_evidence),
+        "selected": selected,
+        "ordered_decisions": decisions,
+        "safe_local_checks": [{"id": key, "command": cmd}
+                              for key, cmd in SAFE_LOCAL_CHECKS],
+        "checks_executed": [],
+        "side_effects_executed": [],
+        "automatic_merge": False,
+        "automatic_release": False,
+        "automatic_trade": False,
+        "automatic_worker_launch": False,
+    }
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--queue", default=str(ROOT / "orchestration/planner/queue.json"))
@@ -95,7 +155,8 @@ def main():
     args = ap.parse_args()
     q, l, r, e = (planner.load(p) for p in
                   (args.queue, args.library, args.registry, args.evidence))
-    print(json.dumps(reconcile(q, l, r, e, args.active), indent=2))
+    review = reconcile(q, l, r, e, args.active)
+    print(json.dumps({"review": review, "decision": decide_next(review)}, indent=2))
 
 
 if __name__ == "__main__":
