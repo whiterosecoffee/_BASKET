@@ -32,7 +32,7 @@ class PlannerTests(unittest.TestCase):
 
     def test_library_and_queue_have_valid_references(self):
         self.assertEqual(planner.validate_plan(self.queue, self.library, self.catalog), [])
-        self.assertEqual(len(self.queue["tasks"]), 8)
+        self.assertEqual(len(self.queue["tasks"]), 11)
         self.assertEqual(self.queue["active_worker_limit"], 3)
 
     def test_task_queue_is_not_a_live_status_claim(self):
@@ -53,6 +53,9 @@ class PlannerTests(unittest.TestCase):
         self.assertEqual(e["T-006"]["state"], "ready_new_worker")
         self.assertEqual(e["T-007"]["state"], "blocked_upstream")
         self.assertEqual(e["T-008"]["state"], "blocked_upstream")
+        self.assertEqual(e["T-009"]["state"], "blocked_upstream")
+        self.assertEqual(e["T-010"]["state"], "evidence_unavailable")
+        self.assertEqual(e["T-011"]["state"], "blocked_upstream")
 
     def test_active_worker_limit_blocks_extra_new_chats(self):
         p = self.plan(active=("T-004", "T-005"))
@@ -126,6 +129,25 @@ class PlannerTests(unittest.TestCase):
         self.assertTrue(planner.scope_subset("research/events/SFTBY/**", ["research/events/**"]))
         self.assertFalse(planner.scope_subset("schemas/**", ["research/events/**"]))
 
+
+
+    def test_post_merge_simulation_prioritizes_new_b01_qc(self):
+        # Simulated completed integration. Not a substitute for live GitHub evidence.
+        evidence = copy.deepcopy(self.evidence)
+        for p in evidence["pull_requests"]:
+            if p["number"] in (2, 10, 13):
+                p.update({"merged": True, "draft": False, "state": "closed"})
+        evidence["main_commit"] = "5bf7fc14e2577e479279efdedfeae4b90bf85820"
+        evidence["workflow_runs"].append({
+            "id": 38990763024, "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38990763024",
+            "head_sha": evidence["main_commit"], "conclusion": "success",
+            "name": "Validate BASKET data"})
+        out = self.plan(evidence=evidence, active=("T-004", "T-005"))
+        entries = {x["id"]: x for x in out["ordered_tasks"]}
+        self.assertEqual(entries["T-001"]["state"], "integrated_main_ci_verified")
+        self.assertEqual(entries["T-003"]["state"], "integrated_main_ci_verified")
+        self.assertEqual(entries["T-009"]["state"], "ready_new_worker")
+        self.assertEqual(out["next_new_worker"], "T-009")
 
 if __name__ == "__main__":
     unittest.main()

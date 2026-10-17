@@ -1,0 +1,154 @@
+{
+  "schema": "basket.project_goals@1",
+  "version": "1.0.0",
+  "repository": "whiterosecoffee/_BASKET",
+  "goals": [
+    {
+      "id": "G-001",
+      "objective": "Automated worker execution and independent QC",
+      "priority": "P0",
+      "success_conditions": [
+        "All worker planner, scope, attempts and orchestration tests execute in CI on the exact integrated main commit.",
+        "Each job is traceable from objective to claim, attempts, failures, checks and integration evidence."
+      ],
+      "not_a_success": [
+        "Committing tests without running them.",
+        "Claiming a closed chat proves integrated implementation."
+      ]
+    },
+    {
+      "id": "G-002",
+      "objective": "Point-in-time source-verified USD market and issuer evidence",
+      "priority": "P0",
+      "success_conditions": [
+        "SFTBY, CRWV and AAOI have reproducible 200+ completed-session history where available.",
+        "Historical USD/JPY inputs and dependency TTD fail closed when stale.",
+        "Issuer-event corrections replay by availability and ingestion times."
+      ],
+      "not_a_success": [
+        "Inventing missing current market data or live services.",
+        "Treating funding tranches as additional commitments."
+      ]
+    },
+    {
+      "id": "G-003",
+      "objective": "Defensible ownership, capital and revenue-pool accounting",
+      "priority": "P0",
+      "success_conditions": [
+        "Fund, parent and direct exposures reconcile without double counting.",
+        "Customer-facing demand and upstream intermediary spending are separated.",
+        "SFTBY holdings and NAV scenarios disclose dated USD, FX and coverage limitations."
+      ],
+      "not_a_success": [
+        "Adding OEM sales and intermediary resale as independent final demand.",
+        "Confusing investment cost, debt or synthetic marks with equity NAV."
+      ]
+    },
+    {
+      "id": "G-004",
+      "objective": "Reproducible narrative and traversal intelligence for three holdings",
+      "priority": "P1",
+      "success_conditions": [
+        "Narrative claims include alternatives, falsifiers and point-in-time sources.",
+        "Traversal reports 5/20/60/200-window position, direction and price-volume velocity.",
+        "Cycle scenarios include transaction costs and missed rebounds."
+      ],
+      "not_a_success": [
+        "Uncalibrated predictive probabilities.",
+        "Presenting stale dependent calculations as current."
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "M-001",
+      "goal_id": "G-001",
+      "objective": "Integrate B05, B00 and initial B01 strict gates",
+      "task_ids": [
+        "T-001",
+        "T-002",
+        "T-003"
+      ],
+      "depends_on": [],
+      "exit_criteria": [
+        "Three reviewed PRs merged; strict integrated main workflow passed at a recorded exact SHA."
+      ],
+      "evidence_policy": "merged_main_ci"
+    },
+    {
+      "id": "M-002",
+      "goal_id": "G-001",
+      "objective": "Execute full worker QC on a real independent runner",
+      "task_ids": [
+        "T-009"
+      ],
+      "depends_on": [
+        "M-001"
+      ],
+      "exit_criteria": [
+        "Exact-commit CI runs planner, scope, attempts, protocol and adversarial tests with fail-closed results.",
+        "Integration checks on main include all required gates and do not pass by missing-script skip."
+      ],
+      "evidence_policy": "merged_main_ci"
+    },
+    {
+      "id": "M-003",
+      "goal_id": "G-002",
+      "objective": "Validate market and event point-in-time replay",
+      "task_ids": [
+        "T-004",
+        "T-005"
+      ],
+      "depends_on": [
+        "M-001"
+      ],
+      "exit_criteria": [
+        "B02 and B03 own domain tests execute against source-identified revisions with no lookahead.",
+        "Historical input coverage and provider/FX gaps are explicitly quantified or marked unknown."
+      ],
+      "evidence_policy": "verified_domain_acceptance"
+    },
+    {
+      "id": "M-004",
+      "goal_id": "G-003",
+      "objective": "Revenue-pool mapping and SoftBank exposure reconciliation",
+      "task_ids": [
+        "T-010",
+        "T-008",
+        "T-011"
+      ],
+      "depends_on": [
+        "M-003"
+      ],
+      "exit_criteria": [
+        "B19 maps upstream/customer gateway revenue without double counting.",
+        "B05 OpenAI reconciliation and B09 holdings use dated source, currency, FX and uncertainty."
+      ],
+      "evidence_policy": "verified_domain_acceptance"
+    },
+    {
+      "id": "M-005",
+      "goal_id": "G-004",
+      "objective": "Narrative falsification and descriptive traversal",
+      "task_ids": [
+        "T-006",
+        "T-007"
+      ],
+      "depends_on": [
+        "M-003"
+      ],
+      "exit_criteria": [
+        "Narrative and traversal results reproduce from exact inputs and versions.",
+        "No unsupported probabilities or stale data declared current."
+      ],
+      "evidence_policy": "verified_domain_acceptance"
+    }
+  ],
+  "execution_policy": {
+    "active_code_writers_limit": 3,
+    "dispatch": "Select highest-impact unblocked goal and dispatch reuse-capabilities inside owner scope; active session count is not inferred from PR status.",
+    "failure": "Failed QC records exact attempt evidence then requeues the same task to the same owner with bounded retries and explicit correction.",
+    "integration": "Promote only exact-commit tested changes; verify every mandatory check and main CI before downstream milestones unlock.",
+    "source_truth": "GitHub issue, PR, changed file and CI states are authoritative; goals and queue define desired work, not live completion."
+  }
+}

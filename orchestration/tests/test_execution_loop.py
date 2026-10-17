@@ -20,6 +20,7 @@ class ExecutionLoopTests(unittest.TestCase):
         by_id = {x["task_id"]:x for x in result["actions"]}
         self.assertEqual(by_id["T-001"]["qc_phase"],"approval_review")
         self.assertEqual(by_id["T-004"]["qc_phase"],"qc_rework")
+        self.assertEqual(by_id["T-009"]["qc_phase"],"blocked")
         self.assertEqual(by_id["T-006"]["qc_phase"],"dispatch_ready")
         self.assertEqual(result["worker_slots_remaining"],1)
         self.assertEqual(result["side_effects_executed"],[])

@@ -51,7 +51,7 @@ class GitHubSnapshotTests(unittest.TestCase):
         self.assertEqual(out["capture_mode"], "live_connector")
         self.assertEqual(out["main_commit"], "a" * 40)
         self.assertTrue(out["observed_at"])
-        self.assertEqual(len(out["pull_requests"]), 5)
+        self.assertEqual(len(out["pull_requests"]), 6)
         self.assertEqual(out["workflow_runs"][0]["id"], 12345)
         self.assertIn(16, {x["number"] for x in out["issues"]})
 

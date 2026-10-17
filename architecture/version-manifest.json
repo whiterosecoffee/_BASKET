@@ -89,6 +89,12 @@
       "path": "schemas/worker-attempts.v1.json",
       "major": 1,
       "status": "candidate_on_orchestration_branch"
+    },
+    {
+      "logical_contract": "project_goals",
+      "path": "schemas/project-goals.v1.json",
+      "major": 1,
+      "status": "candidate_on_orchestration_branch"
     }
   ],
   "version_domains": {
@@ -147,7 +153,8 @@
     "Version manifest describes desired release governance; it does not itself make v0.5.0 a shipped release.",
     "B01 handoff #6 adds version validators to CI; B02 handoff #7 is future snapshot/TTD work and does not satisfy live data release claims.",
     "Worker protocol schemas and offline B00 evaluator are committed on orchestration draft PR #2; independent execution and B01 CI integration are pending.",
-    "B00 reusable worker planner with read-only GitHub snapshots, task queue DAG and recombinable profiles committed to draft PR #2; CI execution pending B01 handoff #6."
+    "B00 reusable worker planner with read-only GitHub snapshots, task queue DAG and recombinable profiles committed to draft PR #2; CI execution pending B01 handoff #6.",
+    "B00 planned goal-to-milestone-to-task queue v1.1.0 and dispatch sequence are committed on a new B00 PR; runner validation remains pending B01 QC handoff #6."
   ],
   "future_data_versioning_handoff_issue": 7
 }
