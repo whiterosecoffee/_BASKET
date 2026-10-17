@@ -89,3 +89,7 @@ Existing tasks with an open PR may require more tests or source coverage. Their 
 
 ## Closed-loop QC controller
 Run `python orchestration/execution_loop.py` to create a side-effect-free task action plan from source evidence. Its Q0–Q6 checkpoints are described in [EXECUTION_LOOP.md](../EXECUTION_LOOP.md). B00 chooses outcome-level milestones; substeps remain inside a task and failed QC returns to the same worker rather than spawning another conversation. It does not claim any tests have executed or automatically merge code. B01 handoff #6 should run the controller fixture tests in CI.
+
+## Outcome goals and next batch
+
+The next execution sequence is controlled by [`goals.json`](goals.json) (four explicit outcomes, five milestones) and [`queue.json`](queue.json) v1.1.0 (11 bounded tasks), with one compiled scope per task. For complete **ready-to-paste receiver prompts** and prerequisites, read [`NEXT_BATCH.md`](NEXT_BATCH.md). Run `python orchestration/validate_goals.py` to verify every planned task belongs to exactly one milestone and dependencies are acyclic. Goal/milestone exit statuses are not inferred solely from worker prose: current GitHub PRs and mandatory QC evidence determine integration status. B02, B03 and B19 are already initiated workstreams; resume, do not clone their branches across chats.
