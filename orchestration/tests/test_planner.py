@@ -53,14 +53,14 @@ class PlannerTests(unittest.TestCase):
         self.assertEqual(e["T-006"]["state"], "ready_new_worker")
         self.assertEqual(e["T-007"]["state"], "blocked_upstream")
         self.assertEqual(e["T-008"]["state"], "blocked_upstream")
-        self.assertEqual(e["T-009"]["state"], "ready_new_worker")
-        self.assertEqual(e["T-010"]["state"], "resume_incomplete")
+        self.assertEqual(e["T-009"]["state"], "blocked_upstream")
+        self.assertEqual(e["T-010"]["state"], "evidence_unavailable")
         self.assertEqual(e["T-011"]["state"], "blocked_upstream")
 
     def test_active_worker_limit_blocks_extra_new_chats(self):
         p = self.plan(active=("T-004", "T-005"))
         self.assertEqual(p["worker_slots_remaining"], 1)
-        self.assertEqual(p["next_new_worker"], "T-009")
+        self.assertEqual(p["next_new_worker"], "T-006")
         self.assertIsNone(self.plan(active=("T-004", "T-005", "T-006"))["next_new_worker"])
 
     def test_reviews_do_not_count_as_parallel_code_workers(self):
