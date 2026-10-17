@@ -9,6 +9,7 @@ No GitHub mutations, merges, remote worker launches or background scheduling.
 from __future__ import annotations
 import argparse
 import json
+import shlex
 from pathlib import Path
 import importlib.util
 import subprocess
@@ -168,7 +169,7 @@ def run_safe_checks(*, runner=None, check_ids=None, timeout_seconds=120):
     for name in selected:
         command = allowed[name]
         # Never run a shell or execute arbitrary commands from queue/issue text.
-        argv = ([sys.executable] + command.split(" ")[1:])
+        argv = ([sys.executable] + shlex.split(command)[1:])
         start = time.monotonic()
         try:
             proc = runner(argv, cwd=str(ROOT), capture_output=True,
