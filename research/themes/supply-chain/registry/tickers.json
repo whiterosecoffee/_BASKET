@@ -1,347 +1,349 @@
 {
-  "schema": "mrie-research-tickers@1",
+  "schema": "mrie-b19-coverage-watchlist@1",
   "as_of": "2026-10-16",
   "coverage": "working research universe; reconcile with canonical registry",
   "tickers": [
     {
-      "ticker": "SFTBY",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "SFTBY",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "CRWV",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "CRWV",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "AAOI",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "AAOI",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "NVDA",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "NVDA",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "MSFT",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "MSFT",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "DELL",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "DELL",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "HPE",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "HPE",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "IBM",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "IBM",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "ORCL",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "ORCL",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "ARM",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "ARM",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "INTC",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "INTC",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "SYM",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "SYM",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "PAYP",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "PAYP",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "ABBNY",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "ABBNY",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "TMUS",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "TMUS",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "DTEGY",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "DTEGY",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "TSM",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "TSM",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "MU",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "MU",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "AVGO",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "AVGO",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "AMD",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "AMD",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "ANET",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "ANET",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "VRT",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "VRT",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "LITE",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "LITE",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "COHR",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "COHR",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "QQQ",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "QQQ",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "SMH",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "SMH",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "NBIS",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "NBIS",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "AMZN",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "AMZN",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "GOOG",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "GOOG",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "META",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "META",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "NOW",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "NOW",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "PLTR",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "PLTR",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "ISRG",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "ISRG",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "IONQ",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "IONQ",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "QBTS",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "QBTS",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "RGTI",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "RGTI",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "HON",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "HON",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "CRM",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "CRM",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "SAP",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "SAP",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "ROK",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "ROK",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "TER",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "TER",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "FANUY",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "FANUY",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "NOK",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "NOK",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "CHTR",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "CHTR",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "VZ",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "VZ",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "T",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "T",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "PANW",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "PANW",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "CRWD",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "CRWD",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "ZS",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "ZS",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "FTNT",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "FTNT",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "ASML",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "ASML",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "AMAT",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "AMAT",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "LRCX",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "LRCX",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "KLAC",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "KLAC",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "MRVL",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "MRVL",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "FN",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "FN",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "CIEN",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "CIEN",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "ETN",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "ETN",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "GEV",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "GEV",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "CEG",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "CEG",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "VST",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "VST",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "SMCI",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "SMCI",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "TSLA",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "TSLA",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "MBLY",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "MBLY",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "VEEV",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "VEEV",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "AXON",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "AXON",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "RXRX",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "RXRX",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     },
     {
-      "ticker": "SDGR",
-      "earnings_status": "unverified",
-      "economic_roles": []
+      "entity_id": "SDGR",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
     }
-  ]
+  ],
+  "authority": "research_only_noncanonical",
+  "canonical_entity_path": "tickers/<entity_id>/entity.json"
 }
