@@ -1,13 +1,6 @@
 {
   "schema": "relationships@1",
   "entity_id": "SFTBY",
-  "as_of": "2026-10-16",
-  "scope": "SoftBank Group look-through; categories and disclosed positions; not yet exhaustive company-by-company inventory",
-  "coverage": {
-    "status": "partial",
-    "reason": "Vision Fund and other holdings include many underlying investments; complete dated holdings roster and current ownership not yet reconciled",
-    "reference_as_of": "2026-06-30"
-  },
   "pools": [],
   "upstream": [],
   "downstream": [],
@@ -25,84 +18,5 @@
       ]
     }
   ],
-  "other": [],
-  "named_exposures": [
-    {
-      "entity_id": "ARM",
-      "status": "verified_nav_category",
-      "source": "https://group.softbank/en/ir/stock/sotp"
-    },
-    {
-      "entity_id": "OPENAI",
-      "status": "verified_investment",
-      "source": "https://group.softbank/en/news/press/20261001"
-    },
-    {
-      "entity_id": "SBKK",
-      "status": "verified_nav_category",
-      "source": "https://group.softbank/en/ir/stock/sotp"
-    },
-    {
-      "entity_id": "SVF1",
-      "status": "fund_category",
-      "source": "https://group.softbank/en/ir/stock/sotp"
-    },
-    {
-      "entity_id": "SVF2",
-      "status": "fund_category",
-      "source": "https://group.softbank/en/ir/stock/sotp"
-    },
-    {
-      "entity_id": "LATAM",
-      "status": "fund_category",
-      "source": "https://group.softbank/en/ir/stock/sotp"
-    },
-    {
-      "entity_id": "TMUS",
-      "status": "verified_nav_category_net_of_financing",
-      "source": "https://group.softbank/en/ir/stock/sotp"
-    },
-    {
-      "entity_id": "PAYPAY",
-      "status": "indirect_and_fund_exposure_requires_deduplication",
-      "source": "https://group.softbank/en/news/press/20260330"
-    }
-  ],
-  "pipeline": [
-    {
-      "entity_id": "ABB_ROBOTICS",
-      "status": "announced_acquisition_not_assumed_closed",
-      "source": "https://group.softbank/en/ir/financials/annual_reports/2026/message/goto"
-    },
-    {
-      "entity_id": "DIGITALBRIDGE",
-      "status": "announced_acquisition_not_assumed_closed",
-      "source": "https://group.softbank/en/ir/financials/annual_reports/2026/message/goto"
-    }
-  ],
-  "nav_reference_usd": {
-    "as_of": "2026-06-30",
-    "currency": "USD",
-    "unit": "USD billions",
-    "fx": {
-      "pair": "JPYUSD",
-      "rate": 0.00618123,
-      "rate_date": "2026-06-30",
-      "rate_source": "historical FX lookup",
-      "note": "Historical translation, not current fair value; conversion uses date-matched rate."
-    },
-    "nav_usd_bn": 446.903,
-    "equity_value_adjusted_usd_bn": 513.722,
-    "net_debt_usd_bn": 66.819,
-    "holdings_adjusted_usd_bn": {
-      "ARM": 308.505,
-      "SVF1": 22.252,
-      "SVF2": 119.236,
-      "LATAM": 6.181,
-      "SBKK": 17.246,
-      "TMUS": 0,
-      "OTHERS": 40.24
-    },
-    "source": "https://group.softbank/en/ir/stock/sotp"
-  }
+  "other": []
 }

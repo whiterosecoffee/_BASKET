@@ -57,5 +57,14 @@ class NarrativeTests(unittest.TestCase):
         self.assertNotIn("rpo_0_24_usd_b", metrics)
 
 
+    def test_sftby_sensitivity_is_illustrative_not_nav(self):
+        d = engine.sensitivity(self.rows, self.at, 1500, -4)
+        self.assertEqual(d["classification"], "conditional_sensitivity_not_NAV")
+        self.assertAlmostEqual(d["gross_stake_value_usd_b"], 195.0)
+        self.assertAlmostEqual(d["gross_stake_change_usd_b"], -7.8)
+        with self.assertRaises(ValueError):
+            engine.sensitivity(self.rows, self.at, 0, -4)
+
+
 if __name__ == "__main__":
     unittest.main()

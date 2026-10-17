@@ -5,6 +5,7 @@ This module complements `runtime/ttd.py` and existing `tickers/*/history.jsonl`:
 ```bash
 python engines/narrative/engine.py audit engines/narrative/cases/coreweave_2026-10-16.jsonl --at 2026-10-16T15:00:00Z
 python engines/narrative/engine.py extrapolate engines/narrative/cases/coreweave_2026-10-16.jsonl --at 2026-10-16T15:00:00Z
+python engines/narrative/engine.py sensitivity engines/narrative/cases/coreweave_2026-10-16.jsonl --at 2026-10-16T15:00:00Z --valuation-usd-b 1500 --move-pct -4
 python -m unittest discover -s tests -p test_narrative.py
 ```
 
@@ -35,3 +36,7 @@ A source and methodology are mandatory for empirical claims. A **hypothesis is n
 - Reuters, October 15 2026: https://www.reuters.com/business/finance/investors-temper-anthropic-ipo-valuation-expectations-over-revenue-growth-2026-10-15/
 
 Production adapters remain future work. See root `runtime/README.md` for TTD policy and disabled adapters.
+
+## SoftBank exposure cross-check
+
+SoftBank directly confirms ~13% OpenAI ownership and USD 64.6B cumulative funding as of 2026-10-01 (via Vision Fund 2). The `sensitivity` command requires an **explicit user/model-supplied hypothetical valuation**; it never imports a stale perp mark or publishes the result as official SoftBank NAV. https://group.softbank/en/news/press/20261001
