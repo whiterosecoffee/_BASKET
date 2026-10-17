@@ -1,9 +1,12 @@
 {
-  "schema": "mrie-earnings-intake@1",
+  "schema": "mrie-b19-earnings-proposals@1",
+  "authority": "research_only_noncanonical",
+  "canonical_target": "tickers/<entity_id>/events.json",
+  "canonical_owner": "B03",
   "currency": "USD",
-  "observations": [],
+  "proposals": [],
   "required_fields": [
-    "ticker",
+    "entity_id",
     "fiscal_period",
     "period_end",
     "published_at",
@@ -11,15 +14,9 @@
     "metric",
     "value_usd",
     "classification",
-    "observed_at",
+    "available_at",
     "ingested_at",
     "revision_id"
   ],
-  "classification_values": [
-    "issuer_reported",
-    "issuer_guidance",
-    "derived",
-    "hypothesis"
-  ],
-  "note": "Empty pending source-level verification. Prior chat figures not copied as verified."
+  "note": "Proposals must be reviewed by B03; no duplicate canonical issuer events or independent quarterly earnings truth."
 }
