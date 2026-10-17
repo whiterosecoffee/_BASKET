@@ -1,0 +1,25 @@
+{
+  "schema": "mrie-gateway-research@1",
+  "gateways": [
+    "MSFT",
+    "AMZN",
+    "GOOG",
+    "META",
+    "ORCL",
+    "IBM",
+    "CRWV",
+    "NBIS",
+    "TMUS",
+    "CHTR",
+    "DELL",
+    "HPE"
+  ],
+  "rules": [
+    "Depth belongs to transaction path, not ticker",
+    "Separate final payer from contracting buyer and financing entity",
+    "Keep revenue, capex, backlog, RPO and financing as different measures",
+    "Do not infer customer allocations from total supplier revenue"
+  ],
+  "edges": [],
+  "status": "unverified"
+}
