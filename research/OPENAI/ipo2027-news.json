@@ -1,0 +1,262 @@
+{
+  "schema": "basket.openai_ipo_news@1",
+  "entity_id": "OPENAI",
+  "as_of_date": "2026-10-17",
+  "classification": "dated_research_signals_not_current_quotes_or_valuation",
+  "source_hierarchy": "issuer_primary > regulator_filings > transaction_confirmations > reputable_reporting > commentary; independent confirmation required for anonymously sourced projections",
+  "research_ids": [
+    "IPO-2026-06-08-CONFIDENTIAL",
+    "IPO-2026-09-12-NOT2026",
+    "CF-2026-09-18-FORECAST-278",
+    "CF-2026-09-18-DISPUTE",
+    "REV-2026-10-08-SEP-50",
+    "REV-2026-10-08-DEC-70",
+    "REV-2026-10-08-NET-GROSS",
+    "ENT-2026-04-08-40PCT",
+    "CAP-2026-02-27-COMPUTE-5GW",
+    "STRAT-2026-10-06-ATLASSIAN",
+    "FIN-2026-03-31-ROUND",
+    "CREDIT-2026-10-13-SBG-975",
+    "CREDIT-2026-10-15-CRWV",
+    "OPS-2026-10-14-CTO-DEPART",
+    "POL-2026-10-13-INDEP-EVAL"
+  ],
+  "items": [
+    {
+      "id": "IPO-2026-06-08-CONFIDENTIAL",
+      "available_on": "2026-06-08",
+      "temporal_precision": "date_only",
+      "evidence_class": "reuters_report",
+      "metric_or_event": "Reuters says confidential filing submitted; no public terms or filed range yet",
+      "factor_ids": [
+        "governance_dilution",
+        "market_price_discovery"
+      ],
+      "source_url": "https://www.reuters.com/technology/openai-files-us-ipo-after-anthropic-ai-giants-head-public-markets-2026-06-08/",
+      "verification_state": "reported_secondary",
+      "unknown_or_falsifier": "Confidential filing is not public S-1 with audited financials accessible to user; 2027 timing not confirmed."
+    },
+    {
+      "id": "IPO-2026-09-12-NOT2026",
+      "available_on": "2026-09-12",
+      "temporal_precision": "date_only",
+      "evidence_class": "attributed_ceo_statement",
+      "metric_or_event": "Altman reportedly ruled out IPO in 2026 citing safety considerations",
+      "factor_ids": [
+        "governance_dilution",
+        "market_price_discovery"
+      ],
+      "source_url": "https://www.bloomberg.com/news/articles/2026-09-12/openai-ipo-won-t-happen-until-2027-sam-altman-tells-fortune",
+      "verification_state": "reported_secondary",
+      "unknown_or_falsifier": "Does not guarantee any 2027 listing or pricing."
+    },
+    {
+      "id": "CF-2026-09-18-FORECAST-278",
+      "available_on": "2026-09-18",
+      "temporal_precision": "date_only",
+      "evidence_class": "leaked_projection_report",
+      "metric_or_event": "FT reported $278B projected cumulative negative FCF during 2026-2030 in investor/compute presentation",
+      "factor_ids": [
+        "capital_funding",
+        "unit_economics"
+      ],
+      "source_url": "https://www.ft.com/content/6011d061-eee3-4193-b3b7-8ee4155f538c",
+      "verification_state": "reported_disputed",
+      "unknown_or_falsifier": "Reported forecast, NOT realized cash spent or debt; company finance executive reportedly challenged accuracy; obtain original model, timeline and net vs gross spend."
+    },
+    {
+      "id": "CF-2026-09-18-DISPUTE",
+      "available_on": "2026-09-18",
+      "temporal_precision": "date_only",
+      "evidence_class": "secondary_report_of_denial",
+      "metric_or_event": "The Information reports an OpenAI product-finance employee publicly disputed reported $278B figure",
+      "factor_ids": [
+        "capital_funding",
+        "unit_economics"
+      ],
+      "source_url": "https://www.theinformation.com/briefings/openai-said-forecast-nearly-280-billion-cash-burn-end-2030",
+      "verification_state": "reported_secondary_not_verified_primary",
+      "unknown_or_falsifier": "A social post described secondhand is not independently authenticated; store dispute, do not replace projection with certainty."
+    },
+    {
+      "id": "REV-2026-10-08-SEP-50",
+      "available_on": "2026-10-08",
+      "temporal_precision": "date_only",
+      "evidence_class": "reported_operating_proxy",
+      "metric_or_event": "September 2026 company annualized revenue ~USD 50B/year based on month, not audited full-year",
+      "factor_ids": [
+        "revenue_quality",
+        "growth_durability"
+      ],
+      "source_url": "https://www.bloomberg.com/news/articles/2026-10-09/openai-expects-70-billion-in-annualized-revenue-by-end-of-2026",
+      "verification_state": "reported_secondary",
+      "unknown_or_falsifier": "A single-month run-rate, channel scope and collection not independently audited."
+    },
+    {
+      "id": "REV-2026-10-08-DEC-70",
+      "available_on": "2026-10-08",
+      "temporal_precision": "date_only",
+      "evidence_class": "reported_management_target",
+      "metric_or_event": "OpenAI reportedly targets at least USD 70B/year annualized exit rate by December 2026",
+      "factor_ids": [
+        "growth_durability",
+        "market_price_discovery"
+      ],
+      "source_url": "https://www.bloomberg.com/news/articles/2026-10-09/openai-expects-70-billion-in-annualized-revenue-by-end-of-2026",
+      "verification_state": "future_target_not_observation",
+      "unknown_or_falsifier": "$70B is forecast, not September recognized revenue or audited FY2026 revenue."
+    },
+    {
+      "id": "REV-2026-10-08-NET-GROSS",
+      "available_on": "2026-10-08",
+      "temporal_precision": "date_only",
+      "evidence_class": "accounting_methodology_conflict",
+      "metric_or_event": "OpenAI revenue excludes selected cloud partner sales while Anthropic counts gross partner sales; September $70B OpenAI reported proxy previously blended bases",
+      "factor_ids": [
+        "revenue_quality",
+        "market_price_discovery"
+      ],
+      "source_url": "https://www.axios.com/2026/10/08/openai-50-billion-arr-anthropic-revenue-accounting",
+      "verification_state": "reported_methodology_conflict",
+      "unknown_or_falsifier": "Require GAAP principal-agent bridge, equivalent channel and revenue vs bookings normalization before multiples."
+    },
+    {
+      "id": "ENT-2026-04-08-40PCT",
+      "available_on": "2026-04-08",
+      "temporal_precision": "date_only",
+      "evidence_class": "issuer_company_statement",
+      "metric_or_event": "OpenAI said enterprise exceeds 40% of its revenues and expects consumer parity by end 2026",
+      "factor_ids": [
+        "revenue_quality",
+        "growth_durability",
+        "competitive_position"
+      ],
+      "source_url": "https://openai.com/index/next-phase-of-enterprise-ai/",
+      "verification_state": "issuer_reported_historical",
+      "unknown_or_falsifier": "Issuer-defined segment categories, not audited; no guarantee year-end parity."
+    },
+    {
+      "id": "CAP-2026-02-27-COMPUTE-5GW",
+      "available_on": "2026-02-27",
+      "temporal_precision": "date_only",
+      "evidence_class": "issuer_partnership_announcement",
+      "metric_or_event": "OpenAI said strategic Nvidia inference capacity 3 GW plus 2 GW training on Vera Rubin systems",
+      "factor_ids": [
+        "compute_delivery",
+        "capital_funding",
+        "unit_economics"
+      ],
+      "source_url": "https://openai.com/index/scaling-ai-for-everyone/",
+      "verification_state": "announced_capacity_not_deployed",
+      "unknown_or_falsifier": "Do not sum as realized load or add to Broadcom 10 GW without de-duplication of physical sites and supplier contract stages."
+    },
+    {
+      "id": "STRAT-2026-10-06-ATLASSIAN",
+      "available_on": "2026-10-06",
+      "temporal_precision": "date_only",
+      "evidence_class": "issuer_signed_partnership_announcement",
+      "metric_or_event": "OpenAI and Atlassian announced expansion of agents/model distribution in Rovo",
+      "factor_ids": [
+        "competitive_position",
+        "growth_durability"
+      ],
+      "source_url": "https://openai.com/index/atlassian-partnership/",
+      "verification_state": "issuer_reported_signed_agreement",
+      "unknown_or_falsifier": "No published contract value, guaranteed inference demand or profit margin; do not infer monetized revenue."
+    },
+    {
+      "id": "FIN-2026-03-31-ROUND",
+      "available_on": "2026-03-31",
+      "temporal_precision": "date_only",
+      "evidence_class": "issuer_primary_funding",
+      "metric_or_event": "Issuer disclosed $122B financing with $852B post-money value; no evidence all commitments settled same day",
+      "factor_ids": [
+        "capital_funding",
+        "governance_dilution",
+        "market_price_discovery"
+      ],
+      "source_url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+      "verification_state": "issuer_disclosed_historical",
+      "unknown_or_falsifier": "Do not add to $730B pre-money as separate valuation or equate commitments to unrestricted cash."
+    },
+    {
+      "id": "CREDIT-2026-10-13-SBG-975",
+      "available_on": "2026-10-13",
+      "temporal_precision": "date_only",
+      "evidence_class": "reuters_report",
+      "metric_or_event": "Reuters reports SoftBank $11B bond financing at coupon/yield up to 9.75% amid concentrated OpenAI exposure",
+      "factor_ids": [
+        "capital_funding",
+        "market_price_discovery"
+      ],
+      "source_url": "https://www.reuters.com/business/media-telecom/softbank-junk-bond-sale-raises-stakes-ceo-sons-all-in-ai-bet-2026-10-13/",
+      "verification_state": "reported_secondary",
+      "unknown_or_falsifier": "This is cost of SoftBank debt, not automatically OpenAI's WACC; issuer source and CUSIPs needed for exact pricing."
+    },
+    {
+      "id": "CREDIT-2026-10-15-CRWV",
+      "available_on": "2026-10-15",
+      "temporal_precision": "date_only",
+      "evidence_class": "reuters_report",
+      "metric_or_event": "Reuters reports CoreWeave provider refinancing stress and concentrations in AI computing contracts",
+      "factor_ids": [
+        "compute_delivery",
+        "capital_funding"
+      ],
+      "source_url": "https://www.reuters.com/legal/transactional/coreweaves-ai-contracts-lenders-financing-its-build-out-2026-10-15/",
+      "verification_state": "reported_secondary",
+      "unknown_or_falsifier": "CRWV distress does not establish lost OpenAI demand, OpenAI default risk or net economic loss."
+    },
+    {
+      "id": "OPS-2026-10-14-CTO-DEPART",
+      "available_on": "2026-10-14",
+      "temporal_precision": "date_only",
+      "evidence_class": "wsj_report",
+      "metric_or_event": "WSJ says OpenAI computing chief Sachin Katti leaving in November after a year",
+      "factor_ids": [
+        "compute_delivery",
+        "governance_dilution"
+      ],
+      "source_url": "https://www.wsj.com/tech/ai/openai-computing-chief-to-depart-6ffb7d7e",
+      "verification_state": "reported_secondary",
+      "unknown_or_falsifier": "Personnel change is neither an automatic capacity failure nor zero-risk event; monitor successor/deployments."
+    },
+    {
+      "id": "POL-2026-10-13-INDEP-EVAL",
+      "available_on": "2026-10-13",
+      "temporal_precision": "date_only",
+      "evidence_class": "reuters_report",
+      "metric_or_event": "Reuters says OpenAI/Anthropic discussing publication scope of independent model safety evaluations",
+      "factor_ids": [
+        "governance_dilution",
+        "competitive_position"
+      ],
+      "source_url": "https://www.reuters.com/world/behind-ai-industrys-call-independent-reviews-fight-over-what-gets-made-public-2026-10-13/",
+      "verification_state": "reported_secondary",
+      "unknown_or_falsifier": "Cannot convert into binary governance quality or IPO timing probability without disclosed regulatory/issuer consequence."
+    }
+  ],
+  "cross_references": {
+    "valuation_register": "research/OPENAI/valuation-register.json",
+    "assumption_register": "research/OPENAI/assumption-register.json",
+    "softbank_interface": "research/OPENAI/sftby-interface.json"
+  },
+  "critical_contradictions": [
+    {
+      "ids": [
+        "REV-2026-10-08-SEP-50",
+        "REV-2026-10-08-DEC-70",
+        "REV-2026-10-08-NET-GROSS"
+      ],
+      "rule": "Date and gross/net basis differences; do not treat forecast $70B as actual September ARR"
+    },
+    {
+      "ids": [
+        "CF-2026-09-18-FORECAST-278",
+        "CF-2026-09-18-DISPUTE"
+      ],
+      "rule": "Attribution contested; provisional projection only until audited/presented directly"
+    }
+  ],
+  "date_rule": "Published source date not intraday timestamp; no assumed midnight availability"
+}

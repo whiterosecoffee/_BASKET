@@ -7,12 +7,87 @@
     "status": "partial",
     "segments": [
       {
-        "name": "AI models and services",
-        "source": "https://group.softbank/en/ir/investors/management_policy"
+        "name": "Consumer AI and paid subscriptions",
+        "economic_role": "direct consumer end-demand",
+        "revenue_visibility": "not separately verified",
+        "source": "https://openai.com/index/accelerating-the-next-phase-ai/"
+      },
+      {
+        "name": "Business and enterprise ChatGPT services",
+        "economic_role": "direct enterprise use and value capture",
+        "revenue_visibility": "not separately verified",
+        "source": "https://openai.com/index/accelerating-the-next-phase-ai/"
+      },
+      {
+        "name": "API models, inference, developer platform and Codex",
+        "economic_role": "direct and cloud-mediated usage",
+        "revenue_visibility": "gross-versus-net channel treatment requires reconciliation",
+        "source": "https://openai.com/index/accelerating-the-next-phase-ai/"
       }
     ],
-    "capabilities": [],
-    "constraints": [],
-    "economic_pools": []
+    "capabilities": [
+      {
+        "name": "Frontier-model research and deployment",
+        "source": "https://openai.com/index/accelerating-the-next-phase-ai/"
+      },
+      {
+        "name": "ChatGPT consumer distribution and enterprise deployment",
+        "source": "https://openai.com/index/accelerating-the-next-phase-ai/"
+      },
+      {
+        "name": "Developer/API platform and coding agents",
+        "source": "https://openai.com/index/accelerating-the-next-phase-ai/"
+      }
+    ],
+    "constraints": [
+      {
+        "name": "Private company; OPENAI is internal identifier, not a public exchange ticker or an equity OHLCV feed",
+        "state": "verified_pre_ipo_as_of_2026-10-17",
+        "source": "https://openai.com/our-structure/"
+      },
+      {
+        "name": "OpenAI Group PBC is controlled by OpenAI Foundation; foundation 2025 equity/warrant snapshot is historical, not a 2026 cap table",
+        "state": "structural_constraint",
+        "source": "https://openai.com/our-structure/"
+      },
+      {
+        "name": "Funding round preferred shares versus common IPO conversions; capitalization and dilution require security-class details",
+        "state": "partially_disclosed",
+        "source": "https://group.softbank/en/news/press/20260227"
+      },
+      {
+        "name": "Compute supply, energy, price/unit economics, lease/contract commitments and capacity-delivery schedules",
+        "state": "partially_disclosed",
+        "source": "https://openai.com/index/scaling-ai-for-everyone/"
+      },
+      {
+        "name": "Gross/net cloud-channel revenue recognition, cash burn, free cash flow and quarter-consistent comparisons",
+        "state": "unverified",
+        "source": "https://www.reuters.com/business/openais-annualized-revenue-20-billion-less-than-previously-signaled-ft-reports-2026-10-08/"
+      }
+    ],
+    "economic_pools": [
+      {
+        "name": "AI end-demand — consumers, enterprises and developers",
+        "role": "direct_customer_interface",
+        "capture": "subscription/API/enterprise sales; disclosed segment allocation unknown",
+        "unit": "USD",
+        "source": "https://openai.com/index/accelerating-the-next-phase-ai/"
+      },
+      {
+        "name": "Compute training and inference procurement",
+        "role": "downstream_spend_from_openai_to_infrastructure",
+        "capture": "supplier payments are cost to OpenAI, revenue to providers; count final spend only once in aggregate pool",
+        "unit": "USD",
+        "source": "https://openai.com/index/scaling-ai-for-everyone/"
+      },
+      {
+        "name": "Distribution via cloud/platform partners",
+        "role": "intermediary_channel",
+        "capture": "record principal/agent and gross/net treatment before cross-company revenue consolidation",
+        "unit": "USD",
+        "source": "https://www.reuters.com/business/openais-annualized-revenue-20-billion-less-than-previously-signaled-ft-reports-2026-10-08/"
+      }
+    ]
   }
 }
