@@ -1,0 +1,25 @@
+{
+  "schema": "mrie-earnings-intake@1",
+  "currency": "USD",
+  "observations": [],
+  "required_fields": [
+    "ticker",
+    "fiscal_period",
+    "period_end",
+    "published_at",
+    "source_url",
+    "metric",
+    "value_usd",
+    "classification",
+    "observed_at",
+    "ingested_at",
+    "revision_id"
+  ],
+  "classification_values": [
+    "issuer_reported",
+    "issuer_guidance",
+    "derived",
+    "hypothesis"
+  ],
+  "note": "Empty pending source-level verification. Prior chat figures not copied as verified."
+}
