@@ -1,7 +1,7 @@
 {
   "schema": "basket.worker_scopes@1",
   "version": "1.0.0",
-  "source_queue_version": "1.0.0",
+  "source_queue_version": "1.1.0",
   "source_spark_catalog_version": "1.6.0",
   "scopes": [
     {
@@ -455,6 +455,175 @@
         },
         {
           "step_id": "T-008-S3",
+          "capability": "hypothesis_falsification",
+          "deliverable": "anti-double-counting checks",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-009",
+      "spark_id": "B01",
+      "owner_issue": null,
+      "existing_pr": null,
+      "mode": "launch_new_worker",
+      "objective": "New B01 worker implements mandatory strict CI execution for B00 worker scope, attempts, goals and planner tests on real runner, including adversarial cases and exact main SHA.",
+      "exclusive_write_paths": [
+        "tests/validate_stores.py",
+        "tests/integration/**",
+        ".github/workflows/**"
+      ],
+      "read_paths": [
+        "schemas/**",
+        "tickers/**",
+        "runtime/**"
+      ],
+      "dependencies": [
+        {
+          "task_id": "T-003",
+          "gate": "merged",
+          "reason": "Core B01 strict workflow and B00 files are now available on main."
+        }
+      ],
+      "acceptance": [
+        "Create a new B01 issue and unique branch, link handoff #6; do not reuse closed B01 issue #9.",
+        "Run all orchestration unittest, planner, worker scope and attempts validators as mandatory CI steps.",
+        "Catch faulty contracts, fake success, stale run SHAs and cross-owner paths; do not disable strict stores.",
+        "Pass PR-head and post-merge main CI; record exact test counts and remaining failures."
+      ],
+      "recipe": "independent_ci",
+      "steps": [
+        {
+          "step_id": "T-009-S1",
+          "capability": "adversarial_validation",
+          "deliverable": "negative tests",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-009-S2",
+          "capability": "github_evidence",
+          "deliverable": "CI status at head",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-010",
+      "spark_id": "B19",
+      "owner_issue": 17,
+      "existing_pr": 18,
+      "mode": "resume_existing_worker",
+      "objective": "Continue existing B19 #17 PR #18: turn structured revenue-pool resource files into source-ranked quarterly evidence and customer-gateway flow reconciliations.",
+      "exclusive_write_paths": [
+        "research/themes/supply-chain/**"
+      ],
+      "read_paths": [
+        "research/themes/optical/**",
+        "research/themes/edge/**",
+        "research/graph/**",
+        "tickers/**"
+      ],
+      "dependencies": [],
+      "acceptance": [
+        "Verify revenue pool/quarterly source intake IDs and explicit missing-data state; avoid invented financial observations.",
+        "Separate OEM intermediate revenue from customer-facing demand; document overlapping hyperscaler/neocloud purchases.",
+        "Run B19 domain validation, commit exclusively to research/themes/supply-chain/**, and post acceptance evidence.",
+        "Record B03 canonical-event and B05 relationship handoffs rather than editing those files."
+      ],
+      "recipe": "narrative_analysis",
+      "steps": [
+        {
+          "step_id": "T-010-S1",
+          "capability": "source_audit",
+          "deliverable": "claim provenance",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-010-S2",
+          "capability": "hypothesis_falsification",
+          "deliverable": "alternatives/falsifiers",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-011",
+      "spark_id": "B09",
+      "owner_issue": null,
+      "existing_pr": null,
+      "mode": "launch_new_worker",
+      "objective": "Launch B09 for official issuer holdings and net asset value reconciliation, preserving USD and FX source with original JPY basis and nested fund ownership limitations.",
+      "exclusive_write_paths": [
+        "tickers/SFTBY/entity.json",
+        "research/SFTBY/**"
+      ],
+      "read_paths": [
+        "fx/**",
+        "tickers/ARM/**",
+        "tickers/OPENAI/**",
+        "tickers/SFTBY/history.jsonl"
+      ],
+      "dependencies": [
+        {
+          "task_id": "T-004",
+          "gate": "merged",
+          "reason": "B02 FX and price replay contract must be stable before live-use USD NAV."
+        },
+        {
+          "task_id": "T-008",
+          "gate": "merged",
+          "reason": "B05 economic exposure reconciliation must prevent duplicate fund exposure."
+        }
+      ],
+      "acceptance": [
+        "Build official as-of holdings inventory with look-through limitations and parent/fund/non-additive dimensions.",
+        "Produce dated NAV sensitivities with original currency, FX date, data TTD and sources.",
+        "Report holdings completeness, missing shares/financing and known uncertainty; no invented current NAV."
+      ],
+      "recipe": "graph_reconcile",
+      "steps": [
+        {
+          "step_id": "T-011-S1",
+          "capability": "source_audit",
+          "deliverable": "dated exposure source",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-011-S2",
+          "capability": "contract_governance",
+          "deliverable": "graph consistency",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-011-S3",
           "capability": "hypothesis_falsification",
           "deliverable": "anti-double-counting checks",
           "output_evidence": "required",
