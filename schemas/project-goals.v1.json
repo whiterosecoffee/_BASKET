@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "version",
+    "repository",
+    "goals",
+    "milestones",
+    "execution_policy"
+  ],
+  "properties": {
+    "schema": {
+      "const": "basket.project_goals@1"
+    },
+    "version": {
+      "type": "string"
+    },
+    "repository": {
+      "const": "whiterosecoffee/_BASKET"
+    },
+    "goals": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "objective",
+          "success_conditions",
+          "priority",
+          "not_a_success"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^G-[0-9]{3}$"
+          },
+          "objective": {
+            "type": "string",
+            "minLength": 8
+          },
+          "success_conditions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 8
+            }
+          },
+          "priority": {
+            "enum": [
+              "P0",
+              "P1",
+              "P2"
+            ]
+          },
+          "not_a_success": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 8
+            }
+          }
+        }
+      }
+    },
+    "milestones": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "goal_id",
+          "objective",
+          "task_ids",
+          "depends_on",
+          "exit_criteria",
+          "evidence_policy"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^M-[0-9]{3}$"
+          },
+          "goal_id": {
+            "type": "string",
+            "pattern": "^G-[0-9]{3}$"
+          },
+          "objective": {
+            "type": "string",
+            "minLength": 8
+          },
+          "task_ids": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^T-[0-9]{3}$"
+            }
+          },
+          "depends_on": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^M-[0-9]{3}$"
+            }
+          },
+          "exit_criteria": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 8
+            }
+          },
+          "evidence_policy": {
+            "enum": [
+              "merged_main_ci",
+              "verified_domain_acceptance",
+              "research_review"
+            ]
+          }
+        }
+      }
+    },
+    "execution_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "active_code_writers_limit",
+        "dispatch",
+        "failure",
+        "integration",
+        "source_truth"
+      ],
+      "properties": {
+        "active_code_writers_limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "dispatch": {
+          "type": "string",
+          "minLength": 8
+        },
+        "failure": {
+          "type": "string",
+          "minLength": 8
+        },
+        "integration": {
+          "type": "string",
+          "minLength": 8
+        },
+        "source_truth": {
+          "type": "string",
+          "minLength": 8
+        }
+      }
+    }
+  }
+}
