@@ -9,7 +9,7 @@ checker = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(checker)
 
 def fixture():
-    return {"schema": "basket.b19-underrepresented-coverage@1",
+    return {"schema": "basket.b19-underrepresented-coverage@1", "as_of": "2026-10-17",
             "candidates": [{"ticker": "AMKR", "status": "research_candidate", "canonical_membership": "not_checked",
                             "financial_metrics": "not_ingested", "priority": "P0", "layer": "packaging",
                             "not_in_b19_working_watchlist": True,
@@ -39,6 +39,12 @@ class CoverageChecks(unittest.TestCase):
         with self.assertRaises(checker.CoverageError): checker.check(doc)
     def test_unsourced_live_price(self):
         doc = fixture(); doc["candidates"][0]["live_price"] = 1
+        with self.assertRaises(checker.CoverageError): checker.check(doc)
+    def test_impossible_calendar_date(self):
+        doc = fixture(); doc["candidates"][0]["evidence"][0]["published_at"] = "2026-02-31"
+        with self.assertRaises(checker.CoverageError): checker.check(doc)
+    def test_publication_after_cutoff(self):
+        doc = fixture(); doc["candidates"][0]["evidence"][0]["published_at"] = "2026-10-18"
         with self.assertRaises(checker.CoverageError): checker.check(doc)
     def test_bad_priority(self):
         doc = fixture(); doc["candidates"][0]["priority"] = "P9"
