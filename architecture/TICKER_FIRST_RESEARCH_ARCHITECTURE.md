@@ -128,3 +128,40 @@ PR #33 owns `orchestration/agentic/**` and must remain the single task/lease/att
 - G2: prove one idempotent, point-in-time source→ticker observation→checkpoint cycle, with no unverified `fresh` status based solely on user-supplied coverage JSON.
 - G3: demonstrate the manager/dispatch interface on a fixed fixture and independent B01 checks before scheduling real provider work.
 - G4: report live execution only after real authenticated provider evidence, durable persistence and restart tests.
+
+## Conversation synthesis: persistent execution and research-completeness contract
+
+The source conversation established **separate** success dimensions: (1) code/worker delivery, (2) verified source coverage, (3) model and economic interpretation, and (4) autonomous operating readiness. No one dimension substitutes for another. A completed dispatch or green CI run must not imply complete research, live data, a calibrated valuation or persistent hosting.
+
+### Coverage unit and scorecard
+
+Track each admitted `entity_id × capability × fiscal_or_market_period × evidence_class`. For each cell retain: owner, required source types, verified source IDs and revision IDs, earliest availability, last observation, data freshness policy, status (missing/blocked/unverified/stale/fresh/conflicted/not_applicable), last successful run and exact validation SHA, outstanding uncertainty, next action, and dependent outputs. A cell may be `fresh` for a known fact while research remains `partial` because other required sources are unavailable. Unknown evidence must never be converted to zero. Research candidates remain separately tracked until admission.
+
+An aggregate dashboard reports admitted entities, candidates, coverage numerator/denominator by capability and period, blocked gaps by cause, provenance validity, retries and stale cells. Exclude `not_applicable` from relevant denominators but preserve the classification reason. Prioritize neglected entities as well as headline tickers; never substitute a six-ticker fixture for the full registry.
+
+### Reusable task and dependency fingerprint
+
+A task proposal is not a worker claim. The existing B00 manager should translate validated proposals into owner-scoped `basket.worker_task@1` issues/leases. Task fingerprint: entity ID, capability, period, source-revision set, recipe version and model version. Worker writes only authorized canonical records, then emits a completion event containing immutable input/output IDs, checks, run identity, provider evidence, timestamp and changed dependency fingerprints. The manager schedules downstream work **only if** the relevant input fingerprint changed. Duplicate events and retries are idempotent. Unmet source/permission gates become explicit blocked tasks, not silent successes.
+
+Example dependency fanout: new issuer filing → B03 source ledger and earnings revision → company interpretation + B04 valuation input recalculation + B05 relationship candidate assessment (only if filing contains relationship evidence) → B19 aggregate revenue-pool reconciliation → B21 thesis/signal invalidation. Market price update → B02 history/freshness → active-range and regime projections → affected B04/B06 valuation/traversal. Cross-support claims remain hypotheses until separately evidenced.
+
+### Economic attribution and falsification
+
+At every supply-chain depth distinguish payer, customer, contractual counterparty, distributor/intermediary, recognized revenue, gross profit retained, financing, capex, and ultimate end-demand. Shared pool totals must reconcile multi-hop flows rather than sum every company's recognized revenue as independent final demand. Distinguish booked revenue, contracted backlog, capacity options, management forecasts and scenario estimates. Store negative evidence and falsifiers alongside bullish cases. Contracts need source, dates, units, exclusivity/termination where evidenced, and confidence classification. Inference may inform scenarios but cannot silently become a verified edge.
+
+### Acceptance progression
+
+- C0: canonical registry reconciled against research/candidate universes, with omissions and entity type reasons.
+- C1: validated dispatch/manager interface, strict owner paths, stable task fingerprints and no duplicate scheduler.
+- C2: real source acquisition, immutable ticker observation, first-available timestamp and duplicate-safe amendment/replay.
+- C3: evidence-linked derived ticker analysis (earnings, active range/regime, capacity, valuation or thesis), with a reproducible dependency fingerprint and falsifiers.
+- C4: durable scheduled execution and restart recovery, verified provider entitlement and measured freshness.
+- C5: complete admitted-universe coverage report by capability/period; every gap explicit and prioritized.
+- C6: cross-ticker capital-flow and revenue-pool reconciliation without double counting, with source-linked relationships.
+- C7: continuous QC: failure classification, retry lineage, regression tests, drift/coverage alerts, resource and latency measurements, and independent head-SHA verification.
+
+C0–C3 are a pilot milestone; C4–C7 establish ongoing operation. The first pilot must use the same worker implementation for MU/NVDA/CRWV, but all admitted entities must be inventoried before pilot results are promoted as representative.
+
+### Retirement and ownership
+
+Chat retirement transfers **the executable requirement and its acceptance evidence**, not just a summary. The B00 orchestrator must record: source issue/PR/SHA, actual owned files, live blockers, receiving owner and issue, explicit acceptance gate, tests not run, and ONE next unblocked action. Existing #48 dispatcher, #33 manager, #25 queue, #47 QC, B02/B03 stores, B08 runtime and B19/B04/B05/B21 downstream owners must be reused. Never invent a new owner or edit an occupied file to accelerate the handoff. 
