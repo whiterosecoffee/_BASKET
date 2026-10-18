@@ -13,6 +13,8 @@ CAPABILITIES = {
 }
 
 def instant(value):
+    if not isinstance(value, str):
+        raise ValueError('Timestamp string required')
     dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
     if dt.tzinfo is None:
         raise ValueError('Timezone required')
@@ -35,10 +37,25 @@ def discover(root):
 
 def compile_plan(entities, coverage, as_of, candidates=()):
     now = instant(as_of)
+    if not isinstance(entities, dict) or not entities:
+        raise ValueError('Nonempty canonical entity mapping required')
+    if not isinstance(coverage, dict):
+        raise ValueError('Coverage mapping required')
+    if isinstance(candidates, str) or not isinstance(candidates, (list, tuple, set)):
+        raise ValueError('Candidate ID collection required')
+    if any(not isinstance(t, str) or not re.fullmatch(r'[A-Z0-9._-]+', t) for t in candidates):
+        raise ValueError('Invalid candidate identity')
     tasks, matrix = [], []
     for ticker, entity in sorted(entities.items()):
+        if not isinstance(entity, dict) or entity.get('id') != ticker or entity.get('type') not in ('public_equity', 'private_company'):
+            raise ValueError('Invalid canonical entity: ' + str(ticker))
+        ticker_coverage = coverage.get(ticker, {})
+        if not isinstance(ticker_coverage, dict):
+            raise ValueError('Invalid ticker coverage: ' + ticker)
         for capability, owner in CAPABILITIES.items():
-            state = coverage.get(ticker, {}).get(capability, {})
+            state = ticker_coverage.get(capability, {})
+            if not isinstance(state, dict):
+                raise ValueError('Invalid capability coverage: ' + ticker + ':' + capability)
             status = 'missing'
             if capability == 'market' and entity['type'] != 'public_equity':
                 status = 'not_applicable'
@@ -49,7 +66,9 @@ def compile_plan(entities, coverage, as_of, candidates=()):
                     observed = instant(state['observed_at'])
                     available = instant(state['first_available_at'])
                     expires = instant(state['expires_at'])
-                    if not state.get('record_ids') or not state.get('source_ids'):
+                    if any(not isinstance(state.get(k), list) or not state[k] or
+                           any(not isinstance(v, str) or not v.strip() for v in state[k])
+                           for k in ('record_ids', 'source_ids')):
                         status = 'unverified'
                     elif max(observed, available) > now or expires <= max(observed, available):
                         status = 'invalid_time'
