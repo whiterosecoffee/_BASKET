@@ -10,7 +10,7 @@ ALLOWED_CAPABILITIES = frozenset({
     "reference", "daily_bars", "minute_bars", "last_trade", "fx_daily", "earnings"
 })
 ALLOWED_STATUS = frozenset({"available", "not_entitled", "unknown"})
-OWNERS = {"B02": ("runtime/", "fx/"), "B03": ("research/filings/", "research/events/"), "B08": ("services/", "deployment/"), "B01": ("tests/", ".github/workflows/")}
+OWNERS = {"B02": ("runtime/", "fx/"), "B03": ("research/filings/", "research/events/"), "B08": ("services/", "deployment/"), "B01": ("tests/integration/", "tests/validate_stores.py", ".github/workflows/")}
 
 
 def utc(value):
