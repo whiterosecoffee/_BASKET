@@ -98,7 +98,7 @@ class ManagerTest(unittest.TestCase):
         self.assertFalse(t["acceptance"]["integrated"])
 
     def test_duplicate_event_is_invalid(self):
-        event1=event("x","attempt_started")
+        event1=event("x","attempt_started",attempt_id="ATT-x",step_id="fetch")
         with self.assertRaises(GuardError):event_check([event1,event1],NOW)
 
     def test_deliverable_append_and_supersession(self):
@@ -113,7 +113,7 @@ class ManagerTest(unittest.TestCase):
     def test_journal_append_is_durable_and_deduplicates(self):
         with tempfile.TemporaryDirectory() as d:
             path=Path(d)/"events.jsonl"
-            e=event("e1","attempt_failed")
+            e=event("e1","attempt_started",attempt_id="ATT-e1",step_id="fetch")
             append_event(path,e,NOW)
             self.assertEqual(load_events(path),[e])
             with self.assertRaises(GuardError):append_event(path,e,NOW)
@@ -159,6 +159,41 @@ class ManagerTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             r=run_safe_checks(d,["planner"])
             self.assertEqual(r[0]["status"],"unavailable")
+
+    def test_failed_attempt_requeues_original_step(self):
+        events=[event("a1","attempt_started",attempt_id="ATT-one",step_id="validate"),
+                event("a2","attempt_failed",attempt_id="ATT-one",step_id="validate",
+                      result_url="https://github.com/failed-ci")]
+        result=evaluate(queue(),ev(),events,NOW)
+        task=next(t for t in result["decisions"] if t["task_id"]=="T-002")
+        self.assertEqual(task["next_action"],"retry_original_step")
+        self.assertEqual(task["attempt_history"]["failures"],1)
+
+    def test_retry_must_preserve_failed_step(self):
+        events=[event("a1","attempt_started",attempt_id="ATT-one",step_id="validate"),
+                event("a2","attempt_failed",attempt_id="ATT-one",step_id="validate",
+                      result_url="https://github.com/failed-ci"),
+                event("a3","attempt_started",attempt_id="ATT-two",step_id="other",
+                      retry_of="ATT-one")]
+        with self.assertRaises(GuardError):
+            evaluate(queue(),ev(),events,NOW)
+
+    def test_retry_with_proof_clears_failure_blocker_but_retains_history(self):
+        events=[event("a1","attempt_started",task_id="T-002",
+                      attempt_id="ATT-one",step_id="validate"),
+                event("a2","attempt_failed",task_id="T-002",
+                      attempt_id="ATT-one",step_id="validate",
+                      result_url="https://github.com/failed-ci"),
+                event("a3","attempt_started",task_id="T-002",
+                      attempt_id="ATT-two",step_id="validate",retry_of="ATT-one"),
+                event("a4","attempt_passed",task_id="T-002",
+                      attempt_id="ATT-two",step_id="validate",
+                      result_url="https://github.com/passing-ci")]
+        result=evaluate(queue(),ev(),events,NOW)
+        worker=next(t for t in result["decisions"] if t["task_id"]=="T-002")
+        self.assertEqual(worker["attempt_history"]["failures"],1)
+        self.assertEqual(worker["attempt_history"]["last_result"],"attempt_passed")
+        self.assertNotEqual(worker["next_action"],"retry_original_step")
 
     def test_full_open_pr_inventory_used(self):
         def fetch(path):
