@@ -118,3 +118,26 @@ The `decide_next` pure policy classifies actions as `automatic_safe`,
 pass `fresh_evidence=True` without independently collecting a current GitHub
 snapshot and checking its provenance. For integration decisions require exact
 PR-head and main CI evidence, not just these local checks.
+
+
+## B00 worker operating contract — Issue #24 / PR #25 (proposed)
+
+**Identity and scope.** Spark B00 planner-registration and bounded QC controller worker; parent orchestrator B00. Unique issue #24, branch `work/24-register-coverage-research-milestones`, draft PR #25. Exclusive changed paths are `orchestration/planner/queue.json`, `goals.json`, `worker-scopes.json`, `README.md`, `orchestration/execution_loop.py`, and `orchestration/tests/test_execution_loop.py` / `test_planner.py`. Read-only dependencies: main AGENTS.md, sparks registry, worker protocol, PR #54 planner/attempt validation, PR #33 agentic manager, PR #49 capture dispatcher, B01 PR #47 workflow/integration tests, B08 PR #55 snapshot service. Prohibited: other open B00 PR changed files, B01 CI files, B02/B03/B05/B19 records, direct main writes, merge/release/trade operations.
+
+**Purpose and contracts.** Convert source-linked proposals into stable queue tasks, canonical goal milestones, compiled scopes and a reproducible evidence-gated next-step decision. Inputs: `basket.task_queue@1`, `basket.project_goals@1`, `basket.worker_scopes@1`, `orchestration/sparks.json`, GitHub issue/PR/CI evidence. Outputs: `basket.execution_review@1`, `basket.execution_decision@1`, and opt-in `basket.local_check_result@1`; these are local JSON reports, not durable audit storage. Worker issue claims/resolutions must use `basket.worker_task@1` / `basket.worker_resolution@1` from WORKER_PROTOCOL.md. Provider dependencies: optional authenticated GitHub snapshot from the existing read-only adapter; no quote entitlement and no hosted process assumed. Consumers: B00 integration, B01 QC and future B08 runtime.
+
+**Execution and restart.** Discover from current main/PR heads; verify exclusive changed paths; validate queue DAG, capability recipes, goals mapping and scopes; prioritize eligible work; classify decisions as automatic_safe, requires_evidence, requires_owner or requires_authorization; optionally execute only fixed local checks without shell; record individual result, error, timeout and bounded output; never promote a failing check to success. Idempotency of the pure decision is derived from queue version plus immutable evidence snapshot; this worker does not implement a durable checkpoint or scheduler. Re-evaluate on a new GitHub evidence snapshot or changed queue input. Do not infer active conversation count from open PRs.
+
+**Canonical lifecycle mapping.** Available = unclaimed queue proposal; claimed = issue/branch claim; implementing/testing = documented worker attempts; review-ready = component-verified exact-head PR with mandatory checks; integration-blocked = unresolved dependencies/ownership/authorization; integrated = merged and verified main CI; retired = resolution posted with next action. These are descriptive mappings, not new serialized status values. Failures remain explicit in the existing protocol and attempt ledger.
+
+**Acceptance matrix and known failures.** T-012/T-013/T-014 must map exactly once to canonical goals and worker scopes. T-014 currently implements a bounded opt-in local checker but **not** persistent scheduling, fresh GitHub ingestion, automatic dispatch or durable audit. B01 #44 independently found queue-to-goal and scope drift on prior PR #25 head; this branch adds the missing mappings, pending real retest. PR #54 separately owns fail-closed redispatch/protocol/retry defects; do not duplicate its changes. Current independent B01 PR #47 still needs combined validation at the integration head.
+
+**Validation/runbook.** From a checked-out candidate run:
+```bash
+python orchestration/validate_planner.py
+python orchestration/validate_goals.py
+python orchestration/validate_worker_scopes.py
+python -m unittest discover -s orchestration/tests -p 'test_*.py' -v
+python orchestration/execution_loop.py --run-safe-checks
+```
+Capture exact commit SHA, check result, run URL and any failed attempts in issue #24. For failure: preserve logs, correct only this worker's paths, rerun, then request B01 combined CI. Improvement backlog: (P0) exact-head independent validation; (P0) reconcile PR #54 planner semantics; (P1) fresh snapshot integration with #33/#55; (P1) durable audit and idempotent dispatch through #33/#49; (P2) source-bounded coverage T-012 and narrative T-013 after dependencies. Do not mark a draft PR integrated.
