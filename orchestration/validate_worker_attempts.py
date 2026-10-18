@@ -15,13 +15,16 @@ def evaluate(ledger,scopes):
  byid={}
  for a in ledger["attempts"]:
   if a["attempt_id"] in seen:errors.append("duplicate attempt ID "+a["attempt_id"])
-  seen.add(a["attempt_id"]);byid[a["attempt_id"]]=a
+  # Only PRIOR recorded attempts can be retry parents. Recording this attempt
+  # first would allow retry_of == attempt_id (a cycle of length one).
+  prior=byid.get(a["retry_of"]) if a["retry_of"] else None
   if a["step_id"] not in valid_steps:errors.append("outside task recipe "+a["step_id"])
   counts[a["state"]]+=1
   if a["state"]=="passed" and not a["evidence"]:errors.append("unproven pass "+a["attempt_id"])
   if a["state"]=="failed" and not a["resolution"]:errors.append("unresolved failure "+a["attempt_id"])
-  if a["retry_of"] and (a["retry_of"] not in byid or byid[a["retry_of"]]["step_id"]!=a["step_id"]):
+  if a["retry_of"] and (a["retry_of"]==a["attempt_id"] or prior is None or prior["step_id"]!=a["step_id"]):
    errors.append("invalid retry lineage "+a["attempt_id"])
+  seen.add(a["attempt_id"]);byid[a["attempt_id"]]=a
   if a["time_spent_seconds"] is None and ledger["evaluation"]["measured_time_seconds"] is not None:
    errors.append("aggregate time cannot claim completeness when attempt time missing")
   if a["tool_calls"] is None and ledger["evaluation"]["measured_tool_calls"] is not None:

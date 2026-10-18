@@ -236,7 +236,10 @@ def run_plan(queue, library, registry, evidence, active_ids=None):
     entries.sort(key=lambda e: (not e["ready_for_action"],
                                 -e["score_for_ordering_only"], e["id"]))
     slots = None if active_unknown else max(0, queue["active_worker_limit"] - len(active))
-    new_launches = [e for e in entries if e["state"] == "ready_new_worker"]
+    # A claimed active task is never a dispatch candidate, even if GitHub has
+    # no issue/PR claim yet. Never launch the same logical task twice.
+    new_launches = [e for e in entries if e["state"] == "ready_new_worker"
+                    and e["id"] not in active]
     proposed = new_launches[0]["id"] if new_launches and slots is not None and slots > 0 else None
     return {
         "schema": "basket.planner_decision@1",
