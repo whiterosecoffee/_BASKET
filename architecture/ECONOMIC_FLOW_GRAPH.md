@@ -94,3 +94,43 @@ Every numeric edge observation: stable id and revision, source URL/document+sour
 - [ ] Integrated main CI, reproducible tested outputs and authorized release.
 
 No current quote, balance sheet, private valuation, or transaction size in this design document is asserted as live.
+
+
+## Worker operating contract — B00-20 (architecture-only, 2026-10-18 review)
+
+**Identity and ownership.** Spark B00, parent orchestrator B00, existing issue #20, branch `work/20-capital-profit-graph`, draft PR #22. This conversation is a bounded architecture-document worker, not a substitute for the separate B00 issue #50. Its **exclusive write permission** is this document only. Read-only inputs: main `AGENTS.md`, `orchestration/sparks.json`, `orchestration/WORKER_PROTOCOL.md`, `schemas/worker-task.v1.json`, `schemas/worker-resolution.v1.json`, issue #50, and B00 PRs #43/#49. Forbidden writes: all other `architecture/**` files, `schemas/**`, `orchestration/**`, `tickers/**`, `engines/**`, `research/**`, `runtime/**`, `tests/**` and `.github/**`. A broad B00 spark grant does not override the narrower issue-specific scope.
+
+**Purpose.** Make design requirements independently consumable by B00 #50, B05 #51 and B01 #52 without inventing new canonical schemas. Success: stable specification, explicit interface invariants, acceptance/failure matrix, no ownership collisions, a linked draft PR and evidence-backed worker resolution. Failure: unsupported source claims, undocumented contract choices, edits outside the one file, asserted implementation or CI without evidence.
+
+**Interface and producers.** This Markdown document is a **proposal**, not a schema or machine-readable API:
+- B00 #50 is the producer of the approved typed multigraph/entity identity, segment membership, contracts and as-of query interface. Its consumers are B05 #51 and B01 #52; any approved contract/schema version and migration come from B00 only.
+- B05 #51 produces read-only entity-neighborhood, segment-map and payer-to-supplier traversal outputs. Each query must accept stable entity IDs, as-of cutoff, dataset/snapshot identity and verified-only policy; must return sorted edges, edge kind, state, source and temporal evidence, or an explicit missing/incompatible/stale result. The **exact payload schema remains blocked on B00 #50**.
+- B19 #17/#21 produces sourced supplier gateways and revenue-pool hypotheses; it does not mutate canonical B05 edges. B03 #12 provides issuer events; B02 #11 provides immutable price/FX observations and replay metadata; B04 #30/B09 #28 consume graph ownership for valuation; B06 consumes deterministic graph+market snapshots.
+- B01 #52 must independently test exclusion of future/incomplete edges, duplicate invoice/royalty/capital/ownership flows, invalid share denominators, cycles, changed-source fingerprints and stale inputs. Tests operate on pinned immutable data and the exact approved contract SHA.
+
+**Freshness and provider boundary.** No direct external provider is required to interpret this architecture document. A production economic query inherits observation freshness from B02 and the first-available/source dates from B03/B05/B19. Entitlement failures, unknown publication time, outdated FX, unsupported schema major or unverifiable counterparty edges fail closed; an expired historical fact remains queryable only as historical evidence. Monetary amounts are USD-first while retaining the original transaction currency and dated conversion basis.
+
+**Lifecycle mapping.** `available` = unclaimed planned work (no worker task record); `claimed` = canonical claimed; `implementing` = `building`; `testing` = `building` until verified; `review-ready` = `review`; `integration-blocked` = `integration_blocked`; `integrated` = `integrated`; `retired` = `closed` or `withdrawn` only after B00 records disposition. Do not write these friendly labels into versioned payloads. For resolution use schema's `in_progress`, `component_verified`, `ready_for_integration`, `integration_blocked`, `integrated`, `blocked` or `withdrawn`. Issue #20 is presently a draft-PR review state, not integrated.
+
+## Deterministic handoff workflow and recovery
+
+| Stage | Input/source of truth | Output and validation | Idempotency/retry/checkpoint |
+|---|---|---|---|
+| Discover | Live main instructions, worker issue, actual PR changed files | Exclusive file list and dependencies | Key = issue #20 + branch head; reread on every material edit |
+| Acquire | GitHub primary docs and B00/B05/B19 handoffs | Dated source/reference inventory; missing explicitly tracked | Key = URL + ref SHA; retry transient connector error, never fake absent docs |
+| Normalize | Existing terminology and `relationships@1` constraints | Proposed typed edge taxonomy, no incompatible rewrite | Key = architecture document commit; rejected ambiguity remains unresolved |
+| Verify | Source class, effective/available/ingested dates, link and scope checks | Evidence/no-lookahead assessment | Key = source revision; conflicting claims persist as conflicted |
+| Reconcile | Ownership/fund look-through, financing, invoices, royalties | Double-counting negative invariants | Key = ultimate economic exposure + source obligation + period |
+| Calculate | Proposed graph path and USD/FX source metadata | **No values calculated by this worker**; downstream model-only math | Recompute only when relevant source revision, edge contract, FX or model hash changes |
+| Persist | Exclusive branch, this Markdown file | Git commit and draft PR revision | Key = branch+file path+content; recover by fetching latest head, no force push |
+| Validate | Canonical schema guidance and actual content | Structural assertions, owner-scope audit, source status | Fail if missing headings/unknown claim promoted; rerun at each revision |
+| Publish | Draft PR #22 and `basket.worker_resolution@1` comment | Orchestrator-readable evidence and blockers | Append new revision-linked evidence; never call CI green without run |
+| Invalidate | Change in source/version/freshness/dependency fingerprints | Requery affected graph and derived NAV/traversal snapshots | Never mutate historical snapshots; append corrections and mark derived state invalid |
+
+**Failure classes / runbook.** F1 conflicting active edits: stop only the disputed file, preserve branch, route to #50. F2 missing schema decision: keep taxonomy illustrative and query result contract blocked. F3 absent market entitlement or stale inputs: return unavailable/stale, not live. F4 duplicative parent-fund/guarantee/capex economics: fail accounting reconciliation, ask B05/B04 owner. F5 source published after `as_of`: exclude from historical replay. F6 missing CI: report `not_run` rather than `pass`. F7 failed fetch/write: refetch actual head before retry, never silently force/rebase. Attempts must retain failed state in PR comments or existing B00 knowledge records; do not create another worker ledger.
+
+**Acceptance matrix.** A1 full economic roles/typed links and downstream consumers: designed in this file; implementation pending. A2 temporal source and USD/TTD controls: designed; provider integration pending B02. A3 non-double-counting invariants: designed; negative fixtures pending B01 #52. A4 deterministic queries and stable entity aliases: specified, actual interface pending B00 #50 and B05 #51. A5 exact SHA, verified tests and repository merge: not yet verified, B00 review required.
+
+**Prioritized nonduplicative improvement backlog.** (1) B00 #50 decide stable entity/segment schema and read-only query input/output with error semantics; (2) B05 #51 implement one bounded graph fixture and deterministic as-of traversal; (3) B01 #52 independently run negative tests; (4) B19 #17/#21 attach payer-to-supplier evidence with coverage gaps; (5) B02 #11 provide pinned USD/FX snapshots; (6) B04/B09 reconcile NAV and B06 add descriptive traversal after contract readiness; (7) B08 #53 deployment only after independently validated snapshot semantics.
+
+**Retirement condition.** B00 acknowledges PR #22 as the source artifact for #50, independently checks changed paths/commit/validation, and either integrates or explicitly supersedes this document. PR #22 remaining draft does not prevent retiring this conversation, but prevents claiming integration.
