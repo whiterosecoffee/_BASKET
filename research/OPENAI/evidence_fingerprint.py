@@ -64,6 +64,13 @@ def records_of(rows, prefix, as_of, source_ids=None):
                     prefix + ": unknown upstream source for " + identity)
         require(item.get("status") or item.get("verification_state"),
                 prefix + ": missing evidence state " + identity)
+        if prefix == "valuation":
+            require(item.get("source_class") and item.get("unit") and
+                    isinstance(item.get("value"), (int, float)),
+                    prefix + ": missing class/unit/value " + identity)
+        if prefix == "news":
+            require(item.get("evidence_class") and item.get("temporal_precision") == "date_only",
+                    prefix + ": news evidence missing class/date precision " + identity)
         keyed[identity] = item
     superseded = set()
     for key, item in keyed.items():
@@ -76,6 +83,13 @@ def records_of(rows, prefix, as_of, source_ids=None):
             require(ancestor not in superseded,
                     prefix + ": competing revisions need explicit adjudication")
             superseded.add(ancestor)
+    for identity in keyed:
+        path, cursor = set(), identity
+        while cursor is not None:
+            require(cursor not in path,
+                    prefix + ": revision cycle detected at " + identity)
+            path.add(cursor)
+            cursor = keyed[cursor].get("supersedes")
     return keyed, superseded
 
 
@@ -128,7 +142,8 @@ def build(as_of="2026-10-17", *, valuation=None, news=None,
     require(set(policy["factors"]) == FACTOR_IDS, "incompatible factor registry")
     for stage in policy["stages"].values():
         weight = stage["base_weights_pct"]
-        require(set(weight) == FACTOR_IDS and sum(weight.values()) == 100,
+        require(set(weight) == FACTOR_IDS and sum(weight.values()) == 100
+                and all(isinstance(w, (int, float)) and w > 0 for w in weight.values()),
                 "IPO stage weights inconsistent")
     source_rows = {}
     for item in resources["sources"]:
