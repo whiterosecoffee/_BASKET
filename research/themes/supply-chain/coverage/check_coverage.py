@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Strict, research-only B19 candidate and optional baseline-registry checker."""
 import argparse
+from datetime import date
 import json
 import re
 import sys
@@ -17,6 +18,9 @@ class CoverageError(ValueError):
 
 def fail(message):
     raise CoverageError(message)
+
+def date_from_iso(value):
+    return date.fromisoformat(value)
 
 def symbols(records, label):
     seen = set()
@@ -61,8 +65,16 @@ def check(candidate_doc, registry_doc=None):
             if not parsed or parsed.scheme != "https" or not parsed.netloc:
                 fail(f"{symbol}: invalid evidence URL")
             date = entry.get("published_at")
-            if date is not None and (not isinstance(date, str) or not DATE.fullmatch(date)):
-                fail(f"{symbol}: malformed publication date")
+            if date is not None:
+                if not isinstance(date, str) or not DATE.fullmatch(date):
+                    fail(f"{symbol}: malformed publication date")
+                try:
+                    parsed_date = date_from_iso(date)
+                    as_of = date_from_iso(candidate_doc["as_of"])
+                except (ValueError, KeyError, TypeError):
+                    fail(f"{symbol}: invalid publication/cutoff date")
+                if parsed_date > as_of:
+                    fail(f"{symbol}: publication after research cutoff")
     result = {"candidates": len(ids), "candidate_symbols": sorted(ids), "canonical_promotion": False}
     if registry_doc is not None:
         if not isinstance(registry_doc, dict) or "tickers" not in registry_doc:
