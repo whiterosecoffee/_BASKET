@@ -93,12 +93,86 @@ def main():
     parser.add_argument('--coverage', type=Path)
     parser.add_argument('--candidates', type=Path, help='JSON array; does not admit candidates')
     parser.add_argument('--as-of', required=True)
+    parser.add_argument('--bindings', type=Path, help='Owner-approved task-key mapping; emit manager queue proposal')
     args = parser.parse_args()
     result = compile_plan(discover(args.tickers),
                           json.loads(args.coverage.read_text()) if args.coverage else {},
                           args.as_of,
                           json.loads(args.candidates.read_text()) if args.candidates else [])
+    if args.bindings:
+        result = manager_proposal(result, json.loads(args.bindings.read_text()))
     print(json.dumps(result, indent=2))
+
+def manager_proposal(proposal, bindings):
+    """Produce queue-shaped input for the existing manager, never mutate its queue.
+
+    Bindings explicitly assign stable queue IDs, scope and dependencies. This
+    compiler does not allocate IDs, grant ownership, or start conversations.
+    """
+    if not isinstance(bindings, dict) or not bindings:
+        raise ValueError('Explicit owner-approved bindings required')
+    gaps = {task['task_key']: task for task in proposal['tasks']}
+    if set(bindings) - set(gaps):
+        raise ValueError('Binding does not refer to a current coverage gap')
+    tasks, seen = [], set()
+    for key, binding in sorted(bindings.items()):
+        if not isinstance(binding, dict):
+            raise ValueError('Invalid binding')
+        tid = binding.get('id')
+        if not isinstance(tid, str) or not re.fullmatch(r'T-[0-9]{3,}', tid) or tid in seen:
+            raise ValueError('Explicit unique stable task IDs required')
+        seen.add(tid)
+        gap = gaps[key]
+        if binding.get('spark_id') != gap['owner']:
+            raise ValueError('Binding changes capability owner')
+        scopes = binding.get('write_scope')
+        if not isinstance(scopes, list) or not scopes or any(
+                not isinstance(p, str) or not p or p.startswith('/') or
+                '..' in p or '\\' in p for p in scopes):
+            raise ValueError('Explicit safe write scope required')
+        allowed = {'B02': ('runtime/', 'fx/', 'tickers/'),
+                   'B03': ('research/filings/', 'research/events/', 'tickers/'),
+                   'B04': ('engines/valuation/',),
+                   'B05': ('research/graph/', 'engines/relationships/', 'tickers/'),
+                   'B21': ('engines/narrative/', 'research/narrative/',)}[gap['owner']]
+        for scope in scopes:
+            if scope.startswith('tickers/'):
+                suffixes = {'B02': ('/history.jsonl', '/history.meta.json', '/intraday/**', '/live/**'),
+                            'B03': ('/events.json',), 'B05': ('/relationships.json',)}
+                if not scope.endswith(suffixes.get(gap['owner'], ())):
+                    raise ValueError('Canonical ticker scope belongs to another owner')
+            elif not scope.startswith(allowed):
+                raise ValueError('Scope outside capability owner domain')
+        if binding.get('priority') not in ('P0', 'P1', 'P2'):
+            raise ValueError('Explicit priority required')
+        acceptance = binding.get('acceptance')
+        if not isinstance(acceptance, list) or not acceptance or any(not isinstance(a, str) or not a.strip() for a in acceptance):
+            raise ValueError('Evidence-backed acceptance criteria required')
+        dependencies = binding.get('depends_on', [])
+        if not isinstance(dependencies, list):
+            raise ValueError('Dependency list required')
+        for dep in dependencies:
+            if not isinstance(dep, dict) or not re.fullmatch(r'T-[0-9]{3,}', str(dep.get('task_id'))) or dep.get('gate') not in ('merged', 'issue_exists', 'ci_passed_on_head'):
+                raise ValueError('Invalid dependency')
+        issue, pr = binding.get('issue_number'), binding.get('pr_number')
+        if any(x is not None and (type(x) is not int or x <= 0) for x in (issue, pr)) or (pr and not issue):
+            raise ValueError('Invalid issue/PR identity')
+        tasks.append({'id': tid, 'spark_id': gap['owner'],
+                      'title': f"{gap['ticker']}: {gap['capability']}",
+                      'objective': f"{gap['action']} for {key}; preserve source/revision/freshness evidence",
+                      'priority': binding['priority'],
+                      'mode': 'resume_existing_worker' if issue else 'launch_new_worker',
+                      'acceptance': acceptance, 'depends_on': dependencies,
+                      'write_scope': scopes, 'issue_number': issue, 'pr_number': pr})
+    for task in tasks:
+        if any(d['task_id'] not in seen for d in task['depends_on']):
+            raise ValueError('Dependency outside proposed batch; compose with existing queue through its owner')
+    return {'schema': 'basket.capture_manager_bridge.proposal@1',
+            'as_of': proposal['as_of'], 'live_verified': False,
+            'queue_proposal': {'active_worker_limit': 3, 'tasks': tasks},
+            'unbound_gap_keys': sorted(set(gaps) - set(bindings)),
+            'unregistered_candidates': proposal['unregistered_candidates'],
+            'requires_existing_manager_validation': True}
 
 if __name__ == '__main__':
     main()
