@@ -206,3 +206,32 @@ Worker response is a **resolution record**, not an invitation for routine user a
 - Repeated handoff: update existing receiver issue rather than creating duplicate tasks.
 - Worker crashes mid-run: issue/branch/commit and checkpoint evidence allow restart without relying on chat memory.
 - User absent: continue authorized steps until genuine external permission/credentials/governance boundary.
+
+## B00 #42 worker operating contract — reconciled with main governance
+
+**Identity:** Spark B00 (architecture/contracts), issue #42, branch `work/42-ticker-first-worker-contract`, draft PR #43, parent B00 orchestrator. This conversation's **exclusive write** is this architecture file only; the spark's broader `architecture/**` permission does not expand this issue's scope. Other paths, including `AGENTS.md`, `orchestration/WORKER_PROTOCOL.md`, `orchestration/planner/**`, `orchestration/agentic/**`, `orchestration/capture_dispatch/**`, `schemas/**`, `tickers/**`, and `.github/workflows/**`, are read-only here. Main AGENTS.md and sparks.json, WORKER_PROTOCOL.md, current open issue list, PR branch comparison and #48 dispatcher implementation were inspected. PR comparison against current main reports `diverged` and only this architecture file changed; integration/rebase must be handled by the owning B00 review process, not assumed conflict-free.
+
+**Purpose and deliverable:** Publish a reviewable ticker-first research and reusable-worker architecture contract, with explicit compatibility, ownership, time/provenance, full-universe coverage, dispatch/manager integration, economic attribution, validation and retirement requirements. This branch does not implement providers, create canonical entities, deploy services or register queue tasks.
+
+**Input authority:** Current main governance, current GitHub issue/PR state, source-linked B02/B03/B05 canonical contracts and #48 dispatcher; observed provider/market facts are not input to this architecture worker. **Output:** one proposed architecture specification consumed by B00 #24/#32/#48/#50, B01 #44, B02 #11, B03 #12, B08 #34 and B19 #17. Schema proposals are **not** effective until owner review and approved versioning. Unknown runtime entitlements and canonical registry membership remain unknown.
+
+**Lifecycle mapping:** proposed `available` = no claim; `claimed` = `claimed`; `implementing` = `building`; `testing` = `building` with check evidence; `review-ready` = `review` or `component_verified` only after mandatory checks; `integration-blocked` = `integration_blocked`; `integrated` = `integrated` only after authorized merge and independent main validation; `retired` refers to conversation archival, **not** worker state `closed`. Preserve `withdrawn` and `closed` as defined by WORKER_PROTOCOL.md.
+
+**Method:** discover current authoritative contracts → audit collisions → draft compatibility/invariants → falsify assumptions using actual repo paths and fixture cases → commit architecture-only changes → request receiver interface review → verify current head/PR changed paths → post machine-readable resolution where possible. Architecture document commits are review artifacts, not successful execution of ingestion/replay tests. A missing `entity.json` at a specific main path establishes only that the queried path was absent; it does not prove absence from every research registry.
+
+**Failure register and mitigations:**
+- F1: candidate ticker IDs conflated with admitted canonical entities → explicit admission reconciliation and coverage denominators.
+- F2: dispatcher proposal mistaken for claimed/operational worker → separate task lifecycle and live adapter evidence.
+- F3: multiple managers, queues or append journals → use #33/#25 and B02/B03 owner interfaces.
+- F4: stale head-SHA/CI assertions → re-fetch PR head and workflow evidence before promotion.
+- F5: multi-hop revenue double counting → distinguish final demand, intermediary recognized sales, financing and retained margin.
+- F6: premature conversation closure mistaken for integrated PR → separate archive from GitHub integration.
+
+**Acceptance matrix for #42:**
+- A1 ownership and canonical path compatibility: specified in this document; receiver review outstanding.
+- A2 reusable ticker-independent worker interface and provenance: specified; runtime tests not run.
+- A3 safe staged migration, rollback and negative cases: specified; migration not performed.
+- A4 dependency handoffs and disjoint branch scope: recorded in issues; recheck current PR overlap before merge.
+- A5 integration, data-plane and complete-registry proof: explicitly **not verified** and owned by receivers.
+
+**Single next unblocked action:** B00 reviews #43 against current main and B00 #50 graph contract, records accept/revise disposition and assigns an exact interface reconciliation to the existing #48/#33 owners. Do not alter #48 or #33 files from #42.
