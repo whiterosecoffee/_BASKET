@@ -1,26 +1,59 @@
 name: OpenAI research strict gate
 on:
   push:
+    branches: [main]
+    paths:
+      - 'research/OPENAI/**'
+      - 'tickers/OPENAI/entity.json'
+      - '.github/workflows/openai-research.yml'
+      - 'tests/integration/*openai*'
   pull_request:
+    paths:
+      - 'research/OPENAI/**'
+      - 'tickers/OPENAI/entity.json'
+      - '.github/workflows/openai-research.yml'
+      - 'tests/integration/*openai*'
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: 'Optional exact 40-character OpenAI research commit SHA'
+        required: false
+        type: string
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 permissions:
   contents: read
 jobs:
   openai-research:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           path: gate
+      # Old source branches may predate the independent acceptance suite.
+      # Load the suite from the exact revision supplying this workflow instead.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.workflow_sha }}
+          path: acceptance
       - name: Select actual head source or explicit unmerged dependency
         id: research-source
         shell: bash
+        env:
+          REQUESTED_SOURCE: ${{ inputs.source_sha }}
         run: |
-          if test -d gate/research/OPENAI; then
+          if test -n "$REQUESTED_SOURCE"; then
+            [[ "$REQUESTED_SOURCE" =~ ^[0-9a-f]{40}$ ]]
+            echo "sha=$REQUESTED_SOURCE" >> "$GITHUB_OUTPUT"
+            echo "mode=explicit_exact_revision" >> "$GITHUB_OUTPUT"
+          elif test -d gate/research/OPENAI; then
             echo "sha=$(git -C gate rev-parse HEAD)" >> "$GITHUB_OUTPUT"
             echo "mode=actual_head" >> "$GITHUB_OUTPUT"
           else
-            echo "sha=316dbea500591806e8f68fd8f1f66e17484772c9" >> "$GITHUB_OUTPUT"
+            echo "sha=e41c42f82f16938f8a2fdda44722c96b04a862f8" >> "$GITHUB_OUTPUT"
             echo "mode=unmerged_dependency_only" >> "$GITHUB_OUTPUT"
           fi
       - uses: actions/checkout@v4
@@ -34,9 +67,13 @@ jobs:
         env:
           EXPECTED_SOURCE: ${{ steps.research-source.outputs.sha }}
           SOURCE_MODE: ${{ steps.research-source.outputs.mode }}
+          EXPECTED_ACCEPTANCE: ${{ github.workflow_sha }}
         run: |
           git -C gate rev-parse HEAD
           test "$(git -C source rev-parse HEAD)" = "$EXPECTED_SOURCE"
+          test "$(git -C acceptance rev-parse HEAD)" = "$EXPECTED_ACCEPTANCE"
+          test -s acceptance/tests/integration/openai_research_acceptance.py
+          echo "Acceptance revision: $EXPECTED_ACCEPTANCE"
           echo "OpenAI source mode: $SOURCE_MODE"
           for file in check.py ipo2027.py resource_audit.py test_ipo2027.py test_resource_audit.py; do
             test -s "source/research/OPENAI/$file"
@@ -56,4 +93,14 @@ jobs:
         if: ${{ !cancelled() }}
         env:
           BASKET_OPENAI_SOURCE: ${{ github.workspace }}/source
-        run: python -m unittest discover -s gate/tests/integration -p 'openai_research_acceptance.py' -v
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import unittest
+          path = Path('acceptance/tests/integration')
+          assert (path / 'openai_research_acceptance.py').is_file(), 'Missing acceptance suite'
+          suite = unittest.defaultTestLoader.discover(str(path), pattern='openai_research_acceptance.py')
+          assert suite.countTestCases() > 0, 'Empty acceptance suite'
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          raise SystemExit(0 if result.wasSuccessful() and not result.skipped else 1)
+          PY
