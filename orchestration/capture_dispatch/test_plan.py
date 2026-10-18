@@ -2,7 +2,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from plan import compile_plan, discover
+from plan import compile_plan, discover, manager_proposal
 
 NOW = '2026-10-18T03:00:00Z'
 
@@ -70,6 +70,33 @@ class DispatchTests(unittest.TestCase):
                 compile_plan(self.entities, {}, NOW, candidates)
         with self.assertRaises(ValueError):
             compile_plan({}, {}, NOW)
+
+    def test_manager_bridge_explicit_bindings(self):
+        plan = compile_plan(self.entities, {}, NOW, ['TTMI'])
+        binding = {'id': 'T-901', 'spark_id': 'B02', 'write_scope': ['runtime/capture/**'],
+                   'priority': 'P0', 'issue_number': 11, 'pr_number': 15,
+                   'acceptance': ['Real source append and duplicate-safe replay']}
+        result = manager_proposal(plan, {'capture:MU:market': binding})
+        self.assertEqual(result['queue_proposal']['tasks'][0]['mode'], 'resume_existing_worker')
+        self.assertEqual(len(result['unbound_gap_keys']), 41)
+        self.assertEqual(result['unregistered_candidates'], ['TTMI'])
+        self.assertFalse(result['live_verified'])
+        self.assertEqual(result, manager_proposal(plan, {'capture:MU:market': binding}))
+
+    def test_manager_bridge_rejects_unauthorized_and_fabricated_bindings(self):
+        plan = compile_plan(self.entities, {}, NOW)
+        binding = {'id': 'T-901', 'spark_id': 'B02', 'write_scope': ['runtime/capture/**'],
+                   'priority': 'P0', 'acceptance': ['Real source append']}
+        for replacement in ({'spark_id': 'B03'}, {'write_scope': ['schemas/**']},
+                            {'write_scope': ['tickers/*/events.json']}, {'id': None},
+                            {'write_scope': ['runtime/../schemas/**']}, {'issue_number': True},
+                            {'depends_on': [{'task_id': 'T-999', 'gate': 'merged'}]}):
+            with self.assertRaises(ValueError):
+                manager_proposal(plan, {'capture:MU:market': dict(binding, **replacement)})
+        with self.assertRaises(ValueError):
+            manager_proposal(plan, {'capture:UNKNOWN:market': binding})
+        with self.assertRaises(ValueError):
+            manager_proposal(plan, {'capture:MU:market': binding, 'capture:NVDA:market': binding})
 
 if __name__ == '__main__':
     unittest.main()
