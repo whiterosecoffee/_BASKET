@@ -1,0 +1,39 @@
+name: OpenAI research strict gate
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  openai-research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          path: gate
+      # Immutable B13 dependency while PR #31 remains unmerged. Updating this
+      # pin requires a new execution; old green evidence cannot approve new code.
+      - uses: actions/checkout@v4
+        with:
+          ref: e8c26c8ded9a7b18aed78b524ffbf1b08a4b688e
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Record both exact revisions
+        run: |
+          git -C gate rev-parse HEAD
+          test "$(git -C source rev-parse HEAD)" = e8c26c8ded9a7b18aed78b524ffbf1b08a4b688e
+      - name: B13 offline checker
+        working-directory: source
+        run: python research/OPENAI/check.py --validate --self-test
+      - name: B13 IPO tests
+        if: ${{ !cancelled() }}
+        working-directory: source
+        run: python -m unittest discover -s research/OPENAI -p 'test_ipo2027.py' -v
+      - name: Independent B01 fail-closed checks
+        if: ${{ !cancelled() }}
+        env:
+          BASKET_OPENAI_SOURCE: ${{ github.workspace }}/source
+        run: python -m unittest discover -s gate/tests/integration -p 'test_openai_research.py' -v
