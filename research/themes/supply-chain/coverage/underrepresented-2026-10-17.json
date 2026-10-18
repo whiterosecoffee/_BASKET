@@ -1,0 +1,1659 @@
+{
+  "schema": "basket.b19-underrepresented-coverage@1",
+  "as_of": "2026-10-17",
+  "spark": "B19",
+  "issue": 21,
+  "branch": "work/21-underrepresented-ticker-coverage",
+  "scope": "read-only gap proposals for B19 research; not canonical ticker registration or verified portfolio positions",
+  "compared_to": "research/themes/supply-chain/registry/tickers.json on PR #18 branch work/17-mrie-revenue-pool-resources, fetched 2026-10-17",
+  "prioritization": "P0: missing economic choke point or customer capture; P1: adjacency or potential recurring driver; P2: research optionality. No valuations or buy ratings.",
+  "candidates": [
+    {
+      "ticker": "AMKR",
+      "layer": "advanced_packaging",
+      "priority": "P0",
+      "role_hypothesis": "Trace packaging/tool capacity, Nvidia and foundry interfaces; avoid double-counting chip sales.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [
+        {
+          "class": "issuer_statement",
+          "published_at": "2026-07-23",
+          "url": "https://ir.amkor.com/news-releases/news-release-details/amkor-technology-announces-strategic-partnership-nvidia-expand",
+          "claim": "NVIDIA $1.5bn multiyear packaging and development agreement and prepayment to support Arizona capacity; no claim that agreement value equals recognized revenue."
+        }
+      ],
+      "status": "research_candidate",
+      "verification": "primary_issuer_verified",
+      "economic_tests": [
+        "Recognized services revenue vs prepayments and deferred revenue",
+        "NVIDIA purchase concentration",
+        "Arizona capex financing vs return on invested capital",
+        "TSMC partnership interface and whether flows overlap"
+      ],
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "ASX",
+      "layer": "advanced_packaging",
+      "priority": "P0",
+      "role_hypothesis": "Trace packaging/tool capacity, Nvidia and foundry interfaces; avoid double-counting chip sales.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "BESI",
+      "layer": "advanced_packaging",
+      "priority": "P0",
+      "role_hypothesis": "Trace packaging/tool capacity, Nvidia and foundry interfaces; avoid double-counting chip sales.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [
+        {
+          "class": "third_party_report",
+          "published_at": "2026-10-16",
+          "url": "https://www.reuters.com/business/besi-shares-fall-report-asml-is-working-rival-hybrid-bonding-product-2026-10-16/",
+          "claim": "SemiAnalysis patent analysis suggests ASML hybrid-bonding rival; ASML did not confirm a product."
+        }
+      ],
+      "status": "research_candidate",
+      "verification": "third_party_hypothesis",
+      "economic_tests": [
+        "Hybrid bonding equipment addressable installations",
+        "ASML competitive product actual shipping dates",
+        "Pricing power under competing capacity"
+      ],
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "ONTO",
+      "layer": "advanced_packaging",
+      "priority": "P0",
+      "role_hypothesis": "Trace packaging/tool capacity, Nvidia and foundry interfaces; avoid double-counting chip sales.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "ALAB",
+      "layer": "interconnect_photonics",
+      "priority": "P0",
+      "role_hypothesis": "Trace serializer, retimer, optical components and physical scale bottlenecks; separate design wins from recognized revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "CRDO",
+      "layer": "interconnect_photonics",
+      "priority": "P0",
+      "role_hypothesis": "Trace serializer, retimer, optical components and physical scale bottlenecks; separate design wins from recognized revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "MTSI",
+      "layer": "interconnect_photonics",
+      "priority": "P0",
+      "role_hypothesis": "Trace serializer, retimer, optical components and physical scale bottlenecks; separate design wins from recognized revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "POET",
+      "layer": "interconnect_photonics",
+      "priority": "P0",
+      "role_hypothesis": "Trace serializer, retimer, optical components and physical scale bottlenecks; separate design wins from recognized revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "PWR",
+      "layer": "power_grid_cooling",
+      "priority": "P0",
+      "role_hypothesis": "Trace utility connection, switchgear, HVAC, power-distribution and construction value; project spend is not supplier revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "MOD",
+      "layer": "power_grid_cooling",
+      "priority": "P0",
+      "role_hypothesis": "Trace utility connection, switchgear, HVAC, power-distribution and construction value; project spend is not supplier revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [
+        {
+          "class": "issuer_profile",
+          "url": "https://investors.modine.com/overview/default.aspx",
+          "claim": "Modine describes mission-critical thermal solutions including data centers; incremental AI revenue not derived here."
+        }
+      ],
+      "status": "research_candidate",
+      "verification": "issuer_role_only",
+      "economic_tests": [
+        "Data center attributable sales and backlog from Q1 FY2027 filings",
+        "Cooling capacity unit economics",
+        "OEM passthrough to integrators"
+      ],
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "NVT",
+      "layer": "power_grid_cooling",
+      "priority": "P0",
+      "role_hypothesis": "Trace utility connection, switchgear, HVAC, power-distribution and construction value; project spend is not supplier revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "HUBB",
+      "layer": "power_grid_cooling",
+      "priority": "P0",
+      "role_hypothesis": "Trace utility connection, switchgear, HVAC, power-distribution and construction value; project spend is not supplier revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "POWL",
+      "layer": "power_grid_cooling",
+      "priority": "P0",
+      "role_hypothesis": "Trace utility connection, switchgear, HVAC, power-distribution and construction value; project spend is not supplier revenue.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [
+        {
+          "class": "issuer_profile",
+          "url": "https://powellindustriesinc.gcs-web.com/",
+          "claim": "Powell designs distribution and control electrical equipment across industrial and utility end markets; AI exposure unquantified."
+        }
+      ],
+      "status": "research_candidate",
+      "verification": "issuer_role_only",
+      "economic_tests": [
+        "Data center explicitly disclosed segment revenue",
+        "Backlog conversion and customer concentration",
+        "Grid connection vs utility spending overlap"
+      ],
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "WDC",
+      "layer": "storage_data",
+      "priority": "P0",
+      "role_hypothesis": "Trace storage, flash and data persistence spend apart from DRAM/HBM.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "STX",
+      "layer": "storage_data",
+      "priority": "P0",
+      "role_hypothesis": "Trace storage, flash and data persistence spend apart from DRAM/HBM.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "PSTG",
+      "layer": "storage_data",
+      "priority": "P0",
+      "role_hypothesis": "Trace storage, flash and data persistence spend apart from DRAM/HBM.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "SNOW",
+      "layer": "enterprise_data_application",
+      "priority": "P0",
+      "role_hypothesis": "Separate customer software budgets, AI-attributable consumption and cloud pass-through compute cost.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [
+        {
+          "class": "issuer_ir",
+          "url": "https://investors.snowflake.com/overview/default.aspx",
+          "claim": "Issuer identifies multi-cloud data, analytics, AI and application workloads; AI incremental dollars not quantified in this artifact."
+        }
+      ],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "MDB",
+      "layer": "enterprise_data_application",
+      "priority": "P0",
+      "role_hypothesis": "Separate customer software budgets, AI-attributable consumption and cloud pass-through compute cost.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [
+        {
+          "class": "issuer_ir",
+          "url": "https://investors.mongodb.com/",
+          "claim": "Issuer identifies database, real-time analysis and AI retrieval workloads; incremental AI attribution unverified."
+        }
+      ],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "DDOG",
+      "layer": "enterprise_data_application",
+      "priority": "P0",
+      "role_hypothesis": "Separate customer software budgets, AI-attributable consumption and cloud pass-through compute cost.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "CFLT",
+      "layer": "enterprise_data_application",
+      "priority": "P0",
+      "role_hypothesis": "Separate customer software budgets, AI-attributable consumption and cloud pass-through compute cost.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "ESTC",
+      "layer": "enterprise_data_application",
+      "priority": "P0",
+      "role_hypothesis": "Separate customer software budgets, AI-attributable consumption and cloud pass-through compute cost.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "EMR",
+      "layer": "industrial_robotics",
+      "priority": "P1",
+      "role_hypothesis": "Trace controllers, sensing, warehouses, autonomy and labor-substitution ROI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "CGNX",
+      "layer": "industrial_robotics",
+      "priority": "P1",
+      "role_hypothesis": "Trace controllers, sensing, warehouses, autonomy and labor-substitution ROI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "KION.DE",
+      "layer": "industrial_robotics",
+      "priority": "P1",
+      "role_hypothesis": "Trace controllers, sensing, warehouses, autonomy and labor-substitution ROI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "PATH",
+      "layer": "industrial_robotics",
+      "priority": "P1",
+      "role_hypothesis": "Trace controllers, sensing, warehouses, autonomy and labor-substitution ROI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "OUST",
+      "layer": "industrial_robotics",
+      "priority": "P1",
+      "role_hypothesis": "Trace controllers, sensing, warehouses, autonomy and labor-substitution ROI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "BE",
+      "layer": "energy_nuclear",
+      "priority": "P1",
+      "role_hypothesis": "Track contracted/financed capacity separately from prospective generation and capacity claims.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "OKLO",
+      "layer": "energy_nuclear",
+      "priority": "P1",
+      "role_hypothesis": "Track contracted/financed capacity separately from prospective generation and capacity claims.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "BWXT",
+      "layer": "energy_nuclear",
+      "priority": "P1",
+      "role_hypothesis": "Track contracted/financed capacity separately from prospective generation and capacity claims.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "CCJ",
+      "layer": "energy_nuclear",
+      "priority": "P1",
+      "role_hypothesis": "Track contracted/financed capacity separately from prospective generation and capacity claims.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "OKTA",
+      "layer": "cyber_identity",
+      "priority": "P1",
+      "role_hypothesis": "Track identity, security, network control plane and share of incremental enterprise AI spending.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "CYBR",
+      "layer": "cyber_identity",
+      "priority": "P1",
+      "role_hypothesis": "Track identity, security, network control plane and share of incremental enterprise AI spending.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "NET",
+      "layer": "cyber_identity",
+      "priority": "P1",
+      "role_hypothesis": "Track identity, security, network control plane and share of incremental enterprise AI spending.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "CDNS",
+      "layer": "design_engineering",
+      "priority": "P1",
+      "role_hypothesis": "Track semiconductor design tool revenue and industrial engineering software tied to next product cycles.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "SNPS",
+      "layer": "design_engineering",
+      "priority": "P1",
+      "role_hypothesis": "Track semiconductor design tool revenue and industrial engineering software tied to next product cycles.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "ADSK",
+      "layer": "design_engineering",
+      "priority": "P1",
+      "role_hypothesis": "Track semiconductor design tool revenue and industrial engineering software tied to next product cycles.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "PTC",
+      "layer": "design_engineering",
+      "priority": "P1",
+      "role_hypothesis": "Track semiconductor design tool revenue and industrial engineering software tied to next product cycles.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "BSX",
+      "layer": "robotics_healthcare",
+      "priority": "P2",
+      "role_hypothesis": "Study direct clinical automation and procedural recurring revenue; do not equate all medtech sales with AI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "SYK",
+      "layer": "robotics_healthcare",
+      "priority": "P2",
+      "role_hypothesis": "Study direct clinical automation and procedural recurring revenue; do not equate all medtech sales with AI.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "AKAM",
+      "layer": "distributed_access",
+      "priority": "P1",
+      "role_hypothesis": "Trace inference edge, colocation pricing, network adjacencies and lease/financing commitments.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "EQIX",
+      "layer": "distributed_access",
+      "priority": "P1",
+      "role_hypothesis": "Trace inference edge, colocation pricing, network adjacencies and lease/financing commitments.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    },
+    {
+      "ticker": "DLR",
+      "layer": "distributed_access",
+      "priority": "P1",
+      "role_hypothesis": "Trace inference edge, colocation pricing, network adjacencies and lease/financing commitments.",
+      "not_in_b19_working_watchlist": true,
+      "canonical_membership": "not_checked",
+      "ticker_listing_identity": "verify_before_canonical_registration",
+      "financial_metrics": "not_ingested",
+      "evidence": [],
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
+    }
+  ],
+  "controls": [
+    "All tickers are proposals; exchange, corporate identity, listing and current tradability must be confirmed before canonical registration.",
+    "Research watchlist membership differs from canonical membership; never treat no entry here as absent in canonical repo.",
+    "Measure issuer AI-attributable revenue with quarterly reports and explicit allocation, not total reported revenue or inferred share.",
+    "Trace consumer capital origin -> OEM/gateway -> suppliers -> retained FCF; reconcile each flow to prevent double-counting.",
+    "Distinguish capacity, backlog, contract/prepayment and revenue; dated USD sources with original currency and FX for foreign issuers.",
+    "Record counterparty terms and exposure as hypothesis until sourced; map edges via B05 and events via B03.",
+    "Do not use current price, P/E, real-time availability, or investment ratings without timestamped sourced observations.",
+    "Score capital duration, passthrough share, customer concentrations, financial risk and substitute technologies before investable basket admission."
+  ],
+  "open_questions": [
+    "Which missing candidates have financially material disclosed AI revenue?",
+    "What is the final-customer revenue pool size, bypass paths and percent captured by each intermediary?",
+    "Which capacity-constrained suppliers retain economics rather than competitors supplying substitution?",
+    "Do direct AI application revenues outweigh infrastructure financing and depreciation burden?"
+  ],
+  "followup_owner_requests": {
+    "B00": "Arbitrate canonical universe additions and schema integration; do not write ticker entities from B19.",
+    "B03": "Verify issuer quarterly filings and event economics.",
+    "B05": "Verify relationship edges and payer-to-payee tiers.",
+    "B19": "Integrate this scoped gap file into research registry after #18 coordination."
+  },
+  "review": {
+    "as_of": "2026-10-17",
+    "workstream": "B19 issue 21",
+    "design": "Rank research relevance, not stock expected returns",
+    "scoring_formula": "Only after underlying fundamentals verified: economic_capture=(AI_attributable_revenue - pass_through_cost - incremental_operating_cost - annualized_capital_burden); unavailable inputs yield null rather than an estimate",
+    "priority_factors": [
+      "Documented contractual or commercial link to demand",
+      "Market share of actual incremental spend at payer depth",
+      "Retained gross and operating economics rather than booked equipment passthrough",
+      "Capital required per dollar of durable incremental FCF",
+      "Ability of customer to substitute, internalize or self-design",
+      "Working capital, balance sheet and funding dependence"
+    ],
+    "antifalsification": [
+      "A memorandum or prepayment is not automatically recurring revenues",
+      "Issuer segment revenue is not wholly AI attributable",
+      "Potential bottleneck can disappear as production ramps or technology shifts",
+      "Two entities buying the same supplier is not automatically a relationship"
+    ],
+    "validation_results": {
+      "json_parse": "passed_in_connector_javascript",
+      "ticker_uniqueness": "passed",
+      "identity_and_listing_checks": "pending",
+      "schema_runner": "not_run",
+      "independent_ci": "not_run",
+      "registry_reconciliation": "passed_PR18_HEAD_no_duplicate_candidates"
+    },
+    "integration_sequence": [
+      "B19 #17 PR #18: reconcile working registry changes and prevent path collision",
+      "B00: confirm canonical membership and cross-domain identity policy",
+      "B03: source-quarter financial statements and dated event records",
+      "B05: confirm contractual graph links and cross-company cash flows",
+      "B19: reconcile pools and avoid downstream double counting"
+    ]
+  },
+  "reconciliation": {
+    "checked_at": "2026-10-17",
+    "source_pr": 18,
+    "source_head_sha": "109bbd9e76c29db24b19b74654221de5fb1b5133",
+    "source_registry": "research/themes/supply-chain/registry/tickers.json",
+    "existing_records": 68,
+    "proposed_records": 42,
+    "overlap": [],
+    "combined_research_identifiers": 110,
+    "canonical_registration": "not_performed",
+    "pr18_merge_status": "open_at_comparison",
+    "limitation": "Research-only identifier count; entity identity, tradability and fundamentals not verified. Re-run at integration PR head."
+  },
+  "user_watchlist_audit": {
+    "as_of": "2026-10-17",
+    "source": "User-provided categorized watchlist with prices but no independently validated quote timestamps",
+    "scope": "Qualitative economic-role audit; avoid representing snapshot prices and market capitalizations as current; user watchlist is not equivalent to PR18 registry or canonical entities",
+    "coverage_gaps": [
+      {
+        "priority": "P0",
+        "layer": "end_customer_final_demand",
+        "existing": [
+          "MSFT",
+          "AMZN",
+          "GOOG",
+          "META",
+          "PLTR",
+          "NOW",
+          "SAP",
+          "ISRG",
+          "SYM"
+        ],
+        "prospects": [
+          "WMT",
+          "UPS",
+          "FDX",
+          "CAT",
+          "UNH",
+          "HCA",
+          "JPM"
+        ],
+        "economic_question": "Which end industries actually pay for AI applications, automation, autonomous workloads and inference, and what spend is incremental rather than displaced?",
+        "required_metrics": [
+          "Customer counts and annual spend",
+          "Contracted application ARR",
+          "Measurable deployment utilization and labor or process ROI",
+          "AI-attributable new budget vs substituted legacy"
+        ],
+        "status": "research_gap"
+      },
+      {
+        "priority": "P0",
+        "layer": "critical_materials_substrates",
+        "existing": [
+          "GLW",
+          "APH",
+          "ADI"
+        ],
+        "prospects": [
+          "ENTG",
+          "LIN",
+          "APD",
+          "AXTI",
+          "SHMDF"
+        ],
+        "economic_question": "Which wafer, chemicals, gases, glass and substrate inputs gate wafer-start, HBM and CoWoS output?",
+        "required_metrics": [
+          "Qualified supply capacity by chemistry/spec",
+          "Customer qualification",
+          "Utilization and order lead time",
+          "Production yield"
+        ],
+        "status": "research_gap"
+      },
+      {
+        "priority": "P0",
+        "layer": "electrical_equipment_transformers_generation",
+        "existing": [
+          "ETN",
+          "GEV",
+          "PWR",
+          "VRT",
+          "BE"
+        ],
+        "prospects": [
+          "HUBB",
+          "NVT",
+          "POWL",
+          "MOD",
+          "CEG",
+          "VST",
+          "NRG",
+          "WMB",
+          "NEE"
+        ],
+        "economic_question": "How many grid deliverable MW, versus just reserved and announced MW, are available per commissioning window?",
+        "required_metrics": [
+          "Utility interconnection date",
+          "Transformer/switchgear output and lead time",
+          "MW contracted energized vs not energized",
+          "Generation fuel constraints and project financing"
+        ],
+        "status": "research_gap"
+      },
+      {
+        "priority": "P0",
+        "layer": "advanced_packaging",
+        "existing": [
+          "TSM",
+          "FORM",
+          "ONTO",
+          "KLIC",
+          "ATEYY",
+          "ASML"
+        ],
+        "prospects": [
+          "AMKR",
+          "ASX",
+          "BESI",
+          "CAMT"
+        ],
+        "economic_question": "What is net qualified wafer packaging and HBM integration capacity by process and company?",
+        "required_metrics": [
+          "CoWoS-like package capacity",
+          "HBM stack availability",
+          "Interposer and substrate supply",
+          "Yield and throughput"
+        ],
+        "status": "research_gap"
+      },
+      {
+        "priority": "P0",
+        "layer": "storage",
+        "existing": [
+          "SNDK",
+          "STX",
+          "MU",
+          "SKHY"
+        ],
+        "prospects": [
+          "WDC",
+          "PSTG"
+        ],
+        "economic_question": "Who captures AI data generation and checkpoint storage procurement, and which revenues pass through systems?",
+        "required_metrics": [
+          "Exabyte shipments",
+          "Nearline HDD vs enterprise flash ASP",
+          "AI-specific deployment fraction",
+          "Channel and OEM pass-through"
+        ],
+        "status": "research_gap"
+      },
+      {
+        "priority": "P0",
+        "layer": "AI_compute_operators",
+        "existing": [
+          "CRWV",
+          "NBIS",
+          "APLD",
+          "IREN",
+          "ORCL",
+          "IBM",
+          "EQIX"
+        ],
+        "prospects": [
+          "DLR",
+          "AKAM",
+          "CIFR",
+          "HUT",
+          "WULF"
+        ],
+        "economic_question": "Which contracted IT MW are operational, energized, funded and independently generating customer cash payments?",
+        "required_metrics": [
+          "Operational vs planned IT MW",
+          "GPU installations and age",
+          "MW->GPU consistency",
+          "Revenue per deployed MW and per utilized GPU-hour",
+          "Debt amortization and customer concentration"
+        ],
+        "status": "research_gap"
+      },
+      {
+        "priority": "P1",
+        "layer": "industrial_adoption",
+        "existing": [
+          "SYM",
+          "MANH",
+          "DE",
+          "ROK",
+          "ABBNY",
+          "FANUY",
+          "KYCCF",
+          "YASKY",
+          "CGNX",
+          "ISRG"
+        ],
+        "prospects": [
+          "EMR",
+          "KION.DE",
+          "PTC",
+          "OUST",
+          "TRMB"
+        ],
+        "economic_question": "Measure incremental automation from orders, installations, fleet units and recurring software/service revenue.",
+        "required_metrics": [
+          "Installed robot count and throughput",
+          "Per-workflow labor economics",
+          "OEM, integrator and final customer separation",
+          "Capital replacement cycle"
+        ],
+        "status": "research_gap"
+      },
+      {
+        "priority": "P1",
+        "layer": "financial_capital",
+        "existing": [
+          "SFTBY",
+          "APO",
+          "BLK",
+          "BN",
+          "BX",
+          "GS",
+          "KKR"
+        ],
+        "prospects": [
+          "ARES",
+          "BAM",
+          "NDAQ",
+          "ICE"
+        ],
+        "economic_question": "How do equity, project debt, asset-backed financing and GP fees map to the same ultimate capital asset without double counting?",
+        "required_metrics": [
+          "Fund AUM vs directly deployed capital",
+          "LTV and loan maturity",
+          "Fees vs investment gains",
+          "Named project financing and lender claims"
+        ],
+        "status": "research_gap"
+      },
+      {
+        "priority": "P1",
+        "layer": "quantum_frontier",
+        "existing": [
+          "IONQ",
+          "QBTS",
+          "RGTI",
+          "DNA",
+          "TEM",
+          "RXRX"
+        ],
+        "prospects": [
+          "IBM",
+          "HON",
+          "QUBT",
+          "QTUM"
+        ],
+        "economic_question": "How much is production/commercial recurring revenue versus R&D, grants and milestone/option value?",
+        "required_metrics": [
+          "Validated commercial revenues",
+          "Hardware deployments and utilization",
+          "Logical qubit/error correction benchmarks",
+          "Technical milestone and burn rate"
+        ],
+        "status": "research_gap"
+      }
+    ],
+    "methodology": {
+      "flow_record": "payer -> intermediary -> vendor -> tier-n vendor; attach recognized amount, accounting period, source and category; avoid summing linked gross flows as independent market sizes",
+      "capacity_record": "facility, geography, process/technology, designed capacity, qualified capacity, installed capacity, energized capacity, utilized capacity, lead time, reserved customer, capex commitment, available_at",
+      "revenue_pool": "bottom-up final-payer spend, procurement subset, intermediary gross revenue, retained value added and gross profit; distinguish stocks and flows",
+      "financial_record": "USD reporting with original currency, source conversion rate and FX date",
+      "demand_record": "separate addressable opportunity, budget authorized, signed contract, minimum commitment, deployed service and recognized revenue",
+      "investability": "separate economic relevance from stock expected returns and valuation"
+    },
+    "ticker_quality_warnings": [
+      "CBRS public since May 14 2026 per issuer; do not misclassify as pre-IPO",
+      "Potential Japanese ADR market capitalizations in watchlist (FANUY, KYCCF, YASKY) are not reliable USD equivalents without currency/ADR/share-base check",
+      "Do not count ETFs, indices, USDJPY or volatility measures as issuer economic pools",
+      "Entity symbols may be duplicate across watchlist categories: SFTBY; avoid counting twice",
+      "Do not assume financed or planned generation equals delivered MW"
+    ],
+    "evidence": [
+      {
+        "class": "primary_issuer",
+        "url": "https://www.cerebras.ai/press-release/cerebras-systems-announces-closing-of-initial-public-offering",
+        "published_at": "2026-05-15",
+        "claim": "CBRS began trading Nasdaq May 14 2026"
+      },
+      {
+        "class": "industry_report",
+        "url": "https://www.trendforce.com/presscenter/news/20260430-13028.html",
+        "published_at": "2026-04-30",
+        "claim": "CoWoS and upstream material shortages including substrates and T-glass"
+      },
+      {
+        "class": "IEA",
+        "url": "https://www.iea.org/reports/powering-artificial-intelligence/executive-summary",
+        "published_at": "2026-10-14",
+        "claim": "2026 largest hyperscaler capex in excess USD 700bn, not identical to AI-only sales"
+      },
+      {
+        "class": "regulator_report",
+        "url": "https://www.reuters.com/business/energy/us-panel-approves-pjms-registry-data-centers-rejects-plan-curtail-power-them-2026-10-12/",
+        "published_at": "2026-10-12",
+        "claim": "PJM data center registry supports planned vs installed demand distinction"
+      }
+    ]
+  },
+  "frontier_leadership_review": {
+    "as_of": "2026-10-17",
+    "interpretation": "Technological or commercial leadership candidates; not verified universal market-share rankings or investment recommendations",
+    "categories": [
+      {
+        "category": "industrial_robotics",
+        "contenders": [
+          "FANUY",
+          "ABBNY",
+          "YASKY",
+          "SIEGY"
+        ],
+        "moats": [
+          "installed base",
+          "proven uptime",
+          "control software",
+          "integrator/service distribution"
+        ],
+        "bottleneck": "integration, qualified labor, cycle time and robot operating economics",
+        "market_denominator": "IFR new annual industrial robot installations and installed base"
+      },
+      {
+        "category": "warehouse_automation",
+        "contenders": [
+          "SYM",
+          "private:Dematic",
+          "private:AutoStore"
+        ],
+        "moats": [
+          "deployment reference sites",
+          "workflow software",
+          "multiyear agreements"
+        ],
+        "bottleneck": "commissioning and contractual customer concentration",
+        "market_denominator": "automated facilities and realized recurring software/service revenue",
+        "evidence": "https://www.sec.gov/Archives/edgar/data/1837240/000183724026000043/sym-20260627.htm"
+      },
+      {
+        "category": "humanoid_physical_ai",
+        "contenders": [
+          "private:Figure",
+          "private:Agility",
+          "TSLA",
+          "private:Unitree",
+          "NVDA"
+        ],
+        "moats": [
+          "embodied data",
+          "perception control",
+          "simulation and software ecosystem"
+        ],
+        "bottleneck": "robot dexterity, failure rates, supervised hours, hardware unit cost",
+        "market_denominator": "paid deployable operating hours, not prototype count"
+      },
+      {
+        "category": "quantum_computing",
+        "contenders": [
+          "IBM",
+          "private:Quantinuum",
+          "GOOG",
+          "IONQ",
+          "RGTI",
+          "QBTS"
+        ],
+        "moats": [
+          "fault tolerance research",
+          "logical performance",
+          "software ecosystem",
+          "customer workloads"
+        ],
+        "bottleneck": "logical error correction, reproducible advantage, scalable controls and monetizable workloads",
+        "market_denominator": "useful solved workloads and recognized contracted commercial revenue",
+        "evidence": "https://www.ibm.com/roadmaps/quantum/2030/"
+      },
+      {
+        "category": "medical_robotics",
+        "contenders": [
+          "ISRG",
+          "SYK",
+          "MDT"
+        ],
+        "moats": [
+          "clinical training",
+          "installed base",
+          "regulated workflows",
+          "recurrent instruments"
+        ],
+        "bottleneck": "regulatory approval, hospital economics and platform procedure outcomes",
+        "market_denominator": "eligible robotic procedures and installed active systems"
+      },
+      {
+        "category": "grid_electrical",
+        "contenders": [
+          "GEV",
+          "ETN",
+          "VRT",
+          "SIEGY",
+          "PWR"
+        ],
+        "moats": [
+          "qualified electrical systems",
+          "service footprint",
+          "project execution"
+        ],
+        "bottleneck": "transformer, turbine, switchgear and interconnection delivery",
+        "market_denominator": "commissioned MW and project-equipment dollar value"
+      },
+      {
+        "category": "distributed_power",
+        "contenders": [
+          "BE",
+          "AEP",
+          "GEV"
+        ],
+        "moats": [
+          "deployment ability",
+          "reliability",
+          "financing",
+          "PPA economics"
+        ],
+        "bottleneck": "fuel supply, operating costs, contractual delivery and reliability",
+        "market_denominator": "operating generation MW and USD/MWh margin",
+        "evidence": "https://pr.aep.com/news/releases/read/12314/AEP-Advances-Innovative-Energy-Solution-for-Google-with-702MW-of-Bloom-Fuel-Cells"
+      },
+      {
+        "category": "nuclear_fission",
+        "contenders": [
+          "CEG",
+          "VST",
+          "GEV",
+          "private:GE_Hitachi"
+        ],
+        "moats": [
+          "licensed sites",
+          "trained workforce",
+          "specialist supply chain"
+        ],
+        "bottleneck": "licenses, construction, fuel and equipment lead times",
+        "market_denominator": "operating reliable MWh vs future development MW"
+      },
+      {
+        "category": "fusion",
+        "contenders": [
+          "private:CFS",
+          "private:Helion",
+          "private:TAE"
+        ],
+        "moats": [
+          "magnet/plasma IP",
+          "engineering talent",
+          "offtake credibility"
+        ],
+        "bottleneck": "commercial net electricity, lifetime economics, materials and fuel cycle",
+        "market_denominator": "actually delivered commercial MWh; currently unknown",
+        "evidence": "https://blog.google/company-news/outreach-and-initiatives/sustainability/our-latest-bet-on-a-fusion-powered-future/"
+      },
+      {
+        "category": "energy_storage",
+        "contenders": [
+          "private:CATL",
+          "private:BYD",
+          "TSLA",
+          "private:Form_Energy"
+        ],
+        "moats": [
+          "battery manufacturing scale",
+          "chemistry IP",
+          "pack integration"
+        ],
+        "bottleneck": "duration-dependent cost, degradation and bankability",
+        "market_denominator": "installed operational GWh segmented by storage duration"
+      }
+    ],
+    "verified_contract_seeds": [
+      {
+        "parties": [
+          "SYM",
+          "WMT"
+        ],
+        "type": "master_automation_agreement",
+        "classification": "verified_filing",
+        "claim": "systems across 42 regional distribution centers and additional conditional online pickup work",
+        "source": "https://www.sec.gov/Archives/edgar/data/1837240/000183724026000043/sym-20260627.htm",
+        "guard": "RPO not equal completed revenue"
+      },
+      {
+        "parties": [
+          "SYM",
+          "Exol",
+          "SFTBY"
+        ],
+        "type": "joint_venture_plus_commercial_agreement",
+        "classification": "verified_filing",
+        "claim": "35% Symbotic and 65% SoftBank related ownership, six-year >=USD7.5bn Exol system spending commitment subject to contract provisions",
+        "source": "https://www.sec.gov/Archives/edgar/data/1837240/000119312526015381/sym-20260116.htm",
+        "guard": "Ownership gains and sales to equity-method JV not independent fully additive revenue"
+      },
+      {
+        "parties": [
+          "GOOG",
+          "AEP",
+          "BE"
+        ],
+        "type": "20_year_ppa_and_equipment_supply",
+        "classification": "verified_issuer_statement",
+        "claim": "AEP 702 MW Bloom fuel cells project, USD4bn announced project capex, Google offtake, full operation planned 2028",
+        "source": "https://pr.aep.com/news/releases/read/12314/AEP-Advances-Innovative-Energy-Solution-for-Google-with-702MW-of-Bloom-Fuel-Cells",
+        "guard": "Not energized present capacity; Bloom equipment revenue not USD4bn by default"
+      },
+      {
+        "parties": [
+          "GOOG",
+          "private:CFS"
+        ],
+        "type": "fusion_offtake_and_equity",
+        "classification": "verified_company_statement",
+        "claim": "Google 200MW power offtake from future ARC plant and equity investment",
+        "source": "https://blog.google/company-news/outreach-and-initiatives/sustainability/our-latest-bet-on-a-fusion-powered-future/",
+        "guard": "No current delivered commercial fusion MWh"
+      }
+    ],
+    "priority_research": [
+      "Follow actual paying customers and cumulative obligations for warehouses and factory automation",
+      "Track each robot deployment in units, utilization, RaaS vs outright sales, maintenance and ultimate customer savings",
+      "For quantum measure logical fidelity, reproducible advantage, customer payments and contract revenue",
+      "For energy split PPA contracted MW, permit, manufactured equipment, interconnection, energized and delivered MWh",
+      "For fusion retain private companies as entities and claims but never invent public trading history"
+    ],
+    "sources": [
+      {
+        "url": "https://ifr.org/ifr-press-releases/news/service-robots-on-the-rise-worldwide",
+        "context": "IFR industrial 2025 installed stock, published Sep 24 2026"
+      },
+      {
+        "url": "https://ifr.org/news/global-sales-of-professional-service-robots-surge-24-percent/1st-",
+        "context": "IFR professional service robots 2025, published Sep 30 2026"
+      },
+      {
+        "url": "https://nvidianews.nvidia.com/news/nvidia-and-global-robotics-leaders-take-physical-ai-to-the-real-world",
+        "context": "Nvidia supplier-led ecosystem claims, not exclusive contracts"
+      },
+      {
+        "url": "https://newsroom.ibm.com/2026-06-02-ibm-commits-more-than-10-billion-to-quantum-computing%2C-funding-its-roadmap-from-todays-leading-systems-to-the-worlds-first-fault-tolerant-quantum-computers",
+        "context": "Issuer quantum capital intent and historical contracts; not annual recognized revenue"
+      }
+    ]
+  },
+  "persistent_graph_tool_contract": {
+    "proposal_version": "0.1.0",
+    "state": "research_design_only_not_implemented",
+    "authority": {
+      "canonical_entities": "B00 and assigned company entity owners",
+      "canonical_edges": "B05 tickers/*/relationships.json",
+      "issuer_events": "B03 tickers/*/events.json",
+      "market_data_fx_ttd": "B02",
+      "supply_chain_research": "B19",
+      "validation": "B01",
+      "analysis_engine": "B05 for graph traversal interface; B04 for economic modeling; B21 for causal claims"
+    },
+    "principle": "A company has many roles. An economic path has context-specific depth. Segment membership is many-to-many, versioned and evidenced. Never treat research candidate edges as verified.",
+    "records": [
+      {
+        "kind": "entity",
+        "id_format": "stable entity_id independent of ticker",
+        "fields": [
+          "entity_id",
+          "identities_and_listing_history",
+          "entity_type",
+          "parent_and_ultimate_owner",
+          "valid_from",
+          "valid_to",
+          "source"
+        ],
+        "note": "Ticker alias and ADR ratios are versioned, never used as immutable IDs"
+      },
+      {
+        "kind": "segment_membership",
+        "id_format": "membership_id",
+        "fields": [
+          "entity_id",
+          "segment_id",
+          "role",
+          "product_line",
+          "geography",
+          "effective_from",
+          "effective_to",
+          "evidence_id",
+          "review_status"
+        ],
+        "note": "Many-to-many; segment hierarchy supports company drilldowns and segment aggregation"
+      },
+      {
+        "kind": "relationship_edge",
+        "id_format": "edge_id",
+        "fields": [
+          "from_entity_id",
+          "to_entity_id",
+          "relationship_type",
+          "direction",
+          "product_or_scope",
+          "contract_id",
+          "start_at",
+          "end_at",
+          "source_id",
+          "status",
+          "confidence_class",
+          "availability_time",
+          "ingested_time",
+          "revision_id"
+        ],
+        "types": [
+          "ownership",
+          "joint_venture",
+          "equity_financing",
+          "debt_financing",
+          "capacity_reservation",
+          "supplier_customer",
+          "licensing",
+          "distribution",
+          "technology_integration",
+          "compute_hosting",
+          "offtake",
+          "competition",
+          "unverified_hypothesis"
+        ],
+        "note": "Contractual status separate from strategic hypothesis. Revisions append-only; no overwrites"
+      },
+      {
+        "kind": "contract",
+        "id_format": "contract_id",
+        "fields": [
+          "parties_and_roles",
+          "announced_at",
+          "signed_at",
+          "funded_at",
+          "authorized_at",
+          "commercial_start",
+          "end_at",
+          "termination_rights",
+          "exclusive_scope",
+          "minimum_commitments",
+          "currency",
+          "nominal_value",
+          "recognized_to_date",
+          "capacity_unit",
+          "volume_terms",
+          "counterparty_concentration",
+          "source_ids",
+          "revision_id"
+        ],
+        "note": "Contracted funding, backlog, capex, RPO, recurring revenue and equity interests must be distinct"
+      },
+      {
+        "kind": "economic_flow",
+        "id_format": "flow_id",
+        "fields": [
+          "payer_entity_id",
+          "payee_entity_id",
+          "transaction_or_contract_id",
+          "upstream_pool_id",
+          "period_end",
+          "basis",
+          "amount_original_currency",
+          "currency",
+          "fx_rate",
+          "fx_date",
+          "amount_usd",
+          "accounting_treatment",
+          "pass_through_amount_usd",
+          "economic_value_added_usd",
+          "source_id",
+          "state"
+        ],
+        "note": "Trace one underlying final-customer dollar through vendor tiers without adding all intermediate recognized sales into total addressable final demand"
+      },
+      {
+        "kind": "capacity",
+        "id_format": "capacity_id",
+        "fields": [
+          "entity_id",
+          "facility_id",
+          "technology_or_process",
+          "unit",
+          "nameplate",
+          "qualified",
+          "reserved",
+          "contracted",
+          "built",
+          "energized",
+          "utilized",
+          "deliverable",
+          "period",
+          "geography",
+          "constraints",
+          "evidence_id",
+          "status"
+        ],
+        "note": "Capacities never aggregate incompatible units without explicit conversion factors and sensitivity"
+      },
+      {
+        "kind": "observation",
+        "id_format": "observation_id",
+        "fields": [
+          "subject_id",
+          "metric",
+          "unit",
+          "value",
+          "original_currency",
+          "fx_basis",
+          "effective_at",
+          "observed_at",
+          "available_at",
+          "ingested_at",
+          "period_end",
+          "model_version",
+          "ttd",
+          "source_class",
+          "source_uri",
+          "confidence_class",
+          "revision_of"
+        ],
+        "note": "A fact can be historically true and simultaneously expired for current use"
+      },
+      {
+        "kind": "claim",
+        "id_format": "claim_id",
+        "fields": [
+          "proposition",
+          "supporting_evidence_ids",
+          "counterevidence_ids",
+          "alternatives",
+          "falsifier",
+          "as_of",
+          "owner",
+          "status"
+        ],
+        "note": "B21 maintains inference/causality, never promotes model output into fact"
+      }
+    ],
+    "indexes": [
+      "entity_id",
+      "segment_id+role+effective_date",
+      "relationship_type+counterparty+status",
+      "contract_id+period",
+      "facility_id+technology+unit",
+      "evidence_id+available_at",
+      "pool_id+period"
+    ],
+    "query_templates": [
+      {
+        "name": "entity_neighborhood",
+        "inputs": [
+          "entity_id",
+          "relationship_types",
+          "depth",
+          "as_of",
+          "evidence_status"
+        ],
+        "outputs": [
+          "nodes",
+          "edges",
+          "evidence",
+          "expired_flag"
+        ]
+      },
+      {
+        "name": "segment_economic_map",
+        "inputs": [
+          "segment_id",
+          "geography",
+          "period",
+          "as_of",
+          "role_filter"
+        ],
+        "outputs": [
+          "buyers",
+          "gateways",
+          "suppliers",
+          "capacity",
+          "economic_flow_edges",
+          "coverage_gaps"
+        ]
+      },
+      {
+        "name": "final_payer_traversal",
+        "inputs": [
+          "payer_id",
+          "period",
+          "max_depth",
+          "as_of"
+        ],
+        "outputs": [
+          "distinct_payment_paths",
+          "upstream_intermediaries",
+          "amount_coverage",
+          "double_count_warnings"
+        ]
+      },
+      {
+        "name": "bottleneck_exposure",
+        "inputs": [
+          "technology",
+          "period",
+          "unit",
+          "geography"
+        ],
+        "outputs": [
+          "qualified_supply",
+          "contracted_demand",
+          "constraints",
+          "source_dates",
+          "scenario_range"
+        ]
+      },
+      {
+        "name": "contract_counterparty_risk",
+        "inputs": [
+          "entity_id",
+          "as_of"
+        ],
+        "outputs": [
+          "signed_vs_announced",
+          "termination",
+          "funding",
+          "counterparty_concentration",
+          "unverified_edges"
+        ]
+      },
+      {
+        "name": "market_share_by_denominator",
+        "inputs": [
+          "segment_id",
+          "product",
+          "geography",
+          "period",
+          "share_type"
+        ],
+        "outputs": [
+          "numerator",
+          "denominator",
+          "share_or_null",
+          "method",
+          "source_lineage"
+        ]
+      },
+      {
+        "name": "scenario_cascade",
+        "inputs": [
+          "shock_target",
+          "shock_type",
+          "scenario_assumptions",
+          "as_of"
+        ],
+        "outputs": [
+          "exposure_paths",
+          "quantified_direct_impacts_only",
+          "indirect_hypotheses",
+          "falsifiers"
+        ]
+      }
+    ],
+    "invariants": [
+      "All source-linked edges have an immutable evidence reference; unsourced edges are labeled hypothesis, excluded from verified-only mode",
+      "No cycles duplicated when traversing ownership/funds and customer revenue",
+      "No summed market share across incompatible revenue/capacity denominators",
+      "No announced capacity promoted to commissioned or utilized",
+      "No contract balance used as current revenue",
+      "No estimated share or profit precision absent source numerator and denominator",
+      "Every query declares as_of, completeness, missing/stale sources and code/data manifest hash",
+      "Query outputs are reproducible for snapshot/hash and deterministic filters"
+    ],
+    "implementation_handoff": [
+      {
+        "owner": "B00",
+        "paths": [
+          "schemas/**",
+          "orchestration/**",
+          "architecture/**"
+        ],
+        "request": "Specify canonical entity-id/segment membership/typed-edge and point-in-time contract additions, and assign service interface ownership; migrate incompatibilities with new schema major."
+      },
+      {
+        "owner": "B05",
+        "paths": [
+          "engines/relationships/**",
+          "research/graph/**",
+          "tickers/*/relationships.json"
+        ],
+        "request": "Implement verified typed multigraph projections and 7 read-only query APIs; canonical edges only after contract source validation."
+      },
+      {
+        "owner": "B03",
+        "paths": [
+          "research/filings/**",
+          "research/events/**",
+          "tickers/*/events.json"
+        ],
+        "request": "Extract primary-source contractual events and recognition status; append revisions."
+      },
+      {
+        "owner": "B01",
+        "paths": [
+          "tests/integration/**",
+          ".github/workflows/**"
+        ],
+        "request": "CI tests for lookahead, evidence validity, as_of reproducibility, duplicate attribution, ownership graph cycles, capacity states and schema migration."
+      },
+      {
+        "owner": "B19",
+        "paths": [
+          "research/themes/supply-chain/**"
+        ],
+        "request": "Map watchlist roles and pool denominators using read-only B05 projections; persist explicit missing coverage."
+      }
+    ],
+    "acceptance": [
+      "A single entity can appear in 3+ segments with different roles without duplicate identity",
+      "As-of query before contract signature never returns signed status",
+      "Full-basket segment query includes verified and hypotheses separately with evidence lineage",
+      "Symbotic-Exol-SoftBank-JV path does not double-count RPO, parent ownership, or downstream expenditures",
+      "Google-AEP-Bloom example separates planned 702MW project, supply sales and PPA",
+      "Source-expired current computed output fails closed; historic snapshots remain retrievable",
+      "A ticker rename or ADR change preserves canonical entity relationships"
+    ],
+    "next_executable_step": "B00 architecture/contract handoff first, then B05 graph query and B01 adversarial validation, while B19 continues classification research"
+  },
+  "retirement_collision_audit": {
+    "audited_at": "2026-10-17",
+    "scope": "B19 #21 exclusive research coverage file; no B00/B01/B05 shared edits",
+    "pr_heads": {
+      "b19_registry_18": "109bbd9e76c29db24b19b74654221de5fb1b5133",
+      "b19_expansion_23": "6af9a5f221a760139c86e85f3f5da0b05fb206ba",
+      "b00_economic_graph_22": "330c0eb2904e1d750d1f489d121455be4f0ce082",
+      "b00_ticker_first_43": "f7701d597d0a751415f5603745cfc666906ebbb5",
+      "b00_queue_25": "09ab8ed317d1b7244718976c24fa06205794b1c6",
+      "b00_capture_49": "92986aac1e9170ddccd31dd4a9ee85eb75991641"
+    },
+    "overlap_findings": [
+      "PR #18 B19 owns broad research/themes/supply-chain/** but does not change #21 exact file; maintain exact exclusion for #21.",
+      "B00 #20/PR #22 already defines economic-flow graph. #50 must receive this as an additive review/implementation contract request, not independent replacement ontology.",
+      "B00 #42/PR #43 already handles ticker-first research identity/storage, and #48/PR #49 capture dispatch; #50 must integrate, not duplicate.",
+      "B00 #24/PR #25 owns orchestration/planner/queue.json. Do not modify queue or dispatch scopes from B19.",
+      "B01 #44/PR #47 and #45/PR #46 own CI files. #52 is a proposed receiver handoff only and must coordinate file-specific ownership with those workers.",
+      "B21 PR #38 owns Exol narrative evidence and falsifiers; B19 must not repeat canonical facts without source reconciliation.",
+      "B19 research remains incomplete: no primary-source validated quarterly dollar pool allocations or independent B19 CI."
+    ],
+    "known_research_defects": [
+      "User watchlist contains MANH, but baseline PR #18 registry and #21 candidate set omit it; route B00 T-012 and B19 #17 for inclusion classification.",
+      "Research-only QQQ/SMH ETF identifiers must be tracked as vehicles not corporate earnings entities.",
+      "PAYP issuer/listing identity needs independent verification before canonical promotion.",
+      "Watchlist contains several of the 42 expansion candidates (e.g., ALAB, CRDO, MTSI, PWR, SNOW, MDB, DDOG, CDNS, SNPS, ONTO, STX, PATH, OKTA, EQIX, SYK), so 42 missing from PR #18 does not mean 42 missing from user watchlist.",
+      "The user's pasted market cap/price observations lack independent timestamps; treat as historical/snapshot, not live USD valuation."
+    ],
+    "closeout": {
+      "status": "research_proposal_complete_not_integrated",
+      "worker_issue": 21,
+      "worker_pr": 23,
+      "changed_file": "research/themes/supply-chain/coverage/underrepresented-2026-10-17.json",
+      "validation": "JSON roundtrip and 42 unique proposals with zero overlap to pinned 68 research registry entries; full schema checks/CI not run",
+      "cross_domain_handoffs": [
+        50,
+        51,
+        52
+      ],
+      "dependency_order": [
+        "B00 reconcile #50 into existing #20/PR #22 and #42/PR #43; do not edit queue outside #24/PR #25",
+        "B19 #17 + #21 reconcile and source first issuer-quarter revenue chain",
+        "B05 #51 work after B00 contract decisions and no graph-owner collision",
+        "B01 #52 after B05 fixture interface and existing B01 work finishes"
+      ],
+      "next_action": "B00 orchestrator reconcile B19 #21/PR #23 with existing #41 audit, #20/PR #22 and #24/PR #25; register no duplicate work; assign exact receiver owners and acceptance."
+    }
+  }
+}
