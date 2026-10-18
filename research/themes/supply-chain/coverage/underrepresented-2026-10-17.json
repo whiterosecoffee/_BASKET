@@ -1608,5 +1608,52 @@
       "A ticker rename or ADR change preserves canonical entity relationships"
     ],
     "next_executable_step": "B00 architecture/contract handoff first, then B05 graph query and B01 adversarial validation, while B19 continues classification research"
+  },
+  "retirement_collision_audit": {
+    "audited_at": "2026-10-17",
+    "scope": "B19 #21 exclusive research coverage file; no B00/B01/B05 shared edits",
+    "pr_heads": {
+      "b19_registry_18": "109bbd9e76c29db24b19b74654221de5fb1b5133",
+      "b19_expansion_23": "6af9a5f221a760139c86e85f3f5da0b05fb206ba",
+      "b00_economic_graph_22": "330c0eb2904e1d750d1f489d121455be4f0ce082",
+      "b00_ticker_first_43": "f7701d597d0a751415f5603745cfc666906ebbb5",
+      "b00_queue_25": "09ab8ed317d1b7244718976c24fa06205794b1c6",
+      "b00_capture_49": "92986aac1e9170ddccd31dd4a9ee85eb75991641"
+    },
+    "overlap_findings": [
+      "PR #18 B19 owns broad research/themes/supply-chain/** but does not change #21 exact file; maintain exact exclusion for #21.",
+      "B00 #20/PR #22 already defines economic-flow graph. #50 must receive this as an additive review/implementation contract request, not independent replacement ontology.",
+      "B00 #42/PR #43 already handles ticker-first research identity/storage, and #48/PR #49 capture dispatch; #50 must integrate, not duplicate.",
+      "B00 #24/PR #25 owns orchestration/planner/queue.json. Do not modify queue or dispatch scopes from B19.",
+      "B01 #44/PR #47 and #45/PR #46 own CI files. #52 is a proposed receiver handoff only and must coordinate file-specific ownership with those workers.",
+      "B21 PR #38 owns Exol narrative evidence and falsifiers; B19 must not repeat canonical facts without source reconciliation.",
+      "B19 research remains incomplete: no primary-source validated quarterly dollar pool allocations or independent B19 CI."
+    ],
+    "known_research_defects": [
+      "User watchlist contains MANH, but baseline PR #18 registry and #21 candidate set omit it; route B00 T-012 and B19 #17 for inclusion classification.",
+      "Research-only QQQ/SMH ETF identifiers must be tracked as vehicles not corporate earnings entities.",
+      "PAYP issuer/listing identity needs independent verification before canonical promotion.",
+      "Watchlist contains several of the 42 expansion candidates (e.g., ALAB, CRDO, MTSI, PWR, SNOW, MDB, DDOG, CDNS, SNPS, ONTO, STX, PATH, OKTA, EQIX, SYK), so 42 missing from PR #18 does not mean 42 missing from user watchlist.",
+      "The user's pasted market cap/price observations lack independent timestamps; treat as historical/snapshot, not live USD valuation."
+    ],
+    "closeout": {
+      "status": "research_proposal_complete_not_integrated",
+      "worker_issue": 21,
+      "worker_pr": 23,
+      "changed_file": "research/themes/supply-chain/coverage/underrepresented-2026-10-17.json",
+      "validation": "JSON roundtrip and 42 unique proposals with zero overlap to pinned 68 research registry entries; full schema checks/CI not run",
+      "cross_domain_handoffs": [
+        50,
+        51,
+        52
+      ],
+      "dependency_order": [
+        "B00 reconcile #50 into existing #20/PR #22 and #42/PR #43; do not edit queue outside #24/PR #25",
+        "B19 #17 + #21 reconcile and source first issuer-quarter revenue chain",
+        "B05 #51 work after B00 contract decisions and no graph-owner collision",
+        "B01 #52 after B05 fixture interface and existing B01 work finishes"
+      ],
+      "next_action": "B00 orchestrator reconcile B19 #21/PR #23 with existing #41 audit, #20/PR #22 and #24/PR #25; register no duplicate work; assign exact receiver owners and acceptance."
+    }
   }
 }
