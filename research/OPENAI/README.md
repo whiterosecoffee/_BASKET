@@ -133,3 +133,10 @@ The USD 100B / 10x / 10B cash / 15B debt / 5B claims example is **hypothetical t
 - **SFTBY:** 2026-06-30 reported SVF2 NAV **already embeds** OpenAI; B09 must remove base marked contribution before replacing it with any IPO-derived scenario. Funding costs of SBG junk bonds are **not** automatically OpenAI cost of capital. Source: https://www.reuters.com/business/media-telecom/softbank-junk-bond-sale-raises-stakes-ceo-sons-all-in-ai-bet-2026-10-13/.
 
 Only B04 can turn this sourced research into an accepted economics-based DCF/EV-multiple engine; only B09 can reconcile the private holding into actual SFTBY parent NAV; B02 supplies time-stamped entitled market feeds; B21 performs falsification studies. This component is research-weighting logic, **not** a current valuation service. The policy weights are v0.1 expert heuristics awaiting point-in-time calibration.
+
+
+## 2026-10-17 Source expansion
+
+See `research/OPENAI/RESOURCE_STRATEGY.md` and `resource-registry.json` for 15 provider classes with source quality, access and entitlement status, TTD, missing fields and receiver owners. `resource_audit.py` ranks source validation actions by existing B13 factor/stage research priority; it does not fetch feeds or compute current valuation. `test_resource_audit.py` adds offline tests awaiting independent B01 integration.
+
+Commands: `python research/OPENAI/resource_audit.py --as-of 2026-10-17`; add `--regime credit_stress` for a conditional research priority comparison. Firecrawl SEC company, filings and XBRL and Massive Treasury queries were tested successfully. Massive public income statements returned NOT_ENTITLED. SEC XBRL revenue values may be cumulative year-to-date, not standalone quarters, requiring date/filing/accession normalization. No new streaming worker is running.
