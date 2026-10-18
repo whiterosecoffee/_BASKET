@@ -1,0 +1,59 @@
+name: OpenAI research strict gate
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  openai-research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          path: gate
+      - name: Select actual head source or explicit unmerged dependency
+        id: research-source
+        shell: bash
+        run: |
+          if test -d gate/research/OPENAI; then
+            echo "sha=$(git -C gate rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+            echo "mode=actual_head" >> "$GITHUB_OUTPUT"
+          else
+            echo "sha=316dbea500591806e8f68fd8f1f66e17484772c9" >> "$GITHUB_OUTPUT"
+            echo "mode=unmerged_dependency_only" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.research-source.outputs.sha }}
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Record both exact revisions and require complete research
+        env:
+          EXPECTED_SOURCE: ${{ steps.research-source.outputs.sha }}
+          SOURCE_MODE: ${{ steps.research-source.outputs.mode }}
+        run: |
+          git -C gate rev-parse HEAD
+          test "$(git -C source rev-parse HEAD)" = "$EXPECTED_SOURCE"
+          echo "OpenAI source mode: $SOURCE_MODE"
+          for file in check.py ipo2027.py resource_audit.py test_ipo2027.py test_resource_audit.py; do
+            test -s "source/research/OPENAI/$file"
+          done
+      - name: B13 offline checker
+        working-directory: source
+        run: python research/OPENAI/check.py --validate --self-test
+      - name: B13 resource audit
+        if: ${{ !cancelled() }}
+        working-directory: source
+        run: python research/OPENAI/resource_audit.py --as-of 2026-10-17
+      - name: B13 IPO and resource tests
+        if: ${{ !cancelled() }}
+        working-directory: source
+        run: python -m unittest discover -s research/OPENAI -p 'test_*.py' -v
+      - name: Independent B01 fail-closed checks
+        if: ${{ !cancelled() }}
+        env:
+          BASKET_OPENAI_SOURCE: ${{ github.workspace }}/source
+        run: python -m unittest discover -s gate/tests/integration -p 'openai_research_acceptance.py' -v
