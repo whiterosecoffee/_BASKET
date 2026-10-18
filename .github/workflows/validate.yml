@@ -2,25 +2,75 @@ name: Validate BASKET data
 on:
   push:
   pull_request:
+permissions:
+  contents: read
 jobs:
-  validate:
+  stores:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Install strict schema validator
         run: pip install jsonschema==4.23.0
       - name: Regression — relationships v1 rejects unexpected top-level fields
-        run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
+        if: ${{ !cancelled() }}
+        run: python -m unittest discover -s tests/integration -p 'test_relationship*.py' -v
       - name: Validate ticker stores (strict; failures are release blockers)
+        if: ${{ !cancelled() }}
         run: python tests/validate_stores.py
-      # B00 owns these scripts in PR #2. Run them independently of the
-      # production data gate once present; no skipped/suppressed data failures.
-      - name: Validate version and release metadata (after B00 integration)
-        if: ${{ !cancelled() && hashFiles('orchestration/validate_versions.py') != '' }}
+  worker-qc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned QC dependencies
+        run: pip install jsonschema==4.23.0 PyYAML==6.0.2
+      - name: Record actual tested revision
+        run: git rev-parse HEAD
+      - name: Validate version and release metadata
+        if: ${{ !cancelled() }}
         run: python orchestration/validate_versions.py
-      - name: Validate spark registry and exclusive ownership (after B00 integration)
-        if: ${{ !cancelled() && hashFiles('orchestration/validate_sparks.py') != '' }}
+      - name: Validate spark registry and exclusive ownership
+        if: ${{ !cancelled() }}
         run: python orchestration/validate_sparks.py
+      - name: Validate goals and milestone coverage
+        if: ${{ !cancelled() }}
+        run: python orchestration/validate_goals.py
+      - name: Validate planner and reusable worker library
+        if: ${{ !cancelled() }}
+        run: python orchestration/validate_planner.py
+      - name: Validate compiled worker scopes
+        if: ${{ !cancelled() }}
+        run: python orchestration/validate_worker_scopes.py
+      - name: Validate worker attempt ledger
+        if: ${{ !cancelled() }}
+        run: python orchestration/validate_worker_attempts.py
+      - name: Execute all orchestration unit and negative tests
+        if: ${{ !cancelled() }}
+        run: python -m unittest discover -s orchestration/tests -p 'test_*.py' -v
+      - name: Evaluate immutable historical protocol fixture (not live evidence)
+        if: ${{ !cancelled() }}
+        run: python orchestration/worker_protocol.py --task orchestration/examples/B05.task.json --resolution orchestration/examples/B05.resolution.json --evidence orchestration/examples/github-evidence-2026-10-16.json
+      - name: Execute independent integration and adversarial QC
+        if: ${{ !cancelled() }}
+        run: python -m unittest discover -s tests/integration -p 'test_*.py' -v
+  # Keep the original required job name. Failed, skipped or cancelled dependencies
+  # cannot turn this aggregate green. Repository rules must require this check.
+  validate:
+    runs-on: ubuntu-latest
+    needs: [stores, worker-qc]
+    if: ${{ always() }}
+    steps:
+      - name: Require every independent gate
+        env:
+          STORES: ${{ needs.stores.result }}
+          WORKER_QC: ${{ needs.worker-qc.result }}
+        run: test "$STORES" = success && test "$WORKER_QC" = success
