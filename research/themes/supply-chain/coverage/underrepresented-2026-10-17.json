@@ -20,11 +20,19 @@
       "evidence": [
         {
           "class": "issuer_statement",
+          "published_at": "2026-07-23",
           "url": "https://ir.amkor.com/news-releases/news-release-details/amkor-technology-announces-strategic-partnership-nvidia-expand",
-          "claim": "2026-07-23 issuer announcement of $1.5bn multi-year Nvidia advanced packaging/development agreement; commitment/prepayment not realized revenue."
+          "claim": "NVIDIA $1.5bn multiyear packaging and development agreement and prepayment to support Arizona capacity; no claim that agreement value equals recognized revenue."
         }
       ],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "verification": "primary_issuer_verified",
+      "economic_tests": [
+        "Recognized services revenue vs prepayments and deferred revenue",
+        "NVIDIA purchase concentration",
+        "Arizona capex financing vs return on invested capital",
+        "TSMC partnership interface and whether flows overlap"
+      ]
     },
     {
       "ticker": "ASX",
@@ -50,11 +58,18 @@
       "evidence": [
         {
           "class": "third_party_report",
+          "published_at": "2026-10-16",
           "url": "https://www.reuters.com/business/besi-shares-fall-report-asml-is-working-rival-hybrid-bonding-product-2026-10-16/",
-          "claim": "2026-10-16 report of possible future ASML hybrid-bonding competition; not issuer-confirmed."
+          "claim": "SemiAnalysis patent analysis suggests ASML hybrid-bonding rival; ASML did not confirm a product."
         }
       ],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "verification": "third_party_hypothesis",
+      "economic_tests": [
+        "Hybrid bonding equipment addressable installations",
+        "ASML competitive product actual shipping dates",
+        "Pricing power under competing capacity"
+      ]
     },
     {
       "ticker": "ONTO",
@@ -137,8 +152,20 @@
       "canonical_membership": "not_checked",
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
-      "evidence": [],
-      "status": "research_candidate"
+      "evidence": [
+        {
+          "class": "issuer_profile",
+          "url": "https://investors.modine.com/overview/default.aspx",
+          "claim": "Modine describes mission-critical thermal solutions including data centers; incremental AI revenue not derived here."
+        }
+      ],
+      "status": "research_candidate",
+      "verification": "issuer_role_only",
+      "economic_tests": [
+        "Data center attributable sales and backlog from Q1 FY2027 filings",
+        "Cooling capacity unit economics",
+        "OEM passthrough to integrators"
+      ]
     },
     {
       "ticker": "NVT",
@@ -173,8 +200,20 @@
       "canonical_membership": "not_checked",
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
-      "evidence": [],
-      "status": "research_candidate"
+      "evidence": [
+        {
+          "class": "issuer_profile",
+          "url": "https://powellindustriesinc.gcs-web.com/",
+          "claim": "Powell designs distribution and control electrical equipment across industrial and utility end markets; AI exposure unquantified."
+        }
+      ],
+      "status": "research_candidate",
+      "verification": "issuer_role_only",
+      "economic_tests": [
+        "Data center explicitly disclosed segment revenue",
+        "Backlog conversion and customer concentration",
+        "Grid connection vs utility spending overlap"
+      ]
     },
     {
       "ticker": "WDC",
@@ -558,5 +597,39 @@
     "B03": "Verify issuer quarterly filings and event economics.",
     "B05": "Verify relationship edges and payer-to-payee tiers.",
     "B19": "Integrate this scoped gap file into research registry after #18 coordination."
+  },
+  "review": {
+    "as_of": "2026-10-17",
+    "workstream": "B19 issue 21",
+    "design": "Rank research relevance, not stock expected returns",
+    "scoring_formula": "Only after underlying fundamentals verified: economic_capture=(AI_attributable_revenue - pass_through_cost - incremental_operating_cost - annualized_capital_burden); unavailable inputs yield null rather than an estimate",
+    "priority_factors": [
+      "Documented contractual or commercial link to demand",
+      "Market share of actual incremental spend at payer depth",
+      "Retained gross and operating economics rather than booked equipment passthrough",
+      "Capital required per dollar of durable incremental FCF",
+      "Ability of customer to substitute, internalize or self-design",
+      "Working capital, balance sheet and funding dependence"
+    ],
+    "antifalsification": [
+      "A memorandum or prepayment is not automatically recurring revenues",
+      "Issuer segment revenue is not wholly AI attributable",
+      "Potential bottleneck can disappear as production ramps or technology shifts",
+      "Two entities buying the same supplier is not automatically a relationship"
+    ],
+    "validation_results": {
+      "json_parse": "passed_in_connector_javascript",
+      "ticker_uniqueness": "passed",
+      "identity_and_listing_checks": "pending",
+      "schema_runner": "not_run",
+      "independent_ci": "not_run"
+    },
+    "integration_sequence": [
+      "B19 #17 PR #18: reconcile working registry changes and prevent path collision",
+      "B00: confirm canonical membership and cross-domain identity policy",
+      "B03: source-quarter financial statements and dated event records",
+      "B05: confirm contractual graph links and cross-company cash flows",
+      "B19: reconcile pools and avoid downstream double counting"
+    ]
   }
 }
