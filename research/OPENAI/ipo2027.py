@@ -149,7 +149,8 @@ def run(as_of, stage="pre_prospectus", regime="neutral",
            "future-as-of requires refreshed evidence snapshot")
     available = relevant_news(news, as_of)
     gate = stage_gate(policy, stage, available)
-    ensure(gate["eligible"], "stage blocked: " + gate["required"])
+    if not gate["eligible"]:
+        raise ValueError("stage blocked: " + gate["required"])
     w = weights(policy, stage, regime)
     if regime != "neutral":
         # A regime is explicitly an analyst condition, not 'proved' by mere article count.
