@@ -1,0 +1,351 @@
+{
+  "schema": "basket.massive_worker_catalog@1",
+  "version": "0.1.0",
+  "as_of": "2026-10-17",
+  "source_issue": "https://github.com/whiterosecoffee/_BASKET/issues/32",
+  "target_handoff": "https://github.com/whiterosecoffee/_BASKET/issues/62",
+  "hosted_runtime_state": "not_deployed",
+  "scope": "B00 orchestration contract only; market ingestion B02, hosting B08, calculation B06, CI B01",
+  "basket_registry": {
+    "authoritative_sources": [
+      "tickers/*/entity.json",
+      "research/themes/supply-chain/registry/tickers.json"
+    ],
+    "policy": "canonical GitHub main public symbols only; branch-only additions provisional; no private company synthesized OHLCV",
+    "pilot_symbols": [
+      "MU",
+      "AAOI",
+      "NVDA",
+      "CRWV",
+      "SFTBY",
+      "LITE",
+      "COHR"
+    ],
+    "otc_symbols": [
+      "SFTBY"
+    ],
+    "fx_pairs": [
+      "C:USDJPY"
+    ],
+    "tiers": {
+      "P0": "holdings and risk-sensitive core public companies",
+      "P1": "verified cross-supply-chain partners and peers",
+      "P2": "broader canonical basket daily backfill"
+    }
+  },
+  "observed_provider_capabilities": {
+    "verified_at": "2026-10-17T23:46:32-04:00",
+    "stock_batch_snapshot": {
+      "path": "/v2/snapshot/locale/us/markets/stocks/tickers",
+      "status": "accessible",
+      "otc": true,
+      "max_batch_size": 250,
+      "entitlement_to_realtime": "unverified"
+    },
+    "unified_snapshot": {
+      "path": "/v3/snapshot",
+      "status": "accessible_stocks",
+      "forex": "not_entitled",
+      "entitlement_to_realtime": "unverified"
+    },
+    "stock_daily_bar": {
+      "path": "/v2/aggs/ticker/{symbol}/range/1/day/{from}/{to}",
+      "status": "accessible"
+    },
+    "stock_minute_bar": {
+      "path": "/v2/aggs/ticker/{symbol}/range/1/minute/{from}/{to}",
+      "status": "accessible",
+      "realtime_entitlement": "unverified"
+    },
+    "stock_market_status": {
+      "path": "/v1/marketstatus/now",
+      "status": "accessible"
+    },
+    "stock_last_trade": {
+      "path": "/v2/last/trade/{symbol}",
+      "status": "not_entitled"
+    },
+    "stock_last_quote": {
+      "path": "/v2/last/nbbo/{symbol}",
+      "status": "unverified"
+    },
+    "historical_fx_daily": {
+      "path": "/v2/aggs/ticker/C:USDJPY/range/1/day/{from}/{to}",
+      "status": "accessible"
+    },
+    "fx_last_quote": {
+      "path": "/v1/last_quote/currencies/USD/JPY",
+      "status": "not_entitled"
+    },
+    "streaming_websocket": {
+      "status": "unverified_entitled_persistent_external_connection_required"
+    },
+    "provider_credentials_for_hosted_service": {
+      "status": "not_verified_not_inherited_from_connected_chat_plugin"
+    }
+  },
+  "schedule_intents": {
+    "stock_snapshot_regular_seconds": 60,
+    "stock_snapshot_extended_seconds": 300,
+    "stock_snapshot_closed_seconds": null,
+    "stock_intraday_pilot_regular_seconds": 60,
+    "fx_historical_daily": true,
+    "daily_backfill_after_close": true,
+    "streaming": "disabled_until_entitlement_and_credentials_verified",
+    "policy": "Configured poll targets ONLY; not proof of entitlement, rate limit, continuous execution or successful ingest"
+  },
+  "freshness_policy": {
+    "live": "Only with verified contractual real-time rights, source event timestamp, delivery lag and eligible market session",
+    "observed_current_session": "An active-session event within TTD; not assumed real-time",
+    "last_completed_session": "Historical session dated previous close, not current live quote",
+    "stale": "Active venue source event older than TTD; invalidate dependent current-use NAV/traversal",
+    "not_entitled": "Prohibited; do not silently substitute",
+    "source_unknown": "Missing event timestamp/rights/venue/precision; fail closed",
+    "default_ttd_seconds": {
+      "snapshot_regular": 180,
+      "minute_bar_regular": 180,
+      "snapshot_extended": 600,
+      "fx_intraday": 300
+    },
+    "data_plane_fields": [
+      "symbol",
+      "original_currency",
+      "venue",
+      "provider",
+      "endpoint",
+      "provider_request_id",
+      "effective_at",
+      "source_event_at",
+      "observed_at",
+      "available_at",
+      "ingested_at",
+      "session",
+      "entitlement",
+      "data_revision",
+      "snapshot_id",
+      "raw_payload_sha256",
+      "adjustment_basis",
+      "ttd_status",
+      "ttd_seconds",
+      "source_quality"
+    ]
+  },
+  "workers": [
+    {
+      "id": "MW00",
+      "name": "Universe & entitlement",
+      "owner": "B02",
+      "depends_on": [],
+      "outputs": [
+        "source_capability_matrix",
+        "public_ticker_roster"
+      ],
+      "acceptance": [
+        "Discover all public canonical basket tickers, excluding private company OHLCV",
+        "Test per-endpoint and per-symbol rights; preserve NOT_ENTITLED",
+        "Include OTC SFTBY and original currencies"
+      ],
+      "execution_state": "not_deployed",
+      "mode": "evidence_gated_worker"
+    },
+    {
+      "id": "MW01",
+      "name": "Historical daily backfill",
+      "owner": "B02",
+      "depends_on": [
+        "MW00"
+      ],
+      "outputs": [
+        "append_only_daily_ohlcv",
+        "coverage_index"
+      ],
+      "acceptance": [
+        "Backfill 200+ completed sessions where listed",
+        "Track adjustment basis, corrections, original venue, event/available/ingested timestamps",
+        "Never interpolate absent market bars"
+      ],
+      "execution_state": "not_deployed",
+      "mode": "evidence_gated_worker"
+    },
+    {
+      "id": "MW02",
+      "name": "Market session clock",
+      "owner": "B02",
+      "depends_on": [
+        "MW00"
+      ],
+      "outputs": [
+        "market_session_state",
+        "venue_calendar"
+      ],
+      "acceptance": [
+        "Determine regular, extended, closed, half-day and holiday state",
+        "Do not claim stale prior closes are live",
+        "Record timezone and OTC venue handling"
+      ],
+      "execution_state": "not_deployed",
+      "mode": "evidence_gated_worker"
+    },
+    {
+      "id": "MW03",
+      "name": "Batch snapshot capture",
+      "owner": "B02",
+      "depends_on": [
+        "MW00",
+        "MW02"
+      ],
+      "outputs": [
+        "append_only_equity_snapshots",
+        "source_watermarks"
+      ],
+      "acceptance": [
+        "Use Massive stock batch snapshot with include_otc=true and provider quota",
+        "Do not infer NBBO or live trade from last-minute/day aggregates",
+        "Store per-symbol effective timestamps and missing-field status"
+      ],
+      "execution_state": "not_deployed",
+      "mode": "evidence_gated_worker"
+    },
+    {
+      "id": "MW04",
+      "name": "Minute bars and gap repair",
+      "owner": "B02",
+      "depends_on": [
+        "MW01",
+        "MW03"
+      ],
+      "outputs": [
+        "minute_bar_revisions",
+        "gap_report"
+      ],
+      "acceptance": [
+        "Use historical 1-minute API for active selected tickers and replay",
+        "Paginate and prevent invented empty bars",
+        "Reconcile eligible minute aggregates to completed daily sessions"
+      ],
+      "execution_state": "not_deployed",
+      "mode": "evidence_gated_worker"
+    },
+    {
+      "id": "MW05",
+      "name": "FX and ADR conversion",
+      "owner": "B02",
+      "depends_on": [
+        "MW00",
+        "MW02"
+      ],
+      "outputs": [
+        "dated_usdjpy_rates",
+        "fx_coverage"
+      ],
+      "acceptance": [
+        "Date-match and retain JPY basis and USD FX provenance",
+        "Provider last spot FX is NOT_ENTITLED; no live NAV based on historical quote",
+        "Validate SFTBY ADR conversion and underlying relationship without inventing factors"
+      ],
+      "execution_state": "not_deployed",
+      "mode": "evidence_gated_worker"
+    },
+    {
+      "id": "MW06",
+      "name": "Integrity and TTD",
+      "owner": "B02",
+      "depends_on": [
+        "MW01",
+        "MW03",
+        "MW04",
+        "MW05"
+      ],
+      "outputs": [
+        "quarantine",
+        "ttd_state",
+        "quality_incidents"
+      ],
+      "acceptance": [
+        "Normalize source ns,ms and ISO timestamps",
+        "Reject impossible future prices, duplicate volumes and unsourced quotes",
+        "Expire dependent live-use computations on stale price/FX inputs"
+      ],
+      "execution_state": "not_deployed",
+      "mode": "evidence_gated_worker"
+    },
+    {
+      "id": "MW07",
+      "name": "Replay and checkpoint",
+      "owner": "B02",
+      "depends_on": [
+        "MW06"
+      ],
+      "outputs": [
+        "immutable_snapshot_manifest",
+        "input_hashes",
+        "ticker_read_contract"
+      ],
+      "acceptance": [
+        "Reconstruct point-in-time snapshots by available/ingested times",
+        "Correct observations append-only; no future leakage",
+        "Surface complete/stale/missing denominator and state"
+      ],
+      "execution_state": "not_deployed",
+      "mode": "evidence_gated_worker"
+    },
+    {
+      "id": "MW08",
+      "name": "Hosted orchestration and API",
+      "owner": "B08",
+      "depends_on": [
+        "MW00",
+        "MW02",
+        "MW06"
+      ],
+      "outputs": [
+        "scheduler",
+        "persistent_store",
+        "audited_read_api",
+        "failure_telemetry"
+      ],
+      "acceptance": [
+        "Run authenticated external hosted worker with source entitlement and durable credentials",
+        "Use transactional leases, idempotent job keys and restart-replay tests",
+        "Prove remote authenticated health/API and actual poll run; no ChatGPT chat-loop substitute"
+      ],
+      "execution_state": "not_deployed",
+      "mode": "hosted_required"
+    },
+    {
+      "id": "MW09",
+      "name": "Traversal materializer",
+      "owner": "B06",
+      "depends_on": [
+        "MW07",
+        "MW08"
+      ],
+      "outputs": [
+        "source_pinned_regime_vectors",
+        "cross_ticker_snapshot_ids"
+      ],
+      "acceptance": [
+        "Consume only coherent validated snapshot IDs",
+        "Fail closed when time-dependent FX/price inputs missing or stale",
+        "Do not invent calibrated traversal probabilities"
+      ],
+      "execution_state": "not_deployed",
+      "mode": "evidence_gated_worker"
+    }
+  ],
+  "incident_policy": {
+    "not_entitled": "Record plan coverage gap, use alternatives only with separate explicit sources",
+    "rate_limit": "Retry-After, bounded backoff and rate quotas",
+    "provider_gap": "Missing trades/bar empty intervals not interpolated",
+    "session_closed": "Freeze dated last completed session close",
+    "restart": "Leases and event watermarks, deduplicated append-only replay",
+    "data_conflict": "Quarantine conflicting reports retaining historical evidence"
+  },
+  "release_gates": [
+    "B02 200+ session backfill and TTD checks",
+    "B08 hosted persistent scheduler with secured separately entitled Massive API credentials",
+    "Observed snapshot age during live market session plus legal redistribution/usage confirmation",
+    "B01 adverse ingestion/replay/restart CI",
+    "B06 coherent snapshot traversal no unsupported probabilities"
+  ]
+}
