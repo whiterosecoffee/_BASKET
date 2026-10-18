@@ -16,7 +16,7 @@ jobs:
       # pin requires a new execution; old green evidence cannot approve new code.
       - uses: actions/checkout@v4
         with:
-          ref: e8c26c8ded9a7b18aed78b524ffbf1b08a4b688e
+          ref: 2978d75e8e56b5cbe1f332b033611dbb23c43008
           path: source
       - uses: actions/setup-python@v5
         with:
@@ -24,7 +24,7 @@ jobs:
       - name: Record both exact revisions
         run: |
           git -C gate rev-parse HEAD
-          test "$(git -C source rev-parse HEAD)" = e8c26c8ded9a7b18aed78b524ffbf1b08a4b688e
+          test "$(git -C source rev-parse HEAD)" = 2978d75e8e56b5cbe1f332b033611dbb23c43008
       - name: B13 offline checker
         working-directory: source
         run: python research/OPENAI/check.py --validate --self-test
