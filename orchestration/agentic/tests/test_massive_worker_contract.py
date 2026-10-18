@@ -41,6 +41,12 @@ class MassiveWorkerContractTests(unittest.TestCase):
         clone['workers'][0]['cadence_seconds']=0
         with self.assertRaises(ValueError): w.validate_specs(clone)
 
+    def test_b01_cannot_steal_b02_unit_test(self):
+        clone=copy.deepcopy(self.spec)
+        job=next(j for j in clone['workers'] if j['owner']=='B01')
+        job['writes']=['tests/test_ttd.py']
+        with self.assertRaises(ValueError): w.validate_specs(clone)
+
     def test_rejects_cross_domain_write(self):
         clone=copy.deepcopy(self.spec)
         clone['workers'][0]['writes']=['deployment/secrets.env']
