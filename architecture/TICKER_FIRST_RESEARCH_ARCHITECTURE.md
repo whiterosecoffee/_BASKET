@@ -61,3 +61,55 @@ No receiver work is considered launched until the owning issue/branch actually c
 
 ## Acceptance for this design-only PR
 A1 documented ticker-vs-aggregate ownership; A2 bitemporal/provenance and immutable revision semantics; A3 ticker-independent worker/provider contract; A4 lossless staged migration and owner handoffs; A5 disjoint single-file PR. This proposal does NOT claim operational workers, updated queue, validated runtime, completed ticker coverage or a released architecture version.
+
+## Compatibility matrix and first executable pilot
+
+| Domain | Current authoritative path / owner | Future logical home | Migration rule |
+|---|---|---|---|
+| Daily price and volume | tickers/<T>/history.jsonl, B02 | ticker observations/market | Keep path and append-only history until B02 compatibility and replay pass |
+| Issuer events | tickers/<T>/events.json, B03 | ticker observations/events | Preserve accession and event identity; B03 alone writes |
+| Counterparty edges | tickers/<T>/relationships.json, B05 | ticker relationships | Stable edge ID, cross-perspective references; B05 alone writes |
+| Company evidence | research/<T>/**, entity spark | ticker observations/analysis/thesis | Logical projection first; company spark controls its research files |
+| Valuation engine | engines/valuation/**, B04 | shared reusable computation | Code remains shared; per-ticker inputs/results live in ticker-owned research projections |
+| Supply-chain themes | research/themes/supply-chain/**, B19 | aggregate reconciliation | Only multi-company pools and reconciled flow totals are aggregate; ticker allocations reference canonical ticker facts |
+| Worker catalog and queue | orchestration/planner/**, B00 | shared control plane | Do not touch until #24/PR #25 ownership collision is cleared |
+
+### Worker task compilation (illustrative; not a replacement for basket.worker_task@1)
+
+A B00 planner compiles an existing versioned worker issue task plus a capability-specific payload. The example below is **not** a currently registered or executed task:
+
+```json
+{
+  "ticker": "MU",
+  "capability": "issuer_earnings_extract",
+  "template_id": "quarterly_issuer_reconciliation",
+  "template_version": "1.0.0-proposed",
+  "provider_preferences": ["massive", "sec_edgar", "issuer_ir"],
+  "period_selector": "latest_unprocessed",
+  "required_evidence": ["source_document", "accession_or_issuer_document_id", "first_available_at"],
+  "idempotency_dimensions": ["ticker", "document_id", "period_end", "fact_key", "revision"],
+  "output_owner": "B03",
+  "write_paths": ["tickers/MU/events.json"],
+  "downstream_notifications": ["B04", "B05", "B19"],
+  "required_checks": ["schema", "provenance", "replay", "no_duplicate"]
+}
+```
+
+This compiled payload does not grant permission to modify MU's research files or B03 records from another spark. It routes the task to the authorized owner. A production template must validate against a newly approved versioned schema.
+
+### Pilot acceptance cases
+
+1. **Same code, different ticker:** MU, NVDA and CRWV use identical worker code; only configuration and discovered issuer data differ.
+2. **Repeat:** processing the same accession and facts twice yields no duplicate canonical observations.
+3. **Amendment:** amended filing preserves original records and creates a linked revision, not a silent overwrite.
+4. **Point-in-time:** replay before publication excludes the later-disclosed fact even if its economic effective date is earlier.
+5. **Missing provider entitlement:** Massive denial or unsupported endpoint records a coverage gap; SEC/IR fallback is attempted where lawful and available, without fabricating a value.
+6. **Currency:** USD display values retain original denomination and dated FX conversion provenance.
+7. **Ownership:** worker cannot write outside assigned spark paths, even if a template requests it.
+8. **Recalculation:** only models whose input fingerprints changed are invalidated; aggregate outputs reference exact ticker record revisions.
+9. **Crash/retry:** a failed run can restart from its checkpoint and retains the failed-attempt evidence.
+10. **Revenue flow:** multi-hop supplier payments reconcile without counting pass-through revenue as additional final-customer spend.
+
+### Concrete dispatch prerequisite
+
+The planner may add a ticker-by-capability coverage matrix and task generation **only after** the active B00 queue PR #25 resolves its write collision. First worker implementation belongs to an owner-approved domain path; B01 independently validates. Until then, this PR is a reviewed architecture proposal, not proof of running automation.
