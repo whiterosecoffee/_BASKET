@@ -83,6 +83,18 @@ class GateTests(unittest.TestCase):
         r=row();r["original_currency"]="JPY";r["fx_reference"]="B02/fx.daily@1/USDJPY"
         fx=dict(row(),producer="B02",contract="fx.daily@1",record_id="USDJPY")
         self.assertEqual(decide(None,snapshot([r,fx],as_of=B))["state"],"recompute_required")
+    def test_stale_fx_implicitly_blocks_foreign_exposure(self):
+        r=row();r["original_currency"]="JPY";r["fx_reference"]="B02/fx.daily@1/USDJPY"
+        fx=dict(row(),producer="B02",contract="fx.daily@1",record_id="USDJPY",valid_until="2026-10-17T12:30:00Z")
+        out=decide(None,snapshot([r,fx],as_of=B))
+        self.assertEqual(out["state"],"blocked")
+        self.assertEqual(out["expired_required_ids"],[r["fx_reference"]])
+    def test_conflicted_fx_implicitly_blocks_foreign_exposure(self):
+        r=row();r["original_currency"]="JPY";r["fx_reference"]="B02/fx.daily@1/USDJPY"
+        fx=dict(row(),producer="B02",contract="fx.daily@1",record_id="USDJPY",evidence_class="unknown_or_conflicted")
+        out=decide(None,snapshot([r,fx],as_of=B))
+        self.assertEqual(out["state"],"blocked")
+        self.assertEqual(out["conflicted_required_ids"],[r["fx_reference"]])
     def test_replay_is_deterministic(self):
         x=snapshot([row()],as_of=B);self.assertEqual(decide(None,x),decide(None,x))
 
