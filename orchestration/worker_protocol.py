@@ -146,7 +146,7 @@ def evidence_check(task, report, github, spark_catalog):
                       + ",".join(outstanding))
     if report["disposition"] in (
             "component_verified", "ready_for_integration", "integrated") and ci_passes == 0:
-        warnings.append("component evidence lacks confirmed passing PR-head CI")
+        errors.append("component evidence lacks confirmed passing PR-head CI")
     if report["disposition"] == "integrated" and not (pr and pr["merged"]):
         errors.append("integrated report requires PR merged in GitHub evidence")
 
@@ -155,7 +155,11 @@ def evidence_check(task, report, github, spark_catalog):
                if run["head_sha"] == github["main_commit"]
                and run["name"] == "Validate BASKET data"
                and run["conclusion"] == "success"]
-    if pr and pr["merged"] and main_ci:
+    if errors:
+        # An invalid record can never appear in a verified phase. A failed
+        # ownership check or stale/missing CI overrides apparent readiness.
+        phase = "evidence_invalid"
+    elif pr and pr["merged"] and main_ci:
         phase = "integrated_main_ci_verified"
     elif pr and pr["merged"]:
         phase = "integrated_main_ci_unverified"

@@ -21,8 +21,13 @@ def contract_errors(doc):
     errors = []
     # PyYAML uses YAML 1.1, where GitHub's unquoted 'on' becomes True.
     triggers = doc.get('on', doc.get(True, {}))
-    if triggers != {'push': None, 'pull_request': None}:
-        errors.append('push and pull_request must run without filters')
+    if triggers != {'push': {'branches': ['main']}, 'pull_request': None}:
+        errors.append('main push and every PR must validate; avoid feature push duplicates')
+    if doc.get('concurrency') != {
+        'group': '${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}',
+        'cancel-in-progress': "${{ github.event_name == 'pull_request' }}",
+    }:
+        errors.append('concurrency must isolate workflow/event/PR and never cancel main')
     jobs = doc.get('jobs', {})
     for name, commands in (('stores', STORE_COMMANDS), ('worker-qc', QC_COMMANDS)):
         job = jobs.get(name, {})
@@ -54,6 +59,18 @@ class CIContract(unittest.TestCase):
 
     def test_required_workflow_contract(self):
         self.assertEqual(contract_errors(self.doc), [])
+
+    def test_feature_push_duplicates_rejected(self):
+        self.doc[True]['push'] = None
+        self.assertTrue(contract_errors(self.doc))
+
+    def test_cross_pr_cancellation_rejected(self):
+        self.doc['concurrency']['group'] = '${{ github.workflow }}'
+        self.assertTrue(contract_errors(self.doc))
+
+    def test_main_cancellation_rejected(self):
+        self.doc['concurrency']['cancel-in-progress'] = True
+        self.assertTrue(contract_errors(self.doc))
 
     def test_missing_each_gate_rejected(self):
         for command in QC_COMMANDS:
