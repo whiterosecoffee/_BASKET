@@ -51,3 +51,30 @@ class OpenAIResearchGate(unittest.TestCase):
         for stage in ('prospectus_public', 'bookbuilding', 'post_listing'):
             with self.subTest(stage=stage), self.assertRaisesRegex(ValueError, 'stage blocked'):
                 self.engine.run('2026-10-17', stage=stage)
+
+    def test_financial_claims_keep_their_evidence_classes(self):
+        items = {x['id']: x for x in self.engine.read('ipo2027-news.json')['items']}
+        expected = {
+            'CF-2026-09-18-FORECAST-278': ('leaked_projection_report', 'reported_disputed'),
+            'REV-2026-10-08-SEP-50': ('reported_operating_proxy', 'reported_secondary'),
+            'REV-2026-10-08-DEC-70': ('reported_management_target', 'future_target_not_observation'),
+            'REV-2026-10-08-NET-GROSS': ('accounting_methodology_conflict', 'reported_methodology_conflict'),
+        }
+        for key, classifications in expected.items():
+            with self.subTest(key=key):
+                self.assertEqual((items[key]['evidence_class'], items[key]['verification_state']), classifications)
+                self.assertEqual(items[key]['temporal_precision'], 'date_only')
+        # Projected cumulative cash burn is not an extra debt subtraction.
+        self.assertEqual(self.engine.scenario(100, 10, 10, 15, 5)['implied_equity_usd_b'], 990)
+
+    def test_every_stage_regime_stays_unrated_without_financials(self):
+        e = self.engine
+        p = e.read('ipo2027-policy.json')
+        for regime in p['regime_adjustments']:
+            result = e.run('2026-10-17', regime=regime)
+            self.assertIsNone(result['conditional_EV_scenario'])
+            self.assertIsNone(result['IPO_probability'])
+            self.assertIsNone(result['net_SFTBY_NAV'])
+            self.assertEqual(result['evidence_quality']['coverage'], 0)
+        with self.assertRaises(ValueError):
+            e.run('2026-10-17T12:00:00')
