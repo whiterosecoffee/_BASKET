@@ -673,14 +673,14 @@
         {
           "step_id": "T-012-S1",
           "capability": "github_evidence",
-          "deliverable": "dated GitHub evidence",
+          "deliverable": "PR and CI review",
           "output_evidence": "required",
           "state": "planned"
         },
         {
           "step_id": "T-012-S2",
           "capability": "integration_gate",
-          "deliverable": "validated owner and CI gate",
+          "deliverable": "authorized merge plan",
           "output_evidence": "required",
           "state": "planned"
         }
@@ -726,14 +726,14 @@
         {
           "step_id": "T-013-S1",
           "capability": "source_audit",
-          "deliverable": "source ledger",
+          "deliverable": "claim provenance",
           "output_evidence": "required",
           "state": "planned"
         },
         {
           "step_id": "T-013-S2",
           "capability": "hypothesis_falsification",
-          "deliverable": "falsifiable hypotheses",
+          "deliverable": "alternatives/falsifiers",
           "output_evidence": "required",
           "state": "planned"
         }
@@ -774,14 +774,14 @@
         {
           "step_id": "T-014-S1",
           "capability": "github_evidence",
-          "deliverable": "dated GitHub evidence",
+          "deliverable": "PR and CI review",
           "output_evidence": "required",
           "state": "planned"
         },
         {
           "step_id": "T-014-S2",
           "capability": "integration_gate",
-          "deliverable": "validated owner and CI gate",
+          "deliverable": "authorized merge plan",
           "output_evidence": "required",
           "state": "planned"
         }
