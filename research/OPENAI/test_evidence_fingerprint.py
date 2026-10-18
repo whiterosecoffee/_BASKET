@@ -75,7 +75,7 @@ class FingerprintTests(unittest.TestCase):
         self.assertIn("B04", delta["recompute_consumer_sparks"])
         # Old record remains immutable even after the replacement.
         self.assertIn("valuation:SFTBY-2026-10-01-OPENAI-STAKE",
-                      delta["new_fingerprint"] or self.snapshot()["record_hashes"])
+                      self.snapshot()["record_hashes"])
 
     def test_source_access_change_does_not_reprice_company(self):
         old = self.snapshot()
