@@ -8,8 +8,8 @@ from datetime import datetime
 from urllib.parse import urlparse
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ISO = re.compile(r"^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$")
-PERIOD = re.compile(r"^\\d{4}-\\d{2}-\\d{2}$")
+ISO = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$")
+PERIOD = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 def _timestamp(value):
     if not isinstance(value, str) or not ISO.fullmatch(value):
