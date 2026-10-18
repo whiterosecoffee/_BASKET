@@ -17,7 +17,7 @@ class ResourceAuditTests(unittest.TestCase):
     def test_source_registry_well_formed(self):
         summary=mod.validate(self.registry,self.policy)
         self.assertEqual(summary["source_count"],15)
-        self.assertEqual(summary["working_tested_sources"],1)
+        self.assertEqual(summary["working_tested_sources"],2)
         self.assertIn("massive_public_financials",summary["not_entitled_sources"])
 
     def test_no_fair_value_from_connected_treasuries(self):
