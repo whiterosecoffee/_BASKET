@@ -168,6 +168,28 @@ class FingerprintTests(unittest.TestCase):
         self.assertEqual(snap["parent_nav_state"], "unavailable")
         self.assertTrue(snap["missing_source_timestamps"])
 
+    def test_revision_cycles_rejected(self):
+        anchor = self.v["observations"][0]
+        correction = copy.deepcopy(anchor)
+        correction["id"] = "CYCLE-CHILD-001"
+        correction["supersedes"] = anchor["id"]
+        anchor["supersedes"] = correction["id"]
+        self.v["observations"].append(correction)
+        with self.assertRaisesRegex(ValueError, "revision cycle"):
+            self.snapshot()
+
+    def test_missing_class_and_negative_weight_rejected(self):
+        self.v["observations"][0].pop("source_class")
+        with self.assertRaisesRegex(ValueError, "missing class"):
+            self.snapshot()
+        self.v = mod.load("valuation-register.json")
+        x = self.p["stages"]["pre_prospectus"]["base_weights_pct"]
+        x["revenue_quality"] = -1
+        x["capital_funding"] += 21
+        with self.assertRaisesRegex(ValueError, "weights inconsistent"):
+            self.snapshot()
+
+
 
 if __name__ == "__main__":
     unittest.main()
