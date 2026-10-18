@@ -139,6 +139,13 @@ def event_check(events, now):
         if ev["type"] == "capacity_reconciled":
             if not isinstance(ev.get("verified_active_task_ids"), list) or not ev.get("source_url") or not ev.get("verified_by"):
                 raise GuardError("capacity requires verifiable attestation")
+        if ev["type"] in ("attempt_started", "attempt_passed", "attempt_failed"):
+            if not re.fullmatch("ATT-[a-zA-Z0-9_.-]+", str(ev.get("attempt_id", ""))):
+                raise GuardError("immutable attempt ID required")
+            if not ev.get("step_id"):
+                raise GuardError("attempt requires step_id")
+            if ev["type"] != "attempt_started" and not ev.get("result_url"):
+                raise GuardError("attempt resolution needs external result evidence")
         if ev["type"] == "acceptance_verified":
             if not ev.get("criterion_id") or not ev.get("source_url") or not ev.get("independent_reviewer"):
                 raise GuardError("acceptance needs independently sourced evidence")
@@ -165,6 +172,39 @@ def append_event(path, event, now):
 def load_events(path):
     target = Path(path)
     return [json.loads(line) for line in target.read_text().splitlines() if line.strip()] if target.exists() else []
+
+def attempts(events, task_id):
+    """Validate retry ancestry; never erase failed attempts or claim invented efficiency."""
+    starts, outcomes, order = {}, {}, []
+    for ev in events:
+        if ev["task_id"] != task_id or ev["type"] not in ("attempt_started","attempt_failed","attempt_passed"):
+            continue
+        aid = ev["attempt_id"]
+        if ev["type"] == "attempt_started":
+            if aid in starts:
+                raise GuardError("attempt started twice")
+            parent = ev.get("retry_of")
+            if parent:
+                if parent not in starts or outcomes.get(parent,{}).get("type") != "attempt_failed":
+                    raise GuardError("retry must name earlier failed attempt")
+                if starts[parent]["step_id"] != ev["step_id"]:
+                    raise GuardError("retry cannot change step identity")
+            starts[aid] = ev
+            order.append(aid)
+        else:
+            if aid not in starts or aid in outcomes:
+                raise GuardError("resolution requires one existing unresolved attempt")
+            if ev["step_id"] != starts[aid]["step_id"]:
+                raise GuardError("attempt resolution step mismatch")
+            outcomes[aid] = ev
+    unresolved = [aid for aid in order if aid not in outcomes]
+    failed = [aid for aid in order if outcomes.get(aid,{}).get("type")=="attempt_failed"]
+    last = order[-1] if order else None
+    return {"attempts":len(order),"failures":len(failed),
+            "pending":unresolved,
+            "last_attempt":last,
+            "last_result":outcomes[last]["type"] if last in outcomes else None,
+            "retry_required":bool(last and outcomes.get(last,{}).get("type")=="attempt_failed")}
 
 def lease_state(events, task_ids, now):
     leases, claim = {}, None
@@ -256,11 +296,14 @@ def evaluate(queue, evidence, events, now, max_age_seconds=900):
         if overlaps and task["mode"] == "launch_new_worker":
             blocked.append("write_collision")
         quality = acceptance(task, pr, evidence, events)
+        attempt_history = attempts(events, task["id"])
         if pr and pr["merged"]:
             state, decision, action = ("integrated" if quality["integrated"] else "merged_unverified",
                                        "requires_evidence", "verify_main_and_acceptance")
         elif blocked:
             state, decision, action = "blocked", "requires_evidence", "resolve_blocker"
+        elif attempt_history["retry_required"]:
+            state, decision, action = "failed_retry_required", "requires_owner", "retry_original_step"
         elif task["id"] in active:
             state, decision, action = "active", "automatic_safe", "verify_heartbeat"
         elif task["mode"] == "orchestrator_review":
@@ -278,12 +321,15 @@ def evaluate(queue, evidence, events, now, max_age_seconds=900):
                        "classification": decision, "next_action": action, "priority_score": score,
                        "issue_number": task.get("issue_number"), "pr_number": task.get("pr_number"),
                        "blockers": blocked, "scope_collisions": overlaps, "acceptance": quality,
-                       "deliverables": deliverables(events, task["id"], pr)})
+                       "deliverables": deliverables(events, task["id"], pr),
+                       "attempt_history": attempt_history})
     output.sort(key=lambda item: (item["state"] in ("blocked", "merged_unverified", "integrated"),
                                   -item["priority_score"], item["task_id"]))
     report = {"schema": "basket.agentic_decision@1", "repository": REPO, "queue_version": queue.get("queue_version"),
               "evaluated_at": now.isoformat(), "source_at": evidence["observed_at"],
               "main_sha": evidence["main_commit"], "evidence_digest": fingerprint(evidence),
+              "queue_digest": fingerprint(queue), "event_ledger_digest":fingerprint(events),
+              "policy_version":"agentic-manager@0.1.0",
               "active_workers": len(active) if reconciled else None, "capacity_reconciled": reconciled,
               "expired_unverified_leases": expired, "worker_limit": queue["active_worker_limit"],
               "decisions": output, "no_autonomous_merges_or_worker_creation": True}
