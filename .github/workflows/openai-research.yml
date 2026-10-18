@@ -16,7 +16,7 @@ jobs:
       # pin requires a new execution; old green evidence cannot approve new code.
       - uses: actions/checkout@v4
         with:
-          ref: 2978d75e8e56b5cbe1f332b033611dbb23c43008
+          ref: edbd1791b9061c12a2324336e47f082473745e5f
           path: source
       - uses: actions/setup-python@v5
         with:
@@ -24,16 +24,20 @@ jobs:
       - name: Record both exact revisions
         run: |
           git -C gate rev-parse HEAD
-          test "$(git -C source rev-parse HEAD)" = 2978d75e8e56b5cbe1f332b033611dbb23c43008
+          test "$(git -C source rev-parse HEAD)" = edbd1791b9061c12a2324336e47f082473745e5f
       - name: B13 offline checker
         working-directory: source
         run: python research/OPENAI/check.py --validate --self-test
-      - name: B13 IPO tests
+      - name: B13 resource audit
         if: ${{ !cancelled() }}
         working-directory: source
-        run: python -m unittest discover -s research/OPENAI -p 'test_ipo2027.py' -v
+        run: python research/OPENAI/resource_audit.py --as-of 2026-10-17
+      - name: B13 IPO and resource tests
+        if: ${{ !cancelled() }}
+        working-directory: source
+        run: python -m unittest discover -s research/OPENAI -p 'test_*.py' -v
       - name: Independent B01 fail-closed checks
         if: ${{ !cancelled() }}
         env:
           BASKET_OPENAI_SOURCE: ${{ github.workspace }}/source
-        run: python -m unittest discover -s gate/tests/integration -p 'test_openai_research.py' -v
+        run: python -m unittest discover -s gate/tests/integration -p 'openai_research_acceptance.py' -v
