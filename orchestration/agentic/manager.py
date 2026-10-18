@@ -184,6 +184,8 @@ def attempts(events, task_id):
             if aid in starts:
                 raise GuardError("attempt started twice")
             parent = ev.get("retry_of")
+            if not parent and any(x["step_id"] == ev["step_id"] for x in starts.values()):
+                raise GuardError("repeated step requires retry_of")
             if parent:
                 if parent not in starts or outcomes.get(parent,{}).get("type") != "attempt_failed":
                     raise GuardError("retry must name earlier failed attempt")
