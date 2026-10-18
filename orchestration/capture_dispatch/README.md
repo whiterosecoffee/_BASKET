@@ -64,3 +64,21 @@ Resume B00 orchestration in the existing owning conversation. Retrieve #48/PR #4
 7. B21 builds perspective/signal projections using exact journal revision IDs, alternatives, falsifiers and expiry. B04/B05/B19 enrich downstream; no need to block initial capture.
 
 First acceptance milestone: real external document -> validated per-ticker JSONL -> duplicate-safe restart/replay -> evidence-linked derived signal. Scale the same worker to the entire admitted registry with an explicit freshness and gap matrix. Completion requires this measured pipeline; neither this archived chat nor its draft PR proves it.
+
+## Follow-up completed here — 2026-10-18
+
+Same #48 conversation/branch and same three files. All 16 currently open PR changed-file lists checked; no overlap. New reserved domains include B08 PR #55 services/mrie_snapshot/** and deployment/mrie_snapshot/**, and B00 PR #60 orchestration/retirement_intake/**. Both untouched. PR #33 has expanded Massive worker contracts; no provider/manager implementation duplicated.
+
+The former manager-bridge handoff is now implemented in plan.py as manager_proposal(proposal, bindings). CLI --bindings accepts an explicit task-key mapping with id, spark_id, write_scope, priority, acceptance, optional issue_number/pr_number and depends_on. Output queue_proposal matches PR #33 manager's validate_queue structure. Existing issue means resume_existing_worker; no issue means launch_new_worker proposal only. No issue, branch, queue ID, lease or permission is automatically created.
+
+Bridge rejects unknown/currently resolved gap keys, duplicate task IDs, wrong owner, cross-domain write paths, unsafe paths, invalid issue/PR identifiers and dependencies outside the proposed batch. It preserves unbound gaps and unregistered research candidates. Topic applicability, canonical admission, exact current worker ownership and permission still require live reconciliation by the existing manager. No broad pattern here grants write authority. Compose with the real queue through its owner rather than replacing it. Cycle checks and live collision/lease/capacity evaluation remain the existing manager's job.
+
+Validation: 9 local tests passed, including deterministic bindings and adversarial owner/scope/identity rejection. An additional real compatibility check loaded unmodified manager.py at PR #33 SHA 4aae4189b969ad84729cc591e5a23499ab24338a and successfully ran validate_queue on bridge output using synthetic T-901/MU bindings. This is actual local source compatibility, NOT production dispatch, source ingestion, independent CI, or ID reservation.
+
+### Condensed replacement handoff
+
+Retrieve #48/PR #49 latest head. Coverage-to-manager bridge is implemented; do not rebuild it. Nine local tests and a pinned PR #33 validate_queue compatibility check pass. Preserve the same three files/branch and refresh exact-SHA evidence.
+
+PR #60 already holds historical intake; update its owner with the new head rather than creating a duplicate intake. PR #33 owns manager/Massive contracts, #25 queue, #55 snapshot service, #15 B02 journal, #14 B03 evidence. All untouched.
+
+Remaining: (1) current manager/queue owners bind admitted tickers to real task IDs/scopes and validate against live collision/capacity evidence; (2) B02+B03 deliver real-source JSONL append/checkpoint/replay over the admitted basket; (3) B08 wires persistent scheduling/storage to those writers; (4) B01 independently runs exact-head tests and integration; (5) B21 emits evidence-linked signals. No new architecture or dispatch compiler needed. Completion gate remains actual source -> durable ticker JSONL -> duplicate-safe restart/replay -> derived signal, then measured full-basket freshness/gaps. No live data or production runtime claimed.
