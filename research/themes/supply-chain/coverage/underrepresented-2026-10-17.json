@@ -32,7 +32,8 @@
         "NVIDIA purchase concentration",
         "Arizona capex financing vs return on invested capital",
         "TSMC partnership interface and whether flows overlap"
-      ]
+      ],
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "ASX",
@@ -44,7 +45,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "BESI",
@@ -69,7 +71,8 @@
         "Hybrid bonding equipment addressable installations",
         "ASML competitive product actual shipping dates",
         "Pricing power under competing capacity"
-      ]
+      ],
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "ONTO",
@@ -81,7 +84,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "ALAB",
@@ -93,7 +97,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "CRDO",
@@ -105,7 +110,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "MTSI",
@@ -117,7 +123,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "POET",
@@ -129,7 +136,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "PWR",
@@ -141,7 +149,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "MOD",
@@ -165,7 +174,8 @@
         "Data center attributable sales and backlog from Q1 FY2027 filings",
         "Cooling capacity unit economics",
         "OEM passthrough to integrators"
-      ]
+      ],
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "NVT",
@@ -177,7 +187,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "HUBB",
@@ -189,7 +200,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "POWL",
@@ -213,7 +225,8 @@
         "Data center explicitly disclosed segment revenue",
         "Backlog conversion and customer concentration",
         "Grid connection vs utility spending overlap"
-      ]
+      ],
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "WDC",
@@ -225,7 +238,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "STX",
@@ -237,7 +251,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "PSTG",
@@ -249,7 +264,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "SNOW",
@@ -267,7 +283,8 @@
           "claim": "Issuer identifies multi-cloud data, analytics, AI and application workloads; AI incremental dollars not quantified in this artifact."
         }
       ],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "MDB",
@@ -285,7 +302,8 @@
           "claim": "Issuer identifies database, real-time analysis and AI retrieval workloads; incremental AI attribution unverified."
         }
       ],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "DDOG",
@@ -297,7 +315,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "CFLT",
@@ -309,7 +328,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "ESTC",
@@ -321,7 +341,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "EMR",
@@ -333,7 +354,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "CGNX",
@@ -345,7 +367,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "KION.DE",
@@ -357,7 +380,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "PATH",
@@ -369,7 +393,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "OUST",
@@ -381,7 +406,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "BE",
@@ -393,7 +419,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "OKLO",
@@ -405,7 +432,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "BWXT",
@@ -417,7 +445,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "CCJ",
@@ -429,7 +458,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "OKTA",
@@ -441,7 +471,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "CYBR",
@@ -453,7 +484,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "NET",
@@ -465,7 +497,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "CDNS",
@@ -477,7 +510,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "SNPS",
@@ -489,7 +523,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "ADSK",
@@ -501,7 +536,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "PTC",
@@ -513,7 +549,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "BSX",
@@ -525,7 +562,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "SYK",
@@ -537,7 +575,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "AKAM",
@@ -549,7 +588,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "EQIX",
@@ -561,7 +601,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     },
     {
       "ticker": "DLR",
@@ -573,7 +614,8 @@
       "ticker_listing_identity": "verify_before_canonical_registration",
       "financial_metrics": "not_ingested",
       "evidence": [],
-      "status": "research_candidate"
+      "status": "research_candidate",
+      "registry_comparison": "compared_with_PR18_head_109bbd9e76c29db24b19b74654221de5fb1b5133"
     }
   ],
   "controls": [
@@ -622,7 +664,8 @@
       "ticker_uniqueness": "passed",
       "identity_and_listing_checks": "pending",
       "schema_runner": "not_run",
-      "independent_ci": "not_run"
+      "independent_ci": "not_run",
+      "registry_reconciliation": "passed_PR18_HEAD_no_duplicate_candidates"
     },
     "integration_sequence": [
       "B19 #17 PR #18: reconcile working registry changes and prevent path collision",
@@ -631,5 +674,18 @@
       "B05: confirm contractual graph links and cross-company cash flows",
       "B19: reconcile pools and avoid downstream double counting"
     ]
+  },
+  "reconciliation": {
+    "checked_at": "2026-10-17",
+    "source_pr": 18,
+    "source_head_sha": "109bbd9e76c29db24b19b74654221de5fb1b5133",
+    "source_registry": "research/themes/supply-chain/registry/tickers.json",
+    "existing_records": 68,
+    "proposed_records": 42,
+    "overlap": [],
+    "combined_research_identifiers": 110,
+    "canonical_registration": "not_performed",
+    "pr18_merge_status": "open_at_comparison",
+    "limitation": "Research-only identifier count; entity identity, tradability and fundamentals not verified. Re-run at integration PR head."
   }
 }
