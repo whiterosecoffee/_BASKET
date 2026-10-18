@@ -47,13 +47,24 @@ def snapshot(records: list[dict], *, as_of: str) -> dict:
         raise DependencyError("input records must be an array")
     out, seen = [], set()
     required = {"producer", "contract", "record_id", "revision_id", "source_sha256",
-                "effective_at", "available_at", "ingested_at", "valid_until"}
+                "effective_at", "available_at", "ingested_at", "valid_until",
+                "source_url", "evidence_class", "original_currency", "fx_reference"}
     for rec in records:
         if not isinstance(rec, dict) or set(rec) != required:
             raise DependencyError("unknown or missing dependency fields")
         if any(not isinstance(rec[key], str) or not rec[key].strip()
                for key in ("producer", "contract", "record_id", "revision_id")):
             raise DependencyError("incomplete producer identity")
+        if not isinstance(rec["source_url"], str) or not rec["source_url"].startswith("https://"):
+            raise DependencyError("original source URL is required")
+        if rec["evidence_class"] not in {"verified_observation", "company_statement", "inference", "scenario", "unknown_or_conflicted"}:
+            raise DependencyError("unknown evidence class")
+        if not isinstance(rec["original_currency"], str) or not re.fullmatch(r"[A-Z]{3}", rec["original_currency"]):
+            raise DependencyError("original ISO currency required")
+        if rec["original_currency"] != "USD" and not isinstance(rec["fx_reference"], str):
+            raise DependencyError("foreign exposure requires FX source-reference")
+        if rec["original_currency"] == "USD" and rec["fx_reference"] is not None:
+            raise DependencyError("USD source must not imply FX conversion")
         if not SHA.fullmatch(rec["source_sha256"]):
             raise DependencyError("source digest must be SHA-256")
         key = (rec["producer"], rec["contract"], rec["record_id"])
@@ -99,6 +110,12 @@ def recompute_decision(*, previous: dict | None, current: dict,
     names = {r["producer"] + "/" + r["contract"] + "/" + r["record_id"] for r in current["inputs"]}
     missing = sorted(set(required_ids) - names)
     invalid = sorted(set(current["expired_ids"]) & set(required_ids))
+    conflicts = sorted(r["producer"] + "/" + r["contract"] + "/" + r["record_id"]
+                       for r in current["inputs"] if r["evidence_class"] == "unknown_or_conflicted"
+                       and r["producer"] + "/" + r["contract"] + "/" + r["record_id"] in required_ids)
+    missing_fx = sorted(r["fx_reference"] for r in current["inputs"]
+                        if r["original_currency"] != "USD" and r["fx_reference"] not in names
+                        and r["producer"] + "/" + r["contract"] + "/" + r["record_id"] in required_ids)
     if previous is not None:
         if previous.get("schema") != SCHEMA or snapshot(previous["inputs"], as_of=previous["as_of"]) != previous:
             raise DependencyError("prior snapshot invalid; no safe comparison")
@@ -113,7 +130,7 @@ def recompute_decision(*, previous: dict | None, current: dict,
     changed = sorted(key for key in set(old) | set(new) if old.get(key) != new.get(key))
     fingerprint = _hash({"inputs": current["fingerprint"], "model_version": model_version,
                          "config": config_sha256, "as_of": current["as_of"]})
-    if missing or invalid:
+    if missing or invalid or conflicts or missing_fx:
         state = "blocked"
     elif previous is None or changed:
         state = "recompute_required"
@@ -123,4 +140,5 @@ def recompute_decision(*, previous: dict | None, current: dict,
             "source_snapshot_sha256": current["fingerprint"],
             "idempotency_key": fingerprint, "changed_ids": changed,
             "missing_required_ids": missing, "expired_required_ids": invalid,
+            "conflicted_required_ids": conflicts, "missing_fx_references": missing_fx,
             "no_execution_performed": True}
