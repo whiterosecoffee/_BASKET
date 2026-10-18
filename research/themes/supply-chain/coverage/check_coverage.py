@@ -34,11 +34,10 @@ def symbols(records, label):
     return seen
 
 def check(candidate_doc, registry_doc=None):
+    if not isinstance(candidate_doc, dict):
+        fail("candidate document is not an object")
     if candidate_doc.get("schema") != "basket.b19-underrepresented-coverage@1":
         fail("unsupported research schema")
-    if candidate_doc.get("scope", "").find("not canonical") == -1 and "not canonical" not in str(candidate_doc.get("scope", "")):
-        # Research status is still enforced entry by entry.
-        pass
     candidates = candidate_doc.get("candidates")
     ids = symbols(candidates, "candidates")
     for row in candidates:
