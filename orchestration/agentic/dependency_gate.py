@@ -108,11 +108,17 @@ def recompute_decision(*, previous: dict | None, current: dict,
     if len(required_ids) != len(set(required_ids)) or not all(isinstance(x, str) and x for x in required_ids):
         raise DependencyError("duplicate or empty required IDs")
     names = {r["producer"] + "/" + r["contract"] + "/" + r["record_id"] for r in current["inputs"]}
-    missing = sorted(set(required_ids) - names)
-    invalid = sorted(set(current["expired_ids"]) & set(required_ids))
+    # Foreign exposures implicitly depend on their exact FX revision. It must be
+    # fresh, unconflicted and present even when the caller omitted it from IDs.
+    fx_required = {r["fx_reference"] for r in current["inputs"]
+                   if r["original_currency"] != "USD"
+                   and r["producer"] + "/" + r["contract"] + "/" + r["record_id"] in required_ids}
+    all_required = set(required_ids) | fx_required
+    missing = sorted(all_required - names)
+    invalid = sorted(set(current["expired_ids"]) & all_required)
     conflicts = sorted(r["producer"] + "/" + r["contract"] + "/" + r["record_id"]
                        for r in current["inputs"] if r["evidence_class"] == "unknown_or_conflicted"
-                       and r["producer"] + "/" + r["contract"] + "/" + r["record_id"] in required_ids)
+                       and r["producer"] + "/" + r["contract"] + "/" + r["record_id"] in all_required)
     missing_fx = sorted(r["fx_reference"] for r in current["inputs"]
                         if r["original_currency"] != "USD" and r["fx_reference"] not in names
                         and r["producer"] + "/" + r["contract"] + "/" + r["record_id"] in required_ids)
