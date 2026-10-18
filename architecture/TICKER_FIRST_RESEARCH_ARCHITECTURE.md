@@ -113,3 +113,18 @@ This compiled payload does not grant permission to modify MU's research files or
 ### Concrete dispatch prerequisite
 
 The planner may add a ticker-by-capability coverage matrix and task generation **only after** the active B00 queue PR #25 resolves its write collision. First worker implementation belongs to an owner-approved domain path; B01 independently validates. Until then, this PR is a reviewed architecture proposal, not proof of running automation.
+
+## Integration review addendum — canonical registry and single-runtime boundary
+
+Read-only GitHub review found that `tickers/MU/entity.json` and `tickers/NVDA/entity.json` are **not present on current main** (GitHub contents API returned 404). This is not evidence that these companies are absent from research datasets: ticker research universe and canonical admitted registry are distinct. Before claiming full-basket coverage or executing the #48 CLI against `tickers/`, B00 must verify the actual canonical entity registry, its identity schema and the complete admitted entity set. An empty or partial `tickers/` tree is not equivalent to the entire research basket.
+
+The #48 dispatch compiler consumes `entity.json` directories and emits offline coverage proposals; it is **not** a provider adapter, canonical writer, scheduler or verified full-basket inventory. Its capability ownership is a proposed routing table and must be reconciled with spark write_paths (notably B03 vs B05 and company researchers). The research-universe comparison documented by #48 reports 68 research IDs in B19 PR #18 and 42 candidates in PR #23, with no overlap, i.e. 110 distinct *research* IDs; this is not proof of 110 admitted canonical entities. Reconcile the lists and entity types before dispatch.
+
+PR #33 owns `orchestration/agentic/**` and must remain the single task/lease/attempt manager. PR #25 owns the queue; PR #47 owns independent QC; #48 owns only `orchestration/capture_dispatch/**`. Any implementation should connect the #48 proposal output into the existing agentic manager through a versioned, validated interface rather than implementing a second scheduler, task queue or attempt ledger.
+
+**Additional pre-pilot gates:**
+- G0: demonstrate a complete, validated canonical registry with provenance and explicit research-universe omissions; otherwise fail closed.
+- G1: map each proposed ticker-capability task to an existing authorized spark and exact path, or leave it blocked for contract arbitration.
+- G2: prove one idempotent, point-in-time source→ticker observation→checkpoint cycle, with no unverified `fresh` status based solely on user-supplied coverage JSON.
+- G3: demonstrate the manager/dispatch interface on a fixed fixture and independent B01 checks before scheduling real provider work.
+- G4: report live execution only after real authenticated provider evidence, durable persistence and restart tests.
