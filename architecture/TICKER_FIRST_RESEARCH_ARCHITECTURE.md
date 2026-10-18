@@ -165,3 +165,44 @@ C0–C3 are a pilot milestone; C4–C7 establish ongoing operation. The first pi
 ### Retirement and ownership
 
 Chat retirement transfers **the executable requirement and its acceptance evidence**, not just a summary. The B00 orchestrator must record: source issue/PR/SHA, actual owned files, live blockers, receiving owner and issue, explicit acceptance gate, tests not run, and ONE next unblocked action. Existing #48 dispatcher, #33 manager, #25 queue, #47 QC, B02/B03 stores, B08 runtime and B19/B04/B05/B21 downstream owners must be reused. Never invent a new owner or edit an occupied file to accelerate the handoff. 
+
+## Autonomous worker execution and conflict-free retirement protocol
+
+This is a proposed operational contract for existing spark workers; it does not override AGENTS.md, WORKER_PROTOCOL.md, active PR ownership, or merge permissions.
+
+### Before editing
+
+1. Refresh main AGENTS.md, orchestration/sparks.json, WORKER_PROTOCOL.md, current task issue, base branch and relevant open PR changed paths. A GitHub issue is not evidence that a chat session is currently active.
+2. Declare **exclusive writable paths** and read-only dependencies. If another PR touches a proposed writable path, stop editing that path; work on disjoint deliverables and issue a precise handoff.
+3. Reuse an existing owner issue/branch where legitimately claimed. Otherwise create a unique issue and main-based branch under the documented governance; never reuse another conversation's branch.
+4. Convert the assigned objective into concrete acceptance checks and negative tests before implementation. Do not expand scope just because another worker is delayed.
+
+### Maximize independent progress
+
+Implement, validate, and commit all work inside the claimed paths that does not require an external decision. Inspect interfaces read-only; use mocks/fixtures where live credentials or another owner's implementation is unavailable. Run local tests, independent static checks, schema checks and exact-head CI where available. Capture failure classes, reproducible commands and remediation attempts. Never count a skipped/missing test as passing.
+
+When blocked, split the task into (a) work that can still proceed independently and (b) the minimal cross-owner dependency. Continue (a), open or update a handoff issue for (b), and do not mutate the receiver's files. A handoff should be actionable without rereading the originating conversation.
+
+### Handoff payload (required fields)
+
+- source spark, issue, branch, PR, exact commit SHA and changed paths;
+- receiver spark, existing receiving issue/PR if any, exact owned path and required interface;
+- status: implemented/tested/proposed/blocked, with unexecuted checks explicitly named;
+- input and output contract, sample fixture and source/provenance requirements;
+- dependency gate, reproducible validation command and acceptance criteria;
+- conflicts checked (PR changed paths and time of inspection), known blockers and next unblocked action;
+- consequences of inaction and safe fallback; no claims of running workers without evidence.
+
+### Terminal worker response and orchestrator intake
+
+Worker response is a **resolution record**, not an invitation for routine user approval: exact PR/commit, scope and tests, incomplete coverage, open dependencies, next owner and smallest next executable step. The orchestrator verifies changed files and current heads, deduplicates handoffs by capability/entity/period/dependency, assigns existing workers within active limits, and updates planner only through its owning branch. A retired conversation's issue/PR stays open until independently integrated; chat archival does not imply closure.
+
+### Acceptance / collision stress tests
+
+- Two workers request same file: one owner proceeds; the other switches to read-only plus handoff.
+- Dependency missing: worker finishes all fixture-driven independent work and records a blocked integration gate.
+- Another PR advances: recheck current head before rebasing, CI conclusions or handoff closure.
+- Test not executed or provider unauthorized: mark unverified, never successful.
+- Repeated handoff: update existing receiver issue rather than creating duplicate tasks.
+- Worker crashes mid-run: issue/branch/commit and checkpoint evidence allow restart without relying on chat memory.
+- User absent: continue authorized steps until genuine external permission/credentials/governance boundary.
