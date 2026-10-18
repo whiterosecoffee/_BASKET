@@ -52,5 +52,24 @@ class DispatchTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 discover(root)
 
+    def test_malformed_coverage_cannot_appear_fresh(self):
+        for coverage in ([], {'MU': []}, {'MU': {'market': []}}):
+            with self.assertRaises(ValueError):
+                compile_plan(self.entities, coverage, NOW)
+        for field, bad in [('record_ids', 'r1'), ('source_ids', [None]), ('observed_at', 123)]:
+            record = {'observed_at': '2026-10-18T01:00:00Z', 'first_available_at': '2026-10-18T01:00:00Z',
+                      'expires_at': '2026-10-18T04:00:00Z', 'record_ids': ['r1'], 'source_ids': ['s1']}
+            record[field] = bad
+            result = compile_plan(self.entities, {'MU': {'market': record}}, NOW)
+            row = next(r for r in result['coverage'] if r['ticker'] == 'MU' and r['capability'] == 'market')
+            self.assertEqual(row['status'], 'unverified')
+
+    def test_invalid_candidates_and_empty_universe(self):
+        for candidates in ('MU', ['../MU'], [None]):
+            with self.assertRaises(ValueError):
+                compile_plan(self.entities, {}, NOW, candidates)
+        with self.assertRaises(ValueError):
+            compile_plan({}, {}, NOW)
+
 if __name__ == '__main__':
     unittest.main()
