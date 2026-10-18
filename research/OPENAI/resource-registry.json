@@ -59,14 +59,14 @@
         "governance_dilution",
         "compute_delivery"
       ],
-      "access": "public_api_documented_connector_discovered_not_called",
+      "access": "CONNECTED_TESTED_OK",
       "source_class": "regulatory_filing",
       "evidence": "accession_stamped_primary",
       "url": "https://www.sec.gov/edgar/sec-api-documentation",
       "cadence": "filing_event",
       "ttd_days": 14,
       "persistence": "research/events/**",
-      "verified_today": "Firecrawl SEC filings provider discovered; OpenAI public S-1 accession not independently confirmed",
+      "verified_today": "Called Oct17 Firecrawl Alexandria SEC company CRWV (CIK 0001769628), filings index CRWV 8-Ks 2026-09-17 and 09-22; SEC XBRL MSFT Revenues concept returned FY ended 2026-06-30 and year-to-date Q3 2026. No OpenAI public S-1 was identified or requested.",
       "measure": [
         "IPO public prospectus",
         "issuer or customer filings",
@@ -74,10 +74,12 @@
         "cash flow",
         "leases",
         "share class",
-        "capital calls"
+        "capital calls",
+        "SEC XBRL concept with filing accession/period/unit; distinguish year-to-date from standalone quarter"
       ],
       "missing": [
-        "confidential filings before public release"
+        "confidential filings before public release",
+        "normalize cumulative quarter-to-date/year-to-date periods before peer multiple"
       ],
       "fallback": "issuer IR/SEC web text; no private confidential S-1 assumed"
     },
@@ -167,7 +169,7 @@
       "missing": [
         "current entitlement"
       ],
-      "fallback": "EDGAR GAAP/XBRL for peers; equity prices must be captured separately"
+      "fallback": "SEC/EDGAR XBRL concept verified via Firecrawl for MSFT; normalize period end, year-to-date vs isolated quarter and filing vintage"
     },
     {
       "id": "massive_equity_history",
