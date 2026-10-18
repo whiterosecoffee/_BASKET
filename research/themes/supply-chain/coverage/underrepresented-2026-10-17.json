@@ -1229,5 +1229,384 @@
         "context": "Issuer quantum capital intent and historical contracts; not annual recognized revenue"
       }
     ]
+  },
+  "persistent_graph_tool_contract": {
+    "proposal_version": "0.1.0",
+    "state": "research_design_only_not_implemented",
+    "authority": {
+      "canonical_entities": "B00 and assigned company entity owners",
+      "canonical_edges": "B05 tickers/*/relationships.json",
+      "issuer_events": "B03 tickers/*/events.json",
+      "market_data_fx_ttd": "B02",
+      "supply_chain_research": "B19",
+      "validation": "B01",
+      "analysis_engine": "B05 for graph traversal interface; B04 for economic modeling; B21 for causal claims"
+    },
+    "principle": "A company has many roles. An economic path has context-specific depth. Segment membership is many-to-many, versioned and evidenced. Never treat research candidate edges as verified.",
+    "records": [
+      {
+        "kind": "entity",
+        "id_format": "stable entity_id independent of ticker",
+        "fields": [
+          "entity_id",
+          "identities_and_listing_history",
+          "entity_type",
+          "parent_and_ultimate_owner",
+          "valid_from",
+          "valid_to",
+          "source"
+        ],
+        "note": "Ticker alias and ADR ratios are versioned, never used as immutable IDs"
+      },
+      {
+        "kind": "segment_membership",
+        "id_format": "membership_id",
+        "fields": [
+          "entity_id",
+          "segment_id",
+          "role",
+          "product_line",
+          "geography",
+          "effective_from",
+          "effective_to",
+          "evidence_id",
+          "review_status"
+        ],
+        "note": "Many-to-many; segment hierarchy supports company drilldowns and segment aggregation"
+      },
+      {
+        "kind": "relationship_edge",
+        "id_format": "edge_id",
+        "fields": [
+          "from_entity_id",
+          "to_entity_id",
+          "relationship_type",
+          "direction",
+          "product_or_scope",
+          "contract_id",
+          "start_at",
+          "end_at",
+          "source_id",
+          "status",
+          "confidence_class",
+          "availability_time",
+          "ingested_time",
+          "revision_id"
+        ],
+        "types": [
+          "ownership",
+          "joint_venture",
+          "equity_financing",
+          "debt_financing",
+          "capacity_reservation",
+          "supplier_customer",
+          "licensing",
+          "distribution",
+          "technology_integration",
+          "compute_hosting",
+          "offtake",
+          "competition",
+          "unverified_hypothesis"
+        ],
+        "note": "Contractual status separate from strategic hypothesis. Revisions append-only; no overwrites"
+      },
+      {
+        "kind": "contract",
+        "id_format": "contract_id",
+        "fields": [
+          "parties_and_roles",
+          "announced_at",
+          "signed_at",
+          "funded_at",
+          "authorized_at",
+          "commercial_start",
+          "end_at",
+          "termination_rights",
+          "exclusive_scope",
+          "minimum_commitments",
+          "currency",
+          "nominal_value",
+          "recognized_to_date",
+          "capacity_unit",
+          "volume_terms",
+          "counterparty_concentration",
+          "source_ids",
+          "revision_id"
+        ],
+        "note": "Contracted funding, backlog, capex, RPO, recurring revenue and equity interests must be distinct"
+      },
+      {
+        "kind": "economic_flow",
+        "id_format": "flow_id",
+        "fields": [
+          "payer_entity_id",
+          "payee_entity_id",
+          "transaction_or_contract_id",
+          "upstream_pool_id",
+          "period_end",
+          "basis",
+          "amount_original_currency",
+          "currency",
+          "fx_rate",
+          "fx_date",
+          "amount_usd",
+          "accounting_treatment",
+          "pass_through_amount_usd",
+          "economic_value_added_usd",
+          "source_id",
+          "state"
+        ],
+        "note": "Trace one underlying final-customer dollar through vendor tiers without adding all intermediate recognized sales into total addressable final demand"
+      },
+      {
+        "kind": "capacity",
+        "id_format": "capacity_id",
+        "fields": [
+          "entity_id",
+          "facility_id",
+          "technology_or_process",
+          "unit",
+          "nameplate",
+          "qualified",
+          "reserved",
+          "contracted",
+          "built",
+          "energized",
+          "utilized",
+          "deliverable",
+          "period",
+          "geography",
+          "constraints",
+          "evidence_id",
+          "status"
+        ],
+        "note": "Capacities never aggregate incompatible units without explicit conversion factors and sensitivity"
+      },
+      {
+        "kind": "observation",
+        "id_format": "observation_id",
+        "fields": [
+          "subject_id",
+          "metric",
+          "unit",
+          "value",
+          "original_currency",
+          "fx_basis",
+          "effective_at",
+          "observed_at",
+          "available_at",
+          "ingested_at",
+          "period_end",
+          "model_version",
+          "ttd",
+          "source_class",
+          "source_uri",
+          "confidence_class",
+          "revision_of"
+        ],
+        "note": "A fact can be historically true and simultaneously expired for current use"
+      },
+      {
+        "kind": "claim",
+        "id_format": "claim_id",
+        "fields": [
+          "proposition",
+          "supporting_evidence_ids",
+          "counterevidence_ids",
+          "alternatives",
+          "falsifier",
+          "as_of",
+          "owner",
+          "status"
+        ],
+        "note": "B21 maintains inference/causality, never promotes model output into fact"
+      }
+    ],
+    "indexes": [
+      "entity_id",
+      "segment_id+role+effective_date",
+      "relationship_type+counterparty+status",
+      "contract_id+period",
+      "facility_id+technology+unit",
+      "evidence_id+available_at",
+      "pool_id+period"
+    ],
+    "query_templates": [
+      {
+        "name": "entity_neighborhood",
+        "inputs": [
+          "entity_id",
+          "relationship_types",
+          "depth",
+          "as_of",
+          "evidence_status"
+        ],
+        "outputs": [
+          "nodes",
+          "edges",
+          "evidence",
+          "expired_flag"
+        ]
+      },
+      {
+        "name": "segment_economic_map",
+        "inputs": [
+          "segment_id",
+          "geography",
+          "period",
+          "as_of",
+          "role_filter"
+        ],
+        "outputs": [
+          "buyers",
+          "gateways",
+          "suppliers",
+          "capacity",
+          "economic_flow_edges",
+          "coverage_gaps"
+        ]
+      },
+      {
+        "name": "final_payer_traversal",
+        "inputs": [
+          "payer_id",
+          "period",
+          "max_depth",
+          "as_of"
+        ],
+        "outputs": [
+          "distinct_payment_paths",
+          "upstream_intermediaries",
+          "amount_coverage",
+          "double_count_warnings"
+        ]
+      },
+      {
+        "name": "bottleneck_exposure",
+        "inputs": [
+          "technology",
+          "period",
+          "unit",
+          "geography"
+        ],
+        "outputs": [
+          "qualified_supply",
+          "contracted_demand",
+          "constraints",
+          "source_dates",
+          "scenario_range"
+        ]
+      },
+      {
+        "name": "contract_counterparty_risk",
+        "inputs": [
+          "entity_id",
+          "as_of"
+        ],
+        "outputs": [
+          "signed_vs_announced",
+          "termination",
+          "funding",
+          "counterparty_concentration",
+          "unverified_edges"
+        ]
+      },
+      {
+        "name": "market_share_by_denominator",
+        "inputs": [
+          "segment_id",
+          "product",
+          "geography",
+          "period",
+          "share_type"
+        ],
+        "outputs": [
+          "numerator",
+          "denominator",
+          "share_or_null",
+          "method",
+          "source_lineage"
+        ]
+      },
+      {
+        "name": "scenario_cascade",
+        "inputs": [
+          "shock_target",
+          "shock_type",
+          "scenario_assumptions",
+          "as_of"
+        ],
+        "outputs": [
+          "exposure_paths",
+          "quantified_direct_impacts_only",
+          "indirect_hypotheses",
+          "falsifiers"
+        ]
+      }
+    ],
+    "invariants": [
+      "All source-linked edges have an immutable evidence reference; unsourced edges are labeled hypothesis, excluded from verified-only mode",
+      "No cycles duplicated when traversing ownership/funds and customer revenue",
+      "No summed market share across incompatible revenue/capacity denominators",
+      "No announced capacity promoted to commissioned or utilized",
+      "No contract balance used as current revenue",
+      "No estimated share or profit precision absent source numerator and denominator",
+      "Every query declares as_of, completeness, missing/stale sources and code/data manifest hash",
+      "Query outputs are reproducible for snapshot/hash and deterministic filters"
+    ],
+    "implementation_handoff": [
+      {
+        "owner": "B00",
+        "paths": [
+          "schemas/**",
+          "orchestration/**",
+          "architecture/**"
+        ],
+        "request": "Specify canonical entity-id/segment membership/typed-edge and point-in-time contract additions, and assign service interface ownership; migrate incompatibilities with new schema major."
+      },
+      {
+        "owner": "B05",
+        "paths": [
+          "engines/relationships/**",
+          "research/graph/**",
+          "tickers/*/relationships.json"
+        ],
+        "request": "Implement verified typed multigraph projections and 7 read-only query APIs; canonical edges only after contract source validation."
+      },
+      {
+        "owner": "B03",
+        "paths": [
+          "research/filings/**",
+          "research/events/**",
+          "tickers/*/events.json"
+        ],
+        "request": "Extract primary-source contractual events and recognition status; append revisions."
+      },
+      {
+        "owner": "B01",
+        "paths": [
+          "tests/integration/**",
+          ".github/workflows/**"
+        ],
+        "request": "CI tests for lookahead, evidence validity, as_of reproducibility, duplicate attribution, ownership graph cycles, capacity states and schema migration."
+      },
+      {
+        "owner": "B19",
+        "paths": [
+          "research/themes/supply-chain/**"
+        ],
+        "request": "Map watchlist roles and pool denominators using read-only B05 projections; persist explicit missing coverage."
+      }
+    ],
+    "acceptance": [
+      "A single entity can appear in 3+ segments with different roles without duplicate identity",
+      "As-of query before contract signature never returns signed status",
+      "Full-basket segment query includes verified and hypotheses separately with evidence lineage",
+      "Symbotic-Exol-SoftBank-JV path does not double-count RPO, parent ownership, or downstream expenditures",
+      "Google-AEP-Bloom example separates planned 702MW project, supply sales and PPA",
+      "Source-expired current computed output fails closed; historic snapshots remain retrievable",
+      "A ticker rename or ADR change preserves canonical entity relationships"
+    ],
+    "next_executable_step": "B00 architecture/contract handoff first, then B05 graph query and B01 adversarial validation, while B19 continues classification research"
   }
 }
