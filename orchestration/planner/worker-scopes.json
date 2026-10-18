@@ -1,7 +1,7 @@
 {
   "schema": "basket.worker_scopes@1",
-  "version": "1.0.0",
-  "source_queue_version": "1.1.0",
+  "version": "1.1.0",
+  "source_queue_version": "1.3.0",
   "source_spark_catalog_version": "1.6.0",
   "scopes": [
     {
@@ -626,6 +626,162 @@
           "step_id": "T-011-S3",
           "capability": "hypothesis_falsification",
           "deliverable": "anti-double-counting checks",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-012",
+      "spark_id": "B00",
+      "owner_issue": 24,
+      "existing_pr": null,
+      "mode": "orchestrator_review",
+      "objective": "Build an evidence-backed whole-basket inventory of canonical ticker files and schema elements, identify missing/empty/invalid/stale/branch-only records, and assign each gap to its existing domain owner without duplicating worker tasks.",
+      "exclusive_write_paths": [
+        "orchestration/**"
+      ],
+      "read_paths": [
+        "orchestration/**",
+        "schemas/**",
+        ".github/workflows/**"
+      ],
+      "dependencies": [
+        {
+          "task_id": "T-002",
+          "gate": "merged",
+          "reason": "Authoritative B00 orchestration registry and planner contract must be integrated before a new coverage inventory."
+        }
+      ],
+      "acceptance": [
+        "Enumerate every registered ticker and required schema element against exact main commit and relevant open PR file changes.",
+        "Report per-entity existence (absent/present/branch-only), strict schema validity, empty vs sourced vs reconciled content, daily/intraday session coverage and gaps, FX requirements, timestamps and TTD, engine readiness.",
+        "Produce machine-readable coverage denominators, missing/invalid/stale states and owner-tagged gap list; do not create fabricated placeholder data.",
+        "Cross-reference existing B02/B03/B05/B19/company tasks instead of opening duplicate workers; request B01 independent coverage regression through a linked handoff.",
+        "Reconcile coverage with open B19 expansion PR #23 and economic-flow contract PR #22; distinguish proposed branch-only research from integrated canonical facts.",
+        "Record each discovered gap as an existing queue-task acceptance amendment or new B00-reviewed queue item; do not leave actionable gaps solely in issue comments."
+      ],
+      "recipe": "integration_review",
+      "steps": [
+        {
+          "step_id": "T-012-S1",
+          "capability": "github_evidence",
+          "deliverable": "dated GitHub evidence",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-012-S2",
+          "capability": "integration_gate",
+          "deliverable": "validated owner and CI gate",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-013",
+      "spark_id": "B21",
+      "owner_issue": null,
+      "existing_pr": null,
+      "mode": "launch_new_worker",
+      "objective": "Persist proposed signals S1-S8 and falsifiable hypotheses NVDA-H01 through NVDA-H06 as one source-attributed canonical methodology/hypothesis seed with references from existing events, relationships, valuation, traversal and revenue-pool milestones; do not implement speculative ranking.",
+      "exclusive_write_paths": [
+        "research/narrative/**"
+      ],
+      "read_paths": [
+        "research/events/**",
+        "research/graph/**",
+        "architecture/ECONOMIC_FLOW_GRAPH.md"
+      ],
+      "dependencies": [
+        {
+          "task_id": "T-006",
+          "gate": "merged",
+          "reason": "Reuse established B21 narrative/claims contract and avoid parallel hypothesis storage."
+        }
+      ],
+      "acceptance": [
+        "Store exactly one canonical source- and date-attributed proposed/unverified research seed for S1-S8 and NVDA-H01-H06 with prior-art families, falsifiers and explicit dependencies.",
+        "Reference existing B03/B05/B04/B06/B19/B14 responsibilities without copying canonical facts or changing their owned files.",
+        "Keep NVDA as a case study, not a validated valuation conclusion; defer point-in-time rankings and causal claims.",
+        "Cross-reference B00 economic-flow architecture draft PR #22 as read-only dependency; avoid introducing a parallel capital-to-profit contract."
+      ],
+      "recipe": "narrative_analysis",
+      "steps": [
+        {
+          "step_id": "T-013-S1",
+          "capability": "source_audit",
+          "deliverable": "source ledger",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-013-S2",
+          "capability": "hypothesis_falsification",
+          "deliverable": "falsifiable hypotheses",
+          "output_evidence": "required",
+          "state": "planned"
+        }
+      ],
+      "completion_report": "basket.worker_resolution@1",
+      "do_not": [
+        "Modify another spark's files",
+        "Mark untested checks passed",
+        "Count draft PR as integration",
+        "Write to main directly"
+      ]
+    },
+    {
+      "task_id": "T-014",
+      "spark_id": "B00",
+      "owner_issue": 24,
+      "existing_pr": null,
+      "mode": "orchestrator_review",
+      "objective": "Implement an executable low-ambiguity decision policy that prioritizes verified unblocked queue actions, automatically performs safe read-only checks and deterministic local validations, records an auditable decision and explicitly identifies actions requiring human or cross-domain gates.",
+      "exclusive_write_paths": [
+        "orchestration/**"
+      ],
+      "read_paths": [
+        "orchestration/**",
+        "schemas/**",
+        ".github/workflows/**"
+      ],
+      "dependencies": [],
+      "acceptance": [
+        "Define a machine-readable decision classification: automatic_safe, requires_evidence, requires_owner, requires_authorization; use current GitHub evidence rather than historical fixtures for operational decisions.",
+        "Select the highest-priority actionable task and exact next executable validation; on failure record blocker and move to the next independent task rather than asking routine permission.",
+        "Fail closed on stale/unavailable evidence, unknown worker capacity, path collisions and incomplete CI; never automatically merge, release, trade, or claim a live service.",
+        "Add deterministic regression tests for no-op, blocked, failed check, owner conflict and priority advancement; ensure B01 independent CI handoff for mandatory tests.",
+        "Make every actionable handoff map to a queue ID or an existing queue item acceptance criterion."
+      ],
+      "recipe": "integration_review",
+      "steps": [
+        {
+          "step_id": "T-014-S1",
+          "capability": "github_evidence",
+          "deliverable": "dated GitHub evidence",
+          "output_evidence": "required",
+          "state": "planned"
+        },
+        {
+          "step_id": "T-014-S2",
+          "capability": "integration_gate",
+          "deliverable": "validated owner and CI gate",
           "output_evidence": "required",
           "state": "planned"
         }
