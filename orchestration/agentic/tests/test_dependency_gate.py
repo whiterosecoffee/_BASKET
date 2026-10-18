@@ -13,7 +13,9 @@ KEY = "B03/issuer.events@1/SFTBY-earnings-2026q2"
 def row():
     return {"producer": "B03", "contract": "issuer.events@1", "record_id": "SFTBY-earnings-2026q2",
             "revision_id": "rev1", "source_sha256": H, "effective_at": A,
-            "available_at": A, "ingested_at": A, "valid_until": "2026-11-17T00:00:00Z"}
+            "available_at": A, "ingested_at": A, "valid_until": "2026-11-17T00:00:00Z",
+            "source_url": "https://www.sec.gov/filing/test", "evidence_class": "verified_observation",
+            "original_currency": "USD", "fx_reference": None}
 
 def decide(prev, cur, required=None):
     return recompute_decision(previous=prev, current=cur, model_version="mrie@0.1.0",
@@ -64,6 +66,23 @@ class GateTests(unittest.TestCase):
         self.assertNotEqual(a["idempotency_key"],b["idempotency_key"])
     def test_clock_regress_fails(self):
         with self.assertRaises(DependencyError):decide(snapshot([row()],as_of=B),snapshot([row()],as_of=A))
+    def test_missing_source_is_rejected(self):
+        r=row();r["source_url"]=""
+        with self.assertRaises(DependencyError):snapshot([r],as_of=B)
+    def test_unknown_evidence_blocks(self):
+        r=row();r["evidence_class"]="unknown_or_conflicted"
+        self.assertEqual(decide(None,snapshot([r],as_of=B))["state"],"blocked")
+    def test_foreign_unconverted_blocks(self):
+        r=row();r["original_currency"]="JPY";r["fx_reference"]="B02/fx.daily@1/USDJPY"
+        z=decide(None,snapshot([r],as_of=B))
+        self.assertEqual(z["state"],"blocked");self.assertEqual(z["missing_fx_references"],[r["fx_reference"]])
+    def test_foreign_requires_fx_reference(self):
+        r=row();r["original_currency"]="JPY"
+        with self.assertRaises(DependencyError):snapshot([r],as_of=B)
+    def test_foreign_with_fx_allows_recompute(self):
+        r=row();r["original_currency"]="JPY";r["fx_reference"]="B02/fx.daily@1/USDJPY"
+        fx=dict(row(),producer="B02",contract="fx.daily@1",record_id="USDJPY")
+        self.assertEqual(decide(None,snapshot([r,fx],as_of=B))["state"],"recompute_required")
     def test_replay_is_deterministic(self):
         x=snapshot([row()],as_of=B);self.assertEqual(decide(None,x),decide(None,x))
 
