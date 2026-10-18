@@ -982,5 +982,252 @@
         "claim": "PJM data center registry supports planned vs installed demand distinction"
       }
     ]
+  },
+  "frontier_leadership_review": {
+    "as_of": "2026-10-17",
+    "interpretation": "Technological or commercial leadership candidates; not verified universal market-share rankings or investment recommendations",
+    "categories": [
+      {
+        "category": "industrial_robotics",
+        "contenders": [
+          "FANUY",
+          "ABBNY",
+          "YASKY",
+          "SIEGY"
+        ],
+        "moats": [
+          "installed base",
+          "proven uptime",
+          "control software",
+          "integrator/service distribution"
+        ],
+        "bottleneck": "integration, qualified labor, cycle time and robot operating economics",
+        "market_denominator": "IFR new annual industrial robot installations and installed base"
+      },
+      {
+        "category": "warehouse_automation",
+        "contenders": [
+          "SYM",
+          "private:Dematic",
+          "private:AutoStore"
+        ],
+        "moats": [
+          "deployment reference sites",
+          "workflow software",
+          "multiyear agreements"
+        ],
+        "bottleneck": "commissioning and contractual customer concentration",
+        "market_denominator": "automated facilities and realized recurring software/service revenue",
+        "evidence": "https://www.sec.gov/Archives/edgar/data/1837240/000183724026000043/sym-20260627.htm"
+      },
+      {
+        "category": "humanoid_physical_ai",
+        "contenders": [
+          "private:Figure",
+          "private:Agility",
+          "TSLA",
+          "private:Unitree",
+          "NVDA"
+        ],
+        "moats": [
+          "embodied data",
+          "perception control",
+          "simulation and software ecosystem"
+        ],
+        "bottleneck": "robot dexterity, failure rates, supervised hours, hardware unit cost",
+        "market_denominator": "paid deployable operating hours, not prototype count"
+      },
+      {
+        "category": "quantum_computing",
+        "contenders": [
+          "IBM",
+          "private:Quantinuum",
+          "GOOG",
+          "IONQ",
+          "RGTI",
+          "QBTS"
+        ],
+        "moats": [
+          "fault tolerance research",
+          "logical performance",
+          "software ecosystem",
+          "customer workloads"
+        ],
+        "bottleneck": "logical error correction, reproducible advantage, scalable controls and monetizable workloads",
+        "market_denominator": "useful solved workloads and recognized contracted commercial revenue",
+        "evidence": "https://www.ibm.com/roadmaps/quantum/2030/"
+      },
+      {
+        "category": "medical_robotics",
+        "contenders": [
+          "ISRG",
+          "SYK",
+          "MDT"
+        ],
+        "moats": [
+          "clinical training",
+          "installed base",
+          "regulated workflows",
+          "recurrent instruments"
+        ],
+        "bottleneck": "regulatory approval, hospital economics and platform procedure outcomes",
+        "market_denominator": "eligible robotic procedures and installed active systems"
+      },
+      {
+        "category": "grid_electrical",
+        "contenders": [
+          "GEV",
+          "ETN",
+          "VRT",
+          "SIEGY",
+          "PWR"
+        ],
+        "moats": [
+          "qualified electrical systems",
+          "service footprint",
+          "project execution"
+        ],
+        "bottleneck": "transformer, turbine, switchgear and interconnection delivery",
+        "market_denominator": "commissioned MW and project-equipment dollar value"
+      },
+      {
+        "category": "distributed_power",
+        "contenders": [
+          "BE",
+          "AEP",
+          "GEV"
+        ],
+        "moats": [
+          "deployment ability",
+          "reliability",
+          "financing",
+          "PPA economics"
+        ],
+        "bottleneck": "fuel supply, operating costs, contractual delivery and reliability",
+        "market_denominator": "operating generation MW and USD/MWh margin",
+        "evidence": "https://pr.aep.com/news/releases/read/12314/AEP-Advances-Innovative-Energy-Solution-for-Google-with-702MW-of-Bloom-Fuel-Cells"
+      },
+      {
+        "category": "nuclear_fission",
+        "contenders": [
+          "CEG",
+          "VST",
+          "GEV",
+          "private:GE_Hitachi"
+        ],
+        "moats": [
+          "licensed sites",
+          "trained workforce",
+          "specialist supply chain"
+        ],
+        "bottleneck": "licenses, construction, fuel and equipment lead times",
+        "market_denominator": "operating reliable MWh vs future development MW"
+      },
+      {
+        "category": "fusion",
+        "contenders": [
+          "private:CFS",
+          "private:Helion",
+          "private:TAE"
+        ],
+        "moats": [
+          "magnet/plasma IP",
+          "engineering talent",
+          "offtake credibility"
+        ],
+        "bottleneck": "commercial net electricity, lifetime economics, materials and fuel cycle",
+        "market_denominator": "actually delivered commercial MWh; currently unknown",
+        "evidence": "https://blog.google/company-news/outreach-and-initiatives/sustainability/our-latest-bet-on-a-fusion-powered-future/"
+      },
+      {
+        "category": "energy_storage",
+        "contenders": [
+          "private:CATL",
+          "private:BYD",
+          "TSLA",
+          "private:Form_Energy"
+        ],
+        "moats": [
+          "battery manufacturing scale",
+          "chemistry IP",
+          "pack integration"
+        ],
+        "bottleneck": "duration-dependent cost, degradation and bankability",
+        "market_denominator": "installed operational GWh segmented by storage duration"
+      }
+    ],
+    "verified_contract_seeds": [
+      {
+        "parties": [
+          "SYM",
+          "WMT"
+        ],
+        "type": "master_automation_agreement",
+        "classification": "verified_filing",
+        "claim": "systems across 42 regional distribution centers and additional conditional online pickup work",
+        "source": "https://www.sec.gov/Archives/edgar/data/1837240/000183724026000043/sym-20260627.htm",
+        "guard": "RPO not equal completed revenue"
+      },
+      {
+        "parties": [
+          "SYM",
+          "Exol",
+          "SFTBY"
+        ],
+        "type": "joint_venture_plus_commercial_agreement",
+        "classification": "verified_filing",
+        "claim": "35% Symbotic and 65% SoftBank related ownership, six-year >=USD7.5bn Exol system spending commitment subject to contract provisions",
+        "source": "https://www.sec.gov/Archives/edgar/data/1837240/000119312526015381/sym-20260116.htm",
+        "guard": "Ownership gains and sales to equity-method JV not independent fully additive revenue"
+      },
+      {
+        "parties": [
+          "GOOG",
+          "AEP",
+          "BE"
+        ],
+        "type": "20_year_ppa_and_equipment_supply",
+        "classification": "verified_issuer_statement",
+        "claim": "AEP 702 MW Bloom fuel cells project, USD4bn announced project capex, Google offtake, full operation planned 2028",
+        "source": "https://pr.aep.com/news/releases/read/12314/AEP-Advances-Innovative-Energy-Solution-for-Google-with-702MW-of-Bloom-Fuel-Cells",
+        "guard": "Not energized present capacity; Bloom equipment revenue not USD4bn by default"
+      },
+      {
+        "parties": [
+          "GOOG",
+          "private:CFS"
+        ],
+        "type": "fusion_offtake_and_equity",
+        "classification": "verified_company_statement",
+        "claim": "Google 200MW power offtake from future ARC plant and equity investment",
+        "source": "https://blog.google/company-news/outreach-and-initiatives/sustainability/our-latest-bet-on-a-fusion-powered-future/",
+        "guard": "No current delivered commercial fusion MWh"
+      }
+    ],
+    "priority_research": [
+      "Follow actual paying customers and cumulative obligations for warehouses and factory automation",
+      "Track each robot deployment in units, utilization, RaaS vs outright sales, maintenance and ultimate customer savings",
+      "For quantum measure logical fidelity, reproducible advantage, customer payments and contract revenue",
+      "For energy split PPA contracted MW, permit, manufactured equipment, interconnection, energized and delivered MWh",
+      "For fusion retain private companies as entities and claims but never invent public trading history"
+    ],
+    "sources": [
+      {
+        "url": "https://ifr.org/ifr-press-releases/news/service-robots-on-the-rise-worldwide",
+        "context": "IFR industrial 2025 installed stock, published Sep 24 2026"
+      },
+      {
+        "url": "https://ifr.org/news/global-sales-of-professional-service-robots-surge-24-percent/1st-",
+        "context": "IFR professional service robots 2025, published Sep 30 2026"
+      },
+      {
+        "url": "https://nvidianews.nvidia.com/news/nvidia-and-global-robotics-leaders-take-physical-ai-to-the-real-world",
+        "context": "Nvidia supplier-led ecosystem claims, not exclusive contracts"
+      },
+      {
+        "url": "https://newsroom.ibm.com/2026-06-02-ibm-commits-more-than-10-billion-to-quantum-computing%2C-funding-its-roadmap-from-todays-leading-systems-to-the-worlds-first-fault-tolerant-quantum-computers",
+        "context": "Issuer quantum capital intent and historical contracts; not annual recognized revenue"
+      }
+    ]
   }
 }
