@@ -20,7 +20,8 @@ CASES = {
 
 def model(name, case):
     capacity = 1.85
-    legacy_debt = 50.
+    starting_debt = case.get("start_debt", 50.)
+    legacy_debt = starting_debt
     loans = []
     shares = .600
     cash = 3.
@@ -61,7 +62,7 @@ def model(name, case):
             loan["balance"] -= min(loan["original"] / 20, loan["balance"])
         loans.append(dict(original=borrowing, balance=borrowing-initial_principal))
         debt = legacy_debt + sum(l["balance"] for l in loans)
-        assert abs((50. + sum(r["borrowing"] for r in records) + borrowing
+        assert abs((starting_debt + sum(r["borrowing"] for r in records) + borrowing
                     - sum(r["principal"] for r in records) - principal) - debt) < 1e-8
         assert cash >= 0 and added >= 0 and shares > 0
         records.append(dict(period=f"{year}Q{i%4+1}", end_gw=end, added_gw=added,
@@ -106,7 +107,9 @@ if __name__ == "__main__":
                   cases=cases,
                   weighted_october_2027=sum(c["assumptions"]["weight"]*c["october_2027_value"] for c in cases),
                   weighted_october_2026=sum(c["assumptions"]["weight"]*c["october_2026_value"] for c in cases),
-                  base_new_equipment_eight_year_sensitivity=model("base_new_life_8", dict(CASES["base"], new_equipment_life=8.)))
+                  base_new_equipment_eight_year_sensitivity=model("base_new_life_8", dict(CASES["base"], new_equipment_life=8.)),
+                  base_pricing_persists_sensitivity=model("base_yield_19_in_2028", dict(CASES["base"], yield_2028=19.)),
+                  base_start_debt_45_sensitivity=model("base_start_debt_45", dict(CASES["base"], start_debt=45.)))
     Path(__file__).with_suffix(".json").write_text(json.dumps(output, indent=2)+"\n")
     for c in cases:
         print(c["name"], json.dumps({"2027":c["years"]["2027"], "2028":c["years"]["2028"],
