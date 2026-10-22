@@ -1,0 +1,127 @@
+{
+  "as_of": "2026-10-22",
+  "currency": "USD",
+  "status": "research_not_company_guidance",
+  "actual_global_active_power": {
+    "as_of": "2026-06-30",
+    "mw": 1500
+  },
+  "year_end_2026_active_power_target_mw_lower_bound": 1850,
+  "contracted_power": {
+    "as_of": "2026-08-11",
+    "mw": 4200
+  },
+  "rpo": {
+    "as_of": "2026-06-30",
+    "usd_billions": 103.7,
+    "windows": [
+      {
+        "from": "2026-07-01",
+        "to": "2028-06-30",
+        "share": 0.41,
+        "usd_billions": 42.517
+      },
+      {
+        "from": "2028-07-01",
+        "to": "2030-06-30",
+        "share": 0.39,
+        "usd_billions": 40.443
+      },
+      {
+        "from": "2030-07-01",
+        "to": "2032-12-31",
+        "share": 0.2,
+        "usd_billions": 20.74
+      }
+    ]
+  },
+  "guidance_2026": {
+    "revenue_usd_billions": [
+      12.4,
+      13.2
+    ],
+    "exit_annualized_revenue_usd_billions": [
+      18.5,
+      19.5
+    ],
+    "source_date": "2026-08-11"
+  },
+  "analyst_scenarios": {
+    "FY2027_revenue_usd_billions": [
+      24,
+      27
+    ],
+    "next_four_quarters_revenue_usd_billions": [
+      21,
+      24
+    ],
+    "next_four_quarters_period": "2026Q4-2027Q3",
+    "FY2028_revenue_usd_billions": [
+      32,
+      36
+    ]
+  },
+  "sites": [
+    {
+      "name": "Polaris Forge 1",
+      "tenant": "CoreWeave",
+      "critical_it_mw_total": 400,
+      "ready_for_service_mw": 250,
+      "rfs_as_of": "2026-10-01",
+      "remaining_mw": 150,
+      "earlier_target": "H1 2027",
+      "latest_status": "Under construction; October release does not restate precise completion date"
+    },
+    {
+      "name": "Helios Phase I",
+      "critical_it_mw": 133,
+      "delivered_by": "2026-06-30",
+      "gross_mw": 200
+    },
+    {
+      "name": "Helios Phase II",
+      "critical_it_mw": 260,
+      "initial_delivery_target": "Q2 2027",
+      "full_delivery_date": null
+    },
+    {
+      "name": "Helios Phase III",
+      "critical_it_mw": 133,
+      "earlier_initial_delivery_target": "2028"
+    },
+    {
+      "name": "Core Scientific portfolio",
+      "coreweave_leased_mw": 590,
+      "primary_confirmed_billable_mw": 437,
+      "primary_billable_as_of": "mid-July 2026",
+      "completion_target": "early 2027",
+      "october_485_mw_claim": "Secondary reports only; not independently confirmed; other report distinguishes 48MW delivered from billing"
+    },
+    {
+      "name": "Bell Sherwood",
+      "campus_total_mw": 300,
+      "coreweave_allocation_mw": null,
+      "first_phase_target": "H1 2027",
+      "other_tenant": "Cerebras"
+    },
+    {
+      "name": "Lancaster",
+      "initial_mw": 100,
+      "potential_mw": 300,
+      "primary_confirmed_billing_date": null
+    },
+    {
+      "name": "Indonesia three sites",
+      "contracted_it_mw": 360,
+      "initial_delivery_target": "2028"
+    }
+  ],
+  "sources": [
+    "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+    "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CoreWeave-Q2-26-Earnings-Outlook-Presentation.pdf",
+    "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CRWV-US-CORRECTED-TRANSCRIPT-CoreWeave-Q2-2026-Earnings-Call-11August2026.pdf",
+    "https://www.globenewswire.com/news-release/2026/10/07/3376854/0/en/applied-digital-reports-fiscal-first-quarter-2027-results.html",
+    "https://investor.galaxy.com/news-releases/news-release-details/galaxy-announces-second-quarter-2026-financial-results",
+    "https://investors.corescientific.com/news-events/press-releases/detail/139/core-scientific-announces-second-quarter-2026-results"
+  ]
+}
