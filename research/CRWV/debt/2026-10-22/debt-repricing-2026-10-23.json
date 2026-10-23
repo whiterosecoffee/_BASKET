@@ -1,0 +1,524 @@
+{
+  "schema": "crwv.debt-repricing@1",
+  "as_of": "2026-10-23",
+  "balance_date": "2026-06-30",
+  "currency": "USD",
+  "status": "historical balances plus separately dated events; current exposures unknown",
+  "instruments": [
+    {
+      "id": "DDTL1",
+      "name": "DDTL 1.0",
+      "amount_usd_m": 1300,
+      "effective_interest_rate_pct_rounded": 15,
+      "maturity_label": "Mar 2028",
+      "recourse": "recourse",
+      "rate_type": "floating",
+      "terms": "Up to 2300 original commitment; quarterly amortization; final payment March 28, 2028. Contract spread not independently extracted.",
+      "source_ids": [
+        "Q2",
+        "FY25"
+      ],
+      "repricing_mechanism": "Benchmark can reset under existing agreement without renegotiation. Contractual spread does not automatically follow traded bond spread. Net exposure depends on executed hedges and floors.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "DDTL2",
+      "name": "DDTL 2.0",
+      "amount_usd_m": 3190,
+      "effective_interest_rate_pct_rounded": 11,
+      "maturity_label": "Aug 2030",
+      "recourse": "recourse",
+      "rate_type": "floating",
+      "terms": "Up to 7600 commitment; quarterly installments began January 2026; final payment five years after funding.",
+      "source_ids": [
+        "Q2",
+        "FY25"
+      ],
+      "repricing_mechanism": "Benchmark can reset under existing agreement without renegotiation. Contractual spread does not automatically follow traded bond spread. Net exposure depends on executed hedges and floors.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "DDTL21",
+      "name": "DDTL 2.1",
+      "amount_usd_m": 3000,
+      "effective_interest_rate_pct_rounded": 9,
+      "maturity_label": "Mar 2031",
+      "recourse": "recourse",
+      "rate_type": "floating",
+      "terms": "Separate 3000 tranche, not another 7600; SOFR+4.25%; quarterly installments began July 2026. Q2 supersedes FY25 maturity label.",
+      "source_ids": [
+        "Q2",
+        "FY25"
+      ],
+      "repricing_mechanism": "Benchmark can reset under existing agreement without renegotiation. Contractual spread does not automatically follow traded bond spread. Net exposure depends on executed hedges and floors.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "DDTL3",
+      "name": "DDTL 3.0",
+      "amount_usd_m": 2215,
+      "effective_interest_rate_pct_rounded": 9,
+      "maturity_label": "Aug 2030",
+      "recourse": "recourse",
+      "rate_type": "floating",
+      "terms": "2600 facility; SOFR+4.00%; monthly installments began April 2026; 0.50% undrawn fee. Required hedge >=75% anticipated floating loans; FY25 stated compliance.",
+      "source_ids": [
+        "Q2",
+        "FY25"
+      ],
+      "repricing_mechanism": "Benchmark can reset under existing agreement without renegotiation. Contractual spread does not automatically follow traded bond spread. Net exposure depends on executed hedges and floors.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "DDTL5",
+      "name": "DDTL 5.0",
+      "amount_usd_m": 1101,
+      "effective_interest_rate_pct_rounded": 9,
+      "maturity_label": "Nov 2031",
+      "recourse": "recourse",
+      "rate_type": "floating",
+      "terms": "3100 facility, SOFR+4.50%; draw period ended September 30, 2026; installments start November 2026. Narrative expects final payment May 2031 while debt table lists November 2031: unresolved distinction. 0.50% undrawn fee; >=95% anticipated floating hedge required.",
+      "source_ids": [
+        "Q2",
+        "DDTL5IR"
+      ],
+      "repricing_mechanism": "Benchmark can reset under existing agreement without renegotiation. Contractual spread does not automatically follow traded bond spread. Net exposure depends on executed hedges and floors.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "NOTE2030",
+      "name": "2030 senior notes",
+      "amount_usd_m": 2000,
+      "effective_interest_rate_pct_rounded": 10,
+      "maturity_label": "Jun 2030",
+      "recourse": "recourse",
+      "rate_type": "fixed",
+      "terms": "9.250% cash coupon; senior unsecured; June 1, 2030 maturity.",
+      "source_ids": [
+        "Q2",
+        "FY25",
+        "CONVERT"
+      ],
+      "repricing_mechanism": "No coupon reset from secondary-market yield changes. Refinancing/new issuance reprices; conversion, FX hedges and optional repayment require separate treatment.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "NOTE2031A",
+      "name": "2031 9.00% senior notes",
+      "amount_usd_m": 1750,
+      "effective_interest_rate_pct_rounded": 10,
+      "maturity_label": "Feb 2031",
+      "recourse": "recourse",
+      "rate_type": "fixed",
+      "terms": "9.000% cash coupon; senior unsecured. Effective rate rounded by filing differs from coupon.",
+      "source_ids": [
+        "Q2"
+      ],
+      "repricing_mechanism": "No coupon reset from secondary-market yield changes. Refinancing/new issuance reprices; conversion, FX hedges and optional repayment require separate treatment.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "NOTE2031B",
+      "name": "2031 9.75% senior notes",
+      "amount_usd_m": 2750,
+      "effective_interest_rate_pct_rounded": 10,
+      "maturity_label": "Oct 2031",
+      "recourse": "recourse",
+      "rate_type": "fixed",
+      "terms": "9.750% coupon; senior unsecured; October 1, 2031 maturity; $27M issuance costs at issuance.",
+      "source_ids": [
+        "Q2"
+      ],
+      "repricing_mechanism": "No coupon reset from secondary-market yield changes. Refinancing/new issuance reprices; conversion, FX hedges and optional repayment require separate treatment.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "NOTE2032USD",
+      "name": "2032 9.625% senior notes",
+      "amount_usd_m": 1250,
+      "effective_interest_rate_pct_rounded": 10,
+      "maturity_label": "Jul 2032",
+      "recourse": "recourse",
+      "rate_type": "fixed",
+      "terms": "9.625% coupon; senior unsecured; July 15, 2032; $20M debt discount and issuance costs.",
+      "source_ids": [
+        "Q2"
+      ],
+      "repricing_mechanism": "No coupon reset from secondary-market yield changes. Refinancing/new issuance reprices; conversion, FX hedges and optional repayment require separate treatment.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "NOTE2032EUR",
+      "name": "2032 EUR senior notes",
+      "amount_usd_m": 2279,
+      "effective_interest_rate_pct_rounded": 9,
+      "maturity_label": "Jul 2032",
+      "recourse": "recourse",
+      "rate_type": "fixed",
+      "terms": "8.500% coupon; original EUR2000M principal; filing USD carrying translation retained rather than new spot FX. Cross-currency swap covers EUR2000M; no assumed all-in synthetic USD rate. $41M issuance costs.",
+      "source_ids": [
+        "Q2"
+      ],
+      "repricing_mechanism": "No coupon reset from secondary-market yield changes. Refinancing/new issuance reprices; conversion, FX hedges and optional repayment require separate treatment.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "CONV2031",
+      "name": "2031 convertible senior notes",
+      "amount_usd_m": 2588,
+      "effective_interest_rate_pct_rounded": 2,
+      "maturity_label": "Dec 2031",
+      "recourse": "recourse",
+      "rate_type": "fixed",
+      "terms": "1.75% cash coupon; senior unsecured; $57M issuance costs at issuance. Equity conversion optional/conditional, not guaranteed principal extinguishment.",
+      "source_ids": [
+        "Q2",
+        "FY25"
+      ],
+      "repricing_mechanism": "No coupon reset from secondary-market yield changes. Refinancing/new issuance reprices; conversion, FX hedges and optional repayment require separate treatment.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "CONV2032",
+      "name": "2032 convertible senior notes",
+      "amount_usd_m": 4000,
+      "effective_interest_rate_pct_rounded": 2,
+      "maturity_label": "Oct 2032",
+      "recourse": "recourse",
+      "rate_type": "fixed",
+      "terms": "1.75% coupon; October 1, 2032; $70M discount/issuance costs, $492M capped-call outlay; initial conversion $119.60, cap $230. Capped-call spending is not recurring coupon.",
+      "source_ids": [
+        "Q2"
+      ],
+      "repricing_mechanism": "No coupon reset from secondary-market yield changes. Refinancing/new issuance reprices; conversion, FX hedges and optional repayment require separate treatment.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "ACQNOTES",
+      "name": "Acquisition convertible promissory notes",
+      "amount_usd_m": 0,
+      "effective_interest_rate_pct_rounded": 7,
+      "maturity_label": "Apr 2026",
+      "recourse": "recourse",
+      "rate_type": "non_interest_bearing",
+      "terms": "$172M principal settled in shares in April 2026 at $106.61 conversion price; no remaining balance.",
+      "source_ids": [
+        "Q2"
+      ],
+      "repricing_mechanism": "Settled balance; no remaining rate sensitivity.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "RCF",
+      "name": "Revolver",
+      "amount_usd_m": 0,
+      "effective_interest_rate_pct_rounded": 7,
+      "maturity_label": "Nov 2029",
+      "recourse": "recourse",
+      "rate_type": "floating",
+      "terms": "2500 commitment; previous balance repaid April 2026; 533 letters of credit consume availability; about 2000 remaining June capacity. 0.25% undrawn fee. August 1200 draw belongs in overlay.",
+      "source_ids": [
+        "Q2"
+      ],
+      "repricing_mechanism": "Benchmark can reset under existing agreement without renegotiation. Contractual spread does not automatically follow traded bond spread. Net exposure depends on executed hedges and floors.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "OEMR",
+      "name": "OEM/software financing, recourse",
+      "amount_usd_m": 4220,
+      "effective_interest_rate_pct_rounded": 11,
+      "maturity_label": "Dec 2026\u2013Jul 2030",
+      "recourse": "recourse",
+      "rate_type": "mixed_or_unspecified",
+      "terms": "Secured equipment/vendor financing; exact fixed/floating tranche split not extracted. OEM agreements generally one to three years; software generally less than five. Not all this balance is a short-term bullet.",
+      "source_ids": [
+        "Q2",
+        "FY25"
+      ],
+      "repricing_mechanism": "Unknown tranche-level rate reset and repayment schedule; do not classify all as fixed or floating.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "MAG",
+      "name": "Magnetar/MagAI obligation",
+      "amount_usd_m": 189,
+      "effective_interest_rate_pct_rounded": 12,
+      "maturity_label": "Jan 2029",
+      "recourse": "recourse",
+      "rate_type": "accreting_redemption_premium",
+      "terms": "In-substance debt from refundable capacity prepayment with termination-for-convenience rights; $100M paid June 2026. FY25 classified current despite later stated term: do not equate term date to cash-call date.",
+      "source_ids": [
+        "Q2",
+        "FY25"
+      ],
+      "repricing_mechanism": "Contractual premium/cash-call terms govern; not a floating credit-spread reset.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "DDTL4",
+      "name": "DDTL 4.0",
+      "amount_usd_m": 2837,
+      "effective_interest_rate_pct_rounded": 7,
+      "maturity_label": "Mar 2032",
+      "recourse": "non_recourse_except_carveouts",
+      "rate_type": "mixed_fixed_floating",
+      "terms": "8500 facility; SOFR+2.25% or blended Treasury+2.00%; about 1400 floating/1500 fixed at June (rounded). Draw deadline June 30, 2027; 0.50% undrawn fee. Monthly principal commencement depends on draw/site events. >=95% anticipated floating hedge required after specified future dates. $151M capitalized financing costs.",
+      "source_ids": [
+        "Q2"
+      ],
+      "repricing_mechanism": "Split fixed and floating tranches; benchmark sensitivity only on unhedged floating exposure. Hedge mandate is not evidence of current hedge notional.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    },
+    {
+      "id": "OEMNR",
+      "name": "OEM/software financing, non-recourse",
+      "amount_usd_m": 882,
+      "effective_interest_rate_pct_rounded": 9,
+      "maturity_label": "Aug 2026\u2013Aug 2028",
+      "recourse": "non_recourse_except_carveouts",
+      "rate_type": "mixed_or_unspecified",
+      "terms": "Shorter vendor obligations included. Filing says short-term OEM debt weighted-average rate 9%; it does not disclose separate short-term-only balance here.",
+      "source_ids": [
+        "Q2"
+      ],
+      "repricing_mechanism": "Unknown tranche-level rate reset and repayment schedule; do not classify all as fixed or floating.",
+      "automatic_customer_financing_cost_pass_through_verified": false,
+      "pass_through_evidence_status": "not established from reviewed public documents",
+      "current_balance_usd_m": null
+    }
+  ],
+  "subsequent_events": [
+    {
+      "id": "EV55",
+      "effective_on": "2026-08-07",
+      "available_on": "2026-08-12",
+      "kind": "new_facility_and_disclosed_draw",
+      "facility_commitment_usd_m": 2600,
+      "disclosed_draw_usd_m": 1200,
+      "rate": "Term SOFR+5.50% / base+4.50%",
+      "maturity": "2031-09-01",
+      "draw_deadline": "2026-12",
+      "fee": "0.50% undrawn per year",
+      "security": "Substantially all borrower/sub assets and 100% borrower equity pledge; unconditional parent/sub guarantees",
+      "covenant": "DSCR >=1.35x starting first full month after earlier of commitments reduced to zero or December 31, 2026",
+      "customer_contract_average_years": 3,
+      "debt_years_approx": 5,
+      "source_ids": [
+        "Q2",
+        "DDTL55",
+        "DDTL55IR"
+      ]
+    },
+    {
+      "id": "EVRCF",
+      "effective_on": null,
+      "effective_month": "2026-08",
+      "available_on": "2026-08-12",
+      "kind": "revolver_draw",
+      "draw_usd_m": 1200,
+      "source_ids": [
+        "Q2"
+      ]
+    },
+    {
+      "id": "EVCONV",
+      "effective_on": "2026-09-22",
+      "available_on": "2026-09-22",
+      "kind": "completed_notes_issue",
+      "principal_usd_m": 4200,
+      "initial_base_principal_usd_m": 3700,
+      "exercised_option_usd_m": 500,
+      "cash_coupon_pct": 2.875,
+      "maturity": "2033-04-01",
+      "net_after_purchaser_discount_before_expenses_usd_m": 4137,
+      "capped_call_cost_usd_m": 566.2,
+      "remaining_before_other_expenses_usd_m": 3570.8,
+      "initial_conversion_price_usd": 97.85,
+      "capped_call_cap_usd": 199.7,
+      "initial_conversion_shares_per_1000_usd": 10.2194,
+      "source_ids": [
+        "CONVERT"
+      ],
+      "note": "Final closed terms supersede proposed $3B/3.5B and estimated 2.625% presentation assumptions. No automatic conversion if stock remains below strike."
+    }
+  ],
+  "sources": [
+    {
+      "id": "Q2",
+      "title": "Q2 2026 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "source_class": "regulatory_filing",
+      "available_on": "2026-08-12",
+      "available_at": null,
+      "period_end": "2026-06-30",
+      "observed_at": "2026-10-22T13:54:19.814Z",
+      "ingested_at": "2026-10-22T13:54:19.814Z",
+      "retrieval_cache_at": "2026-10-21T14:02:26.742Z",
+      "evidence_status": "retrieved_primary_source",
+      "temporal_note": "Date-only availability where known; exact first-publication instant not inferred. Historical source facts do not establish current balances."
+    },
+    {
+      "id": "FY25",
+      "title": "FY2025 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/crwv-20251231.htm",
+      "source_class": "regulatory_filing",
+      "available_on": null,
+      "available_at": null,
+      "period_end": "2025-12-31",
+      "observed_at": "2026-10-22T13:54:19.814Z",
+      "ingested_at": "2026-10-22T13:54:19.814Z",
+      "retrieval_cache_at": "2026-10-22T12:04:12.360Z",
+      "evidence_status": "retrieved_primary_source",
+      "temporal_note": "Date-only availability where known; exact first-publication instant not inferred. Historical source facts do not establish current balances."
+    },
+    {
+      "id": "SEP",
+      "title": "September 2026 investor presentation",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000429/crwv2026convertpresentat.htm",
+      "source_class": "regulatory_filing",
+      "available_on": "2026-09-17",
+      "available_at": null,
+      "period_end": null,
+      "observed_at": "2026-10-22T13:54:19.814Z",
+      "ingested_at": "2026-10-22T13:54:19.814Z",
+      "retrieval_cache_at": null,
+      "evidence_status": "retrieved_primary_source",
+      "temporal_note": "Date-only availability where known; exact first-publication instant not inferred. Historical source facts do not establish current balances."
+    },
+    {
+      "id": "CONVERT",
+      "title": "September convertible closing 8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000432/crwv-20260917.htm",
+      "source_class": "regulatory_filing",
+      "available_on": "2026-09-22",
+      "available_at": null,
+      "period_end": null,
+      "observed_at": "2026-10-22T13:54:19.814Z",
+      "ingested_at": "2026-10-22T13:54:19.814Z",
+      "retrieval_cache_at": "2026-10-21T05:33:16.773Z",
+      "evidence_status": "retrieved_primary_source",
+      "temporal_note": "Date-only availability where known; exact first-publication instant not inferred. Historical source facts do not establish current balances."
+    },
+    {
+      "id": "DDTL55",
+      "title": "DDTL 5.5 credit agreement summary 8-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000357/crwv-20260807.htm",
+      "source_class": "regulatory_filing",
+      "available_on": "2026-08-10",
+      "available_at": null,
+      "period_end": null,
+      "observed_at": "2026-10-22T13:54:19.814Z",
+      "ingested_at": "2026-10-22T13:54:19.814Z",
+      "retrieval_cache_at": "2026-10-21T14:06:09.520Z",
+      "evidence_status": "retrieved_primary_source",
+      "temporal_note": "Date-only availability where known; exact first-publication instant not inferred. Historical source facts do not establish current balances."
+    },
+    {
+      "id": "DDTL55IR",
+      "title": "DDTL 5.5 closing announcement",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Closes-2-6-Billion-Loan-Facility-Expanding-Financing-Flexibility-for-AI-Infrastructure/default.aspx",
+      "source_class": "issuer_statement",
+      "available_on": "2026-08-10",
+      "available_at": null,
+      "period_end": null,
+      "observed_at": "2026-10-22T13:54:19.814Z",
+      "ingested_at": "2026-10-22T13:54:19.814Z",
+      "retrieval_cache_at": "2026-10-20T23:00:01.644Z",
+      "evidence_status": "retrieved_primary_source",
+      "temporal_note": "Date-only availability where known; exact first-publication instant not inferred. Historical source facts do not establish current balances."
+    },
+    {
+      "id": "NVDA",
+      "title": "NVIDIA/CoreWeave expansion announcement",
+      "url": "https://investors.coreweave.com/news/news-details/2026/NVIDIA-and-CoreWeave-Strengthen-Collaboration-to-Accelerate-Buildout-of-AI-Factories/default.aspx",
+      "source_class": "issuer_statement",
+      "available_on": "2026-01-26",
+      "available_at": null,
+      "period_end": null,
+      "observed_at": "2026-10-22T13:54:19.814Z",
+      "ingested_at": "2026-10-22T13:54:19.814Z",
+      "retrieval_cache_at": "2026-10-21T18:49:44.355Z",
+      "evidence_status": "retrieved_primary_source",
+      "temporal_note": "Date-only availability where known; exact first-publication instant not inferred. Historical source facts do not establish current balances."
+    },
+    {
+      "id": "DDTL5IR",
+      "title": "DDTL 5.0 closing announcement",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Closes-3-1-Billion-Loan-Facility-Expanding-Access-to-Public-Markets-for-GPU-Backed-Financing/default.aspx",
+      "source_class": "issuer_statement",
+      "available_on": "2026-05-18",
+      "available_at": null,
+      "period_end": null,
+      "observed_at": "2026-10-22T13:54:19.814Z",
+      "ingested_at": "2026-10-22T13:54:19.814Z",
+      "retrieval_cache_at": null,
+      "evidence_status": "retrieved_primary_source",
+      "temporal_note": "Date-only availability where known; exact first-publication instant not inferred. Historical source facts do not establish current balances."
+    },
+    {
+      "id": "MARCH",
+      "title": "March investor presentation",
+      "url": "https://s205.q4cdn.com/133937190/files/doc_presentations/2026/Mar/02/March-2026-Investor-Presentation.pdf",
+      "source_class": "issuer_statement",
+      "available_on": null,
+      "available_at": null,
+      "period_end": null,
+      "observed_at": "2026-10-22T13:54:19.814Z",
+      "ingested_at": "2026-10-22T13:54:19.814Z",
+      "retrieval_cache_at": "2026-10-22T02:50:22.916Z",
+      "evidence_status": "retrieved_primary_source",
+      "temporal_note": "Date-only availability where known; exact first-publication instant not inferred. Historical source facts do not establish current balances."
+    }
+  ],
+  "rules": [
+    "Secondary market yield is not the contractual cash coupon",
+    "Benchmark resets can occur without renegotiation",
+    "New contracts may price financing cost economically; no universal automatic pass-through clause established",
+    "Already signed service contracts with undrawn financing can have a funding-price gap",
+    "Do not sum June balances and subsequent gross issuance to claim October total debt",
+    "Operating leases are distinct from funded debt; avoid applying bond yield to lease liabilities"
+  ],
+  "maturity_ladder_usd_m": {
+    "2027": 6184,
+    "2028": 4416,
+    "2029": 2421,
+    "2030": 3221,
+    "2026_remaining": 4413,
+    "thereafter": 14896
+  }
+}
