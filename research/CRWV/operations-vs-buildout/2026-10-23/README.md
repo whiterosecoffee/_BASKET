@@ -40,7 +40,7 @@ Invalidation tests: Q3 adj. EBITDA below about $2.1B; EBITDA margin below 56%; y
 
 ## Open items
 - No management statement of a forward 75% margin found; 74-75% figures are gross margin from 2025 coverage and a third-party model.
-- Debt totals conflict ($35B debt-only, $51.6B incl. leases, about $42B pro forma): handed to #68 / draft PR #69.
+- Debt: June 30 totals are reconciled in #68 / PR #69 ($35.068B funded debt + $16.319B operating leases + $0.221B finance leases = $51.608B; different inclusion bases). Still open: October/current balance and the third-party about $42B pro forma estimate (not an issuer figure).
 - Q2 gross margin and Q2 backlog recognition schedule not verified from primary filings.
 
 Sources are listed in `findings.json`.

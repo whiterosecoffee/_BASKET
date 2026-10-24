@@ -14,14 +14,34 @@
   "tape": {
     "source": "Massive daily aggregates (adjusted) via MCP, retrieved 2026-10-23 ~20:40 ET; cross-checked to user-supplied Apple Stocks screenshot taken 20:21 ET.",
     "closes_usd": {
-      "2026-10-12": 80.26, "2026-10-13": 77.81, "2026-10-14": 65.78, "2026-10-15": 69.69,
-      "2026-10-16": 61.39, "2026-10-19": 61.12, "2026-10-20": 62.13, "2026-10-21": 61.82,
-      "2026-10-22": 55.60, "2026-10-23": 54.235
+      "2026-10-12": 80.26,
+      "2026-10-13": 77.81,
+      "2026-10-14": 65.78,
+      "2026-10-15": 69.69,
+      "2026-10-16": 61.39,
+      "2026-10-19": 61.12,
+      "2026-10-20": 62.13,
+      "2026-10-21": 61.82,
+      "2026-10-22": 55.6,
+      "2026-10-23": 54.235
     },
-    "2026-10-23": {"open": 54.92, "high": 56.11, "low": 54.01, "close": 54.235, "volume_massive": 46982572, "volume_screenshot": 46370000, "note": "Volume differs slightly between sources; both retained."},
-    "after_hours_screenshot": {"price": 53.95, "change_pct": -0.53, "time_et": "2026-10-23T20:21:00-04:00", "source_class": "user_supplied_screenshot"},
+    "2026-10-23": {
+      "open": 54.92,
+      "high": 56.11,
+      "low": 54.01,
+      "close": 54.235,
+      "volume_massive": 46982572,
+      "volume_screenshot": 46370000,
+      "note": "Volume differs slightly between sources; both retained."
+    },
+    "after_hours_screenshot": {
+      "price": 53.95,
+      "change_pct": -0.53,
+      "time_et": "2026-10-23T20:21:00-04:00",
+      "source_class": "user_supplied_screenshot"
+    },
     "market_cap_screenshot_usd_b": 29.91,
-    "fifty_two_week_low_reference_usd": 53.50,
+    "fifty_two_week_low_reference_usd": 53.5,
     "fifty_two_week_low_note": "10/22 intraday low per Massive bar and GuruFocus; screenshot truncates the 52W low field."
   },
   "claims": {
@@ -36,56 +56,161 @@
       "net_interest_expense_usd_m": 640,
       "net_loss_usd_m": 626,
       "capex_q2_usd_b": 9.4,
-      "construction_in_progress_usd_b": {"2026-06-30": 11.9, "prior_quarter": 9.6},
-      "active_power_gw": {"2026-06-30": 1.5, "year_end_2026_target_floor": 1.85},
-      "contracted_power_gw": {"2026-06-30": 3.7, "2026-08-11": 4.2},
+      "construction_in_progress_usd_b": {
+        "2026-06-30": 11.9,
+        "prior_quarter": 9.6
+      },
+      "active_power_gw": {
+        "2026-06-30": 1.5,
+        "year_end_2026_target_floor": 1.85
+      },
+      "contracted_power_gw": {
+        "2026-06-30": 3.7,
+        "2026-08-11": 4.2
+      },
       "revenue_backlog_usd_b": 104.2,
       "backlog_excludes_new_q3_commitments_usd_b": "more than 25",
       "backlog_under_delivery": "more than 50% now; more than two thirds by year end",
       "capital_secured_usd_b": "more than 32 (period basis not specified)",
       "capital_raised_in_q2_usd_b": 18,
       "cash_restricted_cash_securities_usd_b": 6.9,
-      "guidance_q3": {"adj_operating_income_usd_m": [200, 260], "interest_expense_usd_m": [860, 940], "capex_usd_b": [11.5, 13.5]},
-      "guidance_fy2026": {"revenue_usd_b": [12.4, 13.2], "adj_operating_income_usd_m": [960, 1150], "capex_usd_b": [35, 39], "exit_arr_usd_b": [18.5, 19.5]},
+      "guidance_q3": {
+        "adj_operating_income_usd_m": [
+          200,
+          260
+        ],
+        "interest_expense_usd_m": [
+          860,
+          940
+        ],
+        "capex_usd_b": [
+          11.5,
+          13.5
+        ]
+      },
+      "guidance_fy2026": {
+        "revenue_usd_b": [
+          12.4,
+          13.2
+        ],
+        "adj_operating_income_usd_m": [
+          960,
+          1150
+        ],
+        "capex_usd_b": [
+          35,
+          39
+        ],
+        "exit_arr_usd_b": [
+          18.5,
+          19.5
+        ]
+      },
       "margin_path": "Adjusted operating margin reaching low teens in Q4; long-term target 25-30%.",
       "new_contract_contribution_margin": "Q2 contracts expected 5-10 points above recent quarters.",
       "indonesia_project_mw": 360,
       "indonesia_online": "approximately 18 months"
     },
     "issuer_statements_earlier": {
-      "q1_2026_call": {"backlog_recognition": "36% within 24 months, 75% within four years (Q1 backlog $99.4B); no Q2 equivalent found", "maturities": "No debt maturities until 2029 other than self-amortizing contract-backed debt and OEM vendor financing."},
-      "march_2026_conference": {"contract_level_stabilized_margin": "mid-20s", "ddtl_share_of_contract_capex": "up to about 90%"}
+      "q1_2026_call": {
+        "backlog_recognition": "36% within 24 months, 75% within four years (Q1 backlog $99.4B); no Q2 equivalent found",
+        "maturities": "No debt maturities until 2029 other than self-amortizing contract-backed debt and OEM vendor financing."
+      },
+      "march_2026_conference": {
+        "contract_level_stabilized_margin": "mid-20s",
+        "ddtl_share_of_contract_capex": "up to about 90%"
+      }
     },
     "third_party_claims": [
-      {"claim": "Pro forma total debt about $42B; only about $3.8B non-recourse; FCF about -$27B in 2026", "source": "junkbondinvestor.com, 2026-10-20", "class": "third_party_estimate"},
-      {"claim": "Debt $35B at 2026-06-30 (debt only)", "source": "Market Daily / Khan Capital", "class": "third_party"},
-      {"claim": "Debt $51.6B at 2026-06-30 (appears to include leases)", "source": "Forbes/Trefis 2026-10-15; Motley Fool 2026-10-16 cites about $52B loans and lease obligations", "class": "third_party"},
-      {"claim": "5-year CDS record about 1,195 bp on 2026-10-15", "source": "Motley Fool 2026-10-16", "class": "third_party"},
-      {"claim": "Unsecured bond yields near 15% on 2026-10-14; S&P rating B+", "source": "CNBC 2026-10-14", "class": "third_party"},
-      {"claim": "HSBC Reduce, $39 target; Goldman Sachs upgraded to Buy on 2026-10-19", "source": "thecryptobasic.com 2026-10-20", "class": "third_party"},
-      {"claim": "Q1 2026 capex about $6.8B (Q2 described as up $2.6B QoQ)", "source": "Dolphin Research call notes", "class": "third_party"},
-      {"claim": "Operating cash flow $6.91B trailing twelve months to June 2026", "source": "Forbes/Trefis 2026-10-15", "class": "third_party"},
-      {"claim": "2025 reported gross margin about 74%; cost categorization opaque", "source": "Motley Fool 2025-10-29", "class": "third_party"}
+      {
+        "claim": "Pro forma total debt about $42B; only about $3.8B non-recourse; FCF about -$27B in 2026",
+        "source": "junkbondinvestor.com, 2026-10-20",
+        "class": "third_party_estimate",
+        "note": "Not a verified issuer balance; October verification open."
+      },
+      {
+        "claim": "Debt $35B at 2026-06-30 (debt only)",
+        "source": "Market Daily / Khan Capital",
+        "class": "third_party"
+      },
+      {
+        "claim": "Debt $51.6B at 2026-06-30 (appears to include leases)",
+        "source": "Forbes/Trefis 2026-10-15; Motley Fool 2026-10-16 cites about $52B loans and lease obligations",
+        "class": "third_party",
+        "note": "Includes leases; reconciled in PR #69: $35.068B funded debt + $16.319B operating leases + $0.221B finance leases = $51.608B."
+      },
+      {
+        "claim": "5-year CDS record about 1,195 bp on 2026-10-15",
+        "source": "Motley Fool 2026-10-16",
+        "class": "third_party"
+      },
+      {
+        "claim": "Unsecured bond yields near 15% on 2026-10-14; S&P rating B+",
+        "source": "CNBC 2026-10-14",
+        "class": "third_party"
+      },
+      {
+        "claim": "HSBC Reduce, $39 target; Goldman Sachs upgraded to Buy on 2026-10-19",
+        "source": "thecryptobasic.com 2026-10-20",
+        "class": "third_party"
+      },
+      {
+        "claim": "Q1 2026 capex about $6.8B (Q2 described as up $2.6B QoQ)",
+        "source": "Dolphin Research call notes",
+        "class": "third_party"
+      },
+      {
+        "claim": "Operating cash flow $6.91B trailing twelve months to June 2026",
+        "source": "Forbes/Trefis 2026-10-15",
+        "class": "third_party"
+      },
+      {
+        "claim": "2025 reported gross margin about 74%; cost categorization opaque",
+        "source": "Motley Fool 2025-10-29",
+        "class": "third_party"
+      }
     ],
     "unverified": [
       "No management statement of a forward 75% margin was found; 74-75% figures are gross margin from 2025 coverage and a third-party contract model (75.5%). Meaning of the user's 75% reference unresolved.",
       "Q2 2026 gross margin not verified from primary filing.",
       "Backlog recognition schedule for Q2 backlog not found.",
-      "Whether the more than $32B secured capital is 2026-only or cumulative across years."
+      "Whether the more than $32B secured capital is 2026-only or cumulative across years.",
+      "October/current debt balance and the roughly $42B pro forma estimate (June basis reconciled in PR #69)."
     ]
   },
   "derived_arithmetic": {
     "note": "Re-run by verify.py in this folder; values are computed, not sourced.",
-    "per_100_revenue_q2_2026": {"adj_ebitda": 58.64, "d_and_a": 54.10, "net_interest": 24.85, "other_stock_comp_tax_etc": -4.00, "net_loss": -24.31},
+    "per_100_revenue_q2_2026": {
+      "adj_ebitda": 58.64,
+      "d_and_a": 54.1,
+      "net_interest": 24.85,
+      "other_stock_comp_tax_etc": -4.0,
+      "net_loss": -24.31
+    },
     "buildout_cost_pct_of_revenue": 78.95,
     "interest_to_adj_ebitda_q2_pct": 42.38,
-    "q3_adj_ebitda_needed_to_hold_interest_ratio_usd_m": {"low_interest_860": 2029, "mid_interest_900": 2123, "high_interest_940": 2218},
+    "q3_adj_ebitda_needed_to_hold_interest_ratio_usd_m": {
+      "low_interest_860": 2029,
+      "mid_interest_900": 2123,
+      "high_interest_940": 2218
+    },
     "capex_h1_usd_b": 16.2,
     "capex_h2_implied_midpoint_usd_b": 20.8,
-    "capex_q4_implied_usd_b": {"low": 5.3, "midpoint": 8.3, "high": 11.3},
-    "active_over_contracted_pct": {"vs_3_7gw_at_2026_06_30": 40.5, "vs_4_2gw_at_2026_08_11": 35.7, "year_end_target_vs_4_2gw": 44.0},
+    "capex_q4_implied_usd_b": {
+      "low": 5.3,
+      "midpoint": 8.3,
+      "high": 11.3
+    },
+    "active_over_contracted_pct": {
+      "vs_3_7gw_at_2026_06_30": 40.5,
+      "vs_4_2gw_at_2026_08_11": 35.7,
+      "year_end_target_vs_4_2gw": 44.0
+    },
     "contracted_not_active_after_year_end_target_gw": 2.35,
-    "capex_funding_ratios_pct": {"secured_capital_over_fy_capex_midpoint": 86.5, "ttm_operating_cash_flow_over_fy_capex_midpoint": 18.7},
+    "capex_funding_ratios_pct": {
+      "secured_capital_over_fy_capex_midpoint": 86.5,
+      "ttm_operating_cash_flow_over_fy_capex_midpoint": 18.7
+    },
     "cumulative_move_2026_10_12_to_10_23_pct": -32.43
   },
   "interpretation_hypotheses": {
@@ -93,9 +218,26 @@
     "operating_vs_buildout": "Operations are cash-profitable (59% adj. EBITDA margin) but depreciation plus interest equal about 79% of revenue, exceeding EBITDA by about 20 points; net margin about -24%.",
     "capacity_conversion": "H2 capex of about $20.8B at midpoints funds only about +0.35 GW of guided year-end active power (guided as a floor), implying most H2 spend pre-builds 2027+ capacity rather than converting current backlog in 2026.",
     "scenarios_one_week": [
-      {"id": "S1", "name": "Range", "description": "Trades roughly 50-62 while credit remains the driver.", "reference_levels_usd": [50, 62]},
-      {"id": "S2", "name": "Breakdown", "trigger": "Close below 53.50 (10/22 intraday 52-week low)", "bear_marker": "HSBC $39 target (third-party)"},
-      {"id": "S3", "name": "Relief bounce", "trigger": "Close above 62 (10/16-10/21 consolidation shelf) with bond/CDS stabilization"}
+      {
+        "id": "S1",
+        "name": "Range",
+        "description": "Trades roughly 50-62 while credit remains the driver.",
+        "reference_levels_usd": [
+          50,
+          62
+        ]
+      },
+      {
+        "id": "S2",
+        "name": "Breakdown",
+        "trigger": "Close below 53.50 (10/22 intraday 52-week low)",
+        "bear_marker": "HSBC $39 target (third-party)"
+      },
+      {
+        "id": "S3",
+        "name": "Relief bounce",
+        "trigger": "Close above 62 (10/16-10/21 consolidation shelf) with bond/CDS stabilization"
+      }
     ],
     "invalidation_tests": [
       "Q3 adj. EBITDA below about $2.1B (interest ratio worsens vs 42%)",
@@ -107,7 +249,12 @@
     ]
   },
   "handoffs": [
-    {"to": "B10 #68 / PR #69", "request": "Reconcile total debt ($35B debt-only vs $51.6B incl. leases vs about $42B pro forma) by instrument; this branch does not resolve it."}
+    {
+      "to": "B10 #68 / PR #69",
+      "request": "June 30 debt-vs-lease totals already reconciled there (see reconciliation note). Remaining open: verify October/current debt balance and the third-party pro forma estimate.",
+      "status": "partially_completed",
+      "reconciliation": "2026-06-30 reconciled by existing B10 #68 / draft PR #69: funded debt $35.068B + operating leases $16.319B + finance leases $0.221B = $51.608B (different inclusion bases, not competing same-basis balances). Verified against PR #69 README. The roughly $42B pro forma is a later third-party estimate, not a verified issuer balance; October/current-balance verification remains open."
+    }
   ],
   "sources": [
     "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CRWV-US-CORRECTED-TRANSCRIPT-CoreWeave-Q2-2026-Earnings-Call-11August2026.pdf",
