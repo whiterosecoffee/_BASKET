@@ -161,3 +161,7 @@ Cash was **$5.524B**, securities **$15M**, restricted cash **$1.380B**. Reported
 A separate DCSP arrangement has $302M gross note receivable set off against $112M financing obligation and $118M finance lease, leaving a $72M net receivable. It carries 13–15% imputed/contractual rates. Preserve that setoff and avoid duplicating gross obligations in net debt.
 
 **Coverage gaps:** October exact balances and hedges; each OEM tranche; customer-by-customer waterfalls; full 5GW funding schedule; DDTL 5.0 date discrepancy; latest default/covenant status after June. These remain explicit unknowns, not zero values. This report does not update canonical events, relationships, price feeds or valuation engines.
+
+## Integrated traversal / divergence research
+
+The maintained company-research entry is [divergence and debt repricing](divergence-and-repricing-2026-10-23.md), including the Friday Oct23 close refresh. Machine-readable traversal/compression observations: [Oct23 snapshot](traversal-compression-2026-10-23.json). The existing [factor tracker](factor_tracker.py) consumes dated matched-close fixtures; [Oct23 attribution](factor-attribution-2026-10-23.json) retains prior-window coefficients and daily residuals. Oct22 inputs and outputs remain immutable. These are repo-owned research outputs, not a separate app or external document system. Continuous ingestion/shared traversal integration remains [handoff #70](https://github.com/whiterosecoffee/_BASKET/issues/70); no persistent live refresh is claimed.

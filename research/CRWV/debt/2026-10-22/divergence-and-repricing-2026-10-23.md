@@ -90,3 +90,40 @@ June balances below are USD millions before separately reported discounts. These
 - [DDTL 5.0 closing announcement](https://investors.coreweave.com/news/news-details/2026/CoreWeave-Closes-3-1-Billion-Loan-Facility-Expanding-Access-to-Public-Markets-for-GPU-Backed-Financing/default.aspx)
 - [March investor presentation](https://s205.q4cdn.com/133937190/files/doc_presentations/2026/Mar/02/March-2026-Investor-Presentation.pdf)
 - [Higher-priced short contracts, Sept 17](https://investors.coreweave.com/news/news-details/2026/CoreWeave-Continues-to-Contract-New-Compute-Capacity-at-Higher-Prices/default.aspx)
+
+## Friday close refresh: traversal and market compression
+
+Supersedes earlier intraday levels for Oct 23. Massive daily close $54.235, down 2.455%; regular session range $54.01-$56.11. Latest retrieved after-hours bar 19:56 ET closed $54.00, separate from regular close. Regular minute bars sum 41.737M shares and $2.287B notional, VWAP $54.801. Provider daily volume 46.943M is a different aggregation scope; do not mix it with regular-session minute volume.
+
+Lower floor $54.07 broke at 15:56, new regular low $54.01. Lower monitoring band becomes $54.00-$54.15; this is tested but vulnerable, not confirmed support. $53.50 remains prior-day low, not touched Friday regular session. $54.75-$54.90 is the volume/VWAP pivot; $55.25-$55.35 remains the repeated upper band. $55.58-$55.62 and $56.02-$56.11 were opening-period zones, not repeatedly reached later.
+
+Retrospective traversals from $54.07-$54.15 to $55.25 before a low below $54.07: 09:33→09:39 (6m), 10:17→10:41 (24m), 11:13→12:04 (51m); late 15:55→15:56 failed. Three completions in four attempts, selected retrospectively from one day; not a 75% forward success rate. Median successful traversal 24m; worsening speed before late failure. Minimum price distance from upper edge of lower band to target is $1.10, ~2.03%, before fills/costs.
+
+| VWAP price bin | Whole-minute shares M | Whole-minute notional USD M |
+|---|---:|---:|
+| 54.00-54.25 | 3.097 | 167.8 |
+| 54.25-54.50 | 7.868 | 427.8 |
+| 54.50-54.75 | 9.141 | 499.3 |
+| 54.75-55.00 | 10.189 | 559.0 |
+| 55.00-55.25 | 5.737 | 316.2 |
+| 55.25-55.50 | 2.094 | 115.9 |
+| 55.50-55.75 | 2.140 | 119.0 |
+| 55.75-56.00 | 1.472 | 82.2 |
+
+All-bin sum reconciled to regular-session totals. Minute assignment is an approximation, not trade-level volume profile.
+
+### How much macro compression is already reflected?
+
+FactSet indexed primary-source reports: S&P500 forward P/E 20.4 at June30, 19.1 in Oct9 report, 18.7 in Oct23 report. Thus -8.33% since June and -2.09% since Oct9. Latest report also compares 19.0 at Sept30: -1.58%. These report-date observations need not match Friday's exact close. Forward denominator rolls and estimates change; this is observed multiple compression, not a causal rate decomposition. Restoring 19.1 from18.7 at unchanged earnings means +2.14%; restoring20.4 means +9.09%. Neither implies the same CRWV equity change.
+
+From Oct9 close through Oct23: CRWV -33.92%, QQQ -6.24%, NVDA -7.99%, SPY -2.39%. Broad-market multiple compression alone cannot quantitatively account for CRWV's entire move.
+
+For the sharp breakdown Oct13→Oct23, CRWV -30.30%, QQQ -5.27%, NVDA -7.68%. Freeze joint QQQ/NVDA coefficients using only data through Oct13: 60-session factor-only compounded association -19.29%, versus actual -30.30%, an arithmetic gap11.01pp; actual divided by conditional gross performance is -13.63%. Model including historical intercept gives -20.26%; drift must not be mislabeled macro effect.
+
+Window sensitivity is large: 20-session pre-breakdown fit associates -8.06%, 120-session fit -11.94%. Thus approximately 8-19 percentage points of the30.3% decline are associated with common market/AI moves across these selected specifications, roughly27-64% in arithmetic decline units. This is model sensitivity, not a confidence interval, causal attribution or proof that remaining risk is priced in. QQQ itself includes AI-related financing fear; shared factors can carry the same narrative. The remaining11-22pp cannot be automatically assigned to credit or called an upside opportunity.
+
+Friday actual -2.455%, rolling QQQ/NVDA conditional -0.360%, residual -2.095pp (only -0.424 training residual sigma). Material percentage-point underperformance but not statistically extreme for this volatile stock.
+
+CRWV's own forward P/E compression cannot be established without matched positive forward EPS estimates at both endpoints. Assess enterprise-value/forward cash earnings with an explicit debt bridge; do not apply the distressed bond yield to fixed coupons or lease liabilities.
+
+Sources and machine-readable calculations: `traversal-compression-2026-10-23.json`; updated matched daily inputs and rolling attribution in `factor-closes-2026-10-23.csv` and `factor-attribution-2026-10-23.json`. Existing historical files are retained.
