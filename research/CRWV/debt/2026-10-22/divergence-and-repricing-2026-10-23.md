@@ -127,3 +127,47 @@ Friday actual -2.455%, rolling QQQ/NVDA conditional -0.360%, residual -2.095pp (
 CRWV's own forward P/E compression cannot be established without matched positive forward EPS estimates at both endpoints. Assess enterprise-value/forward cash earnings with an explicit debt bridge; do not apply the distressed bond yield to fixed coupons or lease liabilities.
 
 Sources and machine-readable calculations: `traversal-compression-2026-10-23.json`; updated matched daily inputs and rolling attribution in `factor-closes-2026-10-23.csv` and `factor-attribution-2026-10-23.json`. Existing historical files are retained.
+
+## October dollar turnover and downward velocity — through October 23
+
+Source: Massive daily aggregates retrieved after Oct23 session. September30 close $87.12 is the month-return anchor. Seventeen completed October sessions: 968.292M shares, estimated gross transaction notional $65.398B, combined VWAP $67.539; close $54.235, down37.747%. Float-turnover estimate2.95x uses provisional328.32M Yahoo float; this is not unique shares or owners. Daily volume scope is kept consistent; no mixing with intraday regular-only volume.
+
+| Date | Close USD | Daily return | Shares M | Turnover USD B | Daily VWAP USD |
+|---|---:|---:|---:|---:|---:|
+| 10-01 | 88.570 | +1.66% | 20.46 | 1.78 | 87.07 |
+| 10-02 | 89.620 | +1.19% | 23.59 | 2.13 | 90.28 |
+| 10-05 | 87.390 | -2.49% | 18.24 | 1.60 | 87.94 |
+| 10-06 | 91.720 | +4.95% | 32.05 | 2.93 | 91.29 |
+| 10-07 | 88.450 | -3.57% | 19.91 | 1.76 | 88.53 |
+| 10-08 | 81.580 | -7.77% | 42.32 | 3.50 | 82.81 |
+| 10-09 | 82.080 | +0.61% | 20.01 | 1.65 | 82.26 |
+| 10-12 | 80.260 | -2.22% | 19.02 | 1.52 | 80.13 |
+| 10-13 | 77.810 | -3.05% | 34.41 | 2.67 | 77.46 |
+| 10-14 | 65.780 | -15.46% | 111.21 | 7.41 | 66.61 |
+| 10-15 | 69.690 | +5.94% | 130.54 | 8.43 | 64.59 |
+| 10-16 | 61.390 | -11.91% | 95.39 | 5.97 | 62.60 |
+| 10-19 | 61.120 | -0.44% | 101.01 | 6.26 | 62.00 |
+| 10-20 | 62.130 | +1.65% | 94.78 | 5.83 | 61.53 |
+| 10-21 | 61.820 | -0.50% | 76.59 | 4.72 | 61.65 |
+| 10-22 | 55.600 | -10.06% | 81.76 | 4.65 | 56.85 |
+| 10-23 | 54.235 | -2.46% | 46.98 | 2.58 | 54.86 |
+
+| Phase | Net return | Dollar velocity per session | Geometric rate per session | Shares M | Turnover USD B | VWAP |
+|---|---:|---:|---:|---:|---:|---:|
+| 10-01 to 10-07 | +1.53% | +0.27 | +0.30% | 114.25 | 10.20 | 89.31 |
+| 10-08 to 10-13 | -12.03% | -2.66 | -3.15% | 115.77 | 9.34 | 80.68 |
+| 10-14 to 10-16 | -21.10% | -5.47 | -7.60% | 337.15 | 21.81 | 64.69 |
+| 10-19 to 10-21 | +0.70% | +0.14 | +0.23% | 272.38 | 16.82 | 61.74 |
+| 10-22 to 10-23 | -12.27% | -3.79 | -6.34% | 128.74 | 7.23 | 56.12 |
+
+Interpretation: first October8-13 deterioration preceded the volume shock. October14-16 lost21.10% at -$5.47/session on337.15M shares. October19-21 temporarily stabilized (+0.70%) despite272.38M shares, about83% of provisional float. October22-23 then broke lower (-12.27%) at -$3.79/session on128.74M shares. The high-turnover plateau did not establish durable support.
+
+Dollar velocity slowed31% between the two sharp selloff phases, but normalized geometric decline only eased from7.60% to6.34% per session. Daily share volume fell43%; price decline per100M shares worsened from$4.87 to$5.89 (~21%). This ratio is descriptive, not signed flow, market depth or causal impact. Lower volume does not by itself establish absorption.
+
+Friday versus Thursday: absolute daily loss fell from$6.22 to$1.365 (78% smaller), volume from81.76M to46.98M (43% lower), and turnover from$4.65B to$2.58B. Friday close was only10.7% above the bottom of its day's range and1.14% below daily VWAP. Late regular low54.01: deceleration present; exhaustion unconfirmed.
+
+Trading-weighted period prices descend89.31→80.68→64.69→61.74→56.12; Friday54.86. These are turnover reference points, not current holder acquisition prices. Supply-absorption evidence would require low tests with reduced downside displacement, higher lows and closes holding above current VWAP, confirmed against AI peers.
+
+Five-session dollar velocity improved -$4.14/session Oct16 to-$0.79 Oct21, deteriorated to-$2.82 Oct22, then eased to-$1.43 Oct23. Rolling comparisons have window-roll effects: Friday drops the Oct16 -11.91% session from the five-day window, so improvement is not entirely new buying.
+
+Machine-readable raw observations, daily calculations, phase calculations and rolling history: `october-turnover-velocity.json`. Formulae: turnover=volume*VWAP; dollar velocity=(ending close-starting close)/sessions; normalized velocity=(ending/starting)^(1/sessions)-1. Down-session volume646.86M is66.8% of total, but not classified sell-initiated volume.
