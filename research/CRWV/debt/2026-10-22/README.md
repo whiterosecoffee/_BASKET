@@ -167,3 +167,7 @@ A separate DCSP arrangement has $302M gross note receivable set off against $112
 The maintained company-research entry is [divergence and debt repricing](divergence-and-repricing-2026-10-23.md), including the Friday Oct23 close refresh. Machine-readable traversal/compression observations: [Oct23 snapshot](traversal-compression-2026-10-23.json). The existing [factor tracker](factor_tracker.py) consumes dated matched-close fixtures; [Oct23 attribution](factor-attribution-2026-10-23.json) retains prior-window coefficients and daily residuals. Oct22 inputs and outputs remain immutable. These are repo-owned research outputs, not a separate app or external document system. Continuous ingestion/shared traversal integration remains [handoff #70](https://github.com/whiterosecoffee/_BASKET/issues/70); no persistent live refresh is claimed.
 
 October dollar-turnover and downward-velocity history is integrated into the divergence research above; raw and calculated observations are in [October turnover/velocity](october-turnover-velocity.json).
+
+## Functional tool transition
+
+The [functional tool blueprint](functional-tool-blueprint.md) maps the full CRWV conversation into measurable components, proposed input/output contracts, valuation history, acceptance criteria and upstream-owner dependencies. The [new conversation prompt](next-conversation-prompt.md) starts an independently scoped implementation worker; it does not launch one or imply that live refresh exists. Both are specifications, not a deployed tool.
