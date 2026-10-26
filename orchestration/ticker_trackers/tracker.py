@@ -140,8 +140,6 @@ class Tracker:
                 return 'superseded'
             if r['verification'] != 'verified':
                 return r['verification']
-            if r['classification'] in ('hypothesis', 'scenario'):
-                return r['classification']
             ttl = self.panels[r['panel']]['max_age_seconds']
             deadline = min(stamp(r['expires_at']), stamp(r['observed_at']) + timedelta(seconds=ttl))
             if at >= deadline:
@@ -150,6 +148,13 @@ class Tracker:
                 return 'future_effective'
             if any(dep not in by_id or status(by_id[dep], visiting | {rid}) != 'current' for dep in r['input_revisions']):
                 return 'dependency_invalid'
+            if r['classification'] == 'scenario' and r['panel'] == 'valuation':
+                if r['data'].get('data_mode') == 'synthetic':
+                    return 'synthetic'
+                if not r['data'].get('eligible', False):
+                    return 'scenario_incomplete'
+            if r['classification'] in ('hypothesis', 'scenario'):
+                return r['classification']
             return 'current'
 
         panels, work = [], []
@@ -168,14 +173,33 @@ class Tracker:
                         changes.append({'field': key, 'before': before, 'after': after})
             panels.append({**spec, 'status': state, 'latest': latest,
                            'current_data': latest['data'] if state == 'current' else None,
+                           'conditional_data': latest['data'] if state in ('scenario', 'synthetic', 'scenario_incomplete') else None,
                            'changes': changes, 'revision_count': len(history)})
-            if state != 'current':
+            if state not in ('current', 'scenario'):
                 work.append({'panel': name, 'owner': spec['owner'], 'priority': spec['priority'],
                              'reason': state, 'required_metrics': spec['metrics']})
         return {'schema': 'basket.ticker_tracker_snapshot@1', 'ticker': 'ORCL', 'currency': 'USD',
                 'as_of': at.isoformat(), 'continuous_feed': False, 'panels': panels,
                 'refresh_work': sorted(work, key=lambda w: (w['priority'], w['panel'])),
                 'history': visible, 'baseline': config()['baseline']}
+
+
+def valuation_table(report):
+    esc = lambda v: html.escape(str(v), quote=True)
+    def money(value):
+        return 'Unavailable' if value is None else '$' + format(value, ',.2f')
+    target = report.get('target') or {}
+    stats = target.get('stats', {})
+    prefix = 'SYNTHETIC DEMONSTRATION — no actual market figures' if report.get('data_mode') == 'synthetic' else 'CONDITIONAL SCENARIO — not a verified price target'
+    body = '<p>' + prefix + '</p><p>Forward EPS: ' + money(stats.get('eps')) + '</p>'
+    body += '<table><tr><th>Scenario</th><th>EPS</th><th>P/E value</th><th>EV/EBITDA value</th></tr>'
+    for name, case in report.get('scenarios', {}).items():
+        prices = case.get('implied_prices', {})
+        body += '<tr><td>'+esc(name)+'</td><td>'+money(case.get('eps'))+'</td><td>'+money(prices.get('pe',{}).get('price_usd'))+'</td><td>'+money(prices.get('ev_ebitda',{}).get('price_usd'))+'</td></tr>'
+    body += '</table><p>Peer-reference P/E value: ' + money(report.get('comparisons',{}).get('pe',{}).get('implied_price_usd')) + '</p>'
+    if report.get('gaps'):
+        body += '<p>Incomplete inputs: '+str(len(report['gaps']))+' gaps; affected methods suppressed.</p>'
+    return body
 
 
 def dashboard(snapshot):
@@ -185,10 +209,13 @@ def dashboard(snapshot):
         last = panel['latest']
         sources = '' if not last else ' · '.join('<a href="'+esc(s['url'])+'">'+esc(s['label'])+'</a>' for s in last['sources'])
         payload = json.dumps(panel['current_data'], indent=2) if panel['current_data'] is not None else 'No eligible current signal. See historical evidence below.'
+        if panel.get('conditional_data') is not None:
+            payload = ('SYNTHETIC DEMONSTRATION — no actual market figures\n' if panel['status'] == 'synthetic' else 'CONDITIONAL SCENARIO — not a verified price target\n') + json.dumps(panel['conditional_data'], indent=2)
         history = '' if not last else '<details><summary>Latest evidence (may be stale) and changes</summary><pre>'+esc(json.dumps({'latest':last,'changes':panel['changes']},indent=2))+'</pre></details>'
-        cards.append('<article><small>'+esc(panel['owner'])+' · '+str(panel['revision_count'])+' revisions</small><h2>'+esc(panel['title'])+'</h2><b class="'+esc(panel['status'])+'">'+esc(panel['status'].upper())+'</b><pre>'+esc(payload)+'</pre><p>'+sources+'</p>'+history+'<details><summary>Tracking contract</summary><p>'+esc(panel['contract'])+'</p><p>'+esc(', '.join(panel['metrics']))+'</p></details></article>')
+        payload_html = valuation_table(panel['conditional_data']) if panel['id']=='valuation' and panel.get('conditional_data') else '<pre>'+esc(payload)+'</pre>'
+        cards.append('<article><small>'+esc(panel['owner'])+' · '+str(panel['revision_count'])+' revisions</small><h2>'+esc(panel['title'])+'</h2><b class="'+esc(panel['status'])+'">'+esc(panel['status'].upper())+'</b>'+payload_html+'<p>'+sources+'</p>'+history+'<details><summary>Tracking contract</summary><p>'+esc(panel['contract'])+'</p><p>'+esc(', '.join(panel['metrics']))+'</p></details></article>')
     return '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ORCL evolving tracker</title>
-<style>body{background:#101925;color:#e8eef6;font:16px system-ui;margin:0 auto;padding:32px;max-width:1400px}h1{font-size:38px}h2{font-size:21px}small,p{color:#b6c6da}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}article{background:#1a2737;padding:22px;border:1px solid #3b4e66;border-radius:14px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}a,.current{color:#66e1ba}b{color:#f7c66a}summary{cursor:pointer;margin:16px 0}footer{margin-top:30px}</style>
+<style>body{background:#101925;color:#e8eef6;font:16px system-ui;margin:0 auto;padding:32px;max-width:1400px}h1{font-size:38px}h2{font-size:21px}small,p{color:#b6c6da}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}article{background:#1a2737;padding:22px;border:1px solid #3b4e66;border-radius:14px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}a,.current{color:#66e1ba}b{color:#f7c66a}table{width:100%;font-size:12px;border-collapse:collapse}td,th{text-align:left;padding:6px 2px;border-bottom:1px solid #3b4e66}summary{cursor:pointer;margin:16px 0}footer{margin-top:30px}</style>
 <h1>ORCL / evolving ticker tracker</h1><p>USD · As of '''+esc(snapshot['as_of'])+''' · Evidence snapshot, not a live feed</p><p>Current signals are suppressed when missing, stale, disputed, hypothetical or dependent on expired evidence.</p><main>'''+''.join(cards)+'</main><footer><h2>Refresh queue</h2><pre>'+esc(json.dumps(snapshot['refresh_work'],indent=2))+'</pre><details><summary>Weighted baseline policy</summary><pre>'+esc(json.dumps(snapshot['baseline'],indent=2))+'</pre></details></footer></html>'
 
 

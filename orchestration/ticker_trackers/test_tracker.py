@@ -35,7 +35,7 @@ class TrackerTests(unittest.TestCase):
 
     def test_missing_and_policy_coverage(self):
         snapshot = self.tracker.snapshot()
-        self.assertEqual(len(snapshot['refresh_work']), 8)
+        self.assertEqual(len(snapshot['refresh_work']), 9)
         self.assertTrue(all(p['current_data'] is None for p in snapshot['panels']))
         self.assertEqual(set(config()['benchmarks']), {'QQQ','NVDA','IBM','HYG','IEF','USO'})
         self.assertAlmostEqual(sum(config()['baseline']['weights'].values()), 1)

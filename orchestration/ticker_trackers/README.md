@@ -29,9 +29,9 @@ by ingesting new revisions and rendering again. No external scripts or telemetry
 
 ## What evolves
 
-`orcl.json` defines eight panels: price/dollar volume; narrow traversal bands and
+`orcl.json` defines nine panels: price/dollar volume; narrow traversal bands and
 regime; peer divergence; weighted macro baseline; revenue/margins/cash; financing
-and capacity economics; partnership monetization; catalysts and thesis falsifiers.
+and capacity economics; partnership monetization; catalysts and thesis falsifiers; conditional valuation.
 Each panel has an owner, required research metrics, an operational freshness cap,
 and a method contract. Metric lists are adapter acceptance requirements, not a
 universal financial payload schema: each domain must validate its own payload.
@@ -120,3 +120,19 @@ calendars; filings/partnerships on new evidence plus daily revalidation. B08 own
 persistent worker supervision, backups and authenticated serving. GitHub/chat is
 not the data plane. No notifications, trades or background process are enabled by
 running `init` or rendering HTML.
+
+## Valuation bridge (ninth panel)
+
+The executable engine and exact input/financial assumptions are documented in
+[`engines/valuation/orcl_bridge/README.md`](../../engines/valuation/orcl_bridge/README.md).
+From the repository root, run:
+
+```sh
+python -m orchestration.ticker_trackers.publish_valuation --db /durable/data/orcl.sqlite
+```
+
+It consumes market/fundamentals/financing panel revisions, computes peer references,
+reverse valuation and financing/dilution scenarios, and appends a dependent valuation
+revision. Fresh scenario outputs render in a separate conditional area. Expiry and
+corrections hide conditional outputs too. Synthetic/incomplete results remain on the
+refresh queue. This command performs one refresh; it does not start a daemon.
