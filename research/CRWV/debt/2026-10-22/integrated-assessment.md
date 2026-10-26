@@ -183,3 +183,56 @@ Key extrapolations:
 7. The plausible bargain case is stronger accepted-capacity economics plus a survivable funding schedule at a price allowing for dilution. Neither a low sales multiple nor NVIDIA's strategic incentive establishes that conclusion alone.
 
 This appendix uses the cited filings and sources in the preceding October 26 reassessment. It does not invent the article's missing Fair Ratio or claim a verified market-implied probability.
+
+
+## October 26 competitor supply and pricing comparison
+
+Research as of October 26, 2026. Public commercial offerings are not authenticated live inventory. No provider's unallocated MW, immediately bookable giant-cluster inventory or internal-versus-external GPU allocation is verified here.
+
+### Supply
+- Microsoft FY2026 Q4: customer demand exceeds available Azure capacity and incremental capacity was quickly monetized. This contradicts a broad surplus premise, but does not establish zero availability in every SKU or region.
+- AWS: October 23 CEO comments, reported by Reuters, say capacity is largely sold out through 2027 with commitments into 2028. AWS's August release separately plans two million additional NVIDIA GPUs in 2027–2028. These are future deployments, not today's spare supply.
+- Oracle: September 10 Q1 FY2027 release reports 850MW additional data-center capacity delivered and customer AI demand growing faster than supply. Its capacity metric includes its broader footprint; do not label all 850MW uncommitted NVIDIA GPU power.
+- Google Cloud: publicly offers A4/A3-family GPU capacity reservations. No current consolidated excess-capacity figure established in this review.
+- Nebius, Lambda, Crusoe and Voltage Park publicly sell GPU compute. Lambda markets 16–2,000+ GPU clusters. Availability requires checking model, region, contiguous topology, dates and term. Crusoe documentation explicitly distinguishes quota from actual physical capacity; quota approval alone does not guarantee launch.
+- IREN provides another dedicated GPU infrastructure route, while Applied Digital/Core Scientific/TeraWulf project announcements often describe powered infrastructure supporting other operators. Do not count the same leased campus as both independent cloud supply and CRWV capacity. No new IREN unallocated-capacity number is asserted.
+- Hyperscaler cloud offerings are purpose-built external businesses, not merely leftovers after internal use. Internal applications and external customers compete for resources; public filings do not provide a complete allocator ledger. Hyperscalers also sell proprietary accelerators, so their entire AI buildout is not an equivalent pool of NVIDIA capacity.
+
+### CoreWeave differentiation
+CoreWeave sells coordinated GPU infrastructure, networking, storage, operation and support. SUNK integrates Slurm workflows with Kubernetes operations; Mission Control provides cluster health monitoring and remediation. Company-reported up-to-96% goodput is a vendor claim, not a verified universal lead over competitors. Hyperscalers also have large clusters, managed orchestration, storage and reliability engineering; the distinction is delivery, integration, usable throughput and commercial terms rather than exclusive possession of these broad capabilities.
+
+A buyer should evaluate cost per completed training run or served token, including time-to-availability, failed/restarted work, communications overhead, storage/network charges and engineering labor. CRWV's premium is defensible only where its useful output or earlier delivery compensates for that premium. Oracle is a direct large-cluster competitor; hyperscalers have broader enterprise integration, proprietary silicon and stronger balance sheets.
+
+### Pricing observed
+CoreWeave North America HGX H100 eight-GPU instance: $49.24/hour = $6.155/GPU-hour. Nebius H100 on-demand: $4.50/GPU-hour. CRWV's listed per-GPU rate is approximately 36.8% higher; bundles differ (not a matched contract quote).
+Lambda 1-Click H100 cluster listings: $6.16/$5.85/$5.54 per GPU-hour for 16/64/256 GPUs, for two-week-to-one-year terms. These are cluster plans, not identical on-demand consumption.
+Voltage Park advertises H100 starting at $1.99/GPU-hour; starting price does not guarantee a comparable large cluster. Crusoe lists H100 at $3.90/GPU-hour on its on-demand grid, whose rendered row mapping should be rechecked before procurement.
+All observed October 26; exclude spot rates, negotiated commitments, tax and separately charged items from comparisons unless specified. A price page proves an offered product, not stock.
+
+Direct annual revenue/MW evidence:
+- CRWV: selected Q3 3–6-month contracts around $40M/MW/year; indicative exit target $18.5–19.5B divided by >1.85GW is around $10M/MW/year, with mixed definitions and periods. The latter is not a contractual fleet rate.
+- Nebius Q2 deck: 2026 base around $12M/MW; Q2 deals above $20M/MW; Q3 short-term deals above $40M/MW. These are company disclosures for different cohorts/terms, not a matched CRWV-versus-Nebius auction.
+- Comparable realized GPU-only annual revenue/MW for AWS/Azure/GCP/OCI is not disclosed in the retrieved sources. Do not divide whole-cloud revenue by total campus power and call it comparable.
+
+Conversion: annual revenue per IT MW = GPUs per IT MW * effective billed rate/GPU-hour * billed hours/year, plus separately identified services. Facility MW requires adjustment for PUE; server/network/CPU power must be included. GPU generation and occupancy materially change the result. Do not use GPU chip TDP alone as system power.
+
+Implication: independent evidence supports scarcity and rising marginal revenue/MW, not a CRWV-exclusive premium or guaranteed fleet-wide $40M rate. Capacity risk should be tracked as a dated delivery/financing problem alongside price and return on deployed capital. Competition can be simultaneously constrained today and substantial over 2027–2028.
+
+Sources:
+- https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4
+- https://www.reuters.com/business/retail-consumer/amazon-cloud-capacity-sold-out-through-2027-ceo-jassy-says-2026-10-23/
+- https://press.aboutamazon.com/aws/2026/8/aws-and-nvidia-to-deliver-2-million-additional-gpus-and-next-generation-infrastructure-for-agentic-and-physical-ai
+- https://investor.oracle.com/investor-news/news-details/2026/Oracle-Announces-Q1-Results-Driven-by-Triple-Digit-Growth-in-Cloud-Infrastructure-Revenues/default.aspx
+- https://docs.cloud.google.com/ai-hypercomputer/docs/reserve-capacity
+- https://support.crusoecloud.com/hc/en-us/articles/51755978765467-GPU-Quota-vs-Capacity-Understanding-On-Demand-and-Reserved-Instances-RIPA
+- https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-2.htm
+- https://www.coreweave.com/pricing
+- https://nebius.com/prices
+- https://lambda.ai/pricing
+- https://www.voltagepark.com/pricing
+- https://www.crusoe.ai/cloud/pricing
+- https://www.coreweave.com/products/sunk
+- https://coreweave.com/blog/why-leading-ai-teams-rely-on-coreweave-mission-control
+- https://www.sec.gov/Archives/edgar/data/1769628/000176962826000429/crwv2026convertpresentat.htm
+
+Validation: $49.24/8 = $6.155; premium versus $4.50 = 36.78%. No live inventory, matching private quote, undisclosed excess MW or causal market-share estimate claimed.
