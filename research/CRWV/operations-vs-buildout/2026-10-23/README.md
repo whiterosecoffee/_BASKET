@@ -31,16 +31,12 @@ Closes: 10/12 $80.26; 10/14 $65.78 (-15.5%); 10/16 $61.39; 10/22 $55.60 (-10.1%)
 S1 range about $50-62 while credit leads; S2 breakdown on a close below $53.50; S3 relief on a close above $62 with bond/CDS stabilization.
 Invalidation tests: Q3 adj. EBITDA below about $2.1B; EBITDA margin below 56%; year-end active power below 1.85 GW; CIP rising without in-service transfer; exit ARR below $18.5B; new financing priced near 15%.
 
-## Addendum — replacement cost, contract rates, depreciation (`addendum-replacement-cost-and-rates.json`)
-**Correction:** the $30-50M/MW figures are build-cost estimates (FT/Benzinga about $50M; Gainam $30-40M all-in), not contract prices; SpaceX (SPCX) contracts carry no MW figure.
-- **Replacement cost:** 1.5 GW active x $30-50M = $45-75B. EV net of construction in progress per active MW: $30.7M (debt only), $35.4M (pro forma), $41.8M (incl. leases). The lease-inclusive row is the comparable one: priced about at replacement cost, not clearly below. Dates are mixed (market cap 10/23; debt, cash, CIP 6/30).
-- **Contract rates:** new Q3 contracts about $40M per MW annualized revenue, 3-6 month terms (company release 9/17). No pre-increase rate disclosed; if the reported 25% (July) plus about 10% increases apply, the implied prior rate is about $29M/MW (derived, unverified). Legacy multi-year book about $10M/MW from guided exit ARR. H100 list price is about $42M/MW equivalent at full utilization (assumes 10.2 kW per node).
-- **Payback (gross, before interest/power/ramp):** 1.3-2.1 years at $40M/MW vs 4.8-8.5 years at the legacy rate.
-- **Depreciation:** extending a 6-year life to 8 cuts D&A about 25% (upper bound about $348M per quarter) but is non-cash; interest stays about 42% of EBITDA. Years 6-10 are uncontracted; the longer-life thesis needs abundant power.
+## Related topics (separate branches)
+- Replacement cost, contract rates per MW, depreciation sensitivity: issue #73 / draft PR #74 (`research/CRWV/73-replacement-cost-rates/`).
 
 ## Open items
 - No management statement of a forward 75% margin found; 74-75% figures are gross margin from 2025 coverage and a third-party model.
 - Debt: June 30 totals are reconciled in #68 / PR #69 ($35.068B funded debt + $16.319B operating leases + $0.221B finance leases = $51.608B; different inclusion bases). Still open: October/current balance and the third-party about $42B pro forma estimate (not an issuer figure).
-- Q2 gross margin and Q2 backlog recognition schedule not verified from primary filings.
+- Q2 gross margin not verified from primary filings. Backlog recognition: the repo's narrative case (engines/narrative/cases/coreweave_2026-10-16.jsonl, record crwv-rpo-frac0) carries 41% of Q2 backlog within 24 months from the 10-Q; not independently checked here, and it supersedes the Q1 36% cited in the findings.
 
 Sources are listed in `findings.json`.

@@ -113,7 +113,7 @@
     },
     "issuer_statements_earlier": {
       "q1_2026_call": {
-        "backlog_recognition": "36% within 24 months, 75% within four years (Q1 backlog $99.4B); no Q2 equivalent found",
+        "backlog_recognition": "36% within 24 months, 75% within four years (Q1 backlog $99.4B); superseded for Q2 by 41% within 24 months per repo narrative case record crwv-rpo-frac0 (unverified here)",
         "maturities": "No debt maturities until 2029 other than self-amortizing contract-backed debt and OEM vendor financing."
       },
       "march_2026_conference": {
@@ -173,9 +173,9 @@
     "unverified": [
       "No management statement of a forward 75% margin was found; 74-75% figures are gross margin from 2025 coverage and a third-party contract model (75.5%). Meaning of the user's 75% reference unresolved.",
       "Q2 2026 gross margin not verified from primary filing.",
-      "Backlog recognition schedule for Q2 backlog not found.",
       "Whether the more than $32B secured capital is 2026-only or cumulative across years.",
-      "October/current debt balance and the roughly $42B pro forma estimate (June basis reconciled in PR #69)."
+      "October/current debt balance and the roughly $42B pro forma estimate (June basis reconciled in PR #69).",
+      "Backlog recognition: repo narrative case record crwv-rpo-frac0 gives 0.41 within 24 months (Q2 10-Q); not independently verified here."
     ]
   },
   "derived_arithmetic": {
