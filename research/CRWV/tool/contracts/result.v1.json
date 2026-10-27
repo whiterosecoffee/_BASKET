@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CRWV local result v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "engine_version",
+    "valuation_as_of",
+    "classification",
+    "operating_forecast",
+    "funding_waterfall",
+    "valuation_curve",
+    "reverse_valuation",
+    "attribution",
+    "traversal",
+    "coverage",
+    "unknowns"
+  ],
+  "properties": {
+    "schema": {
+      "const": "crwv.analysis@1"
+    },
+    "valuation_curve": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "operating_forecast": {
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  }
+}

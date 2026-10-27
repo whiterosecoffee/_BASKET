@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CRWV local snapshot v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "currency",
+    "start",
+    "sources",
+    "opening",
+    "cohorts",
+    "contracts",
+    "facilities",
+    "costs",
+    "capitalization"
+  ],
+  "properties": {
+    "schema": {
+      "const": "crwv.snapshot@1"
+    },
+    "synthetic": {},
+    "currency": {
+      "const": "USD"
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1
+    },
+    "opening": {},
+    "cohorts": {},
+    "contracts": {},
+    "facilities": {},
+    "costs": {},
+    "capitalization": {},
+    "quote": {},
+    "market_observations": {},
+    "unsupported_features": {}
+  },
+  "description": "Exchange shape only; model.validate enforces detailed economic and temporal constraints. See contracts/README.md."
+}

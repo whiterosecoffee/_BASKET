@@ -1,0 +1,173 @@
+{
+  "schema": "crwv.snapshot@1",
+  "synthetic": true,
+  "currency": "USD",
+  "start": "2026-11-01T00:00:00Z",
+  "sources": [
+    {
+      "id": "SYNTHETIC",
+      "revision": "demo-v1",
+      "source_class": "scenario_assumption",
+      "available_at": "2026-10-26T12:00:00Z",
+      "effective_at": "2026-10-26T12:00:00Z",
+      "observed_at": "2026-10-26T12:00:00Z",
+      "ingested_at": "2026-10-26T12:00:00Z",
+      "period_end": null,
+      "expires_at": "2027-01-01T00:00:00Z"
+    }
+  ],
+  "opening": {
+    "cash": 0,
+    "restricted_cash": 0,
+    "shares": 10000000,
+    "source_ids": [
+      "SYNTHETIC"
+    ]
+  },
+  "cohorts": [
+    {
+      "id": "legacy",
+      "contract_id": "old",
+      "power_basis": "IT_MW",
+      "contracted_mw": 10,
+      "energized_month": 0,
+      "installed_month": 0,
+      "accepted_month": 0,
+      "billable_month": 0,
+      "utilization": 0.8,
+      "capex_month": -1,
+      "growth_capex": 0,
+      "book_value": 60000000,
+      "accounting_months_remaining": 72,
+      "earning_months_remaining": 108,
+      "residual": 0,
+      "generation": "hypothetical_GPU",
+      "source_ids": [
+        "SYNTHETIC"
+      ]
+    },
+    {
+      "id": "addition",
+      "contract_id": "new",
+      "power_basis": "IT_MW",
+      "contracted_mw": 10,
+      "energized_month": 1,
+      "installed_month": 2,
+      "accepted_month": 3,
+      "billable_month": 3,
+      "utilization": 0.8,
+      "capex_month": 1,
+      "growth_capex": 60000000,
+      "book_value": 0,
+      "accounting_months_remaining": 72,
+      "earning_months_remaining": 108,
+      "residual": 0,
+      "generation": "hypothetical_GPU",
+      "source_ids": [
+        "SYNTHETIC"
+      ]
+    }
+  ],
+  "contracts": [
+    {
+      "id": "old",
+      "start_month": 0,
+      "end_month": 120,
+      "annual_usd_per_it_mw": 12000000,
+      "rpo_remaining": 1200000000,
+      "pool": "old_RPO",
+      "minimum_utilization": 0,
+      "source_ids": [
+        "SYNTHETIC"
+      ]
+    },
+    {
+      "id": "new",
+      "start_month": 3,
+      "end_month": 120,
+      "annual_usd_per_it_mw": 15000000,
+      "rpo_remaining": 1500000000,
+      "pool": "new_booking_not_old_RPO",
+      "minimum_utilization": 0,
+      "source_ids": [
+        "SYNTHETIC"
+      ]
+    }
+  ],
+  "facilities": [
+    {
+      "id": "fixed",
+      "balance": 12000000,
+      "commitment": 30000000,
+      "eligible_undrawn": 18000000,
+      "draws": {
+        "1": 10000000
+      },
+      "principal": {},
+      "rate_type": "fixed",
+      "coupon": 0.06,
+      "spread": 0.03,
+      "floor": 0.02,
+      "hedge_fraction": 0,
+      "hedge_rate": 0.04,
+      "fee_fraction": 0.01,
+      "capitalized_fraction": 0,
+      "restricted": false,
+      "maturity_month": 90,
+      "conditions_met": false,
+      "minimum_cash": 0,
+      "source_ids": [
+        "SYNTHETIC"
+      ]
+    },
+    {
+      "id": "floating",
+      "balance": 12000000,
+      "commitment": 30000000,
+      "eligible_undrawn": 18000000,
+      "draws": {
+        "1": 10000000
+      },
+      "principal": {},
+      "rate_type": "floating",
+      "coupon": 0.06,
+      "spread": 0.03,
+      "floor": 0.02,
+      "hedge_fraction": 0.5,
+      "hedge_rate": 0.04,
+      "fee_fraction": 0.01,
+      "capitalized_fraction": 0,
+      "restricted": false,
+      "maturity_month": 90,
+      "conditions_met": false,
+      "minimum_cash": 0,
+      "source_ids": [
+        "SYNTHETIC"
+      ]
+    }
+  ],
+  "costs": {
+    "direct_fraction": 0.35,
+    "corporate_monthly": 1000000,
+    "sbc_monthly": 100000,
+    "tax_rate": 0.21,
+    "sustaining_monthly": 500000,
+    "source_ids": [
+      "SYNTHETIC"
+    ]
+  },
+  "capitalization": {
+    "sbc_share_price": 10,
+    "source_ids": [
+      "SYNTHETIC"
+    ]
+  },
+  "quote": {
+    "usd": 20,
+    "available_at": "2026-10-27T14:00:00Z",
+    "expires_at": "2026-10-28T14:00:00Z",
+    "source_ids": [
+      "SYNTHETIC"
+    ]
+  }
+}

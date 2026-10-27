@@ -1,0 +1,11 @@
+CRWV offline scenario | 2026-10-27T14:30:00Z | synthetic_scenario
+Funding: unfunded; first gap month: 1
+Month 1 revenue $8,000,000.00; billable IT MW 8.00
+Final cash $773,942,050.00; debt $0.00; shares 11,200,000.00
+2026-10-27: valuation blocked: unfunded plan
+2027-02-01: valuation blocked: unfunded plan
+2027-05-01: valuation blocked: unfunded plan
+2027-11-01: valuation blocked: unfunded plan
+2028-11-01: valuation blocked: unfunded plan
+No current CRWV valuation or calibrated probabilities asserted.
+Unknowns: Current reconciled CRWV balances and billable capacity not established by synthetic fixture; NVIDIA trade-in/residual guarantee not verified; GPU earning-life and scenario probabilities not calibrated; Prepayments/refunds, leases, deferred tax and convertibles require additional explicit contract support; v1 rejects declared unsupported features; Capitalized interest amortized from following month over explicit scenario life; actual asset allocation unknown

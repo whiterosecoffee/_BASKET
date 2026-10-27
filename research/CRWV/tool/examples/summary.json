@@ -1,0 +1,42 @@
+{
+  "slow": {
+    "funding": {
+      "earliest_gap_month": null,
+      "status": "funded_under_explicit_inputs",
+      "capacity_consequence": "No gap in modeled window"
+    },
+    "present_per_share": 19.20082940529003,
+    "input_hash": "b0ef3e59866d42e3c6c52927a0a168a1f01dbaf70c307569200354a586ad4f71",
+    "config_hash": "2061ca33339b88662b467a761c3bf75ad87034edcde20ee7c9f485b1a3b5495d"
+  },
+  "base": {
+    "funding": {
+      "earliest_gap_month": null,
+      "status": "funded_under_explicit_inputs",
+      "capacity_consequence": "No gap in modeled window"
+    },
+    "present_per_share": 24.94944162539723,
+    "input_hash": "b0ef3e59866d42e3c6c52927a0a168a1f01dbaf70c307569200354a586ad4f71",
+    "config_hash": "f94fa687e54a88c8aeb16c6e91249230ac3e3812d902578542a018b7cebd115c"
+  },
+  "bull": {
+    "funding": {
+      "earliest_gap_month": null,
+      "status": "funded_under_explicit_inputs",
+      "capacity_consequence": "No gap in modeled window"
+    },
+    "present_per_share": 30.688867546597976,
+    "input_hash": "b0ef3e59866d42e3c6c52927a0a168a1f01dbaf70c307569200354a586ad4f71",
+    "config_hash": "2f8dda36770e3994f16e3a2bbaa154ce5ddf2c67dbd386cd2b7d4f86abc7c1e3"
+  },
+  "unfunded": {
+    "funding": {
+      "earliest_gap_month": 1,
+      "status": "unfunded",
+      "capacity_consequence": "Deployment plan and all valuation outputs conditional on unresolved funding; no funded capacity promised"
+    },
+    "present_per_share": null,
+    "input_hash": "7d7bff4e8d3e486766b684e74c921d1ceb83dbabbac8af8e9a3549e3ea63c4b7",
+    "config_hash": "79db5efdc63605df26ad0771a5f4e10a4a555dbe1a000cec20cbea39df7a087c"
+  }
+}
