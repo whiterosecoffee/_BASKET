@@ -1,0 +1,18 @@
+{
+  "months": 120,
+  "discount_rate": 0.12,
+  "terminal_growth": 0.02,
+  "benchmark": 0.04,
+  "equity_issues": [],
+  "changes": [],
+  "pe_multiple": 15,
+  "reverse_annual_price_per_it_mw": 12000000,
+  "terminal_continuation_approved": false,
+  "weights": {
+    "slow": 0.3,
+    "base": 0.5,
+    "bull": 0.2
+  },
+  "weight_class": "subjective",
+  "benchmark_shock": 0.05
+}

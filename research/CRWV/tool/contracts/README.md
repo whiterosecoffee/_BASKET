@@ -1,0 +1,23 @@
+# Local domain contracts v1
+
+These are B10-local contracts, not shared schemas. `model.validate` is the executable validator; all calculations are in USD, shares, IT MW and annual decimal rates. JSON schemas describe exchange structure; finance validation also checks provenance, finite amounts, chronological ordering and economic bounds.
+
+`crwv.snapshot@1`: dated `start` at a month boundary; `currency=USD`; immutable source records; opening cash, restricted cash, shares; cohorts; contracts; facilities; costs; capitalization. `fixtures/snapshot.json` is an exhaustive minimal example. It is synthetic, not a CRWV estimate.
+
+Source records carry separate effective/period-end, first available, observed, ingested, expiry and revision fields. Unknown exact availability stays null and blocks dependent finance calculations. Expired known evidence permits a labeled dated scenario but never current-use claims. Ingestion time does not become publication time. Every finance group lists source IDs.
+
+Cohorts use IT MW only. Facility-power observations must be converted by their upstream owner with an explicit basis before admission. Each cohort refers to exactly one contract. Dates are zero-based month offsets from forecast start. `book_value` is remaining opening carrying value; `growth_capex` is additional spending, never historical accumulated depreciation. Cohort capex and all readiness milestones shift together under explicit delays. Accounting life applies prospectively to remaining basis; economic life gates earnings separately.
+
+Contracts distinguish pool (`old_RPO`, `new_booking_not_old_RPO`, services or other caller label), dates, annual USD/IT-MW, minimum utilization and remaining recognition ceiling. Shared contract recognition is capped across cohorts. Revenue is monthly exposure, never the whole signed contract. `cash_lag_months` schedules collections separately. Exact GPU-hour economics need GPU-hour capacity inputs; this version makes no conversion from MW to GPU hours.
+
+Facilities distinguish drawn balance, commitment, eligible undrawn amount, monthly requested draws, conditions, opening unrestricted cash covenant, fees, fixed coupon or floating spread/floor/benchmark, hedge fraction/rate, maturity and principal schedules. Restricted proceeds can fund only growth capex. No equity or debt is inferred to fill a gap. `minimum_cash` is a simplified declared draw covenant, not a complete legal covenant parser. Hedge modeled as fixed-rate fraction, not a fair-value derivative book.
+
+Costs separate direct cash costs (inclusive of rent/power under the supplied fraction), corporate cash overhead, SBC, taxes, sustaining cash capex. SBC is expensed and creates shares at the declared price. Equipment growth capex is depreciated; sustaining capex is cash-only because this contract has no sustaining-asset commissioning schedule. Capitalized interest is paid in cash, added to a separate asset and amortized from the following month over a declared scenario life (default 72 months). Financing fees are expensed upfront, not an amortized GAAP debt-discount schedule. Output is GAAP-like scenario earnings, not audited GAAP or company-defined adjusted EPS.
+
+`crwv.analysis@1`: group metadata gives units, forecast period, status, dependency hashes, source IDs, expiry and method version inherited by every row. Monthly rows carry cohort revenue, RPO, instrument opening/draw/interest/principal/closing, cash, restricted cash, shares, earnings and conservation errors. Negative cash is an unpaid conditional plan, not available overdraft finance. Earliest gap permanently blocks all valuation indications, even if the plan later shows positive cash.
+
+`evaluate` is strict and rejects required-missing/invalid inputs; `analyze` returns null finance groups with reasons while retaining independently valid market groups. Market inputs are optional and cannot silently supply finance defaults.
+
+`crwv.valuation-revision@1`: append-only original input/config/result plus reason, source and parameter hashes, optional separately dated actuals, predecessor record ID and immutable record ID. A fixed-target ordered bridge is explicitly order-dependent; unallocated interactions remain visible. Different start dates require alignment; automatic time-roll decomposition is not implemented.
+
+Unsupported v1 features must be declared in `unsupported_features`, which rejects calculation. These include convertible exercises, contract prepayment/refund deferred-revenue schedules, leases with non-debt accounting, FX exposures, deferred-tax assets, and guarantees. Do not insert them as ordinary debt/cash or claim the model covers the full filed CRWV capitalization. Missing required balances cannot default to zero.
