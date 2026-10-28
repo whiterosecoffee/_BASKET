@@ -1,0 +1,48 @@
+name: CRWV tool independent acceptance
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/crwv-tool-acceptance.yml'
+      - 'research/CRWV/tool/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  crwv-finance-acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tested PR revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Show exact tested SHA
+        run: git rev-parse HEAD
+      - name: Fail closed if source or tests are absent
+        shell: bash
+        run: |
+          test -f research/CRWV/tool/tests/test_model.py
+          test -f research/CRWV/tool/demo.py
+      - name: Execute independent CRWV financial tests (zero tests fail)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s research/CRWV/tool/tests -p 'test_*.py' -v 2>&1 | tee /tmp/crwv-tests.log
+          python - <<'PY'
+          import pathlib,re
+          s=pathlib.Path('/tmp/crwv-tests.log').read_text()
+          m=re.search(r'Ran (\d+) tests?',s)
+          if not m or int(m.group(1)) < 39 or not re.search(r'\nOK\s*$',s):
+              raise SystemExit('CRWV independent test count/success gate failed')
+          print('Independently executed',m.group(1),'CRWV tests')
+          PY
+      - name: Execute offline scenario demo
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/crwv-acceptance
+          python research/CRWV/tool/demo.py --output /tmp/crwv-acceptance
+          test -n "$(find /tmp/crwv-acceptance -type f -print -quit)"
