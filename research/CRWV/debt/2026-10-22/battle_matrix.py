@@ -41,6 +41,38 @@ def baseline(daily, session):
     return {"adv20": sum(b["v"] for b in eligible)/20,
             "addv20": sum(b["v"]*b["vw"] for b in eligible)/20, "sessions":20}
 
+def path_summary(window, width):
+    """Kaufman-style signed progress/noise on observed close path, not OFI."""
+    if not window:
+        return {"state":"empty", "signed_efficiency":None, "gross_travel_ranges":None}
+    if any(b['t']-a['t'] != 60000 for a,b in zip(window,window[1:])):
+        return {"state":"gapped", "signed_efficiency":None, "gross_travel_ranges":None}
+    points=[window[0]['o']]+[b['c'] for b in window]
+    gross=sum(abs(b-a) for a,b in zip(points,points[1:]))
+    net=points[-1]-points[0]
+    return {"state":"observed_close_path", "signed_efficiency":net/gross if gross else None,
+            "gross_travel_ranges":gross/width, "net_displacement_ranges":net/width,
+            "flat_path":gross==0}
+
+def boundary_summary(window, upper, width, as_of):
+    """Bar contacts are not independent tests or proof of rejection."""
+    contacts=[b for b in window if b['h']>=upper[0] and b['l']<=upper[1]]
+    hysteresis=.05*width  # explicit uncalibrated engineering parameter
+    armed=False; entries=0
+    for b in window:
+        if b['c']<upper[0]-hysteresis:
+            armed=True
+        elif b['c']>=upper[0] and armed:
+            entries+=1; armed=False
+    last=minute_end(contacts[-1]) if contacts else None
+    return {'contact_bar_count':len(contacts), 'close_entry_episodes':entries,
+            'entry_hysteresis_usd':hysteresis, 'last_contact_at':last,
+            'minutes_since_last_window_contact':(as_of-last)/60000 if last else None,
+            'close_fraction_above_ceiling':sum(b['c']>upper[1] for b in window)/len(window) if window else None,
+            'no_ceiling_contact_in_window':not bool(contacts),
+            'initial_inside_episode_left_censored':bool(window and window[0]['c']>=upper[0]),
+            'method':'OHLC contact bars; debounced close entries; not independent rejection events'}
+
 def zone_metrics(bars, zone, as_of, minutes, base, half_life=5, min_bars=3):
     lower, upper = zone["lower"], zone["upper"]
     lo, hi = float(lower[0]), float(upper[1])
@@ -103,6 +135,8 @@ def zone_metrics(bars, zone, as_of, minutes, base, half_life=5, min_bars=3):
         "dollar_pct_addv20":100*d/base["addv20"] if base["addv20"] else None,
         "same_time_rvol":None, "same_time_rvol_reason":"historical minute profile not supplied",
         "lower_band_activity":band_activity(lower), "upper_band_activity":band_activity(upper),
+        "path":path_summary(window,hi-lo),
+        "ceiling_observations":boundary_summary(window,upper,hi-lo,as_of),
         "eligible_window_minutes":expected_minutes, "observed_window_bars":len(window),
         "window_complete":expected_minutes==minutes and len(window)==minutes,
         "range_position": (last["c"]-lo)/(hi-lo) if last else None,
@@ -141,7 +175,7 @@ def evaluate(data):
                 row["windows"][str(n)]=current
             row["input_hash"]=digest({"bars":past,"daily":daily,"zone":zone,"config":config})
             results.append(row)
-    out={"schema":VERSION,"method_version":"1.0.0", "method_hash":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"as_of":as_of,"session":data["session"],
+    out={"schema":VERSION,"method_version":"1.1.0", "method_hash":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"as_of":as_of,"session":data["session"],
          "currency":"USD","source":data.get("source"),"config":config,"rows":results,
          "limitations":["Descriptive efficiency, not signed buying/selling or a probability",
                         "Overlapping zones cannot be summed",

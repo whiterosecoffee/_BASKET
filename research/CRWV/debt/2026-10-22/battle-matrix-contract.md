@@ -54,3 +54,7 @@ B00/B06 should adopt the generic calculator and zone lifecycle in shared travers
 Reuse dependency #70. Do not unilaterally write shared engines, contracts or runtime.
 No model fitting, performance probability or trading recommendation is produced.
 
+# Prior-art refinement — v1.1.0
+
+See traversal-prior-art-review.md. The directional score is now accompanied by signed net/path efficiency, gross travel, ceiling contact bars, debounced close-entry episodes, elapsed time since contact and occupancy above the ceiling. Nineteen local tests passed. These do not constitute calibrated first-passage/rejection probabilities. No observed ceiling approach means no fresh rejection claim. The previous v1.0 fixture is preserved; v1.1 has a separate result filename and append-only revision.
+

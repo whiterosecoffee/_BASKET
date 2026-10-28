@@ -1,6 +1,6 @@
 import copy, json, tempfile, unittest
 from pathlib import Path
-from battle_matrix import evaluate, append_snapshot
+from battle_matrix import evaluate, append_snapshot, path_summary, boundary_summary
 START=1793196000000
 ASOF=START+15*60000
 
@@ -20,6 +20,37 @@ def metrics(x):
     return evaluate(x)["rows"][0]["windows"]["15"]
 
 class MatrixTests(unittest.TestCase):
+    def test_straight_path(self):
+        bars=fixture()['tickers'][0]['bars']
+        for i,b in enumerate(bars): b.update(o=60+i*.1,c=60+(i+1)*.1)
+        self.assertAlmostEqual(path_summary(bars,5)['signed_efficiency'],1.)
+    def test_round_trip_is_zero_progress(self):
+        bars=fixture()['tickers'][0]['bars'][:2]
+        bars[0].update(o=60.,c=61.);bars[1].update(o=61.,c=60.)
+        self.assertEqual(path_summary(bars,5)['signed_efficiency'],0.)
+        self.assertEqual(path_summary(bars,5)['gross_travel_ranges'],.4)
+    def test_down_path_negative(self):
+        bars=fixture()['tickers'][0]['bars'][:1];bars[0].update(o=60.,c=59.)
+        self.assertEqual(path_summary(bars,5)['signed_efficiency'],-1.)
+    def test_gap_not_interpolated(self):
+        bars=fixture()['tickers'][0]['bars'][:3];bars.pop(1)
+        self.assertIsNone(path_summary(bars,5)['signed_efficiency'])
+    def test_no_ceiling_attempt_is_not_rejection(self):
+        bars=fixture()['tickers'][0]['bars']
+        r=boundary_summary(bars,[62.,63.],5.,ASOF)
+        self.assertTrue(r['no_ceiling_contact_in_window'])
+        self.assertEqual(r['close_entry_episodes'],0)
+    def test_contact_bars_not_independent_entries(self):
+        bars=fixture()['tickers'][0]['bars'][:4]
+        for b,c in zip(bars,[61.,62.1,62.2,62.1]): b.update(c=c,h=c+.1,l=c-.1)
+        r=boundary_summary(bars,[62.,63.],5.,ASOF)
+        self.assertEqual(r['contact_bar_count'],3)
+        self.assertEqual(r['close_entry_episodes'],1)
+    def test_initial_contact_left_censored(self):
+        bars=fixture()['tickers'][0]['bars'][:1];bars[0].update(c=62.1,h=62.2,l=62.)
+        r=boundary_summary(bars,[62.,63.],5.,ASOF)
+        self.assertTrue(r['initial_inside_episode_left_censored'])
+        self.assertEqual(r['close_entry_episodes'],0)
     def test_directional_ratio(self):
         self.assertAlmostEqual(metrics(fixture())["score"],2.,places=10)
     def test_turnover_weight(self):

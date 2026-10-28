@@ -175,3 +175,7 @@ The [functional tool blueprint](functional-tool-blueprint.md) maps the full CRWV
 ## Generic battle-band matrix prototype
 
 [Calculator and matrix contract](battle-matrix-contract.md), [generic calculator](battle_matrix.py), [tests](test_battle_matrix.py), [dated cross-ticker inputs](matrix-input-2026-10-28.json), [CRWV/ORCL matrix](matrix-output-2026-10-28T1416Z.json), and [append-only snapshot history](battle-matrix-history.jsonl). Weighted up/down efficiency is centered on 1; band-assigned volume and ADV participation are separate. Twelve local tests passed. Delayed research fixture; automatic clustering and continuously scheduled refresh are not implemented. Shared adoption routes through #70.
+
+## Traversal prior-art refinement
+
+[Prior-art review](traversal-prior-art-review.md) compares eight families and distinguishes turnover efficiency from path progress, boundary events and predictive outcomes. Prototype v1.1.0 adds path/noise and ceiling-contact diagnostics; [dated v1.1 result](matrix-output-2026-10-28T1416Z-v1.1.0.json) preserves the original v1 result. Nineteen local tests pass; no prediction calibration, independent CI or live refresh is claimed. A ceiling untested during a decline is not described as a fresh rejection.
