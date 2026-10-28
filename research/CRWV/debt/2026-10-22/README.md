@@ -171,3 +171,7 @@ October dollar-turnover and downward-velocity history is integrated into the div
 ## Functional tool transition
 
 The [functional tool blueprint](functional-tool-blueprint.md) maps the full CRWV conversation into measurable components, proposed input/output contracts, valuation history, acceptance criteria and upstream-owner dependencies. The [new conversation prompt](next-conversation-prompt.md) starts an independently scoped implementation worker; it does not launch one or imply that live refresh exists. Both are specifications, not a deployed tool.
+
+## Generic battle-band matrix prototype
+
+[Calculator and matrix contract](battle-matrix-contract.md), [generic calculator](battle_matrix.py), [tests](test_battle_matrix.py), [dated cross-ticker inputs](matrix-input-2026-10-28.json), [CRWV/ORCL matrix](matrix-output-2026-10-28T1416Z.json), and [append-only snapshot history](battle-matrix-history.jsonl). Weighted up/down efficiency is centered on 1; band-assigned volume and ADV participation are separate. Twelve local tests passed. Delayed research fixture; automatic clustering and continuously scheduled refresh are not implemented. Shared adoption routes through #70.
