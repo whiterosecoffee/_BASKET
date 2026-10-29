@@ -1,0 +1,725 @@
+{
+  "schema": "basket.market_context_registry@1",
+  "registry_id": "working-research-66@2026-10-29",
+  "effective_at": "2026-10-29T16:40:49Z",
+  "available_at": "2026-10-29T16:40:49Z",
+  "authority": "working_research_noncanonical; not personal holdings; 3 canonical main members plus draft candidates",
+  "source": "https://github.com/whiterosecoffee/_BASKET/blob/6eab180632d251147d13a073c967dbd3031dfe92/research/themes/supply-chain/registry/tickers.json",
+  "source_commit": "6eab180632d251147d13a073c967dbd3031dfe92",
+  "excluded": [
+    "QQQ and SMH are benchmarks, not equally weighted company members",
+    "OPENAI is private; no synthetic quote",
+    "PAYP symbol remains unresolved until upstream verification"
+  ],
+  "members": [
+    {
+      "ticker": "SFTBY",
+      "currency": "USD",
+      "weight": 1,
+      "group": "other_or_unmapped",
+      "sector_proxy": null,
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "canonical_main",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "CRWV",
+      "currency": "USD",
+      "weight": 1,
+      "group": "cloud_compute",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "canonical_main",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "AAOI",
+      "currency": "USD",
+      "weight": 1,
+      "group": "optical_networking",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "canonical_main",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "NVDA",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "MSFT",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "DELL",
+      "currency": "USD",
+      "weight": 1,
+      "group": "cloud_compute",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "HPE",
+      "currency": "USD",
+      "weight": 1,
+      "group": "cloud_compute",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "IBM",
+      "currency": "USD",
+      "weight": 1,
+      "group": "cloud_compute",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "ORCL",
+      "currency": "USD",
+      "weight": 1,
+      "group": "cloud_compute",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "ARM",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "INTC",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "SYM",
+      "currency": "USD",
+      "weight": 1,
+      "group": "industrial_automation",
+      "sector_proxy": "XLI",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "PAYP",
+      "currency": "USD",
+      "weight": 1,
+      "group": "other_or_unmapped",
+      "sector_proxy": null,
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "unresolved"
+    },
+    {
+      "ticker": "ABBNY",
+      "currency": "USD",
+      "weight": 1,
+      "group": "industrial_automation",
+      "sector_proxy": "XLI",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "TMUS",
+      "currency": "USD",
+      "weight": 1,
+      "group": "telecom_edge",
+      "sector_proxy": "XLC",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "DTEGY",
+      "currency": "USD",
+      "weight": 1,
+      "group": "telecom_edge",
+      "sector_proxy": "XLC",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "TSM",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "MU",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "AVGO",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "AMD",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "ANET",
+      "currency": "USD",
+      "weight": 1,
+      "group": "optical_networking",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "VRT",
+      "currency": "USD",
+      "weight": 1,
+      "group": "other_or_unmapped",
+      "sector_proxy": null,
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "LITE",
+      "currency": "USD",
+      "weight": 1,
+      "group": "optical_networking",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "COHR",
+      "currency": "USD",
+      "weight": 1,
+      "group": "optical_networking",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "NBIS",
+      "currency": "USD",
+      "weight": 1,
+      "group": "cloud_compute",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "AMZN",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "GOOG",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "XLC",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "META",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "XLC",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "NOW",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "PLTR",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "ISRG",
+      "currency": "USD",
+      "weight": 1,
+      "group": "industrial_automation",
+      "sector_proxy": "XLI",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "IONQ",
+      "currency": "USD",
+      "weight": 1,
+      "group": "other_or_unmapped",
+      "sector_proxy": null,
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "QBTS",
+      "currency": "USD",
+      "weight": 1,
+      "group": "other_or_unmapped",
+      "sector_proxy": null,
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "RGTI",
+      "currency": "USD",
+      "weight": 1,
+      "group": "other_or_unmapped",
+      "sector_proxy": null,
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "HON",
+      "currency": "USD",
+      "weight": 1,
+      "group": "industrial_automation",
+      "sector_proxy": "XLI",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "CRM",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "SAP",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "ROK",
+      "currency": "USD",
+      "weight": 1,
+      "group": "industrial_automation",
+      "sector_proxy": "XLI",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "TER",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "FANUY",
+      "currency": "USD",
+      "weight": 1,
+      "group": "industrial_automation",
+      "sector_proxy": "XLI",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "NOK",
+      "currency": "USD",
+      "weight": 1,
+      "group": "telecom_edge",
+      "sector_proxy": "XLC",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "CHTR",
+      "currency": "USD",
+      "weight": 1,
+      "group": "telecom_edge",
+      "sector_proxy": "XLC",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "VZ",
+      "currency": "USD",
+      "weight": 1,
+      "group": "telecom_edge",
+      "sector_proxy": "XLC",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "T",
+      "currency": "USD",
+      "weight": 1,
+      "group": "telecom_edge",
+      "sector_proxy": "XLC",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "PANW",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "CRWD",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "ZS",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "FTNT",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "ASML",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "AMAT",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "LRCX",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "KLAC",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "MRVL",
+      "currency": "USD",
+      "weight": 1,
+      "group": "semiconductors",
+      "sector_proxy": "SOXX",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "FN",
+      "currency": "USD",
+      "weight": 1,
+      "group": "optical_networking",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "CIEN",
+      "currency": "USD",
+      "weight": 1,
+      "group": "optical_networking",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "ETN",
+      "currency": "USD",
+      "weight": 1,
+      "group": "industrial_automation",
+      "sector_proxy": "XLI",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "GEV",
+      "currency": "USD",
+      "weight": 1,
+      "group": "industrial_automation",
+      "sector_proxy": "XLI",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "CEG",
+      "currency": "USD",
+      "weight": 1,
+      "group": "power",
+      "sector_proxy": "XLU",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "VST",
+      "currency": "USD",
+      "weight": 1,
+      "group": "power",
+      "sector_proxy": "XLU",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "SMCI",
+      "currency": "USD",
+      "weight": 1,
+      "group": "cloud_compute",
+      "sector_proxy": "XLK",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "TSLA",
+      "currency": "USD",
+      "weight": 1,
+      "group": "other_or_unmapped",
+      "sector_proxy": null,
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "MBLY",
+      "currency": "USD",
+      "weight": 1,
+      "group": "industrial_automation",
+      "sector_proxy": "XLI",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "VEEV",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "AXON",
+      "currency": "USD",
+      "weight": 1,
+      "group": "other_or_unmapped",
+      "sector_proxy": null,
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "RXRX",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    },
+    {
+      "ticker": "SDGR",
+      "currency": "USD",
+      "weight": 1,
+      "group": "software_platforms",
+      "sector_proxy": "IGV",
+      "mapping_status": "heuristic_review_required",
+      "membership_status": "draft_research_candidate",
+      "quote_admission": "admitted"
+    }
+  ],
+  "benchmarks": [
+    "QQQ",
+    "SPY",
+    "RSP",
+    "IWM",
+    "SOXX",
+    "SMH",
+    "XLK",
+    "IGV",
+    "XLC",
+    "XLI",
+    "XLU",
+    "XLF",
+    "HYG",
+    "IEF",
+    "USO"
+  ],
+  "macro_sources": {
+    "credit": [
+      "BAMLH0A0HYM2",
+      "BAMLC0A0CM"
+    ],
+    "rates": [
+      "DGS10",
+      "DFII10",
+      "T5YIE",
+      "DXY"
+    ],
+    "liquidity": [
+      "SOFR",
+      "IORB",
+      "WRESBAL"
+    ],
+    "energy": [
+      "WTI futures",
+      "ULSD futures"
+    ],
+    "volatility": [
+      "VIX",
+      "VIX3M",
+      "equity-only put/call"
+    ],
+    "events": [
+      "official issuer IR",
+      "BEA",
+      "BLS",
+      "Federal Reserve"
+    ]
+  }
+}
