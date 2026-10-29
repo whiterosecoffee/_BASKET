@@ -15,3 +15,31 @@ Operational policy: before each material mutation refresh ownership and PR chang
 Validation/failure register: unowned paths, mismatched PR file list, stale or absent head-aligned CI, missing mandatory acceptance, a purported pass with no evidence, unauthorized merge, stale market observation and duplicate consumption must not be counted as verified. Domain unit tests establish only local capability; B01 exact-head CI, approved merge, and main CI are distinct gates. Independent security/schema reviews and operational provider deployment are not claimed by this contract.
 
 Acceptance matrix: A1 lifecycle and interface mapped (document); A2 negative evidence tests (local suite); A3 B01 exact-head CI and B00 integration review (outstanding until verified). Improvement queue: 1) close evidence gaps from test results; 2) independent exact-head validation; 3) approved integration and main-CI check. Schema changes, a generalized new black-box interface, and scheduler changes are deliberately excluded (see #103).
+
+
+## GitHub-managed standardized worker model — 2026-10-29 scope clarification
+
+The worker is **not** the chat. Distinguish the reusable **definition** (capability profile + versioned contracts + permissions), **instance** (agent/runtime identity with entitlements), **assignment** (issue-bound authorization, unique branch, dependencies, path lease), and **attempt** (immutable execution/checkpoint/result/evidence). Existing reusable profiles and recipes: `orchestration/planner/worker-library.json`. Existing task/resolution contracts: `basket.worker_task@1`, `basket.worker_resolution@1`. Do not create a second planner, controller or state schema.
+
+GitHub is the authoritative control-plane ledger for definitions, assignments, branch/PR artifacts, reviews and Actions CI. It is not a persistent execution host or live tick store. The **existing** agentic controller under `orchestration/agentic/**` (#32) should own claim scheduling, heartbeat/lease recovery, attempts and dispatch policy; agent-neutral adapters (#78) translate assignments to ChatGPT/Codex/VS Code/other agents; B08 owns supervised runtime/deployment; B01 owns independent CI. Issue #103 owns black-box component I/O schemas. This worker #106 only records contract alignment and fail-closed negative tests.
+
+Suggested dispatch lifecycle:
+1. **Discover:** read live GitHub issues, exact PR changed paths, registry capabilities and source-revision fingerprints; do not infer activity from PR state.
+2. **Match:** choose definition by required capabilities, allowed spark paths, input/output contract versions, credentials/entitlements and available runner, without creating dormant branches.
+3. **Authorize:** B00 records issue-bound task claim; reserve noncolliding paths; create a unique main-based branch for the conversation/run; task proposals are not executable claims.
+4. **Dispatch:** an authenticated runtime hands an immutable task envelope to an eligible instance; worker uses only authorized paths, bounded retries and idempotent checkpoints.
+5. **Observe:** heartbeat/lease, attempt IDs, source fingerprints, exact commit and structured errors. Expired lease is unknown/lost, not proof of completion.
+6. **Validate:** domain-owned tests plus independent B01 exact-PR-head CI; reject zero-test, skipped-required checks, mismatched SHA, source staleness or paths outside claim.
+7. **Review/publish:** draft PR then B00 reconciliation; explicit user authorization before merge/release, main-CI verification afterward. Emit dependency fingerprint changes for downstream recomputation.
+
+Failure policies: duplicate assignment → reject or reconcile by stable task key; PR collision → quarantine affected paths and issue owner handoff; runner lost → recover checkpoint with a new attempt and fencing token, never assume previous attempt stopped; no credentials/entitlement → block dependent fetch only; changed input → invalidate calculated results, retain immutable history; stale CI → rerun at current head. GitHub Actions can verify finite jobs but cannot supply an always-on authenticated data worker.
+
+Implementation owner routing (nonblocking design handoffs, not claims of completion):
+- **B00 #32**: existing agentic controller dispatch/lease/retry/attempt integration; do not duplicate here.
+- **B00 #78**: adapter-specific task transport and VS Code launch packets.
+- **B00 #103**: black-box component contract schema, distinct from worker assignment.
+- **B01**: independent exact-head and adversarial CI acceptance.
+- **B08**: persistent supervised agent/runtime and durable market data-plane hosting.
+- **B02**: market data ingest/revision/freshness execution.
+
+Near-term acceptance target: one real issue → deterministic worker match → unique branch → reproducible offline execution → commit/draft PR → exact-head CI → B00 verification. Repeat with two distinct worker profiles and a deliberate path collision before claiming cross-agent autonomous orchestration. No unverified autonomous execution or hosted service is claimed.
