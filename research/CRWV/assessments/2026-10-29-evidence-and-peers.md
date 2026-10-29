@@ -46,3 +46,12 @@ Q3 actuals and 2027 guidance; roll-forward Aug 4.2 GW into site-level energized/
 Read/extend rather than duplicate: #68/PR #69 debt and prior-art review; #86/PR #87 offline monthly waterfall and scenario engine; #95/PR #99 traversal; #100/PR #101 market context; #112 repository-first persistence. B04 owns generic shared valuation methods; B02 price data; B01 independent CI. This note is only ticker research and makes no claim those draft PRs are merged or deployed.
 
 Source status: primary issuer/SEC where stated, third-party methodological comparison only; provider publish/ingest time for this GitHub note is commit time, not invented earlier timestamps.
+
+## Implementation handoff and deterministic acceptance fixtures (2026-10-29)
+Handoff #115 routes writes to the existing B10 model owner (#86/PR87) and shared peer valuation to B04, rather than creating a duplicate engine.
+
+**Minimum cohort ledger:** cohort_id, site_id, customer_id, geography, gross_mw, it_mw, power_secured_mw, grid_connected_mw, energized_mw, commissioned_mw, active_mw, billable_mw, gpu_family, unit_cost, capex_committed, capex_paid, tariff_per_mw_year, tariff_vintage, service_acceptance, start/end, contract_status, finance_instrument_ids, effective_at, available_at, ingested_at, evidence_id. Disallow summing global aggregates with site subsets.
+
+**Monthly calculation sequence:** capacity bottleneck -> hardware received/commissioned -> customer service acceptance -> billable MW × valid cohort tariff × month fraction -> contractual/operating costs -> hardware/economic depreciation -> interest and amortization by drawn instrument -> tax -> maintenance/replacement capex -> new financing requirements -> issue share conversion -> per-diluted-share equity residual. Display actual/management estimate/scenario individually; cash financing and accrual accounting reconciled but not conflated.
+
+**Fixtures:** A=300MW signed, 100MW energized, 60MW billable produces only 60MW billable; B=590MW landlord portfolio is a subset of global contracted, not extra 590MW; C=$40M/MW short-contract applies only specified 3–6-month accepted cohort; D=$8.5B credit commitment with $0 drawn produces neither $8.5B current outstanding debt nor $8.5B automatically available equity cash; E=GPU capex due $1B, permitted funding $0.6B flags $0.4B gap and null funded valuation. For peers use period-aligned IT MW, revenue recognized, secured borrowings, owned/leased hardware and equity issuance, otherwise report unranked.
