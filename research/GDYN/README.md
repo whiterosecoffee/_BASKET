@@ -1,5 +1,16 @@
-# Grid Dynamics Holdings (GDYN)
+# GDYN — Grid Dynamics Holdings
 
-Provisional issuer research directory. Onboarding issue #116. Primary initial note: [2026-10-29 GDYN vs CRWV](2026-10-29-comparison.md).
+**Ticker:** NASDAQ:GDYN  
+**Basket:** Enterprise AI Applications & Implementation / AI Services (proposed classification; canonical basket membership pending B00 registration).  
+**Role:** Enterprise AI integration, data engineering, agentic workflows, physical AI and robotic simulation, software engineering productivity.  
+**Issuer research scope:** GDYN-specific evidence, earnings, products, partnerships, margins, risks, valuation and price history references. **Do not store other ticker profiles or peer-comparison artifacts in this folder.**
 
-Company-scoped analysis only. Canonical entity registration: B00 approval required. OHLCV history belongs to B02; events B03; relationship records B05; cross-ticker valuation engine B04. No live feed implied.
+## Research index
+- [2026-10-29 Q3 financial results and margin profile](2026-10-29-earnings-margins.md)
+- [2026-10-29 NVIDIA relationship and directional thesis](2026-10-29-nvidia-direction.md)
+
+## Repository boundaries
+- This is a provisional company research folder under issue #116 and draft PR #117.
+- Basket composition, registration and cross-ticker comparables belong to B00/B04 basket-level contracts, not `research/GDYN/**`.
+- Canonical `tickers/GDYN/entity.json` requires an assigned company spark and approval from B00.
+- Price bars/history belong to B02; events to B03; relationships to B05. No feed or market-history completeness claimed.
