@@ -1,0 +1,68 @@
+{
+  "schema": "ticker.pattern-component@1",
+  "component_id": "ticker-range-local",
+  "version": "1.0.0",
+  "owner": "B10-95",
+  "canonical_owner_handoff": "B06 #92 / B00 registry handoff pending",
+  "entrypoint": "research/CRWV/trading-tool/run.py",
+  "commands": [
+    "capture",
+    "replay",
+    "show",
+    "export",
+    "export-input"
+  ],
+  "provider_adapter": "research/CRWV/trading-tool/poller.py",
+  "inputs": {
+    "bar_format": "Massive t,o,h,l,c,v,vw; completed minute UTC start milliseconds",
+    "source_manifest_required": true,
+    "ticker_parameter": true,
+    "volume_profile": "prior actual complete ET sessions; missing is null"
+  },
+  "outputs": {
+    "matrix": "stdout compact matrix",
+    "signals": "append-only SQLite; JSONL export",
+    "health": "poller --health path JSON"
+  },
+  "storage": {
+    "kind": "SQLite WAL single local durable disk",
+    "tables": [
+      "inputs",
+      "observations",
+      "signals",
+      "checkpoints",
+      "captures"
+    ],
+    "revision_policy": "fail closed; audited rebuild appends generation; preserves supersedes",
+    "restart": "full-prefix duplicate-safe capture"
+  },
+  "method": {
+    "code": "patterns.py",
+    "sha256": "7b82b8de6d3f0e577cee63451a528fcadda4c5e588344fb83518dbfe68fca9c1",
+    "score": "weighted up-range travel per gross dollar / corresponding down ratio; 1-centered",
+    "path": "signed close-path efficiency, [-1,1]",
+    "band_lifecycle": "confirmed pivots frozen after30 contiguous bars; two closes outside terminate",
+    "calibrated": false
+  },
+  "historical_dependency": {
+    "pr": 69,
+    "commit": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9",
+    "path": "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/",
+    "import_parent_implementation": false,
+    "point_in_time_availability": "unknown"
+  },
+  "readiness": {
+    "local_executable": true,
+    "registered_in_shared_registry": false,
+    "merged_main": false,
+    "persistent_process_running": false,
+    "current_entitled_trade_quote_feed": false,
+    "in_session_aggregate_delay": "unknown; market closed during verification"
+  },
+  "invocation": "python research/CRWV/trading-tool/run.py show --db /persistent/basket/patterns.sqlite --ticker CRWV",
+  "handoffs": {
+    "discovery": 96,
+    "runtime": 97,
+    "independent_ci": 98
+  }
+}
