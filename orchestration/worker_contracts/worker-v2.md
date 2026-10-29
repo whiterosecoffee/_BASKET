@@ -43,3 +43,21 @@ Implementation owner routing (nonblocking design handoffs, not claims of complet
 - **B02**: market data ingest/revision/freshness execution.
 
 Near-term acceptance target: one real issue → deterministic worker match → unique branch → reproducible offline execution → commit/draft PR → exact-head CI → B00 verification. Repeat with two distinct worker profiles and a deliberate path collision before claiming cross-agent autonomous orchestration. No unverified autonomous execution or hosted service is claimed.
+
+
+## GitHub Copilot implementation handoff
+
+**Scope:** Existing issue #106 and PR #107 supply verified governance contracts and negative tests. Do not treat this as authority to edit controller or adapter paths under this branch. Open a new issue and uniquely scoped branch for any new implementation worker, only after inspecting current main, sparks registry, open PR changed paths and owning issues. Coordinate with B00 controller #32, adapter #78, component contracts #103, B01 CI and B08 deployment.
+
+**Copilot objective:** Prove one actual GitHub issue -> authorized worker profile match -> provider-neutral launch packet -> execution attempt -> branch commit -> draft PR -> exact-head CI -> B00 acceptance, using existing orchestration components. Avoid inventing another scheduler, task queue, contract schema or mutable source-of-truth. First identify what is already executable. Declare all unavailable runners/credentials and do not simulate a completed external-agent dispatch as real execution.
+
+**Required evidence:** exact main and task/PR head SHAs, authorized write paths, provider/entitlement status, commands and outputs, attempted/actual dispatch transport, immutable attempt and fencing identifiers, CI run URLs at exact head, recovery and collision negative tests, failure/retry journal and one next action. Red/absent CI remains a blocker. User authorization is required before any merge.
+
+**Acceptance gates:**
+1. Existing components discovered with links and actual implementation maturity; no overlapping writes.
+2. One end-to-end issue-backed run with recorded genuine executor identity and task envelope (or explicit external-runtime blocker if it cannot execute).
+3. Second role/profile with deterministic capability matching, and a rejected conflicting path claim.
+4. Simulated lost heartbeat/restart with stale fencing token rejected, without claiming actual host recovery.
+5. Head-aligned independent B01 CI, immutable results and B00 review; no self-merge.
+
+**Read-first references:** AGENTS.md, orchestration/WORKER_PROTOCOL.md, orchestration/sparks.json, orchestration/planner/worker-library.json, orchestration/agentic/**, orchestration/agent_adapters/**, #32, #78, #103, #106, PR #107. GitHub stores control-plane evidence but is not an always-running execution host.
