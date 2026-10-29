@@ -1,0 +1,404 @@
+{
+  "object_type": "basket",
+  "schema": "basket.skilled_ai_deployment@1-provisional",
+  "basket_id": "skilled-ai-deployment-integration",
+  "name": "Skilled AI Deployment & Enterprise Integration",
+  "as_of": "2026-10-29",
+  "currency_basis": "USD",
+  "status": "provisional-research-object-not-canonical-registered",
+  "owner_spark": "B17",
+  "purpose": "Track publicly traded companies with specialist capacity to turn AI models and compute into production enterprise use, not AI compute or power suppliers.",
+  "selection_method": "Capability shortlist, not performance ranking, endorsement, verified scarcity rent or portfolio weighting.",
+  "membership_policy": {
+    "no_duplicate_issuer": true,
+    "security_key": "venue:ticker",
+    "non_US_trading": "Retain native listing venue; do not treat Indian tickers as US shares",
+    "tickers_as_references_only": true,
+    "scorecard_inputs": [
+      "production_deployment_capacity",
+      "domain_expertise",
+      "reusable_IP",
+      "AI_revenue_share",
+      "revenue_per_specialist",
+      "gross_profit_per_deployment",
+      "repeat_clients",
+      "pricing_power",
+      "GAAP_cash_conversion",
+      "training_and_hiring_constraints"
+    ],
+    "missing_values": "null_not_zero"
+  },
+  "tiers": {
+    "specialist": "AI/digital engineering specialists",
+    "global-integrator": "Scaled enterprise system integrators and consultants",
+    "offshore-engineering": "Global/offshore engineering talent platforms",
+    "platform-led": "Own application platform plus forward deployed teams",
+    "domain-specialist": "Vertical/analytics implementation specialists"
+  },
+  "members": [
+    {
+      "security": {
+        "ticker": "GDYN",
+        "venue": "NASDAQ"
+      },
+      "issuer": "Grid Dynamics",
+      "segment": "specialist",
+      "capability_thesis": "Enterprise AI engineering; GAIN accelerators; physical AI and NVIDIA ecosystem",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "EPAM",
+        "venue": "NYSE"
+      },
+      "issuer": "EPAM Systems",
+      "segment": "specialist",
+      "capability_thesis": "Complex digital/product engineering and AI deployment",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "GLOB",
+        "venue": "NYSE"
+      },
+      "issuer": "Globant",
+      "segment": "specialist",
+      "capability_thesis": "AI Pods and outcome-oriented digital engineering",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "CINT",
+        "venue": "NYSE"
+      },
+      "issuer": "CI&T",
+      "segment": "specialist",
+      "capability_thesis": "Digital product engineering and enterprise AI transformation",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "DAVA",
+        "venue": "NYSE"
+      },
+      "issuer": "Endava",
+      "segment": "specialist",
+      "capability_thesis": "Enterprise engineering, digital transformation and AI",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "ACN",
+        "venue": "NYSE"
+      },
+      "issuer": "Accenture",
+      "segment": "global-integrator",
+      "capability_thesis": "Industry-domain implementation at scale, AI and NVIDIA/Palantir partner ecosystem",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "CTSH",
+        "venue": "NASDAQ"
+      },
+      "issuer": "Cognizant",
+      "segment": "global-integrator",
+      "capability_thesis": "Large enterprise systems integration and AI transformation",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "IBM",
+        "venue": "NYSE"
+      },
+      "issuer": "IBM",
+      "segment": "global-integrator",
+      "capability_thesis": "Hybrid enterprise AI, governance, consulting and Red Hat",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "CAP",
+        "venue": "EURONEXT_PARIS"
+      },
+      "issuer": "Capgemini",
+      "segment": "global-integrator",
+      "capability_thesis": "Enterprise IT engineering, AI consulting and transformation",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "GIB",
+        "venue": "NYSE"
+      },
+      "issuer": "CGI Inc.",
+      "segment": "global-integrator",
+      "capability_thesis": "Enterprise and government integration and managed services",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "KD",
+        "venue": "NYSE"
+      },
+      "issuer": "Kyndryl",
+      "segment": "global-integrator",
+      "capability_thesis": "Hybrid enterprise infrastructure integration and managed IT modernization",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "G",
+        "venue": "NYSE"
+      },
+      "issuer": "Genpact",
+      "segment": "global-integrator",
+      "capability_thesis": "Business-process/domain-centric AI transformations",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "PLTR",
+        "venue": "NASDAQ"
+      },
+      "issuer": "Palantir Technologies",
+      "segment": "platform-led",
+      "capability_thesis": "AIP plus forward-deployed engineer implementation",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "TCS",
+        "venue": "NSE_INDIA"
+      },
+      "issuer": "Tata Consultancy Services",
+      "segment": "offshore-engineering",
+      "capability_thesis": "Large-scale engineering talent, global systems integration",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "INFY",
+        "venue": "NYSE"
+      },
+      "issuer": "Infosys",
+      "segment": "offshore-engineering",
+      "capability_thesis": "Enterprise digital and AI engineering with global delivery",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "WIT",
+        "venue": "NYSE"
+      },
+      "issuer": "Wipro",
+      "segment": "offshore-engineering",
+      "capability_thesis": "Enterprise IT integration and engineering services",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "HCLTECH",
+        "venue": "NSE_INDIA"
+      },
+      "issuer": "HCLTech",
+      "segment": "offshore-engineering",
+      "capability_thesis": "Engineering/R&D and AI services global delivery",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "TECHM",
+        "venue": "NSE_INDIA"
+      },
+      "issuer": "Tech Mahindra",
+      "segment": "offshore-engineering",
+      "capability_thesis": "Telecom and enterprise engineering and GenAI integration",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "LTIM",
+        "venue": "NSE_INDIA"
+      },
+      "issuer": "LTIMindtree",
+      "segment": "offshore-engineering",
+      "capability_thesis": "Cloud/enterprise integration and AI deployment",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "PERSISTENT",
+        "venue": "NSE_INDIA"
+      },
+      "issuer": "Persistent Systems",
+      "segment": "offshore-engineering",
+      "capability_thesis": "Software product engineering and AI transformation",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "COFORGE",
+        "venue": "NSE_INDIA"
+      },
+      "issuer": "Coforge",
+      "segment": "offshore-engineering",
+      "capability_thesis": "Industry-focused engineering in travel, insurance and banking",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "EXLS",
+        "venue": "NASDAQ"
+      },
+      "issuer": "EXLService Holdings",
+      "segment": "domain-specialist",
+      "capability_thesis": "Data analytics and AI implementation for financial and insurance workflows",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "FJTSY",
+        "venue": "OTC_US"
+      },
+      "issuer": "Fujitsu Limited ADR",
+      "segment": "global-integrator",
+      "capability_thesis": "Enterprise modernization, infrastructure and AI integration",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    },
+    {
+      "security": {
+        "ticker": "DXC",
+        "venue": "NYSE"
+      },
+      "issuer": "DXC Technology",
+      "segment": "global-integrator",
+      "capability_thesis": "Large enterprise IT modernization and managed service",
+      "qualification": "research_candidate",
+      "scarcity_score": null,
+      "valuation_score": null,
+      "financials_as_of": null,
+      "source_verification": "needs_member_level_validation"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://ir.isg-one.com/news-market-information/press-releases/news-details/2026/U-S--Enterprises-Accelerate-Digital-Engineering-with-AI/default.aspx",
+      "source_class": "third_party_industry",
+      "note": "Industry digital engineering leaders"
+    },
+    {
+      "url": "https://elaxtra.com/insights/q4-2025-public-company-valuation-and-operating-metrics",
+      "source_class": "third_party_industry",
+      "note": "Listed engineering/IT services peer set"
+    },
+    {
+      "url": "https://www.palantir.com/newsroom/press-releases/",
+      "source_class": "issuer",
+      "note": "Palantir enterprise AI/FDE positioning"
+    },
+    {
+      "url": "https://www.griddynamics.com/partnerships/nvidia",
+      "source_class": "issuer",
+      "note": "GDYN partnership example"
+    }
+  ],
+  "gates": [
+    "B00 approve generic versioned basket object contract and registry routing",
+    "B01 independent validation",
+    "B02 date-matched ticker financial market observations",
+    "Check primary-exchange symbology with entitled security master for non-US tickers"
+  ]
+}
