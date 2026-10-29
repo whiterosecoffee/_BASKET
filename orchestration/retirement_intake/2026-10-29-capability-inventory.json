@@ -1,0 +1,1763 @@
+{
+  "absence_policy": "Refresh missing records; never infer deletion, merge or nonexistence from cache absence.",
+  "absent_since_previous": [],
+  "active_worker_capacity": null,
+  "cache_policy": "Historical evidence only; any relevant SHA/fingerprint change requires refresh.",
+  "capabilities": [
+    {
+      "branch": "work/12-b03-canonical-issuer-events",
+      "commit_sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "08be8e6dc59ec904f5f4d5d78f863611c7ab1de8f63aa622f3f0f088c8d4d3ff",
+      "dependency_issues": [
+        2,
+        8,
+        9,
+        12
+      ],
+      "entrypoint_candidates": [
+        "research/events/validate.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "failure",
+          "name": "Validate BASKET data",
+          "sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957274923"
+        },
+        {
+          "conclusion": "failure",
+          "name": "Validate BASKET data",
+          "sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957268793"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-14",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B03] Initial canonical SoftBank issuer events and point-in-time revision register",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B03",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 14,
+      "source_paths": [
+        "research/events/README.md",
+        "research/events/SFTBY/2026-10-16-initial-ledger.json",
+        "research/events/validate.py",
+        "tickers/SFTBY/events.json"
+      ],
+      "tests": [],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/14"
+    },
+    {
+      "branch": "work/11-market-fx-observation-replay",
+      "commit_sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "ce8981f600ec44f883365ecd12a41f73bcefdac2faf3e64a97baa5661197fba5",
+      "dependency_issues": [
+        2,
+        4,
+        5,
+        7,
+        11
+      ],
+      "entrypoint_candidates": [
+        "runtime/observations.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "failure",
+          "name": "Validate BASKET data",
+          "sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957102730"
+        },
+        {
+          "conclusion": "failure",
+          "name": "Validate BASKET data",
+          "sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957074452"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-15",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B02] Append-only observation revisions and point-in-time snapshots",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B02",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 15,
+      "source_paths": [
+        "runtime/observations.py",
+        "runtime/test_observations.py",
+        "tests/test_ttd.py"
+      ],
+      "tests": [
+        "runtime/test_observations.py",
+        "tests/test_ttd.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/15"
+    },
+    {
+      "branch": "work/17-mrie-revenue-pool-resources",
+      "commit_sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "4bf4b59e721871d0b9f23793b67e73060d457163d8f966df4bc2a5305079a7a4",
+      "dependency_issues": [
+        17
+      ],
+      "entrypoint_candidates": [
+        "research/themes/supply-chain/reconciliation/check_research.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "failure",
+          "name": "OpenAI research strict gate",
+          "sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096679844"
+        },
+        {
+          "conclusion": "failure",
+          "name": "Validate BASKET data",
+          "sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096679765"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096677208"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-18",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "B19: MRIE full-basket revenue research resources",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B19",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 18,
+      "source_paths": [
+        "research/themes/supply-chain/README.md",
+        "research/themes/supply-chain/WORKER_CONTRACT.md",
+        "research/themes/supply-chain/coverage/missing.json",
+        "research/themes/supply-chain/earnings/quarterly-intake.json",
+        "research/themes/supply-chain/reconciliation/check_research.py",
+        "research/themes/supply-chain/reconciliation/rules.json",
+        "research/themes/supply-chain/reconciliation/test_check_research.py",
+        "research/themes/supply-chain/registry/pools.json",
+        "research/themes/supply-chain/registry/tickers.json",
+        "research/themes/supply-chain/relationships/gateway-model.json"
+      ],
+      "tests": [
+        "research/themes/supply-chain/reconciliation/test_check_research.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/18"
+    },
+    {
+      "branch": "work/20-capital-profit-graph",
+      "commit_sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "62f3f2062cbdcf260b8ade6973322091dc44074b221b57c547d2585749c0c857",
+      "dependency_issues": [
+        11,
+        12,
+        16,
+        17,
+        18,
+        20
+      ],
+      "entrypoint_candidates": [],
+      "exact_head_ci": [
+        {
+          "conclusion": "failure",
+          "name": "OpenAI research strict gate",
+          "sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096804353"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096804356"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096801792"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-22",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B00] Specify capital-to-profit economic graph contracts",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B00",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 22,
+      "source_paths": [
+        "architecture/ECONOMIC_FLOW_GRAPH.md"
+      ],
+      "tests": [],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/22"
+    },
+    {
+      "branch": "work/21-underrepresented-ticker-coverage",
+      "commit_sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "657f9191166746b0233a9a0a2703e881a60d9364c8c145a2c6ce5444b1ad08b8",
+      "dependency_issues": [
+        17,
+        18,
+        21
+      ],
+      "entrypoint_candidates": [
+        "research/themes/supply-chain/coverage/check_coverage.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "failure",
+          "name": "OpenAI research strict gate",
+          "sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096738185"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096738181"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096735362"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-23",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "B19: research coverage for 42 underrepresented tickers",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B19",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 23,
+      "source_paths": [
+        "research/themes/supply-chain/coverage/WORKER_RUNBOOK.md",
+        "research/themes/supply-chain/coverage/check_coverage.py",
+        "research/themes/supply-chain/coverage/test_check_coverage.py",
+        "research/themes/supply-chain/coverage/underrepresented-2026-10-17.json"
+      ],
+      "tests": [
+        "research/themes/supply-chain/coverage/test_check_coverage.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/23"
+    },
+    {
+      "branch": "work/24-register-coverage-research-milestones",
+      "commit_sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "b9b9cf373140482e2398bf1aeb497353ac67a7a8b956d3f70730ab278b448430",
+      "dependency_issues": [
+        1,
+        24
+      ],
+      "entrypoint_candidates": [
+        "orchestration/execution_loop.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "failure",
+          "name": "OpenAI research strict gate",
+          "sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096784321"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096784343"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096781706"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-25",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B00] Queue whole-basket coverage and NVDA capital-capture research seeds",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B00",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 25,
+      "source_paths": [
+        "orchestration/execution_loop.py",
+        "orchestration/planner/README.md",
+        "orchestration/planner/goals.json",
+        "orchestration/planner/queue.json",
+        "orchestration/planner/worker-scopes.json",
+        "orchestration/tests/test_execution_loop.py",
+        "orchestration/tests/test_planner.py"
+      ],
+      "tests": [
+        "orchestration/tests/test_execution_loop.py",
+        "orchestration/tests/test_planner.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/25"
+    },
+    {
+      "branch": "work/26-openai-preipo-valuation-sftby",
+      "commit_sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "e46602ca721213681958c1a59757400c8294b4e8aebfd22899d42a5c94e20b59",
+      "dependency_issues": [
+        11,
+        12,
+        25,
+        26,
+        28,
+        29,
+        30,
+        35,
+        36,
+        45,
+        46,
+        64
+      ],
+      "entrypoint_candidates": [
+        "research/OPENAI/check.py",
+        "research/OPENAI/evidence_fingerprint.py",
+        "research/OPENAI/ipo2027.py",
+        "research/OPENAI/resource_audit.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "failure",
+          "name": "OpenAI research strict gate",
+          "sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097743023"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097743021"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097741392"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-31",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B13] OpenAI pre-IPO evidence, 2027 dynamic IPO weights and SFTBY methodology",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B13",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 31,
+      "source_paths": [
+        "research/OPENAI/README.md",
+        "research/OPENAI/RESOURCE_STRATEGY.md",
+        "research/OPENAI/WORKER_CONTRACT.md",
+        "research/OPENAI/assumption-register.json",
+        "research/OPENAI/check.py",
+        "research/OPENAI/evidence_fingerprint.py",
+        "research/OPENAI/ipo2027-news.json",
+        "research/OPENAI/ipo2027-policy.json",
+        "research/OPENAI/ipo2027.py",
+        "research/OPENAI/resource-registry.json",
+        "research/OPENAI/resource_audit.py",
+        "research/OPENAI/sftby-interface.json",
+        "research/OPENAI/test_evidence_fingerprint.py",
+        "research/OPENAI/test_ipo2027.py",
+        "research/OPENAI/test_resource_audit.py",
+        "research/OPENAI/valuation-register.json",
+        "tickers/OPENAI/entity.json"
+      ],
+      "tests": [
+        "research/OPENAI/test_evidence_fingerprint.py",
+        "research/OPENAI/test_ipo2027.py",
+        "research/OPENAI/test_resource_audit.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/31"
+    },
+    {
+      "branch": "work/32-mrie-agentic-readiness-audit",
+      "commit_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "584d9760f087633909d0d498b8c85b3f481e9bd35dd6ac8e7b289be5ad638782",
+      "dependency_issues": [
+        2,
+        6,
+        10,
+        11,
+        13,
+        14,
+        15,
+        18,
+        22,
+        24,
+        25,
+        32,
+        34,
+        61,
+        62,
+        64,
+        65,
+        39097419136,
+        39097419181
+      ],
+      "entrypoint_candidates": [
+        "orchestration/agentic/__init__.py",
+        "orchestration/agentic/cli.py",
+        "orchestration/agentic/dependency_gate.py",
+        "orchestration/agentic/github_adapter.py",
+        "orchestration/agentic/manager.py",
+        "orchestration/agentic/massive_worker_contract.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097419136"
+        },
+        {
+          "conclusion": "failure",
+          "name": "OpenAI research strict gate",
+          "sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097419181"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097416484"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-33",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B00] Audit MRIE implementation and agentic runtime readiness (40/100)",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B00",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 33,
+      "source_paths": [
+        "orchestration/agentic/README.md",
+        "orchestration/agentic/WORKER_CONTRACT.md",
+        "orchestration/agentic/__init__.py",
+        "orchestration/agentic/cli.py",
+        "orchestration/agentic/dependency_gate.py",
+        "orchestration/agentic/github_adapter.py",
+        "orchestration/agentic/manager.py",
+        "orchestration/agentic/massive_worker_contract.py",
+        "orchestration/agentic/massive_worker_jobs.json",
+        "orchestration/agentic/massive_workers.json",
+        "orchestration/agentic/tests/test_dependency_gate.py",
+        "orchestration/agentic/tests/test_manager.py",
+        "orchestration/agentic/tests/test_massive_worker_contract.py",
+        "orchestration/audits/mrie-dispatch-readiness-2026-10-17.json",
+        "orchestration/audits/mrie-implementation-readiness-2026-10-17.json"
+      ],
+      "tests": [
+        "orchestration/agentic/tests/test_dependency_gate.py",
+        "orchestration/agentic/tests/test_manager.py",
+        "orchestration/agentic/tests/test_massive_worker_contract.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/33"
+    },
+    {
+      "branch": "work/37-cross-support-evidence",
+      "commit_sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "b53c63c03ad91637f793381ca131b0d25b2973051dd3e9cb3aa3475c48ac82b5",
+      "dependency_issues": [
+        1,
+        24,
+        25,
+        27,
+        37,
+        39,
+        40,
+        43,
+        46,
+        47,
+        49,
+        54
+      ],
+      "entrypoint_candidates": [],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093307806"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093280119"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-38",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B21] Preserve Exol and AI-RAN cross-support evidence and falsifiers",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B21",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 38,
+      "source_paths": [
+        "research/narrative/cross-support/exol-network-thesis-2026-10-17.md"
+      ],
+      "tests": [],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/38"
+    },
+    {
+      "branch": "work/42-ticker-first-worker-contract",
+      "commit_sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "6a94d4b454a80b71cb56e41d5d13bac45eed5b2949f0fd347a5a4dac2f21e36f",
+      "dependency_issues": [
+        24,
+        25,
+        42
+      ],
+      "entrypoint_candidates": [],
+      "exact_head_ci": [
+        {
+          "conclusion": "failure",
+          "name": "OpenAI research strict gate",
+          "sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096671822"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096671841"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096669609"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-43",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B00] Ticker-first research and reusable worker architecture",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B00",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 43,
+      "source_paths": [
+        "architecture/TICKER_FIRST_RESEARCH_ARCHITECTURE.md"
+      ],
+      "tests": [],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/43"
+    },
+    {
+      "branch": "work/48-full-basket-capture-dispatch",
+      "commit_sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "37de55354fcc5b0fd75aa1d442f53600acbc34fa74f6346c08b62221adbe640d",
+      "dependency_issues": [
+        11,
+        12,
+        25,
+        34,
+        42,
+        43,
+        48
+      ],
+      "entrypoint_candidates": [
+        "orchestration/capture_dispatch/plan.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "failure",
+          "name": "OpenAI research strict gate",
+          "sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096006939"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096006928"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096005810"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-49",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B00] Executable full-basket capture dispatch and JSONL owner gates",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B00",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 49,
+      "source_paths": [
+        "orchestration/capture_dispatch/README.md",
+        "orchestration/capture_dispatch/plan.py",
+        "orchestration/capture_dispatch/test_plan.py"
+      ],
+      "tests": [
+        "orchestration/capture_dispatch/test_plan.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/49"
+    },
+    {
+      "branch": "work/53-b08-snapshot-service",
+      "commit_sha": "24d77045575926be5499355f9d26de499ed2b5ae",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "375ead1cdbb14e0193a2dfff3f9ef59ba712ef3a3e3e9257cb44b81e5d17de92",
+      "dependency_issues": [
+        25,
+        33,
+        34,
+        43,
+        46,
+        47,
+        49,
+        53
+      ],
+      "entrypoint_candidates": [
+        "services/mrie_snapshot/app.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "24d77045575926be5499355f9d26de499ed2b5ae",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39094943323"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "24d77045575926be5499355f9d26de499ed2b5ae",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39094941562"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-55",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B08] Authenticated read-only snapshot REST component",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B08",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 55,
+      "source_paths": [
+        "deployment/mrie_snapshot/README.md",
+        "services/mrie_snapshot/app.py",
+        "services/mrie_snapshot/test_app.py"
+      ],
+      "tests": [
+        "services/mrie_snapshot/test_app.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/55"
+    },
+    {
+      "branch": "work/57-b06-oct16-traversal-stress-fixture",
+      "commit_sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "7758e4483c4b9fa56e350c8f2345d94604334195efe6bb56cb1893dde2fdb7e1",
+      "dependency_issues": [
+        11,
+        15,
+        44,
+        47,
+        48,
+        49,
+        53,
+        55,
+        57
+      ],
+      "entrypoint_candidates": [
+        "engines/traversal/alert_gates.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096777152"
+        },
+        {
+          "conclusion": "failure",
+          "name": "OpenAI research strict gate",
+          "sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096777150"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096773915"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-58",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B06] October 16 cross-asset traversal stress research fixture",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B06",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 58,
+      "source_paths": [
+        "engines/traversal/alert_gates.py",
+        "engines/traversal/test_alert_gates.py",
+        "research/traversal/2026-10-16-ai-infrastructure-stress.json",
+        "research/traversal/B06-WORKER-CONTRACT.md"
+      ],
+      "tests": [
+        "engines/traversal/test_alert_gates.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/58"
+    },
+    {
+      "branch": "work/59-orchestrator-retirement-intake",
+      "commit_sha": "f69593830b8e3e1314c4d9444a6417dcaab2067e",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "dfdbaa8b21021762d5ba89f2f87ca6ac83e3b34a2da6598766d3a8a3142674f9",
+      "dependency_issues": [
+        6,
+        24,
+        44,
+        46,
+        47,
+        59
+      ],
+      "entrypoint_candidates": [],
+      "exact_head_ci": [
+        {
+          "conclusion": "failure",
+          "name": "OpenAI research strict gate",
+          "sha": "f69593830b8e3e1314c4d9444a6417dcaab2067e",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096172899"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "f69593830b8e3e1314c4d9444a6417dcaab2067e",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096172910"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "f69593830b8e3e1314c4d9444a6417dcaab2067e",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096169882"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-60",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B00] Orchestrator retirement intake and verified ownership baseline",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B00",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 60,
+      "source_paths": [
+        "orchestration/retirement_intake/2026-10-18-b00-baseline.json",
+        "orchestration/retirement_intake/2026-10-18-b08-snapshot.json",
+        "orchestration/retirement_intake/2026-10-18-b19-audit-reconciliation.json",
+        "orchestration/retirement_intake/2026-10-18-capture-dispatch.json",
+        "orchestration/retirement_intake/2026-10-18-ci-flood.json"
+      ],
+      "tests": [],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/60"
+    },
+    {
+      "branch": "work/68-crwv-debt-stack-audit",
+      "commit_sha": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "fefe531faf25dc4ca3aec1fe08f272dd75b2fcba2c09e23d375b1799b80ac183",
+      "dependency_issues": [
+        68
+      ],
+      "entrypoint_candidates": [
+        "research/CRWV/debt/2026-10-22/battle_matrix.py",
+        "research/CRWV/debt/2026-10-22/capacity-scenarios.py",
+        "research/CRWV/debt/2026-10-22/factor_tracker.py",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/range_replay.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40812264585"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-69",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B10] CRWV debt, capacity conversion and equity valuation",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B10",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 69,
+      "source_paths": [
+        "research/CRWV/debt/2026-10-22/README.md",
+        "research/CRWV/debt/2026-10-22/battle-matrix-contract.md",
+        "research/CRWV/debt/2026-10-22/battle-matrix-history.jsonl",
+        "research/CRWV/debt/2026-10-22/battle_matrix.py",
+        "research/CRWV/debt/2026-10-22/capacity-conversion.json",
+        "research/CRWV/debt/2026-10-22/capacity-conversion.md",
+        "research/CRWV/debt/2026-10-22/capacity-scenarios.json",
+        "research/CRWV/debt/2026-10-22/capacity-scenarios.py",
+        "research/CRWV/debt/2026-10-22/capacity-weighted-valuation.md",
+        "research/CRWV/debt/2026-10-22/debt-repricing-2026-10-23.json",
+        "research/CRWV/debt/2026-10-22/debt-stack.json",
+        "research/CRWV/debt/2026-10-22/directional-turnover-2026-10-28.json",
+        "research/CRWV/debt/2026-10-22/discount-demand-and-oi-2026-10-28.json",
+        "research/CRWV/debt/2026-10-22/divergence-and-repricing-2026-10-23.md",
+        "research/CRWV/debt/2026-10-22/earnings-lifespan-services.md",
+        "research/CRWV/debt/2026-10-22/factor-attribution-2026-10-22.json",
+        "research/CRWV/debt/2026-10-22/factor-attribution-2026-10-23.json",
+        "research/CRWV/debt/2026-10-22/factor-closes-2026-10-22.csv",
+        "research/CRWV/debt/2026-10-22/factor-closes-2026-10-23.csv",
+        "research/CRWV/debt/2026-10-22/factor_tracker.py",
+        "research/CRWV/debt/2026-10-22/flow-2026-10-28T1357Z.json",
+        "research/CRWV/debt/2026-10-22/forward-valuation.json",
+        "research/CRWV/debt/2026-10-22/forward-valuation.md",
+        "research/CRWV/debt/2026-10-22/functional-tool-blueprint.md",
+        "research/CRWV/debt/2026-10-22/gray-contracted-power-overlay.md",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV-daily-bars.csv",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV-minute-bars.csv",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV.range-patterns.jsonl",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/README.md",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/manifest.json",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/pattern-index.json",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/range_replay.py",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/summary.json",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/test_range_replay.py",
+        "research/CRWV/debt/2026-10-22/integrated-assessment.md",
+        "research/CRWV/debt/2026-10-22/matrix-input-2026-10-28.json",
+        "research/CRWV/debt/2026-10-22/matrix-output-2026-10-28T1416Z-v1.1.0.json",
+        "research/CRWV/debt/2026-10-22/matrix-output-2026-10-28T1416Z.json",
+        "research/CRWV/debt/2026-10-22/next-conversation-prompt.md",
+        "research/CRWV/debt/2026-10-22/october-turnover-velocity.json",
+        "research/CRWV/debt/2026-10-22/repricing-assessment.md",
+        "research/CRWV/debt/2026-10-22/test_battle_matrix.py",
+        "research/CRWV/debt/2026-10-22/trajectory-2026-10-28.json",
+        "research/CRWV/debt/2026-10-22/trajectory-2026-10-28.md",
+        "research/CRWV/debt/2026-10-22/traversal-compression-2026-10-23.json",
+        "research/CRWV/debt/2026-10-22/traversal-prior-art-review.md"
+      ],
+      "tests": [
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/test_range_replay.py",
+        "research/CRWV/debt/2026-10-22/test_battle_matrix.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/69"
+    },
+    {
+      "branch": "work/71-crwv-ops-vs-buildout",
+      "commit_sha": "c6c35e3f59d40e8ca4505900542ae6153a3cf670",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "9d604382e1c039cebe1a8e493d90b6f50814aa57e2ab2a0ec9e35dc86e2c1d6c",
+      "dependency_issues": [
+        68,
+        69,
+        71
+      ],
+      "entrypoint_candidates": [
+        "research/CRWV/operations-vs-buildout/2026-10-23/verify.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "c6c35e3f59d40e8ca4505900542ae6153a3cf670",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40338535260"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-72",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B10] CRWV operating margin vs buildout cost and capacity-conversion findings (2026-10-23)",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B10",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 72,
+      "source_paths": [
+        "research/CRWV/operations-vs-buildout/2026-10-23/README.md",
+        "research/CRWV/operations-vs-buildout/2026-10-23/findings.json",
+        "research/CRWV/operations-vs-buildout/2026-10-23/verify.py"
+      ],
+      "tests": [],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/72"
+    },
+    {
+      "branch": "work/73-crwv-replacement-cost-rates",
+      "commit_sha": "813ed77e0442548a0778fd12348a4b416683ed38",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "d1b7b60dbe0dc278a2f3d9cb5548337b5cfc54e8a3b997232f2614a8535ce305",
+      "dependency_issues": [
+        69,
+        72,
+        73
+      ],
+      "entrypoint_candidates": [
+        "research/CRWV/73-replacement-cost-rates/verify.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "813ed77e0442548a0778fd12348a4b416683ed38",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40338495839"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-74",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B10] CRWV replacement cost, contract rates per MW and depreciation sensitivity",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B10",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 74,
+      "source_paths": [
+        "research/CRWV/73-replacement-cost-rates/README.md",
+        "research/CRWV/73-replacement-cost-rates/findings.json",
+        "research/CRWV/73-replacement-cost-rates/verify.py"
+      ],
+      "tests": [],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/74"
+    },
+    {
+      "branch": "work/75-orcl-evolving-tracker",
+      "commit_sha": "dc6a98e864558606b34d03148a9a95f881b52bf4",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "31249ded11e0b86a4d3d71cd1289d3cab4849d108e24d00f35664cb144724c17",
+      "dependency_issues": [
+        61,
+        62,
+        75,
+        76,
+        80,
+        83,
+        84,
+        85
+      ],
+      "entrypoint_candidates": [
+        "engines/valuation/orcl_bridge/engine.py",
+        "engines/valuation/orcl_bridge/example.py",
+        "orchestration/ticker_trackers/publish_valuation.py",
+        "orchestration/ticker_trackers/tracker.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "dc6a98e864558606b34d03148a9a95f881b52bf4",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40416800478"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-77",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "Build ORCL tracker with valuation, peer comparisons and financing scenarios",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": null,
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 77,
+      "source_paths": [
+        "engines/valuation/orcl_bridge/README.md",
+        "engines/valuation/orcl_bridge/engine.py",
+        "engines/valuation/orcl_bridge/example.py",
+        "engines/valuation/orcl_bridge/test_engine.py",
+        "orchestration/ticker_trackers/README.md",
+        "orchestration/ticker_trackers/orcl.json",
+        "orchestration/ticker_trackers/publish_valuation.py",
+        "orchestration/ticker_trackers/test_tracker.py",
+        "orchestration/ticker_trackers/test_valuation.py",
+        "orchestration/ticker_trackers/tracker.py"
+      ],
+      "tests": [
+        "engines/valuation/orcl_bridge/test_engine.py",
+        "orchestration/ticker_trackers/test_tracker.py",
+        "orchestration/ticker_trackers/test_valuation.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/77"
+    },
+    {
+      "branch": "work/78-agent-neutral-dispatch-contract",
+      "commit_sha": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "202f273398c2dac6dd673ad5411c41dfac17876a7dc6db8bbcafb11a38098aa1",
+      "dependency_issues": [
+        32,
+        48,
+        59,
+        65,
+        78
+      ],
+      "entrypoint_candidates": [],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40350933155"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-79",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B00] Agent-neutral assignment contract and VS Code handoff",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B00",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 79,
+      "source_paths": [
+        "orchestration/agent_adapters/README.md"
+      ],
+      "tests": [],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/79"
+    },
+    {
+      "branch": "work/80-orcl-forward-multiple-comparative",
+      "commit_sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "5ef36d983637c1a7d7e199ec71eda407301dff7819d0aac5face63732a1baadc",
+      "dependency_issues": [
+        61,
+        62,
+        76,
+        80,
+        82
+      ],
+      "entrypoint_candidates": [],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379267489"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-83",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B00-draft] ORCL Forward_Multiple: one file per analysis vector",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B00",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 83,
+      "source_paths": [
+        "research/ORCL/Forward_Multiple/01_PEER_SET.md",
+        "research/ORCL/Forward_Multiple/02_WEIGHTED_MULTIPLE.md",
+        "research/ORCL/Forward_Multiple/03_UPSIDE_SCORE.md",
+        "research/ORCL/Forward_Multiple/04_REVERSE_CHECK.md",
+        "research/ORCL/Forward_Multiple/05_FACTOR_CHECKLIST.md",
+        "research/ORCL/Forward_Multiple/06_THESIS_AND_LADDER.md",
+        "research/ORCL/Forward_Multiple/README.md",
+        "research/ORCL/Forward_Multiple/REVISIONS.md"
+      ],
+      "tests": [],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/83"
+    },
+    {
+      "branch": "work/81-orcl-range-traversal",
+      "commit_sha": "86a80db25fcc0066955bacf7c8bf2af30aeed104",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "788411055ae85b37040c9cfeffee73715da0aa2a63f9e144d6edf1263e03b1f6",
+      "dependency_issues": [
+        61,
+        62,
+        76,
+        81,
+        82
+      ],
+      "entrypoint_candidates": [],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "86a80db25fcc0066955bacf7c8bf2af30aeed104",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379271904"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-84",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B00-draft] ORCL Range_Traversal: today / 72H / 10D traversal instructions",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B00",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 84,
+      "source_paths": [
+        "research/ORCL/Range_Traversal/10D.md",
+        "research/ORCL/Range_Traversal/72H.md",
+        "research/ORCL/Range_Traversal/BAND_METHOD.md",
+        "research/ORCL/Range_Traversal/CROSS_WINDOW.md",
+        "research/ORCL/Range_Traversal/DIVERGENCE_OVERLAY.md",
+        "research/ORCL/Range_Traversal/README.md",
+        "research/ORCL/Range_Traversal/REVISIONS.md",
+        "research/ORCL/Range_Traversal/TODAY.md"
+      ],
+      "tests": [],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/84"
+    },
+    {
+      "branch": "work/82-orcl-vector-orchestration",
+      "commit_sha": "389334012cc6ba1b3592df7e4aad1159f9b951e5",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "48b9d70c6b6f7bd2ac5a79a7ac5fdee488fbc12c58c3af8d8c1030e2795ee41e",
+      "dependency_issues": [
+        61,
+        62,
+        76,
+        82
+      ],
+      "entrypoint_candidates": [
+        "research/ORCL/Orchestration/status.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "389334012cc6ba1b3592df7e4aad1159f9b951e5",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379276481"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-85",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B00-draft] ORCL vector orchestration: registry, assignments, launch packets, read-only status",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B00",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 85,
+      "source_paths": [
+        "research/ORCL/Orchestration/LAUNCH_PACKETS.md",
+        "research/ORCL/Orchestration/README.md",
+        "research/ORCL/Orchestration/assignments/ORCL-FM.assignment.json",
+        "research/ORCL/Orchestration/assignments/ORCL-RT.assignment.json",
+        "research/ORCL/Orchestration/spark-proposal.json",
+        "research/ORCL/Orchestration/status.py",
+        "research/ORCL/Orchestration/test_status.py",
+        "research/ORCL/Orchestration/vectors.json"
+      ],
+      "tests": [
+        "research/ORCL/Orchestration/test_status.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/85"
+    },
+    {
+      "branch": "work/86-crwv-functional-tool",
+      "commit_sha": "7a33a6f49a2740a93310fa1c66a8090c25dd110a",
+      "contract_paths": [
+        "research/CRWV/tool/contracts/README.md",
+        "research/CRWV/tool/contracts/result.v1.json",
+        "research/CRWV/tool/contracts/snapshot.v1.json"
+      ],
+      "declared_interface": {
+        "evidence_class": "source declaration; independent pinned financial acceptance in PR90",
+        "inputs": "dated snapshot + scenario config",
+        "invocation": "python research/CRWV/tool/demo.py --output /tmp/crwv-demo",
+        "outputs": "monthly capacity/revenue, funding gap, EPS/dilution, conditional valuation, JSON/text",
+        "source": "research/CRWV/tool/README.md",
+        "tests": "python -m unittest discover -s research/CRWV/tool/tests -v",
+        "version": "crwv-economics@0.1.0"
+      },
+      "dependency_fingerprint": "1c70376659cafa51faa5064bf8ed317b9ad413863040b3371d07ac420ce07198",
+      "dependency_issues": [
+        68,
+        69,
+        70,
+        86,
+        88
+      ],
+      "entrypoint_candidates": [
+        "research/CRWV/tool/demo.py",
+        "research/CRWV/tool/fixtures/build.py",
+        "research/CRWV/tool/history.py",
+        "research/CRWV/tool/market.py",
+        "research/CRWV/tool/model.py",
+        "research/CRWV/tool/run.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "7a33a6f49a2740a93310fa1c66a8090c25dd110a",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40529029687"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-87",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B10] Run offline CRWV operating economics, funding and valuation",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B10",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 87,
+      "source_paths": [
+        "research/CRWV/tool/README.md",
+        "research/CRWV/tool/VALIDATION.md",
+        "research/CRWV/tool/contracts/README.md",
+        "research/CRWV/tool/contracts/result.v1.json",
+        "research/CRWV/tool/contracts/snapshot.v1.json",
+        "research/CRWV/tool/demo.py",
+        "research/CRWV/tool/examples/base.txt",
+        "research/CRWV/tool/examples/revision-bridge.json",
+        "research/CRWV/tool/examples/sensitivities.json",
+        "research/CRWV/tool/examples/summary.json",
+        "research/CRWV/tool/examples/unfunded.txt",
+        "research/CRWV/tool/fixtures/base.json",
+        "research/CRWV/tool/fixtures/build.py",
+        "research/CRWV/tool/fixtures/bull.json",
+        "research/CRWV/tool/fixtures/slow.json",
+        "research/CRWV/tool/fixtures/snapshot.json",
+        "research/CRWV/tool/fixtures/unfunded-snapshot.json",
+        "research/CRWV/tool/fixtures/unfunded.json",
+        "research/CRWV/tool/history.py",
+        "research/CRWV/tool/market.py",
+        "research/CRWV/tool/model.py",
+        "research/CRWV/tool/run.py",
+        "research/CRWV/tool/source-manifest.json",
+        "research/CRWV/tool/tests/test_model.py"
+      ],
+      "tests": [
+        "research/CRWV/tool/tests/test_model.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/87"
+    },
+    {
+      "branch": "work/89-crwv-independent-ci-acceptance",
+      "commit_sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+      "contract_paths": [],
+      "declared_interface": null,
+      "dependency_fingerprint": "be2e564c6345aa2cea10279478195b440cdbb7310aa280d1ca70192d4aae296c",
+      "dependency_issues": [
+        87,
+        88,
+        89
+      ],
+      "entrypoint_candidates": [],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40919835473"
+        },
+        {
+          "conclusion": "success",
+          "name": "CRWV tool independent acceptance",
+          "sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40919835438"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-90",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B01] Fail-closed CRWV financial acceptance CI",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B01",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 90,
+      "source_paths": [
+        ".github/workflows/crwv-tool-acceptance.yml"
+      ],
+      "tests": [],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/90"
+    },
+    {
+      "branch": "work/95-incremental-ticker-patterns",
+      "commit_sha": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+      "contract_paths": [
+        "research/CRWV/trading-tool/component.json"
+      ],
+      "declared_interface": {
+        "evidence_class": "component manifest declaration; persistent running process false",
+        "inputs": "completed timestamped minute bars + source manifest",
+        "invocation": "python research/CRWV/trading-tool/run.py show --db /persistent/basket/patterns.sqlite --ticker CRWV",
+        "outputs": "range matrix, SQLite observations/signals, JSONL export",
+        "source": "research/CRWV/trading-tool/component.json",
+        "version": "ticker.pattern-component@1 / 1.0.0"
+      },
+      "dependency_fingerprint": "24efd3a845546cb8c09eb63d552ab247923ecc219c1ee12d92153ddb1a7b7651",
+      "dependency_issues": [
+        70,
+        92,
+        94,
+        95,
+        96,
+        97,
+        98
+      ],
+      "entrypoint_candidates": [
+        "research/CRWV/trading-tool/corpus.py",
+        "research/CRWV/trading-tool/patterns.py",
+        "research/CRWV/trading-tool/poller.py",
+        "research/CRWV/trading-tool/run.py",
+        "research/CRWV/trading-tool/store.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40813757265"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-99",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "[B10] Persist generic ticker range patterns and local traversal matrix",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B10",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 99,
+      "source_paths": [
+        "research/CRWV/trading-tool/.gitignore",
+        "research/CRWV/trading-tool/HANDOFF.md",
+        "research/CRWV/trading-tool/README.md",
+        "research/CRWV/trading-tool/VALIDATION.md",
+        "research/CRWV/trading-tool/component.json",
+        "research/CRWV/trading-tool/corpus.py",
+        "research/CRWV/trading-tool/examples/historical-matrix.json",
+        "research/CRWV/trading-tool/patterns.py",
+        "research/CRWV/trading-tool/poller.py",
+        "research/CRWV/trading-tool/run.py",
+        "research/CRWV/trading-tool/store.py",
+        "research/CRWV/trading-tool/tests/test_patterns.py"
+      ],
+      "tests": [
+        "research/CRWV/trading-tool/tests/test_patterns.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/99"
+    },
+    {
+      "branch": "work/100-basket-market-context",
+      "commit_sha": "565e582720a32d8d73c5421d6d99d503c4bbde03",
+      "contract_paths": [],
+      "declared_interface": {
+        "evidence_class": "source declaration; independent domain acceptance pending #102",
+        "inputs": "aligned dated registry + current/previous quote and macro snapshots",
+        "invocation": "python -m unittest discover -s engines/composites/market_context/tests -v",
+        "outputs": "basket/sector/benchmark deltas, coverage and provisional state",
+        "source": "engines/composites/market_context/README.md",
+        "version": "basket.market_context_input@1"
+      },
+      "dependency_fingerprint": "522196f022481531b5953dbb371a5ff85ddf6071d28735ed30bb55e264890889",
+      "dependency_issues": [
+        76,
+        100
+      ],
+      "entrypoint_candidates": [
+        "engines/composites/market_context/context.py"
+      ],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "565e582720a32d8d73c5421d6d99d503c4bbde03",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40915516965"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-101",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "B17: track whole-basket market context and aligned return deltas",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B17",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 101,
+      "source_paths": [
+        "engines/composites/market_context/README.md",
+        "engines/composites/market_context/context.py",
+        "engines/composites/market_context/policy.v1.json",
+        "engines/composites/market_context/tests/test_context.py",
+        "research/composites/market_context/README.md",
+        "research/composites/market_context/VALIDATION.md",
+        "research/composites/market_context/fixtures/basket-report.json",
+        "research/composites/market_context/fixtures/basket.csv",
+        "research/composites/market_context/fixtures/basket.json",
+        "research/composites/market_context/fixtures/midday-report.json",
+        "research/composites/market_context/fixtures/midday.csv",
+        "research/composites/market_context/fixtures/midday.json",
+        "research/composites/market_context/fixtures/premarket.csv",
+        "research/composites/market_context/fixtures/premarket.json",
+        "research/composites/market_context/registry.working.json"
+      ],
+      "tests": [
+        "engines/composites/market_context/tests/test_context.py"
+      ],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/101"
+    },
+    {
+      "branch": "work/103-blackbox-component-contracts",
+      "commit_sha": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa",
+      "contract_paths": [
+        "schemas/component-blackbox.v1.json"
+      ],
+      "declared_interface": {
+        "evidence_class": "draft proposal; B01 independent validation #105",
+        "inputs": "manifest with typed ports, owner, version and acceptance",
+        "outputs": "schema/spec proposal; request/response runner unimplemented",
+        "source": "architecture/BLACK_BOX_COMPONENT_CONTRACT.md",
+        "version": "basket.component_contract@1 proposal"
+      },
+      "dependency_fingerprint": "9ab21ed99ab98665074281888eed797623e83db7dee660094bbb09670844c82a",
+      "dependency_issues": [
+        103
+      ],
+      "entrypoint_candidates": [],
+      "exact_head_ci": [
+        {
+          "conclusion": "success",
+          "name": "Validate BASKET data",
+          "sha": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa",
+          "status": "completed",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40920434614"
+        }
+      ],
+      "freshness": null,
+      "historical_coverage": null,
+      "id": "pr-104",
+      "implementation_state": "review",
+      "input_schema_version": null,
+      "invocation": null,
+      "limitation": "Discovery only; schema versions, invocation and operation require source/runner review.",
+      "name": "B00 reusable black-box component contracts",
+      "operational_evidence": null,
+      "output_schema_version": null,
+      "owner": "B00",
+      "owner_evidence": "PR title; issue scope review still required",
+      "pr": 104,
+      "source_paths": [
+        "architecture/BLACK_BOX_COMPONENT_CONTRACT.md",
+        "schemas/component-blackbox.v1.json"
+      ],
+      "tests": [],
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/104"
+    },
+    {
+      "branch": "main",
+      "commit_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "dependency_fingerprint": "ac88a986641c3d616e4db0d5ce3f881749ea6d813f09310854058fc0a1da2fb9",
+      "domain_test_verification": null,
+      "id": "main-planner",
+      "implementation_state": "integrated",
+      "invocation_candidate": "python orchestration/planner.py --help",
+      "limitation": "Source present on main; live operation not inferred.",
+      "name": "Evidence-gated task planner",
+      "operational_evidence": null,
+      "owner": "B00",
+      "source_paths": [
+        "orchestration/github_snapshot.py",
+        "orchestration/planner.py"
+      ]
+    },
+    {
+      "branch": "main",
+      "commit_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "dependency_fingerprint": "22e2a70de5503bc85fcfc5e03a9b67ca00db55ef2b2c0522ba7a5b49676a354d",
+      "domain_test_verification": null,
+      "id": "main-worker-qc",
+      "implementation_state": "integrated",
+      "invocation_candidate": "python orchestration/worker_protocol.py --help",
+      "limitation": "Source present on main; live operation not inferred.",
+      "name": "Worker claim and acceptance validation",
+      "operational_evidence": null,
+      "owner": "B00",
+      "source_paths": [
+        "orchestration/worker_protocol.py"
+      ]
+    },
+    {
+      "branch": "main",
+      "commit_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "dependency_fingerprint": "20bf028340eb28cf663597b595a6853b209919e31e8dd95eb05d1b9a3d641cb0",
+      "domain_test_verification": null,
+      "id": "main-ttd",
+      "implementation_state": "integrated",
+      "invocation_candidate": "python runtime/ttd.py --help",
+      "limitation": "Source present on main; live operation not inferred.",
+      "name": "Observation freshness and ingestion CLI",
+      "operational_evidence": null,
+      "owner": "B02",
+      "source_paths": [
+        "runtime/feeds.json",
+        "runtime/ttd.py"
+      ]
+    },
+    {
+      "branch": "main",
+      "commit_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "dependency_fingerprint": "7bdfa8b75c2c64a3c697101245800788605ca84a67d3e6c6baa3a63d29a344fc",
+      "domain_test_verification": null,
+      "id": "main-traversal",
+      "implementation_state": "integrated",
+      "invocation_candidate": "python engines/traversal/range.py --help",
+      "limitation": "Source present on main; live operation not inferred.",
+      "name": "Historical daily range traversal",
+      "operational_evidence": null,
+      "owner": "B06",
+      "source_paths": [
+        "engines/traversal/range.py"
+      ]
+    },
+    {
+      "branch": "main",
+      "commit_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "dependency_fingerprint": "4f2c4072c1c20724686f30e2dd173ef031b3f467a50f389408b3bcacc98cb1eb",
+      "domain_test_verification": null,
+      "id": "main-narrative",
+      "implementation_state": "integrated",
+      "invocation_candidate": null,
+      "limitation": "Source present on main; live operation not inferred.",
+      "name": "Narrative evidence processing",
+      "operational_evidence": null,
+      "owner": "B21",
+      "source_paths": [
+        "engines/narrative/engine.py"
+      ]
+    }
+  ],
+  "evidence_sha256": "165e7faacad82fb591a2c5c9d7b9943ad0be42adf17676d127413d7e323578bf",
+  "exact_path_collisions": [],
+  "invalidated_records": [],
+  "main_ci": [
+    {
+      "conclusion": "success",
+      "head_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "name": "Validate BASKET data",
+      "status": "completed",
+      "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39154102082"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "name": "OpenAI research strict gate",
+      "status": "completed",
+      "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39154102166"
+    }
+  ],
+  "main_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+  "observed_at": "2026-10-29T17:39:29.825Z",
+  "operational_status": "unverified",
+  "repository": "whiterosecoffee/_BASKET",
+  "scope_review": "Exact path comparison complete; issue/glob/semantic ownership still requires review."
+}
