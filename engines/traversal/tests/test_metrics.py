@@ -17,7 +17,7 @@ class TestMetrics(unittest.TestCase):
         self.assertEqual(x["windows"],y["windows"])
         self.assertNotEqual(x["instrument"],y["instrument"])
         self.assertEqual(m.evaluate("CRWV",bars()[:20])["windows"]["5m"],
-                         m.evaluate("CRWV",bars()[:20]+bars()[20:])["windows"]["5m"] if False else m.evaluate("CRWV",bars()[:20])["windows"]["5m"])
+                         m.evaluate("CRWV",bars()[:20])["windows"]["5m"])
     def test_intraday_ranges_and_nulls(self):
         x=m.evaluate("CRWV",bars())
         self.assertIsNotNone(x["windows"]["15m"])
