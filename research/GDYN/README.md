@@ -8,6 +8,7 @@
 ## Research index
 - [2026-10-29 Q3 financial results and margin profile](2026-10-29-earnings-margins.md)
 - [2026-10-29 NVIDIA relationship and directional thesis](2026-10-29-nvidia-direction.md)
+- [2027–2028 forward adjusted EPS and valuation](2026-10-29-forward-eps-2027-2028.md)
 
 ## Repository boundaries
 - This is a provisional company research folder under issue #116 and draft PR #117.
