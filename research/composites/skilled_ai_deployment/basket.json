@@ -8,7 +8,7 @@
   "status": "provisional-research-object-not-canonical-registered",
   "owner_spark": "B17",
   "purpose": "Track publicly traded companies with specialist capacity to turn AI models and compute into production enterprise use, not AI compute or power suppliers.",
-  "selection_method": "Capability shortlist, not performance ranking, endorsement, verified scarcity rent or portfolio weighting.",
+  "selection_method": "Capability shortlist, not performance ranking, endorsement, verified scarcity rent or portfolio weighting. Categories are non-exclusive analytical tags, not isolated peer baskets.",
   "membership_policy": {
     "no_duplicate_issuer": true,
     "security_key": "venue:ticker",
@@ -29,11 +29,10 @@
     "missing_values": "null_not_zero"
   },
   "tiers": {
-    "specialist": "AI/digital engineering specialists",
+    "specialist": "Specialized AI/digital engineering and domain-focused deployment firms",
     "global-integrator": "Scaled enterprise system integrators and consultants",
     "offshore-engineering": "Global/offshore engineering talent platforms",
-    "platform-led": "Own application platform plus forward deployed teams",
-    "domain-specialist": "Vertical/analytics implementation specialists"
+    "platform-led": "Own application platform plus forward deployed teams"
   },
   "members": [
     {
@@ -336,13 +335,20 @@
         "venue": "NASDAQ"
       },
       "issuer": "EXLService Holdings",
-      "segment": "domain-specialist",
-      "capability_thesis": "Data analytics and AI implementation for financial and insurance workflows",
+      "segment": "specialist",
+      "capability_thesis": "AI deployment and intelligent operations, especially insurance, finance, analytics and domain workflow integration",
       "qualification": "research_candidate",
       "scarcity_score": null,
       "valuation_score": null,
       "financials_as_of": null,
-      "source_verification": "needs_member_level_validation"
+      "source_verification": "needs_member_level_validation",
+      "capability_tags": [
+        "ai_integration",
+        "domain_analytics",
+        "insurance",
+        "financial_services",
+        "intelligent_operations"
+      ]
     },
     {
       "security": {
