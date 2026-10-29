@@ -167,15 +167,11 @@ A separate DCSP arrangement has $302M gross note receivable set off against $112
 The maintained company-research entry is [divergence and debt repricing](divergence-and-repricing-2026-10-23.md), including the Friday Oct23 close refresh. Machine-readable traversal/compression observations: [Oct23 snapshot](traversal-compression-2026-10-23.json). The existing [factor tracker](factor_tracker.py) consumes dated matched-close fixtures; [Oct23 attribution](factor-attribution-2026-10-23.json) retains prior-window coefficients and daily residuals. Oct22 inputs and outputs remain immutable. These are repo-owned research outputs, not a separate app or external document system. Continuous ingestion/shared traversal integration remains [handoff #70](https://github.com/whiterosecoffee/_BASKET/issues/70); no persistent live refresh is claimed.
 
 October dollar-turnover and downward-velocity history is integrated into the divergence research above; raw and calculated observations are in [October turnover/velocity](october-turnover-velocity.json).
-
 ## Functional tool transition
 
-The [functional tool blueprint](functional-tool-blueprint.md) maps the full CRWV conversation into measurable components, proposed input/output contracts, valuation history, acceptance criteria and upstream-owner dependencies. The [new conversation prompt](next-conversation-prompt.md) starts an independently scoped implementation worker; it does not launch one or imply that live refresh exists. Both are specifications, not a deployed tool.
+The [functional tool blueprint](functional-tool-blueprint.md) maps the CRWV conversation into measurable components, contracts and acceptance criteria. The [new conversation prompt](next-conversation-prompt.md) starts an independently scoped implementation worker. These are specifications, not a deployed tool.
 
-## Generic battle-band matrix prototype
 
-[Calculator and matrix contract](battle-matrix-contract.md), [generic calculator](battle_matrix.py), [tests](test_battle_matrix.py), [dated cross-ticker inputs](matrix-input-2026-10-28.json), [CRWV/ORCL matrix](matrix-output-2026-10-28T1416Z.json), and [append-only snapshot history](battle-matrix-history.jsonl). Weighted up/down efficiency is centered on 1; band-assigned volume and ADV participation are separate. Twelve local tests passed. Delayed research fixture; automatic clustering and continuously scheduled refresh are not implemented. Shared adoption routes through #70.
+## Historical range replay
 
-## Traversal prior-art refinement
-
-[Prior-art review](traversal-prior-art-review.md) compares eight families and distinguishes turnover efficiency from path progress, boundary events and predictive outcomes. Prototype v1.1.0 adds path/noise and ceiling-contact diagnostics; [dated v1.1 result](matrix-output-2026-10-28T1416Z-v1.1.0.json) preserves the original v1 result. Nineteen local tests pass; no prediction calibration, independent CI or live refresh is claimed. A ceiling untested during a decline is not described as a fresh rejection.
+[October CRWV range corpus](historical-ranges-2026-10-28/README.md) provides the Massive-derived JSONL episodes, source bars, reproducible replay and validation. The October 28 session is partial through 11:34 ET; this is descriptive historical research, not a live or calibrated trading service.
