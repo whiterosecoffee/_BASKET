@@ -3,7 +3,7 @@ on:
   pull_request:
     paths:
       - '.github/workflows/crwv-tool-acceptance.yml'
-      - 'crwv-source/research/CRWV/tool/**'
+      - 'research/CRWV/tool/**'
   workflow_dispatch:
 permissions:
   contents: read
