@@ -1,291 +1,294 @@
 {
-  "object_type": "virtual_basket",
-  "schema": "basket.virtual_portfolio@1-provisional",
-  "basket_id": "ai-services-best-in-class-sub50b",
-  "name": "AI Services & Skilled Deployment — Under $50B",
-  "parent_basket_id": "skilled-ai-deployment-integration",
-  "status": "research_only_unregistered",
+  "object_type": "basket",
+  "schema": "basket.ai_deployment_options@1-provisional",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "name": "AI Service Implementation Specialists — US Tradable",
   "as_of": "2026-10-30",
+  "status": "research_shortlist_not_portfolio",
+  "parent_basket_id": "skilled-ai-deployment-integration",
   "reporting_currency": "USD",
-  "max_issuer_market_cap_usd": 50000000000,
-  "capital_usd": 100000,
-  "construction": "Illustrative initial equal-thesis-conviction weights, no executed trades",
-  "allocation_basis": "Selected specialist engineering, workflow-specific AI deployment, platform reusability, enterprise sales reach; the weights are hypotheses, not backtested optimizers.",
-  "eligibility": "Public issuer with reliable market cap strictly under $50B USD as of its documented observation; non-contemporaneous figures need refresh before execution",
-  "rebalance_rule": "On each rebalance, refresh provider prices, share counts, FX and eligibility; issuer that exceeds $50B is placed pending removal (not automatic trade) and portfolio simulation requires point-in-time prices and transaction costs.",
-  "holdings": [
-    {
-      "security_ref": {
-        "ticker": "GDYN",
-        "venue": "NASDAQ"
-      },
-      "target_weight_percent": 15,
-      "role": "ai-native-deployment",
-      "cap_evidence": {
-        "usd_billions": 1,
-        "as_of": "2026-10-30",
-        "source_url": "https://stockanalysis.com/stocks/gdyn/",
-        "source_class": "third_party_market_data",
-        "freshness": "historical_not_live"
-      },
-      "shares": null,
-      "entry_price_usd": null,
-      "last_mark_usd": null,
-      "market_value_usd": null,
-      "returns": null
-    },
-    {
-      "security_ref": {
-        "ticker": "EPAM",
-        "venue": "NYSE"
-      },
-      "target_weight_percent": 15,
-      "role": "advanced-engineering",
-      "cap_evidence": {
-        "usd_billions": 7.1,
-        "as_of": "2026-10-26",
-        "source_url": "https://stockanalysis.com/stocks/epam/market-cap/",
-        "source_class": "third_party_market_data",
-        "freshness": "historical_not_live"
-      },
-      "shares": null,
-      "entry_price_usd": null,
-      "last_mark_usd": null,
-      "market_value_usd": null,
-      "returns": null
-    },
-    {
-      "security_ref": {
-        "ticker": "EXLS",
-        "venue": "NASDAQ"
-      },
-      "target_weight_percent": 15,
-      "role": "domain-ai-integration",
-      "cap_evidence": {
-        "usd_billions": 6.29,
-        "as_of": "2026-10-30",
-        "source_url": "https://stockanalysis.com/stocks/exls/",
-        "source_class": "third_party_market_data",
-        "freshness": "historical_not_live"
-      },
-      "shares": null,
-      "entry_price_usd": null,
-      "last_mark_usd": null,
-      "market_value_usd": null,
-      "returns": null
-    },
-    {
-      "security_ref": {
-        "ticker": "PERSISTENT",
-        "venue": "NSE_INDIA"
-      },
-      "target_weight_percent": 15,
-      "role": "product-engineering",
-      "cap_evidence": {
-        "usd_billions": 9.63,
-        "as_of": "2026-10",
-        "source_url": "https://companiesmarketcap.com/persistent-systems/marketcap/",
-        "source_class": "third_party_market_data",
-        "freshness": "historical_not_live"
-      },
-      "shares": null,
-      "entry_price_usd": null,
-      "last_mark_usd": null,
-      "market_value_usd": null,
-      "returns": null
-    },
-    {
-      "security_ref": {
-        "ticker": "GLOB",
-        "venue": "NYSE"
-      },
-      "target_weight_percent": 10,
-      "role": "productized-ai-pods",
-      "cap_evidence": {
-        "usd_billions": 2.01,
-        "as_of": "2026-10-30",
-        "source_url": "https://stockanalysis.com/stocks/glob/statistics/",
-        "source_class": "third_party_market_data",
-        "freshness": "historical_not_live"
-      },
-      "shares": null,
-      "entry_price_usd": null,
-      "last_mark_usd": null,
-      "market_value_usd": null,
-      "returns": null
-    },
-    {
-      "security_ref": {
-        "ticker": "CTSH",
-        "venue": "NASDAQ"
-      },
-      "target_weight_percent": 10,
-      "role": "scaled-enterprise-integration",
-      "cap_evidence": {
-        "usd_billions": 29.37,
-        "as_of": "2026-10-30",
-        "source_url": "https://stockanalysis.com/stocks/ctsh/market-cap/",
-        "source_class": "third_party_market_data",
-        "freshness": "historical_not_live"
-      },
-      "shares": null,
-      "entry_price_usd": null,
-      "last_mark_usd": null,
-      "market_value_usd": null,
-      "returns": null
-    },
-    {
-      "security_ref": {
-        "ticker": "CINT",
-        "venue": "NYSE"
-      },
-      "target_weight_percent": 5,
-      "role": "digital-engineering",
-      "cap_evidence": {
-        "usd_billions": 0.388,
-        "as_of": "2026-10-30",
-        "source_url": "https://stockanalysis.com/stocks/cint/market-cap/",
-        "source_class": "third_party_market_data",
-        "freshness": "historical_not_live"
-      },
-      "shares": null,
-      "entry_price_usd": null,
-      "last_mark_usd": null,
-      "market_value_usd": null,
-      "returns": null
-    },
-    {
-      "security_ref": {
-        "ticker": "G",
-        "venue": "NYSE"
-      },
-      "target_weight_percent": 5,
-      "role": "agentic-business-operations",
-      "cap_evidence": {
-        "usd_billions": 6.55,
-        "as_of": "2026-10-29",
-        "source_url": "https://stockanalysis.com/stocks/g/market-cap/",
-        "source_class": "third_party_market_data",
-        "freshness": "historical_not_live"
-      },
-      "shares": null,
-      "entry_price_usd": null,
-      "last_mark_usd": null,
-      "market_value_usd": null,
-      "returns": null
-    },
-    {
-      "security_ref": {
-        "ticker": "GIB",
-        "venue": "NYSE"
-      },
-      "target_weight_percent": 5,
-      "role": "enterprise-integration",
-      "cap_evidence": {
-        "usd_billions": 16.81,
-        "as_of": "2026-10-26",
-        "source_url": "https://www.financecharts.com/compare/DXC/summary/market-cap",
-        "source_class": "third_party_market_data",
-        "freshness": "historical_not_live"
-      },
-      "shares": null,
-      "entry_price_usd": null,
-      "last_mark_usd": null,
-      "market_value_usd": null,
-      "returns": null
-    },
-    {
-      "security_ref": {
-        "ticker": "COFORGE",
-        "venue": "NSE_INDIA"
-      },
-      "target_weight_percent": 5,
-      "role": "vertical-engineering",
-      "cap_evidence": {
-        "usd_billions": 10,
-        "as_of": "2026-10-28",
-        "source_url": "https://www.sectoralpha.in/sectors/it-stocks-india",
-        "source_class": "third_party_market_data",
-        "freshness": "historical_not_live"
-      },
-      "shares": null,
-      "entry_price_usd": null,
-      "last_mark_usd": null,
-      "market_value_usd": null,
-      "returns": null
-    }
+  "selection_priority": [
+    "verified NVIDIA or Microsoft commercial partnership depth",
+    "production AI delivery talent and domain specialization",
+    "reusable proprietary AI tools and deployment economics",
+    "2027-2028 GAAP and adjusted EPS growth with current estimates",
+    "revenue acceleration and cash-flow conversion"
   ],
-  "watchlist": [
+  "market_cap_filter": null,
+  "weighting": null,
+  "valuation_method": "No weights. Source-dated earnings profiles, use null where post-report forecast not independently verified.",
+  "membership": [
     {
-      "ticker": "INFY",
-      "venue": "NYSE",
-      "reason": "Borderline $50B cutoff; contemporaneous USD cap estimates conflict (~$49B–$52B)"
+      "ticker": "GDYN",
+      "venue": "NASDAQ",
+      "role": "physical AI, enterprise agents and specialist engineering",
+      "partner_evidence": {
+        "nvidia": "solution advisor verified",
+        "microsoft": "Microsoft cloud consulting partner verified",
+        "urls": [
+          "https://www.griddynamics.com/partnerships/nvidia",
+          "https://www.griddynamics.com/partnerships/microsoft"
+        ]
+      },
+      "earnings_profile": {
+        "q3_2026_adjusted_eps": 0.18,
+        "q3_2026_revenue_growth_yoy_pct": 9.7,
+        "fy2027_eps_current_consensus": null,
+        "fy2028_eps_current_consensus": null,
+        "reason": "October 29 earnings beat; refreshed estimates unverified"
+      },
+      "priority": "deep_dive"
     },
     {
-      "ticker": "HCLTECH",
-      "venue": "NSE_INDIA",
-      "reason": "Qualified large-engineering candidate pending synchronized cap and earnings-growth comparison"
+      "ticker": "EXLS",
+      "venue": "NASDAQ",
+      "role": "regulated-industry AI agents, transaction modeling, domain operations",
+      "partner_evidence": {
+        "nvidia": "EXLerate.ai/NVIDIA AI Enterprise and Transaction Foundation Model",
+        "microsoft": "Data & AI Solutions Partner verified",
+        "urls": [
+          "https://www.exlservice.com/about/partnerships/nvidia",
+          "https://www.exlservice.com/about/partnerships/microsoft",
+          "https://www.exlservice.com/about/newsroom/exl-advances-exlerateai-agentic-ai-platform-to-support-enterprise-scale-adoption-with-nvidia-technologies"
+        ]
+      },
+      "earnings_profile": {
+        "fy2027_eps_current_consensus": null,
+        "fy2028_eps_current_consensus": null,
+        "ip": "250+ AI agents and accelerators claimed by issuer; economics not independently verified"
+      },
+      "priority": "deep_dive"
     },
     {
-      "ticker": "WIT",
+      "ticker": "EPAM",
       "venue": "NYSE",
-      "reason": "Qualified but currently weaker differentiation/growth thesis than specialists"
+      "role": "mass-scale enterprise digital/product engineers and modernization",
+      "partner_evidence": {
+        "microsoft": "Global Systems Integrator and Azure AI partner",
+        "nvidia": "not verified to comparable partner tier",
+        "urls": [
+          "https://www.epam.com/services/partners/microsoft"
+        ]
+      },
+      "earnings_profile": {
+        "q2_2026_revenue_yoy_pct": 4.5,
+        "q2_2026_adjusted_eps_yoy_pct": 22,
+        "fy2026_guided_organic_revenue_growth_pct": "2-3",
+        "fy2027_eps_historical_estimate": 14.02,
+        "fy2027_eps_current_consensus": null,
+        "fy2028_eps_current_consensus": null,
+        "source": "https://www.sec.gov/Archives/edgar/data/1352010/000135201026000043/exhibit99_q2x2026.htm"
+      },
+      "priority": "deep_dive"
+    },
+    {
+      "ticker": "GLOB",
+      "venue": "NYSE",
+      "role": "AI Pods, productized agentic engineering",
+      "partner_evidence": {
+        "nvidia": "listed issuer partner",
+        "microsoft": "Microsoft AI Inner Circle issuer listed",
+        "urls": [
+          "https://www.globant.com/about/partners"
+        ]
+      },
+      "earnings_profile": {
+        "fy2027_revenue_growth_historical_pct": 2.5,
+        "fy2027_eps_growth_historical_pct": 4.9,
+        "fy2028_revenue_growth_historical_pct": 3.6,
+        "fy2028_eps_growth_historical_pct": 4.8,
+        "current_estimate": null,
+        "source": "https://www.dkstreetjournal.com/a-2026-08-04-736156ee"
+      },
+      "priority": "watch"
+    },
+    {
+      "ticker": "CTSH",
+      "venue": "NASDAQ",
+      "role": "scaled enterprise AI implementation",
+      "partner_evidence": {
+        "nvidia": "needs exact tier verification",
+        "microsoft": "needs current tier verification"
+      },
+      "earnings_profile": {
+        "fy2027_eps_growth_historical_pct": 9.8,
+        "fy2028_eps_growth_historical_pct": 10.2,
+        "current_estimate": null,
+        "source": "https://www.dkstreetjournal.com/a-2026-08-04-736156ee"
+      },
+      "priority": "watch"
+    },
+    {
+      "ticker": "CINT",
+      "venue": "NYSE",
+      "role": "AI-assisted software engineering and digital products",
+      "partner_evidence": {
+        "microsoft": "listed partner ecosystem; qualification pending",
+        "nvidia": "not verified",
+        "urls": [
+          "https://ciandt.com/us/en-us/what-we-do/partnerships"
+        ]
+      },
+      "earnings_profile": {
+        "fy2027_eps_current_consensus": null,
+        "fy2028_eps_current_consensus": null
+      },
+      "priority": "watch"
+    },
+    {
+      "ticker": "G",
+      "venue": "NYSE",
+      "role": "AI-powered operations and process transformation",
+      "partner_evidence": {
+        "nvidia": "tier unverified",
+        "microsoft": "tier unverified"
+      },
+      "earnings_profile": {
+        "fy2027_eps_current_consensus": null,
+        "fy2028_eps_current_consensus": null
+      },
+      "priority": "watch"
+    },
+    {
+      "ticker": "GIB",
+      "venue": "NYSE",
+      "role": "complex enterprise and government systems integration",
+      "partner_evidence": {
+        "microsoft": "verification pending"
+      },
+      "earnings_profile": {
+        "fy2027_eps_growth_historical_pct": 9.2,
+        "fy2028_eps_growth_historical_pct": 8,
+        "current_estimate": null,
+        "source": "https://www.dkstreetjournal.com/a-2026-08-04-736156ee"
+      },
+      "priority": "watch"
     },
     {
       "ticker": "DAVA",
       "venue": "NYSE",
-      "reason": "Severe business/earnings deterioration despite sub-$50B size; not best-in-class fundamentals"
+      "role": "complex software engineering; turnaround candidate",
+      "partner_evidence": {
+        "nvidia": "unverified",
+        "microsoft": "unverified"
+      },
+      "earnings_profile": {
+        "fy2027_eps_current_consensus": null,
+        "fy2028_eps_current_consensus": null
+      },
+      "priority": "watch"
     },
     {
       "ticker": "KD",
       "venue": "NYSE",
-      "reason": "Infrastructure modernization exposure, validate software/AI deployment economics"
+      "role": "hybrid AI production infrastructure and managed modernization",
+      "partner_evidence": {
+        "nvidia": "tier unverified",
+        "microsoft": "tier unverified"
+      },
+      "earnings_profile": {
+        "fy2027_eps_current_consensus": null,
+        "fy2028_eps_current_consensus": null
+      },
+      "priority": "watch"
     },
     {
-      "ticker": "TECHM",
-      "venue": "NSE_INDIA",
-      "reason": "Telco integration specialist; evaluate AI revenue/FCF trajectory"
-    }
-  ],
-  "excluded": [
+      "ticker": "INFY",
+      "venue": "NYSE",
+      "role": "global skilled delivery base and AI engineering",
+      "partner_evidence": {
+        "nvidia": "tier verification pending",
+        "microsoft": "tier verification pending"
+      },
+      "earnings_profile": {
+        "fy2027_eps_current_consensus": null,
+        "fy2028_eps_current_consensus": null
+      },
+      "priority": "watch"
+    },
+    {
+      "ticker": "WIT",
+      "venue": "NYSE",
+      "role": "global IT engineering and AI delivery",
+      "partner_evidence": {
+        "nvidia": "tier verification pending",
+        "microsoft": "tier verification pending"
+      },
+      "earnings_profile": {
+        "fy2027_eps_current_consensus": null,
+        "fy2028_eps_current_consensus": null
+      },
+      "priority": "watch"
+    },
     {
       "ticker": "ACN",
-      "reason": "above $50B"
+      "venue": "NYSE",
+      "role": "global enterprise transformation and scarce ecosystem expertise",
+      "partner_evidence": {
+        "nvidia": "NVIDIA global SI verified",
+        "microsoft": "verify enterprise partner specifics",
+        "urls": [
+          "https://marketplace.nvidia.com/en-us/enterprise/partners/"
+        ]
+      },
+      "earnings_profile": {
+        "fy2027_eps_current_consensus": null,
+        "fy2028_eps_current_consensus": null
+      },
+      "priority": "benchmark"
     },
     {
       "ticker": "IBM",
-      "reason": "above $50B"
+      "venue": "NYSE",
+      "role": "regulated hybrid AI consulting and governance",
+      "partner_evidence": {
+        "nvidia": "verify current tier",
+        "microsoft": "verify current tier"
+      },
+      "earnings_profile": {
+        "fy2027_eps_current_consensus": null,
+        "fy2028_eps_current_consensus": null
+      },
+      "priority": "benchmark"
     },
     {
       "ticker": "PLTR",
-      "reason": "above $50B"
-    },
-    {
-      "ticker": "TCS",
-      "venue": "NSE_INDIA",
-      "reason": "above $50B"
+      "venue": "NASDAQ",
+      "role": "AIP forward-deployed engineering and customer workflow deployment",
+      "partner_evidence": {
+        "nvidia": "verify",
+        "microsoft": "verify"
+      },
+      "earnings_profile": {
+        "fy2027_eps_current_consensus": null,
+        "fy2028_eps_current_consensus": null
+      },
+      "priority": "platform_benchmark"
     }
   ],
-  "risk_controls": {
-    "no_backtested_alpha_claim": true,
-    "foreign_fx_required": true,
-    "individual_ticker_research_is_separate": true,
-    "unverified_metrics": null,
-    "performance_baseline": "not_started_no_historical_simulation",
-    "transaction_costs": "not_applicable_until_execution_simulation",
-    "price_history_gate": "B02 entitled adjusted bars",
-    "schema_gate": "B00 canonical virtual basket object"
-  },
-  "scoring_inputs": [
-    "organic_AI_revenue_growth",
-    "revenue_per_specialist",
-    "margin_and_GAAP_cash_conversion",
-    "repeat_customer_expansion",
-    "deployments_per_team",
-    "reusable_IP",
-    "backlog",
-    "net_debt_and_dilution",
-    "valuation_2027_2028"
+  "excluded_from_list": [
+    {
+      "ticker": "TCS",
+      "reason": "Not US listed; native India equity not a US-tradable ticker by standard US brokerage route"
+    },
+    {
+      "ticker": "PERSISTENT",
+      "reason": "India listed only"
+    },
+    {
+      "ticker": "COFORGE",
+      "reason": "India listed only"
+    },
+    {
+      "ticker": "CAP",
+      "reason": "Paris listed only"
+    },
+    {
+      "ticker": "FJTSY",
+      "reason": "Potential US OTC but excluded from primary US exchange screen; verify OTC access separately"
+    }
   ],
-  "weights_total_percent": 100
+  "quality_gate": "These candidates are not asserted best-in-class investments until matched-date 2027-28 consensus, organic sales growth, FCF and partnership-specific revenue are independently checked. A partner listing does not prove dedicated allocation, investment or preferred sourcing.",
+  "source_time": "2026-10-30",
+  "validated_by_ci": false
 }
