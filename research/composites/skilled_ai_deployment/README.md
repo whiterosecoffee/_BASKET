@@ -30,3 +30,6 @@ The screenshot values are historical UI observations, not verified synchronized 
 
 ## Full issuer research screen (2026-10-30)
 [17-company deep dive with primary-release growth evidence, specializations, falsifiers and unknown forecast fields](full_universe_deep_dive_2026-10-30.json). Includes research shortlist, INOD/CACI specialist expansions and large platform benchmarks, carefully separated from pure services peers. Source-period mismatch and unavailable refreshed FY2027–28 EPS are explicitly retained as uncertainty.
+
+## Workforce productivity conversion
+[24-issuer workforce productivity screen](workforce_productivity_screen_2026-10-30.json) standardizes period-end workforce, revenue growth, GAAP margin and annualized revenue-per-employee snapshot proxies, with nulls for missing paired evidence. WARNING: GDYN's ~$100k is ANNUALIZED (quarterly ~$25.1k), NOT $100k revenue per employee per quarter. Workforce reductions alone are not proof of AI-driven productivity unless gross profit, margins and cash conversion improve. B02 canonical metrics and B01 tests pending.
