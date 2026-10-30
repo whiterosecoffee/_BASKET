@@ -1,0 +1,3 @@
+{"ticker":"QQQ","hiro_usd":229000000,"range_30d_low_usd":-5100000000,"range_30d_high_usd":3500000000,"spotgamma_price_usd":706.85,"hedge_wall":720,"key_gamma_strike":720,"key_delta_strike":800,"call_wall":723,"put_wall":700}
+{"ticker":"NVDA","hiro_usd":-237000000,"range_30d_low_usd":-1000000000,"range_30d_high_usd":980000000,"spotgamma_price_usd":210.71}
+{"ticker":"AMD","hiro_usd":-69000000,"range_30d_low_usd":-734000000,"range_30d_high_usd":452000000,"spotgamma_price_usd":538.85,"hedge_wall":560,"key_gamma_strike":550,"key_delta_strike":5,"call_wall":600,"put_wall":500}
