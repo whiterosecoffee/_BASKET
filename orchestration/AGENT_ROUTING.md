@@ -21,3 +21,7 @@ Conflicts are evidence to resolve (resume the owner, narrow scope or hand off), 
 ## Not yet automated (needs other owners)
 - CI check mapping PR changed files to spark `write_paths`, plus branch protection: B01 handoff.
 - GitHub Project board and backlog triage/merge decisions: human authorization.
+
+## Same instructions, same structure
+- Every tool reads one entry point: `orchestration/AGENT_INSTRUCTIONS.md`. `CLAUDE.md` and `.github/copilot-instructions.md` are byte-identical copies (`python orchestration/validate_agent_entrypoints.py`).
+- Every module follows `orchestration/MODULE_STANDARD.md` (`python orchestration/validate_module_structure.py`). Current gaps in `engines/*` belong to other sparks and go out as handoff issues, not edits from B00.

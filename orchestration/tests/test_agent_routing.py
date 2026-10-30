@@ -61,5 +61,30 @@ class ClaimTests(unittest.TestCase):
         self.assertEqual(claims.find_conflicts([{"number": 1, "title": "[B01] a"}]), {})
 
 
+class StructureTests(unittest.TestCase):
+    def test_entrypoints_identical(self):
+        self.assertEqual(load("validate_agent_entrypoints").validate(), [])
+
+    def test_entrypoint_drift_detected(self):
+        import tempfile
+        mod = load("validate_agent_entrypoints")
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "orchestration").mkdir()
+            (root / ".github").mkdir()
+            (root / mod.CANONICAL).write_text("a")
+            (root / "CLAUDE.md").write_text("a")
+            (root / ".github/copilot-instructions.md").write_text("b")
+            self.assertEqual(len(mod.validate(root)), 1)
+
+    def test_module_gaps_reported(self):
+        import tempfile
+        mod = load("validate_module_structure")
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            (root / "engines/x").mkdir(parents=True)
+            self.assertIn("README.md", mod.check_all(root)["x"])
+
+
 if __name__ == "__main__":
     unittest.main()
