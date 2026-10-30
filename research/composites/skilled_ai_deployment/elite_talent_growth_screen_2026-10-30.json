@@ -1,0 +1,93 @@
+{
+  "schema": "basket.elite_talent_growth_screen@1-provisional",
+  "as_of": "2026-10-30",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "currency": "USD",
+  "method": "Qualitative research priority, not returns forecast; most recent issuer Q2/Q3 periods not synchronized; missing current FY2027/2028 consensus remains null.",
+  "scarcity_dimensions": [
+    "production_deployment_experience",
+    "complex_system_architecture",
+    "regulated_domain_expertise",
+    "physical_ai_robotics",
+    "model_data_and_evaluation",
+    "partner_qualified_technical_depth",
+    "reusable_delivery_IP",
+    "customer_acceptance_and_repeat_rollouts",
+    "revenue_per_delivery_professional",
+    "gross_profit_per_delivery_professional",
+    "talent_retention_and_training_effectiveness"
+  ],
+  "profiles": [
+    {
+      "ticker": "GDYN",
+      "priority": 1,
+      "revenue_growth_yoy_pct": 9.7,
+      "adjusted_eps_growth_yoy_pct": 100,
+      "period": "2026-Q3",
+      "talent_thesis": "Robotics, GAIN agents, reusable engineering accelerators; engineer redeployment and delivery productivity",
+      "forward_eps_2027": null,
+      "forward_eps_2028": null,
+      "source": "https://www.nasdaq.com/press-release/grid-dynamics-reports-record-third-quarter-2026-financial-results-2026-10-29"
+    },
+    {
+      "ticker": "EXLS",
+      "priority": 2,
+      "revenue_growth_yoy_pct": 19.7,
+      "adjusted_eps_growth_yoy_pct": 28.5,
+      "period": "2026-Q3",
+      "talent_thesis": "Regulated-domain specialists, model training via iMerit, AI-led operations with high repeat-client potential",
+      "forward_eps_2027": null,
+      "forward_eps_2028": null,
+      "source": "https://ir.exlservice.com/news-releases/news-release-details/exl-reports-2026-third-quarter-results"
+    },
+    {
+      "ticker": "INOD",
+      "priority": 3,
+      "revenue_growth_yoy_pct": 58,
+      "gaap_eps": 0.41,
+      "prior_gaap_eps": 0.2,
+      "period": "2026-Q2",
+      "talent_thesis": "Expert model data, evaluation and quality assurance; potential dependence on concentrated customers",
+      "forward_eps_2027": null,
+      "forward_eps_2028": null,
+      "source": "https://investor.innodata.com/news/news-details/2026/Innodata-Reports-Record-Second-Quarter-2026-Results/default.aspx"
+    },
+    {
+      "ticker": "EPAM",
+      "priority": 4,
+      "revenue_growth_yoy_pct": 4.5,
+      "adjusted_eps_growth_yoy_pct": 22,
+      "period": "2026-Q2",
+      "talent_thesis": "56,650 delivery professionals; complex engineering and Microsoft ecosystem, but low guided organic growth",
+      "forward_eps_2027": null,
+      "forward_eps_2028": null,
+      "source": "https://investors.epam.com/news/news-details/2026/EPAM-Reports-Results-for-Second-Quarter-2026/default.aspx"
+    },
+    {
+      "ticker": "GLOB",
+      "priority": 5,
+      "revenue_growth_yoy_pct": null,
+      "adjusted_eps_growth_yoy_pct": null,
+      "talent_thesis": "AI Pods and productized agentic deployment; latest earnings confirmation pending",
+      "forward_eps_2027": null,
+      "forward_eps_2028": null
+    },
+    {
+      "ticker": "CACI",
+      "priority": 6,
+      "revenue_growth_yoy_pct": null,
+      "adjusted_eps_growth_yoy_pct": null,
+      "talent_thesis": "Cleared engineering, defense and government systems integration; fiscal data requires date alignment",
+      "forward_eps_2027": null,
+      "forward_eps_2028": null
+    }
+  ],
+  "hypothesis": "Elite skill scarcity is monetizable only if production deployment throughput, pricing, acceptance rate, client expansion and cash gross profit rise relative to team capacity.",
+  "falsifiers": [
+    "AI tooling commoditizes integration faster than it expands customer spending",
+    "Pricing per successful deployment falls",
+    "Talent attrition and retraining costs offset productivity gains",
+    "Partner status fails to generate attributable client wins",
+    "Adjusted earnings expand without GAAP profit or operating cash flow"
+  ]
+}
