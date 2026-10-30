@@ -17,7 +17,43 @@
       "https://www.exlservice.com/about/partnerships/microsoft",
       "https://www.exlservice.com/about/newsroom/exl-advances-exlerateai-agentic-ai-platform-to-support-enterprise-scale-adoption-with-nvidia-technologies"
     ],
-    "partner_attributable_revenue": null
+    "partner_attributable_revenue": null,
+    "openai": {
+      "program": "OpenAI Partner Network",
+      "designation": "OpenAI Select Partner",
+      "announced_at": "2026-10-29",
+      "issuer_announcement_verified": true,
+      "openai_partner_directory_verified": true,
+      "capabilities": [
+        "enterprise co-sell enablement",
+        "frontier-model workflow deployment",
+        "reasoning and computer-use solutions",
+        "regulated industry deployment"
+      ],
+      "industries": [
+        "insurance",
+        "financial_services",
+        "healthcare",
+        "life_sciences"
+      ],
+      "exclusive_or_preferred_referral_rights_verified": false,
+      "partner_originated_bookings_usd": null,
+      "committed_contract_value_usd": null,
+      "attributable_revenue_usd": null,
+      "actual_deployments_count": null,
+      "sources": [
+        {
+          "url": "https://ir.exlservice.com/news-releases/news-release-details/exl-named-openai-select-partner",
+          "class": "issuer_press_release",
+          "published_at": "2026-10-29"
+        },
+        {
+          "url": "https://openai.com/business/partners/exl-service/",
+          "class": "vendor_partner_directory",
+          "observed_at": "2026-10-30"
+        }
+      ]
+    }
   },
   "price_observation": {
     "usd": 41.43,
@@ -58,7 +94,11 @@
     "https://ir.exlservice.com/news-releases/news-release-details/exl-reports-2026-third-quarter-results",
     "https://www.exlservice.com/about/partnerships/nvidia",
     "https://www.exlservice.com/about/partnerships/microsoft",
-    "https://www.exlservice.com/about/newsroom/exl-advances-exlerateai-agentic-ai-platform-to-support-enterprise-scale-adoption-with-nvidia-technologies"
+    "https://www.exlservice.com/about/newsroom/exl-advances-exlerateai-agentic-ai-platform-to-support-enterprise-scale-adoption-with-nvidia-technologies",
+    "https://ir.exlservice.com/news-releases/news-release-details/exl-named-openai-select-partner",
+    "https://openai.com/business/partners/exl-service/",
+    "https://ir.exlservice.com/news-releases/news-release-details/imerit-exl-company-launches-imerit-scholars-platform-ai-talent",
+    "https://www.exlservice.com/about/newsroom/exl-transforms-client-workflows-with-the-integration-of-agentic-ai-into-core-insurance-and-healthcare-solutions"
   ],
   "data_quality": {
     "company_guidance": "only if issuer sourced",
@@ -72,5 +112,47 @@
     "Verify current price and calculate dated same-basis forward P/E",
     "Verify NVIDIA/Microsoft partnership tier and commercial contribution",
     "Score organic growth, skilled deployment capacity, margin expansion and operating cash conversion"
-  ]
+  ],
+  "competitive_advantages": {
+    "openai_distribution": "Select Partner with network co-selling and technical enablement; does not establish exclusive referrals or guaranteed bookings",
+    "vertical_workflow_embedding": {
+      "solutions": [
+        "LifePRO Agentic Suite",
+        "Payment Integrity"
+      ],
+      "issuer_claims": {
+        "launch_cycle_reduced_to_weeks": 16,
+        "configuration_testing_effort_reduction_pct": [
+          30,
+          40
+        ],
+        "high_yield_auditor_productivity_improvement_pct_approx": 50,
+        "health_plan_savings_growth_pct": [
+          15,
+          20
+        ]
+      },
+      "source": "https://www.exlservice.com/about/newsroom/exl-transforms-client-workflows-with-the-integration-of-agentic-ai-into-core-insurance-and-healthcare-solutions",
+      "source_class": "issuer_claim_not_independently_verified",
+      "announced_at": "2026-10-08"
+    },
+    "elite_talent": {
+      "imerit_scholars_vetted_community_lower_bound": 30000,
+      "countries": 118,
+      "languages": 106,
+      "classification": "external/curated expert network, NOT EXL employees or full-time equivalents",
+      "source": "https://ir.exlservice.com/news-releases/news-release-details/imerit-exl-company-launches-imerit-scholars-platform-ai-talent",
+      "announced_at": "2026-10-26"
+    }
+  },
+  "employee_disclosure_conflict": {
+    "issuer_release_oct29": "over 74,000 employees",
+    "vendor_directory": "68,000+ employees",
+    "different_publication_or_reporting_basis": true,
+    "period_matched_headcount_verified": false,
+    "source_urls": [
+      "https://ir.exlservice.com/news-releases/news-release-details/exl-named-openai-select-partner",
+      "https://openai.com/business/partners/exl-service/"
+    ]
+  }
 }
