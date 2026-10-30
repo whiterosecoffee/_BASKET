@@ -10,3 +10,6 @@ Dependencies: B00 must approve a canonical reusable **basket object type** and r
 
 ## Classification clarification
 EXLS belongs with specialist AI deployment/integration firms; insurance, finance and analytics are differentiated capability tags, not a standalone peer category. Subsequent canonical basket schema should allow multiple capability tags per constituent instead of mutually exclusive tiers.
+
+## Virtual investment universe (<$50B)
+[Virtual AI Services Leaders Under $50B](virtual_under_50b.json) adds a 10-stock hypothetical 100%-weighted portfolio, sourced market-cap snapshots, non-US venue distinctions, qualification/exclusion watchlist and explicit missing performance inputs. This is not a traded portfolio, real-time screener, or validated optimizer. Its basket object contract remains provisional pending B00 issue #119.
