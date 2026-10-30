@@ -1,0 +1,50 @@
+{
+  "schema": "market.intraday@1",
+  "entity_id": "CRWV",
+  "source": "Massive",
+  "timeframe": "1m",
+  "fields": [
+    "timestamp_ms",
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume",
+    "vwap",
+    "transactions"
+  ],
+  "currency": "USD",
+  "timezone": "America/New_York",
+  "timestamp_semantics": "UTC epoch milliseconds at minute start",
+  "adjusted": true,
+  "start": "2026-10-01T04:00:00-04:00",
+  "as_of_last_bar": "2026-10-30T12:10:00-04:00",
+  "records": 19186,
+  "sessions": 22,
+  "session_record_counts": {
+    "premarket": 6412,
+    "regular": 8350,
+    "afterhours": 4424
+  },
+  "sha256": "9249539642e10805bcb1a6dfabb53de0bd53f4e5adbea454092f44ecfc55b1ac",
+  "recorded_at": "2026-10-30T16:10:35.447990+00:00",
+  "historical_first_available_at": null,
+  "source_retrieved_at": null,
+  "feed_status": "historical aggregates; current tail latency measured separately; realtime entitlement not inferred",
+  "status": "historical_backfill_with_partial_latest_session",
+  "captures": [
+    {
+      "month": "2026-10",
+      "records": 19186,
+      "sha256": "4e5cee44828b552ff54f79d9a88fdd8d5d0bc1c1d9c8653228ec1ac630c29852",
+      "retrieved_at": null
+    }
+  ],
+  "notes": [
+    "One-minute OHLCV aggregates, not individual trade ticks.",
+    "No missing minute is fabricated; absence can mean no qualifying trades or a source gap.",
+    "Existing daily history.jsonl is preserved unchanged.",
+    "VWAP outside reported OHLC is retained and flagged, not corrected.",
+    "Source request exact retrieval instants were not exposed by MCP; recorded_at is local materialization time."
+  ]
+}
