@@ -2,7 +2,7 @@
   "schema": "basket.issuer_research_reference@1-provisional",
   "basket_id": "us-tradable-ai-deployment-service-options",
   "ticker": "HPE",
-  "venue": "USA",
+  "venue": "NYSE",
   "as_of": "2026-10-30",
   "scope": "basket-linked company research profile; canonical issuer folder controlled separately",
   "basket_member": false,
@@ -43,7 +43,8 @@
     "company_guidance": "only if issuer sourced",
     "screenshot_price_not_verified_close": true,
     "unconfirmed_values": null,
-    "validation_status": "research_pending_independent_validation"
+    "validation_status": "research_pending_independent_validation",
+    "venue_basis": "US principal exchange ticker; independent securities master verification pending"
   },
   "research_tasks": [
     "Verify most recent quarterly issuer release, GAAP and non-GAAP reconciliation",
