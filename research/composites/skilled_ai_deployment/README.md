@@ -24,3 +24,6 @@ The screenshot values are historical UI observations, not verified synchronized 
 
 ## Elite talent growth screen
 [Elite talent and growth profile research](elite_talent_growth_screen_2026-10-30.json) ranks GDYN, EXLS, INOD, EPAM, GLOB and CACI as research priorities, with latest dated growth evidence, skills hypothesis, missing current 2027/28 EPS and explicit falsifiers. Rankings are qualitative, not return predictions.
+
+## Customer distribution and hyperscaler partnerships
+[Client critical mass and NVIDIA/Microsoft distribution moat](customer_distribution_partner_moat_2026-10-30.json) measures installed client base, concentration, recurrent client revenue, Microsoft team/projects and verified NVIDIA deployment partnerships; keeps partner-originated referrals and commercial preference explicitly unverified.
