@@ -33,3 +33,6 @@ The screenshot values are historical UI observations, not verified synchronized 
 
 ## Workforce productivity conversion
 [24-issuer workforce productivity screen](workforce_productivity_screen_2026-10-30.json) standardizes period-end workforce, revenue growth, GAAP margin and annualized revenue-per-employee snapshot proxies, with nulls for missing paired evidence. WARNING: GDYN's ~$100k is ANNUALIZED (quarterly ~$25.1k), NOT $100k revenue per employee per quarter. Workforce reductions alone are not proof of AI-driven productivity unless gross profit, margins and cash conversion improve. B02 canonical metrics and B01 tests pending.
+
+## Realized customer labor and quality outcomes
+[Outcome case comparison: G, EXLS, CTSH, GDYN and GWRE](customer_labor_quality_outcomes_2026-10-30.json) separates vendor-reported implementation cases from audited benefits, savings identified versus realized, mature workflow automation from new agentic AI, and customer ROI versus provider earnings capture. Includes nulls for unverified peer outcomes.
