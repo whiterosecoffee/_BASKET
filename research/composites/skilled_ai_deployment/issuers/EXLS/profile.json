@@ -190,6 +190,25 @@
       "classification": "external/curated expert network, NOT EXL employees or full-time equivalents",
       "source": "https://ir.exlservice.com/news-releases/news-release-details/imerit-exl-company-launches-imerit-scholars-platform-ai-talent",
       "announced_at": "2026-10-26"
+    },
+    "external_agentic_insurance_comparison": {
+      "as_of": "2026-10-30",
+      "benchmark_path": "research/composites/skilled_ai_deployment/insurance_agentic_workflow_competitors_2026-10-30.json",
+      "direct_health_claims_challenger": "CTSH TriZetto Facets/QNXT Workflow Agentic Processing generally available Sept 2026",
+      "core_p_and_c_platform_threat": "GWRE Qusar has governed native access to insurance core claims/policy/billing systems",
+      "claims_network_platform_competitor": "CCC demonstrates $130m annualized AI run-rate +40% YoY but signed Oct 15 definitive $7.75 take-private deal",
+      "operations_competitor": "G Genpact Insurance Policy Suite; less quantitative client ROI disclosed",
+      "enterprise_distribution_benchmark": "ACN enterprise underwriting multi-agent case demonstrates days-to-hours review improvement",
+      "disintermediation_risk": "Microsoft customers can self-build production agents; State Farm case over 3000 agents and 41 production builds",
+      "evidence_vs_assumption": "Named products and primary announcements verified, cross-company client productivity comparisons remain nonstandard; referrals and revenue from specific vendors unverified",
+      "sources": [
+        "https://news.cognizant.com/2026-09-28-Cognizant-Brings-Agentic-AI-and-MCP-tool-library-to-Core-Claims-Operations-with-Workflow-Agentic-Processing-for-TriZetto",
+        "https://ir.guidewire.com/news-releases/news-release-details/guidewire-introduces-qusar-release-help-insurers-build-and",
+        "https://ir.cccis.com/news-releases/news-release-details/ccc-intelligent-solutions-holdings-inc-announces-third-quarter-4",
+        "https://ir.cccis.com/news-releases/news-release-details/ccc-intelligent-solutions-signs-definitive-agreement-be-acquired",
+        "https://www.genpact.com/industries/insurance",
+        "https://enablement.microsoft.com/en-us/agent-transformation-stories/"
+      ]
     }
   },
   "employee_disclosure_conflict": {
