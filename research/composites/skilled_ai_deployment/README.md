@@ -18,3 +18,6 @@ EXLS belongs with specialist AI deployment/integration firms; insurance, finance
 - [21 issuer profiles: screenshot prices, skill bases, earnings, multiples, guidance and missing forward estimates](company_profiles_2026-10-30.json)
 - [GDYN competitive benchmark vs EXLS, EPAM, INOD, GLOB and CACI](gdyn_competitive_benchmark_2026-10-30.json)
 The screenshot values are historical UI observations, not verified synchronized closing quotes. FY2026 guidance multiples are not 2027/28 forward P/E; unsupported forecasts stay null. Profiles are basket-level references, not standalone company ticker folders or executed allocation instructions.
+
+## Independent ticker reference files
+24 separate files now live under [`profiles/`](profiles/): ACN, CACI, CINT, CSCO, CTSH, DAVA, DBRG, DELL, DXC, EPAM, EXLS, G, GDYN, GIB, GLOB, HPE, IBM, INFY, INOD, KD, PATH, PLTR, QCOM, WIT. 21 include screenshots from 2026-10-30; 3 additional shortlist tickers (KD, INFY, WIT) lack screenshots. These are **basket-scoped references**, not canonical per-ticker research folders. Each has nullable 2027/28 EPS, P/E, company guidance, partner qualification, skill base and evidence tasks. Infrastructure/hardware names remain explicitly classified adjacent, not pure service peers.
