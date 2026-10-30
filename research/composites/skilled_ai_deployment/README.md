@@ -27,3 +27,6 @@ The screenshot values are historical UI observations, not verified synchronized 
 
 ## Customer distribution and hyperscaler partnerships
 [Client critical mass and NVIDIA/Microsoft distribution moat](customer_distribution_partner_moat_2026-10-30.json) measures installed client base, concentration, recurrent client revenue, Microsoft team/projects and verified NVIDIA deployment partnerships; keeps partner-originated referrals and commercial preference explicitly unverified.
+
+## Full issuer research screen (2026-10-30)
+[17-company deep dive with primary-release growth evidence, specializations, falsifiers and unknown forecast fields](full_universe_deep_dive_2026-10-30.json). Includes research shortlist, INOD/CACI specialist expansions and large platform benchmarks, carefully separated from pure services peers. Source-period mismatch and unavailable refreshed FY2027–28 EPS are explicitly retained as uncertainty.
