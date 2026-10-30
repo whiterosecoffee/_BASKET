@@ -21,3 +21,6 @@ The screenshot values are historical UI observations, not verified synchronized 
 
 ## Independent ticker reference files
 24 separate files now live under [`profiles/`](profiles/): ACN, CACI, CINT, CSCO, CTSH, DAVA, DBRG, DELL, DXC, EPAM, EXLS, G, GDYN, GIB, GLOB, HPE, IBM, INFY, INOD, KD, PATH, PLTR, QCOM, WIT. 21 include screenshots from 2026-10-30; 3 additional shortlist tickers (KD, INFY, WIT) lack screenshots. These are **basket-scoped references**, not canonical per-ticker research folders. Each has nullable 2027/28 EPS, P/E, company guidance, partner qualification, skill base and evidence tasks. Infrastructure/hardware names remain explicitly classified adjacent, not pure service peers.
+
+## Elite talent growth screen
+[Elite talent and growth profile research](elite_talent_growth_screen_2026-10-30.json) ranks GDYN, EXLS, INOD, EPAM, GLOB and CACI as research priorities, with latest dated growth evidence, skills hypothesis, missing current 2027/28 EPS and explicit falsifiers. Rankings are qualitative, not return predictions.
