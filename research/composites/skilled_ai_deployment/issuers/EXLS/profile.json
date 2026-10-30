@@ -83,5 +83,39 @@
     }
   ],
   "canonical_profile_target": "research/EXLS/profile.json",
-  "canonical_profile_status": "pending_B00_handoff_130"
+  "canonical_profile_status": "pending_B00_handoff_130",
+  "workforce_productivity": {
+    "revenue_period_end": "2026-09-30",
+    "headcount_as_of": "2025-12-31",
+    "headcount_approx": 65000,
+    "headcount_qualifier": "issuer states over 65,000; 65,000 used as approximated denominator",
+    "revenue_usd_q3_2026": 633959000,
+    "gross_profit_usd_q3_2026": 241135000,
+    "gaap_net_income_usd_q3_2026": 68771000,
+    "adjusted_net_income_usd_q3_2026": 94586000,
+    "approx_revenue_per_employee_quarter_usd": 9753,
+    "approx_revenue_per_employee_annualized_usd": 39013,
+    "approx_gross_profit_per_employee_quarter_usd": 3710,
+    "approx_gaap_earnings_per_employee_quarter_usd": 1058,
+    "approx_gaap_earnings_per_employee_annualized_usd": 4232,
+    "approx_adjusted_earnings_per_employee_quarter_usd": 1455,
+    "approx_adjusted_earnings_per_employee_annualized_usd": 5821,
+    "current_matched_headcount": null,
+    "headcount_growth_yoy_pct": null,
+    "profit_per_employee_growth_yoy_pct": null,
+    "precision": "approximation_using_stale_noncontemporaneous_employee_count",
+    "evidence": [
+      {
+        "source": "https://ir.exlservice.com/news-releases/news-release-details/exl-reports-2026-third-quarter-results",
+        "source_class": "issuer_earnings_release",
+        "period_end": "2026-09-30"
+      },
+      {
+        "source": "https://www.sec.gov/Archives/edgar/data/1297989/000129798926000008/exls-20251231.htm",
+        "source_class": "issuer_SEC_10K",
+        "period_end": "2025-12-31"
+      }
+    ],
+    "interpretation": "Growth and adjusted EPS acceleration observed but adjusted operating margin modestly lower; no verified same-date workforce decoupling"
+  }
 }
