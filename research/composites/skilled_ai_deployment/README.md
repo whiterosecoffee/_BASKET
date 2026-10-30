@@ -13,3 +13,8 @@ EXLS belongs with specialist AI deployment/integration firms; insurance, finance
 
 ## U.S.-tradable AI deployment options
 [U.S.-tradable AI services shortlist](us_tradable_options.json) is an **unweighted** issuer reference universe selected for specialist production deployment skills and NVIDIA/Microsoft commercial partnership depth. It does not impose a $50B market-cap screen or include native India/Paris-only listings. Per-issuer forward EPS and revenue growth are null unless a dated source has been verified; old estimates are explicitly labeled historical, never leading consensus. No trades, allocations or backtested returns. Canonical basket-object schema remains pending B00 #119.
+
+## Dated issuer profiles and GDYN benchmark (2026-10-30)
+- [21 issuer profiles: screenshot prices, skill bases, earnings, multiples, guidance and missing forward estimates](company_profiles_2026-10-30.json)
+- [GDYN competitive benchmark vs EXLS, EPAM, INOD, GLOB and CACI](gdyn_competitive_benchmark_2026-10-30.json)
+The screenshot values are historical UI observations, not verified synchronized closing quotes. FY2026 guidance multiples are not 2027/28 forward P/E; unsupported forecasts stay null. Profiles are basket-level references, not standalone company ticker folders or executed allocation instructions.
