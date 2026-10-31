@@ -87,5 +87,44 @@
     "as_of": "2026-06-30",
     "estimated_quarter_revenue_per_employee_cad": 44574,
     "not_average_employee_count": true
+  },
+  "pre_earnings_valuation_2026_10_30": {
+    "as_of": "2026-10-30",
+    "currency": "USD",
+    "issuer": "CGI Inc",
+    "ticker": "GIB",
+    "trailing_pe": 13.84,
+    "published_forward_pe": 11.58,
+    "forward_pe_definition_and_consensus_basis": "provider published; reconcile GAAP vs adjusted before comparison",
+    "fy2026_estimated_eps_usd": 6.45,
+    "fy2027_estimated_eps_usd": 7.07,
+    "fy2027_estimated_eps_growth_pct": 9.61,
+    "fy2027_consensus_depth": "thin, source lists one 2027 quarterly estimate per quarter",
+    "earnings_report_date": "2026-11-11",
+    "report_time": "before market open",
+    "sources": [
+      {
+        "url": "https://stockanalysis.com/stocks/gib/statistics/",
+        "kind": "third_party_market_data"
+      },
+      {
+        "url": "https://www.marketbeat.com/stocks/NYSE/GIB/earnings/",
+        "kind": "analyst_estimate_aggregator"
+      },
+      {
+        "url": "https://www.cgi.com/en/event/fourth-quarter-results",
+        "kind": "issuer_calendar"
+      }
+    ],
+    "falsifiers": [
+      "Organic constant-currency sales remain near 1% while multiple re-rates",
+      "No improvement in margin or cash earnings per employee",
+      "Backlog high but AI modernization lacks separately measured value"
+    ],
+    "positive_catalysts": [
+      "Organic growth accelerates from FY2026-Q3 +1.3% constant currency",
+      "Higher-value modernization bookings displace low-margin outsourcing",
+      "Improving per-employee economics and guidance"
+    ]
   }
 }
