@@ -1,0 +1,389 @@
+{
+  "schema": "basket.issuer_research_reference@1-provisional",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "ticker": "GIB",
+  "venue": "NYSE",
+  "as_of": "2026-10-30",
+  "scope": "basket-linked company research profile; canonical issuer folder controlled separately",
+  "basket_member": true,
+  "classification": "core",
+  "skill_base": "government and enterprise systems integration",
+  "capabilities": "complex enterprise and government systems integration",
+  "partnerships": {
+    "nvidia": "unverified_in_this_profile",
+    "microsoft": "verification pending",
+    "partner_sources": [],
+    "partner_attributable_revenue": null
+  },
+  "price_observation": {
+    "usd": 80.56,
+    "day_pct": 1.22,
+    "as_of": "2026-10-30 screenshot",
+    "verified_close": false
+  },
+  "earnings": {
+    "latest_reported": "FY2026-Q3",
+    "revenue_growth_yoy_pct": null,
+    "gaap_eps": null,
+    "adjusted_eps": null,
+    "adjusted_eps_growth_yoy_pct": 9,
+    "reported_extra": {},
+    "guidance": null,
+    "adjusted_annual_guidance_midpoint_eps": null,
+    "price_to_guided_adjusted_eps": null,
+    "forward_2027_eps": null,
+    "forward_2027_pe": null,
+    "forward_2028_eps": null,
+    "forward_2028_pe": null,
+    "missing_reason": "Fresh date-matched 2027/28 forecasts not verified",
+    "revenue_growth_constant_currency_pct": 1.3,
+    "gaap_eps_cad": 2.23,
+    "gaap_eps_growth_yoy_pct": 22.5,
+    "adjusted_eps_cad": 2.29,
+    "adjusted_ebit_margin_pct": 16.3,
+    "revenue_cad_m": 4190,
+    "backlog_cad_b": 31.79,
+    "usd_conversion": null,
+    "financial_source": "https://www.cgi.com/en/cgi-reports-third-quarter-f2026-results"
+  },
+  "forward_earnings_status": "2027/2028 consensus not independently verified",
+  "sources": [],
+  "data_quality": {
+    "company_guidance": "only if issuer sourced",
+    "screenshot_price_not_verified_close": true,
+    "unconfirmed_values": null,
+    "validation_status": "research_pending_independent_validation"
+  },
+  "research_tasks": [
+    "Verify most recent quarterly issuer release, GAAP and non-GAAP reconciliation",
+    "Verify 2027/2028 forward EPS estimates and source timestamp",
+    "Verify current price and calculate dated same-basis forward P/E",
+    "Verify NVIDIA/Microsoft partnership tier and commercial contribution",
+    "Score organic growth, skilled deployment capacity, margin expansion and operating cash conversion"
+  ],
+  "basket_tags": [
+    {
+      "basket_id": "us-tradable-ai-deployment-service-options",
+      "role": "member",
+      "status": "research_shortlist",
+      "as_of": "2026-10-30",
+      "source": "research/composites/skilled_ai_deployment/us_tradable_options.json"
+    }
+  ],
+  "canonical_profile_target": "research/GIB/profile.json",
+  "canonical_profile_status": "pending_B00_handoff_130",
+  "ai_demand_readiness": {
+    "survey_date": "2026-08-13",
+    "ai_core_process_adoption_pct": 58,
+    "enterprise_ai_strategy_pct": 36,
+    "legacy_system_barrier_pct": 45,
+    "high_organizational_agility_pct": 23,
+    "data_sovereignty_priority_pct": 40,
+    "source": "https://www.cgi.com/us/en-us/news/cgi-voice-our-clients/cgi-research-reveals-ai-success-depends-modernizing-systems-building",
+    "interpretation": "Customer survey demand, not CGI contract value"
+  },
+  "talent_pool": {
+    "consultants_and_professionals_approx": 94000,
+    "as_of": "2026-06-30",
+    "estimated_quarter_revenue_per_employee_cad": 44574,
+    "not_average_employee_count": true
+  },
+  "pre_earnings_valuation_2026_10_30": {
+    "as_of": "2026-10-30",
+    "currency": "USD",
+    "issuer": "CGI Inc",
+    "ticker": "GIB",
+    "trailing_pe": 13.84,
+    "published_forward_pe": 11.58,
+    "forward_pe_definition_and_consensus_basis": "provider published; reconcile GAAP vs adjusted before comparison",
+    "fy2026_estimated_eps_usd": 6.45,
+    "fy2027_estimated_eps_usd": 7.07,
+    "fy2027_estimated_eps_growth_pct": 9.61,
+    "fy2027_consensus_depth": "thin, source lists one 2027 quarterly estimate per quarter",
+    "earnings_report_date": "2026-11-11",
+    "report_time": "before market open",
+    "sources": [
+      {
+        "url": "https://stockanalysis.com/stocks/gib/statistics/",
+        "kind": "third_party_market_data"
+      },
+      {
+        "url": "https://www.marketbeat.com/stocks/NYSE/GIB/earnings/",
+        "kind": "analyst_estimate_aggregator"
+      },
+      {
+        "url": "https://www.cgi.com/en/event/fourth-quarter-results",
+        "kind": "issuer_calendar"
+      }
+    ],
+    "falsifiers": [
+      "Organic constant-currency sales remain near 1% while multiple re-rates",
+      "No improvement in margin or cash earnings per employee",
+      "Backlog high but AI modernization lacks separately measured value"
+    ],
+    "positive_catalysts": [
+      "Organic growth accelerates from FY2026-Q3 +1.3% constant currency",
+      "Higher-value modernization bookings displace low-margin outsourcing",
+      "Improving per-employee economics and guidance"
+    ]
+  },
+  "q4_fy2026_earnings_hurdle": {
+    "as_of": "2026-10-30",
+    "report_date": "2026-11-11",
+    "fiscal_quarter_end": "2026-09-30",
+    "currency": "USD",
+    "eps_basis": "third_party_US_listed_adjusted_EPS_consensus",
+    "adjusted_eps_consensus": 1.64,
+    "revenue_consensus_usd_b_range": [
+      2.9,
+      2.93
+    ],
+    "last_year_adjusted_eps_usd_approx": 1.51,
+    "implied_eps_growth_yoy_pct_approx": 8.6,
+    "company_q4_guidance_verified": false,
+    "scenario_not_predictive": {
+      "in_line_eps": 1.64,
+      "modest_beat_eps": [
+        1.65,
+        1.67
+      ],
+      "stronger_beat_eps_min": 1.7
+    },
+    "critical_quality_checks": [
+      "constant-currency organic revenue vs Q3 1.3pct",
+      "EPS growth vs adjusted net income growth and share buybacks",
+      "new AI modernization signings vs contracted backlog",
+      "management FY2027 growth outlook",
+      "operating margin and operating cash flow"
+    ],
+    "fx_mismatch_warning": "Issuer Q3 release uses CAD while GIB NYSE EPS and revenue consensus are USD. Do not compare CAD amounts without dated FX.",
+    "sources": [
+      "https://www.cgi.com/en/investors",
+      "https://www.marketbeat.com/stocks/NYSE/GIB/earnings/",
+      "https://finviz.com/stock?p=w&t=GIB&ta=1&ty=ea"
+    ]
+  },
+  "pre_q4_momentum_2026_10_30": {
+    "as_of": "2026-10-30",
+    "revenue_growth_constant_currency_pct_by_fy2026_quarter": {
+      "q1": 3.4,
+      "q2": 1.6,
+      "q3": 1.3
+    },
+    "book_to_bill_pct_by_quarter": {
+      "q1": 109.5,
+      "q2": 103.8,
+      "q3": 100.1
+    },
+    "adjusted_eps_growth_pct_by_quarter": {
+      "q1": 7.6,
+      "q2": 7.1,
+      "q3": 9
+    },
+    "trailing_book_to_bill_pct_q3": 108.1,
+    "regional_ttm_book_to_bill_pct": {
+      "us_federal": 118.6,
+      "us_commercial_state": 124.4
+    },
+    "recent_developments": [
+      {
+        "date": "2026-08-04",
+        "event": "GSA $251M financial management support award"
+      },
+      {
+        "date": "2026-08-25",
+        "event": "AgVantis modernization partnership"
+      },
+      {
+        "date": "2026-09-09",
+        "event": "Callibrity acquisition brings AI/platform engineers"
+      },
+      {
+        "date": "2026-09-29",
+        "event": "Federal AI Agent Catalog with AWS"
+      },
+      {
+        "date": "2026-10-13",
+        "event": "Momentum 8.4 AI automation suite"
+      }
+    ],
+    "verdict": "Forward contract/product activity promising; Q1-Q3 realized sales and current-quarter booking ratios decelerating. Q4 conversion not established.",
+    "sources": [
+      "https://www.cgi.com/en/cgi-reports-first-quarter-f2026-results",
+      "https://www.cgi.com/en/cgi-reports-second-quarter-f2026-results",
+      "https://www.cgi.com/en/cgi-reports-third-quarter-f2026-results",
+      "https://www.cgi.com/us/en-us/news/2026"
+    ],
+    "test_in_q4": [
+      "organic growth vs constant currency",
+      "Q4 booking coverage and US government signings",
+      "FY2027 AI modernization pipeline",
+      "adjusted earnings and margin excluding buybacks",
+      "FCF and bookings conversion"
+    ]
+  },
+  "partner_client_acquisition_2026": {
+    "as_of": "2026-10-30",
+    "source_class": "issuer_press_releases",
+    "clients": [
+      {
+        "date": "2026-10-06",
+        "name": "France Ministry of Agriculture",
+        "type": "selected_new_mandate",
+        "scope": "modernize over 70 applications",
+        "contract_usd": null,
+        "source": "https://www.cgi.com/luxembourg/en/cgi-selected-france-ministry-agriculture-modernizing-information-system"
+      },
+      {
+        "date": "2026-08-25",
+        "name": "AgVantis",
+        "type": "expansion_of_existing_relationship",
+        "scope": "long-term managed technology cloud data and AI-ready platforms",
+        "contract_usd": null,
+        "source": "https://www.cgi.com/us/en-us/news/it-outsourcing-services/agvantis-strategic-partnership-modernize-technology"
+      },
+      {
+        "date": "2026-08-04",
+        "name": "US General Services Administration",
+        "type": "existing_client_contract_award",
+        "contract_usd": 251000000,
+        "scope": "hosting and management of financial systems",
+        "source": "https://www.cgi.com/us/en-us/mediacenter/artificial-intelligence/press-releases"
+      },
+      {
+        "date": "2026-07-27",
+        "name": "City of Munich",
+        "type": "selected_public_sector_project",
+        "contract_usd": null,
+        "source": "https://www.cgi.com/en/mediacenter/press-releases"
+      },
+      {
+        "date": "2026-06-01",
+        "name": "Telia",
+        "type": "strategic_partnership_and_business_transfer",
+        "contract_usd": null,
+        "source": "https://www.cgi.com/en/cgi-and-telia-announce-agreement-for-business-services-transfer-and-new-strategic-partnership"
+      }
+    ],
+    "technology_partners": [
+      {
+        "name": "OpenAI",
+        "date": "2026-04-21",
+        "relationship": "expanded global partnership focused on Codex",
+        "source": "https://www.cgi.com/en/mediacenter/intelligent-automation/press-releases"
+      },
+      {
+        "name": "Microsoft",
+        "date": "2026-06-30",
+        "relationship": "Solutions Partner with certified software for government ERP CGI Advantage",
+        "source": "https://www.cgi.com/us/en-us/mediacenter/artificial-intelligence/press-releases"
+      },
+      {
+        "name": "AWS",
+        "date": "2026-09-29",
+        "relationship": "jointly developed federal AI Agent Catalog",
+        "source": "https://www.cgi.com/us/en-us/mediacenter/federal/press-releases"
+      },
+      {
+        "name": "Databricks",
+        "date": "2026-07-20",
+        "relationship": "Public Sector and GenAI specializations",
+        "source": "https://www.cgi.com/en/mediacenter/systems-integration/press-releases"
+      },
+      {
+        "name": "D-Wave",
+        "date": "2026-09-23",
+        "relationship": "enterprise quantum use cases",
+        "source": "https://www.cgi.com/en/cgi-d-wave-quantum-partner-advance-quantum-adoption?trk=article-ssr-frontend-pulse_little-text-block"
+      },
+      {
+        "name": "NetApp",
+        "date": "2026-06-22",
+        "relationship": "global storage alliance extended",
+        "source": "https://www.cgi.com/us/en-us/mediacenter/cloud-it-modernization/press-releases"
+      }
+    ],
+    "interpretation": "Credible increase in AI ecosystem channels, named customer relationships and public-sector modernization mandates; FY2027 bookings and revenue contribution undisclosed.",
+    "missing_evidence": [
+      "incremental new-logo client count",
+      "net new annual contract value",
+      "partner-sourced contract wins",
+      "AI share of backlog",
+      "period recognized revenue from announcements"
+    ]
+  },
+  "client_revenue_profit_potential_2026_10_30": {
+    "currency": "USD",
+    "as_of": "2026-10-30",
+    "cases": [
+      {
+        "client": "US GSA",
+        "status": "renewal_existing_client",
+        "contract_ceiling_usd": 251780489,
+        "initial_award_usd_approx": 15672236,
+        "possible_term_years": 10,
+        "annualized_full_ceiling_usd_approx": 25178049,
+        "warning": "Ceiling not funding or guaranteed annual revenue; annual run rate illustrative",
+        "source": "https://www.highergov.com/contract/GS35F281DA-47QACB26F0047/"
+      },
+      {
+        "client": "Osceola County School District",
+        "status": "new_competitive_award",
+        "scope": "CGI Advantage enterprise cloud ERP finance procurement budgeting HR payroll",
+        "contract_usd": null,
+        "production_implementation_since": "2026-04",
+        "source": "https://www.cgi.com/us/en-us/news/cgi-advantage/osceola-county-school-district-partnership"
+      },
+      {
+        "client": "AgVantis",
+        "status": "expanded_incumbent_relationship",
+        "scope": "cloud application data AI-ready platform across agricultural finance provider",
+        "contract_usd": null,
+        "market_reach_note": "AgVantis named member customer base; broader Farm Credit market volume must not be attributed to this contract",
+        "source": "https://www.cgi.com/us/en-us/news/it-outsourcing-services/agvantis-strategic-partnership-modernize-technology"
+      },
+      {
+        "client": "France Ministry of Agriculture",
+        "status": "selected_after_tender",
+        "scope": "70+ application modernization via proprietary CGI MAP",
+        "contract_usd": null,
+        "source": "https://www.cgi.com/malaysia/en/cgi-selected-france-ministry-agriculture-modernizing-information-system"
+      },
+      {
+        "client": "Commonwealth of Massachusetts",
+        "status": "system_go_live_existing_implementation",
+        "scope": "statewide Mosaic financial management system",
+        "contract_usd": null,
+        "source": "https://www.cgi.com/us/en-us/mediacenter/cloud-it-modernization/press-releases"
+      }
+    ],
+    "incremental_revenue_illustrations_not_forecasts": [
+      {
+        "additional_annual_revenue_usd_m": 25,
+        "ebit_margin_assumption_pct": 16.3,
+        "additional_ebit_usd_m": 4.075
+      },
+      {
+        "additional_annual_revenue_usd_m": 50,
+        "ebit_margin_assumption_pct": 25,
+        "additional_ebit_usd_m": 12.5
+      },
+      {
+        "additional_annual_revenue_usd_m": 100,
+        "ebit_margin_assumption_pct": 30,
+        "additional_ebit_usd_m": 30
+      }
+    ],
+    "baseline_adjusted_ebit_margin_pct": 16.3,
+    "baseline_margin_period": "FY2026-Q3",
+    "preferred_evidence": "Software recurring revenues and gross margins vs upfront integration services separately disclosed",
+    "cautions": [
+      "Do not sum ceilings and new revenues",
+      "Some prior awards already within reported backlog",
+      "Contract sizes not provided except GSA",
+      "High margin software alone does not imply high total contract margin",
+      "Project and managed-service labor plus hosting and third-party licenses impose costs"
+    ],
+    "source": "https://www.cgi.com/en/cgi-reports-third-quarter-f2026-results"
+  }
+}
