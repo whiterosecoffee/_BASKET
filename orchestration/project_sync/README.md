@@ -6,7 +6,9 @@ are dated observations, never a competing task database. No executor is connecte
 
 ## Ownership and reuse
 
-Only `orchestration/project_sync/**` belongs to this worker. Main baseline:
+Worker #134 owns `orchestration/project_sync/**` and, after user-approved Copier
+adoption, `orchestration/bootstrap/**`, root `copier.yml`, `orchestration/sparks.json`
+and `architecture/version-manifest.json`. See `../bootstrap/README.md`. Main baseline:
 `afc4ada7bc6d7294071b3610fa77e59b206b6312`. PR #2 is merged; no bootstrap exception applies.
 
 - Reuse `orchestration/worker_protocol.py` for schema, path and resolution evaluation.
