@@ -162,5 +162,64 @@
       "https://www.marketbeat.com/stocks/NYSE/GIB/earnings/",
       "https://finviz.com/stock?p=w&t=GIB&ta=1&ty=ea"
     ]
+  },
+  "pre_q4_momentum_2026_10_30": {
+    "as_of": "2026-10-30",
+    "revenue_growth_constant_currency_pct_by_fy2026_quarter": {
+      "q1": 3.4,
+      "q2": 1.6,
+      "q3": 1.3
+    },
+    "book_to_bill_pct_by_quarter": {
+      "q1": 109.5,
+      "q2": 103.8,
+      "q3": 100.1
+    },
+    "adjusted_eps_growth_pct_by_quarter": {
+      "q1": 7.6,
+      "q2": 7.1,
+      "q3": 9
+    },
+    "trailing_book_to_bill_pct_q3": 108.1,
+    "regional_ttm_book_to_bill_pct": {
+      "us_federal": 118.6,
+      "us_commercial_state": 124.4
+    },
+    "recent_developments": [
+      {
+        "date": "2026-08-04",
+        "event": "GSA $251M financial management support award"
+      },
+      {
+        "date": "2026-08-25",
+        "event": "AgVantis modernization partnership"
+      },
+      {
+        "date": "2026-09-09",
+        "event": "Callibrity acquisition brings AI/platform engineers"
+      },
+      {
+        "date": "2026-09-29",
+        "event": "Federal AI Agent Catalog with AWS"
+      },
+      {
+        "date": "2026-10-13",
+        "event": "Momentum 8.4 AI automation suite"
+      }
+    ],
+    "verdict": "Forward contract/product activity promising; Q1-Q3 realized sales and current-quarter booking ratios decelerating. Q4 conversion not established.",
+    "sources": [
+      "https://www.cgi.com/en/cgi-reports-first-quarter-f2026-results",
+      "https://www.cgi.com/en/cgi-reports-second-quarter-f2026-results",
+      "https://www.cgi.com/en/cgi-reports-third-quarter-f2026-results",
+      "https://www.cgi.com/us/en-us/news/2026"
+    ],
+    "test_in_q4": [
+      "organic growth vs constant currency",
+      "Q4 booking coverage and US government signings",
+      "FY2027 AI modernization pipeline",
+      "adjusted earnings and margin excluding buybacks",
+      "FCF and bookings conversion"
+    ]
   }
 }
