@@ -161,13 +161,15 @@ class ManagerTest(unittest.TestCase):
             self.assertEqual(r[0]["status"],"unavailable")
 
     def test_failed_attempt_requeues_original_step(self):
-        events=[event("a1","attempt_started",attempt_id="ATT-one",step_id="validate"),
-                event("a2","attempt_failed",attempt_id="ATT-one",step_id="validate",
+        events=[event("a1","attempt_started",task_id="T-002",attempt_id="ATT-one",step_id="validate"),
+                event("a2","attempt_failed",task_id="T-002",attempt_id="ATT-one",step_id="validate",
                       result_url="https://github.com/failed-ci")]
         result=evaluate(queue(),ev(),events,NOW)
         task=next(t for t in result["decisions"] if t["task_id"]=="T-002")
         self.assertEqual(task["next_action"],"retry_original_step")
         self.assertEqual(task["attempt_history"]["failures"],1)
+        unrelated=next(t for t in result["decisions"] if t["task_id"]=="T-001")
+        self.assertEqual(unrelated["attempt_history"]["attempts"],0)
 
     def test_retry_must_preserve_failed_step(self):
         events=[event("a1","attempt_started",attempt_id="ATT-one",step_id="validate"),
