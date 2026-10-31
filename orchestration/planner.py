@@ -76,6 +76,26 @@ def validate_plan(queue, library, registry):
                               (recipe["id"], step["capability"]))
     by_id = {t["id"]: t for t in tasks}
     for t in tasks:
+        estimate = t.get("token_estimate")
+        if estimate is not None:
+            if (not isinstance(estimate, dict) or
+                    not all(type(estimate.get(k)) is int and estimate[k] >= 0
+                            for k in ("min", "max")) or
+                    estimate["min"] > estimate["max"] or
+                    estimate.get("confidence") not in ("low", "medium", "high") or
+                    not isinstance(estimate.get("basis"), str) or not estimate["basis"].strip()):
+                errors.append(t["id"] + " invalid token estimate")
+        reuse = t.get("reuse_estimate")
+        if reuse is not None and (not isinstance(reuse, dict) or
+                not all(type(reuse.get(k)) is int and reuse[k] >= 0
+                        for k in ("tokens_saved_per_use", "expected_uses")) or
+                not isinstance(reuse.get("basis"), str) or not reuse["basis"].strip()):
+            errors.append(t["id"] + " invalid reuse estimate")
+        workflows = t.get("required_workflows", ["Validate BASKET data"])
+        if (not isinstance(workflows, list) or not workflows or
+                any(not isinstance(x, str) or not x.strip() for x in workflows) or
+                len(set(workflows)) != len(workflows)):
+            errors.append(t["id"] + " invalid required workflows")
         if t["spark_id"] not in sparks:
             errors.append(t["id"] + " unknown owner")
             continue
@@ -135,19 +155,38 @@ def evidence_maps(evidence):
             {x["url"]: x for x in evidence["workflow_runs"]})
 
 
+def ci_results(sha, runs, workflow_names=("Validate BASKET data",)):
+    """Latest run per required workflow at exactly this SHA; no any-green shortcut."""
+    results = []
+    for name in workflow_names:
+        matches = [r for r in runs.values()
+                   if r.get("head_sha") == sha and r.get("name") == name]
+        latest = max(matches, key=lambda r: (r.get("id", 0), r.get("run_attempt", 1))) if matches else None
+        conclusion = (latest or {}).get("conclusion")
+        state = ("NOT_RUN" if latest is None else "PASS" if conclusion == "success"
+                 else "PENDING" if conclusion in (None, "pending")
+                 else "FAIL" if conclusion in ("failure", "cancelled", "timed_out",
+                                               "action_required", "startup_failure", "stale")
+                 else "UNKNOWN")
+        results.append({"workflow": name, "result": state,
+                        "run_id": (latest or {}).get("id"),
+                        "evidence_url": (latest or {}).get("url"), "revision": sha})
+    return results
+
+
 def head_ci_green(pr, runs, workflow_name="Validate BASKET data"):
-    return any(r["head_sha"] == pr["head_sha"] and
-               r["conclusion"] == "success" and
-               r["name"] == workflow_name for r in runs.values())
+    return all(x["result"] == "PASS" for x in ci_results(pr["head_sha"], runs, (workflow_name,)))
 
 
-def run_plan(queue, library, registry, evidence, active_ids=None):
+def run_plan(queue, library, registry, evidence, active_ids=None, token_budget=None):
     """Return reproducible queue; status is derived, never asserted as live."""
     errors = validate_plan(queue, library, registry)
     if errors:
         raise ValueError("; ".join(errors))
     if evidence["repository"] != REPO:
         raise ValueError("evidence repository mismatch")
+    if token_budget is not None and (type(token_budget) is not int or token_budget < 0):
+        raise ValueError("token budget must be a nonnegative integer or unknown")
     tasks = queue["tasks"]
     issues, prs, runs = evidence_maps(evidence)
     by_id = {t["id"]: t for t in tasks}
@@ -166,7 +205,8 @@ def run_plan(queue, library, registry, evidence, active_ids=None):
             pr = prs.get(source["pr_number"])
             good = {"issue_exists": bool(issue),
                     "merged": bool(pr and pr["merged"]),
-                    "ci_passed_on_head": bool(pr and head_ci_green(pr, runs))}[d["gate"]]
+                    "ci_passed_on_head": bool(pr and all(x["result"] == "PASS" for x in
+                        ci_results(pr["head_sha"], runs, source.get("required_workflows", ["Validate BASKET data"]))))}[d["gate"]]
             if not good:
                 blockers.append(d["task_id"] + ":" + d["gate"])
         return blockers
@@ -194,15 +234,16 @@ def run_plan(queue, library, registry, evidence, active_ids=None):
         if t["pr_number"] and not pr:
             warnings.append("GitHub evidence missing claimed worker PR")
         gate_blocks = dependency(t)
-        branch_ci = bool(pr and head_ci_green(pr, runs))
+        required_workflows = t.get("required_workflows", ["Validate BASKET data"])
+        checks = ci_results(pr["head_sha"], runs, required_workflows) if pr else []
+        branch_ci = bool(pr and all(x["result"] == "PASS" for x in checks))
         if (t["issue_number"] is not None and not issue) or (
                 t["pr_number"] is not None and not pr):
             state = "evidence_unavailable"
         elif pr and pr["merged"]:
             state = "integrated_main_ci_unverified"
-            if any(run["head_sha"] == evidence["main_commit"] and
-                   run["name"] == "Validate BASKET data" and
-                   run["conclusion"] == "success" for run in runs.values()):
+            if all(x["result"] == "PASS" for x in
+                   ci_results(evidence["main_commit"], runs, required_workflows)):
                 state = "integrated_main_ci_verified"
         elif gate_blocks:
             state = "blocked_upstream"
@@ -217,6 +258,16 @@ def run_plan(queue, library, registry, evidence, active_ids=None):
         readiness = state in ("review_ready_ci_green",
                               "review_required_checks_pending",
                               "resume_incomplete", "ready_new_worker")
+        estimate = t.get("token_estimate")
+        reuse = t.get("reuse_estimate")
+        resource_gate = ("budget_unknown" if token_budget is None else
+                         "estimate_required" if estimate is None else
+                         "additional_resources_required" if estimate["max"] > token_budget else
+                         "within_declared_budget")
+        resource_ready = token_budget is None or resource_gate == "within_declared_budget"
+        readiness = readiness and resource_ready
+        net_saving = (reuse["tokens_saved_per_use"] * reuse["expected_uses"] - estimate["max"]
+                      if reuse is not None and estimate is not None else None)
         impact = t["impact"]
         effort = t["effort"]
         # Decision ordering only; NEVER probability, investment edge, or completion metric.
@@ -227,6 +278,12 @@ def run_plan(queue, library, registry, evidence, active_ids=None):
                         "ready_for_action": readiness,
                         "blocking_dependencies": gate_blocks,
                         "branch_ci_pass": branch_ci,
+                        "checks": checks,
+                        "pr_draft": pr.get("draft") if pr else None,
+                        "token_estimate": estimate,
+                        "reuse_estimate": reuse,
+                        "estimated_net_token_reduction": net_saving,
+                        "resource_gate": resource_gate,
                         "score_for_ordering_only": score,
                         "issue_number": t["issue_number"],
                         "pr_number": t["pr_number"],
@@ -234,12 +291,14 @@ def run_plan(queue, library, registry, evidence, active_ids=None):
                         "composed_profiles": t["profiles"],
                         "warnings": warnings})
     entries.sort(key=lambda e: (not e["ready_for_action"],
-                                -e["score_for_ordering_only"], e["id"]))
+                                -e["score_for_ordering_only"],
+                                e["estimated_net_token_reduction"] is None,
+                                -(e["estimated_net_token_reduction"] or 0), e["id"]))
     slots = None if active_unknown else max(0, queue["active_worker_limit"] - len(active))
     # A claimed active task is never a dispatch candidate, even if GitHub has
     # no issue/PR claim yet. Never launch the same logical task twice.
     new_launches = [e for e in entries if e["state"] == "ready_new_worker"
-                    and e["id"] not in active]
+                    and e["ready_for_action"] and e["id"] not in active]
     proposed = new_launches[0]["id"] if new_launches and slots is not None and slots > 0 else None
     return {
         "schema": "basket.planner_decision@1",
@@ -259,6 +318,9 @@ def run_plan(queue, library, registry, evidence, active_ids=None):
         "ordered_tasks": entries,
         "no_automatic_issue_or_branch_creation": True,
         "no_automatic_merge": True,
+        "declared_token_budget": token_budget,
+        "actual_remaining_quota": None,
+        "resource_estimates_are_measurements": False,
     }
 
 
@@ -299,6 +361,8 @@ def main():
     parser.add_argument("--live-github", action="store_true",
                         help="Fetch fresh read-only GitHub issue/PR/CI evidence; never substitute cached status")
     parser.add_argument("--next-worker", action="store_true", help="Also print next new worker launch prompt")
+    parser.add_argument("--token-budget", type=int, default=None,
+                        help="Declared planning allowance, not measured subscription quota")
     args = parser.parse_args()
     queue, library, catalog = map(load, (args.queue, args.library, args.catalog))
     if args.live_github:
@@ -313,7 +377,7 @@ def main():
     if args.assume_none_active and args.active:
         parser.error("--assume-none-active conflicts with --active")
     active_ids = [] if args.assume_none_active else args.active
-    result = run_plan(queue, library, catalog, evidence, active_ids)
+    result = run_plan(queue, library, catalog, evidence, active_ids, args.token_budget)
     result["source_fetched_this_invocation"] = args.live_github
     print(json.dumps(result, indent=2))
     if args.next_worker and result["next_new_worker"]:

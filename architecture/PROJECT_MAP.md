@@ -50,6 +50,10 @@ The initial use cases cover market observations/FX/replay, issuer evidence, valu
 8. Reground at outcome, component and task levels after interruption, material change and acceptance. Revisit deferred vectors.
 9. Improve through evaluated changes: observe -> explain -> compare -> test -> retain/revert. Review each stage and all applicable attributes with evidence. Resolve ordinary findings and advance through complete authorized cycles; a subtask is not a stopping point. Avoid speculative refactoring.
 
+## Current implementation increment
+
+The worker branch includes a schema-validated [progress reporter](../orchestration/PROGRESS_TRACKER.md): exact-head latest-workflow findings, optional token/reuse estimates and budget guards, current issue checklists, and open work missing from the configured plan. It derives state from GitHub evidence and does not itself mutate tasks or dispatch workers. Branch validation is distinct from main integration and operational acceptance.
+
 ## Main steps
 
 | Order | Deliverable | Lead |
