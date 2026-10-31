@@ -126,5 +126,41 @@
       "Higher-value modernization bookings displace low-margin outsourcing",
       "Improving per-employee economics and guidance"
     ]
+  },
+  "q4_fy2026_earnings_hurdle": {
+    "as_of": "2026-10-30",
+    "report_date": "2026-11-11",
+    "fiscal_quarter_end": "2026-09-30",
+    "currency": "USD",
+    "eps_basis": "third_party_US_listed_adjusted_EPS_consensus",
+    "adjusted_eps_consensus": 1.64,
+    "revenue_consensus_usd_b_range": [
+      2.9,
+      2.93
+    ],
+    "last_year_adjusted_eps_usd_approx": 1.51,
+    "implied_eps_growth_yoy_pct_approx": 8.6,
+    "company_q4_guidance_verified": false,
+    "scenario_not_predictive": {
+      "in_line_eps": 1.64,
+      "modest_beat_eps": [
+        1.65,
+        1.67
+      ],
+      "stronger_beat_eps_min": 1.7
+    },
+    "critical_quality_checks": [
+      "constant-currency organic revenue vs Q3 1.3pct",
+      "EPS growth vs adjusted net income growth and share buybacks",
+      "new AI modernization signings vs contracted backlog",
+      "management FY2027 growth outlook",
+      "operating margin and operating cash flow"
+    ],
+    "fx_mismatch_warning": "Issuer Q3 release uses CAD while GIB NYSE EPS and revenue consensus are USD. Do not compare CAD amounts without dated FX.",
+    "sources": [
+      "https://www.cgi.com/en/investors",
+      "https://www.marketbeat.com/stocks/NYSE/GIB/earnings/",
+      "https://finviz.com/stock?p=w&t=GIB&ta=1&ty=ea"
+    ]
   }
 }
