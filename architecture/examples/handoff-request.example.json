@@ -1,0 +1,36 @@
+{
+  "schema": "basket.handoff_request.proposal@1",
+  "request_id": "EXAMPLE-not-submitted",
+  "origin_issue": "https://example.invalid/issues/1",
+  "origin_revision": "58edf80a4826793fd355b5fc4fa701ccb3bed0d8",
+  "receiver_lane": "L01",
+  "objective": "Review explicit effect and assumption contract coverage before implementation.",
+  "target_paths": [
+    "schemas/block-engineering/example.schema.json"
+  ],
+  "input_artifact": {
+    "uri": "https://example.invalid/artifacts/request-context",
+    "sha256": null
+  },
+  "expected_output_contract": {
+    "uri": "https://example.invalid/contracts/contract-review",
+    "sha256": null
+  },
+  "preconditions": [
+    "Receiver verifies current authority, scope, input identity and dependencies before any claim."
+  ],
+  "acceptance": [
+    {
+      "id": "A1",
+      "criterion": "Missing behavior and effect constraints are explicit.",
+      "evidence_required": "Source-linked review and positive/negative validation cases."
+    }
+  ],
+  "dependencies": [],
+  "resource_estimate": {
+    "token_range": null,
+    "confidence": "unknown",
+    "additional_resources_required": null
+  },
+  "status": "requested"
+}

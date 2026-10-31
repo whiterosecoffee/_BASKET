@@ -1,0 +1,152 @@
+{
+  "profile": {
+    "id": "qa_reviewer",
+    "description": "Reusable independent validation role comparing PR head to actual tests and CI.",
+    "capabilities": [
+      "adversarial_validation",
+      "github_evidence"
+    ],
+    "constraints": [
+      "CI workflows and integration tests belong exclusively to B01.",
+      "A passing branch job is not a production release."
+    ]
+  },
+  "assignment": {
+    "schema": "basket.agent_assignment@1",
+    "task_id": "B00-136",
+    "source_issue": 136,
+    "spark_id": "B00",
+    "repository": "whiterosecoffee/_BASKET",
+    "branch": "work/136-worker-execution-bridge",
+    "base_commit_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+    "exclusive_write_paths": [
+      "orchestration/worker_bridge/**",
+      "orchestration/tests/test_worker_bridge.py"
+    ],
+    "read_paths": [
+      "AGENTS.md",
+      "orchestration/WORKER_PROTOCOL.md"
+    ],
+    "dependencies": [
+      {
+        "issue_number": 32,
+        "kind": "upstream_pr",
+        "blocks_completion": false,
+        "reason": "Use controller as explicit pinned unmerged dependency; source retry defect and integration require owner review"
+      },
+      {
+        "issue_number": 78,
+        "kind": "review",
+        "blocks_completion": false,
+        "reason": "Reuse documented assignment envelope; no adapter-owned edits"
+      },
+      {
+        "issue_number": 103,
+        "kind": "schema",
+        "blocks_completion": false,
+        "reason": "Read-only component boundary; no new schema"
+      },
+      {
+        "issue_number": 34,
+        "kind": "external_provider",
+        "blocks_completion": false,
+        "reason": "Persistent execution supervisor not deployed; finite local run only"
+      }
+    ],
+    "input_manifest": {
+      "task": "f38a36c9345976fa9962192c731ce585a4963fb6905467650d5b3d4f327b24f9",
+      "library": "dc25203841d8b070dd8a9923bf8fe347291a6766af5bd2c8be8f60b467e401be",
+      "catalog": "6208c8688d4062c5a7b37ed5decb468c315048dcbd7659e1a38475db90f86a75",
+      "profile": "c17f276548cd3f1731077c6e9606554d4d323616a1d98339fa9618dc9456b67c",
+      "required_capabilities": "c69398c6bbc27b3430dd9c737d57bc2a43a58dd88ea17984d7203984d562761f",
+      "evidence": "9db143a3c4abc1c47cd2c448c09fcd5f8944b52fcbaa54691502af6707d560cb",
+      "events": "9954e7f2e149f6735a8f50385f3cd31f887b02fbd2a35a628258b426bb87b920"
+    },
+    "acceptance": [
+      {
+        "id": "A1",
+        "criterion": "Pin sources and validate fresh ownership plus active lease and fencing",
+        "evidence_class": "test",
+        "mandatory": true
+      },
+      {
+        "id": "A2",
+        "criterion": "Match existing contract_engineer and qa_reviewer profiles deterministically",
+        "evidence_class": "test",
+        "mandatory": true
+      },
+      {
+        "id": "A3",
+        "criterion": "Execute a genuine authorized Codex attempt and publish its owned output",
+        "evidence_class": "test",
+        "mandatory": true
+      },
+      {
+        "id": "A4",
+        "criterion": "Reject deliberate ownership collision and stale lease; demonstrate tested recovery",
+        "evidence_class": "test",
+        "mandatory": true
+      },
+      {
+        "id": "A5",
+        "criterion": "Run nonzero bridge tests in existing independent B01 CI at exact PR head",
+        "evidence_class": "test",
+        "mandatory": true
+      },
+      {
+        "id": "A6",
+        "criterion": "Publish B00 assessment preserving independent acceptance and integration gaps",
+        "evidence_class": "test",
+        "mandatory": true
+      }
+    ],
+    "execution": {
+      "mode": "human_started",
+      "provider": "codex",
+      "lease_id": "LEASE-B00-136-20261031-02",
+      "expires_at": "2026-10-31T06:26:15.032Z",
+      "may_commit": false,
+      "may_merge": false
+    },
+    "return_schema": "basket.worker_resolution@1"
+  },
+  "controller_decision": {
+    "task_id": "T-136",
+    "owner": "B00",
+    "state": "active",
+    "classification": "automatic_safe",
+    "next_action": "verify_heartbeat",
+    "priority_score": 307,
+    "issue_number": 136,
+    "pr_number": null,
+    "blockers": [],
+    "scope_collisions": [],
+    "acceptance": {
+      "required": 6,
+      "verified": 0,
+      "missing": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "head_ci": false,
+      "component_verified": false,
+      "integrated": false
+    },
+    "deliverables": {},
+    "attempt_history": {
+      "attempts": 2,
+      "failures": 1,
+      "pending": [
+        "ATT-136-engineer-host-2"
+      ],
+      "last_attempt": "ATT-136-engineer-host-2",
+      "last_result": null,
+      "retry_required": false
+    }
+  },
+  "assignment_sha256": "d72c7a7d9821df372cb7b8b5bf50cfdedb0b475a57abc138ab9909181652377e"
+}
