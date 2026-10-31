@@ -328,5 +328,61 @@
       "Cash flow volatility and repurchases distort EPS signal"
     ],
     "source_class": "issuer_release_and_management_call; projected client productivity not realized cohort average"
+  },
+  "product_suite_peer_comparison": {
+    "as_of": "2026-10-30",
+    "assessment": "Genpact leads in connected finance/operations breadth; not proved leader in proprietary platform economics or insurer core system of record.",
+    "peers": [
+      {
+        "ticker": "EXLS",
+        "strength": "LifePRO insurance system of record, EXLerate.AI, Payment Integrity",
+        "competitive_edge": "regulated embedded operational workflow",
+        "source": "https://www.exlservice.com/lifepro-insurance-platform"
+      },
+      {
+        "ticker": "CTSH",
+        "strength": "Neuro AI Enterprise Core and TriZetto claims workflow agents",
+        "competitive_edge": "incumbent claims administration distribution",
+        "source": "https://news.cognizant.com/2026-09-28-Cognizant-Brings-Agentic-AI-and-MCP-tool-library-to-Core-Claims-Operations-with-Workflow-Agentic-Processing-for-TriZetto"
+      },
+      {
+        "ticker": "GWRE",
+        "strength": "P&C policy/claims/billing platform, Qusar AI agents",
+        "competitive_edge": "software system-of-record switching costs",
+        "source": "https://www.guidewire.com/"
+      },
+      {
+        "ticker": "ACN",
+        "strength": "AI Refinery SDK and multi-agent orchestration",
+        "competitive_edge": "broad enterprise systems implementation and NVIDIA/MSFT integrations",
+        "source": "https://sdk.airefinery.accenture.com/ai_refinery_101/"
+      },
+      {
+        "ticker": "GLOB",
+        "strength": "Enterprise AI and token-subscription AI Pods",
+        "competitive_edge": "outcome priced software engineering delivery concept",
+        "source": "https://statics.globant.com/production/public/2026-02/Globant-Q4-2025-Shareholder-Letter.pdf"
+      }
+    ],
+    "genpact_products": [
+      "AP Suite",
+      "AR Suite",
+      "Record-to-Report Suite",
+      "Finance Actions Hub",
+      "Deductions Recovery",
+      "Procurement Suite",
+      "Order Assist",
+      "Insurance Policy Suite",
+      "Banking Analyst Suite"
+    ],
+    "source": "https://www.genpact.com/agentic/products",
+    "not_proven": [
+      "partner preferred referrals",
+      "product-specific ARR",
+      "software gross margin",
+      "customer retention by product suite",
+      "recurring license vs services mix"
+    ],
+    "investment_rule": "Do not extrapolate customer productivity claims to provider subscription margins without revenue mix and cash conversion."
   }
 }
