@@ -1,0 +1,85 @@
+{
+  "schema": "basket.worker_task@1",
+  "task_id": "B00-136",
+  "spark_id": "B00",
+  "issue": {
+    "number": 136,
+    "url": "https://github.com/whiterosecoffee/_BASKET/issues/136"
+  },
+  "branch": {
+    "name": "work/136-worker-execution-bridge",
+    "base": "main"
+  },
+  "objective": "Connect existing worker controller and profile library to a finite authenticated Codex attempt with ownership guards and exact-head evidence",
+  "write_paths": [
+    "orchestration/worker_bridge/**",
+    "orchestration/tests/test_worker_bridge.py"
+  ],
+  "acceptance": [
+    {
+      "id": "A1",
+      "criterion": "Pin sources and validate fresh ownership plus active lease and fencing",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A2",
+      "criterion": "Match existing contract_engineer and qa_reviewer profiles deterministically",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A3",
+      "criterion": "Execute a genuine authorized Codex attempt and publish its owned output",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A4",
+      "criterion": "Reject deliberate ownership collision and stale lease; demonstrate tested recovery",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A5",
+      "criterion": "Run nonzero bridge tests in existing independent B01 CI at exact PR head",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A6",
+      "criterion": "Publish B00 assessment preserving independent acceptance and integration gaps",
+      "evidence_class": "test",
+      "mandatory": true
+    }
+  ],
+  "dependencies": [
+    {
+      "issue_number": 32,
+      "kind": "upstream_pr",
+      "blocks_completion": false,
+      "reason": "Use controller as explicit pinned unmerged dependency; source retry defect and integration require owner review"
+    },
+    {
+      "issue_number": 78,
+      "kind": "review",
+      "blocks_completion": false,
+      "reason": "Reuse documented assignment envelope; no adapter-owned edits"
+    },
+    {
+      "issue_number": 103,
+      "kind": "schema",
+      "blocks_completion": false,
+      "reason": "Read-only component boundary; no new schema"
+    },
+    {
+      "issue_number": 34,
+      "kind": "external_provider",
+      "blocks_completion": false,
+      "reason": "Persistent execution supervisor not deployed; finite local run only"
+    }
+  ],
+  "claimed_at": "2026-10-31T04:39:42Z",
+  "state": "building",
+  "note": "Owner Codex B00-136; user explicitly requested real finite agent execution; no merge/release/automatic retry authorized."
+}

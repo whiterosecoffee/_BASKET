@@ -1,0 +1,15 @@
+test_contract_engineer_covers_contract_implementation (orchestration.worker_bridge.test_agent_profiles.AgentProfileMatchingTests.test_contract_engineer_covers_contract_implementation) ... ok
+test_explicit_eligible_profile_is_honored (orchestration.worker_bridge.test_agent_profiles.AgentProfileMatchingTests.test_explicit_eligible_profile_is_honored) ... ok
+test_known_but_uncovered_capability_combination_is_rejected (orchestration.worker_bridge.test_agent_profiles.AgentProfileMatchingTests.test_known_but_uncovered_capability_combination_is_rejected) ... ok
+test_least_excess_capabilities_wins (orchestration.worker_bridge.test_agent_profiles.AgentProfileMatchingTests.test_least_excess_capabilities_wins) ... ok
+test_requested_profile_cannot_gain_missing_capability (orchestration.worker_bridge.test_agent_profiles.AgentProfileMatchingTests.test_requested_profile_cannot_gain_missing_capability) ... ok
+test_second_profile_is_registered_qa_reviewer (orchestration.worker_bridge.test_agent_profiles.AgentProfileMatchingTests.test_second_profile_is_registered_qa_reviewer) ... ok
+test_success_and_failure_leave_library_and_requests_unchanged (orchestration.worker_bridge.test_agent_profiles.AgentProfileMatchingTests.test_success_and_failure_leave_library_and_requests_unchanged) ... ok
+test_tie_break_and_order_are_deterministic (orchestration.worker_bridge.test_agent_profiles.AgentProfileMatchingTests.test_tie_break_and_order_are_deterministic) ... ok
+test_unknown_or_empty_capability_request_is_rejected (orchestration.worker_bridge.test_agent_profiles.AgentProfileMatchingTests.test_unknown_or_empty_capability_request_is_rejected) ... ok
+test_unknown_requested_profile_is_rejected (orchestration.worker_bridge.test_agent_profiles.AgentProfileMatchingTests.test_unknown_requested_profile_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK

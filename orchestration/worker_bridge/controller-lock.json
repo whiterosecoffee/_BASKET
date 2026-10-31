@@ -1,0 +1,15 @@
+{
+  "repository": "whiterosecoffee/_BASKET",
+  "controller_commit": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+  "files": {
+    "orchestration/agentic/manager.py": "e78aaad41ea4de4d0d976893f5938eb323a436ac7d92e6e0130c9ab2bc849716",
+    "orchestration/agentic/github_adapter.py": "af3822c908dd23643a7485fb6d5e1cdde1bb54a26e76cba521e5028d5f2df517"
+  },
+  "references": {
+    "worker_v2": "eb099d8e2bf37918eaf11a46341289ff09651d9e",
+    "adapter": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b",
+    "component_contract": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa",
+    "B08_snapshot": "24d77045575926be5499355f9d26de499ed2b5ae"
+  },
+  "note": "Read-only unmerged dependency. Do not vendor/modify or claim production integration."
+}
