@@ -1,0 +1,37 @@
+{
+  "main": {
+    "commit": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+    "files": {
+      "AGENTS.md": "69181a7171a76c9c6af9c6144d56e665c7520d1728dba4cf458e1ee0fa1102e3",
+      "orchestration/WORKER_PROTOCOL.md": "667887a1dd8bb04f44219567367d34208968329d915399145ba15724ac77baf7",
+      "orchestration/sparks.json": "6cd07104ad2d643b10cfade22283e3916d68ec963f0264782a94810017871f0f",
+      "orchestration/planner/worker-library.json": "9e2886866e5603b0f4b38967db39308b621dd1e48f62fc0a6cece99a75fc689d",
+      ".github/workflows/validate.yml": "b8407b2e0980f43d8b09e668a87e01ea4a81c7007d9bd2ceacdf27973ad79d9a"
+    }
+  },
+  "worker_v2": {
+    "commit": "eb099d8e2bf37918eaf11a46341289ff09651d9e",
+    "files": {
+      "orchestration/worker_contracts/worker-v2.md": "dc5b40bbc0fc1308a9aa40275183940e3d816bd8c8aa9e9ec2bb0931d85a07ed"
+    }
+  },
+  "adapters": {
+    "commit": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b",
+    "files": {
+      "orchestration/agent_adapters/README.md": "9b4feafbc389c72e44fa1e5799314ae02ea012fcab7c5fad896e663696350341"
+    }
+  },
+  "components": {
+    "commit": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa",
+    "files": {
+      "architecture/BLACK_BOX_COMPONENT_CONTRACT.md": "738e46d6e2dfe6de6493eb931244d0258bff62404060494674732e2ec3cf0f2e",
+      "schemas/component-blackbox.v1.json": "9bb8ed027baea1dbcb5d52406d38d8d13bd4b3b810a0a5ddfeccb7787b4cdeab"
+    }
+  },
+  "B08": {
+    "commit": "24d77045575926be5499355f9d26de499ed2b5ae",
+    "files": {
+      "services/mrie_snapshot/app.py": "3e8cd0e1864160be17e28347caa318d60ebf7b4e3297015bae79ddf737294581"
+    }
+  }
+}

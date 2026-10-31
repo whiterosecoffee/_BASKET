@@ -1,0 +1,1004 @@
+{
+  "schema": "basket.github_evidence@1",
+  "capture_mode": "live_connector",
+  "repository": "whiterosecoffee/_BASKET",
+  "observed_at": "2026-10-31T04:56:23.199Z",
+  "main_commit": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+  "issues": [
+    {
+      "number": 136,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "state": "open",
+      "title": "[B00] Issue-to-Codex execution bridge using existing worker controller"
+    }
+  ],
+  "pull_requests": [
+    {
+      "number": 135,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/135",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "248987cdd472df42f893c146a5dd1f621e97b8b3",
+      "head_branch": "work/134-github-project-control-plane",
+      "base_branch": "main",
+      "changed_paths": [
+        "architecture/version-manifest.json",
+        "copier.yml",
+        "orchestration/bootstrap/.gitignore",
+        "orchestration/bootstrap/README.md",
+        "orchestration/bootstrap/TEST_RESULTS.txt",
+        "orchestration/bootstrap/adoption/.copier-answers.yml",
+        "orchestration/bootstrap/adoption/.editorconfig",
+        "orchestration/bootstrap/adoption/.pre-commit-config.yaml",
+        "orchestration/bootstrap/adoption/README.md",
+        "orchestration/bootstrap/adoption/pyproject.toml",
+        "orchestration/bootstrap/basket.yml",
+        "orchestration/bootstrap/render-evidence.json",
+        "orchestration/bootstrap/requirements.txt",
+        "orchestration/bootstrap/template/.editorconfig",
+        "orchestration/bootstrap/template/.pre-commit-config.yaml",
+        "orchestration/bootstrap/template/README.md.jinja",
+        "orchestration/bootstrap/template/pyproject.toml.jinja",
+        "orchestration/bootstrap/template/{{ _copier_conf.answers_file }}.jinja",
+        "orchestration/bootstrap/tests/test_copier.py",
+        "orchestration/project_sync/README.md",
+        "orchestration/project_sync/TEST_RESULTS.txt",
+        "orchestration/project_sync/api.py",
+        "orchestration/project_sync/audit-2026-10-31.json",
+        "orchestration/project_sync/control.py",
+        "orchestration/project_sync/task.json",
+        "orchestration/project_sync/test_sync.py",
+        "orchestration/project_sync/views.json",
+        "orchestration/project_sync/workflow.yml.example",
+        "orchestration/sparks.json"
+      ]
+    },
+    {
+      "number": 133,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/133",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "0022bd0b4a451df2082e322aef7abc76b2d84d4d",
+      "head_branch": "work/132-github-project-control-plane",
+      "base_branch": "main",
+      "changed_paths": [
+        "orchestration/project_control_plane/README.md",
+        "orchestration/project_control_plane/reconcile.py",
+        "orchestration/project_control_plane/test_reconcile.py"
+      ]
+    },
+    {
+      "number": 127,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/127",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "0fdab50d6febbe8891f494c1184c827e6420adf7",
+      "head_branch": "work/126-etf-forward-valuation",
+      "base_branch": "main",
+      "changed_paths": [
+        "engines/valuation/etf_forward/README.md",
+        "engines/valuation/etf_forward/engine.py",
+        "engines/valuation/etf_forward/portfolio.py",
+        "engines/valuation/etf_forward/test_engine.py",
+        "engines/valuation/etf_forward/test_portfolio.py",
+        "engines/valuation/etf_forward/test_upside.py",
+        "engines/valuation/etf_forward/upside.py"
+      ]
+    },
+    {
+      "number": 125,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/125",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "bd3ee61fedbee97499ac73579fc703b815d459d8",
+      "head_branch": "work/124-spotgamma-hiro-handoff",
+      "base_branch": "main",
+      "changed_paths": [
+        "runtime/spotgamma_hiro/README.md",
+        "runtime/spotgamma_hiro/examples/user_snapshots.jsonl",
+        "runtime/spotgamma_hiro/hiro.py",
+        "runtime/spotgamma_hiro/test_hiro.py",
+        "runtime/spotgamma_hiro/test_watcher.py",
+        "runtime/spotgamma_hiro/watcher.py"
+      ]
+    },
+    {
+      "number": 123,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/123",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "a2202f7c720f414bd0b32e3a8bdabd09f7603241",
+      "head_branch": "copilot/control-repo-and-project-flow",
+      "base_branch": "main",
+      "changed_paths": [
+        ".github/copilot-instructions.md",
+        "CLAUDE.md",
+        "README.md",
+        "architecture/OPERATING_ARCHITECTURE.md",
+        "orchestration/AGENT_INSTRUCTIONS.md",
+        "orchestration/AGENT_ROUTING.md",
+        "orchestration/MODULE_STANDARD.md",
+        "orchestration/PROJECT_BOARD.md",
+        "orchestration/planner/PROGRESS.md",
+        "orchestration/planner/agent-routing.json",
+        "orchestration/spark_claims.py",
+        "orchestration/tests/test_agent_routing.py",
+        "orchestration/validate_agent_entrypoints.py",
+        "orchestration/validate_agent_routing.py",
+        "orchestration/validate_module_structure.py"
+      ]
+    },
+    {
+      "number": 122,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/122",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "3d95e08a6bbba136117a96122bc0cc869ba2aa81",
+      "head_branch": "work/121-neocloud-market-research",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/CRWV/market-research-2026-10-29/backfill_minutes.py",
+        "research/CRWV/market-research-2026-10-29/capture-revisions-2026-10-30.json",
+        "research/CRWV/market-research-2026-10-29/findings.json",
+        "research/CRWV/market-research-2026-10-29/recent-history-2026-10-30.json",
+        "tickers/CRWV/intraday/2026-10.1m.jsonl",
+        "tickers/CRWV/intraday/2026-10.1m.meta.json",
+        "tickers/CRWV/intraday/README.md"
+      ]
+    },
+    {
+      "number": 120,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/120",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "cee047c9133d8196b0da82ba0a5c49c5764e5638",
+      "head_branch": "work/118-skilled-ai-deployment-basket",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/composites/skilled_ai_deployment/PROFILE_VALIDATION_2026-10-30.md",
+        "research/composites/skilled_ai_deployment/README.md",
+        "research/composites/skilled_ai_deployment/basket.json",
+        "research/composites/skilled_ai_deployment/company_profiles_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/customer_distribution_partner_moat_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/customer_labor_quality_outcomes_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/elite_talent_growth_screen_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/eps_multiple_scenarios_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/forward_value_rankings_2026_10_31.json",
+        "research/composites/skilled_ai_deployment/full_universe_deep_dive_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/gdyn_competitive_benchmark_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/insurance_agentic_workflow_competitors_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/integration_bottleneck_profitability_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/issuers/ACN/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/CINT/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/CTSH/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/DAVA/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/EPAM/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/EXLS/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/G/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/GDYN/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/GIB/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/GLOB/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/IBM/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/INFY/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/KD/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/PLTR/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/WIT/profile.json",
+        "research/composites/skilled_ai_deployment/moats_talent_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/profiles/ACN.json",
+        "research/composites/skilled_ai_deployment/profiles/CACI.json",
+        "research/composites/skilled_ai_deployment/profiles/CINT.json",
+        "research/composites/skilled_ai_deployment/profiles/CSCO.json",
+        "research/composites/skilled_ai_deployment/profiles/CTSH.json",
+        "research/composites/skilled_ai_deployment/profiles/DAVA.json",
+        "research/composites/skilled_ai_deployment/profiles/DBRG.json",
+        "research/composites/skilled_ai_deployment/profiles/DELL.json",
+        "research/composites/skilled_ai_deployment/profiles/DXC.json",
+        "research/composites/skilled_ai_deployment/profiles/EPAM.json",
+        "research/composites/skilled_ai_deployment/profiles/EXLS.json",
+        "research/composites/skilled_ai_deployment/profiles/G.json",
+        "research/composites/skilled_ai_deployment/profiles/GDYN.json",
+        "research/composites/skilled_ai_deployment/profiles/GIB.json",
+        "research/composites/skilled_ai_deployment/profiles/GLOB.json",
+        "research/composites/skilled_ai_deployment/profiles/HPE.json",
+        "research/composites/skilled_ai_deployment/profiles/IBM.json",
+        "research/composites/skilled_ai_deployment/profiles/INFY.json",
+        "research/composites/skilled_ai_deployment/profiles/INOD.json",
+        "research/composites/skilled_ai_deployment/profiles/KD.json",
+        "research/composites/skilled_ai_deployment/profiles/PATH.json",
+        "research/composites/skilled_ai_deployment/profiles/PLTR.json",
+        "research/composites/skilled_ai_deployment/profiles/QCOM.json",
+        "research/composites/skilled_ai_deployment/profiles/WIT.json",
+        "research/composites/skilled_ai_deployment/suite_market_labor_savings_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/us_tradable_options.json",
+        "research/composites/skilled_ai_deployment/workforce_productivity_screen_2026-10-30.json"
+      ]
+    },
+    {
+      "number": 117,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/117",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "311a9aae71efccc379d45ad86946c162f3b84e92",
+      "head_branch": "work/116-gdyn-crwv-growth-comparison",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/GDYN/2026-10-29-earnings-margins.md",
+        "research/GDYN/2026-10-29-forward-eps-2027-2028.md",
+        "research/GDYN/2026-10-29-nvidia-direction.md",
+        "research/GDYN/2026-10-29-scarce-deployment-skills.md",
+        "research/GDYN/2026-10-29-tam-workforce-redeployment.md",
+        "research/GDYN/README.md"
+      ]
+    },
+    {
+      "number": 114,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/114",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "7883d07941e33bce9faa52ff50d256f46cc7cf8c",
+      "head_branch": "work/113-crwv-evidence-peer-assessment",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/CRWV/assessments/2026-10-29-evidence-and-peers.md"
+      ]
+    },
+    {
+      "number": 111,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/111",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "fb9cb8c4af4dd17537f9d1a46eb7d825c3b67140",
+      "head_branch": "work/110-append-daily-bars-1029",
+      "base_branch": "main",
+      "changed_paths": [
+        "tickers/AAOI/history.jsonl",
+        "tickers/AAOI/history.meta.json",
+        "tickers/CRWV/history.jsonl",
+        "tickers/CRWV/history.meta.json",
+        "tickers/SFTBY/history.jsonl",
+        "tickers/SFTBY/history.meta.json"
+      ]
+    },
+    {
+      "number": 109,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/109",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "bdae9fdce9cf647886d52d3319d685deef829095",
+      "head_branch": "work/108-canonical-traversal-takeover",
+      "base_branch": "main",
+      "changed_paths": [
+        "engines/traversal/README.md",
+        "engines/traversal/metrics.py",
+        "engines/traversal/run_metrics.py",
+        "engines/traversal/tests/test_metrics.py",
+        "research/traversal/data-mapping.json"
+      ]
+    },
+    {
+      "number": 107,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/107",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "eb099d8e2bf37918eaf11a46341289ff09651d9e",
+      "head_branch": "work/106-worker-v2-contract-audit",
+      "base_branch": "main",
+      "changed_paths": [
+        "orchestration/tests/test_worker_v2_contract.py",
+        "orchestration/worker_contracts/worker-v2.md"
+      ]
+    },
+    {
+      "number": 104,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/104",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa",
+      "head_branch": "work/103-blackbox-component-contracts",
+      "base_branch": "main",
+      "changed_paths": [
+        "architecture/BLACK_BOX_COMPONENT_CONTRACT.md",
+        "schemas/component-blackbox.v1.json"
+      ]
+    },
+    {
+      "number": 101,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/101",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "565e582720a32d8d73c5421d6d99d503c4bbde03",
+      "head_branch": "work/100-basket-market-context",
+      "base_branch": "main",
+      "changed_paths": [
+        "engines/composites/market_context/README.md",
+        "engines/composites/market_context/context.py",
+        "engines/composites/market_context/policy.v1.json",
+        "engines/composites/market_context/tests/test_context.py",
+        "research/composites/market_context/README.md",
+        "research/composites/market_context/VALIDATION.md",
+        "research/composites/market_context/fixtures/basket-report.json",
+        "research/composites/market_context/fixtures/basket.csv",
+        "research/composites/market_context/fixtures/basket.json",
+        "research/composites/market_context/fixtures/midday-report.json",
+        "research/composites/market_context/fixtures/midday.csv",
+        "research/composites/market_context/fixtures/midday.json",
+        "research/composites/market_context/fixtures/premarket.csv",
+        "research/composites/market_context/fixtures/premarket.json",
+        "research/composites/market_context/registry.working.json"
+      ]
+    },
+    {
+      "number": 99,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/99",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+      "head_branch": "work/95-incremental-ticker-patterns",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/CRWV/trading-tool/.gitignore",
+        "research/CRWV/trading-tool/HANDOFF.md",
+        "research/CRWV/trading-tool/README.md",
+        "research/CRWV/trading-tool/VALIDATION.md",
+        "research/CRWV/trading-tool/component.json",
+        "research/CRWV/trading-tool/corpus.py",
+        "research/CRWV/trading-tool/examples/historical-matrix.json",
+        "research/CRWV/trading-tool/patterns.py",
+        "research/CRWV/trading-tool/poller.py",
+        "research/CRWV/trading-tool/run.py",
+        "research/CRWV/trading-tool/store.py",
+        "research/CRWV/trading-tool/tests/test_patterns.py"
+      ]
+    },
+    {
+      "number": 90,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/90",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+      "head_branch": "work/89-crwv-independent-ci-acceptance",
+      "base_branch": "main",
+      "changed_paths": [
+        ".github/workflows/crwv-tool-acceptance.yml"
+      ]
+    },
+    {
+      "number": 87,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/87",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "7a33a6f49a2740a93310fa1c66a8090c25dd110a",
+      "head_branch": "work/86-crwv-functional-tool",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/CRWV/tool/README.md",
+        "research/CRWV/tool/VALIDATION.md",
+        "research/CRWV/tool/contracts/README.md",
+        "research/CRWV/tool/contracts/result.v1.json",
+        "research/CRWV/tool/contracts/snapshot.v1.json",
+        "research/CRWV/tool/demo.py",
+        "research/CRWV/tool/examples/base.txt",
+        "research/CRWV/tool/examples/revision-bridge.json",
+        "research/CRWV/tool/examples/sensitivities.json",
+        "research/CRWV/tool/examples/summary.json",
+        "research/CRWV/tool/examples/unfunded.txt",
+        "research/CRWV/tool/fixtures/base.json",
+        "research/CRWV/tool/fixtures/build.py",
+        "research/CRWV/tool/fixtures/bull.json",
+        "research/CRWV/tool/fixtures/slow.json",
+        "research/CRWV/tool/fixtures/snapshot.json",
+        "research/CRWV/tool/fixtures/unfunded-snapshot.json",
+        "research/CRWV/tool/fixtures/unfunded.json",
+        "research/CRWV/tool/history.py",
+        "research/CRWV/tool/market.py",
+        "research/CRWV/tool/model.py",
+        "research/CRWV/tool/run.py",
+        "research/CRWV/tool/source-manifest.json",
+        "research/CRWV/tool/tests/test_model.py"
+      ]
+    },
+    {
+      "number": 85,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/85",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "389334012cc6ba1b3592df7e4aad1159f9b951e5",
+      "head_branch": "work/82-orcl-vector-orchestration",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/ORCL/Orchestration/LAUNCH_PACKETS.md",
+        "research/ORCL/Orchestration/README.md",
+        "research/ORCL/Orchestration/assignments/ORCL-FM.assignment.json",
+        "research/ORCL/Orchestration/assignments/ORCL-RT.assignment.json",
+        "research/ORCL/Orchestration/spark-proposal.json",
+        "research/ORCL/Orchestration/status.py",
+        "research/ORCL/Orchestration/test_status.py",
+        "research/ORCL/Orchestration/vectors.json"
+      ]
+    },
+    {
+      "number": 84,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/84",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "86a80db25fcc0066955bacf7c8bf2af30aeed104",
+      "head_branch": "work/81-orcl-range-traversal",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/ORCL/Range_Traversal/10D.md",
+        "research/ORCL/Range_Traversal/72H.md",
+        "research/ORCL/Range_Traversal/BAND_METHOD.md",
+        "research/ORCL/Range_Traversal/CROSS_WINDOW.md",
+        "research/ORCL/Range_Traversal/DIVERGENCE_OVERLAY.md",
+        "research/ORCL/Range_Traversal/README.md",
+        "research/ORCL/Range_Traversal/REVISIONS.md",
+        "research/ORCL/Range_Traversal/TODAY.md"
+      ]
+    },
+    {
+      "number": 83,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/83",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e",
+      "head_branch": "work/80-orcl-forward-multiple-comparative",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/ORCL/Forward_Multiple/01_PEER_SET.md",
+        "research/ORCL/Forward_Multiple/02_WEIGHTED_MULTIPLE.md",
+        "research/ORCL/Forward_Multiple/03_UPSIDE_SCORE.md",
+        "research/ORCL/Forward_Multiple/04_REVERSE_CHECK.md",
+        "research/ORCL/Forward_Multiple/05_FACTOR_CHECKLIST.md",
+        "research/ORCL/Forward_Multiple/06_THESIS_AND_LADDER.md",
+        "research/ORCL/Forward_Multiple/README.md",
+        "research/ORCL/Forward_Multiple/REVISIONS.md"
+      ]
+    },
+    {
+      "number": 79,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/79",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b",
+      "head_branch": "work/78-agent-neutral-dispatch-contract",
+      "base_branch": "main",
+      "changed_paths": [
+        "orchestration/agent_adapters/README.md"
+      ]
+    },
+    {
+      "number": 77,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/77",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "dc6a98e864558606b34d03148a9a95f881b52bf4",
+      "head_branch": "work/75-orcl-evolving-tracker",
+      "base_branch": "main",
+      "changed_paths": [
+        "engines/valuation/orcl_bridge/README.md",
+        "engines/valuation/orcl_bridge/engine.py",
+        "engines/valuation/orcl_bridge/example.py",
+        "engines/valuation/orcl_bridge/test_engine.py",
+        "orchestration/ticker_trackers/README.md",
+        "orchestration/ticker_trackers/orcl.json",
+        "orchestration/ticker_trackers/publish_valuation.py",
+        "orchestration/ticker_trackers/test_tracker.py",
+        "orchestration/ticker_trackers/test_valuation.py",
+        "orchestration/ticker_trackers/tracker.py"
+      ]
+    },
+    {
+      "number": 74,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/74",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "813ed77e0442548a0778fd12348a4b416683ed38",
+      "head_branch": "work/73-crwv-replacement-cost-rates",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/CRWV/73-replacement-cost-rates/README.md",
+        "research/CRWV/73-replacement-cost-rates/findings.json",
+        "research/CRWV/73-replacement-cost-rates/verify.py"
+      ]
+    },
+    {
+      "number": 72,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/72",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "c6c35e3f59d40e8ca4505900542ae6153a3cf670",
+      "head_branch": "work/71-crwv-ops-vs-buildout",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/CRWV/operations-vs-buildout/2026-10-23/README.md",
+        "research/CRWV/operations-vs-buildout/2026-10-23/findings.json",
+        "research/CRWV/operations-vs-buildout/2026-10-23/verify.py"
+      ]
+    },
+    {
+      "number": 69,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/69",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9",
+      "head_branch": "work/68-crwv-debt-stack-audit",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/CRWV/debt/2026-10-22/README.md",
+        "research/CRWV/debt/2026-10-22/battle-matrix-contract.md",
+        "research/CRWV/debt/2026-10-22/battle-matrix-history.jsonl",
+        "research/CRWV/debt/2026-10-22/battle_matrix.py",
+        "research/CRWV/debt/2026-10-22/capacity-conversion.json",
+        "research/CRWV/debt/2026-10-22/capacity-conversion.md",
+        "research/CRWV/debt/2026-10-22/capacity-scenarios.json",
+        "research/CRWV/debt/2026-10-22/capacity-scenarios.py",
+        "research/CRWV/debt/2026-10-22/capacity-weighted-valuation.md",
+        "research/CRWV/debt/2026-10-22/debt-repricing-2026-10-23.json",
+        "research/CRWV/debt/2026-10-22/debt-stack.json",
+        "research/CRWV/debt/2026-10-22/directional-turnover-2026-10-28.json",
+        "research/CRWV/debt/2026-10-22/discount-demand-and-oi-2026-10-28.json",
+        "research/CRWV/debt/2026-10-22/divergence-and-repricing-2026-10-23.md",
+        "research/CRWV/debt/2026-10-22/earnings-lifespan-services.md",
+        "research/CRWV/debt/2026-10-22/factor-attribution-2026-10-22.json",
+        "research/CRWV/debt/2026-10-22/factor-attribution-2026-10-23.json",
+        "research/CRWV/debt/2026-10-22/factor-closes-2026-10-22.csv",
+        "research/CRWV/debt/2026-10-22/factor-closes-2026-10-23.csv",
+        "research/CRWV/debt/2026-10-22/factor_tracker.py",
+        "research/CRWV/debt/2026-10-22/flow-2026-10-28T1357Z.json",
+        "research/CRWV/debt/2026-10-22/forward-valuation.json",
+        "research/CRWV/debt/2026-10-22/forward-valuation.md",
+        "research/CRWV/debt/2026-10-22/functional-tool-blueprint.md",
+        "research/CRWV/debt/2026-10-22/gray-contracted-power-overlay.md",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV-daily-bars.csv",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV-minute-bars.csv",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV.range-patterns.jsonl",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/README.md",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/manifest.json",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/pattern-index.json",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/range_replay.py",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/summary.json",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/test_range_replay.py",
+        "research/CRWV/debt/2026-10-22/integrated-assessment.md",
+        "research/CRWV/debt/2026-10-22/matrix-input-2026-10-28.json",
+        "research/CRWV/debt/2026-10-22/matrix-output-2026-10-28T1416Z-v1.1.0.json",
+        "research/CRWV/debt/2026-10-22/matrix-output-2026-10-28T1416Z.json",
+        "research/CRWV/debt/2026-10-22/next-conversation-prompt.md",
+        "research/CRWV/debt/2026-10-22/october-turnover-velocity.json",
+        "research/CRWV/debt/2026-10-22/repricing-assessment.md",
+        "research/CRWV/debt/2026-10-22/test_battle_matrix.py",
+        "research/CRWV/debt/2026-10-22/trajectory-2026-10-28.json",
+        "research/CRWV/debt/2026-10-22/trajectory-2026-10-28.md",
+        "research/CRWV/debt/2026-10-22/traversal-compression-2026-10-23.json",
+        "research/CRWV/debt/2026-10-22/traversal-prior-art-review.md"
+      ]
+    },
+    {
+      "number": 60,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/60",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "505591723ce42e474a8b5f498849bbe6eab10edb",
+      "head_branch": "work/59-orchestrator-retirement-intake",
+      "base_branch": "main",
+      "changed_paths": [
+        "orchestration/retirement_intake/2026-10-18-b00-baseline.json",
+        "orchestration/retirement_intake/2026-10-18-b08-snapshot.json",
+        "orchestration/retirement_intake/2026-10-18-b19-audit-reconciliation.json",
+        "orchestration/retirement_intake/2026-10-18-capture-dispatch.json",
+        "orchestration/retirement_intake/2026-10-18-ci-flood.json",
+        "orchestration/retirement_intake/2026-10-29-capability-inventory.json",
+        "orchestration/retirement_intake/2026-10-29-startup-evidence.json",
+        "orchestration/retirement_intake/2026-10-29-startup-report.md",
+        "orchestration/retirement_intake/WORKER_CONTRACT.md",
+        "orchestration/retirement_intake/inventory.py",
+        "orchestration/retirement_intake/test_inventory.py"
+      ]
+    },
+    {
+      "number": 58,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/58",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+      "head_branch": "work/57-b06-oct16-traversal-stress-fixture",
+      "base_branch": "main",
+      "changed_paths": [
+        "engines/traversal/alert_gates.py",
+        "engines/traversal/test_alert_gates.py",
+        "research/traversal/2026-10-16-ai-infrastructure-stress.json",
+        "research/traversal/B06-WORKER-CONTRACT.md"
+      ]
+    },
+    {
+      "number": 55,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/55",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "24d77045575926be5499355f9d26de499ed2b5ae",
+      "head_branch": "work/53-b08-snapshot-service",
+      "base_branch": "main",
+      "changed_paths": [
+        "deployment/mrie_snapshot/README.md",
+        "services/mrie_snapshot/app.py",
+        "services/mrie_snapshot/test_app.py"
+      ]
+    },
+    {
+      "number": 49,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/49",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+      "head_branch": "work/48-full-basket-capture-dispatch",
+      "base_branch": "main",
+      "changed_paths": [
+        "orchestration/capture_dispatch/README.md",
+        "orchestration/capture_dispatch/plan.py",
+        "orchestration/capture_dispatch/test_plan.py"
+      ]
+    },
+    {
+      "number": 43,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/43",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+      "head_branch": "work/42-ticker-first-worker-contract",
+      "base_branch": "main",
+      "changed_paths": [
+        "architecture/TICKER_FIRST_RESEARCH_ARCHITECTURE.md"
+      ]
+    },
+    {
+      "number": 38,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/38",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30",
+      "head_branch": "work/37-cross-support-evidence",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/narrative/cross-support/exol-network-thesis-2026-10-17.md"
+      ]
+    },
+    {
+      "number": 33,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/33",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+      "head_branch": "work/32-mrie-agentic-readiness-audit",
+      "base_branch": "main",
+      "changed_paths": [
+        "orchestration/agentic/README.md",
+        "orchestration/agentic/WORKER_CONTRACT.md",
+        "orchestration/agentic/__init__.py",
+        "orchestration/agentic/cli.py",
+        "orchestration/agentic/dependency_gate.py",
+        "orchestration/agentic/github_adapter.py",
+        "orchestration/agentic/manager.py",
+        "orchestration/agentic/massive_worker_contract.py",
+        "orchestration/agentic/massive_worker_jobs.json",
+        "orchestration/agentic/massive_workers.json",
+        "orchestration/agentic/tests/test_dependency_gate.py",
+        "orchestration/agentic/tests/test_manager.py",
+        "orchestration/agentic/tests/test_massive_worker_contract.py",
+        "orchestration/audits/mrie-dispatch-readiness-2026-10-17.json",
+        "orchestration/audits/mrie-implementation-readiness-2026-10-17.json"
+      ]
+    },
+    {
+      "number": 31,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/31",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+      "head_branch": "work/26-openai-preipo-valuation-sftby",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/OPENAI/README.md",
+        "research/OPENAI/RESOURCE_STRATEGY.md",
+        "research/OPENAI/WORKER_CONTRACT.md",
+        "research/OPENAI/assumption-register.json",
+        "research/OPENAI/check.py",
+        "research/OPENAI/evidence_fingerprint.py",
+        "research/OPENAI/ipo2027-news.json",
+        "research/OPENAI/ipo2027-policy.json",
+        "research/OPENAI/ipo2027.py",
+        "research/OPENAI/resource-registry.json",
+        "research/OPENAI/resource_audit.py",
+        "research/OPENAI/sftby-interface.json",
+        "research/OPENAI/test_evidence_fingerprint.py",
+        "research/OPENAI/test_ipo2027.py",
+        "research/OPENAI/test_resource_audit.py",
+        "research/OPENAI/valuation-register.json",
+        "tickers/OPENAI/entity.json"
+      ]
+    },
+    {
+      "number": 25,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/25",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+      "head_branch": "work/24-register-coverage-research-milestones",
+      "base_branch": "main",
+      "changed_paths": [
+        "orchestration/execution_loop.py",
+        "orchestration/planner/README.md",
+        "orchestration/planner/goals.json",
+        "orchestration/planner/queue.json",
+        "orchestration/planner/worker-scopes.json",
+        "orchestration/tests/test_execution_loop.py",
+        "orchestration/tests/test_planner.py"
+      ]
+    },
+    {
+      "number": 23,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/23",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+      "head_branch": "work/21-underrepresented-ticker-coverage",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/themes/supply-chain/coverage/WORKER_RUNBOOK.md",
+        "research/themes/supply-chain/coverage/check_coverage.py",
+        "research/themes/supply-chain/coverage/test_check_coverage.py",
+        "research/themes/supply-chain/coverage/underrepresented-2026-10-17.json"
+      ]
+    },
+    {
+      "number": 22,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/22",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+      "head_branch": "work/20-capital-profit-graph",
+      "base_branch": "main",
+      "changed_paths": [
+        "architecture/ECONOMIC_FLOW_GRAPH.md"
+      ]
+    },
+    {
+      "number": 18,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/18",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+      "head_branch": "work/17-mrie-revenue-pool-resources",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/themes/supply-chain/README.md",
+        "research/themes/supply-chain/WORKER_CONTRACT.md",
+        "research/themes/supply-chain/coverage/missing.json",
+        "research/themes/supply-chain/earnings/quarterly-intake.json",
+        "research/themes/supply-chain/reconciliation/check_research.py",
+        "research/themes/supply-chain/reconciliation/rules.json",
+        "research/themes/supply-chain/reconciliation/test_check_research.py",
+        "research/themes/supply-chain/registry/pools.json",
+        "research/themes/supply-chain/registry/tickers.json",
+        "research/themes/supply-chain/relationships/gateway-model.json"
+      ]
+    },
+    {
+      "number": 15,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/15",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+      "head_branch": "work/11-market-fx-observation-replay",
+      "base_branch": "main",
+      "changed_paths": [
+        "runtime/observations.py",
+        "runtime/test_observations.py",
+        "tests/test_ttd.py"
+      ]
+    },
+    {
+      "number": 14,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/14",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "head_sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+      "head_branch": "work/12-b03-canonical-issuer-events",
+      "base_branch": "main",
+      "changed_paths": [
+        "research/events/README.md",
+        "research/events/SFTBY/2026-10-16-initial-ledger.json",
+        "research/events/validate.py",
+        "tickers/SFTBY/events.json"
+      ]
+    }
+  ],
+  "workflow_runs": [],
+  "declared_claims": [
+    {
+      "issue": 134,
+      "write_paths": [
+        "orchestration/project_sync/**",
+        "copier.yml",
+        "orchestration/bootstrap/**",
+        "orchestration/sparks.json",
+        "architecture/version-manifest.json"
+      ]
+    },
+    {
+      "issue": 132,
+      "write_paths": [
+        "orchestration/project_control_plane/**"
+      ]
+    },
+    {
+      "issue": 106,
+      "write_paths": [
+        "orchestration/worker_contracts/worker-v2.md",
+        "orchestration/tests/test_worker_v2_contract.py"
+      ]
+    },
+    {
+      "issue": 100,
+      "write_paths": [
+        "engines/composites/market_context/**",
+        "research/composites/market_context/**"
+      ]
+    },
+    {
+      "issue": 95,
+      "write_paths": [
+        "research/CRWV/trading-tool/**"
+      ]
+    },
+    {
+      "issue": 91,
+      "write_paths": [
+        "research/CRWV/tool/**"
+      ]
+    },
+    {
+      "issue": 86,
+      "write_paths": [
+        "research/CRWV/tool/**"
+      ]
+    },
+    {
+      "issue": 82,
+      "write_paths": [
+        "research/ORCL/Orchestration/**"
+      ]
+    },
+    {
+      "issue": 81,
+      "write_paths": [
+        "research/ORCL/Range_Traversal/**"
+      ]
+    },
+    {
+      "issue": 75,
+      "write_paths": [
+        "orchestration/ticker_trackers/**"
+      ]
+    },
+    {
+      "issue": 75,
+      "write_paths": [
+        "orchestration/ticker_trackers/**",
+        "engines/valuation/orcl_bridge/**"
+      ]
+    },
+    {
+      "issue": 73,
+      "write_paths": [
+        "research/CRWV/73-replacement-cost-rates/**"
+      ]
+    },
+    {
+      "issue": 71,
+      "write_paths": [
+        "research/CRWV/operations-vs-buildout/2026-10-23/**"
+      ]
+    },
+    {
+      "issue": 68,
+      "write_paths": [
+        "research/CRWV/debt/2026-10-22/**"
+      ]
+    },
+    {
+      "issue": 64,
+      "write_paths": [
+        ".github/workflows/openai-research.yml",
+        "tests/integration/openai_gate.py",
+        "tests/integration/test_openai_gate.py",
+        "tests/integration/OPENAI_WORKER.md"
+      ]
+    },
+    {
+      "issue": 63,
+      "write_paths": [
+        "orchestration/audits/source_gate/**"
+      ]
+    },
+    {
+      "issue": 59,
+      "write_paths": [
+        "orchestration/retirement_intake/**"
+      ]
+    },
+    {
+      "issue": 57,
+      "write_paths": [
+        "engines/traversal/**",
+        "research/traversal/**"
+      ]
+    },
+    {
+      "issue": 48,
+      "write_paths": [
+        "orchestration/capture_dispatch/plan.py",
+        "orchestration/capture_dispatch/test_plan.py",
+        "orchestration/capture_dispatch/README.md"
+      ]
+    },
+    {
+      "issue": 37,
+      "write_paths": [
+        "research/narrative/cross-support/exol-network-thesis-2026-10-17.md"
+      ]
+    },
+    {
+      "issue": 32,
+      "write_paths": [
+        "orchestration/agentic/**",
+        "orchestration/audits/mrie-implementation-readiness-2026-10-17.json",
+        "orchestration/audits/mrie-dispatch-readiness-2026-10-17.json"
+      ]
+    },
+    {
+      "issue": 26,
+      "write_paths": [
+        "tickers/OPENAI/entity.json",
+        "research/OPENAI/**"
+      ]
+    }
+  ]
+}

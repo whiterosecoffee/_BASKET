@@ -61,6 +61,9 @@
           },
           "title": {
             "type": "string"
+          },
+          "body": {
+            "type": "string"
           }
         }
       }
@@ -112,6 +115,10 @@
           "merged": {
             "type": "boolean"
           },
+          "merge_commit_sha": {
+            "type": ["string", "null"],
+            "pattern": "^[a-f0-9]{40}$"
+          },
           "changed_paths": {
             "type": "array",
             "uniqueItems": true,
@@ -161,6 +168,9 @@
           },
           "name": {
             "type": "string"
+          },
+          "run_attempt": {
+            "type": "integer", "minimum": 1
           }
         }
       }

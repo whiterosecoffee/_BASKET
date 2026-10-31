@@ -1,0 +1,355 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Read-only GitHub progress projection v1",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/progress"
+    },
+    {
+      "$ref": "#/$defs/error"
+    }
+  ],
+  "$defs": {
+    "progress": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "report_kind",
+        "repository",
+        "main_commit",
+        "observed_at",
+        "capture_mode",
+        "source_fetched_this_invocation",
+        "side_effects_executed",
+        "focus_issue",
+        "checklist",
+        "checklist_counts",
+        "checklist_completion_is_verified_acceptance",
+        "unplanned_open_issues",
+        "ordered_tasks",
+        "next_orchestrator_action",
+        "next_new_worker",
+        "declared_token_budget",
+        "actual_remaining_quota",
+        "errors"
+      ],
+      "properties": {
+        "report_kind": {
+          "const": "github_progress_projection"
+        },
+        "repository": {
+          "const": "whiterosecoffee/_BASKET"
+        },
+        "main_commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "observed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "capture_mode": {
+          "enum": [
+            "live_connector",
+            "reconstructed_fixture"
+          ]
+        },
+        "source_fetched_this_invocation": {
+          "type": "boolean"
+        },
+        "side_effects_executed": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "focus_issue": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "checklist": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "title",
+              "checked",
+              "source_url",
+              "issue_number",
+              "identity_basis",
+              "acceptance"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "title": {
+                "type": "string"
+              },
+              "checked": {
+                "type": "boolean"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "issue_number": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "identity_basis": {
+                "enum": [
+                  "explicit_id",
+                  "text_hash"
+                ]
+              },
+              "acceptance": {
+                "const": "NOT_VERIFIED"
+              }
+            }
+          }
+        },
+        "checklist_counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "checked",
+            "open"
+          ],
+          "properties": {
+            "checked": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "open": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "checklist_completion_is_verified_acceptance": {
+          "const": false
+        },
+        "unplanned_open_issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "number",
+              "title",
+              "url"
+            ],
+            "properties": {
+              "number": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "ordered_tasks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "state",
+              "checks",
+              "resource_gate",
+              "acceptance",
+              "required_reviews",
+              "integration_ready",
+              "integration_review_eligible"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "checks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "workflow",
+                    "result",
+                    "run_id",
+                    "evidence_url",
+                    "revision"
+                  ],
+                  "properties": {
+                    "workflow": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "enum": [
+                        "PASS",
+                        "FAIL",
+                        "PENDING",
+                        "NOT_RUN",
+                        "UNKNOWN"
+                      ]
+                    },
+                    "run_id": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "minimum": 1
+                    },
+                    "evidence_url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "uri"
+                    },
+                    "revision": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{40}$"
+                    }
+                  }
+                }
+              },
+              "resource_gate": {
+                "enum": [
+                  "budget_unknown",
+                  "estimate_required",
+                  "additional_resources_required",
+                  "within_declared_budget"
+                ]
+              },
+              "acceptance": {
+                "const": "NOT_VERIFIED"
+              },
+              "required_reviews": {
+                "const": "UNKNOWN"
+              },
+              "integration_ready": {
+                "const": false
+              },
+              "integration_review_eligible": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "next_orchestrator_action": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "next_new_worker": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "declared_token_budget": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "actual_remaining_quota": {
+          "type": "null"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "issue_number",
+              "code",
+              "message"
+            ],
+            "properties": {
+              "issue_number": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        },
+        "schema": {
+          "const": "basket.progress_report@1"
+        }
+      }
+    },
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "result",
+        "code",
+        "message",
+        "source_error_code",
+        "retry_after",
+        "side_effects_executed"
+      ],
+      "properties": {
+        "schema": {
+          "const": "basket.progress_report@1"
+        },
+        "result": {
+          "const": "error"
+        },
+        "code": {
+          "const": "PROGRESS_UNAVAILABLE"
+        },
+        "message": {
+          "type": "string"
+        },
+        "source_error_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "retry_after": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "side_effects_executed": {
+          "type": "array",
+          "maxItems": 0
+        }
+      }
+    }
+  }
+}
