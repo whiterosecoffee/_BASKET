@@ -10,9 +10,13 @@
   "skill_base": "domain-specific agentic business operations",
   "capabilities": "AI-powered operations and process transformation",
   "partnerships": {
-    "nvidia": "tier unverified",
-    "microsoft": "tier unverified",
-    "partner_sources": [],
+    "nvidia": "2026 HFS data modernization research lists NVIDIA among ecosystem partners; exact NVIDIA partner tier and NVIDIA-originated bookings unverified",
+    "microsoft": "Multiple verified Solutions Partner designations, Azure specializations, Genpact Gigafactory and joint agentic delivery; preferential vendor referrals unverified",
+    "partner_sources": [
+      "https://www.genpact.com/partners/microsoft",
+      "https://www.genpact.com/content/dam/genpact/web/insight/documents/data-modernization-and-ai-2026.pdf.coredownload.inline.pdf",
+      "https://www.genpact.com/partners"
+    ],
     "partner_attributable_revenue": null
   },
   "price_observation": {
@@ -66,7 +70,11 @@
     "Verify 2027/2028 forward EPS estimates and source timestamp",
     "Verify current price and calculate dated same-basis forward P/E",
     "Verify NVIDIA/Microsoft partnership tier and commercial contribution",
-    "Score organic growth, skilled deployment capacity, margin expansion and operating cash conversion"
+    "Score organic growth, skilled deployment capacity, margin expansion and operating cash conversion",
+    "Obtain Microsoft vendor-side current partnership tier and co-sell/referral volume, distinguish from badge",
+    "Verify NVIDIA official partner role or preferred designation and attributable revenue",
+    "Track AR Suite FLSmidth production go-live, realized labor savings, contract value, recurring fees and incremental gross margin",
+    "Confirm Q3 2026 release November 5 updates growth/operating cash flow and 2027 guidance"
   ],
   "basket_tags": [
     {
@@ -142,5 +150,41 @@
       "share repurchases",
       "core service pricing"
     ]
+  },
+  "agentic_accounts_receivable": {
+    "announcement_date": "2026-10-14",
+    "product": "Genpact Accounts Receivable Suite",
+    "modules": [
+      "AR Collections",
+      "AR Resolution Center",
+      "AR Cash"
+    ],
+    "customer_selected": "FLSmidth",
+    "adoption_stage": "announced_general_availability_and_named_customer_selection",
+    "realized_client_benefits_usd": null,
+    "recognized_revenue_usd": null,
+    "contract_value_usd": null,
+    "issuer_projected_outcomes": {
+      "touchless_cash_application_pct_up_to": 80,
+      "past_due_reduction_pct_up_to": 20,
+      "collector_productivity_gain_pct_up_to": 40,
+      "dispute_resolution_time_reduction_pct_up_to": 30
+    },
+    "expected_not_realized": true,
+    "source": "https://media.genpact.com/2026-10-14-Genpact-Launches-Agentic-Accounts-Receivable-Suite-to-Optimize-Cash-Flow-and-Working-Capital"
+  },
+  "why_growth_is_slower": {
+    "period": "2026-Q2",
+    "advanced_technology_revenue_mix_pct": 27,
+    "advanced_technology_revenue_yoy_growth_pct": 24.1,
+    "core_services_revenue_mix_pct": 73,
+    "core_services_growth_pct": 1.9,
+    "total_revenue_growth_pct": 7.1,
+    "adjusted_operating_income_growth_pct": 7.5,
+    "adjusted_eps_growth_pct": 13.6,
+    "cash_from_operations_current_usd_m": 72,
+    "cash_from_operations_prior_year_usd_m": 177,
+    "mechanism": "High-growth tech business is a minority; legacy business slow; buybacks augment EPS and margins have not demonstrated software-scale step change.",
+    "source": "https://media.genpact.com/2026-08-06-Genpact-Reports-Second-Quarter-2026-Results"
   }
 }
