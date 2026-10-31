@@ -1,0 +1,5 @@
+# Input data, not a hand-edited Copier answers/provenance file.
+project_name: _BASKET
+repository: whiterosecoffee/_BASKET
+maintainer: whiterosecoffee
+test_directory: orchestration/project_sync

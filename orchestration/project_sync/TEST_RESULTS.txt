@@ -1,0 +1,103 @@
+B00-134 local execution, 2026-10-31 UTC
+Baseline source: afc4ada7bc6d7294071b3610fa77e59b206b6312
+No independent CI or live Project success claimed.
+
+python -m unittest discover -s orchestration/project_sync -p test_*.py -v
+test_create_dry_run_never_mutates (test_sync.APITests.test_create_dry_run_never_mutates) ... ok
+test_create_missing_only_when_explicit (test_sync.APITests.test_create_missing_only_when_explicit) ... ok
+test_discover_reuses_existing (test_sync.APITests.test_discover_reuses_existing) ... ok
+test_field_creation_repeat_safe (test_sync.APITests.test_field_creation_repeat_safe) ... ok
+test_graphql_partial_data_never_success (test_sync.APITests.test_graphql_partial_data_never_success) ... ok
+test_import_once_repeated_run_no_writes (test_sync.APITests.test_import_once_repeated_run_no_writes) ... ok
+test_incompatible_status_is_blocked_not_replaced (test_sync.APITests.test_incompatible_status_is_blocked_not_replaced) ... ok
+test_lost_mutation_response_re_read_before_retry (test_sync.APITests.test_lost_mutation_response_re_read_before_retry) ... ok
+test_mutation_rate_limit_never_blind_retry (test_sync.APITests.test_mutation_rate_limit_never_blind_retry) ... ok
+test_partial_failure_keeps_success_and_retries_safely (test_sync.APITests.test_partial_failure_keeps_success_and_retries_safely) ... ok
+test_permission_denied_clear (test_sync.APITests.test_permission_denied_clear) ... ok
+test_rate_limit_read_retry_bounded (test_sync.APITests.test_rate_limit_read_retry_bounded) ... ok
+test_repeated_cursor_rejected (test_sync.APITests.test_repeated_cursor_rejected) ... ok
+test_rest_and_graphql_pagination (test_sync.APITests.test_rest_and_graphql_pagination) ... ok
+test_actual_pr_files_collide_without_declared_claim (test_sync.GateTests.test_actual_pr_files_collide_without_declared_claim) ... ok
+test_ambiguous_claim_never_selects_arbitrary_owner (test_sync.GateTests.test_ambiguous_claim_never_selects_arbitrary_owner) ... ok
+test_ci_failure_visible_even_for_draft (test_sync.GateTests.test_ci_failure_visible_even_for_draft) ... ok
+test_declared_subtree_claim_collision (test_sync.GateTests.test_declared_subtree_claim_collision) ... ok
+test_globs_and_subtrees (test_sync.GateTests.test_globs_and_subtrees) ... ok
+test_head_changes_invalidate_check (test_sync.GateTests.test_head_changes_invalidate_check) ... ok
+test_invalid_claim_not_registered (test_sync.GateTests.test_invalid_claim_not_registered) ... ok
+test_latest_failed_attempt_supersedes_older_success (test_sync.GateTests.test_latest_failed_attempt_supersedes_older_success) ... ok
+test_merge_requires_main_ci_and_acceptance (test_sync.GateTests.test_merge_requires_main_ci_and_acceptance) ... ok
+test_missing_or_skipped_evidence_unverified (test_sync.GateTests.test_missing_or_skipped_evidence_unverified) ... ok
+test_pr_associated_exact_branch_and_stale_visible (test_sync.GateTests.test_pr_associated_exact_branch_and_stale_visible) ... ok
+test_reconcile_same_snapshot_is_identical (test_sync.GateTests.test_reconcile_same_snapshot_is_identical) ... ok
+test_renamed_source_path_scope_breach (test_sync.GateTests.test_renamed_source_path_scope_breach) ... ok
+test_unassigned_owner_blocked (test_sync.GateTests.test_unassigned_owner_blocked) ... ok
+test_unresolved_dependency_prevents_claim (test_sync.GateTests.test_unresolved_dependency_prevents_claim) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 0.022s
+
+OK
+
+python -m unittest discover -s orchestration/tests -p test_*.py -v
+test_active_new_worker_never_redispatched (test_controller_fail_closed.FailClosedQC.test_active_new_worker_never_redispatched) ... ok
+test_all_active_slots_block_dispatch (test_controller_fail_closed.FailClosedQC.test_all_active_slots_block_dispatch) ... ok
+test_missing_confirmed_workflow_is_error_not_warning (test_controller_fail_closed.FailClosedQC.test_missing_confirmed_workflow_is_error_not_warning) ... ok
+test_owner_breach_never_returns_verified_phase (test_controller_fail_closed.FailClosedQC.test_owner_breach_never_returns_verified_phase) ... ok
+test_self_retry_rejected_without_lesson_dependency (test_controller_fail_closed.FailClosedQC.test_self_retry_rejected_without_lesson_dependency) ... ok
+test_stale_ci_never_returns_verified_phase (test_controller_fail_closed.FailClosedQC.test_stale_ci_never_returns_verified_phase) ... ok
+test_valid_historical_component_preserves_evidence_phase (test_controller_fail_closed.FailClosedQC.test_valid_historical_component_preserves_evidence_phase) ... ok
+test_dependencies_block_reuse (test_execution_loop.ExecutionLoopTests.test_dependencies_block_reuse) ... ok
+test_review_and_rework_not_merged (test_execution_loop.ExecutionLoopTests.test_review_and_rework_not_merged) ... ok
+test_unknown_capacity_never_dispatches (test_execution_loop.ExecutionLoopTests.test_unknown_capacity_never_dispatches) ... ok
+test_approved_public_api_path_required (test_github_snapshot.GitHubSnapshotTests.test_approved_public_api_path_required) ... ok
+test_collect_read_only_snapshot (test_github_snapshot.GitHubSnapshotTests.test_collect_read_only_snapshot) ... ok
+test_incomplete_pagination_is_error (test_github_snapshot.GitHubSnapshotTests.test_incomplete_pagination_is_error) ... ok
+test_missing_workflow_payload_fails_closed (test_github_snapshot.GitHubSnapshotTests.test_missing_workflow_payload_fails_closed) ... ok
+test_wrong_issue_identity_fails_closed (test_github_snapshot.GitHubSnapshotTests.test_wrong_issue_identity_fails_closed) ... ok
+test_complete_goal_milestone_task_mapping (test_goals.GoalTests.test_complete_goal_milestone_task_mapping) ... ok
+test_duplicate_task_owner_fails (test_goals.GoalTests.test_duplicate_task_owner_fails) ... ok
+test_milestone_cycle_fails (test_goals.GoalTests.test_milestone_cycle_fails) ... ok
+test_missing_task_fails (test_goals.GoalTests.test_missing_task_fails) ... ok
+test_unauthorized_concurrency_policy_fails (test_goals.GoalTests.test_unauthorized_concurrency_policy_fails) ... ok
+test_unknown_task_fails (test_goals.GoalTests.test_unknown_task_fails) ... ok
+test_active_worker_limit_blocks_extra_new_chats (test_planner.PlannerTests.test_active_worker_limit_blocks_extra_new_chats) ... ok
+test_composed_profiles_cover_all_required_recipe_skills (test_planner.PlannerTests.test_composed_profiles_cover_all_required_recipe_skills) ... ok
+test_cross_domain_writes_fail_closed (test_planner.PlannerTests.test_cross_domain_writes_fail_closed) ... ok
+test_cycle_detection_is_strict (test_planner.PlannerTests.test_cycle_detection_is_strict) ... ok
+test_dependency_and_first_wave_states (test_planner.PlannerTests.test_dependency_and_first_wave_states) ... ok
+test_library_and_queue_have_valid_references (test_planner.PlannerTests.test_library_and_queue_have_valid_references) ... ok
+test_merge_does_not_imply_main_ci (test_planner.PlannerTests.test_merge_does_not_imply_main_ci) ... ok
+test_new_worker_cannot_preassign_legacy_issue (test_planner.PlannerTests.test_new_worker_cannot_preassign_legacy_issue) ... ok
+test_old_branch_ci_not_valid_on_changed_head (test_planner.PlannerTests.test_old_branch_ci_not_valid_on_changed_head) ... ok
+test_path_matching_with_globs_is_domain_limited (test_planner.PlannerTests.test_path_matching_with_globs_is_domain_limited) ... ok
+test_post_merge_simulation_prioritizes_new_b01_qc (test_planner.PlannerTests.test_post_merge_simulation_prioritizes_new_b01_qc) ... ok
+test_reusable_dispatch_prompt_does_not_claim_actions (test_planner.PlannerTests.test_reusable_dispatch_prompt_does_not_claim_actions) ... ok
+test_reviews_do_not_count_as_parallel_code_workers (test_planner.PlannerTests.test_reviews_do_not_count_as_parallel_code_workers) ... ok
+test_task_queue_is_not_a_live_status_claim (test_planner.PlannerTests.test_task_queue_is_not_a_live_status_claim) ... ok
+test_false_efficiency (test_worker_attempts.AttemptQC.test_false_efficiency) ... ok
+test_invalid_retry (test_worker_attempts.AttemptQC.test_invalid_retry) ... ok
+test_missing_timing_must_not_be_inferred (test_worker_attempts.AttemptQC.test_missing_timing_must_not_be_inferred) ... ok
+test_resolution_replay (test_worker_attempts.AttemptQC.test_resolution_replay) ... ok
+test_unmatched_step (test_worker_attempts.AttemptQC.test_unmatched_step) ... ok
+test_unproved_pass (test_worker_attempts.AttemptQC.test_unproved_pass) ... ok
+test_unsafe_training_adoption (test_worker_attempts.AttemptQC.test_unsafe_training_adoption) ... ok
+test_glob_matching_does_not_cross_one_directory (test_worker_protocol.WorkerProtocolTests.test_glob_matching_does_not_cross_one_directory) ... ok
+test_missing_mandatory_acceptance_rejected (test_worker_protocol.WorkerProtocolTests.test_missing_mandatory_acceptance_rejected) ... ok
+test_pr_changed_path_cross_owner_rejected (test_worker_protocol.WorkerProtocolTests.test_pr_changed_path_cross_owner_rejected) ... ok
+test_pr_path_tampering_rejected (test_worker_protocol.WorkerProtocolTests.test_pr_path_tampering_rejected) ... ok
+test_report_cannot_fake_integrated (test_worker_protocol.WorkerProtocolTests.test_report_cannot_fake_integrated) ... ok
+test_schema_valid_samples (test_worker_protocol.WorkerProtocolTests.test_schema_valid_samples) ... ok
+test_unowned_task_path_rejected (test_worker_protocol.WorkerProtocolTests.test_unowned_task_path_rejected) ... ok
+test_verified_component_not_integrated (test_worker_protocol.WorkerProtocolTests.test_verified_component_not_integrated) ... ok
+test_wrong_ci_commit_rejected (test_worker_protocol.WorkerProtocolTests.test_wrong_ci_commit_rejected) ... ok
+test_zero_evidence_pass_rejected (test_worker_protocol.WorkerProtocolTests.test_zero_evidence_pass_rejected) ... ok
+test_cross_domain (test_worker_scopes.WorkerScopeTests.test_cross_domain) ... ok
+test_duplicate_scope (test_worker_scopes.WorkerScopeTests.test_duplicate_scope) ... ok
+test_mismatched_issue (test_worker_scopes.WorkerScopeTests.test_mismatched_issue) ... ok
+test_recipe_corruption (test_worker_scopes.WorkerScopeTests.test_recipe_corruption) ... ok
+test_valid (test_worker_scopes.WorkerScopeTests.test_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 57 tests in 0.017s
+
+OK
