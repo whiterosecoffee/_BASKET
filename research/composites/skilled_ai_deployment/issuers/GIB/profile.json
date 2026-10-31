@@ -22,11 +22,11 @@
     "verified_close": false
   },
   "earnings": {
-    "latest_reported": null,
+    "latest_reported": "FY2026-Q3",
     "revenue_growth_yoy_pct": null,
     "gaap_eps": null,
     "adjusted_eps": null,
-    "adjusted_eps_growth_yoy_pct": null,
+    "adjusted_eps_growth_yoy_pct": 9,
     "reported_extra": {},
     "guidance": null,
     "adjusted_annual_guidance_midpoint_eps": null,
@@ -35,7 +35,16 @@
     "forward_2027_pe": null,
     "forward_2028_eps": null,
     "forward_2028_pe": null,
-    "missing_reason": "Fresh date-matched 2027/28 forecasts not verified"
+    "missing_reason": "Fresh date-matched 2027/28 forecasts not verified",
+    "revenue_growth_constant_currency_pct": 1.3,
+    "gaap_eps_cad": 2.23,
+    "gaap_eps_growth_yoy_pct": 22.5,
+    "adjusted_eps_cad": 2.29,
+    "adjusted_ebit_margin_pct": 16.3,
+    "revenue_cad_m": 4190,
+    "backlog_cad_b": 31.79,
+    "usd_conversion": null,
+    "financial_source": "https://www.cgi.com/en/cgi-reports-third-quarter-f2026-results"
   },
   "forward_earnings_status": "2027/2028 consensus not independently verified",
   "sources": [],
@@ -62,5 +71,21 @@
     }
   ],
   "canonical_profile_target": "research/GIB/profile.json",
-  "canonical_profile_status": "pending_B00_handoff_130"
+  "canonical_profile_status": "pending_B00_handoff_130",
+  "ai_demand_readiness": {
+    "survey_date": "2026-08-13",
+    "ai_core_process_adoption_pct": 58,
+    "enterprise_ai_strategy_pct": 36,
+    "legacy_system_barrier_pct": 45,
+    "high_organizational_agility_pct": 23,
+    "data_sovereignty_priority_pct": 40,
+    "source": "https://www.cgi.com/us/en-us/news/cgi-voice-our-clients/cgi-research-reveals-ai-success-depends-modernizing-systems-building",
+    "interpretation": "Customer survey demand, not CGI contract value"
+  },
+  "talent_pool": {
+    "consultants_and_professionals_approx": 94000,
+    "as_of": "2026-06-30",
+    "estimated_quarter_revenue_per_employee_cad": 44574,
+    "not_average_employee_count": true
+  }
 }
