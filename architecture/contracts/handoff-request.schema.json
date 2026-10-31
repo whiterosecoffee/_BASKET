@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/whiterosecoffee/_BASKET/blob/work/136-worker-execution-bridge/architecture/contracts/handoff-request.schema.json",
-  "title": "Proposed cross-lane handoff request; not a worker claim or execution authorization",
+  "title": "Proposed work-request payload; authorized controller assignments carry scoped write authority",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -171,5 +171,6 @@
         }
       }
     }
-  }
+  },
+  "description": "This object describes work. The existing worker-task contract carries the controller's assignment and allowed paths, and may be issued together with this handoff. No additional user approval is required within existing delegation. The requested status distinguishes this object from execution evidence, not a denial of controller authority."
 }

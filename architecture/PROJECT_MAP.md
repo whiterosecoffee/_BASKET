@@ -28,7 +28,7 @@ The economic goal is lower cost per comparable accepted creation, test and integ
 
 ## Architecture
 
-[Scoped branches, per-lane controllers and handoff contracts](BRANCH_PLAN.md). Branches activate only for claimed tasks; requests never grant another lane write access.
+[Scoped branches, per-lane controllers and handoff contracts](BRANCH_PLAN.md). Branches activate for controller-assigned tasks carrying the necessary scoped write authority; conflicting writes are coordinated without routine user permission.
 
 **Conversation -> durable intake -> interpretation and option analysis -> eligible queue -> authorized execution adapter -> qualified block/composition -> evidence and improvement.**
 

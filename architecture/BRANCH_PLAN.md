@@ -6,7 +6,7 @@
 
 One project orchestrator maintains outcomes, dependencies, readiness and cross-lane decisions. Each lane has its own logical controller, restricted to that lane's scope, lifecycle and accepted inputs/outputs. Controllers are responsibilities that may initially run in one bounded process; they are not automatically separate services, schedulers, databases or model subscriptions.
 
-A sender requests a change; it never writes the receiver's files. The receiver validates the request, claims authorized work and returns evidence. GitHub is the common record. Lane-specific queues are filtered views of the same work inventory.
+The orchestrator/controller assigns the task together with the scoped write authority needed to complete it. Workers act on that assignment without another user-permission round trip. Cross-lane work is routed, composed or reassigned by the controller; responsibility is not permanent ownership of files. GitHub records the assignment and result. Lane-specific queues are filtered views of the same inventory.
 
 Branch names below are templates: create `work/<issue>-<slug>` only when a real task is selected and a worker is claimed. Current source PR references are reuse/recovery candidates, not proof of active ownership or permission to take over their branch.
 
@@ -39,12 +39,12 @@ This is a target allocation, not retroactive reassignment. Legacy tests, archite
 1. Inspect current main and relevant source branches; preserve exact source identities.
 2. Resolve reuse versus new work and inspect active claims plus actual open-PR paths.
 3. Instantiate one canonical issue, branch, controller identity and exact allowed paths.
-4. Check pairwise subtree/glob conflicts, including tests, schemas, generated outputs and shared documentation. A shared spark name is not exclusive ownership.
+4. Check pairwise subtree/glob conflicts, including tests, schemas, generated outputs and shared documentation. A shared spark name is not exclusive ownership. The controller allocates the current scope; the user need not approve each allocation.
 5. Pin accepted input/output contracts, dependencies, acceptance and resource bounds.
 6. Require deliberate negative tests for denied out-of-scope writes and stale/duplicate handoffs when execution is implemented.
-7. Narrow or sequence conflicting work; no competing writer may start until the transfer is explicit.
+7. Narrow or sequence conflicting work; record transfers in the controller assignment before enabling a competing writer. This is an automated coordination requirement, not a requirement for human permission on every handoff.
 
-Existing broad claims must be reconciled before new lanes are activated. The table alone neither proves freedom from runtime collisions nor overrides active work. Pure data handoffs use immutable references; mutable resources require enforced ownership/concurrency control.
+Existing broad claims must be reconciled before new lanes are activated. An authorized controller may change allocations and record the handover; the table is not an immutable file-ownership bureaucracy. It does not itself prove freedom from runtime collisions. Pure data handoffs use immutable references; mutable resources require enforced ownership/concurrency control.
 
 ## Handoff schema binding
 
@@ -52,15 +52,15 @@ Use established issue/claim/result contracts rather than replace them:
 
 | Interaction | Schema / record | Meaning |
 |---|---|---|
-| Request cross-lane work | Proposed [handoff-request schema](contracts/handoff-request.schema.json), aligned to existing `orchestration/handoffs.md` | Source, receiver, desired change, paths, input/output refs, prerequisites, acceptance and resource estimate. `requested` grants no authority. |
-| Accept/claim authorized work | Existing `basket.worker_task@1` | Real issue/branch/owner/scope and dependencies. Receiver validates before claiming. |
+| Request cross-lane work | Proposed [handoff-request schema](contracts/handoff-request.schema.json), aligned to existing `orchestration/handoffs.md` | Source, receiver, desired change, paths, input/output refs, prerequisites, acceptance and resource estimate. An authorized controller issues the scoped assignment using the existing worker-task contract; that assignment carries delegated authority. |
+| Accept/claim authorized work | Existing `basket.worker_task@1` | Real issue/branch/owner/scope and dependencies. Controller may issue this with the handoff; receiver checks it and proceeds automatically within its scope. |
 | Need clarification / reject / defer | Existing GitHub handoff record with explicit reason and return condition | No assignment or execution implied; dedicated wire format only if a real consumer needs one. |
 | Return implementation result | Existing `basket.worker_resolution@1` | Exact head, actual paths/checks, acceptance, blockers and linked handoffs. |
 | Independently reconcile result | Existing `basket.github_evidence@1` plus applicable review | Current GitHub evidence, not sender assertion, controls acceptance. |
 
 The request schema is an architectural proposal, not a newly registered runtime API. [Example](examples/handoff-request.example.json) uses clearly fictional example URLs and has not been submitted or assigned. Missing hashes/resources are explicit unknowns; they must be resolved when required by the receiving gate.
 
-Receiver checks: source and request identity; authorized scope; contract versions and semantic assumptions; input integrity; evidence-backed dependencies; permissions/resources; duplicate/stale request state. Target paths request work, never grant write authority. Resolve the monotonic version/fencing policy through existing controller contracts, not a new lease service.
+Receiver checks: source and request identity; authorized scope; contract versions and semantic assumptions; input integrity; evidence-backed dependencies; permissions/resources; duplicate/stale request state. Controller-issued assignments grant the necessary target-path authority within the user's existing delegation. A sender may write a formerly receiver-scoped file when the controller has allocated that work and resolved competing writes. Self-asserted permissions from an untrusted payload are not equivalent to a controller assignment. Resolve the monotonic version/fencing policy through existing controller contracts, not a new lease service.
 
 ## Resource allocation and activation order
 
