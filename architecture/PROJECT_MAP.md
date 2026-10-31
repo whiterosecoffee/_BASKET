@@ -28,6 +28,8 @@ The economic goal is lower cost per comparable accepted creation, test and integ
 
 ## Architecture
 
+[Scoped branches, per-lane controllers and handoff contracts](BRANCH_PLAN.md). Branches activate only for claimed tasks; requests never grant another lane write access.
+
 **Conversation -> durable intake -> interpretation and option analysis -> eligible queue -> authorized execution adapter -> qualified block/composition -> evidence and improvement.**
 
 GitHub is the control plane. Agents and code are interchangeable execution providers only after qualification. Existing financial-data stores are the data plane; do not create another ticker registry, research database, scheduler or task database.
