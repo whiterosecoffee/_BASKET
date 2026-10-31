@@ -22,23 +22,39 @@
     "verified_close": false
   },
   "earnings": {
-    "latest_reported": null,
-    "revenue_growth_yoy_pct": null,
-    "gaap_eps": null,
-    "adjusted_eps": null,
-    "adjusted_eps_growth_yoy_pct": null,
-    "reported_extra": {},
-    "guidance": null,
+    "latest_reported": "2026-Q2",
+    "revenue_growth_yoy_pct": 7.1,
+    "gaap_eps": 0.86,
+    "adjusted_eps": 1,
+    "adjusted_eps_growth_yoy_pct": 13.6,
+    "reported_extra": {
+      "advanced_technology_revenue_usd_m": 363,
+      "advanced_technology_revenue_growth_pct": 24.1,
+      "advanced_technology_share_pct": 27,
+      "adjusted_operating_margin_pct": 17.4,
+      "operating_cash_flow_usd_m": 72,
+      "prior_operating_cash_flow_usd_m": 177
+    },
+    "guidance": {
+      "period": "FY2026",
+      "adjusted_eps_min": 4.09,
+      "adjusted_eps_growth_min_pct": 12,
+      "advanced_technology_growth_min_pct": 25,
+      "source": "https://media.genpact.com/2026-08-06-Genpact-Reports-Second-Quarter-2026-Results"
+    },
     "adjusted_annual_guidance_midpoint_eps": null,
     "price_to_guided_adjusted_eps": null,
     "forward_2027_eps": null,
     "forward_2027_pe": null,
     "forward_2028_eps": null,
     "forward_2028_pe": null,
-    "missing_reason": "Fresh date-matched 2027/28 forecasts not verified"
+    "missing_reason": "Fresh date-matched 2027/28 forecasts not verified",
+    "price_to_guided_minimum_adjusted_eps": 9.69
   },
   "forward_earnings_status": "2027/2028 consensus not independently verified",
-  "sources": [],
+  "sources": [
+    "https://media.genpact.com/2026-08-06-Genpact-Reports-Second-Quarter-2026-Results"
+  ],
   "data_quality": {
     "company_guidance": "only if issuer sourced",
     "screenshot_price_not_verified_close": true,
@@ -62,5 +78,17 @@
     }
   ],
   "canonical_profile_target": "research/G/profile.json",
-  "canonical_profile_status": "pending_B00_handoff_130"
+  "canonical_profile_status": "pending_B00_handoff_130",
+  "valuation_screenshot": {
+    "price_usd": 39.62,
+    "trailing_pe": 11.79,
+    "market_cap_usd_b": 6.626,
+    "as_of": "2026-10-30",
+    "verified_close": false
+  },
+  "next_earnings": {
+    "date": "2026-11-05",
+    "issuer_confirmed": true,
+    "source": "https://media.genpact.com/2026-10-08-Genpact-to-Report-Third-Quarter-2026-Results"
+  }
 }
