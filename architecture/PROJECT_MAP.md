@@ -36,6 +36,8 @@ The initial use cases cover market observations/FX/replay, issuer evidence, valu
 
 ## Methodology
 
+[Operating method, predefined blueprint specimen, stages and reviews](BLOCK_ENGINEERING_METHOD.md).
+
 1. Capture every instruction and preserve its source. Separate original intent from interpretation; consolidate duplicates and retain corrections.
 2. Investigate the problem beneath the request. Use branching causal questions, evidence and counterevidence; depth follows decision value.
 3. Discover existing capabilities and maintained prior art before proposing additions. Compare reuse, configuration, adaptation, purchase, construction and no action where relevant.
@@ -44,7 +46,7 @@ The initial use cases cover market observations/FX/replay, issuer evidence, valu
 6. Select work by outcomes, readiness, dependencies, downstream unlock and cost—not message order. Operate the available manual workflow before automating it.
 7. Verify exact artifacts and applicable integration/operational behavior. Schema compatibility, green branch CI, merge and deployment are separate claims.
 8. Reground at outcome, component and task levels after interruption, material change and acceptance. Revisit deferred vectors.
-9. Improve through small evaluated changes: observe -> explain -> compare -> test -> retain/revert. Avoid speculative refactoring.
+9. Improve through evaluated changes: observe -> explain -> compare -> test -> retain/revert. Review each stage and all applicable attributes with evidence. Resolve ordinary findings and advance through complete authorized cycles; a subtask is not a stopping point. Avoid speculative refactoring.
 
 ## Main steps
 
