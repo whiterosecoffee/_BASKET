@@ -270,5 +270,63 @@
       "source": "https://media.genpact.com/2026-10-14-Genpact-Launches-Agentic-Accounts-Receivable-Suite-to-Optimize-Cash-Flow-and-Working-Capital"
     },
     "product_catalog_not_equivalent_to_monetized_contracts": true
+  },
+  "strategic_profitability_assessment": {
+    "as_of": "2026-10-30",
+    "direction": "Labor-intensive outsourced operations toward packaged agentic finance/insurance/procurement workflows and outcome-based recurring managed operations",
+    "evidence": {
+      "q2_revenue_usd_m": 1343.438,
+      "advanced_technology_share_pct": 27,
+      "advanced_technology_growth_pct_yoy": 24.1,
+      "core_revenue_share_pct": 73,
+      "core_growth_pct_yoy": 1.9,
+      "q2_gaap_operating_margin_pct": 14.4,
+      "q2_adjusted_operating_margin_pct": 17.4,
+      "fy2026_guided_adjusted_operating_margin_pct": 17.7,
+      "agentic_TCV_target_usd_m_greater_than": 1000,
+      "agentic_TCV_revenue_distinct": true,
+      "new_client_share_cumulative_agentic_awards_pct_greater_than": 50,
+      "source": [
+        "https://media.genpact.com/2026-08-06-Genpact-Reports-Second-Quarter-2026-Results",
+        "https://www.marketbeat.com/earnings/reports/2026-8-6-genpact-limited-stock/"
+      ]
+    },
+    "product_expansion": [
+      {
+        "name": "Record-to-Report Suite",
+        "announced": "2026-09-01",
+        "estimated_peak_close_labor_effort_reduction_pct_up_to": 40,
+        "estimated_first_pass_reconciliation_yield_pct_greater_than": 95,
+        "source": "https://media.genpact.com/2026-09-01-Genpact-Launches-Agentic-Record-to-Report-Suite-to-Improve-Finance-Productivity%2C-Controls%2C-and-Close-Predictability"
+      },
+      {
+        "name": "Accounts Receivable Suite",
+        "announced": "2026-10-14",
+        "selected_client": "FLSmidth",
+        "estimated_collector_productivity_gain_pct_up_to": 40,
+        "source": "https://media.genpact.com/2026-10-14-Genpact-Launches-Agentic-Accounts-Receivable-Suite-to-Optimize-Cash-Flow-and-Working-Capital"
+      }
+    ],
+    "sensitivity": {
+      "revenue_base_annualized_q2_usd_m": 5373.752,
+      "incremental_operating_income_per_100bps_margin_usd_m": 53.73752,
+      "incremental_adjusted_eps_per_100bps_approx": null,
+      "note": "Incremental pre-tax operating income holding revenue constant; no tax and share assumptions asserted."
+    },
+    "key_questions": [
+      "Convert awarded agentic TCV into recognized annual revenue and renewal cohorts",
+      "Confirm margin gains across whole installed base not only selected converted clients",
+      "Verify adjusted EPS growth is supported by GAAP profit and operating cash flow, net of buybacks",
+      "Measure incremental gross profit per employee and net pricing after customer labor-cost savings",
+      "Check whether transition/legacy runoff suppresses reported core revenue during FY2027"
+    ],
+    "risks": [
+      "AI cannibalizes labor-linked contract revenue",
+      "Pricing benefits accrue to customer not provider",
+      "Implementations and human-oversight costs offset claimed productivity",
+      "TCV includes multi-year value, not annual recurring revenue",
+      "Cash flow volatility and repurchases distort EPS signal"
+    ],
+    "source_class": "issuer_release_and_management_call; projected client productivity not realized cohort average"
   }
 }
