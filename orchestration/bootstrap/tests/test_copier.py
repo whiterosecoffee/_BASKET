@@ -3,7 +3,6 @@
 Fixture tags exist only in temporary Git repositories. No repository release tags
 are created. Run with the isolated requirements.txt environment.
 """
-import json
 from pathlib import Path
 import shutil
 import subprocess

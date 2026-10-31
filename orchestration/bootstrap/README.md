@@ -99,5 +99,12 @@ Review root tool configuration separately before adopting generated settings.
 Do not overwrite existing project README, packaging metadata, CI or ownership.
 No merge, release or production Project configuration is authorized by this handoff.
 
+Integration blocker discovered by the unchanged existing tests: the catalog bump
+requires refreshing `orchestration/planner/worker-scopes.json` (source catalog
+version and expanded B00 scopes for T-001/T-002). That file is owned by active
+PR #25. A linked handoff was posted there; this worker does not overwrite it.
+The current baseline suite has 56 passes and one strict scope-consistency failure.
+Do not merge until the owning worker reconciles that manifest and CI passes.
+
 Sources: [Copier configuration](https://copier.readthedocs.io/en/v9.19.1/configuring/)
 and [native updates](https://copier.readthedocs.io/en/v9.19.1/updating/).
