@@ -1,0 +1,247 @@
+{
+  "schema": "basket.implementation_audit@1",
+  "project": "_BASKET/MRIE",
+  "as_of": "2026-10-17",
+  "issue": "https://github.com/whiterosecoffee/_BASKET/issues/32",
+  "spark_id": "B00",
+  "branch": "work/32-mrie-agentic-readiness-audit",
+  "scope": {
+    "exclusive_write_paths": [
+      "orchestration/audits/mrie-implementation-readiness-2026-10-17.json"
+    ],
+    "read_only_domains": [
+      "B01",
+      "B02",
+      "B03",
+      "B04",
+      "B05",
+      "B06",
+      "B07",
+      "B08",
+      "B09",
+      "B10",
+      "B11",
+      "B14",
+      "B15",
+      "B17",
+      "B19",
+      "B21"
+    ]
+  },
+  "score_policy": "0 absent; 25 documented/scaffold; 50 executable offline; 75 evidenced, integrated and reproducible; 100 production autonomous with regression, monitoring and incident recovery. Scores are judgmental readouts, not calibrated probabilities.",
+  "score_weight_sum": 115,
+  "weighted_overall_score": 40.2,
+  "capability_scores": [
+    {
+      "capability": "orchestration_and_release_governance",
+      "weight": 7,
+      "score": 75,
+      "evidence": "Main contains AGENTS.md, 22-spark registry, worker protocol; PR #2 merged; manifest still describes R0/R1/R2 as pending/blocked despite #2/#10/#13 merged."
+    },
+    {
+      "capability": "market_data_fx_ttd",
+      "weight": 8,
+      "score": 25,
+      "evidence": "B02 PR #15 remains draft; v10 ZIP bundles no historical OHLC files; default price references are dated 2026-10-15."
+    },
+    {
+      "capability": "earnings_capture_coverage",
+      "weight": 9,
+      "score": 33,
+      "evidence": "SQLite 13 reported observations, only MU (9) and CRWV (4), versus seven source-register tickers; 31 source rows do not equal financial observations."
+    },
+    {
+      "capability": "contracts_evidence_and_revision_controls",
+      "weight": 9,
+      "score": 50,
+      "evidence": "Primary source evidence bundle and conflict detector exist; broad generic investor-domain allowlist, day-granularity dates and limited reconciliation."
+    },
+    {
+      "capability": "relationships_supply_chain_graph",
+      "weight": 9,
+      "score": 55,
+      "evidence": "47 nodes and 57 edges; 6 documented, 32 inferred, 19 hypothesis; source status separated but complete contract economics missing."
+    },
+    {
+      "capability": "nonadditive_profit_pools",
+      "weight": 8,
+      "score": 40,
+      "evidence": "Nine pool records, hierarchy/double-count rules and qualified-share bounds; no full measured end-consumer spend census or audited company shares."
+    },
+    {
+      "capability": "company_specific_economics",
+      "weight": 10,
+      "score": 50,
+      "evidence": "MU AAOI NVDA CRWV SFTBY LITE scenario mechanisms implemented; many scenarios explicitly hypothetical and COHR is overlay rather than first-class ticker model."
+    },
+    {
+      "capability": "gpu_cohort_and_cascade",
+      "weight": 8,
+      "score": 60,
+      "evidence": "CRWV lifetime cohort, financing and GPU cascade calculations execute; project-level actual contracts, GPU generation yields and NVIDIA credits not populated."
+    },
+    {
+      "capability": "intrinsic_valuation_and_mispricing",
+      "weight": 8,
+      "score": 20,
+      "evidence": "Fair-value bridge lacks independently sourced lifecycle FCF, full cap table, asset-level debt schedule and reproducible grounded margin/share forecasts."
+    },
+    {
+      "capability": "historical_price_regimes_and_traversal",
+      "weight": 7,
+      "score": 28,
+      "evidence": "Code present, price CSVs absent; historic thresholds not equal statistically validated projected regimes."
+    },
+    {
+      "capability": "walkforward_calibration_falsification",
+      "weight": 7,
+      "score": 10,
+      "evidence": "No independently verified holdout probabilities or multiple-testing-controlled traversal calibration; historical frequencies are descriptive."
+    },
+    {
+      "capability": "local_mcp_rest_agent_interface",
+      "weight": 7,
+      "score": 70,
+      "evidence": "MCP initialize/list/call works with 17 tools; local REST bearer-token /tools /call and /health smoke-tested, but permissive input schemas and embedded version 0.7.0."
+    },
+    {
+      "capability": "hosted_persistent_agentic_runtime",
+      "weight": 7,
+      "score": 0,
+      "evidence": "Render connected; list_services returned null, no MRIE URL/health observed, no live ChatGPT native registration."
+    },
+    {
+      "capability": "scheduled_monitoring_and_ingestion",
+      "weight": 5,
+      "score": 28,
+      "evidence": "ChatGPT daily earnings/market monitors enabled, some run history; not a persistent authenticated ingestion worker, notifications disabled, persistence best-effort."
+    },
+    {
+      "capability": "independent_ci_security_release_quality",
+      "weight": 6,
+      "score": 50,
+      "evidence": "B01 strict CI PR #13 merged, B05 #10 merged, package local tests passed; latest whole-platform main CI/deployed release not verified and standalone ZIP CI not deployed."
+    }
+  ],
+  "observations": {
+    "github": {
+      "repo": "https://github.com/whiterosecoffee/_BASKET",
+      "main_contains_agent_contract": true,
+      "core_declared": "0.4.1",
+      "next_candidate": "0.5.0 (not verified released)",
+      "merged_prs": [
+        2,
+        10,
+        13
+      ],
+      "observed_open_draft_prs": [
+        14,
+        15,
+        18,
+        22,
+        25
+      ],
+      "candidate_manifest_status": "has historical/stale gate statuses; cross-check actual merged PR metadata",
+      "mrie_zip_integrated_to_main": false
+    },
+    "library": {
+      "path": "/MRIE/MRIE_Project_v10_Optics_Evidence.zip",
+      "bytes": 300351,
+      "python_modules": 34,
+      "local_unit_tests_passed": 88,
+      "sqlite_observations": 13,
+      "sqlite_sources": 31,
+      "sqlite_covered_observation_tickers": [
+        "MU",
+        "CRWV"
+      ],
+      "graph_nodes": 47,
+      "graph_relationships": 57,
+      "documented_relationships": 6,
+      "inferred_relationships": 32,
+      "hypothesis_relationships": 19,
+      "pools": 9,
+      "historical_daily_price_csv_files": 0
+    },
+    "local_agent_smoke": {
+      "mcp_initialize": "pass",
+      "mcp_tools_list_count": 17,
+      "mcp_valid_call": "pass",
+      "mcp_unknown_call": "returns isError",
+      "http_health": "200",
+      "http_unauthenticated_tools": "401",
+      "http_authorized_tools": "200",
+      "http_company_analysis": "200",
+      "run_all": "pass",
+      "runtime_version_string": "0.7.0 despite library archive v10"
+    },
+    "deployment": {
+      "render_workspace_available": true,
+      "render_list_services_response": "null",
+      "deployed_mrie_verified": false,
+      "service_url": null,
+      "chatgpt_plugin_registered": false
+    },
+    "scheduled_tasks": {
+      "earnings_watch": "enabled with a recent recorded run",
+      "daily_market_capture": "enabled with recorded run",
+      "full_basket_watch": "enabled but no last run verified",
+      "remote_workers_proven": false,
+      "task_notifications": "disabled in observed settings"
+    },
+    "high_priority_risks": [
+      "No integrated GitHub source-of-truth for latest standalone MRIE v10 code",
+      "Absent licensed 200+ session ticker OHLCV in local model inputs",
+      "13 recorded financial observations cannot substantiate full-basket point-in-time earnings tracker",
+      "The model's over/under fair value is not economically calibrated to primary issuer FCF and cross-ownership",
+      "37% of graph connections documented? No: only 6 of 57 are documented, while 32 inferred and 19 hypotheses",
+      "MCP schema accepts arbitrary additionalProperties; source URL allowlist permits any hostname containing investor",
+      "No hosted agentic runtime, no standalone database persistence/scheduler/observability",
+      "Source/availability/ingestion timestamps are inconsistent in some offline profiles; TTD cannot be trusted as live"
+    ]
+  },
+  "prioritized_execution": [
+    {
+      "order": 1,
+      "owner": "B00+B08",
+      "task": "Integrate v10 source into GitHub through B08-owned service code and ensure core architecture ownership; package tests as independently run CI",
+      "acceptance": "Pin Git SHA, tests, deployment manifest; unique issue, branch, draft PR; avoid overlapping source ownership."
+    },
+    {
+      "order": 2,
+      "owner": "B08+B02+B03",
+      "task": "Deploy authenticated private MRIE REST/MCP service with persistent append-only database, scheduler, liveness, alerting and secret management",
+      "acceptance": "Real service URL, tool-to-backend smoke, failure recovery, durable restarts, no fabricated live feed."
+    },
+    {
+      "order": 3,
+      "owner": "B02",
+      "task": "Backfill point-in-time 200+ sessions and USD/JPY FX/TTD for eligible tickers",
+      "acceptance": "Source-stamped immutable bars, FX provenance, replay manifest, explicit expired flags."
+    },
+    {
+      "order": 4,
+      "owner": "B03+B19+B15",
+      "task": "Capture each issuer filing/earnings and significant material agreement with source offsets, dates, economic classification; reconcile every ticker",
+      "acceptance": "Coverage matrix reaches all tracked companies and crosschecks recent 10-K/10-Q/8-K plus balance-sheet numbers."
+    },
+    {
+      "order": 5,
+      "owner": "B04+B05+B06+B07",
+      "task": "Value contracted cohorts and full basket; nested revenue pool reconciliation, equity dilution and out-of-sample traversal validation",
+      "acceptance": "Point-in-time capital, FCF, contract, valuation distributions, error bars, falsifiers, actual independent holdouts."
+    },
+    {
+      "order": 6,
+      "owner": "B00+B01",
+      "task": "Independent cross-domain release review and progression of remaining draft PRs",
+      "acceptance": "B00 worker resolution verified, main CI green on exact commit, manifest status corrected by owner, release only on authorization."
+    }
+  ],
+  "audit_limitations": [
+    "Current GitHub main CI status at exact latest main SHA not independently checked",
+    "Render returned null services; no service endpoint available to probe",
+    "Package 88 tests run from materialized Library artifact only; not main CI",
+    "No out-of-sample financial forecasts, security review or external live endpoint penetration test conducted"
+  ]
+}

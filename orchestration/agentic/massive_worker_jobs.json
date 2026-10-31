@@ -1,0 +1,26 @@
+{
+  "schema": "basket.massive_workers@1",
+  "version": "0.1.0",
+  "source": "https://massive.com/docs",
+  "as_of": "2026-10-17",
+  "provider_observed_capabilities": {
+    "daily_bars": "available",
+    "last_trade": "not_entitled",
+    "minute_bars": "unknown",
+    "fx_daily": "unknown",
+    "reference": "unknown",
+    "earnings": "not_entitled",
+    "backend_credentials": "unknown"
+  },
+  "workers": [
+    {"id": "B02-universe", "owner": "B02", "capability": "reference", "cadence_seconds": 86400, "ttd_seconds": 86400, "transport": "direct_provider_api", "writes": ["runtime/universe/"], "purpose": "Reconcile symbols, venue, currency, corporate actions and listing status; never fabricate delisted history."},
+    {"id": "B02-eod", "owner": "B02", "capability": "daily_bars", "cadence_seconds": 86400, "ttd_seconds": 129600, "transport": "direct_provider_api", "writes": ["runtime/market/"], "purpose": "200+ adjusted/unadjusted OHLCV sessions per eligible ticker; immutable observations with correction revisions, source SHA and exchange session."},
+    {"id": "B02-minute", "owner": "B02", "capability": "minute_bars", "cadence_seconds": 300, "ttd_seconds": 900, "transport": "direct_provider_api", "writes": ["runtime/market/"], "purpose": "Conditional intraday ET aggregates and pre/postmarket quality flags; not entitled until independently checked."},
+    {"id": "B02-live", "owner": "B02", "capability": "last_trade", "cadence_seconds": 60, "ttd_seconds": 60, "transport": "direct_provider_api", "writes": ["runtime/market/"], "purpose": "Entitlement-gated real-time quotes with source event timestamp, observed/available/ingested times and pre/post session flag.", "claim_live": true},
+    {"id": "B02-fx", "owner": "B02", "capability": "fx_daily", "cadence_seconds": 86400, "ttd_seconds": 86400, "transport": "direct_provider_api", "writes": ["fx/"], "purpose": "USD/JPY and ADR factor with date-matched conversion and original currency retained."},
+    {"id": "B03-earnings", "owner": "B03", "capability": "earnings", "cadence_seconds": 86400, "ttd_seconds": 2592000, "transport": "direct_provider_api", "writes": ["research/filings/"], "purpose": "Only if Massive fundamental entitlement verified; otherwise use authorized SEC/issuer primary filings; do not claim Massive-derived earnings."},
+    {"id": "B08-persist", "owner": "B08", "capability": "daily_bars", "cadence_seconds": 300, "ttd_seconds": 86400, "transport": "direct_provider_api", "writes": ["services/"], "purpose": "Durable worker orchestration with provider API credentials, append-only SQL, checkpoints, retries, audit logs, health and MCP read interface."},
+    {"id": "B01-qc", "owner": "B01", "capability": "daily_bars", "cadence_seconds": 3600, "ttd_seconds": 86400, "transport": "offline_validator", "writes": ["tests/integration/"], "purpose": "Fail closed on stale data promotion, gaps, duplicate revisions, wrong FX/date, misleading entitlement, missing exact-SHA checks."}
+  ],
+  "acceptance": ["B02 historical backfill for every eligible basket ticker", "B02 real-time gated on provider access and own hosted credentials", "B08 verified scheduled durable ingestion across restart", "B01 run code/tests at exact PR head", "End-to-end queried live label only when event timestamp and TTD prove it"]
+}
