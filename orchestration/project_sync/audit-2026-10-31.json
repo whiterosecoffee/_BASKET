@@ -1,0 +1,3337 @@
+{
+  "blockers": [
+    {
+      "code": "project_api_unavailable",
+      "operation": "Projects v2 GraphQL discovery/create/update",
+      "required": "Owner-authorized Projects read/write credential in working GitHub CLI or exposed GraphQL connection"
+    },
+    {
+      "code": "B01_handoff_pending",
+      "issue": 134,
+      "operation": "Install event-driven workflow",
+      "path": "orchestration/project_sync/workflow.yml.example"
+    }
+  ],
+  "capture_limits": [
+    "REST pages had fewer than 100 entries except first issues page, which was followed by page 2.",
+    "Snapshot came through connected GitHub repository tools; local gh collector could not authenticate/connect.",
+    "This capture precedes draft PR for #134 and subsequent assignment; never use it to authorize mutations.",
+    "Open PR is not proof of an active worker; malformed claims do not expand ownership."
+  ],
+  "captured_at": "2026-10-31T02:25:29.749Z",
+  "classification": "immutable_historical_observation_not_live_state",
+  "collection_errors": [],
+  "findings": [
+    {
+      "code": "stale_pr",
+      "issue": 12,
+      "pr": 14,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/14"
+    },
+    {
+      "code": "stale_pr",
+      "issue": 11,
+      "pr": 15,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/15"
+    },
+    {
+      "code": "actual_pr_scope_collision",
+      "issues": [
+        91
+      ],
+      "pr": 87
+    },
+    {
+      "code": "declared_scope_collision",
+      "issues": [
+        86,
+        91
+      ]
+    }
+  ],
+  "main_commit": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+  "main_workflows": [
+    {
+      "conclusion": "success",
+      "head_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "name": "Validate BASKET data",
+      "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39154102082"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "name": "OpenAI research strict gate",
+      "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39154102166"
+    }
+  ],
+  "pr_evidence": [
+    {
+      "branch": "work/132-github-project-control-plane",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "0022bd0b4a451df2082e322aef7abc76b2d84d4d",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41157773646/job/124408310181"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "0022bd0b4a451df2082e322aef7abc76b2d84d4d",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41157773646/job/124408273633"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "0022bd0b4a451df2082e322aef7abc76b2d84d4d",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41157773646/job/124408273368"
+        }
+      ],
+      "head_sha": "0022bd0b4a451df2082e322aef7abc76b2d84d4d",
+      "pr": 133,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/133",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "0022bd0b4a451df2082e322aef7abc76b2d84d4d",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41157773646"
+        }
+      ]
+    },
+    {
+      "branch": "work/126-etf-forward-valuation",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "0fdab50d6febbe8891f494c1184c827e6420adf7",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41143656105/job/124363633099"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "0fdab50d6febbe8891f494c1184c827e6420adf7",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41143656105/job/124363577341"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "0fdab50d6febbe8891f494c1184c827e6420adf7",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41143656105/job/124363576962"
+        }
+      ],
+      "head_sha": "0fdab50d6febbe8891f494c1184c827e6420adf7",
+      "pr": 127,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/127",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "0fdab50d6febbe8891f494c1184c827e6420adf7",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41143656105"
+        }
+      ]
+    },
+    {
+      "branch": "work/124-spotgamma-hiro-handoff",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "bd3ee61fedbee97499ac73579fc703b815d459d8",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41062667424/job/124086134557"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "bd3ee61fedbee97499ac73579fc703b815d459d8",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41062667424/job/124086032404"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "bd3ee61fedbee97499ac73579fc703b815d459d8",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41062667424/job/124086031887"
+        }
+      ],
+      "head_sha": "bd3ee61fedbee97499ac73579fc703b815d459d8",
+      "pr": 125,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/125",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "bd3ee61fedbee97499ac73579fc703b815d459d8",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41062667424"
+        }
+      ]
+    },
+    {
+      "branch": "copilot/control-repo-and-project-flow",
+      "checks": [],
+      "head_sha": "a2202f7c720f414bd0b32e3a8bdabd09f7603241",
+      "pr": 123,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/123",
+      "validation": "failed",
+      "workflows": [
+        {
+          "conclusion": "action_required",
+          "head_sha": "a2202f7c720f414bd0b32e3a8bdabd09f7603241",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40978413098"
+        }
+      ]
+    },
+    {
+      "branch": "work/121-neocloud-market-research",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "3d95e08a6bbba136117a96122bc0cc869ba2aa81",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41087959328/job/124174124919"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "3d95e08a6bbba136117a96122bc0cc869ba2aa81",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41087959328/job/124174008248"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "3d95e08a6bbba136117a96122bc0cc869ba2aa81",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41087959328/job/124174007609"
+        }
+      ],
+      "head_sha": "3d95e08a6bbba136117a96122bc0cc869ba2aa81",
+      "pr": 122,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/122",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "3d95e08a6bbba136117a96122bc0cc869ba2aa81",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41087959328"
+        }
+      ]
+    },
+    {
+      "branch": "work/118-skilled-ai-deployment-basket",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "ef31975188ccde67af883a1aa47387052ab48004",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41153926037/job/124396486682"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "ef31975188ccde67af883a1aa47387052ab48004",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41153926037/job/124396432594"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "ef31975188ccde67af883a1aa47387052ab48004",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41153926037/job/124396432340"
+        }
+      ],
+      "head_sha": "ef31975188ccde67af883a1aa47387052ab48004",
+      "pr": 120,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/120",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "ef31975188ccde67af883a1aa47387052ab48004",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41153926037"
+        }
+      ]
+    },
+    {
+      "branch": "work/116-gdyn-crwv-growth-comparison",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "311a9aae71efccc379d45ad86946c162f3b84e92",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40965071127/job/123767515355"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "311a9aae71efccc379d45ad86946c162f3b84e92",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40965071127/job/123767427779"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "311a9aae71efccc379d45ad86946c162f3b84e92",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40965071127/job/123767427555"
+        }
+      ],
+      "head_sha": "311a9aae71efccc379d45ad86946c162f3b84e92",
+      "pr": 117,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/117",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "311a9aae71efccc379d45ad86946c162f3b84e92",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40965071127"
+        }
+      ]
+    },
+    {
+      "branch": "work/113-crwv-evidence-peer-assessment",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "7883d07941e33bce9faa52ff50d256f46cc7cf8c",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40963136078/job/123760858605"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "7883d07941e33bce9faa52ff50d256f46cc7cf8c",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40963136078/job/123760767642"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "7883d07941e33bce9faa52ff50d256f46cc7cf8c",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40963136078/job/123760767192"
+        }
+      ],
+      "head_sha": "7883d07941e33bce9faa52ff50d256f46cc7cf8c",
+      "pr": 114,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/114",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "7883d07941e33bce9faa52ff50d256f46cc7cf8c",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40963136078"
+        }
+      ]
+    },
+    {
+      "branch": "work/110-append-daily-bars-1029",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "fb9cb8c4af4dd17537f9d1a46eb7d825c3b67140",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40952659162/job/123724638066"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "fb9cb8c4af4dd17537f9d1a46eb7d825c3b67140",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40952659162/job/123724533404"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "fb9cb8c4af4dd17537f9d1a46eb7d825c3b67140",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40952659162/job/123724533034"
+        }
+      ],
+      "head_sha": "fb9cb8c4af4dd17537f9d1a46eb7d825c3b67140",
+      "pr": 111,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/111",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "fb9cb8c4af4dd17537f9d1a46eb7d825c3b67140",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40952659162"
+        }
+      ]
+    },
+    {
+      "branch": "work/108-canonical-traversal-takeover",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "bdae9fdce9cf647886d52d3319d685deef829095",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40925889191/job/123631298937"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "bdae9fdce9cf647886d52d3319d685deef829095",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40925889191/job/123631142495"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "bdae9fdce9cf647886d52d3319d685deef829095",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40925889191/job/123631142098"
+        }
+      ],
+      "head_sha": "bdae9fdce9cf647886d52d3319d685deef829095",
+      "pr": 109,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/109",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "bdae9fdce9cf647886d52d3319d685deef829095",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40925889191"
+        }
+      ]
+    },
+    {
+      "branch": "work/106-worker-v2-contract-audit",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "eb099d8e2bf37918eaf11a46341289ff09651d9e",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40927765356/job/123637886854"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "eb099d8e2bf37918eaf11a46341289ff09651d9e",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40927765356/job/123637735108"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "eb099d8e2bf37918eaf11a46341289ff09651d9e",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40927765356/job/123637734485"
+        }
+      ],
+      "head_sha": "eb099d8e2bf37918eaf11a46341289ff09651d9e",
+      "pr": 107,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/107",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "eb099d8e2bf37918eaf11a46341289ff09651d9e",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40927765356"
+        }
+      ]
+    },
+    {
+      "branch": "work/103-blackbox-component-contracts",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40920434614/job/123612010817"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40920434614/job/123611871373"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40920434614/job/123611870955"
+        }
+      ],
+      "head_sha": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa",
+      "pr": 104,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/104",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40920434614"
+        }
+      ]
+    },
+    {
+      "branch": "work/100-basket-market-context",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "565e582720a32d8d73c5421d6d99d503c4bbde03",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40915516965/job/123594701415"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "565e582720a32d8d73c5421d6d99d503c4bbde03",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40915516965/job/123594559605"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "565e582720a32d8d73c5421d6d99d503c4bbde03",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40915516965/job/123594559322"
+        }
+      ],
+      "head_sha": "565e582720a32d8d73c5421d6d99d503c4bbde03",
+      "pr": 101,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/101",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "565e582720a32d8d73c5421d6d99d503c4bbde03",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40915516965"
+        }
+      ]
+    },
+    {
+      "branch": "work/95-incremental-ticker-patterns",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40813757265/job/123249973366"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40813757265/job/123249911930"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40813757265/job/123249911596"
+        }
+      ],
+      "head_sha": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+      "pr": 99,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/99",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40813757265"
+        }
+      ]
+    },
+    {
+      "branch": "work/89-crwv-independent-ci-acceptance",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40919835473/job/123610049065"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40919835473/job/123609911786"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40919835473/job/123609911544"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+          "name": "crwv-finance-acceptance",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40919835438/job/123609743311"
+        }
+      ],
+      "head_sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+      "pr": 90,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/90",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40919835473"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+          "name": "CRWV tool independent acceptance",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40919835438"
+        }
+      ]
+    },
+    {
+      "branch": "work/86-crwv-functional-tool",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "7a33a6f49a2740a93310fa1c66a8090c25dd110a",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40529029687/job/122276551863"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "7a33a6f49a2740a93310fa1c66a8090c25dd110a",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40529029687/job/122276418561"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "7a33a6f49a2740a93310fa1c66a8090c25dd110a",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40529029687/job/122276418479"
+        }
+      ],
+      "head_sha": "7a33a6f49a2740a93310fa1c66a8090c25dd110a",
+      "pr": 87,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/87",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "7a33a6f49a2740a93310fa1c66a8090c25dd110a",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40529029687"
+        }
+      ]
+    },
+    {
+      "branch": "work/82-orcl-vector-orchestration",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "389334012cc6ba1b3592df7e4aad1159f9b951e5",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379276481/job/121770913048"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "389334012cc6ba1b3592df7e4aad1159f9b951e5",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379276481/job/121770787592"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "389334012cc6ba1b3592df7e4aad1159f9b951e5",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379276481/job/121770787248"
+        }
+      ],
+      "head_sha": "389334012cc6ba1b3592df7e4aad1159f9b951e5",
+      "pr": 85,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/85",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "389334012cc6ba1b3592df7e4aad1159f9b951e5",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379276481"
+        }
+      ]
+    },
+    {
+      "branch": "work/81-orcl-range-traversal",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "86a80db25fcc0066955bacf7c8bf2af30aeed104",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379271904/job/121770881451"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "86a80db25fcc0066955bacf7c8bf2af30aeed104",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379271904/job/121770771815"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "86a80db25fcc0066955bacf7c8bf2af30aeed104",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379271904/job/121770771250"
+        }
+      ],
+      "head_sha": "86a80db25fcc0066955bacf7c8bf2af30aeed104",
+      "pr": 84,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/84",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "86a80db25fcc0066955bacf7c8bf2af30aeed104",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379271904"
+        }
+      ]
+    },
+    {
+      "branch": "work/80-orcl-forward-multiple-comparative",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e",
+          "name": "copilot-pull-request-reviewer",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40952093608/job/123722558574"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379267489/job/121770876021"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379267489/job/121770754391"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379267489/job/121770753993"
+        }
+      ],
+      "head_sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e",
+      "pr": 83,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/83",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e",
+          "name": "Running Copilot Code Review",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40952093608"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379267489"
+        }
+      ]
+    },
+    {
+      "branch": "work/78-agent-neutral-dispatch-contract",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40350933155/job/121670582697"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40350933155/job/121670460216"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40350933155/job/121670459255"
+        }
+      ],
+      "head_sha": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b",
+      "pr": 79,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/79",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40350933155"
+        }
+      ]
+    },
+    {
+      "branch": "work/75-orcl-evolving-tracker",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "dc6a98e864558606b34d03148a9a95f881b52bf4",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40416800478/job/121901116106"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "dc6a98e864558606b34d03148a9a95f881b52bf4",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40416800478/job/121901045840"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "dc6a98e864558606b34d03148a9a95f881b52bf4",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40416800478/job/121901045342"
+        }
+      ],
+      "head_sha": "dc6a98e864558606b34d03148a9a95f881b52bf4",
+      "pr": 77,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/77",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "dc6a98e864558606b34d03148a9a95f881b52bf4",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40416800478"
+        }
+      ]
+    },
+    {
+      "branch": "work/73-crwv-replacement-cost-rates",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "813ed77e0442548a0778fd12348a4b416683ed38",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40338495839/job/121626509746"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "813ed77e0442548a0778fd12348a4b416683ed38",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40338495839/job/121626399884"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "813ed77e0442548a0778fd12348a4b416683ed38",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40338495839/job/121626399540"
+        }
+      ],
+      "head_sha": "813ed77e0442548a0778fd12348a4b416683ed38",
+      "pr": 74,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/74",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "813ed77e0442548a0778fd12348a4b416683ed38",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40338495839"
+        }
+      ]
+    },
+    {
+      "branch": "work/71-crwv-ops-vs-buildout",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "c6c35e3f59d40e8ca4505900542ae6153a3cf670",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40338535260/job/121626653204"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "c6c35e3f59d40e8ca4505900542ae6153a3cf670",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40338535260/job/121626540128"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "c6c35e3f59d40e8ca4505900542ae6153a3cf670",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40338535260/job/121626539932"
+        }
+      ],
+      "head_sha": "c6c35e3f59d40e8ca4505900542ae6153a3cf670",
+      "pr": 72,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/72",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "c6c35e3f59d40e8ca4505900542ae6153a3cf670",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40338535260"
+        }
+      ]
+    },
+    {
+      "branch": "work/68-crwv-debt-stack-audit",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40812264585/job/123245179099"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40812264585/job/123245110592"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40812264585/job/123245110431"
+        }
+      ],
+      "head_sha": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9",
+      "pr": 69,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/69",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40812264585"
+        }
+      ]
+    },
+    {
+      "branch": "work/59-orchestrator-retirement-intake",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "505591723ce42e474a8b5f498849bbe6eab10edb",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40924034800/job/123624757585"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "505591723ce42e474a8b5f498849bbe6eab10edb",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40924034800/job/123624651177"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "505591723ce42e474a8b5f498849bbe6eab10edb",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40924034800/job/123624650653"
+        }
+      ],
+      "head_sha": "505591723ce42e474a8b5f498849bbe6eab10edb",
+      "pr": 60,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/60",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "505591723ce42e474a8b5f498849bbe6eab10edb",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40924034800"
+        }
+      ]
+    },
+    {
+      "branch": "work/57-b06-oct16-traversal-stress-fixture",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096777152/job/117584807578"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096777152/job/117584780096"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096777152/job/117584779785"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+          "name": "openai-research",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096777150/job/117584777882"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096773915/job/117584768761"
+        }
+      ],
+      "head_sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+      "pr": 58,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/58",
+      "validation": "failed",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096777152"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+          "name": "OpenAI research strict gate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096777150"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096773915"
+        }
+      ]
+    },
+    {
+      "branch": "work/53-b08-snapshot-service",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "24d77045575926be5499355f9d26de499ed2b5ae",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39094943323/job/117579327600"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "24d77045575926be5499355f9d26de499ed2b5ae",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39094941562/job/117579322711"
+        }
+      ],
+      "head_sha": "24d77045575926be5499355f9d26de499ed2b5ae",
+      "pr": 55,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/55",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "24d77045575926be5499355f9d26de499ed2b5ae",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39094943323"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "24d77045575926be5499355f9d26de499ed2b5ae",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39094941562"
+        }
+      ]
+    },
+    {
+      "branch": "work/48-full-basket-capture-dispatch",
+      "checks": [
+        {
+          "conclusion": "failure",
+          "head_sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+          "name": "openai-research",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096006939/job/117582471896"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096006928/job/117582471890"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096005810/job/117582467928"
+        }
+      ],
+      "head_sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+      "pr": 49,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/49",
+      "validation": "failed",
+      "workflows": [
+        {
+          "conclusion": "failure",
+          "head_sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+          "name": "OpenAI research strict gate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096006939"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096006928"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096005810"
+        }
+      ]
+    },
+    {
+      "branch": "work/42-ticker-first-worker-contract",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096671841/job/117584514821"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096671841/job/117584473456"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096671841/job/117584473298"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+          "name": "openai-research",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096671822/job/117584473208"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096669609/job/117584466606"
+        }
+      ],
+      "head_sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+      "pr": 43,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/43",
+      "validation": "failed",
+      "workflows": [
+        {
+          "conclusion": "failure",
+          "head_sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+          "name": "OpenAI research strict gate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096671822"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096671841"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096669609"
+        }
+      ]
+    },
+    {
+      "branch": "work/37-cross-support-evidence",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093307806/job/117574428967"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093280119/job/117574343548"
+        }
+      ],
+      "head_sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30",
+      "pr": 38,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/38",
+      "validation": "head_passed_not_integrated",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093307806"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093280119"
+        }
+      ]
+    },
+    {
+      "branch": "work/32-mrie-agentic-readiness-audit",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097419136/job/117586661792"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097419136/job/117586631364"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+          "name": "openai-research",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097419181/job/117586631283"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097419136/job/117586631263"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097416484/job/117586623613"
+        }
+      ],
+      "head_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+      "pr": 33,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/33",
+      "validation": "failed",
+      "workflows": [
+        {
+          "conclusion": "success",
+          "head_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097419136"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+          "name": "OpenAI research strict gate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097419181"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097416484"
+        }
+      ]
+    },
+    {
+      "branch": "work/26-openai-preipo-valuation-sftby",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097743021/job/117587609255"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097743021/job/117587577153"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097743021/job/117587577015"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+          "name": "openai-research",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097743023/job/117587576840"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097741392/job/117587572392"
+        }
+      ],
+      "head_sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+      "pr": 31,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/31",
+      "validation": "failed",
+      "workflows": [
+        {
+          "conclusion": "failure",
+          "head_sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+          "name": "OpenAI research strict gate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097743023"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097743021"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097741392"
+        }
+      ]
+    },
+    {
+      "branch": "work/24-register-coverage-research-milestones",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096784343/job/117584842255"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096784343/job/117584805269"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096784343/job/117584805127"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+          "name": "openai-research",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096784321/job/117584796495"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096781706/job/117584790062"
+        }
+      ],
+      "head_sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+      "pr": 25,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/25",
+      "validation": "failed",
+      "workflows": [
+        {
+          "conclusion": "failure",
+          "head_sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+          "name": "OpenAI research strict gate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096784321"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096784343"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096781706"
+        }
+      ]
+    },
+    {
+      "branch": "work/21-underrepresented-ticker-coverage",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096738181/job/117584693923"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096738181/job/117584662737"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096738181/job/117584662575"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+          "name": "openai-research",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096738185/job/117584662405"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096735362/job/117584654910"
+        }
+      ],
+      "head_sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+      "pr": 23,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/23",
+      "validation": "failed",
+      "workflows": [
+        {
+          "conclusion": "failure",
+          "head_sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+          "name": "OpenAI research strict gate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096738185"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096738181"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096735362"
+        }
+      ]
+    },
+    {
+      "branch": "work/20-capital-profit-graph",
+      "checks": [
+        {
+          "conclusion": "success",
+          "head_sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096804356/job/117584883568"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096804356/job/117584852266"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096804356/job/117584852065"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+          "name": "openai-research",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096804353/job/117584851832"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096801792/job/117584844513"
+        }
+      ],
+      "head_sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+      "pr": 22,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/22",
+      "validation": "failed",
+      "workflows": [
+        {
+          "conclusion": "failure",
+          "head_sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+          "name": "OpenAI research strict gate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096804353"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096804356"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096801792"
+        }
+      ]
+    },
+    {
+      "branch": "work/17-mrie-revenue-pool-resources",
+      "checks": [
+        {
+          "conclusion": "failure",
+          "head_sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096679765/job/117584543293"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+          "name": "worker-qc",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096679765/job/117584515243"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+          "name": "stores",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096679765/job/117584515109"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+          "name": "openai-research",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096679844/job/117584498569"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096677208/job/117584490100"
+        }
+      ],
+      "head_sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+      "pr": 18,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/18",
+      "validation": "failed",
+      "workflows": [
+        {
+          "conclusion": "failure",
+          "head_sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+          "name": "OpenAI research strict gate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096679844"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096679765"
+        },
+        {
+          "conclusion": "success",
+          "head_sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096677208"
+        }
+      ]
+    },
+    {
+      "branch": "work/11-market-fx-observation-replay",
+      "checks": [
+        {
+          "conclusion": "failure",
+          "head_sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957102730/job/117162605984"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957074452/job/117162512265"
+        }
+      ],
+      "head_sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+      "pr": 15,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/15",
+      "validation": "failed",
+      "workflows": [
+        {
+          "conclusion": "failure",
+          "head_sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957102730"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957074452"
+        }
+      ]
+    },
+    {
+      "branch": "work/12-b03-canonical-issuer-events",
+      "checks": [
+        {
+          "conclusion": "failure",
+          "head_sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957274923/job/117163180351"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+          "name": "validate",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957268793/job/117163158571"
+        }
+      ],
+      "head_sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+      "pr": 14,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/14",
+      "validation": "failed",
+      "workflows": [
+        {
+          "conclusion": "failure",
+          "head_sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957274923"
+        },
+        {
+          "conclusion": "failure",
+          "head_sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+          "name": "Validate BASKET data",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957268793"
+        }
+      ]
+    }
+  ],
+  "project": {
+    "configured_fields": [],
+    "configured_views": [],
+    "id": null,
+    "state": "blocked_unverified",
+    "url": null
+  },
+  "records": [
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/134-github-project-control-plane",
+        "Domain": "Orchestrator & Contracts",
+        "Spark ID": "B00",
+        "Status": "BLOCKED",
+        "Validation": "unverified",
+        "Worker": "unassigned"
+      },
+      "issue": 134,
+      "node_id": "I_kwDOVMZ38s8AAAABbWEOdg",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/134"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "task: 132 is not of type 'object'",
+        "task: 'work/132-github-project-control-plane' is not of type 'object'",
+        "task: 'A1 verified Project ID/URL and functional views' is not of type 'object'",
+        "task: 'A2 reconciled live issues/PRs with no duplicates' is not of type 'object'",
+        "task: 'A3 collision flags' is not of type 'object'",
+        "task: 'A4 distinct exact-head and post-merge validation' is not of type 'object'",
+        "task: 'A5 authored and executed independent regression tests and draft PR' is not of type 'object'",
+        "task: 'A6 actual Project test issue status transition' is not of type 'object'",
+        "task: 'PR #123 owns board guide/claim checker/routing' is not of type 'object'",
+        "task: 'B01 owns .github/workflows/**' is not of type 'object'",
+        "task: 'B02 market data and B06 reversal detector separate' is not of type 'object'"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/132-github-project-control-plane",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 132,
+      "node_id": "I_kwDOVMZ38s8AAAABbV4oLA",
+      "pr": 133,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/132"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 131,
+      "node_id": "I_kwDOVMZ38s8AAAABbVlpIA",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/131"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 130,
+      "node_id": "I_kwDOVMZ38s8AAAABbUxSrA",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/130"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 129,
+      "node_id": "I_kwDOVMZ38s8AAAABbT8F1g",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/129"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 128,
+      "node_id": "I_kwDOVMZ38s8AAAABbT8Ecg",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/128"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/126-etf-forward-valuation",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 126,
+      "node_id": "I_kwDOVMZ38s8AAAABbT7Q6A",
+      "pr": 127,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/126"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/124-spotgamma-hiro-handoff",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 124,
+      "node_id": "I_kwDOVMZ38s8AAAABbMMKFA",
+      "pr": 125,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/124"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/121-neocloud-market-research",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 121,
+      "node_id": "I_kwDOVMZ38s8AAAABbDZd9Q",
+      "pr": 122,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/121"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 119,
+      "node_id": "I_kwDOVMZ38s8AAAABbCiX5g",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/119"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/118-skilled-ai-deployment-basket",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 118,
+      "node_id": "I_kwDOVMZ38s8AAAABbChlxw",
+      "pr": 120,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/118"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/116-gdyn-crwv-growth-comparison",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 116,
+      "node_id": "I_kwDOVMZ38s8AAAABbCSyRw",
+      "pr": 117,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/116"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 115,
+      "node_id": "I_kwDOVMZ38s8AAAABbCR-XA",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/115"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/113-crwv-evidence-peer-assessment",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 113,
+      "node_id": "I_kwDOVMZ38s8AAAABbCOsiA",
+      "pr": 114,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/113"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 112,
+      "node_id": "I_kwDOVMZ38s8AAAABbCN0_Q",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/112"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/110-append-daily-bars-1029",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 110,
+      "node_id": "I_kwDOVMZ38s8AAAABbBSFcA",
+      "pr": 111,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/110"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/108-canonical-traversal-takeover",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 108,
+      "node_id": "I_kwDOVMZ38s8AAAABa-o1Kg",
+      "pr": 109,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/108"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/106-worker-v2-contract-audit",
+        "Domain": "Orchestrator & Contracts",
+        "Spark ID": "B00",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated",
+        "Worker": "unassigned"
+      },
+      "issue": 106,
+      "node_id": "I_kwDOVMZ38s8AAAABa-as8w",
+      "pr": 107,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/106"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 105,
+      "node_id": "I_kwDOVMZ38s8AAAABa-IyXg",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/105"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/103-blackbox-component-contracts",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 103,
+      "node_id": "I_kwDOVMZ38s8AAAABa-H8yA",
+      "pr": 104,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/103"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 102,
+      "node_id": "I_kwDOVMZ38s8AAAABa9qovg",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/102"
+    },
+    {
+      "blocked_by": [
+        102
+      ],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/100-basket-market-context",
+        "Domain": "Cross-Market Signal Composite",
+        "Spark ID": "B17",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated",
+        "Worker": "unassigned"
+      },
+      "issue": 100,
+      "node_id": "I_kwDOVMZ38s8AAAABa9faJA",
+      "pr": 101,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/100"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 98,
+      "node_id": "I_kwDOVMZ38s8AAAABayB3Ag",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/98"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 97,
+      "node_id": "I_kwDOVMZ38s8AAAABayB2mg",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/97"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 96,
+      "node_id": "I_kwDOVMZ38s8AAAABayB1_Q",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/96"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/95-incremental-ticker-patterns",
+        "Domain": "CRWV GPU Lifecycle",
+        "Spark ID": "B10",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated",
+        "Worker": "unassigned"
+      },
+      "issue": 95,
+      "node_id": "I_kwDOVMZ38s8AAAABax6xjg",
+      "pr": 99,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/95"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 94,
+      "node_id": "I_kwDOVMZ38s8AAAABapESTA",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/94"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 93,
+      "node_id": "I_kwDOVMZ38s8AAAABapERYg",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/93"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 92,
+      "node_id": "I_kwDOVMZ38s8AAAABapEQeA",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/92"
+    },
+    {
+      "blocked_by": [
+        86
+      ],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing",
+        "ownership_collision_requires_B00"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/91-crwv-functional-tool-collision",
+        "Domain": "CRWV GPU Lifecycle",
+        "Spark ID": "B10",
+        "Status": "BLOCKED",
+        "Validation": "unverified",
+        "Worker": "unassigned"
+      },
+      "issue": 91,
+      "node_id": "I_kwDOVMZ38s8AAAABamhBOQ",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/91"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/89-crwv-independent-ci-acceptance",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 89,
+      "node_id": "I_kwDOVMZ38s8AAAABafzvwg",
+      "pr": 90,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/89"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 88,
+      "node_id": "I_kwDOVMZ38s8AAAABaVQwlg",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/88"
+    },
+    {
+      "blocked_by": [
+        88
+      ],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing",
+        "ownership_collision_requires_B00"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/86-crwv-functional-tool",
+        "Domain": "CRWV GPU Lifecycle",
+        "Spark ID": "B10",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated",
+        "Worker": "unassigned"
+      },
+      "issue": 86,
+      "node_id": "I_kwDOVMZ38s8AAAABaVAxeA",
+      "pr": 87,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/86"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "task: 'contract' is not one of ['handoff', 'upstream_pr', 'schema', 'source', 'review', 'external_provider']",
+        "task: 'reference' is not one of ['handoff', 'upstream_pr', 'schema', 'source', 'review', 'external_provider']",
+        "task: 'reference' is not one of ['handoff', 'upstream_pr', 'schema', 'source', 'review', 'external_provider']"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/82-orcl-vector-orchestration",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 82,
+      "node_id": "I_kwDOVMZ38s8AAAABaFyMHg",
+      "pr": 85,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/82"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "task: 'reference' is not one of ['handoff', 'upstream_pr', 'schema', 'source', 'review', 'external_provider']",
+        "task: 'data' is not one of ['handoff', 'upstream_pr', 'schema', 'source', 'review', 'external_provider']"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/81-orcl-range-traversal",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 81,
+      "node_id": "I_kwDOVMZ38s8AAAABaFqF5A",
+      "pr": 84,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/81"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/80-orcl-forward-multiple-comparative",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 80,
+      "node_id": "I_kwDOVMZ38s8AAAABaFmiCw",
+      "pr": 83,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/80"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/78-agent-neutral-dispatch-contract",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 78,
+      "node_id": "I_kwDOVMZ38s8AAAABaCNHMg",
+      "pr": 79,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/78"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 76,
+      "node_id": "I_kwDOVMZ38s8AAAABaB3e6Q",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/76"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "ambiguous_task_claim",
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/75-orcl-evolving-tracker",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 75,
+      "node_id": "I_kwDOVMZ38s8AAAABaBxYTQ",
+      "pr": 77,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/75"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/73-crwv-replacement-cost-rates",
+        "Domain": "CRWV GPU Lifecycle",
+        "Spark ID": "B10",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated",
+        "Worker": "unassigned"
+      },
+      "issue": 73,
+      "node_id": "I_kwDOVMZ38s8AAAABaBn9_A",
+      "pr": 74,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/73"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/71-crwv-ops-vs-buildout",
+        "Domain": "CRWV GPU Lifecycle",
+        "Spark ID": "B10",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated",
+        "Worker": "unassigned"
+      },
+      "issue": 71,
+      "node_id": "I_kwDOVMZ38s8AAAABZhXU-A",
+      "pr": 72,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/71"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 70,
+      "node_id": "I_kwDOVMZ38s8AAAABZgRrxw",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/70"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/68-crwv-debt-stack-audit",
+        "Domain": "CRWV GPU Lifecycle",
+        "Spark ID": "B10",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated",
+        "Worker": "unassigned"
+      },
+      "issue": 68,
+      "node_id": "I_kwDOVMZ38s8AAAABZHkqIw",
+      "pr": 69,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/68"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 65,
+      "node_id": "I_kwDOVMZ38s8AAAABYAiE6A",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/65"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/64-b01-openai-worker-contract",
+        "Domain": "Integrity & CI Rescue",
+        "Spark ID": "B01",
+        "Status": "BLOCKED",
+        "Validation": "unverified",
+        "Worker": "unassigned"
+      },
+      "issue": 64,
+      "node_id": "I_kwDOVMZ38s8AAAABYAdznQ",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/64"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/63-source-gate-audit",
+        "Domain": "Orchestrator & Contracts",
+        "Spark ID": "B00",
+        "Status": "BLOCKED",
+        "Validation": "unverified",
+        "Worker": "unassigned"
+      },
+      "issue": 63,
+      "node_id": "I_kwDOVMZ38s8AAAABYAdtlg",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/63"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 62,
+      "node_id": "I_kwDOVMZ38s8AAAABYAUjoA",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/62"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 61,
+      "node_id": "I_kwDOVMZ38s8AAAABYAUaNw",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/61"
+    },
+    {
+      "blocked_by": [
+        65
+      ],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/59-orchestrator-retirement-intake",
+        "Domain": "Orchestrator & Contracts",
+        "Spark ID": "B00",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated",
+        "Worker": "unassigned"
+      },
+      "issue": 59,
+      "node_id": "I_kwDOVMZ38s8AAAABYAT10A",
+      "pr": 60,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/59"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "task: Additional properties are not allowed ('description' was unexpected)",
+        "task: 'criterion' is a required property",
+        "task: 'evidence_class' is a required property",
+        "task: Additional properties are not allowed ('description' was unexpected)",
+        "task: 'criterion' is a required property",
+        "task: 'evidence_class' is a required property",
+        "task: Additional properties are not allowed ('description' was unexpected)",
+        "task: 'criterion' is a required property",
+        "task: 'evidence_class' is a required property",
+        "task: Additional properties are not allowed ('description' was unexpected)",
+        "task: 'criterion' is a required property",
+        "task: 'evidence_class' is a required property",
+        "task: Additional properties are not allowed ('description' was unexpected)",
+        "task: 'criterion' is a required property",
+        "task: 'evidence_class' is a required property",
+        "task: Additional properties are not allowed ('description' was unexpected)",
+        "task: 'criterion' is a required property",
+        "task: 'evidence_class' is a required property"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/57-b06-oct16-traversal-stress-fixture",
+        "Status": "BLOCKED",
+        "Validation": "failed"
+      },
+      "issue": 57,
+      "node_id": "I_kwDOVMZ38s8AAAABYASrpw",
+      "pr": 58,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/57"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 56,
+      "node_id": "I_kwDOVMZ38s8AAAABYAScwQ",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/56"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/53-b08-snapshot-service",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 53,
+      "node_id": "I_kwDOVMZ38s8AAAABYAR7gg",
+      "pr": 55,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/53"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 52,
+      "node_id": "I_kwDOVMZ38s8AAAABYAQyZQ",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/52"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 51,
+      "node_id": "I_kwDOVMZ38s8AAAABYAQxxQ",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/51"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 50,
+      "node_id": "I_kwDOVMZ38s8AAAABYAP2Cg",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/50"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "task: 48 is not of type 'object'",
+        "task: 'work/48-full-basket-capture-dispatch' is not of type 'object'",
+        "task: 'All supplied canonical folders enumerated' is not of type 'object'",
+        "task: 'Stable ticker-capability proposal keys' is not of type 'object'",
+        "task: 'Freshness/provenance gap states' is not of type 'object'",
+        "task: 'Offline adversarial tests' is not of type 'object'",
+        "task: 'Owner-specific persistent JSONL execution requirements' is not of type 'object'",
+        "task: 42 is not of type 'object'",
+        "task: 24 is not of type 'object'",
+        "task: 11 is not of type 'object'",
+        "task: 12 is not of type 'object'",
+        "task: 34 is not of type 'object'"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/48-full-basket-capture-dispatch",
+        "Status": "BLOCKED",
+        "Validation": "failed"
+      },
+      "issue": 48,
+      "node_id": "I_kwDOVMZ38s8AAAABYAKu4g",
+      "pr": 49,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/48"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/42-ticker-first-worker-contract",
+        "Status": "BLOCKED",
+        "Validation": "failed"
+      },
+      "issue": 42,
+      "node_id": "I_kwDOVMZ38s8AAAABYAJFHg",
+      "pr": 43,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/42"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 41,
+      "node_id": "I_kwDOVMZ38s8AAAABYAJBHQ",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/41"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 40,
+      "node_id": "I_kwDOVMZ38s8AAAABYAIRsg",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/40"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 39,
+      "node_id": "I_kwDOVMZ38s8AAAABYAIRTA",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/39"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "task: 37 is not of type 'object'",
+        "task: 'work/37-cross-support-evidence' is not of type 'object'",
+        "task: Additional properties are not allowed ('description' was unexpected)",
+        "task: 'criterion' is a required property",
+        "task: 'evidence_class' is a required property",
+        "task: Additional properties are not allowed ('description' was unexpected)",
+        "task: 'criterion' is a required property",
+        "task: 'evidence_class' is a required property",
+        "task: Additional properties are not allowed ('description' was unexpected)",
+        "task: 'criterion' is a required property",
+        "task: 'evidence_class' is a required property",
+        "task: 27 is not of type 'object'",
+        "task: 20 is not of type 'object'",
+        "task: 12 is not of type 'object'",
+        "task: 17 is not of type 'object'"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/37-cross-support-evidence",
+        "Status": "BLOCKED",
+        "Validation": "head_passed_not_integrated"
+      },
+      "issue": 37,
+      "node_id": "I_kwDOVMZ38s8AAAABYAHM7w",
+      "pr": 38,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/37"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 36,
+      "node_id": "I_kwDOVMZ38s8AAAABX-APNA",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/36"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 34,
+      "node_id": "I_kwDOVMZ38s8AAAABX98NRg",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/34"
+    },
+    {
+      "blocked_by": [
+        24,
+        65
+      ],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/32-mrie-agentic-readiness-audit",
+        "Domain": "Orchestrator & Contracts",
+        "Spark ID": "B00",
+        "Status": "BLOCKED",
+        "Validation": "failed",
+        "Worker": "unassigned"
+      },
+      "issue": 32,
+      "node_id": "I_kwDOVMZ38s8AAAABX9n2Dw",
+      "pr": 33,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/32"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 30,
+      "node_id": "I_kwDOVMZ38s8AAAABX10vFA",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/30"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 29,
+      "node_id": "I_kwDOVMZ38s8AAAABX10fpw",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/29"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 28,
+      "node_id": "I_kwDOVMZ38s8AAAABX10XxQ",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/28"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 27,
+      "node_id": "I_kwDOVMZ38s8AAAABX1x3yw",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/27"
+    },
+    {
+      "blocked_by": [
+        64
+      ],
+      "category": "Blocked",
+      "errors": [
+        "owner_missing"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/26-openai-preipo-valuation-sftby",
+        "Domain": "OpenAI & Anthropic Private Value",
+        "Spark ID": "B13",
+        "Status": "BLOCKED",
+        "Validation": "failed",
+        "Worker": "unassigned"
+      },
+      "issue": 26,
+      "node_id": "I_kwDOVMZ38s8AAAABX1xcvw",
+      "pr": 31,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/26"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/24-register-coverage-research-milestones",
+        "Status": "BLOCKED",
+        "Validation": "failed"
+      },
+      "issue": 24,
+      "node_id": "I_kwDOVMZ38s8AAAABX1v9bQ",
+      "pr": 25,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/24"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/21-underrepresented-ticker-coverage",
+        "Status": "BLOCKED",
+        "Validation": "failed"
+      },
+      "issue": 21,
+      "node_id": "I_kwDOVMZ38s8AAAABX1umZQ",
+      "pr": 23,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/21"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/20-capital-profit-graph",
+        "Status": "BLOCKED",
+        "Validation": "failed"
+      },
+      "issue": 20,
+      "node_id": "I_kwDOVMZ38s8AAAABX1uOiw",
+      "pr": 22,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/20"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/17-mrie-revenue-pool-resources",
+        "Status": "BLOCKED",
+        "Validation": "failed"
+      },
+      "issue": 17,
+      "node_id": "I_kwDOVMZ38s8AAAABX1h6Ng",
+      "pr": 18,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/17"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 16,
+      "node_id": "I_kwDOVMZ38s8AAAABXxVskA",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/16"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/12-b03-canonical-issuer-events",
+        "Status": "BLOCKED",
+        "Validation": "failed"
+      },
+      "issue": 12,
+      "node_id": "I_kwDOVMZ38s8AAAABXxTDTA",
+      "pr": 14,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/12"
+    },
+    {
+      "blocked_by": [],
+      "category": "Blocked",
+      "errors": [
+        "missing_valid_worker_claim"
+      ],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Branch": "work/11-market-fx-observation-replay",
+        "Status": "BLOCKED",
+        "Validation": "failed"
+      },
+      "issue": 11,
+      "node_id": "I_kwDOVMZ38s8AAAABXxS4tw",
+      "pr": 15,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/11"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 7,
+      "node_id": "I_kwDOVMZ38s8AAAABXxEsuQ",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/7"
+    },
+    {
+      "blocked_by": [],
+      "category": "Planned",
+      "errors": [],
+      "fields": {
+        "Acceptance": "not_verified",
+        "Status": "BACKLOG",
+        "Validation": "unverified"
+      },
+      "issue": 3,
+      "node_id": "I_kwDOVMZ38s8AAAABXuh60g",
+      "pr": null,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/3"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABL5fzgw",
+      "pr": 133,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/133"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABL33jSg",
+      "pr": 127,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/127"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLxWjww",
+      "pr": 125,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/125"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "failed"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLqF-ew",
+      "pr": 123,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/123"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLp_z4g",
+      "pr": 122,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/122"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLpRpLQ",
+      "pr": 120,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/120"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLpFfxg",
+      "pr": 117,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/117"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLpB6bA",
+      "pr": 114,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/114"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLoOQiw",
+      "pr": 111,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/111"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLl_xHA",
+      "pr": 109,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/109"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLlyrbQ",
+      "pr": 107,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/107"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLlipFw",
+      "pr": 104,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/104"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLlIRog",
+      "pr": 101,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/101"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLbPvZQ",
+      "pr": 99,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/99"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLL6JRg",
+      "pr": 90,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/90"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABLDDDfQ",
+      "pr": 87,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/87"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABK2D3vA",
+      "pr": 85,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/85"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABK2D1zA",
+      "pr": 84,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/84"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABK2D0Sw",
+      "pr": 83,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/83"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABKzn6Hw",
+      "pr": 79,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/79"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABKys9_A",
+      "pr": 77,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/77"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABKye4ZA",
+      "pr": 74,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/74"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABKX6J1A",
+      "pr": 72,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/72"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABKCbd9g",
+      "pr": 69,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/69"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABJG5t6g",
+      "pr": 60,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/60"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "failed"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABJG4zIA",
+      "pr": 58,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/58"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABJG4c8w",
+      "pr": 55,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/55"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "failed"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABJGyq-g",
+      "pr": 49,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/49"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "failed"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABJGxKdA",
+      "pr": 43,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/43"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "head_passed_not_integrated"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABJGwVdg",
+      "pr": 38,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/38"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "failed"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABJEwr6A",
+      "pr": 33,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/33"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "failed"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABI-cB_g",
+      "pr": 31,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/31"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "failed"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABI-YE8g",
+      "pr": 25,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/25"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "failed"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABI-XLCw",
+      "pr": 23,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/23"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "failed"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABI-XJBw",
+      "pr": 22,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/22"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "failed"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABI-MJxQ",
+      "pr": 18,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/18"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "failed"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABI6u_7A",
+      "pr": 15,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/15"
+    },
+    {
+      "category": "In progress",
+      "fields": {
+        "Status": "DRAFT_PR",
+        "Validation": "failed"
+      },
+      "node_id": "PR_kwDOVMZ38s8AAAABI6u98w",
+      "pr": 14,
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/14"
+    }
+  ],
+  "repository": "whiterosecoffee/_BASKET",
+  "scope": "All open issues and PRs; comments, native blockers, branches, PR files, current-head check runs/statuses/workflow runs. Closed/merged history not reconciled.",
+  "source_snapshot_sha256": "36063f021b2efee2a3d8e96e9b7e490bbaf1bb90a193a4d8422243373d6e6298",
+  "summary": {
+    "categories": {
+      "Blocked": 41,
+      "In progress": 38,
+      "Planned": 37
+    },
+    "issues": 78,
+    "prs": 38
+  }
+}
