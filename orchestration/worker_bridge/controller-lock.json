@@ -1,6 +1,6 @@
 {
   "repository": "whiterosecoffee/_BASKET",
-  "controller_commit": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+  "controller_commit": "59a8e0eae91f96d64a1589ebfef03c4a7383662c",
   "files": {
     "orchestration/agentic/manager.py": "e78aaad41ea4de4d0d976893f5938eb323a436ac7d92e6e0130c9ab2bc849716",
     "orchestration/agentic/github_adapter.py": "af3822c908dd23643a7485fb6d5e1cdde1bb54a26e76cba521e5028d5f2df517"

@@ -73,3 +73,18 @@ python orchestration/validate_sparks.py
 `scenarios.demonstrate(...)` was called using the fresh source capture and exact
 controller. It passed eight deliberately injected negative/recovery cases. Output
 is `evidence/negative-scenarios.json`; those fixtures were not posted as live claims.
+
+## User-authorized priority correction
+
+On owning PR #33, both failed-attempt fixture events now explicitly target T-002,
+and the assertion verifies that unrelated T-001 has no attempts. Added B00-owned
+`orchestration/tests/test_agentic_controller.py` to the existing B01 discovery path.
+No controller production code or CI workflow changed. New source commit:
+`59a8e0eae91f96d64a1589ebfef03c4a7383662c`. Local commands produced 61 controller
+passes and 111 aggregate orchestration passes. Independent PR run `41172651296`
+checked out that exact head and confirmed 111 tests; push run `41172647936` used
+an older workflow and is not the controller-execution proof.
+
+The bridge pin now references the verified source. Prior failure logs, execution
+receipts and source snapshots above remain immutable history. No new model call,
+lease grant, merge or deployment occurred for this maintenance update.

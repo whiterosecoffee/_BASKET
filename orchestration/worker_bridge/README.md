@@ -10,17 +10,19 @@ GitHub issue/branch/PR/CI evidence authoritative.
 |---|---|---|
 | Main | `afc4ada7bc6d7294071b3610fa77e59b206b6312` | Worker schemas, profile library, scopes, evaluator, B01 workflow |
 | #106 / PR #107 | `eb099d8e2bf37918eaf11a46341289ff09651d9e` | Worker-v2 lifecycle; run `40927765356` succeeded at this head |
-| #32 / PR #33 | `192a31bed3858fc0fb0c0254cd85cf6672e49511` | `evaluate`, `collisions`, `attempts`, lease/event validation, fingerprints, complete PR collector |
+| #32 / PR #33 | `59a8e0eae91f96d64a1589ebfef03c4a7383662c` | `evaluate`, `collisions`, `attempts`, lease/event validation, fingerprints, complete PR collector |
 | #78 / PR #79 | `0eae03d6a2e0b98209761a365b9c891ff7b7c48b` | Existing `basket.agent_assignment@1` transport envelope |
 | #103 / PR #104 | `3908ef1dc33c65ee19e87b54a6d63a191659b9fa` | Component I/O/provenance/error boundary proposal; no new schema |
 | B08 #53 / PR #55 | `24d77045575926be5499355f9d26de499ed2b5ae` | Runtime ownership boundary; existing service is a read-only snapshot, not an agent supervisor |
 
 Dependency source is not copied or modified. `controller-lock.json` pins its Git
 commit and content hashes. A mounted read-only checkout is required until its
-owning PR is reviewed/integrated. A local rerun of that source suite has 60 passes
-and one failure: the retry test creates T-001 events but asserts T-002. This is
-reported to #32 as a likely fixture identity mismatch, not a proven production
-retry failure. Its failed test remains untouched.
+owning PR is reviewed/integrated. The original audited source `192a31bed3858fc0fb0c0254cd85cf6672e49511` had
+60 passes and one misaddressed retry fixture (T-001 events, T-002 assertion).
+User-authorized maintenance corrected that fixture on its owning PR #33 and added
+a B00 discovery shim. The current pin has 61/61 local controller tests and 111/111
+independent B01 PR-CI tests passing at exact head (run `41172651296`). Production
+controller bytes are unchanged. Original failed logs remain historical evidence.
 
 ## Smallest missing implementation
 
@@ -124,8 +126,9 @@ mandatory gaps stay visible in the issue's final resolution.
 
 ## Handoffs and blockers
 
-- #32 / #65: controller source-suite fixture identity mismatch needs owner/B01 review.
-  The unmerged controller must be integrated by its owner, not vendored here.
+- #32 / #65: fixture repair and independent exact-head controller verification
+  are complete on PR #33. Its source is still unmerged and must be integrated
+  through approved ownership/review, not vendored here.
 - B08 #34/#53: provide a reviewed authenticated execution supervisor and writable
   runtime state if unattended/native execution is desired. Current snapshot service
   is read-only; this bridge does not add a competing runtime.
@@ -133,3 +136,8 @@ mandatory gaps stay visible in the issue's final resolution.
   verify real controller and external transport before claiming hosted operation.
 - No merge, release, paid external invocation, market-data runtime modification,
   ownership takeover or automatic worker launch is authorized by this component.
+
+Priority verification update: `evidence/controller-repair-59a8e0e/` records the
+current source pin, unchanged production hashes, local commands, and exact-head CI.
+New negative scenarios explicitly replay a historical snapshot for testing only;
+they do not renew the released live execution lease.

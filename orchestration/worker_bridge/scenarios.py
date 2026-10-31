@@ -7,7 +7,7 @@ import datetime as dt
 import json
 from pathlib import Path
 
-from .bridge import (ROOT, UTC, Blocked, assert_fence, digest, load_controller, prepare)
+from .bridge import (ROOT, UTC, Blocked, assert_fence, digest, git, load_controller, prepare)
 
 
 def demonstrate(controller, task, issue, library, catalog, evidence, events, root, now):
@@ -77,5 +77,5 @@ def demonstrate(controller, task, issue, library, catalog, evidence, events, roo
         raise AssertionError("Source drift accepted")
     assert original == digest(evidence)
     return {"classification": "synthetic_negative_tests_not_live_ownership_or_host_recovery",
-            "controller_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+            "controller_sha": git(Path(controller.__file__).resolve().parents[2], "rev-parse", "HEAD"),
             "source_evidence_sha256": original, "cases": cases, "case_count": len(cases)}

@@ -1,0 +1,33 @@
+{
+  "controller_commit": "59a8e0eae91f96d64a1589ebfef03c4a7383662c",
+  "previous_commit": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+  "production_code_changed": false,
+  "production_sha256": {
+    "orchestration/agentic/manager.py": "e78aaad41ea4de4d0d976893f5938eb323a436ac7d92e6e0130c9ab2bc849716",
+    "orchestration/agentic/github_adapter.py": "af3822c908dd23643a7485fb6d5e1cdde1bb54a26e76cba521e5028d5f2df517"
+  },
+  "local": {
+    "controller_tests": 61,
+    "aggregate_orchestration_tests": 111,
+    "failed": 0,
+    "skipped": 0
+  },
+  "independent_ci": {
+    "run_id": 41172651296,
+    "event": "pull_request",
+    "conclusion": "success",
+    "head_sha": "59a8e0eae91f96d64a1589ebfef03c4a7383662c",
+    "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/41172651296",
+    "job_id": 124453703309,
+    "test_count": 111,
+    "verified_checkout_sha": true,
+    "verified_retry_test_executed": true,
+    "note": "Push run 41172647936 uses an older workflow and is not controller test execution evidence."
+  },
+  "scope": [
+    "orchestration/agentic/tests/test_manager.py",
+    "orchestration/tests/test_agentic_controller.py"
+  ],
+  "merge_performed": false,
+  "native_agent_execution_performed": false
+}
