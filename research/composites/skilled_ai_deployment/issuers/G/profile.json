@@ -90,5 +90,57 @@
     "date": "2026-11-05",
     "issuer_confirmed": true,
     "source": "https://media.genpact.com/2026-10-08-Genpact-to-Report-Third-Quarter-2026-Results"
+  },
+  "workforce_productivity": {
+    "as_of": "2026-06-30",
+    "period": "2026-Q2",
+    "headcount_lower_bound": 141000,
+    "headcount_type": "total employees company states over 141000",
+    "quarter_revenue_usd": 1343438000,
+    "quarter_gaap_gross_profit_usd": 490338000,
+    "quarter_gaap_net_profit_usd": 145737000,
+    "quarter_adjusted_net_profit_usd": 170895000,
+    "per_employee_quarter_usd_upper_bound": {
+      "revenue": 9528,
+      "gross_profit": 3478,
+      "gaap_net_profit": 1034,
+      "adjusted_net_profit": 1212
+    },
+    "per_employee_annualized_usd_upper_bound": {
+      "revenue": 38112,
+      "gross_profit": 13911,
+      "gaap_net_profit": 4135,
+      "adjusted_net_profit": 4848
+    },
+    "matched_yoy_headcount_growth_pct": null,
+    "matched_yoy_net_profit_per_employee_growth_pct": null,
+    "caveat": "Using lower-bound period-end headcount yields upper-bound snapshot ratios; annualized Q2 not FY forecast; contractor mix unknown.",
+    "sources": [
+      "https://www.sec.gov/Archives/edgar/data/1398659/000139865926000014/g-20260630.htm",
+      "https://media.genpact.com/2026-08-06-Genpact-Reports-Second-Quarter-2026-Results"
+    ]
+  },
+  "earnings_growth_outlook": {
+    "q2_2026_gaap_eps_growth_yoy_pct": 14.7,
+    "q2_2026_adjusted_eps_growth_yoy_pct": 13.6,
+    "fy2026_adjusted_eps_growth_floor_pct": 12,
+    "fy2027_adjusted_eps_growth_consensus": null,
+    "fy2028_adjusted_eps_growth_consensus": null,
+    "fy2027_scenario_eps_growth_pct_range": [
+      8,
+      18
+    ],
+    "fy2028_scenario_eps_growth_pct_range": [
+      8,
+      20
+    ],
+    "scenario_not_consensus": true,
+    "variables": [
+      "advanced technology sales growth",
+      "cash conversion",
+      "adjusted operating margin",
+      "share repurchases",
+      "core service pricing"
+    ]
   }
 }
