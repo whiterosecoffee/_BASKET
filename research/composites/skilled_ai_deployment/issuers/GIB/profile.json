@@ -221,5 +221,95 @@
       "adjusted earnings and margin excluding buybacks",
       "FCF and bookings conversion"
     ]
+  },
+  "partner_client_acquisition_2026": {
+    "as_of": "2026-10-30",
+    "source_class": "issuer_press_releases",
+    "clients": [
+      {
+        "date": "2026-10-06",
+        "name": "France Ministry of Agriculture",
+        "type": "selected_new_mandate",
+        "scope": "modernize over 70 applications",
+        "contract_usd": null,
+        "source": "https://www.cgi.com/luxembourg/en/cgi-selected-france-ministry-agriculture-modernizing-information-system"
+      },
+      {
+        "date": "2026-08-25",
+        "name": "AgVantis",
+        "type": "expansion_of_existing_relationship",
+        "scope": "long-term managed technology cloud data and AI-ready platforms",
+        "contract_usd": null,
+        "source": "https://www.cgi.com/us/en-us/news/it-outsourcing-services/agvantis-strategic-partnership-modernize-technology"
+      },
+      {
+        "date": "2026-08-04",
+        "name": "US General Services Administration",
+        "type": "existing_client_contract_award",
+        "contract_usd": 251000000,
+        "scope": "hosting and management of financial systems",
+        "source": "https://www.cgi.com/us/en-us/mediacenter/artificial-intelligence/press-releases"
+      },
+      {
+        "date": "2026-07-27",
+        "name": "City of Munich",
+        "type": "selected_public_sector_project",
+        "contract_usd": null,
+        "source": "https://www.cgi.com/en/mediacenter/press-releases"
+      },
+      {
+        "date": "2026-06-01",
+        "name": "Telia",
+        "type": "strategic_partnership_and_business_transfer",
+        "contract_usd": null,
+        "source": "https://www.cgi.com/en/cgi-and-telia-announce-agreement-for-business-services-transfer-and-new-strategic-partnership"
+      }
+    ],
+    "technology_partners": [
+      {
+        "name": "OpenAI",
+        "date": "2026-04-21",
+        "relationship": "expanded global partnership focused on Codex",
+        "source": "https://www.cgi.com/en/mediacenter/intelligent-automation/press-releases"
+      },
+      {
+        "name": "Microsoft",
+        "date": "2026-06-30",
+        "relationship": "Solutions Partner with certified software for government ERP CGI Advantage",
+        "source": "https://www.cgi.com/us/en-us/mediacenter/artificial-intelligence/press-releases"
+      },
+      {
+        "name": "AWS",
+        "date": "2026-09-29",
+        "relationship": "jointly developed federal AI Agent Catalog",
+        "source": "https://www.cgi.com/us/en-us/mediacenter/federal/press-releases"
+      },
+      {
+        "name": "Databricks",
+        "date": "2026-07-20",
+        "relationship": "Public Sector and GenAI specializations",
+        "source": "https://www.cgi.com/en/mediacenter/systems-integration/press-releases"
+      },
+      {
+        "name": "D-Wave",
+        "date": "2026-09-23",
+        "relationship": "enterprise quantum use cases",
+        "source": "https://www.cgi.com/en/cgi-d-wave-quantum-partner-advance-quantum-adoption?trk=article-ssr-frontend-pulse_little-text-block"
+      },
+      {
+        "name": "NetApp",
+        "date": "2026-06-22",
+        "relationship": "global storage alliance extended",
+        "source": "https://www.cgi.com/us/en-us/mediacenter/cloud-it-modernization/press-releases"
+      }
+    ],
+    "interpretation": "Credible increase in AI ecosystem channels, named customer relationships and public-sector modernization mandates; FY2027 bookings and revenue contribution undisclosed.",
+    "missing_evidence": [
+      "incremental new-logo client count",
+      "net new annual contract value",
+      "partner-sourced contract wins",
+      "AI share of backlog",
+      "period recognized revenue from announcements"
+    ]
   }
 }
