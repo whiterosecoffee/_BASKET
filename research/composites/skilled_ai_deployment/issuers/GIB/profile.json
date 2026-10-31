@@ -311,5 +311,79 @@
       "AI share of backlog",
       "period recognized revenue from announcements"
     ]
+  },
+  "client_revenue_profit_potential_2026_10_30": {
+    "currency": "USD",
+    "as_of": "2026-10-30",
+    "cases": [
+      {
+        "client": "US GSA",
+        "status": "renewal_existing_client",
+        "contract_ceiling_usd": 251780489,
+        "initial_award_usd_approx": 15672236,
+        "possible_term_years": 10,
+        "annualized_full_ceiling_usd_approx": 25178049,
+        "warning": "Ceiling not funding or guaranteed annual revenue; annual run rate illustrative",
+        "source": "https://www.highergov.com/contract/GS35F281DA-47QACB26F0047/"
+      },
+      {
+        "client": "Osceola County School District",
+        "status": "new_competitive_award",
+        "scope": "CGI Advantage enterprise cloud ERP finance procurement budgeting HR payroll",
+        "contract_usd": null,
+        "production_implementation_since": "2026-04",
+        "source": "https://www.cgi.com/us/en-us/news/cgi-advantage/osceola-county-school-district-partnership"
+      },
+      {
+        "client": "AgVantis",
+        "status": "expanded_incumbent_relationship",
+        "scope": "cloud application data AI-ready platform across agricultural finance provider",
+        "contract_usd": null,
+        "market_reach_note": "AgVantis named member customer base; broader Farm Credit market volume must not be attributed to this contract",
+        "source": "https://www.cgi.com/us/en-us/news/it-outsourcing-services/agvantis-strategic-partnership-modernize-technology"
+      },
+      {
+        "client": "France Ministry of Agriculture",
+        "status": "selected_after_tender",
+        "scope": "70+ application modernization via proprietary CGI MAP",
+        "contract_usd": null,
+        "source": "https://www.cgi.com/malaysia/en/cgi-selected-france-ministry-agriculture-modernizing-information-system"
+      },
+      {
+        "client": "Commonwealth of Massachusetts",
+        "status": "system_go_live_existing_implementation",
+        "scope": "statewide Mosaic financial management system",
+        "contract_usd": null,
+        "source": "https://www.cgi.com/us/en-us/mediacenter/cloud-it-modernization/press-releases"
+      }
+    ],
+    "incremental_revenue_illustrations_not_forecasts": [
+      {
+        "additional_annual_revenue_usd_m": 25,
+        "ebit_margin_assumption_pct": 16.3,
+        "additional_ebit_usd_m": 4.075
+      },
+      {
+        "additional_annual_revenue_usd_m": 50,
+        "ebit_margin_assumption_pct": 25,
+        "additional_ebit_usd_m": 12.5
+      },
+      {
+        "additional_annual_revenue_usd_m": 100,
+        "ebit_margin_assumption_pct": 30,
+        "additional_ebit_usd_m": 30
+      }
+    ],
+    "baseline_adjusted_ebit_margin_pct": 16.3,
+    "baseline_margin_period": "FY2026-Q3",
+    "preferred_evidence": "Software recurring revenues and gross margins vs upfront integration services separately disclosed",
+    "cautions": [
+      "Do not sum ceilings and new revenues",
+      "Some prior awards already within reported backlog",
+      "Contract sizes not provided except GSA",
+      "High margin software alone does not imply high total contract margin",
+      "Project and managed-service labor plus hosting and third-party licenses impose costs"
+    ],
+    "source": "https://www.cgi.com/en/cgi-reports-third-quarter-f2026-results"
   }
 }
