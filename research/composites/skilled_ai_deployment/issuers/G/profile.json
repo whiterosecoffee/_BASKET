@@ -186,5 +186,89 @@
     "cash_from_operations_prior_year_usd_m": 177,
     "mechanism": "High-growth tech business is a minority; legacy business slow; buybacks augment EPS and margins have not demonstrated software-scale step change.",
     "source": "https://media.genpact.com/2026-08-06-Genpact-Reports-Second-Quarter-2026-Results"
+  },
+  "agentic_growth_indicators": {
+    "source_period": "2026-Q2 earnings call 2026-08-06",
+    "management_target_agentic_2026_TCV_usd_gt": 1000000000,
+    "agentic_TCV_vs_2025_multiple_approx": 5,
+    "agentic_award_value_from_new_clients_pct_gt": 50,
+    "converted_client_net_revenue_growth_pct_gt": 3,
+    "converted_client_gross_margin_expansion_bps_gt": 300,
+    "non_FTE_revenue_share_pct_gt": 50,
+    "large_deals_H1_2026": 12,
+    "large_deal_definition_TCV_usd_min": 50000000,
+    "large_deals_H1_yoy_ratio": 2,
+    "advanced_solutions_fraction_bookings_Q2_pct_approx": 40,
+    "agentic_share_of_Q2_advanced_solutions_revenue": "management_says_very_little",
+    "TCV_not_ARR": true,
+    "customer_cohort_outcome_not_companywide": true,
+    "management_estimate_not_contract_audit": true,
+    "source": "https://stockanalysis.com/stocks/g/transcripts/662817-q2-2026/"
+  },
+  "q3_2026_beat_setup": {
+    "report_date": "2026-11-05",
+    "company_guidance": {
+      "revenue_usd_m": [
+        1369,
+        1382
+      ],
+      "adjusted_eps": [
+        1.04,
+        1.05
+      ],
+      "gross_margin_pct": 36.6,
+      "adjusted_operating_margin_pct": 17.8,
+      "advanced_technology_revenue_growth_pct_min": 25
+    },
+    "third_party_consensus": {
+      "revenue_usd_m_approx": 1380,
+      "adjusted_eps_approx": 1.04,
+      "snapshot_date": "2026-10-30",
+      "sample_size_not_verified": true,
+      "source": "https://www.marketbeat.com/earnings/reports/2026-11-5-genpact-limited-stock/"
+    },
+    "potential_positive_drivers": [
+      "agentic TCV signs and faster conversion to revenue",
+      "non-FTE pricing gains with higher gross profit per account",
+      "incremental large deals and net-new client distribution",
+      "higher ATS share and improved operating margin",
+      "guidance uplift and better working capital"
+    ],
+    "negative_falsifiers": [
+      "legacy services exits create ~2 points 2026 revenue drag and slightly larger dollar drag expected 2027",
+      "TCV recognition years and go-live timing stretch",
+      "quarterly ATS revenue still mostly non-agentic",
+      "cash conversion fails to rebound",
+      "customer productivity benefit retained by buyer rather than provider"
+    ],
+    "probability": null,
+    "beat_not_assumed": true
+  },
+  "product_expansion": {
+    "agentic_finance": [
+      "Accounts Payable Suite",
+      "Record-to-Report Suite",
+      "Accounts Receivable Suite",
+      "Finance Actions Hub",
+      "Deductions Recovery"
+    ],
+    "operations": [
+      "Procurement Suite",
+      "Order Assist"
+    ],
+    "insurance": [
+      "Insurance Policy Suite"
+    ],
+    "banking": [
+      "Banking Analyst Suite"
+    ],
+    "product_catalog_source": "https://www.genpact.com/agentic/products",
+    "launch_customer_example": {
+      "product": "AR Suite",
+      "customer": "FLSmidth",
+      "status": "selected_not_independently_verified_production_revenue",
+      "source": "https://media.genpact.com/2026-10-14-Genpact-Launches-Agentic-Accounts-Receivable-Suite-to-Optimize-Cash-Flow-and-Working-Capital"
+    },
+    "product_catalog_not_equivalent_to_monetized_contracts": true
   }
 }
