@@ -1,0 +1,23 @@
+{
+  "schema": "basket.ticker_observation@1",
+  "entity_id": "NVDA",
+  "kind": "financial_fact",
+  "source": "NVIDIA Newsroom",
+  "source_record_id": "NVDA:FY2025Q3:reported-revenue:2024-11-20",
+  "observed_at": "2024-10-27T00:00:00Z",
+  "available_at": "2026-11-01T01:50:29Z",
+  "ingested_at": "2026-11-01T01:50:29Z",
+  "currency": "USD",
+  "ttd_seconds": 0,
+  "value": {
+    "concept": "Revenue",
+    "taxonomy": "issuer_release",
+    "period_start": null,
+    "period_end": "2024-10-27",
+    "unit": "USD",
+    "amount": 35082000000,
+    "basis": "reported",
+    "source_url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2025",
+    "excerpt": "($ in millions, except earnings per share) | Q3 FY25 ... Revenue | $ | 35,082"
+  }
+}
