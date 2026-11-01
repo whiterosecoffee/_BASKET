@@ -1,0 +1,121 @@
+{
+  "schema": "basket.moat_talent_comparison@1-provisional",
+  "as_of": "2026-10-30",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "status": "qualitative_research_not_probabilistic",
+  "score_scale": "1-5 analyst assessment not backtested",
+  "dimensions": [
+    "specialist_skill",
+    "customer_lock_in",
+    "reusable_tooling",
+    "talent_depth",
+    "barrier_to_entry"
+  ],
+  "members": [
+    {
+      "ticker": "GDYN",
+      "score": {
+        "specialist_skill": 4,
+        "customer_lock_in": 4,
+        "reusable_tooling": 4,
+        "talent_depth": 4,
+        "barrier_to_entry": 3
+      },
+      "talent_pool": {
+        "headcount": 4559,
+        "definition": "total employees",
+        "period": "2026-Q3"
+      },
+      "notes": "GAAP gross margin +7pp YoY; 93% engineers AI-trained; top 10 clients 63.3% revenue"
+    },
+    {
+      "ticker": "EXLS",
+      "score": {
+        "specialist_skill": 5,
+        "customer_lock_in": 5,
+        "reusable_tooling": 4,
+        "talent_depth": 4,
+        "barrier_to_entry": 4
+      },
+      "talent_pool": {
+        "headcount": null,
+        "definition": "comparable workforce not verified",
+        "period": null
+      },
+      "notes": "Q3 revenue +19.7%, data/AI organic +31%; iMerit acquisition; margin leverage yet unproven"
+    },
+    {
+      "ticker": "EPAM",
+      "score": {
+        "specialist_skill": 5,
+        "customer_lock_in": 3,
+        "reusable_tooling": 4,
+        "talent_depth": 5,
+        "barrier_to_entry": 4
+      },
+      "talent_pool": {
+        "headcount": 56650,
+        "definition": "delivery professionals",
+        "period": "2026-Q2"
+      },
+      "notes": "large engineering resource but organic 2026 growth guidance 2-3%, H1 operating cash use"
+    },
+    {
+      "ticker": "INOD",
+      "score": {
+        "specialist_skill": 5,
+        "customer_lock_in": 4,
+        "reusable_tooling": 3,
+        "talent_depth": 3,
+        "barrier_to_entry": 2
+      },
+      "talent_pool": {
+        "headcount": null,
+        "definition": "not comparable",
+        "period": null
+      },
+      "notes": "foundation-model data and evaluation, customer concentration, increases in labor expense"
+    },
+    {
+      "ticker": "GLOB",
+      "score": {
+        "specialist_skill": 4,
+        "customer_lock_in": 3,
+        "reusable_tooling": 5,
+        "talent_depth": 4,
+        "barrier_to_entry": 3
+      },
+      "talent_pool": {
+        "headcount": 25632,
+        "definition": "technology design innovation professionals",
+        "period": "2026-Q2"
+      },
+      "notes": "Glob.AI ARR $52.8m growing 61% QoQ; adjusted operating margin contracted"
+    },
+    {
+      "ticker": "CACI",
+      "score": {
+        "specialist_skill": 5,
+        "customer_lock_in": 5,
+        "reusable_tooling": 4,
+        "talent_depth": 5,
+        "barrier_to_entry": 5
+      },
+      "talent_pool": {
+        "headcount": 27000,
+        "definition": "total employees",
+        "period": "2026-06-30"
+      },
+      "notes": "security/mission qualification, funded backlog $6.2B September 2026"
+    }
+  ],
+  "sources": [
+    "https://www.fool.com/earnings/call-transcripts/2026/10/30/grid-dynamics-gdyn-q3-2026-earnings-call-transcript/",
+    "https://ir.exlservice.com/news-releases/news-release-details/exl-reports-2026-third-quarter-results",
+    "https://investors.epam.com/news/news-details/2026/EPAM-Reports-Results-for-Second-Quarter-2026/default.aspx",
+    "https://investors.globant.com/2026-08-13-Globant-Reports-2026-Second-Quarter-Financial-Results",
+    "https://www.sec.gov/Archives/edgar/data/16058/000162828026066740/fy27-q1caci20261021ex991.htm",
+    "https://www.sec.gov/Archives/edgar/data/903651/000110465926092021/inod-20260630x10q.htm"
+  ],
+  "missing": "Headcount metrics not standardized; peer pricing power, deployment throughput and attributable partner revenue missing; scores qualitative only"
+}

@@ -1,0 +1,224 @@
+{
+  "schema": "basket.issuer_research_reference@1-provisional",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "ticker": "EXLS",
+  "venue": "NASDAQ",
+  "as_of": "2026-10-30",
+  "scope": "basket-linked company research profile; canonical issuer folder controlled separately",
+  "basket_member": true,
+  "classification": "core",
+  "skill_base": "regulated financial/insurance AI, data operations",
+  "capabilities": "regulated-industry AI agents, transaction modeling, domain operations",
+  "partnerships": {
+    "nvidia": "EXLerate.ai/NVIDIA AI Enterprise and Transaction Foundation Model",
+    "microsoft": "Data & AI Solutions Partner verified",
+    "partner_sources": [
+      "https://www.exlservice.com/about/partnerships/nvidia",
+      "https://www.exlservice.com/about/partnerships/microsoft",
+      "https://www.exlservice.com/about/newsroom/exl-advances-exlerateai-agentic-ai-platform-to-support-enterprise-scale-adoption-with-nvidia-technologies"
+    ],
+    "partner_attributable_revenue": null,
+    "openai": {
+      "program": "OpenAI Partner Network",
+      "designation": "OpenAI Select Partner",
+      "announced_at": "2026-10-29",
+      "issuer_announcement_verified": true,
+      "openai_partner_directory_verified": true,
+      "capabilities": [
+        "enterprise co-sell enablement",
+        "frontier-model workflow deployment",
+        "reasoning and computer-use solutions",
+        "regulated industry deployment"
+      ],
+      "industries": [
+        "insurance",
+        "financial_services",
+        "healthcare",
+        "life_sciences"
+      ],
+      "exclusive_or_preferred_referral_rights_verified": false,
+      "partner_originated_bookings_usd": null,
+      "committed_contract_value_usd": null,
+      "attributable_revenue_usd": null,
+      "actual_deployments_count": null,
+      "sources": [
+        {
+          "url": "https://ir.exlservice.com/news-releases/news-release-details/exl-named-openai-select-partner",
+          "class": "issuer_press_release",
+          "published_at": "2026-10-29"
+        },
+        {
+          "url": "https://openai.com/business/partners/exl-service/",
+          "class": "vendor_partner_directory",
+          "observed_at": "2026-10-30"
+        }
+      ]
+    }
+  },
+  "price_observation": {
+    "usd": 41.43,
+    "day_pct": 0.75,
+    "as_of": "2026-10-30 screenshot",
+    "verified_close": false
+  },
+  "earnings": {
+    "latest_reported": "2026-Q3",
+    "revenue_growth_yoy_pct": 19.7,
+    "gaap_eps": 0.45,
+    "adjusted_eps": 0.62,
+    "adjusted_eps_growth_yoy_pct": 28.5,
+    "reported_extra": {
+      "data_ai_revenue_growth_yoy_pct": 36
+    },
+    "guidance": {
+      "period": "FY2026",
+      "revenue_usd_m": [
+        2430,
+        2440
+      ],
+      "adjusted_eps": [
+        2.34,
+        2.36
+      ]
+    },
+    "adjusted_annual_guidance_midpoint_eps": 2.3499999999999996,
+    "price_to_guided_adjusted_eps": 17.63,
+    "forward_2027_eps": null,
+    "forward_2027_pe": null,
+    "forward_2028_eps": null,
+    "forward_2028_pe": null,
+    "missing_reason": "Fresh date-matched 2027/28 forecasts not verified"
+  },
+  "forward_earnings_status": "2027/2028 consensus not independently verified",
+  "sources": [
+    "https://ir.exlservice.com/news-releases/news-release-details/exl-reports-2026-third-quarter-results",
+    "https://www.exlservice.com/about/partnerships/nvidia",
+    "https://www.exlservice.com/about/partnerships/microsoft",
+    "https://www.exlservice.com/about/newsroom/exl-advances-exlerateai-agentic-ai-platform-to-support-enterprise-scale-adoption-with-nvidia-technologies",
+    "https://ir.exlservice.com/news-releases/news-release-details/exl-named-openai-select-partner",
+    "https://openai.com/business/partners/exl-service/",
+    "https://ir.exlservice.com/news-releases/news-release-details/imerit-exl-company-launches-imerit-scholars-platform-ai-talent",
+    "https://www.exlservice.com/about/newsroom/exl-transforms-client-workflows-with-the-integration-of-agentic-ai-into-core-insurance-and-healthcare-solutions"
+  ],
+  "data_quality": {
+    "company_guidance": "only if issuer sourced",
+    "screenshot_price_not_verified_close": true,
+    "unconfirmed_values": null,
+    "validation_status": "research_pending_independent_validation"
+  },
+  "research_tasks": [
+    "Verify most recent quarterly issuer release, GAAP and non-GAAP reconciliation",
+    "Verify 2027/2028 forward EPS estimates and source timestamp",
+    "Verify current price and calculate dated same-basis forward P/E",
+    "Verify NVIDIA/Microsoft partnership tier and commercial contribution",
+    "Score organic growth, skilled deployment capacity, margin expansion and operating cash conversion"
+  ],
+  "basket_tags": [
+    {
+      "basket_id": "us-tradable-ai-deployment-service-options",
+      "role": "member",
+      "status": "research_shortlist",
+      "as_of": "2026-10-30",
+      "source": "research/composites/skilled_ai_deployment/us_tradable_options.json"
+    }
+  ],
+  "canonical_profile_target": "research/EXLS/profile.json",
+  "canonical_profile_status": "pending_B00_handoff_130",
+  "workforce_productivity": {
+    "revenue_period_end": "2026-09-30",
+    "headcount_as_of": "2025-12-31",
+    "headcount_approx": 65000,
+    "headcount_qualifier": "issuer states over 65,000; 65,000 used as approximated denominator",
+    "revenue_usd_q3_2026": 633959000,
+    "gross_profit_usd_q3_2026": 241135000,
+    "gaap_net_income_usd_q3_2026": 68771000,
+    "adjusted_net_income_usd_q3_2026": 94586000,
+    "approx_revenue_per_employee_quarter_usd": 9753,
+    "approx_revenue_per_employee_annualized_usd": 39013,
+    "approx_gross_profit_per_employee_quarter_usd": 3710,
+    "approx_gaap_earnings_per_employee_quarter_usd": 1058,
+    "approx_gaap_earnings_per_employee_annualized_usd": 4232,
+    "approx_adjusted_earnings_per_employee_quarter_usd": 1455,
+    "approx_adjusted_earnings_per_employee_annualized_usd": 5821,
+    "current_matched_headcount": null,
+    "headcount_growth_yoy_pct": null,
+    "profit_per_employee_growth_yoy_pct": null,
+    "precision": "approximation_using_stale_noncontemporaneous_employee_count",
+    "evidence": [
+      {
+        "source": "https://ir.exlservice.com/news-releases/news-release-details/exl-reports-2026-third-quarter-results",
+        "source_class": "issuer_earnings_release",
+        "period_end": "2026-09-30"
+      },
+      {
+        "source": "https://www.sec.gov/Archives/edgar/data/1297989/000129798926000008/exls-20251231.htm",
+        "source_class": "issuer_SEC_10K",
+        "period_end": "2025-12-31"
+      }
+    ],
+    "interpretation": "Growth and adjusted EPS acceleration observed but adjusted operating margin modestly lower; no verified same-date workforce decoupling",
+    "staleness_warning": "Previous earnings/employee proxies use historical Dec 2025 ~65,000 denominator. Oct 29 issuer announces >74,000; cannot treat old ratios as current or compare directly with GDYN. Need exact Q3 average FTE, acquisition adjustment and workforce classifications.",
+    "current_comparable_eps_per_employee": null
+  },
+  "competitive_advantages": {
+    "openai_distribution": "Select Partner with network co-selling and technical enablement; does not establish exclusive referrals or guaranteed bookings",
+    "vertical_workflow_embedding": {
+      "solutions": [
+        "LifePRO Agentic Suite",
+        "Payment Integrity"
+      ],
+      "issuer_claims": {
+        "launch_cycle_reduced_to_weeks": 16,
+        "configuration_testing_effort_reduction_pct": [
+          30,
+          40
+        ],
+        "high_yield_auditor_productivity_improvement_pct_approx": 50,
+        "health_plan_savings_growth_pct": [
+          15,
+          20
+        ]
+      },
+      "source": "https://www.exlservice.com/about/newsroom/exl-transforms-client-workflows-with-the-integration-of-agentic-ai-into-core-insurance-and-healthcare-solutions",
+      "source_class": "issuer_claim_not_independently_verified",
+      "announced_at": "2026-10-08"
+    },
+    "elite_talent": {
+      "imerit_scholars_vetted_community_lower_bound": 30000,
+      "countries": 118,
+      "languages": 106,
+      "classification": "external/curated expert network, NOT EXL employees or full-time equivalents",
+      "source": "https://ir.exlservice.com/news-releases/news-release-details/imerit-exl-company-launches-imerit-scholars-platform-ai-talent",
+      "announced_at": "2026-10-26"
+    },
+    "external_agentic_insurance_comparison": {
+      "as_of": "2026-10-30",
+      "benchmark_path": "research/composites/skilled_ai_deployment/insurance_agentic_workflow_competitors_2026-10-30.json",
+      "direct_health_claims_challenger": "CTSH TriZetto Facets/QNXT Workflow Agentic Processing generally available Sept 2026",
+      "core_p_and_c_platform_threat": "GWRE Qusar has governed native access to insurance core claims/policy/billing systems",
+      "claims_network_platform_competitor": "CCC demonstrates $130m annualized AI run-rate +40% YoY but signed Oct 15 definitive $7.75 take-private deal",
+      "operations_competitor": "G Genpact Insurance Policy Suite; less quantitative client ROI disclosed",
+      "enterprise_distribution_benchmark": "ACN enterprise underwriting multi-agent case demonstrates days-to-hours review improvement",
+      "disintermediation_risk": "Microsoft customers can self-build production agents; State Farm case over 3000 agents and 41 production builds",
+      "evidence_vs_assumption": "Named products and primary announcements verified, cross-company client productivity comparisons remain nonstandard; referrals and revenue from specific vendors unverified",
+      "sources": [
+        "https://news.cognizant.com/2026-09-28-Cognizant-Brings-Agentic-AI-and-MCP-tool-library-to-Core-Claims-Operations-with-Workflow-Agentic-Processing-for-TriZetto",
+        "https://ir.guidewire.com/news-releases/news-release-details/guidewire-introduces-qusar-release-help-insurers-build-and",
+        "https://ir.cccis.com/news-releases/news-release-details/ccc-intelligent-solutions-holdings-inc-announces-third-quarter-4",
+        "https://ir.cccis.com/news-releases/news-release-details/ccc-intelligent-solutions-signs-definitive-agreement-be-acquired",
+        "https://www.genpact.com/industries/insurance",
+        "https://enablement.microsoft.com/en-us/agent-transformation-stories/"
+      ]
+    }
+  },
+  "employee_disclosure_conflict": {
+    "issuer_release_oct29": "over 74,000 employees",
+    "vendor_directory": "68,000+ employees",
+    "different_publication_or_reporting_basis": true,
+    "period_matched_headcount_verified": false,
+    "source_urls": [
+      "https://ir.exlservice.com/news-releases/news-release-details/exl-named-openai-select-partner",
+      "https://openai.com/business/partners/exl-service/"
+    ]
+  }
+}
