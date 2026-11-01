@@ -1,0 +1,537 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NVDA pilot observation input; immutable record_id is computed by the store",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "entity_id",
+    "kind",
+    "source",
+    "source_record_id",
+    "currency",
+    "ttd_seconds",
+    "value",
+    "observed_at",
+    "available_at",
+    "ingested_at"
+  ],
+  "properties": {
+    "schema": {
+      "const": "basket.ticker_observation@1"
+    },
+    "entity_id": {
+      "const": "NVDA"
+    },
+    "kind": {
+      "enum": [
+        "market_bar",
+        "financial_fact"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "currency": {
+      "const": "USD"
+    },
+    "ttd_seconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "value": {},
+    "supersedes": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "retracted": {
+      "type": "boolean"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "available_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ingested_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_fingerprint": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "retracted": {
+            "const": true
+          }
+        },
+        "required": [
+          "retracted"
+        ]
+      },
+      "then": {
+        "required": [
+          "supersedes"
+        ],
+        "properties": {
+          "value": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "market_bar"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "value": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "interval",
+                "adjustment_basis",
+                "open",
+                "high",
+                "low",
+                "close",
+                "volume"
+              ],
+              "properties": {
+                "interval": {
+                  "enum": [
+                    "1m",
+                    "1d"
+                  ]
+                },
+                "adjustment_basis": {
+                  "enum": [
+                    "unadjusted",
+                    "split_adjusted"
+                  ]
+                },
+                "open": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "high": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "low": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "close": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "volume": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "vwap": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "exclusiveMinimum": 0
+                },
+                "transactions": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        },
+        "else": {
+          "properties": {
+            "value": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "concept",
+                "taxonomy",
+                "period_start",
+                "period_end",
+                "unit",
+                "amount",
+                "basis",
+                "source_url",
+                "excerpt"
+              ],
+              "properties": {
+                "concept": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "taxonomy": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "period_start": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "format": "date"
+                },
+                "period_end": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "unit": {
+                  "const": "USD"
+                },
+                "amount": {
+                  "type": "number"
+                },
+                "basis": {
+                  "enum": [
+                    "reported",
+                    "calculated",
+                    "guidance",
+                    "estimate"
+                  ]
+                },
+                "source_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "^https://"
+                },
+                "excerpt": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "stored": {
+      "title": "NVDA pilot observation input; immutable record_id is computed by the store",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "entity_id",
+        "kind",
+        "source",
+        "source_record_id",
+        "currency",
+        "ttd_seconds",
+        "value",
+        "observed_at",
+        "available_at",
+        "ingested_at",
+        "record_id"
+      ],
+      "properties": {
+        "schema": {
+          "const": "basket.ticker_observation@1"
+        },
+        "entity_id": {
+          "const": "NVDA"
+        },
+        "kind": {
+          "enum": [
+            "market_bar",
+            "financial_fact"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_record_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "currency": {
+          "const": "USD"
+        },
+        "ttd_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "value": {},
+        "supersedes": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "retracted": {
+          "type": "boolean"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "available_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ingested_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source_fingerprint": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "record_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "retracted": {
+                "const": true
+              }
+            },
+            "required": [
+              "retracted"
+            ]
+          },
+          "then": {
+            "required": [
+              "supersedes"
+            ],
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "market_bar"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "interval",
+                    "adjustment_basis",
+                    "open",
+                    "high",
+                    "low",
+                    "close",
+                    "volume"
+                  ],
+                  "properties": {
+                    "interval": {
+                      "enum": [
+                        "1m",
+                        "1d"
+                      ]
+                    },
+                    "adjustment_basis": {
+                      "enum": [
+                        "unadjusted",
+                        "split_adjusted"
+                      ]
+                    },
+                    "open": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "high": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "low": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "close": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    "volume": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "vwap": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "exclusiveMinimum": 0
+                    },
+                    "transactions": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "minimum": 0
+                    }
+                  }
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "concept",
+                    "taxonomy",
+                    "period_start",
+                    "period_end",
+                    "unit",
+                    "amount",
+                    "basis",
+                    "source_url",
+                    "excerpt"
+                  ],
+                  "properties": {
+                    "concept": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "taxonomy": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "period_start": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "date"
+                    },
+                    "period_end": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "unit": {
+                      "const": "USD"
+                    },
+                    "amount": {
+                      "type": "number"
+                    },
+                    "basis": {
+                      "enum": [
+                        "reported",
+                        "calculated",
+                        "guidance",
+                        "estimate"
+                      ]
+                    },
+                    "source_url": {
+                      "type": "string",
+                      "format": "uri",
+                      "pattern": "^https://"
+                    },
+                    "excerpt": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "entity_id",
+        "status",
+        "records",
+        "snapshot_sha256",
+        "errors"
+      ],
+      "properties": {
+        "schema": {
+          "const": "basket.ticker_data_result@1"
+        },
+        "entity_id": {
+          "const": "NVDA"
+        },
+        "status": {
+          "enum": [
+            "created",
+            "unchanged",
+            "revised",
+            "retracted",
+            "updated",
+            "ok",
+            "no_data",
+            "conflict",
+            "rejected"
+          ]
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stored"
+          }
+        },
+        "snapshot_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
