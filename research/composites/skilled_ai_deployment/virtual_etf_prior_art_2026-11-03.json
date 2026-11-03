@@ -54,6 +54,27 @@
       "where": "required execution growth to justify current price",
       "take": "reverse solve EPS or FCF growth embedded by current price; compare scenarios",
       "guard": "don't fake precision from terminal PE assumptions"
+    },
+    {
+      "name": "Theory of Constraints / throughput accounting",
+      "source": "https://www.toc-goldratt.com/en/product/the-goal",
+      "where": "test whether AI integration is actually scarce relative to customer spending",
+      "take": "measure waiting time, queue of funded deployment projects, lead time to production, cost-per-workflow and throughput per specialist",
+      "guard": "demand growth or a survey readiness gap alone does not prove a supplier has pricing power"
+    },
+    {
+      "name": "Porter value-chain and five forces / bargaining power",
+      "source": "https://www.isc.hbs.edu/strategy/business-strategy/Pages/the-five-forces.aspx",
+      "where": "evaluate who captures deployment rents",
+      "take": "score substitution by hyperscaler-native agents, buyer negotiating power, integrator differentiation and supplier/IP ownership",
+      "guard": "a necessary system component may still earn mediocre margins if easy to replace"
+    },
+    {
+      "name": "Learning curves, reusable IP and unit economics",
+      "source": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/industry-company-analysis",
+      "where": "distinguish project labor from compounding workflow IP",
+      "take": "track incremental gross profit per customer, deployment labor hours, revenue and gross profit per employee, maintenance renewal and cash conversion",
+      "guard": "customer labor savings are not automatically provider revenue"
     }
   ],
   "implementation": {
