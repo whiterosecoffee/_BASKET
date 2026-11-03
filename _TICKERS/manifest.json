@@ -3,8 +3,8 @@
   "as_of": "2026-11-03",
   "issue": 146,
   "branch": "work/146-basket-universe-taxonomy",
-  "count": 283,
-  "source": "user supplied lists/screenshots plus earlier research scope",
+  "count": 291,
+  "source": "User 2026-11-03 watchlists/screenshots, prior project scope, and eight explicitly approved suggestions",
   "records": [
     {
       "symbol": ".INX",
@@ -513,6 +513,20 @@
       "first_scope_as_of": "2026-11-03"
     },
     {
+      "symbol": "CARR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CARR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "thermal_building_controls",
+      "reason_for_tracking": "HVAC and thermal management"
+    },
+    {
       "symbol": "CAT",
       "instrument_type": "equity_or_depositary_receipt",
       "basket_groups": [
@@ -921,6 +935,20 @@
       "canonical_data_path": "tickers/DELL/",
       "review_status": "identity_listing_and_history_unverified",
       "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "DLR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/DLR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "datacenter_real_estate",
+      "reason_for_tracking": "Data center landlord, colocation and capacity"
     },
     {
       "symbol": "DNA",
@@ -1712,6 +1740,20 @@
       "first_scope_as_of": "2026-11-03"
     },
     {
+      "symbol": "JCI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/JCI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "thermal_building_controls",
+      "reason_for_tracking": "Data center cooling and building controls"
+    },
+    {
       "symbol": "JNJ",
       "instrument_type": "equity_or_depositary_receipt",
       "basket_groups": [
@@ -1832,6 +1874,20 @@
       "canonical_data_path": "tickers/LEU/",
       "review_status": "identity_listing_and_history_unverified",
       "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "LIN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/LIN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "semiconductor_materials",
+      "reason_for_tracking": "Industrial and specialty gases for semiconductor production"
     },
     {
       "symbol": "LITE",
@@ -1983,6 +2039,20 @@
       "canonical_data_path": "tickers/META/",
       "review_status": "identity_listing_and_history_unverified",
       "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MKSI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MKSI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "semiconductor_equipment_subsystems",
+      "reason_for_tracking": "Semiconductor equipment subsystems and process components"
     },
     {
       "symbol": "MOD",
@@ -2157,6 +2227,20 @@
       "canonical_data_path": "tickers/NRG/",
       "review_status": "identity_listing_and_history_unverified",
       "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "NTAP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/NTAP/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "data_storage",
+      "reason_for_tracking": "Enterprise data infrastructure and storage software"
     },
     {
       "symbol": "NVD",
@@ -3219,6 +3303,20 @@
       "first_scope_as_of": "2026-11-03"
     },
     {
+      "symbol": "VICR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/VICR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "power_conversion",
+      "reason_for_tracking": "High density power modules and conversion"
+    },
+    {
       "symbol": "VIX",
       "instrument_type": "index",
       "basket_groups": [
@@ -3313,6 +3411,20 @@
       "canonical_data_path": "tickers/WCC/",
       "review_status": "identity_listing_and_history_unverified",
       "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "WDC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/WDC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "data_storage",
+      "reason_for_tracking": "Storage hardware and enterprise HDD systems"
     },
     {
       "symbol": "WMB",
@@ -3519,5 +3631,6 @@
       "review_status": "identity_listing_and_history_unverified",
       "first_scope_as_of": "2026-11-03"
     }
-  ]
+  ],
+  "revision_note": "291 tracked identifiers; eight additions approved 2026-11-03; identity classes remain provisional"
 }
