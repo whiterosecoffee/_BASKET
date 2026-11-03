@@ -1655,5 +1655,234 @@
       ],
       "next_action": "B00 orchestrator reconcile B19 #21/PR #23 with existing #41 audit, #20/PR #22 and #24/PR #25; register no duplicate work; assign exact receiver owners and acceptance."
     }
+  },
+  "snapshot_2026_11_03": {
+    "kind": "pinned_cross_branch_reconciliation",
+    "observed_date": "2026-11-03",
+    "sources": {
+      "ticker_scope_pr": 147,
+      "ticker_scope_head": "321c93c281aeeb7d63b5d107cca6a320070d5f02",
+      "pool_pr": 18,
+      "pool_head": "6eab180632d251147d13a073c967dbd3031dfe92"
+    },
+    "folder_count": 291,
+    "candidate_count": 42,
+    "candidate_already_scaffolded": 27,
+    "candidate_missing": [
+      {
+        "symbol": "AMKR",
+        "layer": "advanced_packaging",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/AMKR/scope.json"
+      },
+      {
+        "symbol": "ASX",
+        "layer": "advanced_packaging",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/ASX/scope.json"
+      },
+      {
+        "symbol": "BESI",
+        "layer": "advanced_packaging",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/BESI/scope.json"
+      },
+      {
+        "symbol": "POET",
+        "layer": "interconnect_photonics",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/POET/scope.json"
+      },
+      {
+        "symbol": "NVT",
+        "layer": "power_grid_cooling",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/NVT/scope.json"
+      },
+      {
+        "symbol": "POWL",
+        "layer": "power_grid_cooling",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/POWL/scope.json"
+      },
+      {
+        "symbol": "PSTG",
+        "layer": "storage_data",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/PSTG/scope.json"
+      },
+      {
+        "symbol": "CFLT",
+        "layer": "enterprise_data_application",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/CFLT/scope.json"
+      },
+      {
+        "symbol": "EMR",
+        "layer": "industrial_robotics",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/EMR/scope.json"
+      },
+      {
+        "symbol": "KION.DE",
+        "layer": "industrial_robotics",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/KION.DE/scope.json"
+      },
+      {
+        "symbol": "OUST",
+        "layer": "industrial_robotics",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/OUST/scope.json"
+      },
+      {
+        "symbol": "CYBR",
+        "layer": "cyber_identity",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/CYBR/scope.json"
+      },
+      {
+        "symbol": "NET",
+        "layer": "cyber_identity",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/NET/scope.json"
+      },
+      {
+        "symbol": "PTC",
+        "layer": "design_engineering",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/PTC/scope.json"
+      },
+      {
+        "symbol": "BSX",
+        "layer": "robotics_healthcare",
+        "identity_status": "verify_before_scaffolding",
+        "folder_status": "missing_on_PR147_head",
+        "owner": "B00 #146",
+        "desired_path": "_TICKERS/BSX/scope.json"
+      }
+    ],
+    "missing_identity_review_required": true,
+    "existing_scaffold_is_provisional": true,
+    "unmeasured_pool_ids": [
+      "consumer-ai",
+      "enterprise-ai-saas",
+      "hyperscaler-cloud",
+      "neocloud",
+      "on-prem-ai",
+      "telecom-edge",
+      "semiconductors",
+      "memory",
+      "optical-networking",
+      "power-cooling",
+      "industrial-automation",
+      "robotics",
+      "surgical-robotics",
+      "autonomous-mobility",
+      "cybersecurity",
+      "quantum-compute",
+      "quantum-sensing",
+      "photonics",
+      "biotech-ai"
+    ],
+    "revenue_pool_coverage_status": "not_established",
+    "invariant": "folder existence is not economic or dollar coverage"
+  },
+  "majority_revenue_mapping_contract": {
+    "contract_name": "B19 research proposal revenue_pool_coverage@draft1",
+    "status": "proposal_not_canonical_or_implemented",
+    "unit": "USD per defined reporting period",
+    "target": "Strictly greater than 50% of source-supported unique final-payer spending per pool; internal target 75%, with incomplete denominator explicitly disclosed",
+    "denominator": "Source-supported final-buyer spending for specified period, geography and product; unknown segment size yields null, never zero",
+    "numerator": "Unique payer-originated dollar transactions traced into tier1 and optionally tier2 economic paths, counted once per payer pool ID",
+    "tiers": "Publish independent % of payer-dollar coverage at tier1 and tier2; do not claim supply-chain coverage based only on ticker count",
+    "dimensions": [
+      "payer_id",
+      "payee_id",
+      "unique_transaction_id",
+      "pool_id",
+      "contract_id",
+      "period",
+      "financial_state",
+      "accounting_treatment",
+      "currency",
+      "fx_date",
+      "amount_usd",
+      "source_ref",
+      "available_at",
+      "revision_id",
+      "tier_depth"
+    ],
+    "states": [
+      "announced",
+      "authorized",
+      "signed",
+      "funded",
+      "invoiced",
+      "delivered",
+      "recognized",
+      "paid",
+      "terminated",
+      "unknown"
+    ],
+    "anti_double_counting": [
+      "Do not sum intermediary gross revenues into originating final demand",
+      "Equity investments and loan principals are not independent customer revenues",
+      "Contract/backlog/RPO are not recognized revenues",
+      "Do not combine incompatible periods, currencies or denominations",
+      "Use a payer-pool transaction unique key to prevent repeated inclusion across supplier tiers"
+    ],
+    "minimum_viable_tests": [
+      "Missing source-supported denominator returns null/not_measurable",
+      "Future-unavailable source excluded from as-of results",
+      "Duplicate unique-payer transaction across tiers counts once",
+      "Unmeasured revenue pool cannot pass majority gate",
+      "Wrong currency, wrong capacity units and mismatched accounting treatments fail closed",
+      "Verified majority requires >50% per defined pool with evidence and unallocated amount"
+    ],
+    "source_count": {
+      "total_pools": 19,
+      "currently_unmeasured": 19,
+      "majority_proven": 0
+    },
+    "first_pilot_paths": [
+      "MSFT -> CRWV -> NVDA",
+      "GOOG -> AEP -> BE",
+      "SFTBY -> SYM -> Exol"
+    ],
+    "handoffs": {
+      "B00": "#146/#148 for folder & identity; #20/#50 for shared graph contract",
+      "B19": "#17/PR18 for actual sourced dollar flows",
+      "B05": "#51 read-only verified graph traversal",
+      "B01": "#52 strict validation"
+    }
   }
 }
