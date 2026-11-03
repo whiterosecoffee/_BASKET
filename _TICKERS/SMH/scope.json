@@ -1,0 +1,12 @@
+{
+  "symbol": "SMH",
+  "instrument_type": "fund_or_etp",
+  "basket_groups": [
+    "signals"
+  ],
+  "tracking_status": "watchlist",
+  "price_data_status": "not_migrated",
+  "canonical_data_path": "tickers/SMH/",
+  "review_status": "identity_listing_and_history_unverified",
+  "first_scope_as_of": "2026-11-03"
+}
