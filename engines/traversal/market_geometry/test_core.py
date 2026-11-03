@@ -56,6 +56,30 @@ class MarketGeometryTests(unittest.TestCase):
         r = compute_market_geometry({"SPY": s}, ISO(AT))
         self.assertIsNone(r["instruments"]["SPY"])
 
+    def test_bounded_session_excludes_older_extrema(self):
+        session = bars(102, 5)
+        start = session[0]["t"]
+        earlier = [dict(session[0], t=ISO(AT - timedelta(minutes=n)), low=80)
+                   for n in (6, 1440)]
+        def run(rows, **kwargs):
+            return compute_market_geometry({"SPY": rows}, ISO(AT), **kwargs)["instruments"]["SPY"]
+        bounded = run(session, range_start=start)
+        self.assertEqual(run(earlier + session, range_start=start), bounded)
+        self.assertGreater(run(earlier + session)["from_low_pct"], bounded["from_low_pct"])
+        sparse = run(session[:2] + session[3:], range_start=start)
+        self.assertIsNone(sparse["from_low_pct"])
+        self.assertIsNone(sparse["range_position_pct"])
+        self.assertEqual(sparse["returns_pct"]["5"], bounded["returns_pct"]["5"])
+
+    def test_explicit_range_requires_start_and_minute_alignment(self):
+        rows = bars(102, 5)
+        for offset in (1, -0.5):
+            with self.assertRaises(ValueError):
+                compute_market_geometry({"SPY": rows}, ISO(AT),
+                                        range_start=ISO(AT + timedelta(minutes=offset)))
+        result = compute_market_geometry({"SPY": rows[1:]}, ISO(AT), range_start=rows[0]["t"])
+        self.assertIn("SPY:incomplete_observed_range", result["gaps"])
+
     def test_not_fabricated_from_two_assets(self):
         r = compute_market_geometry({"SPY": bars(750), "QQQ": bars(690)}, ISO(AT))
         self.assertIsNone(r["relatives"]["SMH/QQQ"])
