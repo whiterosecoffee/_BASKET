@@ -53,17 +53,27 @@ def _normalize(bars, at):
     return dict(sorted(output.items()))
 
 
-def compute_market_geometry(series, as_of, prior_closes=None, *, windows=WINDOWS):
+def compute_market_geometry(series, as_of, prior_closes=None, *, windows=WINDOWS, range_start=None):
     """Return geometry and strictly synchronized relative returns.
 
     Windows use observation at exactly as_of - N minutes, never nearest-neighbor
     interpolation. No missing-minute forward filling or cross-session inference.
+
+    range_start is the inclusive timestamp of the first expected completed
+    minute observation. The caller selects session/calendar boundaries. An
+    explicit range requires every minute through as_of. Omission describes
+    supplied observations only, with no completeness or session claim.
     """
     at = _timestamp(as_of)
+    start = _timestamp(range_start) if range_start is not None else None
+    if start is not None and (start > at or (at - start).total_seconds() % 60):
+        raise ValueError("range_start must be whole minutes at or before as_of")
     prior_closes = prior_closes or {}
     normalized = {ticker: _normalize(bars, at) for ticker, bars in sorted(series.items())}
     result = {
         "as_of": at.isoformat(), "status": "descriptive_only",
+        "range_basis": "bounded_minutes" if start is not None else "supplied_observations",
+        "range_start": start.isoformat() if start is not None else None,
         "instruments": {}, "relatives": {}, "gaps": [],
         "macro_regime": "unknown", "live_monitor": False,
     }
@@ -75,9 +85,13 @@ def compute_market_geometry(series, as_of, prior_closes=None, *, windows=WINDOWS
             result["gaps"].append(ticker + ":missing_synchronized_as_of")
             continue
         last = data[at]["close"]
-        recent = [v for t, v in data.items() if t <= at]
-        lo = min(x["low"] for x in recent)
-        hi = max(x["high"] for x in recent)
+        recent = [v for t, v in data.items() if start is None or
+                  (t >= start and (t - start).total_seconds() % 60 == 0)]
+        complete = start is None or len(recent) == (at - start).total_seconds() // 60 + 1
+        lo = min(x["low"] for x in recent) if complete else None
+        hi = max(x["high"] for x in recent) if complete else None
+        if not complete:
+            result["gaps"].append(ticker + ":incomplete_observed_range")
         previous = prior_closes.get(ticker)
         day = _pct(last, _number(previous)) if previous is not None else None
         w = {}
@@ -93,8 +107,8 @@ def compute_market_geometry(series, as_of, prior_closes=None, *, windows=WINDOWS
         acceleration = round((velocity - previous_velocity) / 5, 8) if velocity is not None and previous_velocity is not None else None
         result["instruments"][ticker] = {
             "price_usd": last, "day_pct": day, "returns_pct": w,
-            "from_low_pct": _pct(last, lo),
-            "range_position_pct": round(100 * (last - lo) / (hi - lo), 6) if hi > lo else None,
+            "from_low_pct": _pct(last, lo) if complete else None,
+            "range_position_pct": round(100 * (last - lo) / (hi - lo), 6) if complete and hi > lo else None,
             "velocity_pct_per_min": round(velocity, 8) if velocity is not None else None,
             "acceleration_pct_per_min2": acceleration,
             "observed_range": {"low": lo, "high": hi},
@@ -128,6 +142,6 @@ def render_compact(result):
             rows.append(ticker + ": unavailable")
             continue
         fmt = lambda n: "n/a" if n is None else f"{n:+.2f}%"
-        rows.append(f"{ticker} {fmt(x['day_pct'])} day | {fmt(x['returns_pct'].get('15'))} 15m | {fmt(x['returns_pct'].get('60'))} 60m | {fmt(x['from_low_pct'])} from low")
+        rows.append(f"{ticker} {fmt(x['day_pct'])} day | {fmt(x['returns_pct'].get('15'))} 15m | {fmt(x['returns_pct'].get('60'))} 60m | {fmt(x['from_low_pct'])} from low ({result['range_basis']})")
     rows.append("Missing: " + str(len(result["gaps"])) + " fields")
     return "\n".join(rows)
