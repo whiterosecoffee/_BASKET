@@ -26,6 +26,10 @@ def prepare(source, output):
     raw = source.read_bytes()
     if not raw or not raw.endswith(b'\n'):
         raise ValueError('Empty or incomplete source')
+    provenance_path = source.with_suffix('.meta.json')
+    provenance = json.loads(provenance_path.read_text()) if provenance_path.exists() else {}
+    if provenance.get('sha256') not in (None, digest(raw)):
+        raise ValueError('Source metadata hash mismatch')
     groups = defaultdict(list)
     previous = -1
     anomalies = 0
@@ -47,21 +51,51 @@ def prepare(source, output):
     files = {day + '.1m.jsonl': b''.join(lines) for day, lines in sorted(groups.items())}
     if b''.join(files.values()) != raw:
         raise ValueError('Reassembly differs from source')
+    metadata = {}
+    for day, lines in sorted(groups.items()):
+        bars = [json.loads(line) for line in lines]
+        first = datetime.fromtimestamp(bars[0][0] / 1000, ET)
+        end = datetime.fromtimestamp((bars[-1][0] + 60000) / 1000, ET)
+        item = {
+            'schema': 'market.intraday@1', 'entity_id': 'CRWV',
+            'session_date': day, 'timeframe': '1m', 'currency': 'USD',
+            'source': provenance.get('source'), 'adjusted': provenance.get('adjusted'),
+            'timezone': 'America/New_York',
+            'timestamp_semantics': 'UTC epoch milliseconds at minute start',
+            'fields': ['timestamp_ms', 'open', 'high', 'low', 'close', 'volume', 'vwap', 'transactions'],
+            'records': len(bars), 'start': first.isoformat(), 'as_of_last_bar': end.isoformat(),
+            'sha256': digest(files[day + '.1m.jsonl']),
+            'vwap_outside_ohlc': sum(not r[3] <= r[6] <= r[2] for r in bars),
+            'historical_first_available_at': provenance.get('historical_first_available_at'),
+            'source_retrieved_at': provenance.get('source_retrieved_at'),
+            'source_recorded_at': provenance.get('recorded_at'),
+            'source_capture_sha256': digest(raw), 'source_captures': provenance.get('captures', []),
+            'coverage_status': 'observed_bars_only_completeness_unverified',
+            'current_use_status': 'historical_only_TTD_not_established',
+            'adoption_status': 'staging_only_pending_B02_acceptance',
+            'notes': ['No empty minutes fabricated; first availability not inferred.',
+                      'VWAP anomalies retained as supplied; turnover remains approximate.',
+                      'Source last-bar time is a coverage cutoff, not proof of a completed session.']}
+        metadata[day + '.1m.meta.json'] = (json.dumps(item, indent=2) + '\n').encode()
+    artifacts = {**files, **metadata}
     # Preflight every collision before writing any shard; replay is byte stable.
-    for name, data in files.items():
+    for name, data in artifacts.items():
         p = output / name
         if p.exists() and p.read_bytes() != data:
             raise ValueError('Conflicting staged file: ' + name)
     output.mkdir(parents=True, exist_ok=True)
-    added = 0
-    for name, data in files.items():
+    added = added_metadata = 0
+    for name, data in artifacts.items():
         p = output / name
         if not p.exists():
             with p.open('xb') as f:
                 f.write(data)
-            added += 1
+            if name.endswith('.jsonl'):
+                added += 1
+            else:
+                added_metadata += 1
     return {'source_sha256': digest(raw), 'records': sum(map(len, groups.values())),
-            'day_count': len(groups), 'added_files': added,
+            'day_count': len(groups), 'added_files': added, 'added_metadata_files': added_metadata,
             'byte_identical_reassembly': True, 'vwap_outside_ohlc': anomalies,
             'historical_first_available_at': None, 'source_retrieved_at': None,
             'status': 'staging_only_pending_B02_acceptance',

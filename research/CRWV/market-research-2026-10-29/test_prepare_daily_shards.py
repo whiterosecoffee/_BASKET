@@ -15,7 +15,18 @@ class DailyShardTests(unittest.TestCase):
             self.assertEqual(first['vwap_outside_ohlc'], 2374)
             self.assertEqual(first['source_sha256'], '9249539642e10805bcb1a6dfabb53de0bd53f4e5adbea454092f44ecfc55b1ac')
             self.assertEqual(b''.join(p.read_bytes() for p in sorted(Path(folder).glob('*.jsonl'))), source.read_bytes())
+            metadata = sorted(Path(folder).glob('*.meta.json'))
+            self.assertEqual(len(metadata), 22)
+            for p in metadata:
+                item = json.loads(p.read_text())
+                self.assertIsNone(item['historical_first_available_at'])
+                self.assertIsNone(item['source_retrieved_at'])
+                self.assertEqual(item['session_date'], p.name[:10])
+                self.assertEqual(item['current_use_status'], 'historical_only_TTD_not_established')
+            before = {p.name: p.read_bytes() for p in Path(folder).iterdir()}
             self.assertEqual(prepare(source, folder)['added_files'], 0)
+            self.assertEqual(prepare(source, folder)['added_metadata_files'], 0)
+            self.assertEqual(before, {p.name: p.read_bytes() for p in Path(folder).iterdir()})
 
     def test_invalid_inputs_do_not_write(self):
         row = [1790868600000, 10, 11, 9, 10, 100, 10, 2]
