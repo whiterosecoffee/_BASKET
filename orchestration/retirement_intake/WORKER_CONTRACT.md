@@ -1,4 +1,9 @@
-# Successor orchestrator and capability discovery — B00 #59
+# Historical successor intake and source discovery — B00 #59
+
+Current coordination authority is [Codex/B00 #136](https://github.com/whiterosecoffee/_BASKET/issues/136).
+This conversation is a bounded reviewer, not a second current orchestrator.
+See [CONVERSATION_REVIEW.md](CONVERSATION_REVIEW.md) for the full protocol review,
+mechanisms, execution score and actual recipient dispositions.
 
 Issue [#59](https://github.com/whiterosecoffee/_BASKET/issues/59), branch
 `work/59-orchestrator-retirement-intake`, draft PR #60. Parent: B00 orchestration.
@@ -74,12 +79,17 @@ history. On October 29 the first local broad test attempt failed to import
 `jsonschema`; install the existing workflow's pinned dependencies and rerun, never
 weaken the tests. New inventory tests are separate from B01 domain CI until reviewed.
 
-Priorities: (1) existing queue owner #24 refresh #25 against fixed main, reconcile
-claimed/completed T-009 and require exact-head checks; (2) B01 independently gate
-#33/#49/#104 through existing #65/#105; (3) B02/B03 source/revision producer and
-B08 persistent operation through existing handoffs. Domain research can continue
-inside current reservations. No new worker is launched by this contract.
+The older priority sequence described the October 29 snapshot, not the current
+project queue. Use #136 and current repository evidence for sequencing. Controller,
+QC and NVDA pilot source have since advanced; do not reopen repaired defects or
+regard old draft labels as current status.
 
-Retirement: this orchestrator remains the coordination receiver. It may archive only
-with a successor retrieving #59/#60 and refreshing the evidence; committed snapshots
-alone are never an autonomous operational service.
+Actual receiver dispositions were recorded in #59 comment 6622146549 and PR171:
+history retained, utility QA/reuse scheduled under #65, snapshot retained historical,
+and integration/retirement OPEN pending independent acceptance and explicit PR60
+disposition. #59/PR60 must not be closed or merged on the strength of that receipt.
+
+The user explicitly accepted prepared transfer as this conversation's endpoint.
+Archiving this conversation does not certify its code integrated, replace #136,
+or require reopening the source chat. All knowledge and executable obligations
+remain linked in HANDOFF.md and CONVERSATION_REVIEW.md.
