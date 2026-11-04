@@ -67,11 +67,11 @@ def assess(data):
                 check(isinstance(item[field], str), "invalid insight field: " + field)
         if "theory_tags" in item:
             tags = item["theory_tags"]
-            check(isinstance(tags, list) and 1 <= len(tags) <= 3 and
-                  all(isinstance(tag, str) and tag in THEORY_TAGS for tag in tags)
+            check(isinstance(tags, list) and
+                  all(isinstance(tag, str) and bool(tag.strip()) for tag in tags)
                   and len(tags) == len(set(tags)), "invalid theory_tags")
-        if item.get("architectural") is True:
-            check(bool(item.get("theory_tags")), "architectural insight requires theory_tags")
+        if "architectural" in item:
+            check(type(item["architectural"]) is bool, "architectural must be boolean")
         if "prior_art" in item:
             check(isinstance(item["prior_art"], list), "prior_art must be an array")
             for pointer in item["prior_art"]:
@@ -87,6 +87,15 @@ def assess(data):
                   "insight references unknown claim")
         check(type(item.get("priority", 0)) is int and 0 <= item.get("priority", 0) <= 25, "invalid insight priority")
     insights = sorted(insights, key=lambda item: (-item.get("priority", 0), item["principle"]))
+    taxonomy_gaps = []
+    for item in insights:
+        if item.get("architectural") and not item.get("theory_tags"):
+            taxonomy_gaps.append({"principle": item["principle"], "tag": None,
+                                  "reason": "architectural insight lacks theory classification"})
+        for tag in item.get("theory_tags", []):
+            if tag not in THEORY_TAGS:
+                taxonomy_gaps.append({"principle": item["principle"], "tag": tag,
+                                      "reason": "unrecognized theory family; owner review required"})
     handoff = data.get("handoff") if disposition == "Hand off before archiving" else None
     if disposition == "Hand off before archiving":
         check(isinstance(handoff, dict), "handoff required for transfer")
@@ -95,7 +104,7 @@ def assess(data):
             check(isinstance(handoff.get(key), str) and bool(handoff[key].strip()), "handoff missing: " + key)
     return {"disposition": disposition, "execution_score": score, "scored_dimensions": count,
             "claims": claims,
-            "ranked_insights": insights, "handoff": handoff}
+            "ranked_insights": insights, "taxonomy_gaps": taxonomy_gaps, "handoff": handoff}
 
 def render(data, result):
     lines = ["# Conversation closeout", "", "**Objective:** " + data["objective"],
@@ -113,7 +122,7 @@ def render(data, result):
                 lines.append("  - " + field.replace("_", " ").title() + ": " + item[field])
         if item.get("theory_tags"):
             lines.append("  - Theory: " + " · ".join(
-                tag + " (" + THEORY_TAGS[tag] + ")" for tag in item["theory_tags"]))
+                tag + " (" + THEORY_TAGS.get(tag, "unclassified — review") + ")" for tag in item["theory_tags"]))
         for pointer in item.get("prior_art", []):
             lines.append("  - Prior art: " + pointer["family"] + " — " + pointer["mechanism"] +
                          "; applies: " + pointer["applicability"] +
@@ -121,6 +130,12 @@ def render(data, result):
                          ("; reference: " + pointer["reference"] if pointer.get("reference") else ""))
     if not result["ranked_insights"]:
         lines.append("No material reusable lesson established.")
+    if result["taxonomy_gaps"]:
+        lines += ["", "## Taxonomy review required"]
+        for gap in result["taxonomy_gaps"]:
+            lines.append("- " + gap["principle"] + ": " +
+                         (gap["tag"] if gap["tag"] else "missing classification") +
+                         " — " + gap["reason"])
     if result["claims"]:
         lines += ["", "## Claim provenance"]
         for claim in result["claims"]:
@@ -142,6 +157,9 @@ def render(data, result):
                           p["family"] + " (" + p["mechanism"] + "; boundary: " + p["boundary"] + ")"
                           for p in item.get("prior_art", [])) if item.get("prior_art") else "")
                       for item in result["ranked_insights"][:3]),
+                  "Taxonomy gaps to review: " + "; ".join(
+                      gap["principle"] + " (" + (gap["tag"] or "unclassified") + ")"
+                      for gap in result["taxonomy_gaps"]),
                   "Recover current authoritative state and ownership before modifying anything.",
                   "Next executable action: " + h["next_action"], "```"]
     return "\n".join(lines + ["", result["disposition"]]) + "\n"
