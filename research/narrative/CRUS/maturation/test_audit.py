@@ -20,6 +20,10 @@ def fixture():
              "ingested_at": "2026-11-04T22:00:00Z", "valid_until": "2026-11-05T00:00:00Z"}
         if metric.startswith("eps_"):
             r.update(fiscal_year=int(metric[-4:]), accounting_basis="GAAP", currency="USD", basis="estimate")
+        if metric == "quote":
+            r.update(currency="USD", venue="NASDAQ", session="regular")
+        if metric == "capital_structure":
+            r.update(currency="USD", value={"cash_usd":10,"debt_usd":0,"diluted_shares":1})
         records.append(r)
     return {"contract": "crus-research-snapshot@1", "ticker": "CRUS", "records": records, "hypotheses": []}
 
@@ -135,6 +139,27 @@ class AuditTests(unittest.TestCase):
     def test_known_null_is_rejected(self):
         self.data["records"][0]["value"] = None
         with self.assertRaises(ValueError): audit(self.data, AT)
+
+    def test_quote_must_be_positive_usd_and_session_identified(self):
+        for field,value in (("value",-1),("value",True),("currency","JPY"),("session","unknown"),("venue","")):
+            d=copy.deepcopy(self.data); d["records"][6][field]=value
+            with self.subTest(field=field,value=value), self.assertRaises(ValueError): audit(d,AT)
+
+    def test_concentration_must_be_fraction(self):
+        self.data["records"][2]["value"]=90
+        with self.assertRaises(ValueError): audit(self.data,AT)
+
+    def test_capital_structure_cannot_be_placeholder(self):
+        self.data["records"][7]["value"]=1
+        with self.assertRaises(ValueError): audit(self.data,AT)
+
+    def test_hypothesis_string_is_not_falsifier_list(self):
+        self.data["hypotheses"]=[{"dependencies":["product_role"],"alternatives":"a","falsifiers":"f","milestone":"m"}]
+        with self.assertRaises(ValueError): audit(self.data,AT)
+
+    def test_https_prefix_without_host_rejected(self):
+        self.data["records"][0]["source"]["url"]="https://"
+        with self.assertRaises(ValueError): audit(self.data,AT)
 
 
 if __name__ == "__main__": unittest.main()

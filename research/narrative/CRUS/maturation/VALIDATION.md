@@ -1,5 +1,25 @@
 # Validation and review maturity
 
+## Follow-through, revision 0.1.1
+
+Same #188 branch, proceeding after user authorization. At 2026-11-04T23:52:12Z
+the November earnings release was successfully re-opened; prior failure below is
+historical, not the current retrieval state. New v2 research files preserve the
+original snapshot and audit. The source reports remain unaudited issuer statements;
+SEC reconciliation and exact publication-time availability remain unknown.
+
+Added five adversarial test methods first: the 27-test run failed with nine
+assertion failures across quote subcases, concentration units, capital-structure
+placeholder, source hostname and hypothesis-list checks. Tightened validators
+without weakening assertions: 27 tests then passed, zero skipped. Model 0.1.1.
+This is author testing, not independent B01 acceptance. Real v2 remains blocked.
+
+Earnings evidence reconciliation executed: both periods' gross profit less
+operating expenses equal operating income; change in gross profit minus change in
+expenses equals change in operating income. No forecast engine or price target.
+B00 #192 and B01 #193 comments re-read: no receiver response at review time.
+Self-score remains 71/100 pending independent acceptance and financial coverage.
+
 Local execution on 2026-11-04; independent CI is pending B01 #193.
 
 Executed from repository-relative root:

@@ -8,8 +8,9 @@ from datetime import datetime
 import hashlib
 import json
 from pathlib import Path
+from urllib.parse import urlsplit
 
-VERSION = "crus-readiness@0.1.0"
+VERSION = "crus-readiness@0.1.1"
 REQUIRED = ("product_role", "commercial_scale", "customer_concentration",
             "margin_bridge", "eps_fy2027", "eps_fy2028", "quote", "capital_structure")
 KINDS = {"issuer_statement", "reported_financial", "third_party_claim", "unknown"}
@@ -26,6 +27,10 @@ def stamp(value):
 
 def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()
+
+
+def number(value):
+    return isinstance(value, (int, float)) and not isinstance(value, bool)
 
 
 def validate(data):
@@ -62,7 +67,7 @@ def validate(data):
             if not isinstance(r.get("source"), dict):
                 raise ValueError("source required")
             url = r["source"].get("url")
-            if not isinstance(url, str) or not url.startswith("https://"):
+            if not isinstance(url, str) or urlsplit(url).scheme != "https" or not urlsplit(url).hostname:
                 raise ValueError("HTTPS source required")
             if r["source"].get("class") not in {"primary", "secondary"}:
                 raise ValueError("source class required")
@@ -77,6 +82,21 @@ def validate(data):
                 raise ValueError("numeric EPS required")
             if r.get("currency") != "USD":
                 raise ValueError("USD EPS required")
+        if r["kind"] != "unknown":
+            if r["metric"] == "quote":
+                if not number(r["value"]) or r["value"] <= 0 or r.get("currency") != "USD":
+                    raise ValueError("positive USD quote required")
+                if r.get("session") not in {"regular", "premarket", "afterhours"} or not isinstance(r.get("venue"), str) or not r["venue"].strip():
+                    raise ValueError("quote venue/session required")
+            if r["metric"] == "customer_concentration":
+                if not number(r["value"]) or not 0 <= r["value"] <= 1:
+                    raise ValueError("concentration fraction required")
+            if r["metric"] == "capital_structure":
+                v = r["value"]
+                if not isinstance(v, dict) or r.get("currency") != "USD":
+                    raise ValueError("USD capital structure object required")
+                if not all(number(v.get(k)) and v[k] >= 0 for k in ("cash_usd", "debt_usd", "diluted_shares")) or v["diluted_shares"] <= 0:
+                    raise ValueError("cash, debt and positive diluted shares required")
         if all(r[k] is not None for k in ("observed_at", "ingested_at")):
             if stamp(r["ingested_at"]) < stamp(r["observed_at"]):
                 raise ValueError("ingestion before observation")
@@ -94,6 +114,11 @@ def validate(data):
             raise ValueError("hypothesis object required")
         if not h.get("alternatives") or not h.get("falsifiers") or not h.get("milestone"):
             raise ValueError("hypothesis requires alternative, milestone and falsifier")
+        for key in ("alternatives", "falsifiers"):
+            if not isinstance(h[key], list) or not all(isinstance(x, str) and x.strip() for x in h[key]):
+                raise ValueError("nonempty text lists required")
+        if not isinstance(h["milestone"], str) or not h["milestone"].strip():
+            raise ValueError("milestone text required")
         if not isinstance(h.get("dependencies"), list) or not h["dependencies"] or not all(isinstance(x, str) for x in h["dependencies"]) or not set(h["dependencies"]) <= seen:
             raise ValueError("unresolved hypothesis dependencies")
     return data
