@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import math
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -61,7 +62,7 @@ def assess(mapping, pools):
             {p: memberships[p] for p in pool_names}, "stale membership summary")
     for section, label in (("authoritative_scope", "instrument"), ("pool_reference", "pool")):
         revision = mapping.get(section, {}).get("head_sha")
-        require(isinstance(revision, str) and len(revision) == 40, f"missing pinned {label} revision")
+        require(isinstance(revision, str) and re.fullmatch(r"[0-9a-f]{40}", revision) is not None, f"invalid pinned {label} SHA")
     reported_denominators = 0
     result_pools = []
     for p in pools["pools"]:
@@ -119,6 +120,17 @@ def compare_reports(previous, current):
     """Read-only dependency delta; never schedules or mutates other workers."""
     require(isinstance(previous, dict) and previous.get("schema") == "basket.b19-maturation-audit@research1", "previous report is incompatible")
     require(isinstance(current, dict) and current.get("schema") == previous["schema"], "current report is incompatible")
+    for label, report in (("previous", previous), ("current", current)):
+        rows = report.get("pool_research_queue")
+        require(isinstance(rows, list), f"{label}: missing pool research list")
+        ids = [x.get("pool_id") for x in rows if isinstance(x, dict)]
+        require(len(ids) == len(rows) and all(isinstance(i, str) and i for i in ids)
+                and len(set(ids)) == len(ids), f"{label}: malformed or duplicate pool IDs")
+        require(isinstance(report.get("input_fingerprint"), str)
+                and re.fullmatch(r"[0-9a-f]{64}", report["input_fingerprint"]) is not None,
+                f"{label}: invalid input fingerprint")
+        require(isinstance(report.get("inputs"), dict) and isinstance(report.get("scope"), dict),
+                f"{label}: missing source revision/scope")
     old = {x["pool_id"]: x for x in previous.get("pool_research_queue", [])}
     new = {x["pool_id"]: x for x in current.get("pool_research_queue", [])}
     affected = sorted(k for k in set(old) | set(new) if old.get(k) != new.get(k))
