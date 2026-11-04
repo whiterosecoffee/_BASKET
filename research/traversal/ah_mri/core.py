@@ -148,6 +148,13 @@ def markdown(report):
         ah = "unavailable" if x["ah_mark_usd"] is None else "$%.2f @ %s" % (x["ah_mark_usd"], x["ah_observed_at"])
         bands = "; ".join("%s $%.2f–$%.2f" % (z["kind"], z["lower_usd"], z["upper_usd"]) for z in x["levels"]) or "unavailable"
         lines.append("| %s | %s | %s | %s | %s |" % (x["ticker"], close, ret, ah, bands))
+    lines.append("\n## Price provenance")
+    for x in report["instruments"]:
+        rth = ("%s @ %s (%s)" % (x["rth_source"], x["rth_observed_at"], x["rth_freshness"])
+               if x["rth_source"] else "unavailable")
+        ah = ("%s @ %s (%s)" % (x["ah_source"], x["ah_observed_at"], x["ah_freshness"])
+              if x["ah_source"] else "unavailable")
+        lines.append("- %s: RTH %s; AH %s" % (x["ticker"], rth, ah))
     lines.append("\n## Economic events")
     lines.extend("- %s: %s; surprise %s %s" % (e["name"], e["status"], e["surprise"] if e["surprise"] is not None else "unknown", e["units"] or "") for e in report["events"])
     lines.append("\n## Conditional scenarios (uncalibrated)")
