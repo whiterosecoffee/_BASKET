@@ -49,7 +49,10 @@ def qualify(event: Mapping[str, Any], *, prior_event_id: str | None,
         reasons.append("unverified_source")
     if event.get("data_conflict") is not False:
         reasons.append("conflicted_or_unknown")
-    if event.get("market_open") is not True and event.get("material_after_hours") is not True:
+    if event.get("session") == "after_hours":
+        if event.get("material_after_hours") is not True:
+            reasons.append("no_material_after_hours")
+    elif event.get("market_open") is not True:
         reasons.append("closed_session")
     if not isinstance(max_lag_seconds, int) or isinstance(max_lag_seconds, bool) or max_lag_seconds < 0:
         reasons.append("invalid_lag_policy")
