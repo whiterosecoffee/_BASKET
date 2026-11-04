@@ -2,7 +2,7 @@
 
 Versioned economic intelligence, relationship mapping, and market traversal architecture.
 
-See `architecture/` for the specification and `schemas/` for validation contracts.
+See [operating architecture and setup](architecture/OPERATING_ARCHITECTURE.md), `architecture/` for the specification and `schemas/` for validation contracts.
 
 ## Versions and release readiness
 
