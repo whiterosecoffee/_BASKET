@@ -76,6 +76,14 @@ class HistoricalStateTests(unittest.TestCase):
         rows[-1]["complete"] = False
         self.assertIsNone(run(rows)["features"]["10"]["sma"])
 
+    def test_exchange_local_date_can_lead_utc_date(self):
+        row = bars(1)[0]
+        row["session_date"] = "2026-11-05"
+        row["available_at"] = "2026-11-04T22:30:00Z"
+        result = run([row], cutoff="2026-11-04T23:00:00Z")
+        self.assertEqual(result["eligible_completed_sessions"], 1)
+        self.assertEqual(result["last_session"], "2026-11-05")
+
     def test_no_calendar_attestation(self):
         with self.assertRaises(ValueError):
             evaluate(bars(30), as_of="2026-11-04T23:59:00Z",
