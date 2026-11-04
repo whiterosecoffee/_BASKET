@@ -1,0 +1,14 @@
+{
+  "symbol": "DLR",
+  "instrument_type": "equity_or_depositary_receipt",
+  "basket_groups": [
+    "user_approved_additions_2026_11_03"
+  ],
+  "tracking_status": "watchlist",
+  "price_data_status": "not_migrated",
+  "canonical_data_path": "tickers/DLR/",
+  "review_status": "identity_listing_and_history_unverified",
+  "first_scope_as_of": "2026-11-03",
+  "proposed_primary_role": "datacenter_real_estate",
+  "reason_for_tracking": "Data center landlord, colocation and capacity"
+}

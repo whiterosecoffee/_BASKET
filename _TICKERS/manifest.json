@@ -1,0 +1,3636 @@
+{
+  "schema": "basket.scope_manifest@draft1",
+  "as_of": "2026-11-03",
+  "issue": 146,
+  "branch": "work/146-basket-universe-taxonomy",
+  "count": 291,
+  "source": "User 2026-11-03 watchlists/screenshots, prior project scope, and eight explicitly approved suggestions",
+  "records": [
+    {
+      "symbol": ".INX",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/.INX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": ".IXIC",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/.IXIC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "688825.SS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/688825.SS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "AAOI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/AAOI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "AAON",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/AAON/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "AAPL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/AAPL/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ABBNY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ABBNY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ACN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "solutions"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ACN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ADBE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ADBE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ADI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ADI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ADSK",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ADSK/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "AIQ",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/AIQ/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "AKAM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/AKAM/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ALAB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ALAB/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "AMAT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/AMAT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "AMBA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/AMBA/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "AMD",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/AMD/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "AMZN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/AMZN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ANET",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ANET/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "APH",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/APH/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "APLD",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/APLD/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "APO",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "financial",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/APO/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ARKG",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ARKG/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ARKK",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ARKK/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ARKQ",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ARKQ/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ARKVX",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ARKVX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ARKW",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ARKW/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ARKX",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ARKX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ARM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ARM/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ASML",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ASML/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ATEYY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ATEYY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "AVGO",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/AVGO/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "BE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/BE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "BLK",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "financial",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/BLK/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "BN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "financial",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/BN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "BNO",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/BNO/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "BWXT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/BWXT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "BX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "financial",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/BX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "BZ=F",
+      "instrument_type": "futures_contract",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/BZ=F/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CACI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CACI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CARR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CARR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "thermal_building_controls",
+      "reason_for_tracking": "HVAC and thermal management"
+    },
+    {
+      "symbol": "CAT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CAT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CBRS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CBRS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CCC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CCC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CCI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CCI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CCJ",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CCJ/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CDNS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CDNS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CEG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CEG/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CGNX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CGNX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CHKP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CHKP/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CHTR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CHTR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CIBR",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CIBR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CIEN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CIEN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CIFR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CIFR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CINT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CINT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CL=F",
+      "instrument_type": "futures_contract",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CL=F/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CMI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CMI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "COHR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/COHR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "COHU",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/COHU/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "COR1M",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/COR1M/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "COR3M",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/COR3M/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CORZ",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CORZ/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CRAK",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CRAK/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CRDO",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CRDO/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CRWD",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CRWD/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CRWV",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CRWV/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CSCO",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CSCO/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CSGP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CSGP/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "CTSH",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/CTSH/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "DASTY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/DASTY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "DAVA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/DAVA/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "DDOG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/DDOG/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "DE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/DE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "DELL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/DELL/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "DLR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/DLR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "datacenter_real_estate",
+      "reason_for_tracking": "Data center landlord, colocation and capacity"
+    },
+    {
+      "symbol": "DNA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "frontier"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/DNA/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "DSPX",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/DSPX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "DTEGY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/DTEGY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "DWCF",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/DWCF/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "DXC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/DXC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "EMB",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/EMB/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "EME",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/EME/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "EPAM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/EPAM/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "EQIX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/EQIX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ERIC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ERIC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ESTC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ESTC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ETN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ETN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "EXLS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "solutions",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/EXLS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "FANUY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/FANUY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "FAST",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/FAST/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "FFIV",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/FFIV/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "FIX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/FIX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "FJTSY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/FJTSY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "FN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/FN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "FNTN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/FNTN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "FORM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/FORM/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "FTNT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/FTNT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "G",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/G/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GDX",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GDX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GDYN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "solutions",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GDYN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GEV",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GEV/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GFS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GFS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GIB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GIB/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GLD",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GLD/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GLOB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GLOB/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GLW",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GLW/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GOOG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GOOG/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GOOGL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GOOGL/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GRID",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GRID/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "financial",
+        "screenshots",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GTCRX",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GTCRX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "GWRE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/GWRE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "HACK",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/HACK/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "HO=F",
+      "instrument_type": "futures_contract",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/HO=F/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "HON",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/HON/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "HOOD",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "convexity",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/HOOD/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "HP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/HP/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "HPE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/HPE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "HUBB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/HUBB/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "HUT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/HUT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "HYG",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/HYG/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IBM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IBM/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IEF",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IEF/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IGV",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IGV/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "INTC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/INTC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IONQ",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "frontier",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IONQ/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IREN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IREN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ISRG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ISRG/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IWB",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IWB/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IWD",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IWD/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IWL",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IWL/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IWM",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "signals",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IWM/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IWN",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IWN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IWV",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IWV/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IWY",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IWY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "IYW",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/IYW/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "JCI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/JCI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "thermal_building_controls",
+      "reason_for_tracking": "Data center cooling and building controls"
+    },
+    {
+      "symbol": "JNJ",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/JNJ/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "JNK",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/JNK/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "KDDIY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/KDDIY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "KEYS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/KEYS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "KKR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "financial",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/KKR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "KLAC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/KLAC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "KLIC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/KLIC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "KMI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/KMI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "KYCCF",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/KYCCF/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "LEU",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/LEU/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "LIN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/LIN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "semiconductor_materials",
+      "reason_for_tracking": "Industrial and specialty gases for semiconductor production"
+    },
+    {
+      "symbol": "LITE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/LITE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "LQD",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/LQD/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "LRCX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/LRCX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "LSCC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/LSCC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "LUMN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/LUMN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MAGS",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MAGS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MANH",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MANH/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MCHP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MCHP/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MDB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MDB/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MDT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MDT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MDY",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MDY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "META",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/META/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MKSI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MKSI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "semiconductor_equipment_subsystems",
+      "reason_for_tracking": "Semiconductor equipment subsystems and process components"
+    },
+    {
+      "symbol": "MOD",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MOD/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MOVE",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MOVE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MPWR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MPWR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MRNA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MRNA/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MRVL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MRVL/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MSFT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MSFT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MTSI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MTSI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "MU",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/MU/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "NBIS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/NBIS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "NDAQ",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/NDAQ/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "NDX",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/NDX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "NOK",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/NOK/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "NOW",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/NOW/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "NRG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/NRG/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "NTAP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/NTAP/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "data_storage",
+      "reason_for_tracking": "Enterprise data infrastructure and storage software"
+    },
+    {
+      "symbol": "NVD",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/NVD/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "NVDA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/NVDA/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "NXPI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/NXPI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "NYA",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/NYA/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "OIH",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/OIH/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "OKLO",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/OKLO/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "OKTA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/OKTA/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "OLED",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/OLED/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "OMRNY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/OMRNY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ON",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ON/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ONTO",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ONTO/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ORCL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ORCL/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "PANW",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/PANW/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "PATH",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/PATH/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "PAVE",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/PAVE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "PENG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/PENG/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "PI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/PI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "PLTR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/PLTR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "PSQ",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/PSQ/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "PWR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/PWR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "QBTS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "frontier"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/QBTS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "QNT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/QNT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "QQQ",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/QQQ/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "QQQD",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/QQQD/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "QQQM",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/QQQM/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "RGTI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "frontier"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/RGTI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "RMBS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/RMBS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ROK",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ROK/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "RSP",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/RSP/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "RUA",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/RUA/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "RUI",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/RUI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "RUT",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/RUT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "RXRX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "frontier"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/RXRX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SAP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SAP/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SFTBY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SFTBY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SHOP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SHOP/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SHY",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SHY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SIEGY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SIEGY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SIXB",
+      "instrument_type": "index",
+      "basket_groups": [
+        "sectors"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SIXB/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SIXC",
+      "instrument_type": "index",
+      "basket_groups": [
+        "sectors"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SIXC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SIXE",
+      "instrument_type": "index",
+      "basket_groups": [
+        "sectors"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SIXE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SIXI",
+      "instrument_type": "index",
+      "basket_groups": [
+        "sectors"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SIXI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SIXM",
+      "instrument_type": "index",
+      "basket_groups": [
+        "sectors"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SIXM/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SIXR",
+      "instrument_type": "index",
+      "basket_groups": [
+        "sectors"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SIXR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SIXRE",
+      "instrument_type": "index",
+      "basket_groups": [
+        "sectors"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SIXRE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SIXT",
+      "instrument_type": "index",
+      "basket_groups": [
+        "sectors"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SIXT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SIXU",
+      "instrument_type": "index",
+      "basket_groups": [
+        "sectors"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SIXU/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SIXV",
+      "instrument_type": "index",
+      "basket_groups": [
+        "sectors"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SIXV/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SKEW",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SKEW/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SKHY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SKHY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SLAB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SLAB/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SLV",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SLV/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SMCI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SMCI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SMH",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SMH/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SMR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SMR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SMTC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SMTC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SNDK",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SNDK/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SNOW",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SNOW/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SNPS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SNPS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SPY",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SPY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "STM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/STM/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "STRL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/STRL/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "STX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/STX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SWKS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SWKS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SYK",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SYK/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "SYM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/SYM/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TCS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TCS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TDG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TDG/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TEL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TEL/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TEM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "frontier"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TEM/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TER",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TER/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TIIAY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TIIAY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TLN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TLN/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TLT",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TLT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TMUS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TMUS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TNX",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TNX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TRI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TRI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TRMB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TRMB/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TSM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TSM/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TYL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TYL/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "TYX",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/TYX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "UMC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/UMC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "URA",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/URA/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "USDJPY",
+      "instrument_type": "fx_pair",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/USDJPY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "USO",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/USO/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "UUP",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/UUP/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "VICR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/VICR/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "power_conversion",
+      "reason_for_tracking": "High density power modules and conversion"
+    },
+    {
+      "symbol": "VIX",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/VIX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "VIX3M",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/VIX3M/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "VIX6M",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/VIX6M/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "VIX9D",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/VIX9D/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "VRT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/VRT/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "VST",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/VST/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "VVIX",
+      "instrument_type": "index",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/VVIX/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "WCC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/WCC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "WDC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/WDC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03",
+      "proposed_primary_role": "data_storage",
+      "reason_for_tracking": "Storage hardware and enterprise HDD systems"
+    },
+    {
+      "symbol": "WMB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/WMB/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "WULF",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/WULF/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "XBI",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/XBI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "XLB",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/XLB/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "XLC",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/XLC/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "XLE",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals",
+        "screenshots"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/XLE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "XLF",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/XLF/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "XLI",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/XLI/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "XLK",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/XLK/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "XLP",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/XLP/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "XLRE",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/XLRE/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "XLU",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/XLU/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "XLV",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/XLV/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "XLY",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/XLY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "YASKY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/YASKY/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ZBRA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ZBRA/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    },
+    {
+      "symbol": "ZS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "tracking_status": "watchlist",
+      "price_data_status": "not_migrated",
+      "canonical_data_path": "tickers/ZS/",
+      "review_status": "identity_listing_and_history_unverified",
+      "first_scope_as_of": "2026-11-03"
+    }
+  ],
+  "revision_note": "291 tracked identifiers; eight additions approved 2026-11-03; identity classes remain provisional"
+}
