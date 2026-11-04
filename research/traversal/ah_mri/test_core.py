@@ -59,4 +59,22 @@ class CoreTests(unittest.TestCase):
   b=copy.deepcopy(SAMPLE); b["as_of"]="2026-11-04T16:30:00-05:00"
   self.assertIsNone(analyze(b)["instruments"][0]["ah_mark_usd"])
 
+ def test_intraday_not_close(self):
+  b=copy.deepcopy(SAMPLE); b["instruments"][0]["rth"]["observed_at"]="2026-11-04T15:59:00-05:00"
+  self.assertIsNone(analyze(b)["instruments"][0]["rth_close_usd"])
+ def test_ah_outside_session(self):
+  b=copy.deepcopy(SAMPLE)
+  b["instruments"][0]["ah"]["observed_at"]="2026-11-04T20:01:00-05:00"
+  b["instruments"][0]["ah"]["available_at"]="2026-11-04T20:02:00-05:00"
+  b["instruments"][0]["ah"]["ingested_at"]="2026-11-04T20:03:00-05:00"
+  b["as_of"]="2026-11-04T20:15:00-05:00"
+  b["instruments"][0]["ah"]["expires_at"]="2026-11-04T20:30:00-05:00"
+  self.assertIsNone(analyze(b)["instruments"][0]["ah_mark_usd"])
+ def test_wrong_session_date(self):
+  b=copy.deepcopy(SAMPLE); b["session"]["date"]="2026-11-03"
+  with self.assertRaises(ValueError): analyze(b)
+ def test_early_close_ah_end(self):
+  b=copy.deepcopy(SAMPLE); b["session"]["ah_end_at"]="2026-11-04T16:30:00-05:00"
+  self.assertIsNone(analyze(b)["instruments"][0]["ah_mark_usd"])
+
 if __name__=="__main__": unittest.main()
