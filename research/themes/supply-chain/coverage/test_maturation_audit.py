@@ -8,6 +8,7 @@ spec = importlib.util.spec_from_file_location("maturation_audit", Path(__file__)
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 assess, MaturityError = module.assess, module.MaturityError
+compare_reports = module.compare_reports
 
 def sample():
     mapping = {
@@ -88,6 +89,26 @@ class MaturationAuditTests(unittest.TestCase):
         out = assess(a, b)
         self.assertEqual(out["financial_coverage"]["reported_denominator_pools"], 1)
         self.assertIsNone(out["pool_research_queue"][0]["buyer_dollar_coverage_ratio"])
+
+    def test_identical_prior_report_is_noop(self):
+        a, b = sample()
+        report = assess(a, b)
+        delta = compare_reports(report, assess(a, b))
+        self.assertFalse(delta["requires_reconciliation"])
+        self.assertEqual(delta["changed_pool_ids"], [])
+
+    def test_changed_source_revision_requires_reconciliation(self):
+        a, b = sample()
+        previous = assess(a, b)
+        a["authoritative_scope"]["head_sha"] = "c" * 40
+        delta = compare_reports(previous, assess(a, b))
+        self.assertTrue(delta["upstream_revision_changed"])
+        self.assertTrue(delta["requires_reconciliation"])
+
+    def test_incompatible_previous_fails_closed(self):
+        a, b = sample()
+        with self.assertRaises(MaturityError):
+            compare_reports({"schema": "wrong"}, assess(a, b))
 
     def test_bad_revision(self):
         a, b = sample()
