@@ -78,6 +78,12 @@ jobs:
           for file in check.py ipo2027.py resource_audit.py test_ipo2027.py test_resource_audit.py; do
             test -s "source/research/OPENAI/$file"
           done
+      - name: Fingerprint exact source and acceptance inputs
+        env:
+          SOURCE_SHA: ${{ steps.research-source.outputs.sha }}
+          ACCEPTANCE_SHA: ${{ github.workflow_sha }}
+        run: |
+          python acceptance/tests/integration/openai_gate.py snapshot --source source --acceptance acceptance --source-sha "$SOURCE_SHA" --acceptance-sha "$ACCEPTANCE_SHA" --output openai-inputs-before.json
       - name: B13 offline checker
         working-directory: source
         run: python research/OPENAI/check.py --validate --self-test
@@ -88,7 +94,7 @@ jobs:
       - name: B13 IPO and resource tests
         if: ${{ !cancelled() }}
         working-directory: source
-        run: python -m unittest discover -s research/OPENAI -p 'test_*.py' -v
+        run: python ../acceptance/tests/integration/openai_gate.py suite research/OPENAI 'test_*.py'
       - name: Independent B01 fail-closed checks
         if: ${{ !cancelled() }}
         env:
@@ -104,3 +110,18 @@ jobs:
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           raise SystemExit(0 if result.wasSuccessful() and not result.skipped else 1)
           PY
+
+      - name: Verify inputs unchanged after all checks
+        if: ${{ !cancelled() }}
+        env:
+          SOURCE_SHA: ${{ steps.research-source.outputs.sha }}
+          ACCEPTANCE_SHA: ${{ github.workflow_sha }}
+        run: |
+          python acceptance/tests/integration/openai_gate.py snapshot --source source --acceptance acceptance --source-sha "$SOURCE_SHA" --acceptance-sha "$ACCEPTANCE_SHA" --compare openai-inputs-before.json --output openai-inputs-after.json
+      - name: Preserve run-local fingerprints and failure evidence
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: openai-inputs-${{ github.run_id }}-${{ github.run_attempt }}
+          path: openai-inputs-*.json
+          if-no-files-found: error
