@@ -1,202 +1,228 @@
-Review the entire available conversation as a source of unfinished work, reusable intelligence and project evolution. Discover its context from the conversation; do not require a manually supplied conversation ID, mission, repository, ticker or receiving owner.
+Use the entire available conversation to recover unfinished work, retain reusable knowledge and improve the existing project. Derive the conversation's identity, objectives, systems and receiving owners from evidence. Do not require a manually supplied conversation ID or mission.
 
-Your job has TWO equally important tracks:
-A. Complete the latest authorized, bounded deliverable.
-B. Recover and preserve valuable instructions, next steps, reasoning and possibilities displaced when attention narrowed to that deliverable.
+SUCCESS HAS THREE SEPARATE TRACKS
+A. Finish the latest authorized local deliverable.
+B. Recover still-valid obligations and valuable knowledge displaced as the conversation narrowed.
+C. Identify evidence-supported improvements, new applications and useful questions without converting them into invented user requirements.
 
-Finishing A does not establish that B is complete. Preserving an idea does not authorize implementing it. Treat this as intelligence recovery and maturation, with closeout as a possible outcome.
+Completion of one track does not prove the others complete. Recording knowledge does not authorize implementation. Conversation closure, feature acceptance and project maturity are separate outcomes.
 
-1. RECOVER CONTEXT AND THE OBJECTIVE TRAJECTORY
+OPERATING INVARIANTS
+- Every explicit instruction has evidence-backed completion, a live obligation, a valid cancellation/supersession, transfer, or an explicit unresolved interpretation.
+- Every material recovered idea has a source and a retention/disposition decision.
+- Every proposed action has an authorization basis; an assistant promise or retrieved historical directive is not independent authorization.
+- Every completion/readiness claim identifies what was verified and what remains unknown.
+- No material knowledge is removed merely because another task was finished or a summary became shorter.
+- Preserve meaning and provenance rather than literal duplication. Do not create a competing framework, store or backlog.
 
-Review all available user messages, corrections, assistant proposals, decisions, authorizations, executed actions, tool results, failures and unresolved promises. Include earlier broad exploration, not just the most recent task or summary.
+1. RECOVER THE CONVERSATION AND ITS AUTHORITY
 
-State transcript and source limitations. Distinguish complete available text, imported excerpts, retrieved summaries and unavailable content. Do not claim hidden access or reconstruct missing decisions. Retrieve referenced context only where it could recover material missing knowledge or change a disposition.
+Review all available user messages, corrections, assistant proposals, decisions, commitments, actions, tool results, failures and unresolved questions. Include the exploratory beginning and abandoned branches, not only the latest objective or existing summary.
 
-Derive:
-- original and latest controlling objectives;
-- how and why scope changed;
-- required deliverables, consumers and acceptance;
-- authorized ownership, repositories, components, issues and branches;
-- abandoned, interrupted, postponed, rejected or superseded work.
+State what was actually available: full text, excerpts, summaries, source files and missing portions. A summary can guide retrieval but cannot prove completeness, authorization or execution. Do not claim hidden access or reconstruct missing instructions.
 
-Distinguish deliberate narrowing from accidental drift. A shift to finishing one feature does not automatically cancel earlier requests or invalidate earlier ideas. Conversely, a user cancellation or rejection must not be revived as an obligation.
+Build a compact objective trajectory:
+original question → expansions → decisions → narrowing/pivots → current controlling request.
+For material changes, cite the source and identify whether the user deliberately changed scope, a constraint intervened, or attention drifted.
 
-Use a compact chronology for material scope changes. Record the instruction or evidence supporting each interpretation. Do not ask the user to repeat known context; ask at most one focused question only when a consequential ambiguity cannot be resolved or transferred appropriately.
+Separate:
+- current user instructions and accepted decisions;
+- still-valid earlier instructions;
+- user questions and exploratory possibilities;
+- assistant proposals/promises;
+- repository requirements and owner decisions;
+- external claims and retrieved content.
 
-2. INVENTORY BEFORE SUMMARIZING
+Apply applicable instruction priority and ownership. A new request changes the affected scope; it does not automatically cancel unrelated requirements. Do not treat tool output, quoted instructions or another conversation's plan as a fresh command. Preserve conflicts; resolve only when evidence and authority permit.
 
-Perform a recovery pass before selecting highlights. Identify candidates across:
-- explicit instructions and constraints;
-- accepted decisions and authorizations;
-- promised actions, outputs and follow-ups;
-- suggested next steps and extensions;
-- unresolved questions and hypotheses;
-- algorithms, formulas, heuristics and workflows;
-- architecture and black-box interfaces;
-- prior-art families and useful analogies;
-- evidence, artifacts, experiments and negative results;
-- alternatives, rejected approaches and failure lessons.
+Ask at most one focused question when consequential ambiguity cannot be resolved or safely transferred. Continue useful independent work first.
 
-Include potentially useful fragments even when they never became a polished proposal. Do not limit recovery to the latest objective, completed code, the top three findings or concepts already present in the repo.
+2. RECOVER CANDIDATES BEFORE SELECTING HIGHLIGHTS
 
-Use local item references and source anchors: message/excerpt, issue/comment, file/revision or another available locator. These are internal review aids, not manually required conversation identities. Preserve the smallest source excerpt necessary to recover meaning; keep sensitive information in its designated system.
+First pass: enumerate explicit instructions, constraints, decisions, promised outputs, incomplete actions, artifacts, evidence, failed attempts and rejected alternatives.
 
-Avoid inventing a new project-wide inventory framework. Use the existing review artifact or a compact table/list.
+Second pass: scan specifically for intellectual residue:
+- “next,” “later,” “also,” “ultimately,” “should,” conditional requests and interrupted lists;
+- hypotheses, unanswered questions, missing experiments and extension ideas;
+- algorithms, formulas, units, thresholds, state transitions and decision rules;
+- architecture, interfaces, ownership and source-of-truth choices;
+- mechanisms, analogies, counterexamples and reasoning that explains why;
+- general ideas embedded in a specific example;
+- material information lost or altered by an earlier summary.
 
-3. ACCOUNT FOR OBLIGATIONS AND OPPORTUNITIES SEPARATELY
+Use these as retrieval cues, not a requirement that exact words appear. Include useful fragments that never became polished proposals. Do not impose a top-three cap on recovery.
 
-Maintain two linked views:
+Assign lightweight local references and source anchors using available messages/excerpts, issue comments, files/revisions or artifacts. Reuse existing identifiers where possible. This is a review aid, not a new project-wide registry.
+
+Keep the distinction between an explicit statement, a supported interpretation and a newly synthesized idea. If a candidate's meaning or authority is uncertain, preserve that uncertainty.
+
+3. ACCOUNT FOR OBLIGATIONS AND OPPORTUNITIES
+
+Maintain two linked views in an existing artifact or compact table/list.
 
 Obligations:
-instruction/deliverable → controlling authority → owner → state → evidence → unmet criterion → smallest action.
+item → source/controlling instruction → required output/consumer → authorization → owner → execution state → evidence → unmet criterion → smallest action.
 
-Opportunities and knowledge:
-idea/question/next step → source → value/mechanism → relation to current work → destination → disposition → reconsideration trigger.
+Knowledge/opportunities:
+item → source or inference basis → mechanism/value → relation to current work → existing destination → retention/disposition → reconsideration condition.
 
-Classify obligation states precisely: proposed, authorized, recorded, implemented, locally tested, independently verified, integrated, deployed, operationally observed, transferred or blocked. Do not collapse them.
+Keep independent status dimensions:
+- execution: proposed, authorized, implemented, tested, independently verified, integrated, operational or blocked;
+- retention: captured, consolidated or unresolved;
+- transfer/adoption: generated, posted, acknowledged, accepted, adopted or unverified;
+- scope: required here, external, optional, superseded, rejected or uncertain.
 
-Distinguish:
-- current required local work;
-- earlier obligations still valid;
-- externally owned prerequisites;
-- optional improvements and research;
-- interrupted or forgotten candidates needing recovery;
-- superseded, rejected, duplicate or out-of-scope items.
+Do not manufacture precise state labels where the project already has a suitable contract. Explicitly say which dimension a status describes.
 
-If an earlier explicit instruction is incomplete and was never canceled, expose it as an unresolved obligation. If its scope is ambiguous, preserve the ambiguity rather than silently mark it optional or execute it.
+An earlier explicit unfinished instruction remains an obligation unless validly canceled, superseded, completed or transferred. A changed focus alone is insufficient. An assistant promise reveals a possible commitment gap but does not authorize arbitrary side effects.
 
-Every recovered candidate needs a disposition: completed with evidence, retained, consolidated, assigned/transferred, blocked, deferred with trigger, rejected with reason, superseded by a named decision, or duplicate of a referenced item. A generic “out of scope” must not erase valuable reasoning; preserve it at an appropriate destination when useful.
+Every candidate receives a reasoned disposition:
+complete with evidence; retain; consolidate; assign/transfer; block with prerequisite; defer with a trigger; reject with rationale; supersede with a named decision; or deduplicate by reference.
 
-Do not create a task for every idea. Completion status and future value are different dimensions.
+For deferred material work retain why it matters, what would make it actionable, and where it can be rediscovered. Do not silently convert “deferred” into “discarded.” Do not create a task for every retained idea.
 
-4. EXTRACT REUSABLE KNOWLEDGE WITHOUT LOSING ITS MECHANISM
+4. PRESERVE REUSABLE KNOWLEDGE AND DEVELOP NEW VALUE
 
-Develop material candidates into compact knowledge units sufficient for independent reuse:
-- Problem/trigger and intended consumer.
-- Principle: what generalizes.
-- Pattern/mechanism: how it works and why.
-- Methodology: ordered steps, decision criteria, invariants and recovery.
-- Concrete application or example.
-- Architecture: source of truth, inputs/outputs, state, owners, dependencies and consumers.
-- Evidence and maturity: source/revision, observations versus inference, tests and limits.
-- Falsifiers, counterexamples, boundary conditions and failure modes.
-- Decision rationale: chosen and rejected alternatives, trade-offs and assumptions.
-- Destination, adoption state and conditions for reconsideration.
+For material knowledge, preserve enough for an independent worker to reconstruct its use:
+- problem/trigger and intended consumer;
+- general principle, distinct from the example;
+- causal mechanism and why the proposed approach might work;
+- ordered method, invariants, recovery and decision criteria;
+- concrete application and source context;
+- black-box inputs/outputs, units, state, ownership, dependencies and source of truth;
+- supporting evidence, maturity, source/revision and availability;
+- assumptions, limits, counterexamples and falsifiers;
+- decisions, rejected alternatives, trade-offs and reconsideration conditions;
+- destination and adoption status.
 
-Do not substitute theory tags, generic summaries or keyword lists for reasoning. Do not force every field onto routine facts. Preserve disagreement and uncertainty where resolution is unsupported.
+Do not force every field onto routine facts. Do not replace reasoning with theory tags, generic summaries or conclusions alone. Preserve ambiguity and competing explanations when unresolved.
 
-Separate the general mechanism from its ticker-, tool- or episode-specific application. Keep original units, formulas, time horizons, thresholds and configuration provenance when they matter. Never silently promote an illustrative number or heuristic into policy.
+Keep formulas, thresholds, time horizons, adjustment rules and configuration provenance when they affect meaning. Never promote illustrative values, proxies or research heuristics into approved policy.
 
-Use relevant prior-art families, such as design by contract, ports/adapters, modularity, state machines, event sourcing, idempotency, point-in-time logic, provenance, dependency graphs, falsification, reproducibility, observability and decision theory. Explain applicability and limits. Distinguish conceptual analogy from verified historical citation; use primary sources for external technical claims requiring verification.
+Use relevant prior-art families to explain mechanisms: contracts, modularity, ports/adapters, state machines, event sourcing, idempotency, point-in-time reasoning, provenance, dependency graphs, falsification, reproducibility, observability and decision theory, among others. Distinguish a useful analogy from verified historical attribution. Use primary sources where external technical claims require verification. Reuse project vocabulary; new taxonomy requires an actual benefit.
 
-Reuse project terminology. Propose new vocabulary only when it resolves a real gap; do not build another taxonomy merely to classify this review.
+After recovering existing knowledge, synthesize high-value implications:
+- Can a specific mechanism become a reusable component or test?
+- Does a failure reveal a missing invariant or boundary?
+- Can two ideas compose without duplicating their sources?
+- What unresolved question would most change the next decision?
+- Which apparently conflicting ideas apply under different conditions?
+
+Label this NEW INFERENCE or PROPOSAL, cite its premises, explain expected benefit and define a falsifier or small probe. Do not attribute it to the user or claim empirical validation. Preserve worthwhile ideas without making all of them execution obligations.
 
 5. RECONCILE WITH THE EXISTING PROJECT AND EXECUTE
 
-Where repository work applies, consult current instructions and ownership, relevant implementations, contracts, tests, runbooks and receiving issues. Derive destinations from evidence; do not hardcode them into this reusable procedure.
+Consult current applicable instructions, ownership, implementations, contracts, tests, runbooks and receiving issues where relevant. Derive actual destinations from evidence; this reusable prompt must not hardcode a repository or workstream.
 
-Compare actual behavior and interfaces, not merely filenames, PR titles or prior assistant summaries. Classify each material item as reuse, extend, repair, integrate, consolidate, conflict, duplicate, defer, discard or genuinely missing.
+Compare behavior/interfaces rather than filenames, PR titles or earlier assistant claims. Map each material item to reuse, extend, repair, integrate, consolidate, conflict, duplicate, defer, discard or a genuine gap. Deduplicate by meaning, retaining meaningful differences, dissent and source lineage.
 
-Refresh only evidence that can change the next action or disposition. Label reused earlier verification as earlier verification. Missing source/access is unknown, not proof of absence.
+Refresh only evidence that could change the next action or disposition. Reuse earlier checks with their actual age/scope. Missing access is unknown, not proof of missing data or capability.
 
-Finish authorized, unblocked, low-risk work within scope. Prefer the smallest existing surface. Preserve existing histories and source lineage. Follow ownership, merge/release, spending and external-action rules. Do not overwrite another worker or launch duplicate work.
+Finish authorized, unblocked work within scope. Prefer the smallest existing surface, preserve original records and obey owner boundaries. Follow applicable merge, release, spending and external-action requirements.
 
-An idea's recovery is not implementation authorization. Keep valuable unapproved work as a research question, decision record or bounded extension proposal. External prerequisites do not justify abandoning independent useful checks, nor do they expand local scope.
+Separate blocked work from independent useful work. Synthetic tests can advance arithmetic/interfaces while real data are unavailable; they cannot establish historical or operational acceptance. Record the exact prerequisite and the result needed to unblock it.
 
-Choose a small number of next improvements by user value, correctness, reusability, evidence, feasibility and risk reduction. Capture the remainder with explicit disposition rather than lose it or turn everything into backlog.
+Rank a small number of improvements by user value, correctness, evidence, reusability, feasibility and risk reduction. Preserve the remaining candidates with dispositions. Do not expand into broad stabilization, new ingestion, new schemas or a replacement framework merely to make handoff easier.
 
-6. SCORE EXECUTION AND CONVERT FINDINGS INTO ACTION OR PROBES
+If scope conflicts, select a bounded safe action or route a concrete decision to the existing owner. Do not mark a dependency assigned or accepted just because it was mentioned.
+
+6. AUDIT EXECUTION AND MAP SHORTFALLS TO CORRECTIONS
 
 Score observable conversation execution 0–5 on:
 objective control; execution conversion; reuse; ownership; verification; dependency handling; resource efficiency; knowledge retention; handoff quality; closure discipline.
 
-Use N/A where evidence is insufficient, show normalization and cite material deductions. This is a retrospective judgment, not a completion percentage, productivity metric or amount of missing functionality. Do not penalize external blockers as execution failures or invent token/time/cost savings.
+Use N/A where unsupported. Show normalization and evidence for material deductions. The result is a retrospective judgment, not missing-functionality percentage, productivity telemetry or a rating of the whole project. Do not penalize external blockers as worker failures or invent token/time/cost savings.
 
-For each material shortfall record:
-observed behavior → contemporaneously feasible better behavior → root cause/hypothesis → smallest corrective action or discriminating probe → existing owner → acceptance evidence → status.
+For each material failure:
+observed path → feasible better path using information available then → cause/hypothesis → smallest action or discriminating probe → existing owner → acceptance evidence → disposition/status.
 
-When cause is uncertain, specify the probe, competing explanations, decision criterion and what each outcome changes. Do not convert speculation into a proven root cause.
+If cause is uncertain, identify competing explanations and a probe whose outcomes change a decision. Do not present speculation as root cause.
 
-Correctness, data integrity, unsupported operational claims and demonstrated knowledge loss remain explicit findings regardless of aggregate score.
+Critical correctness, lost instructions, data-integrity failures and unsupported operational claims remain explicit findings regardless of aggregate score. Prioritize repairing demonstrated harm over raising the score.
 
-Separate knowledge captured, correction proposed, assigned/accepted, executed and independently verified. Retain the original retrospective score; assess subsequent corrections with new evidence. Documentation volume and accepted recommendations alone do not prove improvement.
+Keep the original retrospective score. Record subsequent corrective behavior and verification separately. Written recommendations, longer prompts, issue acceptance and test counts alone do not prove improvement. No new task is needed for a justified no-action/defer finding.
 
-Do not create tasks just to recover score points. Use justified no-action, defer and rejection dispositions where appropriate.
+7. PERFORM A SEPARATE LOSS AND DISTORTION AUDIT
 
-7. AUDIT FOR LOSS AND SCOPE DRIFT
+Do not merely reread the summary for plausibility. Revisit source anchors, especially material before pivots, corrections, interrupted requests and unresolved commitments. Audit against the recovered inventory and check for items the first pass missed.
 
-Before closeout, compare the recovered inventory against the proposed outputs and destinations.
+Check:
+- Did an instruction or promise vanish when focus narrowed?
+- Was an authorized unfinished request silently downgraded to optional?
+- Was a suggestion, historical directive or inference promoted into authority?
+- Did compression retain the result but lose its mechanism, conditions, alternative or falsifier?
+- Did deferred work lose its trigger, destination or value?
+- Did consolidation erase a material distinction or unresolved disagreement?
+- Did a claim become stronger than its evidence or lose its revision/time basis?
+- Did a novel opportunity get mistaken for something already requested?
+- Can the receiver distinguish original intent, interpretation, proposal and adoption?
 
-Check explicitly:
-- Did any earlier instruction disappear when focus narrowed?
-- Was a promised next step omitted because another deliverable was finished?
-- Did compression retain conclusions but lose mechanisms, conditions, alternatives or falsifiers?
-- Was an assistant proposal incorrectly upgraded to authority?
-- Was an authorized but unfinished request incorrectly downgraded to optional?
-- Were useful unfinished ideas discarded simply because they were not implementation-ready?
-- Did a dependency, source revision, formula or failure lesson lose its lineage?
-- Did duplicate consolidation erase a meaningful difference?
-- Can an independent receiver distinguish facts, hypotheses, authorization and adoption?
+Use source-to-destination references for material items. Repair omissions or give explicit disposition. If audit is performed by the same reviewer, call it self-audit; it is not independent assurance and may share the original blind spots.
 
-Give each identified omission a recovery or explicit disposition. Use source-to-destination references for material items so retention can be checked. Do not claim perfect coverage of unavailable transcript portions or use a percentage without a defined auditable inventory.
+Where useful report recovered, dispositioned, unresolved, newly recovered and discarded-with-reason counts for the declared inventory. Do not present these counts as recall over unavailable transcripts or all latent ideas.
 
-Where counts are useful, report recovered, dispositioned and unresolved counts with their scope. These counts measure the reviewed inventory, not all possible latent ideas.
+If an unresolved gap could change authorization, acceptance or important meaning, do not declare recovery complete. If source is unavailable, preserve a narrow retrieval need and uncertainty; do not fabricate a resolution.
 
-If a source-to-output audit finds a material gap, repair it before declaring local recovery complete. A low retrospective score does not itself block closure; unresolved required work or material unpreserved knowledge does.
+8. VERIFY PERSISTENCE AND CLOSE THE LEARNING LOOP
 
-8. PRESERVE, VERIFY AND SUPPORT PROJECT EVOLUTION
+Update existing authoritative artifacts/owner records. Preserve historical decisions and source lineage without scattering competing summaries. Sensitive source content stays in its designated system; retain only necessary, authorized excerpts in receiving artifacts.
 
-Update the existing authoritative artifact or owner record. Do not scatter competing summaries. Keep historical decisions and provenance available.
+If a repository push is requested, commit the actual file on an authorized branch and verify readback/diff. An issue comment is not a committed file; a branch is not integrated main. Report exact paths/revisions and actual verification.
 
-If a repository push is requested, commit the actual file on an authorized branch and verify readback/diff. An issue comment is not a committed file; branch publication is not main integration. Report exact paths/revisions and actual checks.
+Tests should challenge contracts with invariants, counterexamples, missingness, boundaries and recovery. Verify required CI actually executed at the relevant revision. Preserve failed and passing evidence. Do not infer composed or operational correctness from component tests.
 
-Tests should challenge behavior through invariants, counterexamples, missingness, boundaries and recovery. Verify that claimed CI executed the required tests at the relevant source SHA. Preserve failing and passing evidence; do not infer untested composition or operation from component success.
+For each adopted lesson, aim to change a relevant existing test, contract, runbook or behavior. Record:
+observed failure/loss → proposed change → owner decision → implementation → verification → consumer outcome.
+Keep “knowledge captured” separate from “project changed” and “benefit observed.”
 
-For a proposed workflow/prompt improvement preserve:
-observed loss/failure → existing behavior → precise change → regression/pilot → observed result or untested status → owner/version → compatibility.
+For prompt/workflow changes specify the behavioral delta, compatibility, regression/pilot and expected evidence before promotion. Prefer one mechanism at a time when diagnosing effect. A supplied-evidence evaluator does not prove transcript comprehension.
 
-Assess evolution with outcomes such as recovered instructions, retention of mechanisms, actionable receiving work, fewer clarification loops and verified corrective behavior. Never equate longer prompts or higher self-scores with maturation.
+Evaluate the important trade-offs:
+missed explicit obligations; retained mechanisms/conditions; false or unauthorized obligations; contradictory-state handling; receiving actionability; unnecessary work/clarification; privacy exposure; retrieval burden.
+Assess meaningful recovery rather than document length or self-score.
 
-Distinguish recorded insight, accepted decision, implementation, independent verification, integration and operational observation. Changes to a base protocol remain proposals until its owner adopts them.
+Use annotated, representative available cases, including pivots, rejections, conflicting decisions, latent ideas, missing source and repeated unchanged input. Separate manual illustrative review, independent evaluation and real receiving outcomes. Reserve held-out cases where feasible; do not tune and validate solely on the same examples. Report disagreements and negative results.
 
-Repeated invocation is incremental: reuse the prior inventory, dispositions and review; reconcile changed evidence and newly recovered knowledge; report the delta. Do not generate recursive reviews, duplicate tasks or rewritten master prompts when nothing material changed.
+Repeated invocation is incremental: preserve prior inventory/dispositions and source/version references, inspect changed evidence and new knowledge, and report the delta. If nothing material changed, do not create another artifact, task or rewritten master prompt.
 
-9. GENERATE ONE SELF-CONTAINED HANDOFF WHEN NECESSARY
+9. PRODUCE ONE COMPLETE HANDOFF WHEN NECESSARY
 
-If required work or material external corrections remain, supply one complete ready-to-paste block, even if local archive criteria are otherwise met.
+When required work or material external corrections remain, supply one self-contained ready-to-paste block even if local archive criteria are otherwise met. Derive destination, identity and mission from this conversation.
 
-Derive its destination, identity and mission from this conversation. Include:
-- receiver/authority and existing repository, issue, branch/component and last checked revision where applicable;
-- latest objective and still-valid earlier obligations;
-- recovered opportunities and knowledge with destinations/dispositions;
-- completed work and reusable resources;
-- material principles, causal mechanisms, methodologies and black-box interfaces;
-- decisions, rejected alternatives, failures, assumptions, limitations and falsifiers;
-- concrete actions/probes, owners, dependencies and acceptance;
-- independent executable work versus blockers;
-- exact next action, verification and retirement/closeout conditions.
+Include:
+- receiver/authority, actual repository/issue/branch/component and last checked revision;
+- current objective plus still-valid earlier obligations;
+- completed work, failures and reusable resources;
+- preserved knowledge and recovered opportunities with reasons/destinations/dispositions;
+- causal mechanisms, methods, black-box contracts and relevant prior-art pointers;
+- decisions, rejected alternatives, assumptions, limitations and falsifiers;
+- concrete actions/probes, actual owners, dependencies and acceptance;
+- independently executable work versus blockers;
+- verification, retirement/closeout conditions and one next executable action.
 
-References supplement the block; the receiver must not reconstruct essential instructions from surrounding messages or links. Do not bury recovered knowledge beneath a single feature-fix request. Preserve both current completion and future development tracks.
+Do not bury recovered intellectual value beneath one feature fix. Preserve current completion and future development tracks. References supplement the block; essential instructions must be understandable without reconstructing surrounding messages.
 
-Mark generated, posted, accepted and executed separately. Reuse existing receiving work; do not manufacture a handoff when nothing needs transfer.
+Mark generated, posted, acknowledged, accepted, adopted and executed separately. If ownership is unknown, name the decision needed rather than inventing a receiver. Reuse existing work; do not manufacture a handoff when there is nothing to transfer.
 
-When requested in chat and repo, provide identical prompt content in both and verify persistence.
+When requested in chat and repo, provide identical prompt content and verify persistence. Do not create competing prompts for the same receiving action.
 
 10. REPORT AND DETERMINE DISPOSITION
 
-Report a concise overview with:
-- actual objective trajectory and local completion scope;
-- executed changes/checks and evidence limits;
+Provide a concise overview:
+- objective trajectory and completion scope;
+- actual actions/checks and evidence limits;
 - execution score and material corrective-action/probe status;
-- recovered knowledge/opportunities and existing destinations;
-- loss-audit findings and repaired or unresolved omissions;
-- externally owned work and transfer/adoption state;
-- one consolidated copy block when required;
+- knowledge and opportunity map with destinations/adoption;
+- loss-audit findings, recovered omissions and remaining uncertainty;
+- external obligations/owners and transfer state;
+- the consolidated copy block when required;
 - exactly one next action.
 
-Verify every requested deliverable, required local acceptance, pending decision and promised follow-up. Confirm material recovered knowledge has a disposition and necessary transfer is accepted, or the user explicitly accepted transfer preparation as the endpoint.
+Before closure verify required deliverables, local acceptance, pending decisions/promises, preserved material knowledge and valid transfer. Required transfer must be accepted unless the user explicitly accepted transfer preparation as the endpoint.
 
-Do not let unrelated project backlog block local closure. Do not declare project completion from conversation closure or imply that archiving has occurred.
+External project backlog does not block local closure unless resolving it belongs to the local objective. A low historical score alone does not block archive; an unfinished authorized local task or material unpreserved knowledge does.
+
+Do not declare project completion, actual archiving or validated workflow effectiveness from conversation closure.
 
 End with exactly one standalone disposition and nothing after it:
 Continue here
