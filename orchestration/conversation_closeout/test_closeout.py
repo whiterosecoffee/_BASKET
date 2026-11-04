@@ -105,17 +105,28 @@ class CloseoutTests(unittest.TestCase):
         data = dict(BASE, insights=[{"principle": "Record failure", "disposition": "propose"}])
         self.assertEqual(len(assess(data)["ranked_insights"]), 1)
 
-    def test_architectural_tags_required(self):
+    def test_missing_architectural_tags_create_review_gap(self):
         data = dict(BASE, insights=[{"principle": "Version interfaces", "disposition": "propose",
                                      "architectural": True}])
-        with self.assertRaisesRegex(ValueError, "requires theory_tags"):
-            assess(data)
+        result = assess(data)
+        self.assertEqual(len(result["taxonomy_gaps"]), 1)
+        self.assertIn("Taxonomy review required", render(data, result))
 
-    def test_unknown_or_duplicate_tags_rejected(self):
-        for tags in (["FAKE"], ["DBC", "DBC"], ["DBC", "HEX", "MOD", "DAG"], []):
-            with self.subTest(tags=tags), self.assertRaisesRegex(ValueError, "invalid theory_tags"):
-                assess(dict(BASE, insights=[{"principle": "Contract", "disposition": "propose",
-                                             "theory_tags": tags}]))
+    def test_unknown_tags_create_review_gap(self):
+        data = dict(BASE, insights=[{"principle": "Contract", "disposition": "propose",
+                                     "theory_tags": ["NEW_FAMILY"]}])
+        result = assess(data)
+        self.assertEqual(result["taxonomy_gaps"][0]["tag"], "NEW_FAMILY")
+        self.assertIn("unclassified", render(data, result))
+
+    def test_unbounded_tags_and_duplicate_rejection(self):
+        tags = ["DBC", "HEX", "MOD", "DAG", "EVS", "CQRS", "PIT"]
+        data = dict(BASE, insights=[{"principle": "Compose", "disposition": "propose",
+                                     "theory_tags": tags}])
+        self.assertEqual(assess(data)["taxonomy_gaps"], [])
+        with self.assertRaisesRegex(ValueError, "invalid theory_tags"):
+            assess(dict(BASE, insights=[{"principle": "Duplicate", "disposition": "propose",
+                                         "theory_tags": ["DBC", "DBC"]}]))
 
     def test_theory_tags_handoff(self):
         handoff = dict(owner="B00", destination="Issue #169", objective="Validate",
