@@ -50,3 +50,24 @@ Canonical vocabulary from WORKER_PROTOCOL: `claimed → building → review → 
 
 ## Ranked backlog
 P0 execute 11 domain tests on exact head and optional pinned PR #18 registry; fix failures. P0 reconcile issuer identities and preserve research-only status. P1 add precise source-review state and capacity/revenue data contracts only after B00 interface decisions. P1 B05 graph read-only MVP, then B01 integration QC. No new planner, worker registry or independent status ontology.
+
+## Whole-basket mapping checks (2026-11-03)
+New B19-owned research output: `whole-basket-role-map-2026-11-03.json`. It derives 291 symbol rows from B00 PR #147 `_TICKERS/manifest.json` at `321c93c281aeeb7d63b5d107cca6a320070d5f02` and uses the 19 B19 research pool IDs from PR #18 `registry/pools.json` at `6eab180632d251147d13a073c967dbd3031dfe92`.
+
+The map is a provisional typed role classifier, not an entity master, revenue ledger, verified graph or production capacity feed. Capital managers/holding companies can use cross-cutting roles rather than invented spend-pool participation; funds, indexes, FX, futures and indicators are context only. Suggested symbols do not silently become user-tracked basket members.
+
+Run after checking out the current PR #23 head and retrieving the exact pinned **complete** two input files (e.g. from their PR branch heads):
+
+```bash
+python -m unittest discover -s research/themes/supply-chain/coverage -p 'test_check_whole_map.py' -v
+python research/themes/supply-chain/coverage/check_whole_map.py \\
+  research/themes/supply-chain/coverage/whole-basket-role-map-2026-11-03.json \\
+  /path/to/PR147/_TICKERS/manifest.json \\
+  /path/to/PR18/research/themes/supply-chain/registry/pools.json \\
+  --manifest-revision 321c93c281aeeb7d63b5d107cca6a320070d5f02 \\
+  --pool-revision 6eab180632d251147d13a073c967dbd3031dfe92
+```
+
+Checker requires explicit revision strings matching the pinned map references, rejects lost/duplicate symbols, unknown pools, stale summary counts, illegal promotion of unverified roles to contracts/financial values, and nonissuer-as-issuer errors. It does **not** independently confirm that external file bytes came from those SHAs; B01 must retrieve them and independently verify commit/content fingerprints. A successful check proves structural integrity only. Upstream manifest/pool revisions trigger an incremental remap/diff, not silent reuse of stale classifications.
+
+Remaining acceptance: B01 execute actual Python suite and exact-head workflow; B19 #17 import independently sourced buyer-purpose dollar pools with identifiable competing vendors, procurement status, sources, calendar periods, unique payer transactions, supplier tier paths and unknown budgets explicitly null; B05 builds verified relationships; B00 owns canonical identity and deployment. Dollar coverage remains unmeasured; 291/291 rows alone is not majority financial coverage.
