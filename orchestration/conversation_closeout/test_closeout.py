@@ -105,5 +105,28 @@ class CloseoutTests(unittest.TestCase):
         data = dict(BASE, insights=[{"principle": "Record failure", "disposition": "propose"}])
         self.assertEqual(len(assess(data)["ranked_insights"]), 1)
 
+    def test_architectural_tags_required(self):
+        data = dict(BASE, insights=[{"principle": "Version interfaces", "disposition": "propose",
+                                     "architectural": True}])
+        with self.assertRaisesRegex(ValueError, "requires theory_tags"):
+            assess(data)
+
+    def test_unknown_or_duplicate_tags_rejected(self):
+        for tags in (["FAKE"], ["DBC", "DBC"], ["DBC", "HEX", "MOD", "DAG"], []):
+            with self.subTest(tags=tags), self.assertRaisesRegex(ValueError, "invalid theory_tags"):
+                assess(dict(BASE, insights=[{"principle": "Contract", "disposition": "propose",
+                                             "theory_tags": tags}]))
+
+    def test_theory_tags_handoff(self):
+        handoff = dict(owner="B00", destination="Issue #169", objective="Validate",
+                       completed="Draft", remaining="Tests", write_paths="orchestration/**",
+                       prohibited="Other paths", validation="CI", next_action="Test")
+        data = dict(BASE, external_required_remaining=True, handoff=handoff,
+                    insights=[{"principle": "Version ports", "disposition": "transfer",
+                               "architectural": True, "theory_tags": ["DBC", "HEX"]}])
+        report = render(data, assess(data))
+        self.assertIn("Theory: DBC (Design by Contract)", report)
+        self.assertIn("theory: DBC,HEX", report)
+
 if __name__ == "__main__":
     unittest.main()
