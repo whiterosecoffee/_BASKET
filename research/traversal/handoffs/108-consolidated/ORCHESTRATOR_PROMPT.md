@@ -1,117 +1,174 @@
-DESTINATION: _BASKET Codex orchestrator #136; canonical traversal integration #108/PR109; closeout-protocol owner #169/PR170.
+Apply the following procedure to the current conversation. Derive its identity, purpose and receiving destination from the available evidence; do not require a manually supplied conversation ID, mission, ticker, repository or owner.
 
-MISSION
-Complete one verified CRWV/ORCL traversal replay using existing components, and turn this conversation's execution lessons into tested improvements to the existing handoff protocol. Continue authorized work without another NEXT prompt. Respect current ownership; do not merge or release.
+1. RECOVER THE ACTUAL CONTEXT
 
-1. RECOVER AND REUSE
-Read current main AGENTS.md, applicable worker contracts, relevant owner claims and the actual source heads before implementation. Refresh only evidence that could change the next action.
+Review the full available conversation, including user corrections, evolving objectives, decisions, assistant proposals, authorizations, executed actions, tool results, failed attempts and unresolved commitments.
 
-Preserved requirements and reasoning:
-https://github.com/whiterosecoffee/_BASKET/issues/108#issuecomment-6621105059
-Execution review and knowledge map:
-https://github.com/whiterosecoffee/_BASKET/issues/108#issuecomment-6622305917
-Orchestrator intake acceptance:
-https://github.com/whiterosecoffee/_BASKET/issues/108#issuecomment-6621332729
+State coverage limits. Do not claim access to hidden messages, unavailable conversations or external systems. Use relevant connected context when necessary; distinguish retrieved excerpts from a complete transcript.
 
-Reuse #108/PR109 metrics/API, #144/PR145 historical recognition, #149/PR150 synchronized geometry, #95/PR99 journal, and #100/PR101 context. #154/PR160 daily-trend research is optional. #148/#152 own canonical routing and source quality; #98 owns the existing independent-verification request; #97 covers runtime dependencies.
+Infer:
+- the original objective and latest controlling objective;
+- required deliverables and their consumers;
+- authorized scope, ownership and constraints;
+- applicable completion and transfer criteria;
+- repositories, components, issues, branches and receiving owners, if present.
 
-The documentation branch containing this prompt is an intake artifact, not another engine or replacement for PR109. Preserve useful source artifacts; consolidate or retire only after reviewing unique contributions. Do not create duplicate issues, stores, pollers, registries or frameworks.
+Distinguish explicit instructions, accepted decisions, recommendations, assumptions and superseded requests. A newer instruction changes the affected scope; it does not automatically cancel unrelated obligations. Do not revive abandoned proposals as required work.
 
-2. FIRST EXECUTABLE CORRECTION
-Last checked PR109 head:
-bdae9fdce9cf647886d52d3319d685deef829095
+Do not ask the user to restate facts already available. If ambiguity affects implementation or authority, perform independent work first and ask at most one focused question when genuinely necessary.
 
-Net progress starts at the first candle's open, while the sampled path omits its open-to-close movement. A monotonic synthetic example returned net14/path4 = efficiency3.5.
+2. ESTABLISH A BOUNDED OBLIGATION LEDGER
 
-Existing correction and actual regression logs:
-https://github.com/whiterosecoffee/_BASKET/pull/109#issuecomment-6622198959
+For each material deliverable record:
+deliverable → controlling instruction → owner → state → evidence → unmet criterion → smallest next action.
 
-Refresh the owner branch. If still applicable, the authorized B06 owner should adopt the existing candidate, preserve metric-version lineage, and execute:
-python -B -m unittest discover -s engines/traversal/tests -v
+Use distinct states for proposed, recorded, implemented, locally tested, independently verified, integrated, deployed and operationally observed.
 
-The posted candidate passed10tests locally; it was not committed at the last check. Require resulting source SHA and independent B01 evidence. Align numerator/denominator origins; do not clamp an incorrect result.
+Separate:
+- required work to complete this conversation;
+- external prerequisites and transferred work;
+- optional improvements or research;
+- superseded, rejected and explicitly out-of-scope work.
 
-Acceptance: signed sampled-path efficiency within[-1,1], monotonic up/down, first-candle travel, round trips, flat paths, undefined denominators and explicit OHLCV limitations.
+Derive acceptance criteria from the actual objective. Do not equate completing a handoff with completing the feature, or an unrelated project backlog with an obligation of this conversation.
 
-3. DELIVER ONE COMPOSED REPLAY
-Milestone: authoritative CRWV and ORCL observations → canonical range states → journaled events → compact machine/human output.
+Reuse verified evidence. Refresh only where source age, changed implementation or dependency state could materially change the next action or disposition. Label earlier checks as earlier checks.
 
-Use the B00-approved resolver targeting logical _TICKERS/{ticker-symbol}. Retain existing observations and reports; request missing verified entries from the data owner. Scope folders and archive counts do not prove coverage. Missing access does not prove source absence. No silent legacy fallback or copied raw histories.
+3. DISCOVER EXISTING CAPABILITIES AND EXECUTE SMALL WINS
 
-Contracts:
-- Input: instrument, completed ordered bars, interval/session/calendar, currency/adjustment, source IDs/revisions, effective/available/received times, quality and freshness.
-- Engine: observations + prior checkpoint + versioned configuration → state, metrics, range/event transitions and health.
-- Persistence: one authorized source/event journal with atomic checkpoint, overlap deduplication and linked corrections.
-- Context: optional aligned B17 outputs with coverage/missingness.
-- Delivery: persisted cursor and explicit guarantees; separate event, detection and delivery times.
+Where repository work is relevant, consult current applicable instructions, ownership and the specific existing issues, branches, code, contracts, tests and runbooks needed for this scope.
 
-Prove identical core code works for both tickers with isolated state. Synthetic tests may progress while real data are blocked, but historical acceptance requires approved source manifests.
+Compare requested behavior with actual implementation, not titles or prior summaries. Identify existing capabilities before proposing replacements. Inspect exact source revisions and relevant checks when making implementation or verification claims.
 
-4. PRESERVE THE ANALYTICAL MECHANISMS
-Maintain simultaneous intraday/swing/regime ranges; nested, overlapping and revisited states are valid. Distinguish observed extrema, prospectively frozen battle bands and structural regimes. Position is not direction; range migration must not manufacture velocity.
+Classify work as reuse, extend, repair, integrate, consolidate, transfer, defer, discard or justified no action.
 
-Measure narrow contact bands, attempts/retreats, last-contact age, occupancy, crossings/time, movement per$10M gross turnover, weighted up/down movement-per-dollar ratio centered1 with sample support, retained progress/path efficiency, shares/USD turnover, prior20-session ADV% and true same-clock/session RVOL. Return null for one-sided, undefined or insufficient estimates.
+Finish authorized, unblocked work within ownership before handing it off. Prefer an existing task and implementation surface. Do not turn a review into project-wide stabilization or create duplicate engines, stores, frameworks, issues, branches, documents or schedules.
 
-Compare fixed5/15-minute windows with preceding equal windows; retain previous-check and prior-close baselines where compatible. Show latest deltas first.
+If an existing owner controls required files, use its receiving path or request a concrete ownership decision. Do not silently overwrite another owner's work. Follow applicable merge, release, spending and external-action authorization.
 
-OHLCV cannot establish signed flow, bid replenishment, exact volume-at-price or intrabar event order. Absorption is a hypothesis. Fading without a fresh boundary attempt is not rejection. A local reversal does not establish a parent-regime reversal.
+When blocked, identify the precise failed prerequisite and continue independent work that remains useful. Synthetic tests may advance while real inputs are unavailable; they do not establish historical or operational acceptance.
 
-PR150 already supports range_start. Test the caller's explicit horizon, bar-start versus completed-observation timestamp translation, calendar and gap policy; do not implement a duplicate fix. Gross turnover is not net inflow; excess return is not causal attribution.
+4. EXTRACT MATERIAL PROJECT INTELLIGENCE
 
-Reuse #144's A1-A8/T01-T16 research cases. Enumerate successful, failed, unresolved and excluded attempts. Freeze criteria before outcomes; compare price-only, turnover/path and persistence on the same cohort. Later observations cannot retroactively prove out-of-sample validation. Keep calibration with B07; no invented predictive probabilities. Optional moving-average features require incremental value over the existing baseline.
+Preserve insights at both transferable and concrete levels. For each material knowledge unit include the fields needed for independent reuse:
+- Problem/trigger: the recurring need, failure or opportunity.
+- Principle: the rule that generalizes.
+- Pattern/mechanism: how it works, including causal links.
+- Methodology: ordered steps, invariants, decision criteria and recovery.
+- Concrete application: the component, episode, instrument or consumer.
+- Architecture: source of truth, black-box inputs/outputs, state, dependencies, owners and consumers.
+- Evidence/falsifiers: source and revision, observations, negative cases, uncertainty and conditions that would overturn the conclusion.
+- Decision record: selected approach, rejected alternatives, trade-offs and reconsideration conditions.
+- Destination/adoption: existing artifact or owner and whether recorded, accepted, implemented or verified.
 
-5. ACCEPTANCE BEFORE OPERATIONAL CLAIMS
+Do not reduce substantive reasoning to theory tags or three generic bullets. Do not force every field onto routine facts.
+
+Use prior-art families where they explain a mechanism: contracts, modularity, ports/adapters, event sourcing, state machines, idempotency, point-in-time logic, provenance, dependency graphs, falsification, reproducibility, observability, decision theory and other relevant families.
+
+Explain applicability and limitations. Distinguish conceptual analogy from a sourced historical claim. Use primary references when external technical claims need verification. Reuse existing project vocabulary; propose taxonomy additions only when useful, without automatically creating work.
+
+Retain failed approaches, counterexamples and negative findings that prevent repeated mistakes. Keep hypotheses separate from approved rules and verified facts. Preserve sensitive information only in its designated system.
+
+5. AUDIT EXECUTION AND OVERLAY CORRECTIVE ACTIONS
+
+Score observable execution 0–5 on:
+objective control; execution conversion; reuse; ownership; verification; dependency handling; resource efficiency; knowledge extraction; handoff quality; closure discipline.
+
+Use N/A for unsupported dimensions; show the calculation and evidence supporting material deductions. The normalized result is a retrospective judgment, not a completion percentage, productivity measurement or amount of missing functionality.
+
+For every material shortfall map:
+observed behavior → contemporaneously feasible better behavior → root cause or hypothesis → smallest corrective action/probe → existing owner → acceptance evidence → status.
+
+If causation is uncertain, define a bounded discriminating probe, its decision criterion and what each result would change. Do not present speculation as a proven cause.
+
+Prioritize correctness, data integrity and unsupported operational claims regardless of aggregate score. Avoid hindsight bias and do not penalize external blockers as worker failures.
+
+Explicitly distinguish:
+- knowledge captured;
+- correction proposed;
+- correction assigned or accepted;
+- correction executed;
+- correction independently verified.
+
+Preserve the original retrospective score. Report subsequent improvement evidence separately; do not raise it because a prompt was written, an issue posted or a recommendation accepted.
+
+Do not create tasks merely to recover lost points. Explain justified defer/no-action decisions. Never invent token usage, cost, duration or savings. Estimate effort/coordination only when useful and label uncertainty.
+
+6. RECONCILE AND MATURE THE EXISTING PROJECT
+
+Map material findings to existing capabilities, contracts, tests, runbooks and owner decisions. Resolve contradictions with evidence; unavailable source means unknown, not false.
+
+Prefer the lowest-complexity change meeting the requirement. Explain why a broader alternative is unnecessary. Separate component correctness, composition, historical validation, predictive calibration and production operation when applicable.
+
+Prioritize a small number of actions by user value, correctness, reusability, evidence, feasibility and risk reduction. Do not let optional research become an accidental prerequisite.
+
+For each retained finding specify:
+existing destination → required change or probe → owner → acceptance → adoption status.
+Record why other findings are already incorporated, deferred or discarded.
+
+When a base prompt or workflow caused the failure, propose a precise behavioral change to the existing owner. Include:
+observed failure → old behavior → corrected behavior → regression/pilot → expected evidence → compatibility effect.
+
+Use representative available cases, including negative cases. A supplied-evidence evaluator does not prove automatic transcript understanding, complete extraction or real-world effectiveness.
+
+Repeated invocation must be incremental: retain the previous obligation ledger and review, refresh changed evidence, add new findings and report the delta. Do not restart inventories or reproduce unchanged documents without a reason.
+
+7. CONSOLIDATE AND VERIFY THE ARTIFACTS
+
+Persist material new knowledge and authorized corrections using existing conventions and ownership. Reuse the authoritative record rather than scatter competing summaries. Preserve revisions and historical evidence.
+
+When a repository push is requested, commit the actual artifact on an authorized branch and verify its readback/diff. An issue comment is not a committed file. Report exact paths and revisions and distinguish branch publication from main integration.
+
+Tests must challenge the contract, including invariants, counterexamples, missingness, boundaries and recovery where relevant. Passing tests do not establish untested behavior. Verify that claimed CI actually executed the required suite at the relevant source revision; shared green checks alone are insufficient.
+
+Record actual commands/results and evidence locations. Preserve failures and correction lineage. Do not claim recipient action, adoption or operational readiness from a link or handoff alone.
+
+8. PRODUCE ONE CONSOLIDATED HANDOFF WHEN NEEDED
+
+If required work or material external corrections remain, produce one complete, self-contained, ready-to-paste block—even if the source conversation otherwise qualifies for archive.
+
+Derive its destination and mission from the recovered conversation. Include:
+- receiver, authority, existing repository/issue/branch/component and last verified revision;
+- actual objective, scope and acceptance;
+- completed work and reusable resources;
+- material principles, mechanisms, methodology and architectural interfaces;
+- decisions, rejected alternatives, failure lessons, assumptions, limitations and falsifiers;
+- concrete corrective actions/probes, existing owners and evidence requirements;
+- dependency order, blocked versus independently executable work;
+- exact next executable action, verification and closeout conditions.
+
+Do not make the receiver reconstruct essential instructions from surrounding chat or links. References supplement a self-contained block. Mark handoff generated, posted, accepted and executed separately.
+
+If the user requested the prompt in chat and the repository, provide identical content in both and verify persistence. Do not create multiple competing prompts for the same receiving action.
+
+If no work or knowledge needs transfer, state the evidence-backed no-action disposition rather than manufacture a handoff.
+
+9. DETERMINE CLOSURE AND REPORT
+
 Verify:
-- batch versus incremental-prefix equivalence;
-- no future-aware boundary redraw;
-- duplicate-safe restart, rollback and linked corrections;
-- breakout and failed return between checks both retained;
-- candidate/confirmed/failed/resolved event history preserved;
-- stale/gapped inputs cannot generate current-state alerts;
-- missing samples/profiles return null;
-- session/DST/holiday/early-close handling with separate extended-hours profiles;
-- exact source/config/fixture hashes and actual independent test logs.
+- all requested deliverables were supplied;
+- required local acceptance has evidence;
+- no executable authorized local task, pending decision or promised follow-up remains;
+- material knowledge is preserved with a disposition;
+- external work has an existing owner and a concrete action/probe or accepted defer decision;
+- required transfer is accepted, or the user explicitly accepted transfer preparation as the endpoint;
+- claims distinguish proposal, execution, verification, integration and operation.
 
-Before reactivating monitoring, additionally prove actual feed entitlement/delay, durable host state, open-session capture, catch-up, source cutoff/measured lag and duplicate-safe delivery. Historical replay or component tests alone do not establish live operation.
+External prerequisites do not prevent local closure unless resolving them belongs to this conversation's objective. A low execution score alone does not block archive. An unfulfilled local deliverable does.
 
-Suppress unchanged closed-session chatter. Deliver new events/material lifecycle transitions only; health notices are separate. No new subscriptions or orders.
+Report concisely:
+- disposition and completion scope;
+- actual changes/checks and verification limits;
+- execution score with material deductions and corrective-action status;
+- compact knowledge/destination map;
+- external owner/blocker where applicable;
+- the single consolidated copy block when required;
+- exactly one next action.
 
-6. CONVERT THE70/100 REVIEW INTO CORRECTIVE ACTION
-The score is a retrospective judgment, not30% missing functionality or measured productivity. Retain the baseline score; report later correction evidence separately.
+Select one final standalone disposition and put nothing after it:
+Continue here
+Decision needed
+Hand off before archiving
+Ready to Archive
 
-Map every material deduction to:
-observed failure → cause/hypothesis → smallest action or discriminating probe → existing owner → acceptance evidence → disposition.
-
-Prioritize:
-- Execution conversion: adopt/test the existing arithmetic correction, then compose the two-ticker replay.
-- Verification: add invariant/counterexample tests that can fail even when the original suite passes.
-- Objective control/resource efficiency: one bounded milestone; targeted refresh; avoid repeated whole-repository audits and rewritten master prompts.
-- Dependency handling: distinguish requested, accepted and executed; keep blocked source work explicit while completing independent synthetic checks.
-- Handoff/closure: distinguish knowledge recorded, improvement assigned and improvement verified. Source-conversation closure does not close the feature.
-
-Do not create tasks merely to recover score points. Where the cause is uncertain, propose the smallest probe and its decision criterion. Record a justified no-action/defer disposition for optional work.
-
-7. IMPROVE THE EXISTING BASE HANDOFF PROMPT
-Route these changes through #169/PR170 ownership; do not overwrite its branch from another worker.
-
-Retrieve orchestration/conversation_closeout/HANDOFF_PROMPT.md from main if integrated, otherwise work/169-conversation-closeout-cli. Its last reviewed prompt blob was f3e6c4b8a656b27feeed4ea32b86792faa1a7be2.
-
-Extend the existing protocol/evaluator where appropriate:
-- Every material shortfall receives an action/probe, owner, proof and disposition.
-- Material externally owned corrections always appear in one complete copyable corrective block, even when local disposition is Ready to Archive.
-- Repeated invocation updates only changed obligations, evidence and decisions.
-- Keep knowledge captured, correction assigned, correction verified and source archive readiness separate.
-- Critical correctness/unsupported operational claims remain explicit findings regardless of aggregate score.
-- Score deductions cite observable evidence; improvement is established by changed behavior/tests, not additional prose.
-
-Test these changes using existing pilots: a ready-to-archive conversation with an external material correction; a repeated invocation with no new evidence; and a verified correction with unchanged retrospective score. Preserve all material knowledge and avoid a manufactured handoff when nothing needs transfer. Supplied-evidence CLI tests do not establish automatic transcript understanding.
-
-8. REPORT AND STOP CLEANLY
-Use existing issues for progress. Return:
-- corrections actually implemented, exact commits and tests;
-- recorded versus assigned versus verified improvements;
-- M1 acceptance results and remaining owner-specific blockers;
-- protocol changes accepted/implemented/tested versus merely proposed;
-- one next executable action.
-
-No broad stabilization, new architecture, merge, release or score inflation is authorized. First action: verify whether PR109 still needs the posted path-efficiency correction and have its authorized owner commit and test it. If ownership is unavailable, B00 records a concrete reassignment decision; do not silently overwrite the branch.
+Do not imply archiving has occurred or claim project completion from conversation closure.
