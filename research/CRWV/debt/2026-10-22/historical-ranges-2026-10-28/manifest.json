@@ -1,0 +1,80 @@
+{
+  "schema": "ticker.range-replay-manifest@1",
+  "ticker": "CRWV",
+  "method": "range-replay@1.0.0",
+  "config": {
+    "formation_minutes": 30,
+    "forward_minutes": 30,
+    "retry_minutes": 5,
+    "min_cluster_pivots": 2,
+    "pivot_separation_minutes": 3,
+    "cluster_tolerance_median_bar_range": 0.6,
+    "tick": 0.01,
+    "break_confirm_closes": 2,
+    "score_half_life_minutes": 5
+  },
+  "provider": "Massive",
+  "retrieval_date": "2026-10-28",
+  "retrieved_at": null,
+  "ingested_at": "2026-10-28T15:50:00Z",
+  "first_available_at": null,
+  "availability_limit": "Vendor historical revisions; not an archived point-in-time feed",
+  "source_requests": [
+    {
+      "path": "/v2/aggs/ticker/CRWV/range/1/minute/2026-10-01/2026-10-09",
+      "params": {
+        "adjusted": true,
+        "sort": "asc",
+        "limit": 50000
+      }
+    },
+    {
+      "path": "/v2/aggs/ticker/CRWV/range/1/minute/2026-10-12/2026-10-16",
+      "params": {
+        "adjusted": true,
+        "sort": "asc",
+        "limit": 50000
+      }
+    },
+    {
+      "path": "/v2/aggs/ticker/CRWV/range/1/minute/2026-10-19/2026-10-23",
+      "params": {
+        "adjusted": true,
+        "sort": "asc",
+        "limit": 50000
+      }
+    },
+    {
+      "path": "/v2/aggs/ticker/CRWV/range/1/minute/2026-10-26/2026-10-28",
+      "params": {
+        "adjusted": true,
+        "sort": "asc",
+        "limit": 50000
+      }
+    },
+    {
+      "path": "/v2/aggs/ticker/CRWV/range/1/day/2026-08-20/2026-10-27",
+      "params": {
+        "adjusted": true,
+        "sort": "asc",
+        "limit": 50000
+      }
+    }
+  ],
+  "source_minute_rows": 17307,
+  "output_events": 259,
+  "files": {
+    "CRWV-minute-bars.csv": "ade323e63835e590f025d1211390d771c3905b2d5063fc3fd13c7db0a35256dd",
+    "CRWV-daily-bars.csv": "75fc88dd5223ccfd2538f1092bea1dacc9420e2684265e1913812f15f9143c3e",
+    "range_replay.py": "7b2c66afc0c94d6195a776aac69c690fc54835d022a5bb31765bb3a011277e94",
+    "test_range_replay.py": "c0ec518179721c0da61d0c4d6b9d7d567f1efdfede10bb32bee685c772375462",
+    "CRWV.range-patterns.jsonl": "d9949861839f7844801845c10c8b1f3dd54159afe017262ca9ecc9d445e2580c",
+    "summary.json": "a6bb4c3b38c84db7d5becb1c4a58b213ec29a81255d069f0f54c14271000dc7b",
+    "pattern-index.json": "275bc53e66872c735a557d0f5f5493bfeafb0ee4232b94771046a4b143668525",
+    "README.md": "55d2593b8fd5cbc70d12579228fd58845992cf74ce416058e639f8eec24a6c5d"
+  },
+  "dependencies": {
+    "../battle_matrix.py": "5e047ba3cbd136d3923e8fe4007c6edf1e7a665e4a6626d7239fc2adadb46e32"
+  },
+  "data_role": "dated research fixture; not canonical B02 history or a continuously refreshed store"
+}
