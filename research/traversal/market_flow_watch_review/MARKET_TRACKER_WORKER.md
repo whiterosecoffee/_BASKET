@@ -41,3 +41,9 @@ Freeze thresholds prospectively (per instrument/session); B06 to calibrate from 
 - Component tests on exact commit and B01 independent exact-head checks. Never claim empirically useful thresholds without walk-forward labels/calibration.
 
 **Dependencies / permitted code paths:** B06 `engines/traversal/**` only after collision review. B02 `runtime/**` / `tickers/*/intraday/**`, B17 `engines/composites/**`, B01 `tests/integration/**`, B08 `services/**`. This planning document alone confers no cross-domain write permission.
+
+## Daily JSONL partition invariant (user decision, 2026-11-04)
+- **Exactly one canonical session date per physical JSONL file**; no multi-date JSONL is acceptable for new data. Multiple minute observations for one date are valid. Preserve premarket/regular/after-hours session tags.
+- **B06 remains a read-only consumer.** B00 must formalize the contract and path resolver, B02 must implement/migrate one-day JSONL partitions, and B01 independently test it. See handoff issue #183, existing canonical migration #148, and B02 PRs #15/#153.
+- Multi-session lookbacks (5/20/60/200 completed sessions) join distinct validated one-day partitions through the resolver or a non-JSONL manifest. Missing dates or ambiguous overnight session boundaries fail closed; no invented bars.
+- Existing legacy multi-day history.jsonl and NVDA pilot journals are not compliant. Keep them intact as historical sources until a lossless, source-pinned migration and reader cutover are independently validated. Do not treat this documentation as proof of enforcement.
