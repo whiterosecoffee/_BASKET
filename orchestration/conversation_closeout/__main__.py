@@ -26,6 +26,24 @@ def assess(data):
     disposition = DISPOSITIONS[0 if data["local_required_remaining"] else
                                1 if data["decision_required"] else
                                2 if data["external_required_remaining"] else 3]
+    claims = data.get("claims", [])
+    check(isinstance(claims, list), "claims must be an array")
+    claim_ids = set()
+    allowed_claim_types = {"user_assertion", "conversation_observation", "repository_verified",
+                           "independent_test", "inference", "proposal", "unknown"}
+    for claim in claims:
+        check(isinstance(claim, dict), "claim must be an object")
+        cid = claim.get("id")
+        check(isinstance(cid, str) and bool(cid.strip()) and cid not in claim_ids,
+              "claim ID missing or duplicated")
+        claim_ids.add(cid)
+        check(claim.get("type") in allowed_claim_types, "invalid claim type")
+        check(isinstance(claim.get("text"), str) and bool(claim["text"].strip()),
+              "claim text required")
+        if claim["type"] in {"repository_verified", "independent_test"}:
+            check(isinstance(claim.get("source_ref"), str) and bool(claim["source_ref"].strip())
+                  and isinstance(claim.get("revision"), str) and bool(claim["revision"].strip()),
+                  "verified claim requires source_ref and revision")
     insights = data.get("insights", [])
     check(isinstance(insights, list), "insights must be an array")
     actions = {"already_incorporated", "consolidated", "transfer", "propose", "defer", "discard"}
@@ -33,6 +51,14 @@ def assess(data):
         check(isinstance(item, dict) and isinstance(item.get("principle"), str)
               and bool(item["principle"].strip()), "insight principle required")
         check(item.get("disposition") in actions, "invalid insight disposition")
+        for field in ("pattern", "methodology", "application", "evidence", "limitations",
+                      "architecture", "capability_match", "rationale"):
+            if field in item:
+                check(isinstance(item[field], str), "invalid insight field: " + field)
+        if "claim_ids" in item:
+            check(isinstance(item["claim_ids"], list) and
+                  all(isinstance(cid, str) and cid in claim_ids for cid in item["claim_ids"]),
+                  "insight references unknown claim")
         check(type(item.get("priority", 0)) is int and 0 <= item.get("priority", 0) <= 25, "invalid insight priority")
     insights = sorted(insights, key=lambda item: (-item.get("priority", 0), item["principle"]))
     handoff = data.get("handoff") if disposition == "Hand off before archiving" else None
@@ -42,6 +68,7 @@ def assess(data):
                     "prohibited", "validation", "next_action"):
             check(isinstance(handoff.get(key), str) and bool(handoff[key].strip()), "handoff missing: " + key)
     return {"disposition": disposition, "execution_score": score, "scored_dimensions": count,
+            "claims": claims,
             "ranked_insights": insights, "handoff": handoff}
 
 def render(data, result):
@@ -54,8 +81,18 @@ def render(data, result):
     for item in result["ranked_insights"][:3]:
         lines.append("- " + item["principle"] + " — " + item["disposition"] +
                      " (priority " + str(item.get("priority", 0)) + "/25)")
+        for field in ("pattern", "methodology", "application", "evidence", "limitations",
+                      "architecture", "capability_match", "rationale"):
+            if item.get(field):
+                lines.append("  - " + field.replace("_", " ").title() + ": " + item[field])
     if not result["ranked_insights"]:
         lines.append("No material reusable lesson established.")
+    if result["claims"]:
+        lines += ["", "## Claim provenance"]
+        for claim in result["claims"]:
+            lines.append("- " + claim["id"] + " [" + claim["type"] + "]: " + claim["text"] +
+                         (" (" + claim["source_ref"] + " @ " + claim["revision"] + ")"
+                          if claim.get("source_ref") and claim.get("revision") else ""))
     if result["handoff"]:
         h = result["handoff"]
         lines += ["", "## Copyable orchestrator handoff", "```text",
@@ -63,6 +100,10 @@ def render(data, result):
                   "Destination: " + h["destination"], "Completed; do not repeat: " + h["completed"],
                   "Remaining acceptance: " + h["remaining"], "Writable paths: " + h["write_paths"],
                   "Prohibited changes: " + h["prohibited"], "Validation and evidence: " + h["validation"],
+                  "Knowledge to preserve: " + "; ".join(
+                      item["principle"] + " [" + item["disposition"] + "]" +
+                      (" — " + item.get("rationale", "") if item.get("rationale") else "")
+                      for item in result["ranked_insights"][:3]),
                   "Recover current authoritative state and ownership before modifying anything.",
                   "Next executable action: " + h["next_action"], "```"]
     return "\n".join(lines + ["", result["disposition"]]) + "\n"
