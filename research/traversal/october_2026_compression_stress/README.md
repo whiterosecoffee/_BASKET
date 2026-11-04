@@ -1,61 +1,62 @@
-# October 2026 compression and failed-stabilization study (research only)
+# B06 #144 — Historical Battle-Range Recognition
 
-Spark B06 · issue #144 · November 3, 2026 · provider: Massive Stocks completed historical daily and 1-minute OHLCV · **not a deployed strategy or calibrated predictor**.
+**Status:** Research specification and dated observations; **not** a validated detector, strategy, live service, or deployed ingestion path.  
+**Owner:** B06, issue [#144](https://github.com/whiterosecoffee/_BASKET/issues/144), branch `work/144-october-compression-stress`, draft [PR #145](https://github.com/whiterosecoffee/_BASKET/pull/145).  
+**Exclusive write scope:** `research/traversal/october_2026_compression_stress/**`. No changes to `engines/traversal/**`, `_TICKERS/**`, `tickers/**`, `runtime/**`, `schemas/**`, shared tests or other active worker paths.
 
-## Hypothesis
-Price traverses nested liquidity ranges. A slowdown in net downward basis points per USD billion traded is an *absorption candidate*, not an automatic floor. A candidate becomes a failed-stabilization event if a subsequent completed bar violates the provisional defended low before a defined higher-low confirmation. Its failure is known only at breach time; all prior snapshots remain candidates.
+## Decision and scope, November 3, 2026
+- **Primary goal: recognize historical market behavior.** Classify the local sequence: range created → contested boundary → candidate absorption / stabilization → hold, breach, failure, continuation or confirmed local reversal. No entry optimizer or probability score in #144.
+- **First acceptance evidence: historical falsification.** Use completed October 2026 RTH sessions and November 2 as a diagnostic replay, including all qualifying cases and counterexamples; do not cherry-pick successful events. November 3 is subsequent illustrative as-of replay, not an automatically valid out-of-sample test because parameters were discussed after watching the session.
+- **One canonical source.** Read ticker data via the B00-approved `resolve(instrument_id, data_kind, access_mode, as_of)` targeting logical `_TICKERS/{ticker-symbol}`. B00 [#148](https://github.com/whiterosecoffee/_BASKET/issues/148) migration is pending. Never copy raw observations into B06, implement a second data store or silently bypass the resolver. When resolver is unavailable, return `BLOCKED_CANONICAL_DATA` with a source-coverage request for B00/B02; no synthetic fill.
+- **Reuse existing work**: B06 [#108/PR109](https://github.com/whiterosecoffee/_BASKET/pull/109) canonical range engine, B06 [#149/PR150](https://github.com/whiterosecoffee/_BASKET/pull/150) synchronized market geometry, [#154](https://github.com/whiterosecoffee/_BASKET/issues/154) moving average discrimination, B10 [PR99](https://github.com/whiterosecoffee/_BASKET/pull/99) source-event journal and B17 [PR101](https://github.com/whiterosecoffee/_BASKET/pull/101) market context. No competing new engine or poller here.
 
-## Verified October daily cross-section (Oct 1 closing price -> Oct 30 closing price)
-| Ticker | Endpoint change | Largest selected down days |
-| --- | ---: | --- |
-| SPY | -1.08% | Oct 14 -1.08%; Oct 16 -1.11%; Oct 22 -1.18%; Oct 30 -1.77% |
-| SMH | -15.43% | Oct 14 -3.98%; Oct 16 -3.41%; Oct 22 -5.99%; Oct 30 -6.98% |
-| ORCL | -5.36% | Oct 14 -8.83%; Oct 16 -4.64%; Oct 30 -6.37% |
-| AAOI | -35.66% | Oct 14 -11.82%; Oct 22 -11.96%; Oct 30 -12.80% |
-| AMD | -18.02% | Oct 14 -5.73%; Oct 16 -5.95%; Oct 22 -8.10%; Oct 30 -10.88% |
-| MU | -19.38% | Oct 16 -5.63%; Oct 22 -6.26%; Oct 30 -5.30% |
-| MSFT | +1.78% | Oct 16 -1.93%; Oct 22 -2.23%; Oct 30 -1.55% |
-| HYG | +0.69% | Oct 14 -0.36%; Oct 16 -0.35%; Oct 30 -0.19% |
+## One minimal functional recognition unit
 
-These endpoints are not conventional October monthly returns: they omit Sept 30 to Oct 1. Some daily instruments requested (NVDA, CRWV, AVGO) were not available in this specific batch; do not silently fill gaps.
+**Input:** A time-ordered, complete-bar view returned by the authorized resolver, with instrument ID, venue/session/calendar, bar identity, original and adjusted price policy, UTC `effective_at`, `available_at`, `ingested_at`, provider, quality/TTD, source manifest hash, fixed lookback/config, optional prior `battle_range_id`.
 
-## Verified 1-minute regular-session cases (9:30–16:00 ET only)
-Massive one-minute historical bars; notionals sum minute VWAP × shares, **all two-sided traded value**, not net buyer/seller flow. Closing values are last minute-bar closes (may differ from official auction).
-| Date | Ticker | Low | Low time ET | Last minute close | Close location in full-day range | RTH notional |
-| --- | --- | ---: | --- | ---: | ---: | ---: |
-| Oct 16 | QQQ | 707.23 | 15:08 | 709.86 | 14.0% | $42.53B |
-| Oct 16 | SMH | 539.07 | 15:08 | 539.62 | 3.5% | $9.19B |
-| Oct 30 | QQQ | 683.45 | 14:52 | 690.53 | 46.6% | $47.37B |
-| Oct 30 | SMH | 511.63 | 14:35 | 522.83 | 47.3% | $8.06B |
+**Output:** An experimental `battle_transition@0.1` *derived* event or `unresolved` with:
+- immutable `event_id`, `range_id`, `parent_range_ids`, `input_ids/hash`, `as_of`, `model_version`, `config_hash`;
+- frozen discovery-time `low/high` and a reference to the last defended boundary;
+- `state_from`, `state_to`, `trigger_bar_id`, `observation_time`, `available_at`, `status` (`candidate|confirmed|unresolved|invalidated`);
+- signed return bp and velocity bp/min; dollar turnover per minute; same-clock relative turnover or null with reason; signed displacement bp/USD billion as **descriptive proxy**; gross price path and path efficiency; price position in range and boundary contacts;
+- evidence class, data-quality flags, auction/gap flags and null reasons for unavailable signed order flow/depth.
 
-**Distinct morphology:** Oct 16 ended close to lows; Oct 30 recovered much further from lows, despite severe losses. A day-level down return, net impact, or close location alone cannot certify failed or sustained intraday stabilization. At least one preliminary 15-minute bounce on Oct 30 was followed by a lower low before recovery; the full sequence must be preserved rather than replacing it with the terminal-day label. Oct 16 SMH had two simple 15-minute rebound candidates followed by breach of the prior running low; these were exploratory candidates, not validated signals.
+**States:** `range_created`, `expansion_up/down`, `boundary_contact`, `absorption_candidate`, `stabilization_attempt`, `rejection`, `boundary_breach`, `failed_stabilization`, `continuation`, `reversal_candidate`, `reversal_confirmed`, `unresolved/expired`. A local reversal does not imply reversal of the 20-day parent. A failure becomes known only when a later completed bar breaches the *previously frozen* defended boundary. Intrabar touch/breach order is unknown from OHLCV and must not be invented.
 
-November 2 (reserved as illustrative future holdout after October rule freeze): official daily lows QQQ 680.33, ORCL 118.43, NVDA 201.66; final 30-minute RTH notch QQQ ~$4.84B, ORCL ~$1.10B, NVDA ~$3.12B traded notional; new lows continued late. Do not use Nov 2 to tune Oct thresholds and then call it out-of-sample.
+**Comparability:** Keep separate 1/5/15/30/60/390-minute and 5/20/200-session projections from a shared canonical observation stream. Normalize velocity by volatility, turnover by ticker-and-clock reference distribution, and peer residuals against preselected QQQ/SMH/SPY/MAGS factors. Don't sum overlapping range dollar turnover or assign high activity to buyers without entitled trade/quote data.
 
-## Event ontology (candidate v0, not approved shared schema)
-- `downward_expansion`: negative rolling return, increasing negative signed price impact magnitude, and time-of-day-normalized turnover elevated; distinguish realized path from close-to-close movement.
-- `absorption_candidate`: new/equal low or test of pre-declared zone, elevated notional, falling net downward displacement per notional; cannot assert signed institutional buying from OHLCV.
-- `stabilization_attempt`: completed bounded interval holds defended low and reclaims a predeclared fraction of the decline; timestamp event available when interval completes.
-- `failed_stabilization`: later **first completed breach** of the defended low, within frozen evaluation horizon, before sustained higher-low/higher-high confirmation; record breach and subsequent impact separately.
-- `successful_defense`: no breach over frozen horizon *and* positive trend confirmation; otherwise `unresolved` rather than success.
-- `downward_continuation`: next lower low following failed stabilization; continuation speed may be measured but is not presumed.
-- `reversal_confirmed`: predeclared higher-low/higher-high structural change plus measured directional buying and volume validation if entitled tick flow is available; without signed flow mark confirmation limited.
+## Acceptance (research deliverable; proofs still pending)
 
-## Four non-substitutable measurements
-1. `r_bp = 10000 * ln(P_end / P_start)`: signed net displacement, price scale-independent.
-2. `turnover_usd = Σ minute_v × minute_vwap`; `impact = r_bp / (turnover_usd / 1e9)`; never interpret as dollar net flow or Kyle's lambda estimate without appropriate assumptions.
-3. `path_efficiency = abs(log(P_end/P_start)) / Σ abs(log(P_i/P_{i-1}))`: cancellation/oscillation sensitivity; 0–1 when path nonzero. Pair with realized volatility/range.
-4. `activity_ratio = turnover_window / median(turnover_same_clock_windows_previous_20_sessions)`: time-of-day adjustment; fail closed when history insufficient. Also measure directional change of impact, normalized price velocity, zone touch count and low breach.
+| ID | Acceptance check | Required proof |
+|---|---|---|
+| A1 | Deterministic prefix replay, no future-aware boundary adjustment, no retroactive state rewrite | Frozen synthetic transition cases plus October chronological source-ID trace |
+| A2 | Failed defense distinct from true recovery, unresolved and intrabar ambiguity | Counterexamples on multiple dates/tickers, explicit timestamp of first knowable outcome |
+| A3 | Correct net/gross-path, USD turnover and same-clock normalization; nulls for missing reference or signed flow | Arithmetic fixtures and independent reproducibility |
+| A4 | Nested/overlapping range relationships with zero duplicate source observations | Shared input bar IDs, unique event IDs, overlap tests |
+| A5 | RTH-only November 2 and subsequent November 3 replay; historical windows frozen independently of later bars | As-of manifest, exact availability, interval coverage/gaps, session/DST tests |
+| A6 | Source-quality gates for fractional-volume bars, VWAP/high-low anomalies, auctions, corrections and missing timestamps | B02 [#152](https://github.com/whiterosecoffee/_BASKET/issues/152) resolved data contract or explicit blocked status |
+| A7 | Quantify incremental discrimination over price-only/ATR/VWAP, under both successful and failed attempts | Event counts, confusion matrix by timeframe, delay, sensitivity, coverage and censoring; no fitted odds |
+| A8 | No duplicate data, no collision with sibling B06 work and exact commit/test evidence | PR diff, source manifests, test commands/results; B01 independent CI is separate |
 
-## Deterministic detection protocol and falsification
-- Entire universe fixed before evaluation (QQQ, SPY, SMH, NVDA, AMD, AVGO, ORCL, CRWV, AAOI, MU, MSFT, HYG plus eligible controls). Validate exact prices, splits, bar omissions; no winner-only selection.
-- Partition chronology: formation Oct 1–15, stress tests Oct 16–29; independent later holdouts Oct 30 and Nov 2 **only if thresholds were actually frozen before scoring**, otherwise mark retrospective demonstration. Better: multi-month walk-forward with purged/embargoed event labels to avoid lookahead.
-- Pre-register common clock-aligned 5/15/30-minute windows and defend-zone boundaries. Sweep 0.25/0.5/1.0 × preceding intraday realized range; horizons 15/30/60/120 minutes. Show sensitivity rather than pick the favorable threshold.
-- Evaluate precision/false-positive rate, detection lead time, missed recoveries, event clustering, per-symbol baseline, sector residuals versus QQQ/SMH, high/low sequence and relative notional.
-- Compare baseline: price-only lower low, drawdown/ATR, volume spike, VWAP rejection, Hurst/change-point alternatives, and holdout bounce/rebound costs. A close below prior low alone is not a detector of *absorption*.
-- Stress high-volume close auctions, opening gap, stale/delayed data, missing minute bars, thin liquidity, splits, price-limit jumps, duplicate bars, volume adjusted vs price adjusted, large spreads and unknown trade aggressor.
-- Equity trading notional does not equal capital inflow/outflow; trade signs and order-book resistance require entitled trade-and-quote / NBBO data.
-- Event snapshots must carry `observed_at`, `available_at`, `ingested_at`, `as_of`, `model_version`, `source`, `source_class`, `input_manifest_hash`, quality status, ticker, session and expiration/TTD.
+**Pass policy:** A written test case is not a passing test. If canonical observations or validated historical replay cannot be fetched, mark acceptance `blocked` or `not_run`. Do not report a predictor, statistically validated rank, live monitor or production schema. B07 [#93](https://github.com/whiterosecoffee/_BASKET/issues/93) owns calibration after descriptive acceptance; B01 owns cross-domain CI.
 
-## Integration
-Read-only evidence handoff to B06 #108/PR109 and B10 #95/PR99. Shared event schema requires B00; cross-domain integration tests B01; parameter calibration B07 #93; market-data observations B02. Do not modify others' files or claim live detection. Next task: deterministic replay on full October RTH minute bars for entire fixed universe, then point-in-time walk-forward scoring and independent test execution.
+## Historical research and evidence references
+
+The prior analysis documents **observed/illustrative** selloff behavior and does not constitute frozen-threshold validation.
+
+- [October event examples and original hypotheses](BATTLE_RANGE_CONTRACT.md) — prior conceptual draft; this README is the controlling scoped spec.
+- [Prior-art research](PRIOR_ART_SIGNAL_MODEL.md) — market profile, path efficiency, order-flow/depth, change points and event sourcing.
+- [November 2 and November 3 pre-open checkpoint](NOV02_TO_NOV03_CHECKPOINT.md).
+- [November 3 opening checkpoint, 09:32 ET](NOV03_OPENING_0932_ET.md).
+- [Twenty-ticker backdrop at 09:38 ET](EXPANDED_BASKET_NOV03.md).
+- [November 3 completed first 20 minutes](NOV03_RTH_20M_CROSS_SECTION.md).
+- [Canonical data / missing-lines policy](CANONICAL_TICKER_DATA_DEPENDENCY.md) — authoritative for no-duplicate source constraints.
+- [Orchestrator receiver handoff](ORCHESTRATOR_RECEIVER_PROMPT.md) — single current receiver prompt.
+- [Acceptance cases](ACCEPTANCE_CASES.md) — test vectors and explicit blocker matrix.
+
+## Next work on this branch
+1. Translate the observed historical cases into input-source-ID manifests (not copied raw bars); request missing historical RTH minute intervals through B00/B02 #148/#152.
+2. Execute all-candidate chronological case enumeration with price-only, turnover/path and boundary-persistence baselines; preserve negative/censored cases. Report real metrics and nulls.
+3. Hand the **tested event contract** to the existing canonical B06 engine owner #108, and receive B07/B01 assessment independently. Do not start another core engine implementation.
+
+**Time convention:** Troy, Illinois CST for human reports, ET secondary, UTC permanent. When daylight-saving offsets change, use IANA zones and session exchange calendar, not a fixed UTC offset.
