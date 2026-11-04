@@ -28,3 +28,10 @@ Read `AGENTS.md`, `orchestration/sparks.json`, current `architecture/**` version
 - Each deliverable links issue, source commit, tests actually run, missing dependencies, and next owner action.
 
 **First action:** Independently confirm actual GitHub main/PR state and return a two-worker dispatch map (owner, reused module, exact paths, dependencies, blocker, measurable acceptance) before any additional implementation.
+
+## November 4 maturity upgrade — read before dispatch
+Additional B06-authorized evidence is now in `research/traversal/market_flow_watch_review/BROAD_MATURATION_PLAN.md` (12-domain evidence-qualified heuristic, 30.8/100; staged M0–M6, not a deployment score) and an **offline-only** `engines/traversal/market_watch_gate/**` qualification module. Author-local 15 synthetic Python unittests passed; no independent exact-head PR CI or historical replay. Do NOT treat this as a working market detector, persistent journal or delivered alert.
+
+Dispatch priority: M0 B00 date/session/resolver contract #148/#183 → M1 B02 one-date JSONL and B01 replay → M2 B06 vectors with PR150 reuse → M3 B06 pure event gate and B07/B01 confirmation → M5 B08 delivery. B04 financial evaluation M4 proceeds independently on source-verified inputs after B02/B03 coverage. Preserve existing project blockers and priority arbitration in #136; this plan does not override them.
+
+**Single next owner action:** B00 review the one-day-JSONL/dated-input contract #183 against #148 and grant a collision-free B02 two-session proof path; in parallel request B01 exact-head validation for the B06 gate on PR #182. Do not merge, create duplicate branches or claim operational alerts.
