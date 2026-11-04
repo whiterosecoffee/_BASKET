@@ -1,7 +1,7 @@
 {
   "artifact": "B17-158 macro delta and physical supply-risk handoff proposal",
-  "version": "1.1.0",
-  "status": "proposal_only_receiver_acknowledgment_pending",
+  "version": "1.2.0",
+  "status": "proposal_intake_accepted_implementation_pending",
   "issue": 158,
   "branch": "work/158-macro-delta-handoff",
   "base_sha": "25ae331f2774250528fc939e3e7795583f8808a3",
@@ -258,14 +258,22 @@
         "use": "International diesel refining/export discussion; use actual underlying observation periods."
       }
     ],
-    "recovery": "Hash/count/JSON parsing was executed locally for both existing files. This is not durable user-controlled retention. B02 must import/reconcile via approved adapter with source-vintage manifest, preserve original bytes, and report duplicates/corrections. Do not copy quotes into GitHub or create another authoritative store. No 15-minute history can be invented from sparse captures.",
+    "recovery": "Original 58-observation/four-capture files found in source workspace, parsed and matched to committed hashes; recovery ZIP saved with manifest. This supersedes unavailability in the receiver environment only as a recoverable source artifact. Canonical import/TTD/entitlement/replay remain unverified.",
     "known_gaps": [
       "No continuous bar capture here",
       "No retained exact published-time evidence for every web fact",
       "No verified current terminal-level diesel availability abroad",
       "No implemented direct-yield/physical-inventory adapter in this worker",
       "No independent rerun of PR101/142 domain tests"
-    ]
+    ],
+    "recovery_package": {
+      "library_file_id": "libfile_680fa489904081918436508a205d705b",
+      "file_id": "file_0000000094b0822f8db6cfbba19dda16",
+      "filename": "macro_snapshot_recovery_B17_158.zip",
+      "sha256": "1691799d43e04d57308a740d11e1f4ee00c6326b1fd0daecf9cfb4a70c24ec9a",
+      "url": "https://chatgpt.com/library?file_id=libfile_680fa489904081918436508a205d705b&account_id=personal",
+      "status": "created_successfully_original_inner_file_hashes_verified_not_canonical_import"
+    }
   },
   "implementation_acceptance": [
     {
@@ -304,9 +312,10 @@
   "handoff": {
     "destination": "Existing Codex #136; B00 #59 linked routing; B17 #100/#141 implementation destinations.",
     "receiver_prompt": "Read this committed proposal and its exact PR head. Record accepted/scheduled/rejected/superseded plus the named responsible existing owner for each deliverable on #136; acknowledgment must be written by the receiving workflow, not fabricated by the sender. Reconcile #100/PR101, #141/PR142, #149/PR150 and #148 before any code changes. Preserve the existing NVDA storage pilot priority. Extend existing modules using the approved three comparison windows and trading-first display, with physical diesel/Middle East supply evidence alongside. Obtain missing records through B02 and events through B03; no duplicate raw store, schema framework, queue, scheduler or speculative scoring. Reserve exact paths before implementation and use B01 replay/negative tests. Leave nulls and historical limitations explicit. Report each test on actual SHA; no merge/release. Source conversation is ready to archive after this committed package and user-pasted prompt; receiver acknowledgment, implementation and integration remain separately pending. Record your receipt/disposition in GitHub.",
-    "receipt_status": "posted_requested_not_acknowledged_user_will_paste",
+    "receipt_status": "accepted",
     "archive_ready": true,
-    "archive_basis": "User's latest instruction supersedes the prior wait-for-acknowledgment conversation gate. This is handoff-package readiness only; receiver receipt, implementation, CI and integration remain pending."
+    "archive_basis": "User's latest instruction supersedes the prior wait-for-acknowledgment conversation gate. This is handoff-package readiness only; receiver receipt, implementation, CI and integration remain pending.",
+    "receipt_evidence": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6621186109"
   },
   "prior_art": [
     {
@@ -341,8 +350,10 @@
     "owner_and_dependency_map": "present",
     "acceptance_specification": "8 checks present; implementation tests not run",
     "receiver_runbook": "HANDOFF.md",
-    "missing_runtime_data": "Sparse local snapshots are not canonical durable history. Hashes do not recover bytes. B02 must locate original local files or qualify replacement evidence with a new vintage; never claim replay from unavailable bytes.",
+    "missing_runtime_data": "Original sparse snapshot bytes now preserved in linked recovery package. B02 must materialize, verify inner hashes and qualify canonical import. No continuous 15-minute history, actual weekly inputs or source-time completeness implied.",
     "research_inputs": "EIA/IEA source URLs and concrete series are identified; mutable web sources require dated archived vintages.",
-    "completion": "proposal_package_ready_not_implemented"
-  }
+    "completion": "proposal_package_ready_not_implemented",
+    "receiver_status": "Codex/B00 accepted and dispositioned all deliverables; D1-D8 are 0/8 fully accepted per receipt. D2 no_new_observation defect assigned to #100."
+  },
+  "review_artifact": "conversation_review.v1.json"
 }
