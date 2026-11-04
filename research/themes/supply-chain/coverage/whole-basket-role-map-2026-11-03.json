@@ -29,7 +29,7 @@
       "neocloud": 11,
       "on-prem-ai": 14,
       "telecom-edge": 11,
-      "semiconductors": 42,
+      "semiconductors": 41,
       "memory": 8,
       "optical-networking": 15,
       "power-cooling": 27,
@@ -53,7 +53,7 @@
     "provisional_issuer_roles": 198,
     "explicitly_unclassified_issuers": 0,
     "description": "Classifications are hypotheses only, not verified economic participation. All 198 equity/receipt-like instruments have at least one provisional pool role or non-pool cross-cutting role; 93 nonissuer instruments remain contextual signals.",
-    "pool_memberships_total": 279
+    "pool_memberships_total": 278
   },
   "expansion_protocol": {
     "stages": [
@@ -4299,7 +4299,6 @@
       "canonical_entity_id": null,
       "venue_status": "unverified",
       "pool_ids": [
-        "semiconductors",
         "semiconductors"
       ],
       "role_hypotheses": [
