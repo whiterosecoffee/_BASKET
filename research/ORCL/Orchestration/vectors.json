@@ -1,0 +1,86 @@
+{
+  "schema": "basket.orcl_vector_registry@1",
+  "note": "Static registry of ORCL analysis vectors. Dynamic state (claims, leases, completion) is never stored here; it lives in GitHub issues, PRs and the B00 #32 controller. v0, unverified.",
+  "ticker": "ORCL",
+  "repository": "whiterosecoffee/_BASKET",
+  "base": "main",
+  "ownership": {
+    "status": "unratified",
+    "proposed_spark": "B22",
+    "arbiter": "B00",
+    "reference_issue": 76
+  },
+  "vector_sets": [
+    {
+      "id": "ORCL-FM",
+      "title": "Forward Multiple",
+      "issue": 80,
+      "branch": "work/80-orcl-forward-multiple-comparative",
+      "folder": "research/ORCL/Forward_Multiple",
+      "write_paths": ["research/ORCL/Forward_Multiple/**"],
+      "files": [
+        "README.md",
+        "01_PEER_SET.md",
+        "02_WEIGHTED_MULTIPLE.md",
+        "03_UPSIDE_SCORE.md",
+        "04_REVERSE_CHECK.md",
+        "05_FACTOR_CHECKLIST.md",
+        "06_THESIS_AND_LADDER.md",
+        "REVISIONS.md"
+      ],
+      "vectors": [
+        {"id": "ORCL-FM-01", "file": "01_PEER_SET.md", "depends_on": []},
+        {"id": "ORCL-FM-02", "file": "02_WEIGHTED_MULTIPLE.md", "depends_on": ["ORCL-FM-01"]},
+        {"id": "ORCL-FM-03", "file": "03_UPSIDE_SCORE.md", "depends_on": ["ORCL-FM-02"]},
+        {"id": "ORCL-FM-04", "file": "04_REVERSE_CHECK.md", "depends_on": ["ORCL-FM-02"]},
+        {"id": "ORCL-FM-05", "file": "05_FACTOR_CHECKLIST.md", "depends_on": []},
+        {"id": "ORCL-FM-06", "file": "06_THESIS_AND_LADDER.md", "depends_on": ["ORCL-FM-03", "ORCL-FM-04", "ORCL-FM-05"], "optional_inputs": ["ORCL-RT-CROSS"]}
+      ]
+    },
+    {
+      "id": "ORCL-RT",
+      "title": "Range Traversal",
+      "issue": 81,
+      "branch": "work/81-orcl-range-traversal",
+      "folder": "research/ORCL/Range_Traversal",
+      "write_paths": ["research/ORCL/Range_Traversal/**"],
+      "files": [
+        "README.md",
+        "BAND_METHOD.md",
+        "TODAY.md",
+        "72H.md",
+        "10D.md",
+        "CROSS_WINDOW.md",
+        "DIVERGENCE_OVERLAY.md",
+        "REVISIONS.md"
+      ],
+      "vectors": [
+        {"id": "ORCL-RT-METHOD", "file": "BAND_METHOD.md", "depends_on": []},
+        {"id": "ORCL-RT-TODAY", "file": "TODAY.md", "depends_on": ["ORCL-RT-METHOD"]},
+        {"id": "ORCL-RT-72H", "file": "72H.md", "depends_on": ["ORCL-RT-METHOD"]},
+        {"id": "ORCL-RT-10D", "file": "10D.md", "depends_on": ["ORCL-RT-METHOD"]},
+        {"id": "ORCL-RT-CROSS", "file": "CROSS_WINDOW.md", "depends_on": ["ORCL-RT-TODAY", "ORCL-RT-72H", "ORCL-RT-10D"]},
+        {"id": "ORCL-RT-DIV", "file": "DIVERGENCE_OVERLAY.md", "depends_on": ["ORCL-RT-METHOD"]}
+      ]
+    },
+    {
+      "id": "ORCL-ORCH",
+      "title": "Orchestration",
+      "issue": 82,
+      "branch": "work/82-orcl-vector-orchestration",
+      "folder": "research/ORCL/Orchestration",
+      "write_paths": ["research/ORCL/Orchestration/**"],
+      "files": [
+        "README.md",
+        "LAUNCH_PACKETS.md",
+        "vectors.json",
+        "spark-proposal.json",
+        "assignments/ORCL-FM.assignment.json",
+        "assignments/ORCL-RT.assignment.json",
+        "status.py",
+        "test_status.py"
+      ],
+      "vectors": []
+    }
+  ]
+}
