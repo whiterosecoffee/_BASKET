@@ -1,0 +1,126 @@
+{
+  "ticker": "CRWV",
+  "source": "Massive",
+  "as_of": "2026-11-04T17:43:00-05:00",
+  "official_daily": {
+    "t": 1793768400000,
+    "o": 50.49,
+    "h": 52.49,
+    "l": 48.02,
+    "c": 48.42,
+    "v": 60201651.864186,
+    "vw": 49.3775,
+    "n": 515007.0
+  },
+  "previous_daily": {
+    "t": 1793682000000,
+    "o": 50.905,
+    "h": 53.925,
+    "l": 50.6,
+    "c": 53.74,
+    "v": 37425726.291002,
+    "vw": 52.9773,
+    "n": 308780.0
+  },
+  "daily_change_pct": -9.899516189058433,
+  "daily_volume_multiple_prior_day": 1.608563355486834,
+  "daily_volume_multiple_adv20": 0.9675075691539128,
+  "sessions": [
+    {
+      "date": "2026-11-02",
+      "regular": {
+        "low": 49.46,
+        "high": 55.738,
+        "last_minute_close": 50.16,
+        "activity": {
+          "shares": 42449741.986543,
+          "dollars": 2203907682.2879095,
+          "bars": 390,
+          "vwap": 51.9180465922872
+        }
+      },
+      "afterhours": {
+        "cutoff": "2026-11-02T20:00:00-05:00",
+        "last": 50.75,
+        "low": 49.87,
+        "high": 51.5754,
+        "activity": {
+          "shares": 1460973.303174,
+          "dollars": 73778620.99741118,
+          "bars": 226,
+          "vwap": 50.49963667174843
+        }
+      }
+    },
+    {
+      "date": "2026-11-03",
+      "regular": {
+        "low": 50.6,
+        "high": 53.925,
+        "last_minute_close": 53.72,
+        "activity": {
+          "shares": 30276293.247868,
+          "dollars": 1600572028.1860218,
+          "bars": 390,
+          "vwap": 52.86552138606766
+        }
+      },
+      "afterhours": {
+        "cutoff": "2026-11-03T20:00:00-05:00",
+        "last": 52.81,
+        "low": 52.3396,
+        "high": 55.66,
+        "activity": {
+          "shares": 2144119.580568,
+          "dollars": 116637277.82019417,
+          "bars": 233,
+          "vwap": 54.39868134094261
+        }
+      }
+    },
+    {
+      "date": "2026-11-04",
+      "regular": {
+        "low": 48.02,
+        "high": 52.49,
+        "last_minute_close": 48.39,
+        "activity": {
+          "shares": 49665517.226654,
+          "dollars": 2448276066.173137,
+          "bars": 390,
+          "vwap": 49.29528982855776
+        }
+      },
+      "afterhours": {
+        "cutoff": "2026-11-04T17:43:00-05:00",
+        "last": 48.95,
+        "low": 48.25,
+        "high": 49.2,
+        "activity": {
+          "shares": 949324.032186,
+          "dollars": 46271307.43786036,
+          "bars": 102,
+          "vwap": 48.74132105484766
+        }
+      }
+    }
+  ],
+  "repo_presence": {
+    "main_sha": "b4910122a4c3f6ade747f2e4d59bd2d2e84b3c95",
+    "main_daily_records": 262,
+    "main_daily_end": "2026-10-15",
+    "main_intraday_present": false,
+    "october_intraday_branch": "work/121-neocloud-market-research",
+    "october_intraday_records": 19186,
+    "october_intraday_cutoff": "2026-10-30T12:10:00-04:00"
+  },
+  "interpretation": "Nov3 rebound failed; Nov4 lower high and lower low. AH bounce remains below Nov2 low49.46 and Nov4 RTH VWAP49.30. No validated predictive odds.",
+  "references": [
+    48.02,
+    48.25,
+    49.2,
+    49.46,
+    50.15,
+    50.6
+  ]
+}
