@@ -70,3 +70,19 @@ Continue existing _BASKET #136 Q07 using #59/PR60 and this HANDOFF.md; refresh c
 All sender resources and continuation instructions are persisted in this branch.
 Conversation may be archived by the user's present instruction; that does not mark PR60 integrated or recipient acceptance passed.
 Codex owns the pending disposition record and verification/closure decision.
+
+## Full-protocol review supplement
+[CONVERSATION_REVIEW.md](CONVERSATION_REVIEW.md) applies the complete draft handoff
+prompt from closeout workstream #169 at06a7f0a1b197400f48b0317529c4184d48efe142.
+It preserves eight mechanism-level knowledge units, the obligation ledger,
+objective evolution, alternatives/counterexamples, a35/50 judgment score and
+three corrective patterns. It is not CLI-generated semantic extraction.
+
+Actual receiving dispositions now exist: [#59 comment6622146549](https://github.com/whiterosecoffee/_BASKET/issues/59#issuecomment-6622146549)
+and [PR171 continuity record](https://github.com/whiterosecoffee/_BASKET/blob/76aaf2f9e4ac9ef433734feaeef232501591d4a7/orchestration/worker_bridge/CONVERSATION_CONTINUITY.md).
+History RETAIN; utility SCHEDULED under#65; snapshot RETAIN HISTORICAL;
+implementation integration/retirement OPEN. This supersedes the earlier
+posted/requested-only receipt state, not the pending independent acceptance.
+Review the utility against integrated discovery/progress before choosing reuse
+or explicit supersession. Source-conversation transfer does not authorize issue
+closure or PR merge.
