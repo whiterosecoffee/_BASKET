@@ -1,0 +1,318 @@
+{
+  "protocol": {
+    "name": "basket.conversation_handoff@2",
+    "source_branch": "work/169-conversation-closeout-cli",
+    "path": "orchestration/conversation_closeout/HANDOFF_PROMPT.md",
+    "blob_sha": "f3e6c4b8a656b27feeed4ea32b86792faa1a7be2",
+    "state": "draft applied by user request; main retrieval returned 404"
+  },
+  "scope": {
+    "original": "Market/macro and AI equity valuation questions, evolving into reusable latest-delta and nested-range tooling.",
+    "latest": "Apply full intelligence/execution/maturation review, finish local work on existing #158 branch and disposition external implementation.",
+    "coverage": "Full visible transcript plus retained compaction summary. Early financial questions are visible without all corresponding assistant analyses/tool payloads; missing calculations cannot be reconstructed as verified answers.",
+    "owned_paths": [
+      "research/composites/macro_delta_handoff/**"
+    ],
+    "excluded": [
+      "Implementing or fixing other owners' engines",
+      "new live market update",
+      "whole-project stabilization",
+      "merge/release",
+      "new forecasts or calibrated probabilities"
+    ]
+  },
+  "obligations": [
+    {
+      "deliverable": "Trading-first plus physical-supply proposal; previous-check/15m/prior-close; nested ranges",
+      "owner": "B17-158",
+      "state": "verified_committed",
+      "evidence": "proposal.v1.json and HANDOFF.md at previous head 0e31c6327de274ed0e9e429e7c815cecc5694876; updated in this review",
+      "missing": null
+    },
+    {
+      "deliverable": "Source observations preserved beyond ephemeral workspace",
+      "owner": "B17-158 recovery package; B02 canonical import",
+      "state": "recovery_package_saved_canonical_import_transferred",
+      "evidence": {
+        "library_file_id": "libfile_680fa489904081918436508a205d705b",
+        "file_id": "file_0000000094b0822f8db6cfbba19dda16",
+        "filename": "macro_snapshot_recovery_B17_158.zip",
+        "sha256": "1691799d43e04d57308a740d11e1f4ee00c6326b1fd0daecf9cfb4a70c24ec9a",
+        "url": "https://chatgpt.com/library?file_id=libfile_680fa489904081918436508a205d705b&account_id=personal",
+        "status": "created_successfully_original_inner_file_hashes_verified_not_canonical_import"
+      },
+      "missing": "B02 must materialize and verify original inner hashes then qualify canonical import; no continuous tape inferred"
+    },
+    {
+      "deliverable": "Receiver ownership/disposition",
+      "owner": "Codex/B00 #136",
+      "state": "accepted",
+      "evidence": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6621186109",
+      "missing": null
+    },
+    {
+      "deliverable": "D1-D8 implementation acceptance",
+      "owner": "Existing B17/B02/B03/B06/B01",
+      "state": "transferred_not_accepted",
+      "evidence": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6621186109",
+      "missing": "Receiver records 0/8 fully accepted; no_new_observation defect and qualified-data/rendering/replay gaps; outside proposal closeout"
+    },
+    {
+      "deliverable": "Principles/mechanisms/execution lessons and maturation",
+      "owner": "B17-158",
+      "state": "recorded_in_this_review",
+      "evidence": "conversation_review.v1.json",
+      "missing": "Commit/readback performed during authoring session"
+    },
+    {
+      "deliverable": "Early FTNT/NVDA/AVGO/TSM/AMD valuation and five-to-seven-year doubling questions",
+      "owner": "Company/valuation research owners if resumed",
+      "state": "historical_context_superseded_by_explicit_handoff_scope",
+      "evidence": "Visible user questions; no complete verified valuation worksheet in available record",
+      "missing": "Not claimed answered; new substantive estimates require matching-period financial inputs and authorization to resume. No dormant task launched."
+    }
+  ],
+  "knowledge_units": [
+    {
+      "id": "K1",
+      "trigger": "User wanted the latest changes without scrolling; prior chart emphasized prior-close levels.",
+      "principle": "A useful market state report distinguishes level, change and change horizon.",
+      "pattern": "Fixed three-column comparison: previous accepted observation, aligned 15-minute baseline, previous regular-session close; show baseline timestamps and elapsed interval.",
+      "method": "Resolve identity/unit/session/basis, choose prior available baseline without lookahead, reject excessive misalignment, calculate return or bp, render latest-first.",
+      "application": "QQQ/SMH pressure versus yields/credit; prior checks and after-hours moves.",
+      "architecture": "B02 observations -> B17 market_context -> compact renderer; B06 supplies bounded range context.",
+      "families": [
+        {
+          "tag": "PIT/DBC",
+          "mechanism": "Explicit baseline and timestamp invariants prevent unlike or future comparisons."
+        },
+        {
+          "tag": "OBS/INFO",
+          "mechanism": "Put the actionable change and its coverage first, with details expandable."
+        }
+      ],
+      "counterexample": "A later snapshot containing the same observed_at is no_new_observation, not evidence of fresh stability. Weekly inventory has no genuine 15-minute delta.",
+      "decision": "Reuse PR101; avoid a competing engine or arbitrary unified bp/percent ranking.",
+      "destination": "#100/PR101 plus #141/PR142",
+      "disposition": "accepted_extension",
+      "evidence": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6621186109"
+    },
+    {
+      "id": "K2",
+      "trigger": "Mobile gray-track/blue-bar rendering looked like a nested range, although authored values were returns from zero.",
+      "principle": "Visual encodings must have explicit semantics tied to observed data.",
+      "pattern": "Bullet/small-multiple design: observed historical outer band, session band, independently defined pocket, current/previous markers and direction.",
+      "method": "Specify window start/end/session and price basis for every band; label endpoints; reject implicit all-supplied-history extrema.",
+      "application": "A rebound inside a falling pocket differs from a migration to a higher pocket.",
+      "architecture": "B06 range engine owns geometry; B17 consumes its typed results; renderer cannot invent support.",
+      "families": [
+        {
+          "tag": "DBC",
+          "mechanism": "Band meaning is an input contract, not an inferred visual convention."
+        },
+        {
+          "tag": "Small multiples/bullet display",
+          "mechanism": "Nested bands preserve multiple horizons in a narrow mobile row; analogy only, no external prior-art citation verified here."
+        }
+      ],
+      "counterexample": "The old gray plotting track is not a historical high-low or support level.",
+      "decision": "Keep desired nested visualization as an extension; discard interpreting old chart as observed ranges.",
+      "destination": "#149/PR150 and PR109; B17 presentation",
+      "disposition": "accepted_extension",
+      "evidence": "User screenshot and explicit assistant correction; receiver bounded-range tests reported"
+    },
+    {
+      "id": "K3",
+      "trigger": "Oil prices declined while physical diesel availability remained stressed.",
+      "principle": "Raw inputs, processing capacity, specification-compliant output and delivered availability are distinct economic states.",
+      "pattern": "Physical constraint chain: crude access -> refinery throughput/yield -> ULSD specification -> export cargo -> transport/insurance -> regional stock/terminal delivery.",
+      "method": "Track stock vs flow, exact product/specification/geography, operating/restoration state, effective/release times and crack-spread basis; test relief against actual delivered output.",
+      "application": "US low-sulfur distillate/PADD data, Middle East transit/refinery disruption, Russian export losses, Europe/Asia replacement supply.",
+      "architecture": "B03 events + B02 time series -> B17 physical-risk context; no canonical event/data writes from this worker.",
+      "families": [
+        {
+          "tag": "DAG/constraint analysis",
+          "mechanism": "A restored upstream link does not bypass a downstream bottleneck."
+        },
+        {
+          "tag": "FALS/PROV",
+          "mechanism": "Price relief hypothesis requires refinery/shipping/inventory confirmation; keep lagged data periods visible."
+        }
+      ],
+      "counterexample": "National distillate stocks include heating/other uses and may be unavailable locally; days-of-supply is not a countdown to exhaustion. Zero tracked transits may reflect AIS coverage.",
+      "decision": "Both trading and physical scope, with trading first; no claim that cheaper crude solves diesel scarcity.",
+      "destination": "#141/#100 with B02/B03 source qualification",
+      "disposition": "accepted_scheduled",
+      "evidence": "proposal source breadcrumbs; historical market claims require fresh source vintages before current reuse"
+    },
+    {
+      "id": "K4",
+      "trigger": "Snapshots were initially retrieved without durable capture; later hashes alone did not let another session access bytes.",
+      "principle": "Evidence identity, payload retention and canonical acceptance are three separate gates.",
+      "pattern": "Capture raw response/request/timestamps once; hash immutable bytes; preserve recoverable artifacts; owner adapter imports with idempotency and correction handling.",
+      "method": "Validate JSONL, counts and hashes; package originals without canonical reinterpretation; receiver validates inner hashes; preserve partial recoveries and source availability bounds.",
+      "application": "58 observation records including eight partial recoveries, four complete saved raw snapshots; original matching bytes recovered in source workspace during this review.",
+      "architecture": "Private recovery artifact -> B02 approved resolver/store; GitHub holds manifest/contracts, not continuous quote payloads.",
+      "families": [
+        {
+          "tag": "EVS/IDEM/PIT/REPRO",
+          "mechanism": "Append-only revisions and frozen source identity permit replay without mutating prior knowledge."
+        },
+        {
+          "tag": "HEX",
+          "mechanism": "Keep raw-source acquisition, canonical normalization and report consumption independently testable."
+        }
+      ],
+      "counterexample": "Re-querying a current snapshot cannot recreate an earlier snapshot; later historical bars may have provider corrections.",
+      "decision": "Preserve originals and route import, rather than build another store or pretend hashes reconstruct data.",
+      "destination": "#148/B02 ingestion; proposal recovery reference",
+      "disposition": "payload_preserved_import_transferred",
+      "evidence": {
+        "library_file_id": "libfile_680fa489904081918436508a205d705b",
+        "file_id": "file_0000000094b0822f8db6cfbba19dda16",
+        "filename": "macro_snapshot_recovery_B17_158.zip",
+        "sha256": "1691799d43e04d57308a740d11e1f4ee00c6326b1fd0daecf9cfb4a70c24ec9a",
+        "url": "https://chatgpt.com/library?file_id=libfile_680fa489904081918436508a205d705b&account_id=personal",
+        "status": "created_successfully_original_inner_file_hashes_verified_not_canonical_import"
+      }
+    },
+    {
+      "id": "K5",
+      "trigger": "Early user thesis challenged EPS sustainability despite lower competitive prices and acknowledged declining unit costs/TAM growth.",
+      "principle": "Business growth and shareholder return require separate bridges.",
+      "pattern": "Price = EPS times exit multiple; gross profit = volume times (selling price minus unit cost); EPS also depends on operating costs, tax and diluted shares.",
+      "method": "Model price/cost/volume jointly, reconcile gross to net earnings and cash flow, use matched calendar periods, evaluate share-count effects net of dilution and avoid double-counting FCF allocated to buybacks/dividends/JVs.",
+      "application": "NVDA premium CUDA moat with edge/robotics/AI-RAN expansion; FTNT price decline can leave a demanding earnings path.",
+      "architecture": "Company evidence and B04 valuation receive a hypothesis record; macro component supplies rate/risk context, not fair-value probabilities.",
+      "families": [
+        {
+          "tag": "Accounting identities/DEC/FALS",
+          "mechanism": "Decompose return drivers and falsify volume/margin assumptions independently."
+        }
+      ],
+      "counterexample": "Expanding TAM alone does not establish captured revenue, profitable timing or a doubling probability. Gross margin is not net margin, FCF is not additional earnings.",
+      "decision": "Retain as research hypotheses; do not claim missing prior valuation calculations completed.",
+      "destination": "Existing company/B04 research if resumed, not macro engine",
+      "disposition": "deferred_context",
+      "evidence": "Visible user questions; absent complete verified worksheets limit conclusions"
+    },
+    {
+      "id": "K6",
+      "trigger": "Posted handoff and draft PR were initially conflated with closure, while issue/PR descriptions lagged actual files and user decisions.",
+      "principle": "Proposal persistence, acceptance, tested implementation, integration and operation need independent states.",
+      "pattern": "Linked canonical intake records disposition per deliverable; sender verifies its own artifacts; receiver owns acceptance evidence.",
+      "method": "Inspect relevant head/files/receipt; correct current summaries without deleting historical claims; close local scope only after no local executable obligation remains.",
+      "application": "#136 receiver accepted #158 and independently reported tests plus D2 failure; no domain acceptance inferred from shared CI.",
+      "architecture": "GitHub issue/PR truth with existing worker contracts; no second queue or mandatory new closeout framework.",
+      "families": [
+        {
+          "tag": "FSM/PROV/POST",
+          "mechanism": "Separate lifecycle states and preserve how claims changed."
+        }
+      ],
+      "counterexample": "A shared green workflow or accepted handoff does not pass D1-D8; 0/8 fully accepted remains visible.",
+      "decision": "User-pasted transfer endpoint accepted, now actual receiver acceptance also verified; no merge/release.",
+      "destination": "#158/#159 and existing #136 receipt",
+      "disposition": "incorporated"
+    }
+  ],
+  "execution_audit": {
+    "scale": "Ten dimensions 0-5; judgment aid, not completion percentage, trading accuracy or measured productivity.",
+    "scores": {
+      "objective_control": 3,
+      "execution_conversion": 3,
+      "reuse": 4,
+      "ownership": 4,
+      "verification": 3,
+      "dependency_handling": 4,
+      "resource_efficiency": 2,
+      "knowledge_extraction": 5,
+      "handoff_quality": 4,
+      "closure_discipline": 4
+    },
+    "total": 36,
+    "maximum": 50,
+    "normalized": 72,
+    "limits": "No token/time telemetry or full early assistant history; score only observable behavior. External implementation gaps are not penalties.",
+    "failures": [
+      {
+        "actual": "Fetched snapshots before consistently saving raw responses; user had to request JSONL persistence.",
+        "better_path": "Make capture persistence part of each provider request, with a single verified capture envelope before analysis.",
+        "root": "Analysis and evidence acquisition were separate ad hoc steps.",
+        "prevention": "Capture-first adapter with idempotent append and manifest; fail visible if persistence fails.",
+        "owner": "B02 acquisition; B17 consumer checks",
+        "test": "Repeated response saves one economic record; capture available after process restart; partial recovery cannot be tagged raw."
+      },
+      {
+        "actual": "Misread the user's 'range within range' observation as solely analytical; screenshot showed mobile renderer behavior.",
+        "better_path": "Inspect supplied rendering and explain actual track/segment semantics before proposing nested ranges.",
+        "root": "Assumed authored chart specification implied the user's rendered representation.",
+        "prevention": "Validate rendered semantics against input contract; explicitly label scales and observed intervals.",
+        "owner": "B17 presentation/B06 range contract",
+        "test": "A reader can distinguish zero-return bar from observed high-low/pocket; all bands expose horizons."
+      },
+      {
+        "actual": "Repeated closure reports while issue body/PR summary still said acknowledgment pending and one file; initial evidence retention gap remained.",
+        "better_path": "Fresh narrow receipt/file check, consistent current metadata, preserve payload bytes when accessible.",
+        "root": "Narrative status updated faster than durable task metadata and recovery resources.",
+        "prevention": "One final artifact/receipt/obligation reconciliation before archive; no whole-project audit.",
+        "owner": "This #158 proposal worker; B00 receipt",
+        "test": "Issue, PR, manifest and closeout agree on files, receiver status, unrun tests and external ownership."
+      }
+    ]
+  },
+  "maturation": [
+    {
+      "priority": 1,
+      "action": "Transfer exact original recovery package to existing B02 intake; verify inner hashes before canonical import.",
+      "category": "extend_existing_recovery",
+      "effort": "Small import qualification plus existing schema mapping; estimate, not measured",
+      "coordination": "One existing B02/B00 lane",
+      "state": "package_preserved_import_pending"
+    },
+    {
+      "priority": 2,
+      "action": "B17 #100 fixes no_new_observation defect already reproduced by receiver.",
+      "category": "correctness_override",
+      "effort": "Bounded guard/output and regression; estimate",
+      "coordination": "Existing owner plus B01 #102",
+      "acceptance": "Advance snapshot availability 60s without advancing source observed_at; output explicit no_new_observation and no fresh numeric stability claim.",
+      "state": "accepted_external_owner"
+    },
+    {
+      "priority": 3,
+      "action": "Use existing PR101/142 with explicit weekly physical series and latest-first display.",
+      "category": "extend",
+      "state": "accepted_scheduled"
+    },
+    {
+      "priority": 4,
+      "action": "Consume B06 explicit-horizon ranges and preserve three-window semantics.",
+      "category": "reuse",
+      "state": "accepted_partial_verification"
+    },
+    {
+      "priority": 5,
+      "action": "Broader scoring, running services, additional company valuation and global terminal coverage.",
+      "category": "defer",
+      "reason": "Not needed for proposal closeout; do not create new tasks or infer operational data."
+    }
+  ],
+  "current_verification": {
+    "pr159": "Open draft unmerged at pre-review head 0e31c6327de274ed0e9e429e7c815cecc5694876; two files before this increment.",
+    "pr101": "Open draft unmerged at 565e582720a32d8d73c5421d6d99d503c4bbde03",
+    "pr142": "Open draft unmerged at d9d7d23e3a3cc780fdd03eb634f6186903003ed8",
+    "receiver": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6621186109",
+    "receiver_test_evidence": "Receiver reports local 27/27 context, 5/5 register, 8/8 geometry and fixture determinism; this source session did not rerun those suites. Shared exact-head check URLs are in receipt, not substituted for D1-D8.",
+    "physical_market_claims": "Historical sourced examples only; no current price or geopolitical update performed.",
+    "local_check": "Both original JSONL parsed/hash-checked; archive CRC and extracted payload hashes verified.",
+    "independent_review_CI": "Not run for this documentation increment."
+  },
+  "closure": {
+    "local_work": "Full review and durable knowledge preservation, metadata correction and recovery artifact completed during this increment.",
+    "external": "Canonical import and eight implementation checks remain accepted/dispositioned to existing owners.",
+    "receiver_status": "accepted",
+    "source_conversation_ready": true,
+    "next_action": "B02/B00 existing intake materializes the recovery package and verifies inner hashes, then records canonical-import disposition in #136/#158."
+  }
+}
