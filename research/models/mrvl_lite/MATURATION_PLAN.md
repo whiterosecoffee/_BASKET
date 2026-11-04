@@ -25,7 +25,7 @@ Scores are ordinal review judgments, not measured predictive accuracy. Scale 0 a
 | EPS and dilution arithmetic | 2 | 3 | Direct share-count formula tested on synthetic fixtures |
 | Forecast / fiscal comparability | 1 | 2 | Conflicted case suppresses target, quarterly alignment pending |
 | Scenario and downside coverage | 2 | 2 | Plan covers break, delay, costs and multiple sensitivity |
-| Reproducibility | 0 | 3 | Versioned input hash, deterministic CLI, nine local tests |
+| Reproducibility | 0 | 3 | Versioned input hash, deterministic CLI, 12 local tests |
 | Independent validation | 0 | 0 | B01 acceptance requested, no model CI proven |
 | Ownership and integration | 0 | 2 | Dedicated branch, issue, isolated paths, draft PR |
 | **Total / 50** | **12** | **23** | Research prototype only |
@@ -41,7 +41,7 @@ Reuse runtime/ticker_data.py and runtime/observations.py for canonical storage t
 | Stage | Owner and dependency | Deliverable | Acceptance / stop condition |
 |---|---|---|---|
 | M0 Correct and preserve | B04-189 | case.json, explicit withdrawal of target certainty, frozen low-touch baseline | Historical transcription labeled; no live claim or exact-trade timestamp invented |
-| M1 Deterministic research math | B04-189 | model.py, test_model.py, SHA256 input identity | Nine tests pass; bad pair alignment and conflicting inputs suppress output |
+| M1 Deterministic research math | B04-189 | model.py, test_model.py, SHA256 input identity | 12 tests pass; bad pair alignment and conflicting inputs suppress output |
 | M2 Canonical daily replay | B02 with #148 routing | Locate existing MRVL/LITE stores first; one JSONL per ticker per exchange date; raw response/checkpoint receipts | Retry produces no duplicates; corrections append revisions; regular/extended separated; split basis declared; raw snapshot hash and coverage gaps returned |
 | M3 Deal and estimates | B03 evidence and B04 evaluation | Approved terms, closing conditions, share classes, fully diluted shares, dated quarter-level GAAP/adjusted EPS and cash flow | Resolve 12.69 vs 7.25 MRVL EPS; prove standalone treatment; classify LITE two-estimate coverage; reconcile first-year accretion without double counting |
 | M4 Full scenario bridge | B04 following M3 | CY2027 standalone and CY2028 pro forma, partial-year reported bridge, savings realization, integration cash costs, tax, financing, FCF and dilution | Income divided by explicit shares; quarterly periods align; terminal value and present value distinct; EPS/EV/FCF triangulation agrees or flags residual |
@@ -77,3 +77,7 @@ Relevant prior-art mechanisms are merger-arbitrage parity and carry, acquisition
 `python research/models/mrvl_lite/model.py research/models/mrvl_lite/case.json`
 
 The real case deliberately returns blocked with null EPS/price. Synthetic tests prove calculation behavior independently of investment input readiness.
+
+## Increment 0.1.1
+
+Twelve local regression tests pass. Added common start/end validation so annual and quarterly EPS sharing an end date cannot be combined. Equivalent UTC/offset timestamps join correctly. Non-finite arithmetic output is rejected. Real case remains blocked. #190 has no receiving claim in the latest fetched comments. Original maturity score stays 23/50 until upstream evidence or independent acceptance improves.
