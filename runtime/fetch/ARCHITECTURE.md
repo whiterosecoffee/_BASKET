@@ -93,6 +93,9 @@ Three layers that change independently: (1) generic fetch pattern (`runtime/fetc
 - **Early closes.** A small static table of known early-close dates, labelled unverified against the exchange calendar, would let the worker flag without claiming gaps. Not built.
 - **Mixed bases in one folder.** `tickers/SFTBY/intraday/` holds 5m files with `adjusted: true`; the 1m blocks are unadjusted. Readers must check the basis recorded in the manifest. A directory listing alone does not state it.
 - **Optional.** A cited verification pass on the prior-art families; hash-chaining manifest records.
+- **Continuity hold, mechanism.** Before accepting session N, refetch the final bar of the prior stored session and compare its close with the stored close (exact equality expected for unadjusted data). Mismatch: write nothing, record `hold`. A mismatch whose ratio is near an integer or its inverse is labelled split-like; otherwise revision-like; the label only steers which resolution option is tried (wait, refetch, escalate), it does not decide. If no refetch is possible, record `continuity_unchecked` and do not promote. The thresholds are unmeasured and not set here.
+- **Redistribution premise.** The owner decided minute data may be committed to the public repo as an ORCL-first pilot. This work did not check the provider's redistribution terms (the SpotGamma intake on PR #125 raised the same question for another vendor). Owner or B00 to confirm; this is not a reopening of the decision.
+- **Ticker allowlist.** Whether the pilot enforces an ORCL-only allowlist in configuration (recommended in discussion) or relies on convention was not decided. Unresolved.
 - **Storage trigger.** About 60 KB per liquid ticker-session (one session, hand-counted rows); revisit git as the store before more than a pilot set of tickers.
 
 ## Open items (owner and routing in the B00 handoff issue)
