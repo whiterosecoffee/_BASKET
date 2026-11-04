@@ -12,7 +12,7 @@ def require(test, message):
     if not test:
         raise MapError(message)
 
-def verify(mapping, manifest, pools, strict_fingerprint=True):
+def verify(mapping, manifest, pools, manifest_revision=None, pool_revision=None, strict_fingerprint=True):
     require(isinstance(mapping, dict) and mapping.get("schema") == "basket.b19-whole-basket-role-map@research1", "unsupported map")
     require(isinstance(manifest, dict) and isinstance(manifest.get("records"), list), "invalid instrument manifest")
     require(isinstance(pools, dict) and isinstance(pools.get("pools"), list), "invalid pool registry")
@@ -70,8 +70,10 @@ def verify(mapping, manifest, pools, strict_fingerprint=True):
     require(mapping.get("pool_reference", {}).get("pool_count") == len(pool_ids), "pool count mismatch")
     require(mapping.get("authoritative_scope", {}).get("count") == len(instruments), "scope count mismatch")
     if strict_fingerprint:
-        require(mapping.get("authoritative_scope", {}).get("head_sha") == manifest.get("source_head_sha"), "manifest head fingerprint mismatch")
-        require(mapping.get("pool_reference", {}).get("head_sha") == pools.get("source_head_sha"), "pool head fingerprint mismatch")
+        require(isinstance(manifest_revision, str) and len(manifest_revision) == 40, "manifest revision required")
+        require(isinstance(pool_revision, str) and len(pool_revision) == 40, "pool revision required")
+        require(mapping.get("authoritative_scope", {}).get("head_sha") == manifest_revision, "manifest head fingerprint mismatch")
+        require(mapping.get("pool_reference", {}).get("head_sha") == pool_revision, "pool head fingerprint mismatch")
     return {"all": len(rows), "equity_like": eq_count, "nonissuer": len(rows) - eq_count,
             "pool_assignments": membership_count, "provisional_role_coverage": role_count, "pools": len(pool_ids),
             "financial_coverage": "not measured"}
@@ -81,11 +83,12 @@ def main(argv=None):
     ap.add_argument("mapping", type=Path)
     ap.add_argument("manifest", type=Path)
     ap.add_argument("pools", type=Path)
-    ap.add_argument("--no-fingerprint-check", action="store_true", help="Only for offline fixture tests; never for integration acceptance")
+    ap.add_argument("--manifest-revision", required=True, help="Pinned 40-character PR head SHA for the manifest")
+    ap.add_argument("--pool-revision", required=True, help="Pinned 40-character PR head SHA for pool registry")
     a = ap.parse_args(argv)
     try:
         mapping, manifest, pools = [json.loads(p.read_text(encoding="utf-8")) for p in (a.mapping, a.manifest, a.pools)]
-        print(json.dumps(verify(mapping, manifest, pools, not a.no_fingerprint_check), sort_keys=True))
+        print(json.dumps(verify(mapping, manifest, pools, a.manifest_revision, a.pool_revision), sort_keys=True))
         return 0
     except (OSError, TypeError, AttributeError, ValueError, KeyError) as exc:
         print("MAP FAIL: " + str(exc), file=sys.stderr)
