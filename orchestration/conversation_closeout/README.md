@@ -1,6 +1,6 @@
 # Conversation closeout audit — B00 draft
 
-**Canonical on-demand conversation instruction:** [HANDOFF_PROMPT.md](HANDOFF_PROMPT.md). Retrieve this file by path from the repository before running a conversation closeout; it is the evolving full prompt. Short invocation: **Retrieve conversation handoff prompt.**
+**Canonical on-demand conversation instruction:** [HANDOFF_PROMPT.md](HANDOFF_PROMPT.md). Retrieve this file by path from the repository before running a conversation closeout; it is the evolving full prompt. Short invocation: **apply handoff prompt**. The full v2 protocol controls the review; the CLI is a narrower supporting evaluator.
 
 **Command:** `python -m orchestration.conversation_closeout --input closeout.json --output closeout.md`
 
@@ -53,7 +53,7 @@ Markdown containing completion disposition, optional evidence-weighted quality s
 
 ## How to invoke in a ChatGPT conversation
 
-Say: **"Run _BASKET closeout review. Extract reusable principles and execution lessons, score observable execution, finish authorized work, and prepare the evidence JSON for the repo closeout command. Generate the full handoff prompt if work remains."**
+Say: **apply handoff prompt**. Retrieve and follow `HANDOFF_PROMPT.md`; do not substitute the CLI's narrower evidence contract for the complete analysis.
 
 If ChatGPT cannot execute the repo command, it can still perform the review in-chat and produce the same evidence JSON. Do not claim a CLI run occurred.
 
