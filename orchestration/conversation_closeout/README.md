@@ -58,3 +58,11 @@ If ChatGPT cannot execute the repo command, it can still perform the review in-c
 ## Orchestrator integration (proposed)
 
 B00 may register an alias `basket closeout --input <file> --output <file>` in the **existing** command/router system, delegating to this module. Do not add a second scheduler or queue. B01 should independently test the CLI after B00 accepts the contract. Existing `basket.worker_task@1` and `basket.worker_resolution@1` remain authoritative for worker claims; this report never replaces them.
+
+## Evidence and knowledge extension (draft)
+
+Optional `claims` is an array of objects with `id`, `type`, `text`, and for `repository_verified` or `independent_test`, mandatory `source_ref` and `revision`. Types: `user_assertion`, `conversation_observation`, `repository_verified`, `independent_test`, `inference`, `proposal`, `unknown`. The CLI validates the presence of references but **does not fetch or authenticate them**.
+
+Each insight may additionally contain `pattern`, `methodology`, `application`, `evidence`, `limitations`, `architecture`, `capability_match`, `rationale` and `claim_ids`. The report preserves these details and includes top principles in transfer prompts. A referenced claim ID must exist in the supplied claim array. An evidence string alone does not constitute independent verification.
+
+The tool still requires an assistant to interpret the conversation and supply the structured input. It does not perform semantic deduplication, transcript extraction, contradiction resolution, or live GitHub verification. Those remain proposed capabilities, not acceptance claims.
