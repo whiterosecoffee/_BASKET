@@ -80,3 +80,9 @@ For **material architectural or methodological insights**, supply concise `prior
 Example: `"prior_art":[{"family":"Design by Contract","mechanism":"typed input/output ports","applicability":"B10 valuation engine","boundary":"schema validity does not establish financial correctness","reference":"architecture/BLACK_BOX_COMPONENT_CONTRACT.md"}]`.
 
 The report and transfer prompt retain these pointers. Prefer one or two meaningful families per insight, not a taxonomy dump. An LLM-supplied family is a design analogy, not independently verified prior art. The CLI validates structure only and does not fetch references or establish conceptual equivalence. Do not invent a family to satisfy a form.
+
+## Controlled theory tags
+
+Substantive architectural insights marked `"architectural": true` must include one to three `theory_tags`. Tags are optional for routine lessons; an explicitly provided tag list must be nonempty, unique and recognized. Current internal vocabulary: `DBC` Design by Contract; `HEX` ports/adapters; `DAG` dependencies; `EVS` event sourcing; `CQRS` read/write separation; `IDEM` idempotency; `PIT` point-in-time; `PROV` provenance; `FALS` falsification; `REPRO` reproducibility; `FSM` state machines; `POST` postmortems; `INFO` compression; `DEC` decision theory; `MOD` modularity; `OBS` observability.
+
+Example: `{"principle":"Versioned black-box ports","architectural":true,"theory_tags":["DBC","HEX","MOD"],"disposition":"transfer"}`. Report and handoff retain the tags. The classification is a concise methodology pointer, not a citation or proof of correctness. Avoid invented tags or forced analogies. B00 must approve vocabulary evolution; do not create a parallel taxonomy registry.
