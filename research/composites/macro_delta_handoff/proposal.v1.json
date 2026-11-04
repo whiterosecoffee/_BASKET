@@ -1,0 +1,337 @@
+{
+  "artifact": "B17-158 macro delta and physical supply-risk handoff proposal",
+  "version": "1.0.0",
+  "status": "proposal_only_receiver_acknowledgment_pending",
+  "issue": 158,
+  "branch": "work/158-macro-delta-handoff",
+  "base_sha": "25ae331f2774250528fc939e3e7795583f8808a3",
+  "user_decisions": {
+    "scope": [
+      "trading_backdrop_first",
+      "physical_supply_risk"
+    ],
+    "comparison_windows": [
+      "previous_check",
+      "15_minutes",
+      "prior_regular_session_close"
+    ],
+    "archive_gate": [
+      "proposal_evidence_acceptance_committed",
+      "orchestrator_explicitly_acknowledges_ownership"
+    ]
+  },
+  "outcome": "Show the most recent changes first and connect the basket's observed behavior to rates, credit and physical fuel conditions without asserting causality or predictive probabilities.",
+  "reuse_evidence": [
+    {
+      "issue": 100,
+      "pr": 101,
+      "head_sha": "565e582720a32d8d73c5421d6d99d503c4bbde03",
+      "paths": [
+        "engines/composites/market_context/**",
+        "research/composites/market_context/**"
+      ],
+      "observed": "Draft implementation offers previous-snapshot/prior-close comparisons, 5/15/60-minute aligned windows, coverage and freshness gates; domain test results are PR claims, not independently rerun here.",
+      "action": "Extend existing consumer/output; no competing delta engine or consumer journal."
+    },
+    {
+      "issue": 141,
+      "pr": 142,
+      "head_sha": "d9d7d23e3a3cc780fdd03eb634f6186903003ed8",
+      "paths": [
+        "research/composites/macro_backdrop/**",
+        "engines/composites/macro_backdrop/**"
+      ],
+      "observed": "Static measure register and five claimed tests; retrieved register contains no diesel-specific entry.",
+      "action": "Owner reviews missing physical fuel measures; avoid another macro register."
+    },
+    {
+      "issue": 149,
+      "pr": 150,
+      "paths": [
+        "engines/traversal/market_geometry/**"
+      ],
+      "action": "Use explicit horizon/session boundaries for any nested range; leave algorithm changes with B06."
+    },
+    {
+      "issue": 148,
+      "related": [
+        146,
+        147,
+        139,
+        140
+      ],
+      "observed": "Main NVDA adapter is pilot-only; _TICKERS scaffold/migration is not operational on inspected main.",
+      "action": "Request B02/B00-approved resolver under intended _TICKERS/{symbol} location, preserve legacy reads until migration verified. Never generalize NVDA-only schema silently."
+    }
+  ],
+  "ownership": {
+    "this_worker": {
+      "spark": "B17",
+      "exclusive_paths": [
+        "research/composites/macro_delta_handoff/**"
+      ],
+      "deliverable": "proposal, evidence manifest, acceptance and receiver instructions only"
+    },
+    "receivers": [
+      {
+        "owner": "B00/Codex",
+        "issues": [
+          136,
+          59
+        ],
+        "responsibility": "Acknowledge intake, assign existing owners, disposition dependencies, avoid duplicate implementation and preserve current NVDA pilot priority."
+      },
+      {
+        "owner": "B17",
+        "issues": [
+          100,
+          141
+        ],
+        "responsibility": "Market-context output and measure-register extensions in their own existing scopes."
+      },
+      {
+        "owner": "B02",
+        "responsibility": "Entitled observations, immutable provenance, aligned baselines, actual yields/spreads and canonical-store reconciliation."
+      },
+      {
+        "owner": "B03",
+        "responsibility": "Source-backed shipping/refinery disruptions and restart events with effective and first-available dates."
+      },
+      {
+        "owner": "B06",
+        "responsibility": "Observed ranges, active pockets and explicit session/horizon semantics."
+      },
+      {
+        "owner": "B01",
+        "issue": 102,
+        "responsibility": "Independent point-in-time replay/negative cases and exact-head integration checks."
+      },
+      {
+        "owner": "B08",
+        "responsibility": "Serving or scheduling only after qualified data inputs; no new service authorized by this proposal."
+      }
+    ]
+  },
+  "comparison_contract": {
+    "previous_check": "Previous accepted completed snapshot for the same instrument, unit, basis and session policy. Show actual elapsed duration and both observation timestamps. An unchanged source timestamp is no_new_observation, not a fresh zero delta.",
+    "fifteen_minutes": "Baseline at or before as_of minus 15 minutes, within the existing consumer's documented tolerance (currently 120 seconds). No interpolation or future input. Missing qualifying baseline => null with reason.",
+    "prior_close": "Previous completed regular-session close from an exchange calendar and matching adjustment basis. Show extended-session return separately. Futures require explicit contract/roll and settlement basis; do not compare changing contracts.",
+    "rates": "Yield and spread deltas in basis points: 100*(current_percent-baseline_percent). Example 4.90% -> 4.95% is +5bp.",
+    "prices": "100*(current/baseline-1) in percent; dollar/physical changes also displayed in native unit where useful.",
+    "low_frequency": "Weekly inventories/retail prices and delayed shipping estimates retain release-to-release changes and their actual effective dates. Intraday deltas are null/not_applicable rather than fabricated. Same-unrevised weekly observation is not a new intraday signal.",
+    "required_fields": [
+      "instrument_or_series",
+      "source",
+      "source_class",
+      "unit",
+      "currency_where_applicable",
+      "effective_at",
+      "observed_at",
+      "available_at",
+      "ingested_at",
+      "as_of",
+      "baseline_record_ids",
+      "baseline_times",
+      "ttd_policy",
+      "freshness_status",
+      "input_manifest_hash",
+      "engine_version_or_commit"
+    ],
+    "null_policy": [
+      "missing",
+      "stale",
+      "conflicted",
+      "provisional",
+      "no_new_observation",
+      "not_applicable"
+    ],
+    "causality": "Separate observed co-movement, sourced explanation and analyst hypothesis; correlation does not establish a driver."
+  },
+  "display": {
+    "first_screen": "Compact ranked latest-delta table: series, latest value, previous-check delta, 15-minute delta, prior-close delta, observation age/status. Expand details below.",
+    "ordering": "Use transparent priority groups (rates/credit/energy/market) initially; volatility-normalized importance only after historical coverage and method are documented. Do not rank raw bp against percentages.",
+    "market_set": [
+      "QQQ",
+      "SPY",
+      "RSP",
+      "IWM",
+      "SMH",
+      "NVDA",
+      "MSFT",
+      "AMZN",
+      "GOOGL",
+      "META"
+    ],
+    "macro_set": [
+      "US nominal 2Y/10Y/30Y yields",
+      "real yield/breakeven when available",
+      "HY/IG option-adjusted spreads",
+      "USD index",
+      "Brent/WTI",
+      "ULSD/gasoil",
+      "diesel crack spread"
+    ],
+    "proxy_cautions": [
+      "HYG price is not a credit spread.",
+      "IEF/TLT price is not a Treasury yield.",
+      "USO is not spot crude or a fixed futures contract."
+    ],
+    "range_visual": {
+      "outer": "Explicit observed multi-session low/high",
+      "inner": "Session range and independently defined active pocket",
+      "markers": [
+        "latest",
+        "previous_check"
+      ],
+      "labels": [
+        "numeric boundaries",
+        "window_start",
+        "window_end",
+        "session",
+        "basis"
+      ],
+      "warning": "Original gray chart track was an arbitrary plotting scale; do not relabel it as observed support or an empirical range."
+    }
+  },
+  "physical_supply": {
+    "US": [
+      "<=15ppm distillate stocks by PADD and subregion",
+      "total distillate vs low-sulfur distinctions",
+      "distillate production/imports/exports/product supplied",
+      "utilization and outages",
+      "retail and wholesale ULSD",
+      "regional delivery/rationing evidence if actually verified"
+    ],
+    "international": [
+      "ARA diesel/gasoil stocks and specification",
+      "Singapore middle-distillate stocks",
+      "Middle East and Russian diesel exports",
+      "refinery throughput, damage, restart and product yield",
+      "Hormuz/Red Sea transits and tanker insurance/freight"
+    ],
+    "guardrails": [
+      "Crude availability is not deliverable specification-compliant diesel.",
+      "Stocks include heating/other distillate uses and may be committed or poorly located.",
+      "Inventory divided by consumption is a coverage ratio, never a countdown to exhaustion.",
+      "Reported transit absence may reflect tracking gaps.",
+      "Crack spreads need compatible timestamps, currency and barrels/gallons conversion; contract basis explicit.",
+      "Separate announced reopening, actual restart, stable output and delivered export cargoes."
+    ]
+  },
+  "evidence_manifest": {
+    "state": "Historical captures and research breadcrumbs; not current market or physical-supply verification.",
+    "local_files": [
+      {
+        "path": "/workspace/scratch/790681f15256/data/market_snapshots.jsonl",
+        "sha256": "da95f73b226d9922abdbae79ff161796d561cdf75e54ba2b782bef89a01085b3",
+        "records": 58,
+        "limitations": "Includes eight explicitly partial recovered observations; remaining captures span Oct29-Nov3. Noncanonical raw-field envelopes, no uniform TTD/record IDs, provider nanosecond fields retained as strings inside CSV."
+      },
+      {
+        "path": "/workspace/scratch/790681f15256/data/raw_market_captures.jsonl",
+        "sha256": "450b19081a0ef7323b35b90be235087e8b7714210274c0b67ed0c4d5a05ca791",
+        "records": 4,
+        "first_capture": "2026-10-29T11:46:37.338Z",
+        "last_capture": "2026-11-03T23:24:02.237Z",
+        "limitations": "Complete saved responses for these four calls only. Earlier full responses not recovered; provider request start/finish/initial availability not uniformly established."
+      }
+    ],
+    "source_breadcrumbs": [
+      {
+        "source": "EIA",
+        "url": "https://www.eia.gov/petroleum/gasdiesel/",
+        "use": "Retail diesel by region; retrieve and pin dated vintage before replay."
+      },
+      {
+        "source": "EIA",
+        "url": "https://www.eia.gov/dnav/pet/PET_STOC_WSTK_A_EPDXL0_SAE_MBBL_W.htm",
+        "use": "Low-sulfur distillate inventory; distinguish week-end and release time."
+      },
+      {
+        "source": "EIA",
+        "url": "https://www.eia.gov/TodayinEnergy/detail.php?id=68404",
+        "use": "November 3 global refining discussion; archived source vintage required."
+      },
+      {
+        "source": "IEA",
+        "url": "https://www.iea.org/commentaries/russian-refining-sector-struggles-amid-intensifying-ukrainian-attacks",
+        "use": "International diesel refining/export discussion; use actual underlying observation periods."
+      }
+    ],
+    "recovery": "Hash/count/JSON parsing was executed locally for both existing files. This is not durable user-controlled retention. B02 must import/reconcile via approved adapter with source-vintage manifest, preserve original bytes, and report duplicates/corrections. Do not copy quotes into GitHub or create another authoritative store. No 15-minute history can be invented from sparse captures.",
+    "known_gaps": [
+      "No continuous bar capture here",
+      "No retained exact published-time evidence for every web fact",
+      "No verified current terminal-level diesel availability abroad",
+      "No implemented direct-yield/physical-inventory adapter in this worker",
+      "No independent rerun of PR101/142 domain tests"
+    ]
+  },
+  "implementation_acceptance": [
+    {
+      "id": "D1",
+      "test": "Frozen real-input manifest produces identical canonical output hashes on two clean replays; repeated import changes no economic record count."
+    },
+    {
+      "id": "D2",
+      "test": "Future/revised-later inputs cannot enter earlier as_of; stale or unknown access cannot become current. No newer source timestamp is visibly no_new_observation."
+    },
+    {
+      "id": "D3",
+      "test": "Previous-check/15-minute/prior-close baselines identified separately; missing baseline and cross-session/roll mismatch reject or remain null. 4.90->4.95 yield change equals +5bp."
+    },
+    {
+      "id": "D4",
+      "test": "Weekly release delta remains weekly with as-of/age; no invented 15-minute inventory deltas. Same publication creates no new event."
+    },
+    {
+      "id": "D5",
+      "test": "Nested range boundaries derive from explicit horizons; adding an older session cannot silently alter the requested session range."
+    },
+    {
+      "id": "D6",
+      "test": "Actual yields/spreads remain distinct from ETF prices; diesel specification/location and crude/refined distinctions survive rendering."
+    },
+    {
+      "id": "D7",
+      "test": "All basket members retain denominator/missing coverage; hyperscalers visible; output surfaces latest deltas before historical prose."
+    },
+    {
+      "id": "D8",
+      "test": "Capture recovery validated against approved canonical resolver, with source hash/revision identity, independent owner tests and exact-head CI. Integration and live-operation claims require separate evidence."
+    }
+  ],
+  "handoff": {
+    "destination": "Existing Codex #136; B00 #59 linked routing; B17 #100/#141 implementation destinations.",
+    "receiver_prompt": "Read this committed proposal and its exact PR head. Record accepted/scheduled/rejected/superseded plus the named responsible existing owner for each deliverable on #136; acknowledgment must be written by the receiving workflow, not fabricated by the sender. Reconcile #100/PR101, #141/PR142, #149/PR150 and #148 before any code changes. Preserve the existing NVDA storage pilot priority. Extend existing modules using the approved three comparison windows and trading-first display, with physical diesel/Middle East supply evidence alongside. Obtain missing records through B02 and events through B03; no duplicate raw store, schema framework, queue, scheduler or speculative scoring. Reserve exact paths before implementation and use B01 replay/negative tests. Leave nulls and historical limitations explicit. Report each test on actual SHA; no merge/release. Conversation may archive after committed proposal/evidence/acceptance and explicit owner acknowledgment; implementation can remain scheduled and open.",
+    "receipt_status": "requested_not_acknowledged",
+    "archive_ready": false
+  },
+  "prior_art": [
+    {
+      "family": "Ports and adapters / functional core",
+      "application": "Consumer reads approved observations and produces deterministic report; provider and display adapters remain separate."
+    },
+    {
+      "family": "Event sourcing / point-in-time replay",
+      "application": "Immutable observations, explicit corrections and first-available/ingested cutoffs."
+    },
+    {
+      "family": "Bullet graph / small multiples",
+      "application": "Compact latest deltas and explicitly defined nested observed ranges; no arbitrary support labels."
+    }
+  ],
+  "proposal_checks": [
+    "JSON parse and invariant checks in authoring session",
+    "All 44 returned open PR changed-file lists inspected for exclusive subtree collision",
+    "Local existing capture JSONL parse/count/hash executed"
+  ],
+  "not_claimed": [
+    "running tool",
+    "new live feed",
+    "receiver acceptance",
+    "independent CI pass",
+    "merged integration",
+    "complete original raw capture recovery"
+  ]
+}
