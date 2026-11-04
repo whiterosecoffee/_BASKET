@@ -8,7 +8,7 @@ Issue [#154](https://github.com/whiterosecoffee/_BASKET/issues/154) · Spark B06
 - Handoff at **research specification** with B00 reconciliation; no engine/runtime/CI/shared-schema writes and no claims of successful numerical backtests.
 - Owner/write boundary: **only** `research/traversal/self_relative_state/**`. Daily ticker observations are read from B00-approved B02 canonical resolver when available, not copied into B06.
 - Proposed interface is an experimental research shape, not an approved cross-domain schema.
-- The five research documents in this directory define methodology, verification limits and transfer evidence; they contain no live trading recommendation. The synthetic fixture in `PAIRED_REPLAY.md` is not a real-data historical backtest.
+- This directory now includes research documents, a nonproduction reference calculator and synthetic conformance tests. No material here is a live trading recommendation. The synthetic fixtures do not establish historical classification lift.
 
 ## Live draft PR collision review (read-only inspection)
 | Source | Verified feature / claim | Avoid duplication |
@@ -29,4 +29,4 @@ Issue [#154](https://github.com/whiterosecoffee/_BASKET/issues/154) · Spark B06
 ## Ownership / release
 B06 owns only this research subtree. B00 owns shared contracts/registry and resolver arbitration; B02 owns observations, corporate-action adjustments and point-in-time data; B17 owns market context; B07 owns outcome calibration; B01 owns independent integration validation. Existing handoffs take precedence: #148 for ticker migration, #93 for B07 ledger, #100 for B17 context. New cross-domain requirements must be added as targeted linked handoffs, not assumed permissions.
 
-See [RESEARCH_CONTRACT.md](RESEARCH_CONTRACT.md), [VALIDATION_AND_HANDOFF.md](VALIDATION_AND_HANDOFF.md), [PAIRED_REPLAY.md](PAIRED_REPLAY.md) and [ORCHESTRATOR_HANDOFF.md](ORCHESTRATOR_HANDOFF.md).
+See [RESEARCH_CONTRACT.md](RESEARCH_CONTRACT.md), [VALIDATION_AND_HANDOFF.md](VALIDATION_AND_HANDOFF.md), [PAIRED_REPLAY.md](PAIRED_REPLAY.md), [IMPROVEMENT_ROADMAP.md](IMPROVEMENT_ROADMAP.md), [MATURATION_SCORECARD_AND_SEQUENCE.md](MATURATION_SCORECARD_AND_SEQUENCE.md), [reference_state.py](reference_state.py), [test_reference_state.py](test_reference_state.py) and [ORCHESTRATOR_HANDOFF.md](ORCHESTRATOR_HANDOFF.md).
