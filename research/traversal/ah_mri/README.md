@@ -1,4 +1,4 @@
-# AH-MRI — after-hours market regime intelligence (research contract v0.1)
+# AH-MRI — after-hours market regime intelligence (research contract v0.2)
 
 Spark B06 | worker issue #166 | branch `work/166-ah-market-regime-intelligence` | **research-only; not a deployed service**.
 
@@ -61,4 +61,4 @@ These are conditional descriptions, not calibrated likelihoods, price targets or
 - **Point-in-time quant research and event sourcing**: immutable observation vintages, walk-forward tests, survivorship/availability and data leakage checks.
 
 ## Status
-Documentation-only interface proposal. Canonical source adapter, runtime, confidence calibration and independent CI remain external dependencies. See CONTRACT.json and ACCEPTANCE.md.
+Runnable offline research prototype (core.py and run.py), with 16 synthetic regression cases in test_core.py. The canonical source adapter, production runtime, source-backed support detector, real market replay, confidence calibration and independent exact-head CI remain external dependencies. The prototype does not generate verified market data. See CONTRACT.json, RUNBOOK.md and ACCEPTANCE.md.
