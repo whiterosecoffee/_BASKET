@@ -19,31 +19,9 @@
   "coverage": {
     "all_tracked_instruments": 291,
     "classified_to_at_least_one_pool": 177,
-    "unclassified_or_nonissuer": 114,
-    "unclassified_operating_issuers": 21,
-    "unclassified_issuer_symbols": [
-      "688825.SS",
-      "AMBA",
-      "APO",
-      "BLK",
-      "BN",
-      "BX",
-      "CACI",
-      "CBRS",
-      "CCC",
-      "CSGP",
-      "GE",
-      "GS",
-      "HOOD",
-      "HP",
-      "KKR",
-      "NDAQ",
-      "SFTBY",
-      "TCS",
-      "TDG",
-      "TIIAY",
-      "VICR"
-    ],
+    "unclassified_or_nonissuer": 93,
+    "unclassified_operating_issuers": 0,
+    "unclassified_issuer_symbols": [],
     "pool_participant_counts": {
       "consumer-ai": 12,
       "enterprise-ai-saas": 34,
@@ -70,7 +48,11 @@
     "capacity_coverage": "not measured",
     "cross_cutting_specialists": 21,
     "operating_equity_with_pool_or_crosscutting_role": 198,
-    "remaining_operating_equity_without_provisional_role": []
+    "remaining_operating_equity_without_provisional_role": [],
+    "nonissuer_instruments": 93,
+    "provisional_issuer_roles": 198,
+    "explicitly_unclassified_issuers": 0,
+    "description": "Classifications are hypotheses only, not verified economic participation. All 198 equity/receipt-like instruments have at least one provisional pool role or non-pool cross-cutting role; 93 nonissuer instruments remain contextual signals."
   },
   "expansion_protocol": {
     "stages": [
