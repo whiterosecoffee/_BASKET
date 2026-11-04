@@ -83,6 +83,18 @@ class PreflightTests(unittest.TestCase):
         self.assertEqual(result['status'], 'qualified_with_warnings')
         self.assertEqual(result['days'][0]['vwap_flags'], 1)
         self.assertEqual(before, p.read_bytes())
+        self.assertIn('not_standalone_error',result['vwap_flag_interpretation'])
+        self.assertEqual(result['days'][0]['sessions']['regular']['vwap_flags'],1)
+
+    def test_fractional_volume_is_not_error(self):
+        r=self.rows();r[0]['value']['volume']=10.25;self.write(r)
+        result=audit.audit(self.root)
+        self.assertEqual(result['status'],'qualified')
+        self.assertEqual(result['days'][0]['sessions']['regular']['fractional_volume_bars'],1)
+
+    def test_no_exact_volume_at_price_claim(self):
+        self.write(self.rows());result=audit.audit(self.root)
+        self.assertEqual(result['exact_volume_at_price'],'unavailable_from_minute_bars')
 
     def test_file_hash(self):
         p = self.write(self.rows());p.write_bytes(p.read_bytes().replace(b'"close":100', b'"close":101', 1))

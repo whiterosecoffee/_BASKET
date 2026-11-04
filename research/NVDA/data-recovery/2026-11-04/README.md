@@ -28,3 +28,8 @@ Dependencies remain existing owners; this issue creates no competing runtime imp
 ## Maturation increment
 
 See [MATURATION.md](MATURATION.md) for the 13-dimension scorecard, ordered owner-specific roadmap, NVDA mechanisms, small research contracts and existing-owner receiver prompts. Machine-readable sequence: [maturation.json](maturation.json). The research-local [audit.py](audit.py) checks retained exports; it is not an ingestion writer or approved shared contract. [test_audit.py](test_audit.py) has 30 synthetic boundary tests. [audit-results.json](audit-results.json) records the real v2 package run: structural qualification with warnings, no hard errors; 1,286 VWAP review flags preserved. Main's separate ticker adapter suite previously passed28 tests. Shared PR CI does not by itself establish execution of these research tests. No forecast capability, production routing or new live service is claimed.
+
+
+## Provider eligibility follow-up
+
+[QUALITY_POLICY.md](QUALITY_POLICY.md) supersedes the blanket quality-blocker interpretation: Massive documents that volume/VWAP and OHLC use different eligibility sets, and fractional volume is normal. Preserve the flags without treating them alone as errors. Research checker0.2.0 now reports session counts;32 tests pass locally. Actual capture:34 regular-session flags across3120 bars and1252 extended-session flags across4317 bars. Exact volume at $200 remains unavailable from minute aggregates. Earlier frozen-source counts remain separate vintages. No canonical production acceptance or trade-level reconciliation claimed.

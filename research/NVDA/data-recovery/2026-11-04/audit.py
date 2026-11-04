@@ -11,7 +11,7 @@ from datetime import datetime, time
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-VERSION = 'nvda-recovery-preflight@0.1.0'
+VERSION = 'nvda-recovery-preflight@0.2.0'
 ET = ZoneInfo('America/New_York')
 
 
@@ -65,6 +65,8 @@ def audit(directory):
         label = str(entry.get('date_et')) if isinstance(entry, dict) else 'invalid'
         local_errors, local_warnings = [], []
         count, regular, vwap_flags = 0, set(), 0
+        sessions = {name: {'bars': 0, 'vwap_flags': 0, 'fractional_volume_bars': 0}
+                    for name in ('premarket', 'regular', 'after_hours')}
         try:
             date, name = entry['date_et'], entry['file']
             datetime.strptime(date, '%Y-%m-%d')
@@ -125,6 +127,11 @@ def audit(directory):
                     local_errors.append('invalid_volume_count_or_vwap')
                 if not v['low'] <= v['vwap'] <= v['high']:
                     vwap_flags += 1
+                session = ('premarket' if local.time() < time(9, 30) else
+                           'regular' if local.time() < time(16) else 'after_hours')
+                sessions[session]['bars'] += 1
+                sessions[session]['vwap_flags'] += not v['low'] <= v['vwap'] <= v['high']
+                sessions[session]['fractional_volume_bars'] += int(v['volume']) != v['volume']
                 if time(9, 30) <= local.time() < time(16):
                     regular.add((local.hour, local.minute))
             expected = {(m // 60, m % 60) for m in range(570, 960)}
@@ -141,7 +148,8 @@ def audit(directory):
         errors.extend(label + ': ' + e for e in sorted(set(local_errors)))
         warnings.extend(label + ': ' + e for e in local_warnings)
         reports.append({'date_et': label, 'records': count, 'regular_minutes': len(regular),
-                        'vwap_flags': vwap_flags, 'errors': sorted(set(local_errors))})
+                        'vwap_flags': vwap_flags, 'sessions': sessions,
+                        'errors': sorted(set(local_errors))})
     unexpected = sorted(p.name for p in root.glob('*.jsonl') if p.name not in seen_files)
     if unexpected:
         errors.append('unlisted_partitions: ' + ', '.join(unexpected))
@@ -151,6 +159,9 @@ def audit(directory):
             'coverage_policy': 'eight_declared_full_US_equity_sessions_390_minutes',
             'status': 'rejected' if errors else 'qualified_with_warnings' if warnings else 'qualified',
             'errors': errors, 'warnings': warnings, 'days': reports,
+            'vwap_flag_interpretation': 'provider_documented_differing_trade_eligibility_not_standalone_error',
+            'individual_trade_reconciliation': 'not_performed',
+            'exact_volume_at_price': 'unavailable_from_minute_bars',
             'predictive_probability': None, 'canonical_integration': False}
 
 

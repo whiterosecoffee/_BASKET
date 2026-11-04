@@ -99,3 +99,8 @@ Existing B00/B02 #148/#183/#152: inspect this source and30 adversarial tests; re
 One next owner action: B00 accepts/revises the #148/#183 daily data contract using this preflight receipt and routes B02 quality reconciliation before promoting downstream valuation/traversal results.
 
 Execution correction retained: after adding unlisted-partition rejection, the DST unit fixture initially left the prior synthetic day's file in its temporary directory. The test then correctly rejected the undeclared file. Isolating the two synthetic fixture cases restored all30 passing tests; the production check was not weakened. An encoded branch-read URL failed; branch identity was instead re-fetched from PR187 plus its Git commit before the expected-head update. No credential or data mutation resulted.
+
+
+### Provider eligibility clarification
+
+See QUALITY_POLICY.md for the dated Massive primary-source methodology. VWAP outside OHLC and fractional volume are not standalone errors; the previous blanket blocker for those features is narrowed. Counts/records preserved; source-vintage differences remain explicit. The0.2.0 checker adds session characterization and two tests (32 total locally). General eligibility is now documented; individual trade reconstruction, production policy acceptance and exact price-volume density remain unverified. The scorecard's economic-quality score remains2/4, because documentation is not independent data acceptance. No financial or prediction score increases.

@@ -205,20 +205,21 @@
     }
   ],
   "checks": {
-    "research_tests": 30,
+    "research_tests": 32,
     "real_bars": 7437,
     "days": 8,
     "hard_errors": 0,
     "vwap_warnings": 1286,
     "main_adapter_tests_previous": 28,
-    "independent_research_CI": "not_verified"
+    "independent_research_CI": "not_verified",
+    "vwap_methodology": "provider_documented_differing_eligibility_not_standalone_error"
   },
   "limitations": [
     "390-minute fixture policy is not a general exchange calendar",
-    "No provider-specific VWAP reconciliation",
     "No dealer inventory inferred",
     "No predictive probabilities or fair value produced",
-    "No canonical migration or merge"
+    "No canonical migration or merge",
+    "General provider eligibility documented; individual trade reconciliation and production acceptance remain pending"
   ],
   "prior_art": [
     "ports_and_adapters_existing_TickerStore",
