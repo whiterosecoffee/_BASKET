@@ -112,7 +112,7 @@ class HistoricalStateTests(unittest.TestCase):
         result = run(bars(35, step=1))
         d = result["features"]["30"]
         self.assertGreater(d["distance_pct"], 0)
-        self.assertGreater(d["approach_velocity_pp_per_session"], 0)
+        self.assertLess(d["approach_velocity_pp_per_session"], 0)
         self.assertEqual(result["status"], "descriptive_only")
 
 
