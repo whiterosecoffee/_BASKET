@@ -51,7 +51,9 @@ def analyze(payload):
             raise ValueError("ticker missing or duplicated")
         seen.add(ticker)
         x = {"ticker": ticker, "rth_close_usd": None, "rth_return_pct": None,
-             "ah_mark_usd": None, "ah_observed_at": None, "levels": [], "gaps": []}
+             "rth_observed_at": None, "rth_source": None, "rth_freshness": "unavailable",
+             "ah_mark_usd": None, "ah_observed_at": None, "ah_source": None,
+             "ah_freshness": "unavailable", "levels": [], "gaps": []}
         r = row.get("rth")
         if r:
             st = provenance(r, as_of)
@@ -59,6 +61,9 @@ def analyze(payload):
                     and r.get("currency") == "USD" and r.get("source")
                     and timestamp(r["observed_at"]) <= timestamp(s["rth_end_at"])):
                 x["rth_close_usd"] = price(r["close_usd"])
+                x["rth_source"] = r["source"]
+                x["rth_observed_at"] = r["observed_at"]
+                x["rth_freshness"] = st
                 if r.get("previous_close_usd") is not None:
                     p = price(r["previous_close_usd"])
                     x["rth_return_pct"] = round(100 * (x["rth_close_usd"] / p - 1), 4)
@@ -77,6 +82,8 @@ def analyze(payload):
                     and timestamp(ah["observed_at"]) > timestamp(s["rth_end_at"])):
                 x["ah_mark_usd"] = price(ah["price_usd"])
                 x["ah_observed_at"] = ah["observed_at"]
+                x["ah_source"] = ah["source"]
+                x["ah_freshness"] = st
             else:
                 x["gaps"].append("AH unavailable: " + st + " or session/type mismatch")
         for z in row.get("levels", []):
