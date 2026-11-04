@@ -1,6 +1,6 @@
 {
   "artifact": "B17-158 macro delta and physical supply-risk handoff proposal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "proposal_only_receiver_acknowledgment_pending",
   "issue": 158,
   "branch": "work/158-macro-delta-handoff",
@@ -17,7 +17,7 @@
     ],
     "archive_gate": [
       "proposal_evidence_acceptance_committed",
-      "orchestrator_explicitly_acknowledges_ownership"
+      "complete_copyable_orchestrator_prompt_ready_for_user_to_paste"
     ]
   },
   "outcome": "Show the most recent changes first and connect the basket's observed behavior to rates, credit and physical fuel conditions without asserting causality or predictive probabilities.",
@@ -303,9 +303,10 @@
   ],
   "handoff": {
     "destination": "Existing Codex #136; B00 #59 linked routing; B17 #100/#141 implementation destinations.",
-    "receiver_prompt": "Read this committed proposal and its exact PR head. Record accepted/scheduled/rejected/superseded plus the named responsible existing owner for each deliverable on #136; acknowledgment must be written by the receiving workflow, not fabricated by the sender. Reconcile #100/PR101, #141/PR142, #149/PR150 and #148 before any code changes. Preserve the existing NVDA storage pilot priority. Extend existing modules using the approved three comparison windows and trading-first display, with physical diesel/Middle East supply evidence alongside. Obtain missing records through B02 and events through B03; no duplicate raw store, schema framework, queue, scheduler or speculative scoring. Reserve exact paths before implementation and use B01 replay/negative tests. Leave nulls and historical limitations explicit. Report each test on actual SHA; no merge/release. Conversation may archive after committed proposal/evidence/acceptance and explicit owner acknowledgment; implementation can remain scheduled and open.",
-    "receipt_status": "requested_not_acknowledged",
-    "archive_ready": false
+    "receiver_prompt": "Read this committed proposal and its exact PR head. Record accepted/scheduled/rejected/superseded plus the named responsible existing owner for each deliverable on #136; acknowledgment must be written by the receiving workflow, not fabricated by the sender. Reconcile #100/PR101, #141/PR142, #149/PR150 and #148 before any code changes. Preserve the existing NVDA storage pilot priority. Extend existing modules using the approved three comparison windows and trading-first display, with physical diesel/Middle East supply evidence alongside. Obtain missing records through B02 and events through B03; no duplicate raw store, schema framework, queue, scheduler or speculative scoring. Reserve exact paths before implementation and use B01 replay/negative tests. Leave nulls and historical limitations explicit. Report each test on actual SHA; no merge/release. Source conversation is ready to archive after this committed package and user-pasted prompt; receiver acknowledgment, implementation and integration remain separately pending. Record your receipt/disposition in GitHub.",
+    "receipt_status": "posted_requested_not_acknowledged_user_will_paste",
+    "archive_ready": true,
+    "archive_basis": "User's latest instruction supersedes the prior wait-for-acknowledgment conversation gate. This is handoff-package readiness only; receiver receipt, implementation, CI and integration remain pending."
   },
   "prior_art": [
     {
@@ -333,5 +334,15 @@
     "independent CI pass",
     "merged integration",
     "complete original raw capture recovery"
-  ]
+  ],
+  "resource_audit": {
+    "proposal": "present",
+    "evidence_manifest": "present_with_explicit_recovery_gaps",
+    "owner_and_dependency_map": "present",
+    "acceptance_specification": "8 checks present; implementation tests not run",
+    "receiver_runbook": "HANDOFF.md",
+    "missing_runtime_data": "Sparse local snapshots are not canonical durable history. Hashes do not recover bytes. B02 must locate original local files or qualify replacement evidence with a new vintage; never claim replay from unavailable bytes.",
+    "research_inputs": "EIA/IEA source URLs and concrete series are identified; mutable web sources require dated archived vintages.",
+    "completion": "proposal_package_ready_not_implemented"
+  }
 }
