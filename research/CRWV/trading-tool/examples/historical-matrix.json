@@ -1,0 +1,225 @@
+{
+  "active_range": {
+    "anchor": null,
+    "boundaries": {
+      "lower": {
+        "active": null,
+        "armed": true,
+        "away": 2,
+        "contacts": 0,
+        "last_contact_at": null,
+        "last_response": null,
+        "retreats": 0
+      },
+      "upper": {
+        "active": null,
+        "armed": true,
+        "away": 8,
+        "contacts": 0,
+        "last_contact_at": null,
+        "last_response": null,
+        "retreats": 0
+      }
+    },
+    "definition": {
+      "formation_start": 1793199360000,
+      "frozen_at": 1793201160000,
+      "lower": [
+        60.318227500000006,
+        60.421772499999996
+      ],
+      "pivot_counts": {
+        "lower": 4,
+        "upper": 2
+      },
+      "tolerance": 0.0870900000000006,
+      "upper": [
+        60.7982275,
+        60.851772499999996
+      ],
+      "width": 0.5335449999999895
+    },
+    "generation": 277,
+    "id": "70c545fdb5511d4d82a2c425ceaecae495bdd9edf532a0a04f412a9e9d2b0064",
+    "matches_at_freeze": [
+      {
+        "available_at": null,
+        "distance": 0.19017226571957793,
+        "evaluated_through": "2026-10-08T14:57:00-04:00",
+        "event_id": "5c6980e2c2c64d8ac8b66d537d4050885d0c82d64ec763c3e94bc3b44cef575f",
+        "outcome": "outside_failure_first",
+        "point_in_time_verified": false
+      },
+      {
+        "available_at": null,
+        "distance": 0.203921513484029,
+        "evaluated_through": "2026-10-21T16:00:00-04:00",
+        "event_id": "2d792e3dd53865bf4b7a88c4c8538548d18afb84dc2dc4b9d135f3e86fbcddaa",
+        "outcome": "no_boundary_anchor",
+        "point_in_time_verified": false
+      },
+      {
+        "available_at": null,
+        "distance": 0.21014844058395418,
+        "evaluated_through": "2026-10-06T14:13:00-04:00",
+        "event_id": "2f96685982fc878d7a6432e779bea66fa1c2bd7660190273aa24d8e9fdfebad9",
+        "outcome": "outside_failure_first",
+        "point_in_time_verified": false
+      },
+      {
+        "available_at": null,
+        "distance": 0.23055658428010622,
+        "evaluated_through": "2026-10-01T15:17:00-04:00",
+        "event_id": "e028359f352062bdc64fe9206b2419d491824291cfef42d33f8dd0ec9a2b01f8",
+        "outcome": "outside_failure_first",
+        "point_in_time_verified": false
+      },
+      {
+        "available_at": null,
+        "distance": 0.24749991334855526,
+        "evaluated_through": "2026-10-12T12:07:00-04:00",
+        "event_id": "0c44bc39e2869e2d65ea82e197e7f1759f41ad0613188582461182e0512e2aef",
+        "outcome": "outside_failure_first",
+        "point_in_time_verified": false
+      },
+      {
+        "available_at": null,
+        "distance": 0.2733109163443644,
+        "evaluated_through": "2026-10-19T11:32:00-04:00",
+        "event_id": "3ae338ac372e9b22b009d77e82a2a9f51883f2344a000961c1647143f5bd4805",
+        "outcome": "opposite_band_first",
+        "point_in_time_verified": false
+      },
+      {
+        "available_at": null,
+        "distance": 0.2938853452211182,
+        "evaluated_through": "2026-10-15T14:58:00-04:00",
+        "event_id": "9602afb312838dfb734aadd47883b7b8f6882aef37c1ab61a47b1fc7c9744e6f",
+        "outcome": "outside_failure_first",
+        "point_in_time_verified": false
+      },
+      {
+        "available_at": null,
+        "distance": 0.3195737518064268,
+        "evaluated_through": "2026-10-20T13:04:00-04:00",
+        "event_id": "f4456635ad113d894c57fcae56eb255bce8f3689bd801069cfd2fbeffe028afe",
+        "outcome": "opposite_band_first",
+        "point_in_time_verified": false
+      },
+      {
+        "available_at": null,
+        "distance": 0.3431994382538069,
+        "evaluated_through": "2026-10-27T11:53:00-04:00",
+        "event_id": "f73f233375aadf8b8b3a3ac75483c75fdc6633a00ddc68a74b4097669d81157b",
+        "outcome": "outside_failure_first",
+        "point_in_time_verified": false
+      },
+      {
+        "available_at": null,
+        "distance": 0.3477684097058627,
+        "evaluated_through": "2026-10-27T11:17:00-04:00",
+        "event_id": "1be1b2ffde233dc70756092685ece394fd225e872aaf3766aea1277fab03e892",
+        "outcome": "outside_failure_first",
+        "point_in_time_verified": false
+      }
+    ],
+    "outside_count": 0,
+    "outside_side": null,
+    "traversals": 0
+  },
+  "activity_15m": {
+    "bars": 15,
+    "dollars": 79329577.11389355,
+    "shares": 1306796.735852,
+    "vwap": 60.705368277624736
+  },
+  "as_of": 1793201640000,
+  "baseline": {
+    "addv20": 3714713654.5882306,
+    "adv20": 55655246.79594315,
+    "sessions": 20
+  },
+  "classification": "drifting_lower_ceiling_untested_5m",
+  "currency": "USD",
+  "delta_5m": -0.043199999999998795,
+  "direction_5m": "down",
+  "events": [],
+  "flow_15m": {
+    "neutral_dollars": 0.0,
+    "ratio": 0.8250661736651326,
+    "sides": {
+      "down": {
+        "bars": 4,
+        "dollars": 11780361.026562005,
+        "effective_n": 3.7672017315153896,
+        "efficiency_per_dollar": 1.6732447117083813e-08,
+        "travel": 0.19711426789710393,
+        "w": 2.211136602381316,
+        "w2": 1.2978134495663702
+      },
+      "up": {
+        "bars": 4,
+        "dollars": 11760376.620213816,
+        "effective_n": 3.6912072666766607,
+        "efficiency_per_dollar": 1.380537611894652e-08,
+        "travel": 0.1623564225425168,
+        "w": 2.9655798003306333,
+        "w2": 2.3825981357170605
+      }
+    },
+    "state": "scored"
+  },
+  "freshness": "historical",
+  "generation": 1,
+  "historical_matches_mode": "retrospective_not_point_in_time",
+  "input_hash": "cdd11d85da225525785ba38c7c08f496e784e198014940373666e7296dba385e",
+  "lag_seconds_at_retrieval": 960.0,
+  "last_price": 60.6068,
+  "limitations": [
+    "OHLCV not signed flow or exact volume at price",
+    "heuristic states, not calibrated probabilities",
+    "no polling or execution worker"
+  ],
+  "method_hash": "7b82b8de6d3f0e577cee63451a528fcadda4c5e588344fb83518dbfe68fca9c1",
+  "path_15m": {
+    "gross_ranges": 1.4364299168767227,
+    "net_ranges": -0.39959141215830846,
+    "signed_efficiency": -0.27818371607516595,
+    "state": "observed_close_path"
+  },
+  "point_in_time_verified": false,
+  "quality": {
+    "vwap_outside_ohlc_bars": 0,
+    "vwap_policy": "retain vendor VWAP; do not clamp or infer exact volume at price",
+    "window_bars": 15,
+    "window_contiguous": true
+  },
+  "range_position": 0.5408587841700313,
+  "same_time_rvol": {
+    "profile_sessions": 19,
+    "ratio": 0.8012035083025325,
+    "reason": null
+  },
+  "schema": "ticker-patterns@1.0.0",
+  "session": "2026-10-28",
+  "signal_id": "f9e9042b27d2cdbd8b5b387f5a89d3d203ca1fd32d31f3f155957f4b16f922a4",
+  "source": {
+    "adjustment": "split-adjusted",
+    "available_at": null,
+    "entitlement": "historical aggregates observed; realtime not established",
+    "file_hashes": {
+      "CRWV-daily-bars.csv": "75fc88dd5223ccfd2538f1092bea1dacc9420e2684265e1913812f15f9143c3e",
+      "CRWV-minute-bars.csv": "ade323e63835e590f025d1211390d771c3905b2d5063fc3fd13c7db0a35256dd",
+      "CRWV.range-patterns.jsonl": "d9949861839f7844801845c10c8b1f3dd54159afe017262ca9ecc9d445e2580c"
+    },
+    "ingested_at": "2026-10-28T15:50:00Z",
+    "observation_kind": "historical",
+    "provider": "Massive",
+    "retrieved_at": null,
+    "source_commit": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9",
+    "source_id": "PR69@6d82bccacaaba9855ef6bd27c64d72eb0514c8c9"
+  },
+  "supersedes_signal_id": null,
+  "ticker": "CRWV",
+  "volume_pct_adv20": 2.348020736738977
+}
