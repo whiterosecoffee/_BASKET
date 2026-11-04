@@ -61,3 +61,54 @@ Near-term acceptance target: one real issue → deterministic worker match → u
 5. Head-aligned independent B01 CI, immutable results and B00 review; no self-merge.
 
 **Read-first references:** AGENTS.md, orchestration/WORKER_PROTOCOL.md, orchestration/sparks.json, orchestration/planner/worker-library.json, orchestration/agentic/**, orchestration/agent_adapters/**, #32, #78, #103, #106, PR #107. GitHub stores control-plane evidence but is not an always-running execution host.
+
+
+## Broad maturation plan and acceptance — 2026-11-04
+
+**Assessment scope:** This is an evidence-qualified score for the standardized-worker solution, NOT overall _BASKET economic analysis or release readiness. Source anchors: issue #106/PR #107 at `eb099d8e2bf37918eaf11a46341289ff09651d9e` (63 orchestration + 29 integration/adversarial tests, Actions 40927765356); main `orchestration/worker_bridge/README.md` (issue #136, operator-mediated host-agent execution and independently reviewed failures); controller #32 and adapter #78 remain version-pinned dependencies, B08 #34 is the hosted-runtime owner. A green Actions run does not prove autonomous transport. Recheck live refs before every integration decision.
+
+### Scored maturity rubric (judgment, 0–5 per axis)
+
+| Dimension | Score | Evidence / missing gate |
+|---|---:|---|
+| Governance and path ownership | 4 | Spark paths, issue-bound claims and collision checks; branch-to-main integration remains gated |
+| Reusable worker contracts | 4 | Profiles/library, worker task and resolution, agent assignment, source-pinned bridge; some dependencies unmerged |
+| Worker selection and execution | 3 | Bridge selects profiles; operator-mediated actual host execution; unattended dispatch absent |
+| Independent validation | 4 | B01 CI and negative tests with exact heads; live multi-provider integration not validated |
+| Dependency and integration management | 3 | Explicit owner handoffs and pinned revisions; unresolved main/PR drift and dependency merges |
+| Provenance and freshness | 3 | Contracts require source/revision/availability; incomplete live entitlements and full domain coverage |
+| Durable restart and idempotency | 3 | Append-only attempts and fixture fencing tests; production crash recovery unobserved |
+| Security and entitlement enforcement | 2 | Explicit claim, lease, sandbox and secret boundaries; hosted credential/tenant isolation unproven |
+| Unattended hosted operation | 1 | B08 service is read-only snapshot; no verified persistent autonomous agent supervisor |
+| Observability and cost control | 3 | Attempts and QA receipts are preserved; operational health/cost baseline incomplete |
+
+**Total 30/50.** Score measures evidence maturity, not completion or speed; untested provider claims never receive operational credit. Do not convert scores into financial forecasts or release claims.
+
+### Planned sequence, priority and exit tests
+
+**P0 — Contract and ownership consolidation (B00 #106, #136; no new framework).** Preserve one source of truth for definition/profile, instance, issue assignment, immutable attempt and exact-head resolution. Check active PR changed paths, all task claims, canonical state vocabulary, pinned controller/adapter versions and B01 discovery coverage. Acceptance: every feature maps to a single owner/contract; zero unreviewed path collisions; #106 status/report reflects latest head and CI; historically stale packets fail closed. The #106 file and its existing negative tests are the only direct write scope of this conversation.
+
+**P1 — Authenticated finite host-runner proof (B08 existing #34/#53, B00 bridge #136 read-only).** Build the *smallest* B08-owned supervisor transport for one authorized bridge packet with bounded execution, secret injection, durable attempt/fencing receipts, health, restart and cancellation. Do not conflate this with market-price ingestion or a new scheduler. Acceptance: real authenticated remote call, exact source/task fingerprints, no secret leakage, restart without duplicate publication, stale lease rejected. A local mock cannot pass the remote gate.
+
+**P2 — Independent adversarial gate (B01).** Test rejected unknown/expired lease, cross-owner path, duplicate request, lost runner, replayed attempt, stale source/PR head, missing entitlements, unauthorized request, forged receipt, truncated/zero-test CI. Execute tests against actual receiving PR head; require no skipped mandatory tests and a separately recorded review. A current green #106 run is not evidence of B08 hosted security.
+
+**P3 — Portability and second-worker proof (B00 #136; #78 contract).** Match two existing library profiles with different write permissions and task envelopes. Execute a second genuine bounded task after P1/P2. Compare complete inputs, outputs, receipts and cost/effort instrumentation; reject ungrounded productivity claims. Acceptance: no duplicate branch, no privilege escalation, deterministic task selection, both jobs independently auditable.
+
+**P4 — Provenance through consumers (B02/B03/B05/B06).** Bind source revision, available_at, ingested_at, effective period, USD FX basis, TTD, schema/model version and dependency fingerprints through the economic graph/market traversal. Change a primary revision and prove only affected downstream computations invalidate; preserve historical results and corrections. Acceptance: point-in-time replay and missing/expired data rejection, not synthetic current marks.
+
+**P5 — Operability and scaling (B08 + B00).** Instrument verified latency, retries, health checks, token/provider costs where obtainable, crash recovery, duplicate suppression and fail-closed overload controls. Increase concurrency only after observed SLO compliance with owner approval; never infer worker availability from PR count. Acceptance: measured dashboard and runbook, with a tested rollback and permission boundary.
+
+**P6 — Integration/release (B00/B01).** Refresh main and review PR dependencies, migration/version compatibility, schema policies, exact-head CI, authorized merge and green post-merge main CI. Release and runtime deployment remain distinct separately authorized claims.
+
+### Mechanisms, counterexamples and prior art
+
+- **Design by contract / state machines:** task `claimed` is not executor activity; `component_verified` is not `integrated`; only exact evidence permits promotion. A passing CLI packet renderer without executing an agent is a negative example.
+- **Ports/adapters / modularity:** the existing #136 bridge composes #32 controller policy and #78 assignment contract; a new dispatch queue would introduce competing authority, therefore rejected.
+- **Event sourcing / idempotency / fencing:** append attempts and corrections; grant a fresh attempt on recovery; reject any late receipt from the old fence. An expired heartbeat is unknown activity, not permission to steal its write scope.
+- **Dependency DAG / provenance / point-in-time replay:** stable input/source revision fingerprints selectively invalidate downstream computations; a current CI pass tied to an earlier SHA is stale for a changed PR.
+- **Zero-trust boundary / observability:** an authenticated shell process is not a per-file OS ACL, and a local test does not attest the remote runner; enforce host permissions, redact secrets and compare publication diff to task scope.
+- **Postmortems / falsification:** retain failed native Codex CLI initialization and QA-discovered authorization defects, with exact tested revisions and corrective reruns; do not conceal failures in aggregate green status.
+
+### Effort/risk ranking and lifecycle decision
+
+P0 is low estimated effort and high risk reduction; P1–P2 have the highest functional value and external integration cost; P3–P5 are conditional on P1–P2. Do not schedule additional workers or change shared schemas merely to represent this plan. Completion of this document is **contract knowledge recorded**, not proof that P1–P6 were executed. Store status in existing GitHub issues and the canonical `basket.worker_resolution@1`, not a second backlog file.
