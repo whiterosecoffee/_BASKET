@@ -79,5 +79,31 @@ class CloseoutTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "invalid claim type"):
             assess(dict(BASE, claims=[{"id": "C1", "type": "verified", "text": "Unsupported"}]))
 
+    def test_prior_art_pointer_in_report_and_handoff(self):
+        pointer = {"family": "Design by Contract", "mechanism": "typed ports",
+                   "applicability": "worker components", "boundary": "not proof of correctness",
+                   "reference": "architecture/BLACK_BOX_COMPONENT_CONTRACT.md"}
+        insight = {"principle": "Version interfaces", "disposition": "transfer",
+                   "priority": 24, "prior_art": [pointer]}
+        handoff = dict(owner="B00", destination="Issue #103", objective="Approve interfaces",
+                       completed="Draft", remaining="Acceptance", write_paths="schemas/**",
+                       prohibited="No B01 edits", validation="Run tests", next_action="Review")
+        data = dict(BASE, external_required_remaining=True, insights=[insight], handoff=handoff)
+        report = render(data, assess(data))
+        self.assertIn("Prior art: Design by Contract", report)
+        self.assertIn("boundary: not proof of correctness", report)
+        self.assertIn("Knowledge to preserve: Version interfaces", report)
+        self.assertIn("prior art: Design by Contract", report)
+
+    def test_prior_art_pointer_rejects_incomplete(self):
+        data = dict(BASE, insights=[{"principle": "Reuse", "disposition": "propose",
+                                     "prior_art": [{"family": "Event sourcing"}]}])
+        with self.assertRaisesRegex(ValueError, "prior_art pointer missing"):
+            assess(data)
+
+    def test_prior_art_optional_for_nonarchitectural_lesson(self):
+        data = dict(BASE, insights=[{"principle": "Record failure", "disposition": "propose"}])
+        self.assertEqual(len(assess(data)["ranked_insights"]), 1)
+
 if __name__ == "__main__":
     unittest.main()
