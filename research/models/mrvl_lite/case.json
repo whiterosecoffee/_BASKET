@@ -1,0 +1,75 @@
+{
+  "schema": "mrvl_lite.research_case@1",
+  "as_of": "2026-11-04",
+  "currency": "USD",
+  "basis": "adjusted",
+  "sources_verified": false,
+  "standalone_estimates_verified": false,
+  "diluted_shares_verified": false,
+  "periods_aligned": false,
+  "deal_terms_verified": true,
+  "input_conflicts": [
+    "MRVL FY2029 EPS 12.69 versus 7.25 across retrieved secondary sources; basis and standalone treatment unresolved",
+    "LITE FY2029 EPS 47.75 has only two estimates; full source reconciliation pending",
+    "67/33 approximate ownership is insufficient to establish exact diluted denominator",
+    "Annual EPS prorating omits seasonal growth and closing-date weighting"
+  ],
+  "prior_scenario": {
+    "calendar_2028_eps": 11.55,
+    "multiple": 22,
+    "price_usd": 254,
+    "status": "withdrawn_as_base_case_retained_as_provisional_sensitivity"
+  },
+  "sources": [
+    {
+      "id": "terms",
+      "url": "https://www.sec.gov/Archives/edgar/data/1835632/000119312526442717/d352474d8k.htm",
+      "class": "issuer_filing",
+      "date": "2026-11-02",
+      "available_at": null
+    },
+    {
+      "id": "mrvl_outer_year",
+      "url": "https://www.qddresearch.com/us/mrvl/",
+      "class": "third_party_claim",
+      "date": "2026-11-03",
+      "available_at": null
+    },
+    {
+      "id": "mrvl_conflict",
+      "url": "https://mrtnz.com/markets/sp500/mrvl",
+      "class": "third_party_claim",
+      "date": null,
+      "available_at": null
+    },
+    {
+      "id": "lite_outer_year",
+      "url": "https://dailyiq.me/stock/LITE",
+      "class": "third_party_claim",
+      "date": null,
+      "available_at": null
+    }
+  ],
+  "baseline": {
+    "source": "Massive minute aggregates retrieved earlier in this conversation",
+    "raw_snapshot_retained": false,
+    "status": "historical_transcription_requires_B02_replay",
+    "date": "2026-11-04",
+    "session": "regular",
+    "currency": "USD",
+    "timestamp_precision": "one-minute bar, individual trade seconds unknown",
+    "MRVL": {
+      "low_touch": 154.78,
+      "low_bar_start": "2026-11-04T16:06:00Z",
+      "close": 159.8
+    },
+    "LITE": {
+      "low_touch": 598.7,
+      "low_bar_start": "2026-11-04T16:06:00Z",
+      "close": 626.75
+    },
+    "ratio": 4.5
+  },
+  "observed_at": null,
+  "ingested_at": null
+}
