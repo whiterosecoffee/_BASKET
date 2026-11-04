@@ -127,5 +127,25 @@ class MaturationAuditTests(unittest.TestCase):
                               "evidence_refs": ["source:1"]})
         with self.assertRaises(MaturityError): assess(a, b)
 
+    def test_nonhex_revision_rejected(self):
+        mapping, pools = sample()
+        mapping["authoritative_scope"]["head_sha"] = "z" * 40
+        with self.assertRaises(MaturityError):
+            assess(mapping, pools)
+
+    def test_duplicate_pool_in_prior_report_rejected(self):
+        mapping, pools = sample()
+        prior = assess(mapping, pools)
+        prior["pool_research_queue"].append(copy.deepcopy(prior["pool_research_queue"][0]))
+        with self.assertRaises(MaturityError):
+            compare_reports(prior, assess(mapping, pools))
+
+    def test_missing_prior_fingerprint_rejected(self):
+        mapping, pools = sample()
+        prior = assess(mapping, pools)
+        del prior["input_fingerprint"]
+        with self.assertRaises(MaturityError):
+            compare_reports(prior, assess(mapping, pools))
+
 if __name__ == "__main__":
     unittest.main()
