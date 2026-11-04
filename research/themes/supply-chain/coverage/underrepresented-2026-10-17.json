@@ -1973,5 +1973,142 @@
       "B05": "#51 read-only verified graph traversal",
       "B01": "#52 strict validation"
     }
+  },
+  "revenue_pool_semantics_2026_11_03": {
+    "status": "user_direction_research_contract_not_canonical_schema",
+    "supersedes_earlier_interpretations": "Revenue pools are specific buyer spending opportunities and supplier competition, NOT merely top-level industries or unique final demand across the economy. Previous majority_revenue_mapping_contract remains a proposed measurement guideline, not a user-mandated >50% threshold for all pools.",
+    "basket_membership": "The basket comprises all user-tracked tickers. Suggestions are candidate coverage and must not be silently inserted into confirmed tracked membership. Private entities or outside firms may appear as graph counterparties without becoming tracked tickers.",
+    "core_question": "Who is competing for which dollars, from whom, for which product or capacity, during what period, and how much of the opportunity did they capture?",
+    "pool_identity_fields": [
+      "buyer_entity_or_cohort_id",
+      "buyer_budget_or_procurement_purpose",
+      "product_service_specification",
+      "geography",
+      "accounting_period",
+      "currency",
+      "pool_id",
+      "source_evidence_ref",
+      "available_at"
+    ],
+    "participation_roles": [
+      "budget_owner",
+      "payer",
+      "contracting_buyer",
+      "prime_vendor",
+      "competing_bidder",
+      "subcontractor",
+      "component_supplier",
+      "capital_provider",
+      "end_user"
+    ],
+    "transaction_fields": [
+      "contract_or_transaction_id",
+      "buyer_id",
+      "seller_id",
+      "buyer_purpose_pool_id",
+      "amount_original_currency",
+      "currency",
+      "fx_date",
+      "amount_usd",
+      "revenue_or_capex_or_opex_or_financing",
+      "order_or_option_or_commitment_or_invoiced_or_delivered_or_recognized_or_paid",
+      "first_available_at",
+      "evidence_class",
+      "source_id"
+    ],
+    "share_measurement": {
+      "opportunity": "Buyer budget or narrowly defined spend category; where budget total not disclosed, value unknown and share null.",
+      "participant_capture": "Revenue/awarded contract value/volume associated with that buyer pool and aligned time/accounting status, not inferred from seller's whole-company sales.",
+      "competitor_set": "Products/capabilities that plausibly compete for the same specific spending decision; participant states actual_supplier, selected_vendor, alternative_bidder, internal_build, unverified.",
+      "allocations": "An individual procurement can be split across vendors and contract stages; competing candidates are not automatically equal-share or all actual counterparties.",
+      "share_formula": "Verified vendor captured spend divided by source-supported buyer pool total for the same product, period, location and accounting status; null if denominator is missing."
+    },
+    "hierarchy": [
+      {
+        "source": "retail/enterprise/government budgets",
+        "competes": [
+          "hyperscalers",
+          "SaaS",
+          "AI application providers",
+          "internal deployment"
+        ],
+        "next_pool": "platform cloud and application revenues"
+      },
+      {
+        "source": "hyperscaler/operator procurement",
+        "competes": [
+          "accelerator OEMs",
+          "custom silicon alternatives",
+          "GPU cloud vendors",
+          "network equipment",
+          "power and datacenter vendors"
+        ],
+        "next_pool": "infrastructure hardware and service revenues"
+      },
+      {
+        "source": "accelerator/OEM supplier procurement",
+        "competes": [
+          "foundries",
+          "HBM suppliers",
+          "advanced packaging",
+          "optics and substrates"
+        ],
+        "next_pool": "component and manufacturing revenues"
+      },
+      {
+        "source": "component manufacturing expenditure",
+        "competes": [
+          "equipment producers",
+          "materials",
+          "energy",
+          "industrial services"
+        ],
+        "next_pool": "upstream equipment/material/labor revenue"
+      }
+    ],
+    "non_additivity_rules": [
+      "One customer's expenditure may generate a supplier revenue at the next tier; these figures represent distinct accounting perspectives but not independent final customer demand.",
+      "Do not total revenues across all tiers as a single AI market size.",
+      "Define whether pool is planned budget, signed procurement, delivered goods, recognized revenue or actual cash paid; never silently sum stages.",
+      "Financing principal, equity investment and asset value are not revenue pools although financing fees or interest can be separate legitimate income pools.",
+      "Record spend amounts attributable to a cohort only once per transaction key within a buyer pool; allocate overlapping vendors or product groups explicitly."
+    ],
+    "benchmark_outputs": [
+      "pool buyers and purchases",
+      "verified supplier awards",
+      "competitive alternatives including in-house build",
+      "supplier share when denominator exists",
+      "capacity bottleneck impacts",
+      "upstream supplier expenditure chain",
+      "unallocated buyer spending",
+      "evidence quality and dated financial state"
+    ],
+    "measurement_note": "A majority of source-supported buyer dollars mapped is a useful coverage quality gate, but the metric needs a declared pool and denominator. An undisclosed pool cannot be reported as majority covered; total market coverage is a separate quantity.",
+    "test_examples": [
+      {
+        "buyer": "MSFT",
+        "purpose": "AI accelerator and networking procurement",
+        "suppliers": "NVDA, AMD and in-house alternatives",
+        "outcome": "Disclosed purchases only; no invented vendor allocation"
+      },
+      {
+        "buyer": "NVDA",
+        "purpose": "foundry/packaging/memory and interconnect inputs",
+        "suppliers": "TSM and qualified component suppliers",
+        "outcome": "Independent upstream purchase pool, not additive to MSFT final spend"
+      },
+      {
+        "buyer": "enterprise customer",
+        "purpose": "AI cloud inference/services",
+        "suppliers": "MSFT/AMZN/GOOG/ORCL or own infrastructure",
+        "outcome": "Different competitive dollar pool from MSFT hardware procurement"
+      }
+    ],
+    "owner_handoffs": {
+      "B19": "#17/PR18 catalogue buyer-purpose pools and source-supported participants",
+      "B00": "#50 reconcile common typed relationship contract without competing ontology",
+      "B05": "#51 support buyer->seller and alternative-competitor graph queries with provenance",
+      "B01": "#52 test nonadditivity, unverified bidders, unknown denominator and temporal status"
+    }
   }
 }
