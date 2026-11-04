@@ -49,6 +49,7 @@ def evaluate(rows, *, as_of, instrument, input_manifest_hash,
     selected = []
     previous_date = None
     adjustment = None
+    excluded_tail_started = False
     for raw in rows:
         if not isinstance(raw, dict):
             raise ValueError("bar must be object")
@@ -65,10 +66,12 @@ def evaluate(rows, *, as_of, instrument, input_manifest_hash,
         if vals["l"] > min(vals["o"], vals["c"]) or vals["h"] < max(vals["o"], vals["c"]):
             raise ValueError("invalid OHLC")
         available = _instant(raw["available_at"])
-        if raw.get("complete") is not True:
+        eligible = raw.get("complete") is True and available <= cutoff
+        if not eligible:
+            excluded_tail_started = True
             continue
-        if available > cutoff:
-            continue
+        if excluded_tail_started:
+            raise ValueError("non-prefix eligible sessions; refusing to compress a history gap")
         selected.append((day, vals))
     prices = [bar["c"] for _, bar in selected]
     n = len(prices)
