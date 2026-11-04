@@ -1,0 +1,7 @@
+# MRIE supply-chain economic research (B19)
+
+This directory is a **derived, noncanonical research overlay**. The canonical entity identity and economic shape live in `tickers/<entity_id>/entity.json` (`entity@1`); issuer events/earnings in `tickers/<entity_id>/events.json` (`events@1`, B03); buyer/supplier edges in `tickers/<entity_id>/relationships.json` (`relationships@1`, B05); immutable financial/market observations in `tickers/<entity_id>/history.jsonl` (B02). Never create a parallel ticker source of truth here.
+
+`registry/tickers.json` is a **research coverage watchlist** only, not a second canonical registry. Its entries reference canonical entity IDs and must be reconciled against repository entities. `registry/pools.json` is a proposal for shared economic-pool ontology; B00 must approve cross-domain contract changes. `relationships/gateway-model.json` contains path-level hypotheses only, not canonical relationships. `earnings/quarterly-intake.json` is a pending B03 handoff queue, not an authoritative earnings store.
+
+All monetary analysis reports USD with original currency and FX basis preserved. Unknown amounts are null. Every claim needs source URL, issuer period, effective/available/ingested dates, evidence classification, and revision identity. Final demand, gateway capex, supplier revenue, backlog, financing and customer savings are distinct ledgers; no additive double counting. B19 does not write B02/B03/B05/B00-owned files.

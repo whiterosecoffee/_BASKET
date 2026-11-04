@@ -1,0 +1,349 @@
+{
+  "schema": "mrie-b19-coverage-watchlist@1",
+  "as_of": "2026-10-16",
+  "coverage": "working research universe; reconcile with canonical registry",
+  "tickers": [
+    {
+      "entity_id": "SFTBY",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "CRWV",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "AAOI",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "NVDA",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "MSFT",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "DELL",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "HPE",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "IBM",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "ORCL",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "ARM",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "INTC",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "SYM",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "PAYP",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "ABBNY",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "TMUS",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "DTEGY",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "TSM",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "MU",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "AVGO",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "AMD",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "ANET",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "VRT",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "LITE",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "COHR",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "QQQ",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "SMH",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "NBIS",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "AMZN",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "GOOG",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "META",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "NOW",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "PLTR",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "ISRG",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "IONQ",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "QBTS",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "RGTI",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "HON",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "CRM",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "SAP",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "ROK",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "TER",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "FANUY",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "NOK",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "CHTR",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "VZ",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "T",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "PANW",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "CRWD",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "ZS",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "FTNT",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "ASML",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "AMAT",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "LRCX",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "KLAC",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "MRVL",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "FN",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "CIEN",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "ETN",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "GEV",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "CEG",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "VST",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "SMCI",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "TSLA",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "MBLY",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "VEEV",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "AXON",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "RXRX",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    },
+    {
+      "entity_id": "SDGR",
+      "canonical_entity_verified": false,
+      "earnings_status": "unverified"
+    }
+  ],
+  "authority": "research_only_noncanonical",
+  "canonical_entity_path": "tickers/<entity_id>/entity.json"
+}
