@@ -63,5 +63,37 @@ Consequences for the design:
 No source was fetched for these. Treat as vocabulary, not evidence.
 Write-Audit-Publish / staged promotion; append-only ledger with revision records; bitemporal data; content addressing (hashes, optional hash-chained manifest); Singer/Airbyte-style connector with a state bookmark (here the manifest watermark); declarative data-contract checks; tickplant-to-end-of-day store; trade-based bars; raw plus separate adjustment; idempotent natural-key writes; agent runbooks. Repo precedent that *is* verified: `runtime/ticker_data.py` (ports/adapters, idempotent, atomic replace, explicit `no_data`), and `architecture/BLOCK_ENGINEERING_METHOD.md` (Design by Contract, ports/adapters; "not a novel framework").
 
+## Reconciliation with existing B02 work (checked 2026-11-04 against GitHub; main b491012)
+Earlier versions of this record and issue #151 did not link these; that was an omission.
+| Existing item | What it says | Relation | Disposition |
+|---|---|---|---|
+| #61 comment 6540224140 (user-directed P0 dispatch, "awaiting owner claim") | B02 minute-data ingestion; candidate new path `runtime/minute_ingest/**`; reuse observation identities, replay, TTD, FX; no continuous ticks in Git history; publish a minimal read-only minute/volume/FX contract for B06 #108 and #128 | This work is a design-phase answer to it. Our path is `runtime/fetch/**`, not the candidate path. | Extend. B00 or the owner to arbitrate the path; rename is cheap before code exists. Not yet a formal claim. |
+| #62 workers MW02 (session clock, holidays), MW04 (pilot 1-minute repair, pagination), MW06 (timestamp normalization, corrections) | Planned B02 workers with exact scopes | Overlap in intent with calendar, paging and revision handling | Consolidate: reuse their acceptance wording; do not build a second calendar. |
+| #11 / PR #15; merged #140 (`runtime/observations.py`, `runtime/ticker_data.py`, NVDA-only) | Observation identities, revision and replay; connector CSV parsing and fingerprinting for NVDA | Reusable vocabulary (record identity, supersedes, expected head). `ticker_data.py` is NVDA-only and single-journal | Reuse naming and revision semantics; do not import the NVDA store. Block files stay separate. |
+| #61 comments 2026-10-29 | GitHub is canonical for daily JSONL; GitHub is not a high-frequency tick store; live tick collection is a separate runtime concern | Policy tension with minute blocks in the public repo | Owner decided an ORCL-first pilot of settled-session blocks (not ticks). Keep that decision; storage trigger below. |
+| #148 / #173 NVDA frozen-source resolver pilot (`orchestration/nvda_pilot/**`) | Resolver pilot on main, NVDA-first | R5 is partly answered for NVDA only | Re-read before targeting any resolver; not verified here for ORCL. |
+| B06 requests on #152 (comments 6621039200, 6621339893) | Source-quality packet for CRWV/ORCL 1m, 2026-10-01..11-04: source/entitlement, IDs/hash, availability, basis, bar-start vs completion, NY calendar, coverage counts and gaps, policies | Blocking for B06 M1. Inventory only; no broad fetch | Obligation on B02; see "Source-quality answer" below. |
+
+## Source-quality answer (what is verified, what is not)
+Verified in this work: minute aggregates for ORCL were returned by the Massive connector for 2026-10-30 (`adjusted=false`); `t` is the bar **start** (connector field key); one session shows 390 bars in 09:30-16:00 ET, 70.4% fractional volume, 24.5% `vw` outside `[l,h]`. Policy in this design: keep fractional volume exactly; flag `vw` per block, never clamp or fill; accept bar starts 04:00-20:00 ET only.
+Not verified: approved-source status of the connector for canonical use, snapshot or source IDs, point-in-time availability and revisions, bar-completion time, auction and correction treatment, notional definition, coverage over 2026-10-01..11-04, exact gaps. These remain **SOURCE_QUALITY_AMBIGUOUS / unknown**. The single-session measurement is not canonical coverage.
+
+## Connector-to-code route (R7 probe, 2026-11-04)
+- `MASSIVE_API_KEY` is **not set** in this environment, so direct REST is unavailable here.
+- The connector exposes `search_endpoints`, `call_api`, `query_data` and `workspace` (create, list, delete). None exports rows to a file. In this environment rows can reach the repo only if a model emits them, which is the transcription risk.
+- Mitigation (design hypothesis, **untested**): before staging, compute per-session aggregates in the connector workspace by SQL (row count, `sum(t)`, `sum(o)`, `sum(h)`, `sum(l)`, `sum(c)`, `sum(v)`, `sum(n)`, `sum(t*v)`) and require the staged file to reproduce them exactly after parsing; any mismatch rejects the block. Aggregates are necessary, not sufficient (compensating swaps could pass); the sum of `t*v` and ordered sampling reduce but do not remove that risk.
+- A key-bearing host process (an option in the table above) removes the issue and remains the cleaner route when available.
+
+## Worker home and layering
+Rationale (from the contract, not preference): `orchestration/agentic/massive_worker_contract.py` `validate_specs` accepts B02 writes only under `runtime/` and `fx/`, so a top-level `_FetchMassiveData/` would fail until B00 changes the contract.
+Three layers that change independently: (1) generic fetch pattern (`runtime/fetch/`: plan, fetch, sanitize, stage, verify, promote, manifest); (2) Massive adapter, runbook and training (`runtime/fetch/massive/`); (3) data roots, configurable and resolver-driven (intake under `runtime/fetch/intake/`, permanent home under `tickers/<T>/intraday/` or whatever the resolver names). A second provider is then a new adapter, and a path move is configuration. The worker identifier `_FetchMassiveData` would be registered in B00's worker catalog. Package names are lower-case by convention only; underscore-prefixed or capitalised names import correctly (an earlier chat remark that they "cause import problems" was wrong).
+
+## Hypotheses and reuse recorded, not adopted
+- **Settlement lag.** "Session date earlier than today ET" is a conservative design choice. Two same-day pulls differed (893 vs 898 rows); how long counts keep changing was never measured. Trigger to revisit: compare repeated pulls of the same session over several days.
+- **Early closes.** A small static table of known early-close dates, labelled unverified against the exchange calendar, would let the worker flag without claiming gaps. Not built.
+- **Mixed bases in one folder.** `tickers/SFTBY/intraday/` holds 5m files with `adjusted: true`; the 1m blocks are unadjusted. Readers must check the basis recorded in the manifest. A directory listing alone does not state it.
+- **Optional.** A cited verification pass on the prior-art families; hash-chaining manifest records.
+- **Storage trigger.** About 60 KB per liquid ticker-session (one session, hand-counted rows); revisit git as the store before more than a pilot set of tickers.
+
 ## Open items (owner and routing in the B00 handoff issue)
 ORCL ticker home; worker registration; optional `market.intraday.1m@1` schema; intraday check in the shared validator; path resolver (#148); continuous operation feature request; connector-to-code fidelity route.
