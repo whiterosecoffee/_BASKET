@@ -67,7 +67,10 @@
     },
     "financial_coverage": "not measured",
     "market_share_coverage": "not measured",
-    "capacity_coverage": "not measured"
+    "capacity_coverage": "not measured",
+    "cross_cutting_specialists": 21,
+    "operating_equity_with_pool_or_crosscutting_role": 198,
+    "remaining_operating_equity_without_provisional_role": []
   },
   "expansion_protocol": {
     "stages": [
@@ -189,15 +192,21 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for 688825.SS; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "candidate_semiconductor_vendor_identity_pending"
+      ],
+      "adjacent_pool_hypotheses": [
+        "semiconductors"
+      ]
     },
     {
       "symbol": "AAOI",
@@ -550,15 +559,22 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for AMBA; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "edge_ai_semiconductor_vendor"
+      ],
+      "adjacent_pool_hypotheses": [
+        "semiconductors",
+        "autonomous-mobility"
+      ]
     },
     {
       "symbol": "AMD",
@@ -718,15 +734,25 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for APO; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "asset_manager",
+        "credit_provider",
+        "infrastructure_financier"
+      ],
+      "adjacent_pool_hypotheses": [
+        "hyperscaler-cloud",
+        "neocloud",
+        "power-cooling"
+      ]
     },
     {
       "symbol": "ARKG",
@@ -1025,15 +1051,23 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for BLK; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "asset_manager",
+        "infrastructure_investor"
+      ],
+      "adjacent_pool_hypotheses": [
+        "hyperscaler-cloud",
+        "power-cooling"
+      ]
     },
     {
       "symbol": "BN",
@@ -1049,15 +1083,24 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for BN; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "asset_owner",
+        "infrastructure_investor",
+        "capital_allocator"
+      ],
+      "adjacent_pool_hypotheses": [
+        "hyperscaler-cloud",
+        "power-cooling"
+      ]
     },
     {
       "symbol": "BNO",
@@ -1124,15 +1167,23 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for BX; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "asset_manager",
+        "infrastructure_real_estate_financier"
+      ],
+      "adjacent_pool_hypotheses": [
+        "hyperscaler-cloud",
+        "neocloud"
+      ]
     },
     {
       "symbol": "BZ=F",
@@ -1170,15 +1221,22 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for CACI; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "government_it_services",
+        "defense_ai_systems_integrator"
+      ],
+      "adjacent_pool_hypotheses": [
+        "enterprise-ai-saas"
+      ]
     },
     {
       "symbol": "CARR",
@@ -1250,15 +1308,22 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for CBRS; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "accelerator_designer",
+        "AI_compute_competitor"
+      ],
+      "adjacent_pool_hypotheses": [
+        "semiconductors"
+      ]
     },
     {
       "symbol": "CCC",
@@ -1274,15 +1339,21 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for CCC; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "vertical_software_platform"
+      ],
+      "adjacent_pool_hypotheses": [
+        "enterprise-ai-saas"
+      ]
     },
     {
       "symbol": "CCI",
@@ -1914,15 +1985,21 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for CSGP; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "commercial_real_estate_data_platform"
+      ],
+      "adjacent_pool_hypotheses": [
+        "enterprise-ai-saas"
+      ]
     },
     {
       "symbol": "CTSH",
@@ -2809,15 +2886,22 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for GE; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "aerospace_equipment_supplier",
+        "industrial_automation_adjacency"
+      ],
+      "adjacent_pool_hypotheses": [
+        "industrial-automation"
+      ]
     },
     {
       "symbol": "GEV",
@@ -3083,15 +3167,24 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for GS; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "capital_markets_underwriter",
+        "credit_provider",
+        "advisor"
+      ],
+      "adjacent_pool_hypotheses": [
+        "hyperscaler-cloud",
+        "neocloud"
+      ]
     },
     {
       "symbol": "GTCRX",
@@ -3237,15 +3330,20 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for HOOD; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "retail_broker",
+        "distribution_platform"
+      ],
+      "adjacent_pool_hypotheses": []
     },
     {
       "symbol": "HP",
@@ -3260,15 +3358,22 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for HP; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "oilfield_services_supplier",
+        "energy_capacity_enabler"
+      ],
+      "adjacent_pool_hypotheses": [
+        "power-cooling"
+      ]
     },
     {
       "symbol": "HPE",
@@ -3937,15 +4042,24 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for KKR; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "asset_manager",
+        "credit_provider",
+        "infrastructure_financier"
+      ],
+      "adjacent_pool_hypotheses": [
+        "hyperscaler-cloud",
+        "power-cooling"
+      ]
     },
     {
       "symbol": "KLAC",
@@ -4725,15 +4839,20 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for NDAQ; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "financial_market_infrastructure",
+        "data_vendor"
+      ],
+      "adjacent_pool_hypotheses": []
     },
     {
       "symbol": "NDX",
@@ -5786,15 +5905,26 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for SFTBY; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P0"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P0",
+      "cross_cutting_roles": [
+        "capital_allocator",
+        "equity_owner",
+        "portfolio_investor",
+        "infrastructure_sponsor"
+      ],
+      "adjacent_pool_hypotheses": [
+        "hyperscaler-cloud",
+        "robotics",
+        "semiconductors"
+      ]
     },
     {
       "symbol": "SHOP",
@@ -6597,15 +6727,21 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for TCS; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "IT_services_candidate_identity_pending"
+      ],
+      "adjacent_pool_hypotheses": [
+        "enterprise-ai-saas"
+      ]
     },
     {
       "symbol": "TDG",
@@ -6620,15 +6756,21 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for TDG; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "aerospace_components_supplier"
+      ],
+      "adjacent_pool_hypotheses": [
+        "industrial-automation"
+      ]
     },
     {
       "symbol": "TEL",
@@ -6726,15 +6868,21 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for TIIAY; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "telecom_infrastructure_supplier"
+      ],
+      "adjacent_pool_hypotheses": [
+        "telecom-edge"
+      ]
     },
     {
       "symbol": "TLN",
@@ -7102,15 +7250,23 @@
       "role_hypotheses": [
         "unclassified_issuer_to_research"
       ],
-      "primary_research_question": "Verify issuer/instrument identity and relevant buyer-specific spending opportunities before assigning an economic pool.",
+      "primary_research_question": "Determine source-supported buyer budgets, counterparty contractual role and financial treatment for VICR; cross-cutting role alone does not imply revenue attributable to adjacent pools.",
       "source_supported_revenue_usd": null,
       "captured_share": null,
       "production_capacity": null,
       "contract_edges": [],
       "evidence_refs": [],
       "status": "unclassified_or_nonissuer",
-      "next_research": "Identify issuer, products, end customers and competing vendor set; then select pool roles.",
-      "priority": "P2"
+      "next_research": "Verify listing and issuer identity, then primary filing and named transactions, ownership, credit or product revenues. Keep adjacent pool exposures separate from direct competition.",
+      "priority": "P2",
+      "cross_cutting_roles": [
+        "power_module_supplier",
+        "datacenter_power_component"
+      ],
+      "adjacent_pool_hypotheses": [
+        "power-cooling",
+        "semiconductors"
+      ]
     },
     {
       "symbol": "VIX",
@@ -7750,5 +7906,6 @@
       "next_research": "Find primary issuer segment disclosures and specific buyer/supplier counterparty evidence, fiscal dates, demand denominator, capacity, and actual competitor alternatives.",
       "priority": "P1"
     }
-  ]
+  ],
+  "overlay_method": "Known roles outside the 19 B19 pools (finance, holdings, materials and market infrastructure) are explicitly cross-cutting, not forced into an artificial demand pool. Related pool IDs are research adjacency suggestions, not supplier selections."
 }
