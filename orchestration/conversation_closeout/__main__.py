@@ -6,6 +6,16 @@ from pathlib import Path
 DIMENSIONS = ("objective_control", "execution_conversion", "reuse", "ownership_integrity",
               "verification_integrity", "dependency_handling", "resource_efficiency",
               "knowledge_extraction", "handoff_quality", "closure_discipline")
+THEORY_TAGS = {
+    "DBC": "Design by Contract", "HEX": "Ports and adapters",
+    "DAG": "Dependency graphs", "EVS": "Event sourcing",
+    "CQRS": "Command/query separation", "IDEM": "Idempotency",
+    "PIT": "Point-in-time validity", "PROV": "Provenance",
+    "FALS": "Falsification", "REPRO": "Reproducibility",
+    "FSM": "State machines", "POST": "Postmortem learning",
+    "INFO": "Information compression", "DEC": "Decision theory",
+    "MOD": "Modularity", "OBS": "Observability",
+}
 DISPOSITIONS = ("Continue here", "Decision needed", "Hand off before archiving", "Ready to Archive")
 
 def check(ok, message):
@@ -55,6 +65,13 @@ def assess(data):
                       "architecture", "capability_match", "rationale"):
             if field in item:
                 check(isinstance(item[field], str), "invalid insight field: " + field)
+        if "theory_tags" in item:
+            tags = item["theory_tags"]
+            check(isinstance(tags, list) and 1 <= len(tags) <= 3 and
+                  all(isinstance(tag, str) and tag in THEORY_TAGS for tag in tags)
+                  and len(tags) == len(set(tags)), "invalid theory_tags")
+        if item.get("architectural") is True:
+            check(bool(item.get("theory_tags")), "architectural insight requires theory_tags")
         if "prior_art" in item:
             check(isinstance(item["prior_art"], list), "prior_art must be an array")
             for pointer in item["prior_art"]:
@@ -94,6 +111,9 @@ def render(data, result):
                       "architecture", "capability_match", "rationale"):
             if item.get(field):
                 lines.append("  - " + field.replace("_", " ").title() + ": " + item[field])
+        if item.get("theory_tags"):
+            lines.append("  - Theory: " + " · ".join(
+                tag + " (" + THEORY_TAGS[tag] + ")" for tag in item["theory_tags"]))
         for pointer in item.get("prior_art", []):
             lines.append("  - Prior art: " + pointer["family"] + " — " + pointer["mechanism"] +
                          "; applies: " + pointer["applicability"] +
@@ -117,6 +137,7 @@ def render(data, result):
                   "Knowledge to preserve: " + "; ".join(
                       item["principle"] + " [" + item["disposition"] + "]" +
                       (" — " + item.get("rationale", "") if item.get("rationale") else "")
+                      + (" | theory: " + ",".join(item["theory_tags"]) if item.get("theory_tags") else "")
                       + (" | prior art: " + "; ".join(
                           p["family"] + " (" + p["mechanism"] + "; boundary: " + p["boundary"] + ")"
                           for p in item.get("prior_art", [])) if item.get("prior_art") else "")
