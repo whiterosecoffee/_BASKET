@@ -1,0 +1,37 @@
+# B00-owned shared engineering template. Existing repository files are not copied.
+_min_copier_version: '9.19.1'
+_subdirectory: orchestration/bootstrap/template
+_answers_file: .copier-answers.yml
+
+project_name:
+  type: str
+  help: Human-readable project name
+  default: Example Project
+  validator: "{% if not project_name.strip() %}Project name is required.{% endif %}"
+
+repository:
+  type: str
+  help: GitHub owner/repository (no URL or credentials)
+  default: example/example-project
+  validator: >-
+    {% if not (repository | regex_search('^[A-Za-z0-9][A-Za-z0-9-]*/[A-Za-z0-9_.-]+$')) %}
+    Use GitHub owner/repository syntax.
+    {% endif %}
+
+maintainer:
+  type: str
+  help: GitHub login of the maintainer, without @
+  default: example
+  validator: >-
+    {% if not (maintainer | regex_search('^[A-Za-z0-9][A-Za-z0-9-]*$')) %}
+    Use a GitHub login without @.
+    {% endif %}
+
+test_directory:
+  type: str
+  help: Existing Python unittest discovery directory, relative to repository root
+  default: tests
+  validator: >-
+    {% if not (test_directory | regex_search('^[A-Za-z0-9_-]+(/[A-Za-z0-9_-]+)*$')) %}
+    Use a relative directory without dots, spaces or shell syntax.
+    {% endif %}

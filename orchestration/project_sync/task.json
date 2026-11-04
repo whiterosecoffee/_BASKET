@@ -1,0 +1,94 @@
+{
+  "schema": "basket.worker_task@1",
+  "task_id": "B00-134",
+  "spark_id": "B00",
+  "issue": {
+    "number": 134,
+    "url": "https://github.com/whiterosecoffee/_BASKET/issues/134"
+  },
+  "branch": {
+    "name": "work/134-github-project-control-plane",
+    "base": "main"
+  },
+  "objective": "GitHub Projects synchronization and shared Copier engineering bootstrap, preserving domain ownership and independently verifiable evidence",
+  "write_paths": [
+    "orchestration/project_sync/**",
+    "copier.yml",
+    "orchestration/bootstrap/**",
+    "orchestration/sparks.json",
+    "architecture/version-manifest.json"
+  ],
+  "acceptance": [
+    {
+      "id": "A1",
+      "criterion": "Paginated permission-aware API transport",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A2",
+      "criterion": "Idempotent project item and field synchronization",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A3",
+      "criterion": "Existing contract validation and conservative status gates",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A4",
+      "criterion": "Execute mocked and existing B00 regression tests",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A5",
+      "criterion": "Verify actual live Project configuration and synchronization",
+      "evidence_class": "source",
+      "mandatory": true
+    },
+    {
+      "id": "A6",
+      "criterion": "Commit isolated implementation and open draft PR",
+      "evidence_class": "source",
+      "mandatory": true
+    },
+    {
+      "id": "A7",
+      "criterion": "Actual Copier generation records a pinned remote source revision",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A8",
+      "criterion": "Actual versioned Copier update preserves local edits and rejects invalid input",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A9",
+      "criterion": "Deterministic template generation and existing B00 regression tests pass",
+      "evidence_class": "test",
+      "mandatory": true
+    }
+  ],
+  "dependencies": [
+    {
+      "issue_number": 132,
+      "kind": "upstream_pr",
+      "blocks_completion": false,
+      "reason": "Preserve reducer; adapter is independent"
+    },
+    {
+      "issue_number": 108,
+      "kind": "handoff",
+      "blocks_completion": false,
+      "reason": "B06 reversal engine remains separate"
+    }
+  ],
+  "claimed_at": "2026-10-31T02:19:58Z",
+  "state": "building",
+  "note": "Same-conversation user-approved Copier extension; B00 assigns root copier.yml in catalog 1.6.1. No workflow install, merge or release."
+}

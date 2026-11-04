@@ -1,0 +1,2 @@
+# Development-only tool. No application/runtime dependency.
+copier==9.19.1
