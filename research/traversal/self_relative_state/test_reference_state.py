@@ -84,6 +84,26 @@ class HistoricalStateTests(unittest.TestCase):
         self.assertEqual(result["eligible_completed_sessions"], 1)
         self.assertEqual(result["last_session"], "2026-11-05")
 
+    def test_interior_unavailable_bar_fails_closed(self):
+        rows = bars(35)
+        rows[20]["available_at"] = "2026-11-05T00:00:00Z"
+        with self.assertRaisesRegex(ValueError, "non-prefix eligible"):
+            run(rows)
+
+    def test_interior_incomplete_bar_fails_closed(self):
+        rows = bars(35)
+        rows[20]["complete"] = False
+        with self.assertRaisesRegex(ValueError, "non-prefix eligible"):
+            run(rows)
+
+    def test_future_tail_is_excluded_without_compression(self):
+        rows = bars(35)
+        for row in rows[30:]:
+            row["available_at"] = "2026-11-05T00:00:00Z"
+        state = run(rows)
+        self.assertEqual(state["eligible_completed_sessions"], 30)
+        self.assertIsNone(state["features"]["30"]["slope_5_pct"])
+
     def test_no_calendar_attestation(self):
         with self.assertRaises(ValueError):
             evaluate(bars(30), as_of="2026-11-04T23:59:00Z",
