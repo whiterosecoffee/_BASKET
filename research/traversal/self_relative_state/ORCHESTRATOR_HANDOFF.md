@@ -23,7 +23,8 @@ User-resolved selections:
 1. `README.md` — capability overlap, owner boundaries and scope.
 2. `RESEARCH_CONTRACT.md` — proposed daily inputs, temporal invariants, definitions, nulls and noncanonical experimental shape.
 3. `VALIDATION_AND_HANDOFF.md` — M0–M5 test ladder, experiment design and receiver prompt.
-4. This file — final transfer, evidence and archive gate.
+4. `PAIRED_REPLAY.md` — separate traversal-only controlled comparison and synthetic mechanism check; retained as research, execution not claimed here.
+5. This file — final transfer, evidence and archive gate.
 
 ## Verified dependency and collision map
 
@@ -44,11 +45,11 @@ Targeted handoff requests were posted to existing issues #148 (B00/B02), #103 (B
 ## Verification evidence and limitations
 
 At PR head `1d3c5985c861d88d2a7abd14e4aca8bfd0bff384`:
-- GitHub branch and draft PR confirmed; **three** added files, all inside owned research subtree.
+- GitHub branch and draft PR confirmed; **five** added files at the currently inspected head, all inside owned research subtree (including `PAIRED_REPLAY.md` from a separate research update).
 - GitHub workflow `Validate BASKET data`, run **41762058583**, returned `completed/success` for this commit.
 - No empirical historical-source replay, no M0–M5 statistical performance results, no new live engine, no new public-market history, no approved shared schema.
 - GitHub validation on this research branch is not evidence that downstream interfaces are integrated or production-ready.
-- After this handoff manifest is committed, the PR head changes; obtain a fresh exact-head workflow result before claiming the revised head has passed.
+- Latest inspected PR head `fd7144f10b21f2ef2e225017ae76fb970ab55493` passed GitHub Actions `Validate BASKET data` run `41762449382`; this verifies repository checks only. A subsequent edit changes the head; recheck exact-head workflow before final claim.
 
 ## Archival and integration criteria
 
@@ -65,7 +66,7 @@ The orchestrator must verify, in order:
 
 ## Ready-to-paste orchestrator prompt
 
-> **_BASKET B06 historical self-relative state — reconcile, integrate and verify (#154 / PR #160).** Read live GitHub main, `AGENTS.md`, `orchestration/sparks.json`, issue #154, draft PR #160 and its four files in `research/traversal/self_relative_state/**`. Confirm PR head, changed paths, ownership, workflows, comments and related open PRs before action; preserve existing issue/branch and do **not** create a duplicate B06 worker. User choices are **incremental information**, **recent 200–500 completed daily sessions**, **research-only handoff**. Resolve conceptual overlap with B06 PRs #109/#145/#150 and B10 #99; compose a small daily historical-state contract rather than another traversal implementation. Respect B00 #103 component/schema ownership; coordinate B00/B02 #148 resolver/data migration, B17 #100 same-horizon context, B07 #93 held-out event discrimination and B01 #98 independent CI through existing owner issues, not cross-domain writes. Preserve completed-session, as-of/available/ingested/revision identity, adjusted-price/FX basis, 200D warmup and failure-to-observe semantics. Test incremental value using predeclared M0–M5 benchmarks and chronological overlap-controlled replay; reject unvalidated probabilities and fabricated CRWV 200D. Review draft PR #160 and its validation, request any scoped corrections through its owner, and never merge without explicit authorization. Do not claim main integration, release, live execution, or archive readiness on a draft. Report source-verified state, accepted architecture, owned paths, dependency order, unresolved evidence, issue/PR/CI URLs and `basket.worker_resolution@1`; mark this conversation **archive-ready only after authorized integration and main CI are verified**, otherwise preserve an explicit blocker and next owner action.
+> **_BASKET B06 historical self-relative state — reconcile, integrate and verify (#154 / PR #160).** Read live GitHub main, `AGENTS.md`, `orchestration/sparks.json`, issue #154, draft PR #160 and its five files in `research/traversal/self_relative_state/**`. Confirm PR head, changed paths, ownership, workflows, comments and related open PRs before action; preserve existing issue/branch and do **not** create a duplicate B06 worker. User choices are **incremental information**, **recent 200–500 completed daily sessions**, **research-only handoff**. Resolve conceptual overlap with B06 PRs #109/#145/#150 and B10 #99; compose a small daily historical-state contract rather than another traversal implementation. Respect B00 #103 component/schema ownership; coordinate B00/B02 #148 resolver/data migration, B17 #100 same-horizon context, B07 #93 held-out event discrimination and B01 #98 independent CI through existing owner issues, not cross-domain writes. Preserve completed-session, as-of/available/ingested/revision identity, adjusted-price/FX basis, 200D warmup and failure-to-observe semantics. Test incremental value using predeclared M0–M5 benchmarks and chronological overlap-controlled replay; reject unvalidated probabilities and fabricated CRWV 200D. Review draft PR #160 and its validation, request any scoped corrections through its owner, and never merge without explicit authorization. Do not claim main integration, release, live execution, or archive readiness on a draft. Report source-verified state, accepted architecture, owned paths, dependency order, unresolved evidence, issue/PR/CI URLs and `basket.worker_resolution@1`; mark this conversation **archive-ready only after authorized integration and main CI are verified**, otherwise preserve an explicit blocker and next owner action.
 
 ## Required next orchestrator action
 Review PR #160 against current main and B06 active drafts, route B00 interface arbitration and #148 data resolver dependency, and report an explicit non-archive-ready status until integration is actually verified.
