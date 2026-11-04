@@ -18,12 +18,12 @@ The input is a supplied, point-in-time snapshot: nothing is downloaded. `input_m
 ### Report semantics
 
 - RTH close is not overwritten by an AH last trade. OHLCV over RTH and trades/quotes AH must be supplied separately.
-- An AH quote is not an AH eligible trade. Expired, future-available, missing or inconsistent AH observations are not shown as an eligible AH mark.
+- An AH quote is not an AH eligible trade. The RTH close observation timestamp must equal the caller-supplied official session close; AH trades must fall after that boundary and at/before the caller-supplied AH cutoff or default 20:00 America/New_York. The session date must match the regular close's New York date. Expired, future-available, missing or inconsistent AH observations are not shown as an eligible AH mark.
 - RTH observations expired at report time may appear as *historical*, with an explicit gap; they are not live current observations.
 - `levels.kind=observed` is downgraded to `reference` when calculation, sample window or evidence IDs are absent. Evidence IDs are caller attestations; the prototype cannot independently recompute price-at-volume support. It must not certify a level based solely on those IDs.
 - `scenario` intervals remain conditional, uncalibrated. No estimated probabilities or dealer signed gamma are computed.
 - Economic surprise = published actual minus point-in-time consensus, only when units agree by caller contract and the consensus was available before release.
-- The core doesn't infer macro causality, session-market-open status, market regime, current dates, economic calendars, trading signals or positions.
+- Markdown reports now include the price's provider, observed timestamp and freshness status. The core doesn't infer macro causality, session-market-open status, market regime, current dates, economic calendars, trading signals or positions.
 
 ### Input trust boundary / preproduction blockers
 
@@ -35,7 +35,7 @@ The input is a supplied, point-in-time snapshot: nothing is downloaded. `input_m
 
 ### Acceptance evidence and limitations
 
-- `test_core.py` is a set of synthetic deterministic tests, not real historical trade/bar replay.
+- `test_core.py` contains 16 synthetic deterministic tests, not real historical trade/bar replay.
 - Do not run a headline report against fabricated data and label it "today"; future market outputs require actual as-of snapshots.
 - Do not claim production readiness based on a successful synthetic unit suite or a draft PR.
 - No direct merges, releases or cross-spark file writes.
