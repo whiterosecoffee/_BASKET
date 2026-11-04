@@ -4,6 +4,7 @@ from zoneinfo import ZoneInfo
 from hashlib import sha256
 import json
 import math
+from readiness import evaluate as evaluate_readiness
 
 VERSION = "ah-mri-research-0.2"
 
@@ -134,6 +135,7 @@ def analyze(payload):
             raise ValueError("invalid scenario")
         out["scenarios"].append({"name": scenario["name"], "trigger": scenario.get("trigger"),
                                  "invalidation": scenario.get("invalidation"), "probability": None})
+    out["readiness"] = evaluate_readiness(payload.get("readiness_evidence"))
     out["input_manifest_hash"] = sha256(json.dumps(payload, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()).hexdigest()
     return out
 
@@ -155,6 +157,11 @@ def markdown(report):
         ah = ("%s @ %s (%s)" % (x["ah_source"], x["ah_observed_at"], x["ah_freshness"])
               if x["ah_source"] else "unavailable")
         lines.append("- %s: RTH %s; AH %s" % (x["ticker"], rth, ah))
+    state = report["readiness"]
+    lines.append("\n## Validation readiness")
+    lines.append("Research only; independent verified gates %d/%d, production ready: %s" %
+                 (state["independently_verified_gates"], state["required_gates"], state["production_ready"]))
+    lines.append("Missing or invalid: " + (", ".join(state["blockers"]) or "claimed inputs unverified"))
     lines.append("\n## Economic events")
     lines.extend("- %s: %s; surprise %s %s" % (e["name"], e["status"], e["surprise"] if e["surprise"] is not None else "unknown", e["units"] or "") for e in report["events"])
     lines.append("\n## Conditional scenarios (uncalibrated)")
