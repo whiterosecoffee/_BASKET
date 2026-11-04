@@ -1,5 +1,7 @@
 # Conversation closeout audit — B00 draft
 
+**Canonical on-demand conversation instruction:** [HANDOFF_PROMPT.md](HANDOFF_PROMPT.md). Retrieve this file by path from the repository before running a conversation closeout; it is the evolving full prompt. Short invocation: **Retrieve conversation handoff prompt.**
+
 **Command:** `python -m orchestration.conversation_closeout --input closeout.json --output closeout.md`
 
 This is a deterministic **offline report formatter and evidence-gate**, not a conversation scraper, agent, scheduler, GitHub updater, or proof of worker execution. A conversation assistant first reviews its accessible transcript and current relevant evidence, then supplies a JSON assessment. Do not pass private account records, credentials or sensitive financial data. The CLI does not verify external citations or GitHub CI.
