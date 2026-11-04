@@ -35,7 +35,11 @@ The input is a supplied, point-in-time snapshot: nothing is downloaded. `input_m
 
 ### Acceptance evidence and limitations
 
-- `test_core.py` contains 16 synthetic deterministic tests; `test_readiness.py` contains four additional synthetic readiness checks, not real historical trade/bar replay.
+- `test_core.py` contains 20 synthetic deterministic tests; `test_readiness.py` contains four additional synthetic readiness checks, not real historical trade/bar replay.
 - Do not run a headline report against fabricated data and label it "today"; future market outputs require actual as-of snapshots.
 - Do not claim production readiness based on a successful synthetic unit suite or a draft PR.
 - No direct merges, releases or cross-spark file writes.
+
+## November 4 source probe — NOT a validated input fixture
+
+Connected Massive historical endpoint `/v1/open-close/{symbol}/2026-11-04` returned SPY/QQQ/NVDA/CRWV/ORCL OHLC, but omitted event-level observed/available/ingested/expiry and official closing-auction eligibility. Volumes contained fractional values; direct close differences against some public summaries require source/adjustment reconciliation. The B02 handoff is recorded in issue #152. **Do not construct invented timestamps to make these bars pass the AH-MRI consumer.** An actual sourced RTH/AH sample, same-clock comparison and provider-vintage manifest remain pending.
