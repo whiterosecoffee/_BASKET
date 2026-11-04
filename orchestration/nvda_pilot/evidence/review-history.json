@@ -1,0 +1,91 @@
+[
+  {
+    "log": "nvda-b01-fifth.log",
+    "sha256": "a3619b0a01efa4e36531dbc79bab32d287e8a7363ed9b91db9e1ea1129753405",
+    "test_counts": [
+      22
+    ],
+    "failures": [
+      "test_corrupt_manifest_type_is_structured_rejection (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_corrupt_manifest_type_is_structured_rejection)",
+      "test_cli_metadata_output_symlink_cannot_overwrite_source (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_cli_metadata_output_symlink_cannot_overwrite_source)"
+    ],
+    "ended_ok": false
+  },
+  {
+    "log": "nvda-b01-final.log",
+    "sha256": "bbeba43692abb9e908b2862200b4c8edcea6d518d979e84e22173ca9a24dc3c0",
+    "test_counts": [
+      23
+    ],
+    "failures": [],
+    "ended_ok": true
+  },
+  {
+    "log": "nvda-b01-first.log",
+    "sha256": "4fb407fef6ea6fd100d24be1705e2f9ae98e545e1fc76d5587939fb36c32e59f",
+    "test_counts": [
+      14
+    ],
+    "failures": [
+      "test_failed_atomic_activation_preserves_current_report (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_failed_atomic_activation_preserves_current_report)"
+    ],
+    "ended_ok": false
+  },
+  {
+    "log": "nvda-b01-fourth.log",
+    "sha256": "29e27bc010060cdfef10553541b48a5d8e971b2078335b3470aacfa35ccfc019",
+    "test_counts": [
+      22
+    ],
+    "failures": [
+      "test_corrupt_manifest_type_is_structured_rejection (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_corrupt_manifest_type_is_structured_rejection)",
+      "test_resolved_report_files_are_usable_relative_to_returned_directory (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_resolved_report_files_are_usable_relative_to_returned_directory)"
+    ],
+    "ended_ok": false
+  },
+  {
+    "log": "nvda-b01-second.log",
+    "sha256": "2219ea6b4e53ad2467a1968f6041ebb828ebd65a7a663d4b273283dd4769fe4c",
+    "test_counts": [
+      18
+    ],
+    "failures": [
+      "test_failed_atomic_activation_preserves_current_report (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_failed_atomic_activation_preserves_current_report)",
+      "test_interrupted_stage_keeps_active_and_retry_recovers (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_interrupted_stage_keeps_active_and_retry_recovers)"
+    ],
+    "ended_ok": false
+  },
+  {
+    "log": "nvda-b01-seventh.log",
+    "sha256": "e02af001b1070a4394f47029448bc3792172cf662c757e743e5a6dfd7d308a0e",
+    "test_counts": [
+      24
+    ],
+    "failures": [
+      "test_supporting_warnings_do_not_leak_into_earlier_replay (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_supporting_warnings_do_not_leak_into_earlier_replay)"
+    ],
+    "ended_ok": false
+  },
+  {
+    "log": "nvda-b01-sixth.log",
+    "sha256": "fa559b5c47d8673b092041ba6db1eeadf919c6321a9c268e8df4ad9fd41ab66a",
+    "test_counts": [
+      23
+    ],
+    "failures": [
+      "test_manifest_role_mismatch_is_rejected (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_manifest_role_mismatch_is_rejected)"
+    ],
+    "ended_ok": false
+  },
+  {
+    "log": "nvda-b01-third.log",
+    "sha256": "704e63befd310c59dc17a6bdd5c28d54d956c27323a96fc491062fc21a3c78b3",
+    "test_counts": [
+      19
+    ],
+    "failures": [
+      "test_resolved_report_files_are_usable_relative_to_returned_directory (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_resolved_report_files_are_usable_relative_to_returned_directory)"
+    ],
+    "ended_ok": false
+  }
+]

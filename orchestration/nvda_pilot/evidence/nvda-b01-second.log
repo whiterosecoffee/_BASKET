@@ -1,0 +1,64 @@
+test_asof_uses_ingestion_and_report_retrieval_not_publication (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_asof_uses_ingestion_and_report_retrieval_not_publication) ... ok
+test_corrupt_pointer_is_not_empty_data (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_corrupt_pointer_is_not_empty_data) ... ok
+test_explicit_rollback_restores_prior_frozen_report (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_explicit_rollback_restores_prior_frozen_report) ... ok
+test_failed_atomic_activation_preserves_current_report (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_failed_atomic_activation_preserves_current_report) ... ERROR
+test_failed_rollback_keeps_new_version_active (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_failed_rollback_keeps_new_version_active) ... ok
+test_interrupted_stage_keeps_active_and_retry_recovers (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_interrupted_stage_keeps_active_and_retry_recovers) ... ERROR
+test_manifest_is_repeatable_and_source_hashed (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_manifest_is_repeatable_and_source_hashed) ... ok
+test_manifest_path_traversal_is_rejected (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_manifest_path_traversal_is_rejected) ... ok
+test_missing_active_root_has_no_silent_legacy_fallback (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_missing_active_root_has_no_silent_legacy_fallback) ... ok
+test_nondestructive_stage_and_idempotent_retry (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_nondestructive_stage_and_idempotent_retry) ... ok
+test_resolver_is_nvda_only_and_read_only (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_resolver_is_nvda_only_and_read_only) ... ok
+test_source_hash_mismatch_prevents_staging (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_source_hash_mismatch_prevents_staging) ... ok
+test_staged_document_corruption_blocks_read_and_reactivation (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_staged_document_corruption_blocks_read_and_reactivation) ... ok
+test_staged_observation_corruption_blocks_reads (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_staged_observation_corruption_blocks_reads) ... ok
+test_stale_activation_does_not_replace_current (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_stale_activation_does_not_replace_current) ... ok
+test_stale_lock_is_explicit_and_not_auto_deleted (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_stale_lock_is_explicit_and_not_auto_deleted) ... ok
+test_symlink_source_is_rejected (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_symlink_source_is_rejected) ... ok
+test_two_reads_and_new_process_object_are_canonical_identical (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_two_reads_and_new_process_object_are_canonical_identical) ... ok
+
+======================================================================
+ERROR: test_failed_atomic_activation_preserves_current_report (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_failed_atomic_activation_preserves_current_report)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/basket-nvda-pilot/tests/integration/test_nvda_pilot_acceptance.py", line 195, in test_failed_atomic_activation_preserves_current_report
+    self.pilot.activate(manifest['manifest_id'], expected_current=self.manifest['manifest_id'])
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 279, in activate
+    self._pointer(manifest_id, current)
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 265, in _pointer
+    os.replace(staged, self.home / 'active.json')
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+OSError: simulated interrupted pointer write
+
+======================================================================
+ERROR: test_interrupted_stage_keeps_active_and_retry_recovers (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_interrupted_stage_keeps_active_and_retry_recovers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/basket-nvda-pilot/tests/integration/test_nvda_pilot_acceptance.py", line 222, in test_interrupted_stage_keeps_active_and_retry_recovers
+    self.pilot.stage(other, manifest)
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 248, in stage
+    shutil.copyfile(safe_path(source, item['path']), p)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/basket-nvda-pilot/tests/integration/test_nvda_pilot_acceptance.py", line 218, in interrupted
+    raise OSError('simulated interrupted file copy')
+OSError: simulated interrupted file copy
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.410s
+
+FAILED (errors=2)
