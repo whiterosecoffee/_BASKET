@@ -1,0 +1,46 @@
+{
+  "schema": "basket.issuer_research_reference@1-provisional",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "ticker": "KD",
+  "venue": "NYSE",
+  "as_of": "2026-10-30",
+  "scope": "basket-linked company research profile; canonical issuer folder controlled separately",
+  "basket_member": true,
+  "classification": "core",
+  "skill_base": "hybrid AI production infrastructure and managed modernization",
+  "capabilities": "hybrid AI production infrastructure and managed modernization",
+  "partnerships": {
+    "nvidia": "tier unverified",
+    "microsoft": "tier unverified",
+    "partner_sources": [],
+    "partner_attributable_revenue": null
+  },
+  "price_observation": null,
+  "earnings": {
+    "latest_reported": null,
+    "revenue_growth_yoy_pct": null,
+    "gaap_eps": null,
+    "adjusted_eps": null,
+    "guidance": null,
+    "forward_2027_eps": null,
+    "forward_2027_pe": null,
+    "forward_2028_eps": null,
+    "forward_2028_pe": null,
+    "missing_reason": "Issuer-level current verified estimates pending"
+  },
+  "forward_earnings_status": "2027/2028 consensus not independently verified",
+  "sources": [],
+  "data_quality": {
+    "company_guidance": "only if issuer sourced",
+    "screenshot_price_not_verified_close": false,
+    "unconfirmed_values": null,
+    "validation_status": "research_pending_independent_validation"
+  },
+  "research_tasks": [
+    "Verify most recent quarterly issuer release, GAAP and non-GAAP reconciliation",
+    "Verify 2027/2028 forward EPS estimates and source timestamp",
+    "Verify current price and calculate dated same-basis forward P/E",
+    "Verify NVIDIA/Microsoft partnership tier and commercial contribution",
+    "Score organic growth, skilled deployment capacity, margin expansion and operating cash conversion"
+  ]
+}
