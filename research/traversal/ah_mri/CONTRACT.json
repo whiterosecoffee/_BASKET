@@ -1,0 +1,85 @@
+{
+  "schema": "basket.ah_mri.research@0.1",
+  "status": "proposal_not_shared_schema",
+  "spark": "B06",
+  "issue": 166,
+  "request": {
+    "as_of": "2026-11-03T21:00:00-05:00",
+    "market_timezone": "America/New_York",
+    "currency": "USD",
+    "universe": [
+      "SPY",
+      "QQQ",
+      "RSP",
+      "IWM",
+      "SMH",
+      "NVDA",
+      "CRWV",
+      "ORCL"
+    ],
+    "event_mode": "next_session",
+    "allow_partial": true
+  },
+  "result": {
+    "as_of": null,
+    "session_date": null,
+    "session_type": null,
+    "provider": null,
+    "input_manifest_hash": null,
+    "engine_version": null,
+    "git_sha": null,
+    "market_state": {
+      "classification": null,
+      "measured_evidence_ids": [],
+      "alternatives": [],
+      "freshness_status": "unknown"
+    },
+    "instruments": [
+      {
+        "ticker": "QQQ",
+        "rth_close_usd": null,
+        "rth_return_pct": null,
+        "after_hours_price_usd": null,
+        "ah_observed_at": null,
+        "levels": [
+          {
+            "kind": "reference",
+            "lower_usd": null,
+            "upper_usd": null,
+            "calculation": null,
+            "evidence_ids": [],
+            "confirmation": null,
+            "invalidation": null,
+            "status": "unverified"
+          }
+        ],
+        "data_gaps": [
+          "No provider observations supplied"
+        ]
+      }
+    ],
+    "macro_events": [
+      {
+        "name": null,
+        "scheduled_at": null,
+        "consensus": null,
+        "consensus_available_at": null,
+        "actual": null,
+        "surprise": null,
+        "units": null,
+        "scenario_if_adverse": null
+      }
+    ],
+    "scenarios": [
+      {
+        "name": "continuation",
+        "trigger": null,
+        "invalidation": null,
+        "estimated_probability": null
+      }
+    ],
+    "unknowns": [
+      "Actual levels require B02 source-verified data"
+    ]
+  }
+}
