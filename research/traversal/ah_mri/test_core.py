@@ -79,4 +79,29 @@ class CoreTests(unittest.TestCase):
   b=copy.deepcopy(SAMPLE); b["session"]["ah_end_at"]="2026-11-04T16:30:00-05:00"
   self.assertIsNone(analyze(b)["instruments"][0]["ah_mark_usd"])
 
+ def test_self_claimed_observed_never_certified(self):
+  b=copy.deepcopy(SAMPLE)
+  z=b["instruments"][0]["levels"][0]
+  z.update({"evidence_ids":["untrusted-id"],"calculation":"claimed volume-density",
+            "sample_window":"2026-11-01/2026-11-04"})
+  out=analyze(b)
+  self.assertEqual(out["instruments"][0]["levels"][0]["kind"],"reference")
+  self.assertTrue(any("independent" in x for x in out["unknowns"]))
+ def test_expiry_before_ingestion_invalid(self):
+  b=copy.deepcopy(SAMPLE)
+  b["instruments"][0]["ah"]["expires_at"]="2026-11-04T17:00:04-05:00"
+  self.assertIsNone(analyze(b)["instruments"][0]["ah_mark_usd"])
+ def test_mismatched_surprise_units(self):
+  b=copy.deepcopy(SAMPLE)
+  b["events"][0]["actual_units"]="pct"
+  b["events"][0]["consensus_units"]="basis_points"
+  self.assertIsNone(analyze(b)["events"][0]["surprise"])
+ def test_consensus_after_as_of(self):
+  b=copy.deepcopy(SAMPLE)
+  b["as_of"]="2026-11-04T08:40:00-05:00"
+  b["session"]["rth_end_at"]="2026-11-03T16:00:00-05:00"
+  b["session"]["date"]="2026-11-03"
+  b["events"][0]["consensus_available_at"]="2026-11-04T09:00:00-05:00"
+  self.assertIsNone(analyze(b)["events"][0]["surprise"])
+
 if __name__=="__main__": unittest.main()
