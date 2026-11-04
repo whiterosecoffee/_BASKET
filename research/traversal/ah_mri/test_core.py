@@ -26,6 +26,8 @@ class CoreTests(unittest.TestCase):
   self.assertAlmostEqual(a["instruments"][0]["rth_return_pct"],2.0408)
   self.assertEqual(a["events"][0]["surprise"],0.1)
   self.assertIn("AH-MRI",markdown(a))
+  self.assertFalse(a["readiness"]["production_ready"])
+  self.assertIn("Validation readiness", markdown(a))
   self.assertIsNone(a["scenarios"][0]["probability"])
  def test_unproven_observed_level_downgraded(self):
   self.assertEqual(analyze(SAMPLE)["instruments"][0]["levels"][0]["kind"],"reference")
