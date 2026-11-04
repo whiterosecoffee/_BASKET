@@ -16,7 +16,7 @@ An operator can request `AH-MRI EOD YYYY-MM-DD` and receive a USD-first report w
 | Validation / reliability | 10% | 4 | 9 | synthetic tests defined; exact-head CI pending |
 | Operations / automation | 5% | 1 | 8 | CLI only, no hosted schedule |
 | Report usability | 5% | 6 | 9 | readable Markdown/JSON, missing macro attribution |
-| **Weighted composite** | **100%** | **3.8** | **8.8** | author-assessed readiness, NOT predictive performance |
+| **Weighted composite** | **100%** | **4.0** | **8.8** | author-assessed readiness, NOT predictive performance |
 
 **Scoring convention:** 0 absent; 1–3 preliminary; 4–6 prototype; 7–8 validated component; 9–10 integrated, evidenced and operated. Scores must only advance against cited acceptance artifacts, not commits or issue counts.
 
