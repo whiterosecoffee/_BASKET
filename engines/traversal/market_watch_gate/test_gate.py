@@ -47,6 +47,12 @@ class GateTests(unittest.TestCase):
                       check(session="after_hours", market_open=False,
                             material_after_hours=False)["reason_codes"])
 
+    def test_rejects_afterhours_without_materiality_even_if_market_open(self):
+        self.assertIn("no_material_after_hours", check(session="after_hours", market_open=True, material_after_hours=False)["reason_codes"])
+
+    def test_rejects_closed_regular_market(self):
+        self.assertIn("closed_session", check(market_open=False)["reason_codes"])
+
     def test_allows_qualified_material_afterhours(self):
         self.assertTrue(check(session="after_hours", market_open=False,
                               material_after_hours=True)["notify"])
