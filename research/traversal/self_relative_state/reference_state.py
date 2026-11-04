@@ -67,7 +67,7 @@ def evaluate(rows, *, as_of, instrument, input_manifest_hash,
         available = _instant(raw["available_at"])
         if raw.get("complete") is not True:
             continue
-        if available > cutoff or day > cutoff.date():
+        if available > cutoff:
             continue
         selected.append((day, vals))
     prices = [bar["c"] for _, bar in selected]
