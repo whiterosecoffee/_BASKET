@@ -55,6 +55,15 @@ def assess(data):
                       "architecture", "capability_match", "rationale"):
             if field in item:
                 check(isinstance(item[field], str), "invalid insight field: " + field)
+        if "prior_art" in item:
+            check(isinstance(item["prior_art"], list), "prior_art must be an array")
+            for pointer in item["prior_art"]:
+                check(isinstance(pointer, dict), "prior_art pointer must be an object")
+                for field in ("family", "mechanism", "applicability", "boundary"):
+                    check(isinstance(pointer.get(field), str) and bool(pointer[field].strip()),
+                          "prior_art pointer missing: " + field)
+                if "reference" in pointer:
+                    check(isinstance(pointer["reference"], str), "prior_art reference must be text")
         if "claim_ids" in item:
             check(isinstance(item["claim_ids"], list) and
                   all(isinstance(cid, str) and cid in claim_ids for cid in item["claim_ids"]),
@@ -85,6 +94,11 @@ def render(data, result):
                       "architecture", "capability_match", "rationale"):
             if item.get(field):
                 lines.append("  - " + field.replace("_", " ").title() + ": " + item[field])
+        for pointer in item.get("prior_art", []):
+            lines.append("  - Prior art: " + pointer["family"] + " — " + pointer["mechanism"] +
+                         "; applies: " + pointer["applicability"] +
+                         "; boundary: " + pointer["boundary"] +
+                         ("; reference: " + pointer["reference"] if pointer.get("reference") else ""))
     if not result["ranked_insights"]:
         lines.append("No material reusable lesson established.")
     if result["claims"]:
@@ -103,6 +117,9 @@ def render(data, result):
                   "Knowledge to preserve: " + "; ".join(
                       item["principle"] + " [" + item["disposition"] + "]" +
                       (" — " + item.get("rationale", "") if item.get("rationale") else "")
+                      + (" | prior art: " + "; ".join(
+                          p["family"] + " (" + p["mechanism"] + "; boundary: " + p["boundary"] + ")"
+                          for p in item.get("prior_art", [])) if item.get("prior_art") else "")
                       for item in result["ranked_insights"][:3]),
                   "Recover current authoritative state and ownership before modifying anything.",
                   "Next executable action: " + h["next_action"], "```"]
