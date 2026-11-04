@@ -66,3 +66,17 @@ Optional `claims` is an array of objects with `id`, `type`, `text`, and for `rep
 Each insight may additionally contain `pattern`, `methodology`, `application`, `evidence`, `limitations`, `architecture`, `capability_match`, `rationale` and `claim_ids`. The report preserves these details and includes top principles in transfer prompts. A referenced claim ID must exist in the supplied claim array. An evidence string alone does not constitute independent verification.
 
 The tool still requires an assistant to interpret the conversation and supply the structured input. It does not perform semantic deduplication, transcript extraction, contradiction resolution, or live GitHub verification. Those remain proposed capabilities, not acceptance claims.
+
+## Prior-art and methodology cohesion
+
+For **material architectural or methodological insights**, supply concise `prior_art` pointers. This is a recommended review discipline, not a forced citation for routine observations. Each pointer has four required strings:
+
+- `family`: established family (for example, Design by Contract, event sourcing, hexagonal architecture, CQRS, reproducible builds, scientific falsification, or postmortem learning).
+- `mechanism`: the specific reusable mechanism, not just the family label.
+- `applicability`: which component or workflow benefits.
+- `boundary`: when the analogy does not apply or what it does **not** establish.
+- Optional `reference`: an existing project artifact or trustworthy external reference; absence must not be disguised as verified research.
+
+Example: `"prior_art":[{"family":"Design by Contract","mechanism":"typed input/output ports","applicability":"B10 valuation engine","boundary":"schema validity does not establish financial correctness","reference":"architecture/BLACK_BOX_COMPONENT_CONTRACT.md"}]`.
+
+The report and transfer prompt retain these pointers. Prefer one or two meaningful families per insight, not a taxonomy dump. An LLM-supplied family is a design analogy, not independently verified prior art. The CLI validates structure only and does not fetch references or establish conceptual equivalence. Do not invent a family to satisfy a form.
