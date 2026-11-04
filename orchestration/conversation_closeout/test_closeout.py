@@ -139,5 +139,18 @@ class CloseoutTests(unittest.TestCase):
         self.assertIn("Theory: DBC (Design by Contract)", report)
         self.assertIn("theory: DBC,HEX", report)
 
+    def test_handoff_retains_method_application_boundary(self):
+        handoff = dict(owner="B00", destination="Issue #169", objective="Review",
+                       completed="Draft", remaining="CI", write_paths="orchestration/**",
+                       prohibited="Other files", validation="Unit tests", next_action="Test")
+        data = dict(BASE, external_required_remaining=True, handoff=handoff,
+                    insights=[{"principle": "Replay", "disposition": "transfer",
+                               "methodology": "Pin source", "application": "Closeout CLI",
+                               "limitations": "Not live CI"}])
+        report = render(data, assess(data))
+        self.assertIn("method: Pin source", report)
+        self.assertIn("applies: Closeout CLI", report)
+        self.assertIn("boundary: Not live CI", report)
+
 if __name__ == "__main__":
     unittest.main()
