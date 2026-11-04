@@ -152,6 +152,9 @@ def render(data, result):
                   "Knowledge to preserve: " + "; ".join(
                       item["principle"] + " [" + item["disposition"] + "]" +
                       (" — " + item.get("rationale", "") if item.get("rationale") else "")
+                      + (" | method: " + item["methodology"] if item.get("methodology") else "")
+                      + (" | applies: " + item["application"] if item.get("application") else "")
+                      + (" | boundary: " + item["limitations"] if item.get("limitations") else "")
                       + (" | theory: " + ",".join(item["theory_tags"]) if item.get("theory_tags") else "")
                       + (" | prior art: " + "; ".join(
                           p["family"] + " (" + p["mechanism"] + "; boundary: " + p["boundary"] + ")"
