@@ -106,3 +106,58 @@ Remaining acceptance: B01 execute actual Python suite and exact-head workflow; B
 | Compared 42 candidate IDs only to B19 #18 then described them as basket additions; the two universes were conflated. | Declare the reference manifest and its revision before difference computation; label outputs "missing from B19 research registry" versus "missing from user tracked list". | Typed set-difference with pinned identity source (B19 #21, B00 #146); test same candidate yields two different scoped results without silent promotion to tracked membership. |
 | Created static aggregate counts and duplicated LSCC during list construction; summary diverged from rows. | Deduplicate each issuer-pool pair before aggregation; derive summary from unique rows and check deterministic sorted output in the same execution. | Single canonical projection (B19 check_whole_map.py); mutation fixture duplicating one membership must fail, baseline expected total is 278 on pinned 291-source snapshot. |
 | Initial closeout relied on generic green CI and draft PR status despite B19 tests not being in workflow discovery; domain verification was overstated. | Inspect workflow steps at exact head, run domain suites independently, then separate local unit tests, shared CI, B01 independent acceptance and merge state. | Evidence gate (B01 #52): show a GitHub Actions job at PR #23 exact head running all 23 B19 domain tests and pinned full source reconciliation, with unsuppressed failures. |
+
+
+## Broad maturation plan — staged and source-gated (2026-11-04)
+
+**Planning authority:** B19 issue #21, draft PR #23; this is a research component upgrade and a dependency proposal, **not** a new B00 release program. B00 #136 owns orchestration and approval. The user-tracked basket remains unchanged. Refer to prior buyer-dollar reasoning above and B00 economic-flow PR #22 for shared boundaries.
+
+### Scoring basis
+
+Broad present-state maturity, 0–5 per dimension (reviewer judgment, **not** a quantitative completion percentage):
+
+| Dimension | Baseline | Why / acceptance to reach 4 |
+|---|---:|---|
+| User tracked universe + instrument separation | 4 | 291 pinned draft symbols represented; reach 4+ after B00 identity/venue and main integration |
+| Company economic-role classification | 3 | 198 issuer-like records have provisional roles; reach 4 when B19 verifies product/customer evidence and unusual holding roles |
+| Buyer-purpose revenue pool detail | 1 | 19 current pool IDs are topic labels; reach 4 when repeatable buyer/product/period procurement cases are documented and source-linked |
+| Verified contracts and relationships | 1 | Proposals not yet canonical B05 edges; reach 4 with typed source-backed signed/announced/revenue distinctions and point-in-time traversal |
+| Supplier capture and market share | 0 | No matching sourced numerator+denominator; reach 4 with verified matching vendor/customer purchasing records and denominators |
+| Physical capacity, lead-time, substitution | 1 | Bottleneck taxonomy exists without qualified facility observation ledger; reach 4 with dated capacity-state / alternative qualification evidence |
+| Provenance and point-in-time conventions | 3 | Dated-revision principles/checkers, but data source availability incomplete; reach 4 with actual source IDs and replay |
+| Local negative validation | 4 | 23 previously reported B19 tests pass locally; current maturation checker needs exact-head evidence; reach 4 with exhaustive negative cases and no pass masking |
+| Independent CI at exact PR head | 1 | Standard CI green historically but B19 domain suites not mandatory; reach 4 when B01 exact-head workflow runs all suites and pinned inputs |
+| Integrated tools and reproducibility | 2 | Draft research projection, not operational graph; reach 4 once B05/B01 contract-query acceptance and main integration pass |
+
+**Baseline aggregate: 20/50.** Scoring is a heuristic prioritization aid only. A new research tool can improve validation readiness without increasing verified financial coverage.
+
+### Planned dependency sequence and gates
+
+| Stage | Owner / existing issue | Output & contract | Gate before expanding | Status |
+|---|---|---|---|---|
+| 0. Protect research integrity | B19 #21 / PR #23 | Pinned 291-role projection, deduplicated membership, research-only candidate separation | No symbol loss, duplicate memberships, unknown pool IDs, or promoted financial claims | Implemented; domain CI pending |
+| 1. Evidence-aware maturity assessment | B19 #21 / PR #23 | **NEW** read-only \`maturation_audit.py\` and \`test_maturation_audit.py\`; inputs full B19 map and PR #18 pools; deterministic content-hash report, unknown dollars as null, ordered owner handoffs | 14 fixtures, CLI on pinned full inputs, reproducible fingerprint, no false share precision | Code and fixtures committed; independent CI pending |
+| 2. Independent acceptance and source fingerprints | B01 #52 | Required B19 suites and source pin verification, no skip-as-pass | Exact-PR-head CI with evidence; verify actual source bytes, not just supplied revision strings | Pending; B19 may not write B01 workflow |
+| 3. Buyer-purpose/transaction interface | B00 #50, reuse PR #22/#43 | Identity of buyer budget, competing vendors, awarded amounts, accounting state, FX and source times; stable IDs and ownership | Reviewed versioned contract + compatibility and migration decision | Pending; avoid competing shared schema |
+| 4. Source-backed pool research | B19 #17, B03 canonical event authority | First bounded source/transaction case, then systematic 19-topic coverage; collect final payer budgets, vendor awards and tier1/2 sourcing with explicit unknowns | Reproducible source-backed buyer/product/period/FX; signed vs recognized separated | Pending; zero verified 19 pool dollar denominators in source artifact |
+| 5. Verified graph traversal | B05 #51 | Read-only payer→selected vendor→tier1/tier2 supplier graph, competitor alternatives and capacity constraints | Verified-only as-of traversal; duplicate payer transaction rejected | Pending |
+| 6. Independent economic QC | B01 #52 | Validate nonadditivity, financing vs operating revenue, entity double counting, point-in-time source, physical units and capacity states | Negative fixtures and exact-head test evidence | Pending |
+| 7. Integration / maintenance | B00 #136; B02/B08 only if approved | Approved contract, source-revision invalidation, appropriate provider runtime and main validation | Explicit merge authorization, green main CI, no false live-feed claim | Not within B19 authority |
+
+**Score/rank proposed interventions (0–5 each for reuse, impact, novelty, evidence, feasibility, risk reduction; max 30).** Estimate, not measured productivity or guaranteed impact:
+
+| Candidate | R | I | N | E | F | Risk | Sum | Estimated effort / coordination |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| Fix duplicate/unsupported money attribution checks | 5 | 5 | 2 | 4 | 5 | 5 | 26 | Low code, moderate B01 coordination; correctness override |
+| Deterministic pool-level maturity and evidence gap report (this worker) | 5 | 4 | 3 | 4 | 5 | 4 | 25 | Low; B19-owned code |
+| Buyer-purpose and accounting-state contract using existing B00 graph | 5 | 5 | 3 | 3 | 3 | 5 | 24 | Moderate, B00/B05/B03 |
+| Independently CI-gate B19 and pinned cross-PR source data | 5 | 4 | 2 | 4 | 3 | 5 | 23 | Moderate, B01 |
+| Build source-backed supplier and customer first case | 5 | 5 | 3 | 2 | 3 | 4 | 22 | Research intensive, B19 #17/B03 |
+| Expand ticker scope before financial evidence | 3 | 2 | 1 | 4 | 4 | 2 | 16 | Low, but B00-owned and not financially decisive |
+| Add new graph database or separate queue | 1 | 1 | 1 | 1 | 1 | 1 | 6 | High coordination, rejected pending measured scaling need |
+
+**Stage 1 new tool contract.** \`python research/themes/supply-chain/coverage/maturation_audit.py <whole-map.json> <pools.json> [--output report.json]\`. Both files are preexisting research inputs from PR #23/PR #18, retrieved at pinned commits. No network, provider credentials or canonical mutations. Output \`basket.b19-maturation-audit@research1\` is a deterministic read-only report with SHA-256 input content fingerprint; counts and pool priority are research structure only. A non-null buyer spending denominator *without attributed supplier financial evidence* still yields a null share. Pool research priority sorts by number of provisional participants (a coverage workload heuristic), **not by dollars or expected returns**. A changed upstream input must yield a changed fingerprint and trigger explicit rerun; the report is not a canonical store. Run failures return exit 1, preserving sources unchanged.
+
+**Reconsideration criteria.** If issuer source facts become nonempty, extend through B19 #17's existing reconciliation interface rather than using this provisional checker as the authoritative financial calculator. If B00 changes approved pool contract or a source manifest revision changes, update only via the authorized owner and retest compatibility. If B05 graph queries are measured to exceed practical replay constraints, B00 may assess a graph index; until then reuse versioned JSON/JSONL and existing planners. Distinguish contract *proposed*, source verified, B01 independently accepted, merged main and operational deployment.
+
+**Next unblocked task:** Execute the committed stage 1 unit tests against exact Git blob code and complete pinned real-file CLI report; any B01 CI/contract work remains an explicit handoff, not an excuse to duplicate another owner.
