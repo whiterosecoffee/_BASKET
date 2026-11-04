@@ -2,10 +2,10 @@
 import hashlib
 import json
 import math
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 
 def number(value, positive=False):
@@ -23,11 +23,13 @@ def spread(acquirer, target, ratio):
 
 def paired_spread(acquirer, target, ratio):
     """Require identical aware timestamps and session labels, never join lows."""
+    stamps = []
     for quote in (acquirer, target):
         stamp = datetime.fromisoformat(quote["at"].replace("Z", "+00:00"))
         if stamp.utcoffset() is None:
             raise ValueError("Timestamp requires a timezone")
-    if acquirer["at"] != target["at"] or acquirer["session"] != target["session"]:
+        stamps.append(stamp)
+    if stamps[0] != stamps[1] or acquirer["session"] != target["session"]:
         raise ValueError("Pair timestamps and sessions must match")
     return spread(acquirer["price"], target["price"], ratio)
 
@@ -48,7 +50,8 @@ def pro_forma(acquirer_eps, target_eps, acquirer_shares, target_shares,
         raise ValueError("Savings and costs must be nonnegative")
     shares = a + r * t
     income = number(acquirer_eps) * a + number(target_eps) * t
-    return (income + (savings - costs) * (1 - tax)) / shares
+    number(shares, True)
+    return number((income + (savings - costs) * (1 - tax)) / shares)
 
 
 def evaluate(case):
@@ -66,13 +69,23 @@ def evaluate(case):
               "eps": None, "price": None}
     if blockers:
         return result
-    if case["acquirer_period_end"] != case["target_period_end"]:
-        raise ValueError("EPS periods must match")
+    periods = []
+    for company in ("acquirer", "target"):
+        try:
+            start = date.fromisoformat(case[company + "_period_start"])
+            end = date.fromisoformat(case[company + "_period_end"])
+        except (KeyError, TypeError, ValueError) as error:
+            raise ValueError("Explicit valid EPS period dates required") from error
+        if start > end:
+            raise ValueError("EPS period starts after its end")
+        periods.append((start, end))
+    if periods[0] != periods[1]:
+        raise ValueError("EPS period starts and ends must match")
     if case["basis"] != "adjusted" or case["currency"] != "USD":
         raise ValueError("This prototype requires adjusted USD inputs")
     inputs = case["inputs"]
     eps = pro_forma(**inputs)
-    result.update(eps=eps, price=eps * number(case["multiple"], True))
+    result.update(eps=eps, price=number(eps * number(case["multiple"], True)))
     if eps <= 0:
         result.update(price=None, status="nonpositive_earnings")
     return result
