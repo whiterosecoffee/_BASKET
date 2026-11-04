@@ -67,5 +67,17 @@ class CloseoutTests(unittest.TestCase):
         self.assertIn("Synthetic", report)
         self.assertIn("actions/123 @ abc123", report)
 
+    def test_deterministic_replay(self):
+        data = dict(BASE, scores={"reuse": 4},
+                    insights=[{"principle": "Prefer existing contracts",
+                               "disposition": "already_incorporated", "priority": 20}])
+        first = render(data, assess(data))
+        second = render(data, assess(data))
+        self.assertEqual(first, second)
+
+    def test_claim_type_rejected(self):
+        with self.assertRaisesRegex(ValueError, "invalid claim type"):
+            assess(dict(BASE, claims=[{"id": "C1", "type": "verified", "text": "Unsupported"}]))
+
 if __name__ == "__main__":
     unittest.main()
