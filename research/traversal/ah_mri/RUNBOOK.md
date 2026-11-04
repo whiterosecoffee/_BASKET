@@ -23,7 +23,7 @@ The input is a supplied, point-in-time snapshot: nothing is downloaded. `input_m
 - `levels.kind=observed` is downgraded to `reference` when calculation, sample window or evidence IDs are absent. Evidence IDs are caller attestations; the prototype cannot independently recompute price-at-volume support. It must not certify a level based solely on those IDs.
 - `scenario` intervals remain conditional, uncalibrated. No estimated probabilities or dealer signed gamma are computed.
 - Economic surprise = published actual minus point-in-time consensus, only when units agree by caller contract and the consensus was available before release.
-- Markdown reports now include the price's provider, observed timestamp and freshness status. The core doesn't infer macro causality, session-market-open status, market regime, current dates, economic calendars, trading signals or positions.
+- Markdown reports now include the price's provider, observed timestamp and freshness status. `readiness.py` is an explicitly untrusted attestation matrix: even a claimed passing reference never becomes independently verified or releases production by itself. Machine and Markdown outputs must retain `production_ready: false` until external B00/B01 approval and evidence. The core doesn't infer macro causality, session-market-open status, market regime, current dates, economic calendars, trading signals or positions.
 
 ### Input trust boundary / preproduction blockers
 
@@ -35,7 +35,7 @@ The input is a supplied, point-in-time snapshot: nothing is downloaded. `input_m
 
 ### Acceptance evidence and limitations
 
-- `test_core.py` contains 16 synthetic deterministic tests, not real historical trade/bar replay.
+- `test_core.py` contains 16 synthetic deterministic tests; `test_readiness.py` contains four additional synthetic readiness checks, not real historical trade/bar replay.
 - Do not run a headline report against fabricated data and label it "today"; future market outputs require actual as-of snapshots.
 - Do not claim production readiness based on a successful synthetic unit suite or a draft PR.
 - No direct merges, releases or cross-spark file writes.
