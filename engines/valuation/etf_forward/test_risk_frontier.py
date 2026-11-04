@@ -1,6 +1,7 @@
 """Adversarial offline tests: no observed data or investment forecasts."""
 import copy
 import unittest
+from decimal import Decimal
 from risk_frontier import historical_risk, pareto_frontier
 
 ASOF="2026-11-03T23:00:00Z"
@@ -12,7 +13,7 @@ def fixture():
       "weights":{"A":"0.6","B":"0.4"},
       "returns":{k:[{"session":f"2026-09-{i+1:02d}",
         "available_at":"2026-10-01T20:00:00Z",
-        "total_return":str((i%5-2)*v)}
+        "total_return":str(Decimal(i%5-2)*Decimal(v))}
         for i in range(20)] for k,v in zip(names,("0.01","0.005","0.008"))}}
 
 class RiskTests(unittest.TestCase):
