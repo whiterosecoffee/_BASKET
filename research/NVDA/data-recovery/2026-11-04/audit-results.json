@@ -1,0 +1,78 @@
+{
+  "algorithm_version": "nvda-recovery-preflight@0.1.0",
+  "input_manifest_sha256": "f5f56b07b0aaacc859ab807ae37a1a7fc4f10243c7c56c68e46897af61c602c9",
+  "checker_source_sha256": "ca876938f45685cf69ce3c6cfe0b91c6f1bd32b05c826f5b07872cfd13fb0db9",
+  "coverage_policy": "eight_declared_full_US_equity_sessions_390_minutes",
+  "status": "qualified_with_warnings",
+  "errors": [],
+  "warnings": [
+    "2026-10-26: vwap_outside_ohlc_review_required",
+    "2026-10-27: vwap_outside_ohlc_review_required",
+    "2026-10-28: vwap_outside_ohlc_review_required",
+    "2026-10-29: vwap_outside_ohlc_review_required",
+    "2026-10-30: vwap_outside_ohlc_review_required",
+    "2026-11-02: vwap_outside_ohlc_review_required",
+    "2026-11-03: vwap_outside_ohlc_review_required",
+    "2026-11-04: vwap_outside_ohlc_review_required"
+  ],
+  "days": [
+    {
+      "date_et": "2026-10-26",
+      "records": 934,
+      "regular_minutes": 390,
+      "vwap_flags": 279,
+      "errors": []
+    },
+    {
+      "date_et": "2026-10-27",
+      "records": 914,
+      "regular_minutes": 390,
+      "vwap_flags": 286,
+      "errors": []
+    },
+    {
+      "date_et": "2026-10-28",
+      "records": 946,
+      "regular_minutes": 390,
+      "vwap_flags": 191,
+      "errors": []
+    },
+    {
+      "date_et": "2026-10-29",
+      "records": 943,
+      "regular_minutes": 390,
+      "vwap_flags": 143,
+      "errors": []
+    },
+    {
+      "date_et": "2026-10-30",
+      "records": 953,
+      "regular_minutes": 390,
+      "vwap_flags": 229,
+      "errors": []
+    },
+    {
+      "date_et": "2026-11-02",
+      "records": 944,
+      "regular_minutes": 390,
+      "vwap_flags": 80,
+      "errors": []
+    },
+    {
+      "date_et": "2026-11-03",
+      "records": 955,
+      "regular_minutes": 390,
+      "vwap_flags": 51,
+      "errors": []
+    },
+    {
+      "date_et": "2026-11-04",
+      "records": 848,
+      "regular_minutes": 390,
+      "vwap_flags": 27,
+      "errors": []
+    }
+  ],
+  "predictive_probability": null,
+  "canonical_integration": false
+}

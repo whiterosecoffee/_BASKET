@@ -1,0 +1,232 @@
+{
+  "schema": "basket.nvda_maturation.research@0",
+  "issue": 185,
+  "pr": 187,
+  "branch": "work/185-nvda-daily-history-recovery",
+  "declared_scope": "research/NVDA/data-recovery/2026-11-04/**",
+  "main_contract_sha": "b4910122a4c3f6ade747f2e4d59bd2d2e84b3c95",
+  "rubric": {
+    "min": 0,
+    "max": 4,
+    "meaning": [
+      "absent",
+      "manual_or_unverified",
+      "bounded_research_artifact",
+      "reproducibly_tested_component",
+      "independently_accepted_integrated"
+    ]
+  },
+  "scores": [
+    {
+      "dimension": "source_provenance",
+      "before": 3,
+      "after": 3,
+      "judgment": true
+    },
+    {
+      "dimension": "identity_corrections",
+      "before": 2,
+      "after": 3,
+      "judgment": true
+    },
+    {
+      "dimension": "session_coverage",
+      "before": 2,
+      "after": 3,
+      "judgment": true
+    },
+    {
+      "dimension": "economic_quality",
+      "before": 1,
+      "after": 2,
+      "judgment": true
+    },
+    {
+      "dimension": "options_semantics",
+      "before": 1,
+      "after": 2,
+      "judgment": true
+    },
+    {
+      "dimension": "financial_collections",
+      "before": 1,
+      "after": 1,
+      "judgment": true
+    },
+    {
+      "dimension": "economic_network",
+      "before": 1,
+      "after": 1,
+      "judgment": true
+    },
+    {
+      "dimension": "forward_value",
+      "before": 1,
+      "after": 1,
+      "judgment": true
+    },
+    {
+      "dimension": "macro_attribution",
+      "before": 1,
+      "after": 1,
+      "judgment": true
+    },
+    {
+      "dimension": "traversal",
+      "before": 1,
+      "after": 1,
+      "judgment": true
+    },
+    {
+      "dimension": "reproducibility",
+      "before": 2,
+      "after": 3,
+      "judgment": true
+    },
+    {
+      "dimension": "integration",
+      "before": 1,
+      "after": 1,
+      "judgment": true
+    },
+    {
+      "dimension": "execution_efficiency",
+      "before": 1,
+      "after": 2,
+      "judgment": true
+    }
+  ],
+  "sequence": [
+    {
+      "id": "M0",
+      "deliverable": "recovery_preflight_quantity_guard",
+      "owner": "B14",
+      "issue": 185,
+      "status": "research_implemented",
+      "depends_on": []
+    },
+    {
+      "id": "M1",
+      "deliverable": "canonical_daily_routing_quality",
+      "owner": "B00/B02/B01",
+      "issues": [
+        148,
+        183,
+        152,
+        11
+      ],
+      "status": "requested",
+      "depends_on": [
+        "M0"
+      ]
+    },
+    {
+      "id": "M2",
+      "deliverable": "typed_licensed_options",
+      "owner": "B02/B00",
+      "issues": [
+        124,
+        148
+      ],
+      "status": "guard_only_ingestion_pending",
+      "depends_on": [
+        "M1"
+      ]
+    },
+    {
+      "id": "M3",
+      "deliverable": "financial_collection_FCF_reconciliation",
+      "owner": "B14/B03",
+      "issues": [
+        136
+      ],
+      "status": "planned",
+      "depends_on": [
+        "M1"
+      ]
+    },
+    {
+      "id": "M4",
+      "deliverable": "customer_supplier_capital_network",
+      "owner": "B14/B05/B19",
+      "issues": [
+        17,
+        51,
+        136
+      ],
+      "status": "planned",
+      "depends_on": [
+        "M3"
+      ]
+    },
+    {
+      "id": "M5",
+      "deliverable": "same_period_forward_valuation",
+      "owner": "B04/B14/B03",
+      "issues": [
+        126,
+        128,
+        136
+      ],
+      "status": "planned",
+      "depends_on": [
+        "M3",
+        "M4"
+      ]
+    },
+    {
+      "id": "M6",
+      "deliverable": "macro_relative_traversal",
+      "owner": "B06/B17/B07",
+      "issues": [
+        108,
+        154,
+        100
+      ],
+      "status": "existing_owner_work",
+      "depends_on": [
+        "M1",
+        "M2"
+      ]
+    },
+    {
+      "id": "M7",
+      "deliverable": "report_retention_independent_acceptance",
+      "owner": "B00/B01/B08",
+      "issues": [
+        136,
+        148
+      ],
+      "status": "blocked",
+      "depends_on": [
+        "M5",
+        "M6"
+      ]
+    }
+  ],
+  "checks": {
+    "research_tests": 30,
+    "real_bars": 7437,
+    "days": 8,
+    "hard_errors": 0,
+    "vwap_warnings": 1286,
+    "main_adapter_tests_previous": 28,
+    "independent_research_CI": "not_verified"
+  },
+  "limitations": [
+    "390-minute fixture policy is not a general exchange calendar",
+    "No provider-specific VWAP reconciliation",
+    "No dealer inventory inferred",
+    "No predictive probabilities or fair value produced",
+    "No canonical migration or merge"
+  ],
+  "prior_art": [
+    "ports_and_adapters_existing_TickerStore",
+    "dimensional_analysis_design_by_contract",
+    "PROV_lineage_SEC_XBRL_cash_flow_bridges",
+    "DCF_reverse_DCF_EPS_multiple",
+    "microstructure_event_studies",
+    "factor_attribution_walk_forward_validation"
+  ],
+  "next_action": "B00/B02 accept or revise #148/#183 routing and #152 source quality before downstream promotion"
+}
