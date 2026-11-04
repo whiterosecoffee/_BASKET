@@ -115,15 +115,32 @@ def assess(mapping, pools):
                         "Sector topics cannot establish specific buyer budgets"]
     }
 
+def compare_reports(previous, current):
+    """Read-only dependency delta; never schedules or mutates other workers."""
+    require(isinstance(previous, dict) and previous.get("schema") == "basket.b19-maturation-audit@research1", "previous report is incompatible")
+    require(isinstance(current, dict) and current.get("schema") == previous["schema"], "current report is incompatible")
+    old = {x["pool_id"]: x for x in previous.get("pool_research_queue", [])}
+    new = {x["pool_id"]: x for x in current.get("pool_research_queue", [])}
+    affected = sorted(k for k in set(old) | set(new) if old.get(k) != new.get(k))
+    return {"input_fingerprint_changed": previous.get("input_fingerprint") != current.get("input_fingerprint"),
+            "upstream_revision_changed": previous.get("inputs") != current.get("inputs"),
+            "scope_changed": previous.get("scope") != current.get("scope"),
+            "changed_pool_ids": affected,
+            "requires_reconciliation": previous.get("input_fingerprint") != current.get("input_fingerprint") or bool(affected)}
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("mapping", type=Path)
     parser.add_argument("pools", type=Path)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--previous", type=Path, help="Prior report for deterministic read-only invalidation hints")
     args = parser.parse_args(argv)
     try:
         result = assess(json.loads(args.mapping.read_text(encoding="utf-8")),
                         json.loads(args.pools.read_text(encoding="utf-8")))
+        if args.previous:
+            previous = json.loads(args.previous.read_text(encoding="utf-8"))
+            result["invalidation"] = compare_reports(previous, result)
         output = json.dumps(result, indent=2, sort_keys=True) + "\n"
         if args.output:
             args.output.write_text(output, encoding="utf-8")
