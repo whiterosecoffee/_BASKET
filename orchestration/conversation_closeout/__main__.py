@@ -113,7 +113,9 @@ def render(data, result):
              + " (" + str(result["scored_dimensions"]) + "/10 observed; judgment-based)", "",
              "## Evidence and limits", data.get("evidence", "No evidence supplied; do not claim verification."),
              "", "## Top reusable lessons"]
-    for item in result["ranked_insights"][:3]:
+    for index, item in enumerate(result["ranked_insights"]):
+        if index == 3:
+            lines += ["", "## Additional retained knowledge"]
         lines.append("- " + item["principle"] + " — " + item["disposition"] +
                      " (priority " + str(item.get("priority", 0)) + "/25)")
         for field in ("pattern", "methodology", "application", "evidence", "limitations",
@@ -146,20 +148,34 @@ def render(data, result):
         h = result["handoff"]
         lines += ["", "## Copyable orchestrator handoff", "```text",
                   "Resume existing work: " + h["objective"], "Owner: " + h["owner"],
+                  "Conversation objective and requirements: " + data["objective"],
+                  "Evidence and limits: " + data.get("evidence", "No evidence supplied; do not claim verification."),
                   "Destination: " + h["destination"], "Completed; do not repeat: " + h["completed"],
                   "Remaining acceptance: " + h["remaining"], "Writable paths: " + h["write_paths"],
                   "Prohibited changes: " + h["prohibited"], "Validation and evidence: " + h["validation"],
                   "Knowledge to preserve: " + "; ".join(
                       item["principle"] + " [" + item["disposition"] + "]" +
                       (" — " + item.get("rationale", "") if item.get("rationale") else "")
+                      + (" | pattern: " + item["pattern"] if item.get("pattern") else "")
+                      + (" | architecture: " + item["architecture"] if item.get("architecture") else "")
+                      + (" | destination: " + item["capability_match"] if item.get("capability_match") else "")
+                      + (" | evidence: " + item["evidence"] if item.get("evidence") else "")
+                      + (" | claims: " + ",".join(item["claim_ids"]) if item.get("claim_ids") else "")
                       + (" | method: " + item["methodology"] if item.get("methodology") else "")
                       + (" | applies: " + item["application"] if item.get("application") else "")
                       + (" | boundary: " + item["limitations"] if item.get("limitations") else "")
                       + (" | theory: " + ",".join(item["theory_tags"]) if item.get("theory_tags") else "")
                       + (" | prior art: " + "; ".join(
-                          p["family"] + " (" + p["mechanism"] + "; boundary: " + p["boundary"] + ")"
+                          p["family"] + " (" + p["mechanism"] + "; applies: " + p["applicability"]
+                          + "; boundary: " + p["boundary"]
+                          + ("; reference: " + p["reference"] if p.get("reference") else "") + ")"
                           for p in item.get("prior_art", [])) if item.get("prior_art") else "")
-                      for item in result["ranked_insights"][:3]),
+                      for item in result["ranked_insights"]),
+                  "Claim provenance: " + "; ".join(
+                      claim["id"] + " [" + claim["type"] + "]: " + claim["text"]
+                      + (" (" + claim["source_ref"] + " @ " + claim["revision"] + ")"
+                         if claim.get("source_ref") and claim.get("revision") else "")
+                      for claim in result["claims"]),
                   "Taxonomy gaps to review: " + "; ".join(
                       gap["principle"] + " (" + (gap["tag"] or "unclassified") + ")"
                       for gap in result["taxonomy_gaps"]),
@@ -181,3 +197,4 @@ def main(argv=None):
 
 if __name__ == "__main__":
     main()
+

@@ -1,4 +1,6 @@
 import unittest
+import json
+from pathlib import Path
 from orchestration.conversation_closeout.__main__ import assess, render
 
 BASE = {"objective": "Review conversation", "local_required_remaining": False,
@@ -152,5 +154,39 @@ class CloseoutTests(unittest.TestCase):
         self.assertIn("applies: Closeout CLI", report)
         self.assertIn("boundary: Not live CI", report)
 
+    def test_pilot_retains_all_supplied_knowledge_in_copyable_handoff(self):
+        cases = json.loads(Path(__file__).with_name("pilot.json").read_text())
+        for case in cases:
+            with self.subTest(case=case["name"]):
+                data = case["input"]
+                report = render(data, assess(data))
+                prompt = (report.split("```text\n", 1)[1].rsplit("```", 1)[0]
+                          if data["external_required_remaining"] else report)
+                self.assertIn(data["objective"], prompt)
+                self.assertIn(data["evidence"], prompt)
+                for insight in data["insights"]:
+                    for field in ("principle", "pattern", "methodology", "application",
+                                  "evidence", "limitations", "architecture", "capability_match", "rationale"):
+                        if field in insight:
+                            self.assertIn(insight[field], prompt, field)
+                            self.assertIn(insight[field], report, field)
+                    if data["external_required_remaining"]:
+                        self.assertIn("[" + insight["disposition"] + "]", prompt)
+                    for pointer in insight.get("prior_art", []):
+                        for value in pointer.values():
+                            self.assertIn(value, prompt)
+                    for tag in insight.get("theory_tags", []):
+                        self.assertIn(tag, prompt)
+                for claim in data["claims"]:
+                    for value in claim.values():
+                        self.assertIn(value, prompt)
+                if data["external_required_remaining"]:
+                    for value in data["handoff"].values():
+                        self.assertIn(value, prompt)
+                else:
+                    self.assertNotIn("Copyable orchestrator handoff", report)
+                self.assertEqual(report, render(data, assess(data)))
+
 if __name__ == "__main__":
     unittest.main()
+
