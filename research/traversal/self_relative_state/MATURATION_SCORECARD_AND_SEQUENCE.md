@@ -83,3 +83,12 @@ Composable B06 descriptive state + B17 context + B07 outcomes, B14 ticker resear
 ## Exact next owner action
 
 B00 #103 approves or revises the proposed B06 daily-state interface (research #154) and #148/#183 source/partition resolver. Then B06 #108 adopts the reference arithmetic without creating a competing engine; B02 data custody and B07 paired test remain independent owner stages. This branch supplies tested reference logic only. **No cross-domain file modifications, main commits, automatic merges, release tags or probability promotion.**
+
+
+## Follow-up hardening — fail closed on missing interior sessions (2026-11-04)
+
+**Observation:** the research oracle initially filtered unavailable/incomplete sessions before rolling features, potentially collapsing a missing interior daily session and treating noncontiguous observations as sequential. A caller's `calendar_validated=True` is not enough to make that compression acceptable when a supplied session is explicitly excluded. **Correction:** if an excluded/incomplete bar is followed by a later eligible bar in the supplied ordered series, `evaluate` now raises `ValueError("non-prefix eligible sessions; refusing to compress a history gap")`. An unavailable *tail* is still discarded without error; real exchange holidays not supplied as sessions remain the responsibility of the approved B02 calendar adapter. The change stays inside nonproduction B06 research code and does not claim a comprehensive calendar validator.
+
+**Regression design:** `test_interior_unavailable_bar_fails_closed`, `test_interior_incomplete_bar_fails_closed`, `test_future_tail_is_excluded_without_compression`. These extend the original 19 synthetic cases to 22 authored tests; **execution of the new 22-case suite must be verified against the latest committed source**, and generic GitHub QC must not be described as domain test execution. No real historical replay was performed.
+
+**Reasoning:** a hidden missing session can contaminate every subsequent SMA and percentile; explicit fail-closed behavior is preferable to plausible but numerically wrong state. The later production B06 #108 component should consume B02's calendar-qualified indexed partition reader under #148/#183 and additionally test gaps not represented by supplied rows.
