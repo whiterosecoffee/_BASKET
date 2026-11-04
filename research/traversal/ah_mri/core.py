@@ -31,7 +31,7 @@ def provenance(row, as_of):
     o, a, i, e = (timestamp(row[k]) for k in fields)
     if o > as_of or a > as_of or i > as_of:
         return "future_or_unavailable"
-    if not o <= a <= i or e < o:
+    if not o <= a <= i or e < i:
         return "invalid"
     return "expired_historical" if e <= as_of else "eligible"
 
@@ -107,9 +107,10 @@ def analyze(payload):
             ids = z.get("evidence_ids", [])
             if not isinstance(ids, list):
                 raise ValueError("evidence ids must be a list")
-            if kind == "observed" and (not ids or not z.get("calculation") or not z.get("sample_window")):
+            if kind == "observed":
+                # Caller-provided IDs cannot independently certify observed support.
                 kind = "reference"
-                x["gaps"].append("observed level downgraded: missing evidence")
+                x["gaps"].append("observed level downgraded: no independent volume/price verification")
             x["levels"].append({"kind": kind, "lower_usd": low, "upper_usd": high,
                                 "evidence_ids": ids, "calculation": z.get("calculation"),
                                 "confirmation": z.get("confirmation"), "invalidation": z.get("invalidation")})
@@ -121,8 +122,15 @@ def analyze(payload):
         if event.get("actual") is not None:
             available = timestamp(event["actual_available_at"])
             consensus_at = timestamp(event["consensus_available_at"])
+            actual_units = event.get("actual_units")
+            consensus_units = event.get("consensus_units")
+            same_units = (bool(event.get("units")) and
+                          (actual_units is None or actual_units == event["units"]) and
+                          (consensus_units is None or consensus_units == event["units"]))
             if (available <= as_of and consensus_at < available
-                    and timestamp(event["scheduled_at"]) <= as_of and event.get("units")):
+                    and consensus_at <= as_of
+                    and timestamp(event["scheduled_at"]) <= available
+                    and same_units):
                 actual, consensus = float(event["actual"]), float(event["consensus"])
                 if math.isfinite(actual) and math.isfinite(consensus):
                     e["surprise"] = round(actual - consensus, 8)
