@@ -14,3 +14,6 @@ A11: Return consistent evidence/unknown markers even if no live provider; never 
 A12: README, CONTRACT.json and this acceptance inventory all owned exclusively by #166; no schemas/**, runtime/**, engines/**, workflows/** or other active worker paths.
 
 Manual documentation assertions only; executable tests, frozen market replay and independent CI: NOT RUN. Required integration owners: B02 market data/resolver, B06 existing geometry, B17 cross-asset context, B00 shared contract approval, B01 integration verification.
+
+A13: Self-supplied passing evidence and URLs never establish an independently verified gate, operational deployment, or release authorization.
+A14: Readiness remains research-local in both JSON and Markdown; require outside B00/B01 proof before production language.
