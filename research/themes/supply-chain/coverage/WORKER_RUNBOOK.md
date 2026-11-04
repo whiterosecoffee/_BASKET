@@ -136,7 +136,7 @@ Broad present-state maturity, 0–5 per dimension (reviewer judgment, **not** a 
 | Stage | Owner / existing issue | Output & contract | Gate before expanding | Status |
 |---|---|---|---|---|
 | 0. Protect research integrity | B19 #21 / PR #23 | Pinned 291-role projection, deduplicated membership, research-only candidate separation | No symbol loss, duplicate memberships, unknown pool IDs, or promoted financial claims | Implemented; domain CI pending |
-| 1. Evidence-aware maturity assessment | B19 #21 / PR #23 | **NEW** read-only \`maturation_audit.py\` and \`test_maturation_audit.py\`; inputs full B19 map and PR #18 pools; deterministic content-hash report, unknown dollars as null, ordered owner handoffs | 14 fixtures, CLI on pinned full inputs, reproducible fingerprint, no false share precision | Code and fixtures committed; independent CI pending |
+| 1. Evidence-aware maturity assessment | B19 #21 / PR #23 | **NEW** read-only \`maturation_audit.py\` and \`test_maturation_audit.py\`; inputs full B19 map and PR #18 pools; deterministic content-hash report, unknown dollars as null, ordered owner handoffs | 17 prototype fixtures, CLI on pinned full inputs, reproducible fingerprint, no false share precision | Code and fixtures committed; independent CI pending |
 | 2. Independent acceptance and source fingerprints | B01 #52 | Required B19 suites and source pin verification, no skip-as-pass | Exact-PR-head CI with evidence; verify actual source bytes, not just supplied revision strings | Pending; B19 may not write B01 workflow |
 | 3. Buyer-purpose/transaction interface | B00 #50, reuse PR #22/#43 | Identity of buyer budget, competing vendors, awarded amounts, accounting state, FX and source times; stable IDs and ownership | Reviewed versioned contract + compatibility and migration decision | Pending; avoid competing shared schema |
 | 4. Source-backed pool research | B19 #17, B03 canonical event authority | First bounded source/transaction case, then systematic 19-topic coverage; collect final payer budgets, vendor awards and tier1/2 sourcing with explicit unknowns | Reproducible source-backed buyer/product/period/FX; signed vs recognized separated | Pending; zero verified 19 pool dollar denominators in source artifact |
@@ -161,3 +161,24 @@ Broad present-state maturity, 0–5 per dimension (reviewer judgment, **not** a 
 **Reconsideration criteria.** If issuer source facts become nonempty, extend through B19 #17's existing reconciliation interface rather than using this provisional checker as the authoritative financial calculator. If B00 changes approved pool contract or a source manifest revision changes, update only via the authorized owner and retest compatibility. If B05 graph queries are measured to exceed practical replay constraints, B00 may assess a graph index; until then reuse versioned JSON/JSONL and existing planners. Distinguish contract *proposed*, source verified, B01 independently accepted, merged main and operational deployment.
 
 **Next unblocked task:** Execute the committed stage 1 unit tests against exact Git blob code and complete pinned real-file CLI report; any B01 CI/contract work remains an explicit handoff, not an excuse to duplicate another owner.
+
+### Implemented stage-1 increment: deterministic dependency-delta review
+
+B19 \`maturation_audit.py\` now accepts an optional prior derived report:
+
+\`\`\`bash
+python research/themes/supply-chain/coverage/maturation_audit.py \
+  research/themes/supply-chain/coverage/whole-basket-role-map-2026-11-03.json \
+  /path/to/pinned/PR18/registry/pools.json \
+  --output /tmp/b19_maturity.json
+python research/themes/supply-chain/coverage/maturation_audit.py \
+  research/themes/supply-chain/coverage/whole-basket-role-map-2026-11-03.json \
+  /path/to/pinned/PR18/registry/pools.json \
+  --previous /tmp/b19_maturity.json
+\`\`\`
+
+The optional comparison detects changed input content fingerprint, changed source revision, changed scope and specific pool-report differences; it returns **read-only invalidation hints**. It does not create/claim a worker task, run a scheduler, mutate canonical observations, or infer source-backed dollars. Same inputs produce an unchanged result; a pinned upstream revision change demands review even if the visible pool membership counts do not change. This is a local version/fingerprint mechanism compatible with the existing B00 queue, not a new orchestration status vocabulary.
+
+**Execution evidence:** 17/17 Python tests of the local development implementation passed (14 maturation positive/negative scenarios plus 3 change/delta scenarios). That local run is not proof the exact GitHub head's B19 suite executed in CI; B01 #52 retains that independent gate. Standard \`Validate BASKET data\` can pass without B19 test discovery; inspect required job commands before claiming domain acceptance. The whole-basket script cannot cryptographically authenticate externally supplied upstream files by SHA string alone; B01 must fetch source files by pinned commit and verify the bytes independently.
+
+**Accepted this worker:** evidence-gap assessor + explicit report-delta function + tests + runbook. **Outside scope:** full dollar attribution engine, canonical contract/relationship changes, durable hosted polling and database migration. Do not mark integration complete based on this local stage.
