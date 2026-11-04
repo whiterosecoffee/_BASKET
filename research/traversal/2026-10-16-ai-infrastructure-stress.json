@@ -1,0 +1,72 @@
+{
+  "schema": "basket.traversal_research_fixture@1",
+  "status": "research_only_unverified_market_feed",
+  "observation_date": "2026-10-16",
+  "captured_context": "user screenshot around 14:21 America/New_York (18:21 UTC); underlying trade timestamps unknown",
+  "source_class": "user_supplied_screenshot",
+  "quotes": [
+    {
+      "ticker": "SFTBY",
+      "usd": 15.07,
+      "change_pct": -7.55,
+      "feed_status": "explicitly_delayed",
+      "day_low_usd": 15.02
+    },
+    {
+      "ticker": "CRWV",
+      "usd": 60.7,
+      "change_pct": -12.9
+    },
+    {
+      "ticker": "AAOI",
+      "usd": 76.44,
+      "change_pct": -8.7
+    },
+    {
+      "ticker": "ARM",
+      "usd": 230.62,
+      "change_pct": -5.79
+    },
+    {
+      "ticker": "PAYP",
+      "usd": 15.56,
+      "change_pct": 6.18
+    }
+  ],
+  "cross_session_context": {
+    "tokyo_9984_close_jpy": 4944,
+    "tokyo_close_date": "2026-10-16",
+    "usd_jpy_reference": 158.03,
+    "fx_status": "indicative_not_verified",
+    "adr_ratio": "2 SFTBY ADR per 9984 share",
+    "parity_status": "scenario_only_cross_session"
+  },
+  "tests_to_implement": [
+    {
+      "id": "daily_move",
+      "expected": "SFTBY screenshot change exceeds 3%; alert eligible subject to feed timestamp validation"
+    },
+    {
+      "id": "tokyo_threshold",
+      "expected": "Tokyo close between 4800 and 5000; US implied Tokyo price does not prove Tokyo market break"
+    },
+    {
+      "id": "relative_divergence",
+      "expected": "SFTBY minus ARM -1.76pp; SFTBY minus PAYP -13.73pp; compare synchronized timestamps before triggering"
+    },
+    {
+      "id": "stale_fx",
+      "expected": "Reject live parity claims when FX timestamp unavailable"
+    },
+    {
+      "id": "quiet_mode",
+      "expected": "Do not alert if no confirmed threshold, material divergence or new sourced event"
+    }
+  ],
+  "limitations": [
+    "Screenshots are not entitled live feed",
+    "No verified underlying execution timestamps",
+    "Intraday cross-asset data may not be synchronized",
+    "No calibrated predictive probabilities"
+  ]
+}
