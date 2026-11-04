@@ -63,5 +63,50 @@ class WorkerV2ContractTests(unittest.TestCase):
         self.assertTrue(out["mandatory_acceptance_unresolved"])
         self.assertEqual(out["b00_evidence_phase"], "evidence_invalid")
 
+
+    def test_merged_pr_without_main_ci_remains_unverified(self):
+        """Merge evidence cannot substitute for successful main-head CI."""
+        report = copy.deepcopy(self.report)
+        evidence = copy.deepcopy(self.evidence)
+        report["disposition"] = "integrated"
+        report["pr"]["state"] = "closed"
+        report["pr"]["merged"] = True
+        pr = next(p for p in evidence["pull_requests"] if p["number"] == 10)
+        pr["state"] = "closed"
+        pr["merged"] = True
+        out = self.check(report=report, evidence=evidence)
+        self.assertEqual(out["errors"], [])
+        self.assertEqual(out["b00_evidence_phase"], "integrated_main_ci_unverified")
+        self.assertFalse(out["merge_authorized"])
+
+    def test_main_ci_must_match_current_main_commit(self):
+        """Only an independent success at the currently observed main SHA qualifies."""
+        report = copy.deepcopy(self.report)
+        evidence = copy.deepcopy(self.evidence)
+        report["disposition"] = "integrated"
+        report["pr"]["state"] = "closed"
+        report["pr"]["merged"] = True
+        pr = next(p for p in evidence["pull_requests"] if p["number"] == 10)
+        pr["state"] = "closed"
+        pr["merged"] = True
+        success = copy.deepcopy(evidence["workflow_runs"][0])
+        success["id"] = 999999
+        success["url"] = "https://github.com/whiterosecoffee/_BASKET/actions/runs/999999"
+        success["head_sha"] = evidence["main_commit"]
+        evidence["workflow_runs"].append(success)
+        out = self.check(report=report, evidence=evidence)
+        self.assertEqual(out["errors"], [])
+        self.assertEqual(out["b00_evidence_phase"], "integrated_main_ci_verified")
+        self.assertFalse(out["merge_authorized"])
+
+    def test_reported_pass_with_failed_workflow_fails_closed(self):
+        """A worker cannot promote a failed workflow using a positive self-report."""
+        evidence = copy.deepcopy(self.evidence)
+        run = next(r for r in evidence["workflow_runs"] if r["id"] == 38956838273)
+        run["conclusion"] = "failure"
+        out = self.check(evidence=evidence)
+        self.assertEqual(out["b00_evidence_phase"], "evidence_invalid")
+        self.assertTrue(any("workflow success not verified" in e for e in out["errors"]))
+
 if __name__ == "__main__":
     unittest.main()
