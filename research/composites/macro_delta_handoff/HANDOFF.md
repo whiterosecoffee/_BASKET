@@ -19,7 +19,7 @@ Refresh main, AGENTS.md, spark ownership, current PR heads, changed paths, CI an
 
 - #100 / PR101: extend market_context; already has previous-snapshot, prior-close and 15-minute alignment logic.
 - #141 / PR142: extend macro measure register where absent, including physical diesel/refinery/shipping inputs.
-- #149 / PR150, #144 / PR145 and #91 / PR109: coordinate B06 range semantics; confirm issue #91 relationship against live GitHub rather than assume it.
+- #149 / PR150, #144 / PR145 and PR109: coordinate B06 range semantics and verify current issue relationships from GitHub.
 - #148 and #146 / PR147: canonical storage migration; main's NVDA-only adapter cannot silently become a whole-basket schema.
 - B02: source acquisition, canonical data, timestamp/TTD and baseline alignment.
 - B03: dated disruption, restart and delivery evidence.
