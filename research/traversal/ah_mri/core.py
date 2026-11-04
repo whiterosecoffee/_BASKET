@@ -1,5 +1,6 @@
 """AH-MRI deterministic research report. No fetching, streaming, or quote entitlement."""
-from datetime import datetime
+from datetime import datetime, time
+from zoneinfo import ZoneInfo
 from hashlib import sha256
 import json
 import math
@@ -40,6 +41,15 @@ def analyze(payload):
         raise ValueError("external calendar must establish completed RTH session")
     if not s.get("date") or not s.get("calendar_id"):
         raise ValueError("session metadata missing")
+    market_tz = ZoneInfo("America/New_York")
+    rth_end = timestamp(s["rth_end_at"])
+    if rth_end.astimezone(market_tz).date().isoformat() != s["date"]:
+        raise ValueError("session date and close timestamp disagree")
+    ah_end = timestamp(s["ah_end_at"]) if s.get("ah_end_at") else datetime.combine(
+        rth_end.astimezone(market_tz).date(), time(20, 0), market_tz
+    )
+    if ah_end <= rth_end:
+        raise ValueError("invalid AH session cutoff")
     out = {"schema": "basket.ah_mri.result@0.2", "engine_version": VERSION,
            "as_of": payload["as_of"], "session_date": s["date"], "calendar_id": s["calendar_id"],
            "market_state": "unclassified", "instruments": [], "events": [],
@@ -59,7 +69,7 @@ def analyze(payload):
             st = provenance(r, as_of)
             if (st in ("eligible", "expired_historical") and r.get("session") == "RTH"
                     and r.get("currency") == "USD" and r.get("source")
-                    and timestamp(r["observed_at"]) <= timestamp(s["rth_end_at"])):
+                    and timestamp(r["observed_at"]) == rth_end):
                 x["rth_close_usd"] = price(r["close_usd"])
                 x["rth_source"] = r["source"]
                 x["rth_observed_at"] = r["observed_at"]
@@ -79,7 +89,7 @@ def analyze(payload):
             if (st == "eligible" and ah.get("session") == "AH"
                     and ah.get("kind") == "trade" and ah.get("source")
                     and ah.get("currency") == "USD"
-                    and timestamp(ah["observed_at"]) > timestamp(s["rth_end_at"])):
+                    and rth_end < timestamp(ah["observed_at"]) <= ah_end):
                 x["ah_mark_usd"] = price(ah["price_usd"])
                 x["ah_observed_at"] = ah["observed_at"]
                 x["ah_source"] = ah["source"]
