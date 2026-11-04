@@ -39,5 +39,33 @@ class CloseoutTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             assess(dict(BASE, insights=[{"principle": "x", "disposition": "unknown"}]))
 
+    def test_verified_claim_requires_revision(self):
+        data = dict(BASE, claims=[{"id": "C1", "type": "repository_verified", "text": "CI passed"}])
+        with self.assertRaisesRegex(ValueError, "requires source_ref and revision"):
+            assess(data)
+
+    def test_duplicate_claim_id_rejected(self):
+        claim = {"id": "C1", "type": "proposal", "text": "Proposed contract"}
+        with self.assertRaisesRegex(ValueError, "duplicated"):
+            assess(dict(BASE, claims=[claim, claim]))
+
+    def test_insight_claim_reference(self):
+        data = dict(BASE, insights=[{"principle": "Verify claims", "disposition": "propose",
+                                     "claim_ids": ["missing"]}])
+        with self.assertRaisesRegex(ValueError, "unknown claim"):
+            assess(data)
+
+    def test_preserve_structured_knowledge(self):
+        claim = {"id": "C1", "type": "independent_test", "text": "Tests passed",
+                 "source_ref": "actions/123", "revision": "abc123"}
+        insight = {"principle": "Execute tests", "disposition": "transfer", "priority": 23,
+                   "pattern": "Fail closed", "application": "CRWV", "limitations": "Synthetic",
+                   "rationale": "Avoid false success", "claim_ids": ["C1"]}
+        data = dict(BASE, claims=[claim], insights=[insight])
+        report = render(data, assess(data))
+        self.assertIn("Fail closed", report)
+        self.assertIn("Synthetic", report)
+        self.assertIn("actions/123 @ abc123", report)
+
 if __name__ == "__main__":
     unittest.main()
