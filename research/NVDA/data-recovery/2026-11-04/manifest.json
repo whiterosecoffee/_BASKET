@@ -1,0 +1,194 @@
+{
+  "schema": "basket.nvda_recovery_manifest@1",
+  "main_code_sha": "b4910122a4c3f6ade747f2e4d59bd2d2e84b3c95",
+  "issue": 185,
+  "branch": "work/185-nvda-daily-history-recovery",
+  "source_original_sha256": "3aecf407ad9f2c2f175ccaaf52240cc01da2707e9b226b4acef5146e0df08470",
+  "partition_timezone": "America/New_York",
+  "raw_data_in_git": false,
+  "canonical_integration": false,
+  "days": [
+    {
+      "date_et": "2026-10-26",
+      "records": 934,
+      "regular_minutes": 390,
+      "duplicates": 0,
+      "canonical_hash_mismatches": 0,
+      "vwap_flags": 279,
+      "file": "2026-10-26.1m.jsonl",
+      "sha256": "82b42310553b99a96de095a1913ccd1fbe227752dece3bcad1e2c1432daf165c",
+      "first": "2026-10-26T08:00:00+00:00",
+      "last": "2026-10-26T23:59:00+00:00"
+    },
+    {
+      "date_et": "2026-10-27",
+      "records": 914,
+      "regular_minutes": 390,
+      "duplicates": 0,
+      "canonical_hash_mismatches": 0,
+      "vwap_flags": 286,
+      "file": "2026-10-27.1m.jsonl",
+      "sha256": "681ef72861bba26c71e682c27ecd9571b541a616b4b5a310aede82596c53568d",
+      "first": "2026-10-27T08:00:00+00:00",
+      "last": "2026-10-27T23:59:00+00:00"
+    },
+    {
+      "date_et": "2026-10-28",
+      "records": 946,
+      "regular_minutes": 390,
+      "duplicates": 0,
+      "canonical_hash_mismatches": 0,
+      "vwap_flags": 191,
+      "file": "2026-10-28.1m.jsonl",
+      "sha256": "692adedf9a32a752daad74d6bd0dc08af7caf3e33af6a2c1a6e9da2a5a25e0fd",
+      "first": "2026-10-28T08:00:00+00:00",
+      "last": "2026-10-28T23:59:00+00:00"
+    },
+    {
+      "date_et": "2026-10-29",
+      "records": 943,
+      "regular_minutes": 390,
+      "duplicates": 0,
+      "canonical_hash_mismatches": 0,
+      "vwap_flags": 143,
+      "file": "2026-10-29.1m.jsonl",
+      "sha256": "6f881e9059944a4da74eafefbe66501592f17d006893abffeb339f995688ab3e",
+      "first": "2026-10-29T08:00:00+00:00",
+      "last": "2026-10-29T23:59:00+00:00"
+    },
+    {
+      "date_et": "2026-10-30",
+      "records": 953,
+      "regular_minutes": 390,
+      "duplicates": 0,
+      "canonical_hash_mismatches": 0,
+      "vwap_flags": 229,
+      "file": "2026-10-30.1m.jsonl",
+      "sha256": "9bff28f9ce0b946c88d566e2775661362c35e6e9f122d583cecfde335a6d80fa",
+      "first": "2026-10-30T08:00:00+00:00",
+      "last": "2026-10-30T23:59:00+00:00"
+    },
+    {
+      "date_et": "2026-11-02",
+      "records": 944,
+      "regular_minutes": 390,
+      "duplicates": 0,
+      "canonical_hash_mismatches": 0,
+      "vwap_flags": 80,
+      "file": "2026-11-02.1m.jsonl",
+      "sha256": "5516eca14ca9e1bc0af69f43d96e35c06eca5665e65dc1983ace279c8ffdebbb",
+      "first": "2026-11-02T09:00:00+00:00",
+      "last": "2026-11-03T00:59:00+00:00"
+    },
+    {
+      "date_et": "2026-11-03",
+      "records": 955,
+      "regular_minutes": 390,
+      "duplicates": 0,
+      "canonical_hash_mismatches": 0,
+      "vwap_flags": 51,
+      "file": "2026-11-03.1m.jsonl",
+      "sha256": "2ac1f5540ef001eeeda084a18bb6c8f402bcc2da646499a040aafc5536f084c0",
+      "first": "2026-11-03T09:00:00+00:00",
+      "last": "2026-11-04T00:59:00+00:00"
+    },
+    {
+      "date_et": "2026-11-04",
+      "records": 848,
+      "regular_minutes": 390,
+      "duplicates": 0,
+      "canonical_hash_mismatches": 0,
+      "vwap_flags": 27,
+      "file": "2026-11-04.1m.jsonl",
+      "sha256": "acfc20825901d3038998e8c86728bf6d2255052a8a511673e75a0490b27f7b53",
+      "first": "2026-11-04T09:00:00+00:00",
+      "last": "2026-11-04T23:08:00+00:00"
+    }
+  ],
+  "limitations": [
+    "Daily partitions are recovery exports, not installed resolver routes.",
+    "Prior v1 package November4 IDs used source-key hashing and are superseded for ingestion by v2 full-record hashes; v1 retained.",
+    "First verified availability uses conservative local capture/normalization bound, not original vendor publication time.",
+    "VWAP outside OHLC retained and flagged; no inferred correction.",
+    "390 minute count does not independently establish exchange data completeness.",
+    "November4 after-hours capture partial through 23:08Z."
+  ],
+  "checks": {
+    "main_adapter_validation": [
+      {
+        "date": "2026-10-26",
+        "schema": "pass",
+        "idempotent_retry": "unchanged",
+        "replay_records": 934,
+        "record_identity_equivalent": true
+      },
+      {
+        "date": "2026-10-27",
+        "schema": "pass",
+        "idempotent_retry": "unchanged",
+        "replay_records": 914,
+        "record_identity_equivalent": true
+      },
+      {
+        "date": "2026-10-28",
+        "schema": "pass",
+        "idempotent_retry": "unchanged",
+        "replay_records": 946,
+        "record_identity_equivalent": true
+      },
+      {
+        "date": "2026-10-29",
+        "schema": "pass",
+        "idempotent_retry": "unchanged",
+        "replay_records": 943,
+        "record_identity_equivalent": true
+      },
+      {
+        "date": "2026-10-30",
+        "schema": "pass",
+        "idempotent_retry": "unchanged",
+        "replay_records": 953,
+        "record_identity_equivalent": true
+      },
+      {
+        "date": "2026-11-02",
+        "schema": "pass",
+        "idempotent_retry": "unchanged",
+        "replay_records": 944,
+        "record_identity_equivalent": true
+      },
+      {
+        "date": "2026-11-03",
+        "schema": "pass",
+        "idempotent_retry": "unchanged",
+        "replay_records": 955,
+        "record_identity_equivalent": true
+      },
+      {
+        "date": "2026-11-04",
+        "schema": "pass",
+        "idempotent_retry": "unchanged",
+        "replay_records": 848,
+        "record_identity_equivalent": true
+      }
+    ],
+    "unit_tests": {
+      "command": "python -m unittest discover -s runtime -p test_ticker_data.py -v",
+      "result": "28 passed",
+      "main_code_sha": "b4910122a4c3f6ade747f2e4d59bd2d2e84b3c95",
+      "prior_attempts": [
+        "Missing jsonschema installed; initial suite import failed.",
+        "26 passed, 2 fixture errors on partial source checkout; fetched missing unchanged main fixtures and reran."
+      ]
+    },
+    "original_4690_record_ids_preserved": true
+  },
+  "package_name": "NVDA_daily_history_2026-11-04_v2.zip",
+  "package_sha256": "c2deed54c653ba2beb5889941b331f027e1e694c9319e90d084a480256cea82e",
+  "package_library_file_id": "libfile_f2413974a85c8191ace2718228f601c0",
+  "source_contract_paths": [
+    "runtime/ticker_data.py",
+    "runtime/observations.py",
+    "schemas/ticker-data.v1.json"
+  ]
+}
