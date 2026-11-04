@@ -21,34 +21,34 @@ class WholeMapChecks(unittest.TestCase):
         a,b,c,ma,po=sample(); b["records"][0]["symbol"]="AMD"
         with self.assertRaises(check.MapError):check.verify(a,b,c,ma,po)
     def test_duplicate_symbol(self):
-        a,b,c=sample(); a["rows"].append(copy.deepcopy(a["rows"][0]))
-        with self.assertRaises(check.MapError):check.verify(a,b,c)
+        a,b,c,ma,po=sample(); a["rows"].append(copy.deepcopy(a["rows"][0]))
+        with self.assertRaises(check.MapError):check.verify(a,b,c,ma,po)
     def test_unknown_pool(self):
-        a,b,c=sample(); a["rows"][0]["pool_ids"]=["invented"]
+        a,b,c,ma,po=sample(); a["rows"][0]["pool_ids"]=["invented"]
         with self.assertRaises(check.MapError):check.verify(a,b,c)
     def test_nonissuer_as_operating_company(self):
-        a,b,c=sample(); a["rows"][0]["instrument_type"]=b["records"][0]["instrument_type"]="fund_or_etp"
+        a,b,c,ma,po=sample(); a["rows"][0]["instrument_type"]=b["records"][0]["instrument_type"]="fund_or_etp"
         with self.assertRaises(check.MapError):check.verify(a,b,c)
     def test_proposed_contract_not_verified(self):
-        a,b,c=sample(); a["rows"][0]["contract_edges"]=[{"supplier":"TSM"}]
+        a,b,c,ma,po=sample(); a["rows"][0]["contract_edges"]=[{"supplier":"TSM"}]
         with self.assertRaises(check.MapError):check.verify(a,b,c)
     def test_financial_claim(self):
-        a,b,c=sample(); a["rows"][0]["source_supported_revenue_usd"]=123
+        a,b,c,ma,po=sample(); a["rows"][0]["source_supported_revenue_usd"]=123
         with self.assertRaises(check.MapError):check.verify(a,b,c)
     def test_stale_counts(self):
-        a,b,c=sample(); a["coverage"]["all_tracked_instruments"]=2
+        a,b,c,ma,po=sample(); a["coverage"]["all_tracked_instruments"]=2
         with self.assertRaises(check.MapError):check.verify(a,b,c)
     def test_source_head_mismatch(self):
-        a,b,c=sample(); ma="c"*40
+        a,b,c,ma,po=sample(); ma="c"*40
         with self.assertRaises(check.MapError):check.verify(a,b,c)
     def test_duplicate_pool(self):
-        a,b,c=sample(); c["pools"].append({"id":"semiconductors"})
+        a,b,c,ma,po=sample(); c["pools"].append({"id":"semiconductors"})
         with self.assertRaises(check.MapError):check.verify(a,b,c)
     def test_identity_promotion(self):
-        a,b,c=sample(); a["rows"][0]["canonical_entity_id"]="NVDA"
+        a,b,c,ma,po=sample(); a["rows"][0]["canonical_entity_id"]="NVDA"
         with self.assertRaises(check.MapError):check.verify(a,b,c)
     def test_unclassified_issuer(self):
-        a,b,c=sample(); a["rows"][0]["pool_ids"]=[]
+        a,b,c,ma,po=sample(); a["rows"][0]["pool_ids"]=[]
         with self.assertRaises(check.MapError):check.verify(a,b,c)
 
 if __name__=="__main__":
