@@ -1,0 +1,69 @@
+name: CRWV tool independent acceptance
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/crwv-tool-acceptance.yml'
+      - 'research/CRWV/tool/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  crwv-finance-acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tested PR revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Checkout pinned B10 source revision
+        uses: actions/checkout@v4
+        with:
+          ref: 7a33a6f49a2740a93310fa1c66a8090c25dd110a
+          path: crwv-source
+          persist-credentials: false
+      - name: Verify independent source revision
+        run: test "$(git -C crwv-source rev-parse HEAD)" = 7a33a6f49a2740a93310fa1c66a8090c25dd110a
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Show exact tested SHA
+        run: git rev-parse HEAD
+      - name: Fail closed if source or tests are absent
+        shell: bash
+        run: |
+          test -f crwv-source/research/CRWV/tool/tests/test_model.py
+          test -f crwv-source/research/CRWV/tool/demo.py
+      - name: Execute independent CRWV financial tests (zero tests fail)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s crwv-source/research/CRWV/tool/tests -p 'test_*.py' -v 2>&1 | tee /tmp/crwv-tests.log
+          python - <<'PY'
+          import pathlib,re
+          s=pathlib.Path('/tmp/crwv-tests.log').read_text()
+          m=re.search(r'Ran (\d+) tests?',s)
+          if not m or int(m.group(1)) < 39 or not re.search(r'\nOK\s*$',s):
+              raise SystemExit('CRWV independent test count/success gate failed')
+          print('Independently executed',m.group(1),'CRWV tests')
+          PY
+      - name: Execute offline scenario demo
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/crwv-acceptance
+          python crwv-source/research/CRWV/tool/demo.py --output /tmp/crwv-acceptance
+          for scenario in slow base bull unfunded; do
+            test -s "/tmp/crwv-acceptance/$scenario.json"
+            test -s "/tmp/crwv-acceptance/$scenario.txt"
+          done
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('/tmp/crwv-acceptance')
+          summary=json.loads((p/'summary.json').read_text())
+          assert set(summary)=={'slow','base','bull','unfunded'}
+          assert summary['unfunded']['present_per_share'] is None
+          assert summary['unfunded']['funding'] is not None
+          PY
+          test -n "$(find /tmp/crwv-acceptance -type f -print -quit)"
