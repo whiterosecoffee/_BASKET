@@ -1,0 +1,117 @@
+{
+  "schema": "basket.closeout_qc_index@1",
+  "canonical_queue": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+  "requests": [
+    {
+      "task": {
+        "schema": "basket.worker_task@1",
+        "task_id": "B00-178",
+        "spark_id": "B00",
+        "issue": {
+          "number": 178,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/178"
+        },
+        "branch": {
+          "name": "work/178-module-contract-reconciliation",
+          "base": "main"
+        },
+        "objective": "Compare and mature v2/v3 closeout, persist primary work and complete B00 handoff, validate QC intake and route remaining enforcement through existing owners.",
+        "write_paths": [
+          "orchestration/conversation_closeout/versions/**"
+        ],
+        "acceptance": [
+          {
+            "id": "A1",
+            "criterion": "Preserve exact v2 source and bounded v3 comparison evidence",
+            "evidence_class": "source"
+          },
+          {
+            "id": "A2",
+            "criterion": "Account for full O1-O5 and K1-K5 source handoff scope and limits",
+            "evidence_class": "code_review"
+          },
+          {
+            "id": "A3",
+            "criterion": "Execute owner-local intake negative and replay tests on source revision",
+            "evidence_class": "test"
+          },
+          {
+            "id": "A4",
+            "criterion": "Record existing-owner routing without claiming operational integration",
+            "evidence_class": "documentation"
+          }
+        ],
+        "dependencies": [
+          {
+            "issue_number": 103,
+            "kind": "schema",
+            "blocks_completion": false,
+            "reason": "Remaining project-wide contract enforcement, not bounded intake acceptance"
+          },
+          {
+            "issue_number": 136,
+            "kind": "review",
+            "blocks_completion": false,
+            "reason": "Canonical priority and owner routing"
+          }
+        ],
+        "claimed_at": null,
+        "state": "review",
+        "note": "Immutable closeout source claim for this authorized continuation; runtime task status stays on issue178."
+      },
+      "source_pr": 179,
+      "review_kind": "closeout_semantic",
+      "artifacts": [
+        {
+          "path": "orchestration/conversation_closeout/versions/HANDOFF_PROMPT.v3-candidate.md",
+          "revision": "ba757db313a9ebd6dc85be740a428e7e26f76042",
+          "sha256": "af002f8233217a00451e8835ef701603e8829551b54bd27437729856a97ac59b",
+          "role": "primary"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/VALIDATION.md",
+          "revision": "ba757db313a9ebd6dc85be740a428e7e26f76042",
+          "sha256": "717d75f8b439cae4c8282111b125e592a942eb1ba997f7eb3f9d62da159624a7",
+          "role": "primary"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/qc_intake.py",
+          "revision": "ba757db313a9ebd6dc85be740a428e7e26f76042",
+          "sha256": "6676db6852da0c09a6a40fcfa65dffd23b93c4463b1eab37b355dcf083de348d",
+          "role": "primary"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/test_qc_intake.py",
+          "revision": "ba757db313a9ebd6dc85be740a428e7e26f76042",
+          "sha256": "78e10677a58581c870518c95066a0948671c5511694c1ac5b97ad14c729d9c77",
+          "role": "primary"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/QC_WORKER.md",
+          "revision": "ba757db313a9ebd6dc85be740a428e7e26f76042",
+          "sha256": "444fe58deb477dfec27979c5828534222447065461e0a7eb38cd9b7907703789",
+          "role": "primary"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/QC_HANDOFF.md",
+          "revision": "ba757db313a9ebd6dc85be740a428e7e26f76042",
+          "sha256": "d42c94b6b5ae7fe123937a79c8d83c3c57d93fa8b0352f1d52d10a391661b2ed",
+          "role": "handoff"
+        }
+      ],
+      "item_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "K1",
+        "K2",
+        "K3",
+        "K4",
+        "K5"
+      ],
+      "request_id": "5c6c4c671d8eb6506cef80318baf0000343ecdc6ed2a7bae737613df19071ac9"
+    }
+  ]
+}
