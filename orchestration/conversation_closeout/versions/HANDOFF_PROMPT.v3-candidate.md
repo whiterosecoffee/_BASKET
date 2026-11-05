@@ -455,3 +455,61 @@ Distinguish repeatable formatting from semantic completeness.
 
 Do not claim improvement merely because the procedure or output is longer,
 shorter, more structured or produces repeatable scores.
+
+
+CONTRACTUAL WORKER ROUTING — USER-DIRECTED STANDARDIZATION
+
+Use stable worker roles and versioned procedures across sessions. "Same worker"
+means the same registered role, owner and capability contract, not an assumption
+that a particular chat/process persists. Reuse an existing claimed task where
+applicable; a replacement execution attempt must preserve its lineage.
+
+Before handing off executable work, bind the work type to:
+- Its registered receiving owner and existing destination.
+- Exact input and output schema references and compatible versions.
+- The existing worker profile and ordered recipe, with its checked revision.
+- Authorized paths and the current exclusive claim.
+- Required acceptance checks, evidence and failure/retry behavior.
+
+Use existing worker-library profiles/recipes, basket.worker_task@1 assignments,
+basket.worker_resolution@1 results and the component-contract work in #103/PR104.
+Do not introduce another routing registry or competing envelope. The component
+manifest names ports; it does not by itself supply executable payload schemas.
+The current handoff-request schema uses Lnn lanes, whereas sparks use Bnn IDs:
+require the established mapping, never invent one or insert B00 into receiver_lane.
+Missing mappings or schemas are explicit contract gaps routed to the existing
+contract owner, not permission for each worker to improvise a format.
+
+Fixed role sequence for closeout:
+1. Source worker inventories obligations and causal knowledge, preserves source
+   references, validates available payload schemas and emits the complete B00
+   handoff with its structured artifacts.
+2. B00 validates bindings, deduplicates against the existing task, checks current
+   claims and routes an authorized task to its registered domain owner.
+3. Domain owner executes the pinned recipe in order within the assigned paths,
+   validates outputs and returns the existing resolution plus actual evidence.
+4. B01 independently checks required domain acceptance at the exact revision.
+5. B00 reconciles results and records disposition; integration stays subject to
+   existing authorization. Reporting-only handoffs do not launch steps 3 or 4.
+
+Routine valid bindings proceed without redesigning roles or repeating global
+reconciliation. Check relevant claims/revisions for changes; cache reuse is valid
+only while their inputs remain current. Competing claims, incompatible versions,
+missing routes and failed prerequisites stop dispatch and return a specific
+contract error to the established owner. Do not silently reroute or expand scope.
+
+Acceptance for the existing controller/contract owners:
+- Same work type and contract revision select the same receiver and recipe.
+- Wrong receiver, incompatible payload or missing mapping fails before mutation.
+- Producer output validates against the consumer input schema.
+- Concurrent claims for overlapping writes cannot both acquire ownership.
+- Replayed request/input revision returns the existing task/result without
+  duplicate side effects; changed input creates an explicit revision.
+- A skipped step, stale-head evidence or out-of-scope output cannot pass.
+- Narrative handoff and structured artifacts preserve the same obligations,
+  knowledge, uncertainty and dispositions.
+
+These are required integration behaviors, not a claim that this prose implements
+them. Existing #103/#106/#136 own contract/lifecycle/controller integration.
+This candidate records the requirement; its current string-based acceptance tests
+do not establish runtime routing, schema interoperability or claim exclusivity.
