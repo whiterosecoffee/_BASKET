@@ -1,5 +1,20 @@
 # Closeout prompt versions
 
+## Repository delivery and automatic QC overlay
+
+Primary work stays in its source owner's repository paths. The complete handoff
+is persisted there, and QC_QUEUE.json records pinned references for the existing
+Issues queue #136. See [QC_WORKER.md](QC_WORKER.md) for submission, priority,
+automatic trigger, review and immutable archive behavior. This replaces manual
+prompt copying for authorized repo_queue delivery; no merge/default-policy
+promotion is implied. The first real source handoff is [QC_HANDOFF.md](QC_HANDOFF.md).
+
+`qc_intake.py` reuses existing worker-task schemas/ownership helpers. It is a
+pure intake/receipt adapter, not a scheduler or domain executor. Twelve new tests
+plus seven previous tests pass locally. Independent review found two defects;
+failed regression runs and corrections are recorded in VALIDATION.md. Automation
+configuration and observed future execution remain separate evidence.
+
 ## v3 candidate — 2026-11-04
 
 - File: [HANDOFF_PROMPT.v3-candidate.md](HANDOFF_PROMPT.v3-candidate.md).

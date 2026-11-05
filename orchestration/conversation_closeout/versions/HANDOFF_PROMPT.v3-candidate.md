@@ -35,8 +35,19 @@ Capture the value of the entire available conversation:
 The handoff is the required final deliverable. It carries both unfinished work
 and completed knowledge that B00 should reconcile into the project.
 
-Do not replace the handoff with a completion notice, readiness label, explanation
-of this procedure, or a new reusable prompt.
+For an authorized repository-backed closeout, use repo_queue delivery: save
+primary work in its existing domain-owned destination, save the complete B00
+handoff in the source worker's authorized repo path, verify committed readback,
+then register the immutable artifact references in the existing QC intake.
+Follow QC_WORKER.md adjacent to this candidate. GitHub Issue #136 remains the
+project priority authority; the intake file is a mailbox, not another backlog.
+The final chat delivers a receipt/link and remaining limits, not a prompt the
+user must copy to an orchestrator. If repository persistence is unauthorized or
+unavailable, use the full in-chat block and explicitly mark not queued.
+
+Do not replace the handoff artifact with a completion notice, readiness label,
+explanation of this procedure, or a new reusable prompt. A receipt is sufficient
+only after the full artifact has been persisted and its intake verified.
 
 Apply this procedure to the actual subject of the source conversation.
 Do not make the procedure itself the subject unless the conversation concerns
@@ -326,7 +337,8 @@ Include unresolved questions in the handoff with their significance.
 
 9. GENERATE THE B00 HANDOFF
 
-Produce ONE self-contained, copyable block addressed to B00.
+Produce ONE self-contained, copyable block addressed to B00. In repo_queue mode,
+persist that block as the handoff artifact; do not require manual chat forwarding.
 
 This is required even when local work is complete: B00 may need completed
 findings, decisions and lessons for project reconciliation.
@@ -421,7 +433,9 @@ Disclose irrecoverable gaps and the limits of self-audit.
 OUTPUT
 
 Use a brief introduction only if needed.
-Then provide the complete copyable B00 handoff.
+In repo_queue mode, return links to verified primary artifacts, the complete
+stored handoff and its intake request ID. Otherwise provide the complete
+copyable B00 handoff directly.
 
 Do not end with “Continue here,” “Ready for transfer,” or “Ready to Archive”
 as a substitute for the artifact.
@@ -431,6 +445,13 @@ external transfer actually occurred.
 
 Do not automatically post, create issues, create branches, merge or adopt policy
 unless that action is authorized separately in the session.
+
+The user-authorized repo_queue workflow permits publishing within existing owned
+paths, enqueueing review and recording QC results on the existing canonical
+issues. It does not authorize merges or writes to another domain. The worker
+archives accepted/superseded REVIEW receipts only; rework/blockers remain visible
+and implementation obligations keep their own open status. Do not claim queue
+automation has run merely because a trigger was configured.
 
 VALIDATION AND EVOLUTION
 

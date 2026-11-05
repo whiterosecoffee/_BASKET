@@ -1,5 +1,45 @@
 # B00 v2/v3 closeout comparison — 2026-11-04 (America/Chicago)
 
+## Repository delivery / automatic QC implementation increment
+
+User authorized primary-work persistence, a QC intake file, automatic review and
+archive, with project-wide prioritization replacing manually sequenced prompts.
+Current #136 explicitly identifies Issues as authoritative and old queue.json as
+historical. Therefore QC_QUEUE.json is an intake index, not another task backlog.
+No planner, shared controller or workflow ownership is taken over.
+
+Implemented qc_intake.py using existing worker-task JSON Schema plus permitted/
+declared_subset helpers; safe pinned primary/handoff references, full item ID
+coverage, SHA256 identity/readback, duplicate-safe append, external canonical
+priority order and accepted/superseded receipt projection. It performs no network
+requests, scheduling, arbitrary command execution or domain writes. Source
+authenticity and semantic QC remain worker duties under QC_WORKER.md. Artifact
+readback is an explicit worker step, not implied by enqueue's structural checks.
+
+Independent reviewer ran initial 17 tests and reproduced two failures: issue URL
+could disagree with number, and artifact/item reordering duplicated a request.
+Two regression tests were then run and both failed. Corrections require exact
+issue URL identity and normalize set-like artifact/inventory order for hashing.
+All 19 tests now pass locally (zero skips). Task claims remain immutable; live
+lifecycle changes are recorded on existing issues, not new intake revisions.
+This does not claim authentication of arbitrary receipt URLs or exactly-once
+external side effects. Concurrent metadata commits require expected-head CAS.
+
+The complete source handoff is QC_HANDOFF.md. Primary work remains this candidate,
+comparison, tests and adapter in owned versions/**. Initial queue entries pin
+committed artifact bytes in a subsequent commit, avoiding self-referential SHAs.
+Review archive receipts are immutable per request ID; failed/blocked/rework stays
+pending and is routed to existing source issue. Review acceptance cannot close
+implementation obligations or authorize merge. Initial priority is reconciled on
+existing #136. Future reviews must refresh that context, not blindly follow this
+snapshot or event arrival.
+
+One GitHub PR-event automation is configured separately after publication. It
+uses PR commits/comments as wake-ups for queued submissions, not unsupported
+filesystem or issue-only hooks. Setup success is not proof of a future run.
+No existing paused automation is resumed or repurposed. Final exact revision,
+readback, automation ID and observed review evidence belong in PR179 resolution.
+
 ## Project-wide methodology assessment — subsequent user-directed review
 
 Assessment baseline: PR179 at 1102ab9986296e662c673485897f04865c90b275. Equal-weight 0–5 rubric: 0 absent, 1 intent only, 2 partial, 3 adequate bounded design/evidence, 4 strong with gaps, 5 independently demonstrated across representative domains. Design and verified readiness are different judgments, not completion percentages, performance measurements or probabilities. Scope is this proposed project-wide method and inspected integration surfaces, not a claim to have audited every repository component. Medium confidence in design findings; low confidence in operational coverage.
