@@ -56,7 +56,7 @@ def evaluate(instrument, observations, interval_minutes=1, as_of=None, currency=
         low, high = min(x["l"] for x in s), max(x["h"] for x in s)
         start, end = s[0]["o"], s[-1]["c"]
         changes = [b["c"] - a["c"] for a,b in zip(s,s[1:])]
-        path = sum(abs(x) for x in changes)
+        # Sampled close path includes the first open-to-close displacement;\n        # this shares the origin of net progress but not hidden intrabar travel.\n        path = abs(s[0]["c"] - start) + sum(abs(x) for x in changes)
         shares = sum(x["v"] for x in s)
         turnover = sum(x["v"]*(x["vw"] if x["vw"] is not None else (x["h"]+x["l"]+x["c"])/3) for x in s)
         up = sum(max(0,x) for x in changes)
