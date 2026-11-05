@@ -16,8 +16,12 @@ class TestMetrics(unittest.TestCase):
         y=m.evaluate("ORCL",bars())
         self.assertEqual(x["windows"],y["windows"])
         self.assertNotEqual(x["instrument"],y["instrument"])
-        self.assertEqual(m.evaluate("CRWV",bars()[:20])["windows"]["5m"],
-                         m.evaluate("CRWV",bars()[:20])["windows"]["5m"])
+        # Streaming a one-pass iterable and replaying its completed prefix
+        # must yield the same descriptive snapshot as a materialized batch.
+        for n in (5, 15, 20, 39, 40):
+            source = bars()[:n]
+            self.assertEqual(m.evaluate("CRWV", iter(source)),
+                             m.evaluate("CRWV", source))
     def test_intraday_ranges_and_nulls(self):
         x=m.evaluate("CRWV",bars())
         self.assertIsNotNone(x["windows"]["15m"])
@@ -37,5 +41,44 @@ class TestMetrics(unittest.TestCase):
         self.assertGreater(x["estimated_turnover_usd"],0)
         self.assertTrue(0<=x["position"]<=1)
         self.assertGreater(x["net_progress_usd"],0)
+
+
+    def test_sampled_path_first_candle_and_sign(self):
+        for sign in (1, -1):
+            b = []
+            for i in range(5):
+                o = 100 if i == 0 else 100 + sign*(9+i)
+                close = 100 + sign*(10+i)
+                b.append(dict(t=i*60000,o=o,c=close,h=max(o,close),
+                              l=min(o,close),v=100,vw=close))
+            for ticker in ("CRWV","ORCL"):
+                x=m.evaluate(ticker,b,as_of=300000)["windows"]["5m"]
+                self.assertEqual(x["net_progress_usd"],sign*14)
+                self.assertAlmostEqual(x["path_efficiency"],float(sign))
+
+    def test_first_candle_only_and_round_trip(self):
+        b=[dict(t=i*60000,o=100 if i==0 else 110,c=110,
+                h=110,l=100 if i==0 else 110,v=100) for i in range(5)]
+        self.assertEqual(m.evaluate("CRWV",b)["windows"]["5m"]["path_efficiency"],1)
+        closes=[110,105,100,105,100]
+        opens=[100]+closes[:-1]
+        q=[dict(t=i*60000,o=o,c=close,h=max(o,close),l=min(o,close),v=100)
+           for i,(o,close) in enumerate(zip(opens,closes))]
+        w=m.evaluate("ORCL",q)["windows"]["5m"]
+        self.assertEqual(w["net_progress_usd"],0)
+        self.assertEqual(w["path_efficiency"],0)
+
+    def test_flat_path_null_and_partial_clock_baseline(self):
+        b=[dict(t=i*60000,o=100,c=100,h=100,l=100,v=100) for i in range(5)]
+        x=m.evaluate("CRWV",b,same_clock_expected={15:1000})["windows"]["5m"]
+        self.assertIsNone(x["path_efficiency"])
+        self.assertIsNone(x["same_clock_rvol"])
+        self.assertEqual(m.evaluate("CRWV",b,same_clock_expected={5:250})["windows"]["5m"]["same_clock_rvol"],2)
+
+    def test_first_candle_gap_does_not_fabricate_efficiency(self):
+        b=[dict(t=i*60000,o=100 if i==0 else 110,c=110,
+                h=110,l=100 if i==0 else 110,v=100) for i in range(5)]
+        b[-1]["t"] += 60000
+        self.assertIsNone(m.evaluate("CRWV",b)["windows"]["5m"])
 
 if __name__=="__main__":unittest.main()
