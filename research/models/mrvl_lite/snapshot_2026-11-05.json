@@ -1,0 +1,25 @@
+{
+  "as_of": "2026-11-05T23:09:52Z",
+  "source": "Massive snapshot",
+  "source_class": "provider_observation",
+  "status": "historical_snapshot",
+  "raw_csv": "ticker,todaysChangePerc,todaysChange,updated,day_dv,day_o,day_h,day_l,day_c,day_v,day_vw,lastQuote_P,lastQuote_S,lastQuote_p,lastQuote_s,lastQuote_t,lastTrade_c,lastTrade_i,lastTrade_p,lastTrade_s,lastTrade_t,lastTrade_x,lastTrade_ds,min_dv,min_dav,min_av,min_t,min_n,min_o,min_h,min_l,min_c,min_v,min_vw,prevDay_o,prevDay_h,prevDay_l,prevDay_c,prevDay_v,prevDay_vw\nLITE,-19.30795372955724,-121.01260000000002,1793920192362336068,9954212.116557,594.195,596.82,506.6894,509.7,9954212.0,539.6963,509.0,120,505.6,160,1793920198675747676,[12],131264,505.7374,50,1793920192362336068,4,50.0,254.077900,9954212.116557,9954212,1793920080000,37,505.9627,505.9627,505.9627,505.9627,254,506.6652,640.94,651.08,598.7,626.75,9546926.791106,620.7686\nMRVL,-17.22991239048811,-27.5334,1793920187683417729,66028708.459023,151.405,152.15,132.54,133.55,66028708.0,140.0006,132.41,100,132.2,200,1793920192551861467,[12],325876,132.2666,803,1793920187683417729,4,803.0,5140.950000,66028706.703323,66028706,1793920080000,216,132.99,132.99,132.41,132.41,5140,132.5586,165.26,166.3229,154.78,159.8,46568123.910347,159.9891\n",
+  "scope": "B04 research evidence; canonical B02 ingestion pending #190",
+  "regular": {
+    "MRVL": {
+      "low": 132.54,
+      "close": 133.55,
+      "vwap": 140.0006
+    },
+    "LITE": {
+      "low": 506.6894,
+      "close": 509.7,
+      "vwap": 539.6963
+    }
+  },
+  "original_low": {
+    "MRVL": 154.78,
+    "LITE": 598.7
+  },
+  "note": "Snapshot last trades asynchronous. Pair spread uses regular closes. AH prints undercut RTH lows, exact full AH low requires trade/minute replay."
+}
