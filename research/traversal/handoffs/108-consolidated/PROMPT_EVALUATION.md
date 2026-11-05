@@ -132,7 +132,7 @@ The full procedure is longer than its predecessor; greater length is a cost, not
 
 ### Actually executed
 
-- Materialized GitHub UTF-8 source in a temporary workspace and recomputed Git blob identities for 16 fetched inputs, including the candidate and six queued artifact references. No branch checkout, code change or production operation claimed.
+- Materialized GitHub UTF-8 source in a temporary workspace and recomputed Git blob identities for 15 staged inputs, including the six queued artifact references; the v3 test fixture reused the same verified candidate bytes. No branch checkout, code change or production operation claimed.
 - Ran `python -B -m unittest discover -s orchestration/conversation_closeout/versions -p 'test_*.py' -v`: **19 passed, zero skips/failures/errors, exit 0**. The first staging attempt omitted the v3 Markdown file and produced one fixture FileNotFoundError; staging the byte-identical pinned file resolved that error without changing tests or repository source.
 - Loaded the actual QC_QUEUE index, ran validate_index and verify_artifacts on its one request and all six SHA-pinned SHA256-matched artifacts, and confirmed enqueue replay returns the unchanged index. This establishes the bounded source/readback and structural replay checks, not automated delivery or semantic acceptance.
 - At the checked PR179 head, the request-keyed archive receipt path returned NOT_FOUND. This is a point-in-time path check, not a claim about every automation run.
