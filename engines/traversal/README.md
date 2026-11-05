@@ -11,7 +11,7 @@ Records must be completed ordered bars containing `t` (UTC start milliseconds), 
 
 ## Contract and scope
 - Method `basket.traversal.metrics@1`; observed range position does not imply direction. Velocity in USD/min is based on the *fixed window*, not a changing boundary. Normalized band velocity remains null until frozen reference versions are available.
-- Turnover is shares times supplied VWAP, otherwise typical-price approximation; directional movement per USD uses candle-to-candle positive/negative close changes and associated next-bar turnover. This is **not signed trade volume**. Efficiency ratio requires three up and three down movements; otherwise null. ADV and same-clock RVOL require caller-supplied actual baselines, never invented.
+- Sampled path efficiency is `(last_close - first_open) / (abs(first_close - first_open) + sum(abs(successive close changes)))`; the numerator and denominator share the same first-open origin. This is not a reconstructable intrabar price path. Zero sampled travel gives null. This repairs the counterexample documented in #108 and #109 comments.\n- Turnover is shares times supplied VWAP, otherwise typical-price approximation; directional movement per USD uses candle-to-candle positive/negative close changes and associated next-bar turnover. This is **not signed trade volume**. Efficiency ratio requires three up and three down movements; otherwise null. ADV and same-clock RVOL require caller-supplied actual baselines, never invented.
 - Deliberately returns null for frozen-band events, contact episodes, structural regime, market context and estimated acceleration. Their authoritative producer is B10 PR #99; context is B17 PR #101. Do not confuse these with observed extrema.
 - Caller is responsible for source provider, entitlement, available_at and TTD; source_quality is explicitly *not_attested* and no alerts are enabled. No SQLite or hosted storage is created.
 
@@ -20,5 +20,5 @@ Records must be completed ordered bars containing `t` (UTC start milliseconds), 
 - PR #99: B10 completed-bar producer, SQLite append-only journal/revision checkpoint, contact/break events, historical matcher and poller; **not copied**.
 - PR #101: market-context computation, separate adapter contract; **not copied**.
 
-## Next dependent integration
+Regression fixtures include first-candle jumps, flat tape, sampled round-trip, both signs and two ticker identities. Streaming an iterable into the stateless read-only evaluator is tested against an array of the same completed prefix; this does **not** verify persistence/checkpoint incremental equivalence. The domain suite needs an independent exact-head B01 run; shared `validate.yml` does not execute it.\n\n## Next dependent integration
 B00 #96 must register the final capability. B06 must review and adapt PR #99 event/output schema after merge or explicitly pinned dependency; B02/B08 #97 must prove durable provider execution; B01 #98 must perform independent exact-head acceptance. ORCL source coverage and the external `_DATA` archive are not verified by this module. Production/readiness claims remain blocked. No live watch reactivation.
