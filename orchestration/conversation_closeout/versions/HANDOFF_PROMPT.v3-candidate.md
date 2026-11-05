@@ -480,7 +480,7 @@ require the established mapping, never invent one or insert B00 into receiver_la
 Missing mappings or schemas are explicit contract gaps routed to the existing
 contract owner, not permission for each worker to improvise a format.
 
-Fixed role sequence for closeout:
+Default role sequence for closeout, specialized by work class:
 1. Source worker inventories obligations and causal knowledge, preserves source
    references, validates available payload schemas and emits the complete B00
    handoff with its structured artifacts.
@@ -488,7 +488,10 @@ Fixed role sequence for closeout:
    claims and routes an authorized task to its registered domain owner.
 3. Domain owner executes the pinned recipe in order within the assigned paths,
    validates outputs and returns the existing resolution plus actual evidence.
-4. B01 independently checks required domain acceptance at the exact revision.
+4. B01 independently checks required domain acceptance at the exact revision
+   when the work class requires integration/CI acceptance. A research-only
+   report uses its prescribed source/semantic review; do not launch B01 merely
+   because a handoff exists.
 5. B00 reconciles results and records disposition; integration stays subject to
    existing authorization. Reporting-only handoffs do not launch steps 3 or 4.
 
@@ -513,3 +516,49 @@ These are required integration behaviors, not a claim that this prose implements
 them. Existing #103/#106/#136 own contract/lifecycle/controller integration.
 This candidate records the requirement; its current string-based acceptance tests
 do not establish runtime routing, schema interoperability or claim exclusivity.
+
+PROJECT-WIDE METHOD CONSISTENCY
+
+Standardize invariants globally and recipes by work class. Preserve stable role
+IDs; qualified replacement executors use the same contract and attempt lineage.
+Inputs and conclusions may change; required checks do not disappear because a
+worker or model changes. Do not demand identical prose or research conclusions.
+
+Common invariants: establish intent/authority; resolve existing component and
+owner; pin input/schema/recipe revisions; validate prerequisites; acquire scoped
+write authority before mutation; execute and record attempts; validate meaning
+and structure; persist/read back; reconcile evidence and one next disposition.
+Render the narrative and machine payload from the same retained item inventory;
+check obligations/knowledge IDs and dispositions agree. A schema-valid report
+with lost mechanisms, wrong units or stale observations is still unacceptable.
+
+Specialize evidence: research requires source classes, alternatives and unknowns;
+ingestion requires entitlement, session partitions and replay; computation needs
+units, as-of alignment and deterministic fixtures; deployments need actual health,
+restart and recovery evidence. Read-only work does not acquire a write lease.
+Optional steps may be not applicable only under the pinned recipe's explicit
+rule and recorded reason, never by silent omission.
+
+Use stable request identity plus input/schema/recipe revisions for replay. Changed
+inputs are a new revision; failed attempts remain visible. Crash recovery must
+reconcile observed side effects before retrying. Do not promise exactly-once
+external effects from a deduplication key. Concurrent writers need transactional
+claims and fencing at the write boundary; an earlier collision scan is insufficient.
+
+Route routine compatible work through existing bindings. Escalate only a missing
+contract, incompatible version, contested ownership or unresolved evidence rule.
+Cache unchanged metadata only with a verified freshness/invalidation rule; refresh
+the relevant head, claim and inputs before mutation and acceptance. A cache is
+not permission to treat old state as current.
+
+Scale validation to the registered work class and consequence. Keep essential
+obligations, reasoning and limits in every B00 block; routine cases may use compact
+score rows with justified N/A values. Do not create missing architecture or costly
+review stages merely to fill a template. Set bounded retry/resource budgets and
+report actual usage when available; otherwise usage is unknown.
+
+Promote a method revision only after representative conformance and consumer
+checks. Preserve predecessor, migration compatibility and rollback path. Compare
+first-pass acceptance, lost obligations, false authority, duplicate side effects,
+conflict escalations, clarification burden and measured effort before/after; do
+not claim fewer conflicts or lower cost from this specification alone.
