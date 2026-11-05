@@ -124,3 +124,44 @@ The full procedure is longer than its predecessor; greater length is a cost, not
 ### Next owner action
 
 #169 owner evaluate these authority/loss cases against the previous and candidate procedures on the same frozen annotated inputs, using an independent review where available; accept only the behavioral deltas supported by evidence. Preserve earlier good behavior and report regressions. This is a bounded evolution of the existing protocol, not a new framework or authorization to reopen unrelated project work.
+
+
+## Independent bounded intake check and loss counterexample — November 5, 2026
+
+**Checked revisions:** PR179 `d150397b8a4ea2ede2d2024b9b882837825d8b57`; its preserved v2 blob `f3e6c4b8a656b27feeed4ea32b86792faa1a7be2`; v3 blob `1602bc1d2ed639af1beb959174e9a386a1595e37`; PR177 prompt at `af841f3e7b7522f41839407720e54bf1e896b3d3`. Compare the existing owner candidate and implementation; do not launch another queue or evaluator.
+
+### Actually executed
+
+- Materialized GitHub UTF-8 source in a temporary workspace and recomputed Git blob identities for 16 fetched inputs, including the candidate and six queued artifact references. No branch checkout, code change or production operation claimed.
+- Ran `python -B -m unittest discover -s orchestration/conversation_closeout/versions -p 'test_*.py' -v`: **19 passed, zero skips/failures/errors, exit 0**. The first staging attempt omitted the v3 Markdown file and produced one fixture FileNotFoundError; staging the byte-identical pinned file resolved that error without changing tests or repository source.
+- Loaded the actual QC_QUEUE index, ran validate_index and verify_artifacts on its one request and all six SHA-pinned SHA256-matched artifacts, and confirmed enqueue replay returns the unchanged index. This establishes the bounded source/readback and structural replay checks, not automated delivery or semantic acceptance.
+- At the checked PR179 head, the request-keyed archive receipt path returned NOT_FOUND. This is a point-in-time path check, not a claim about every automation run.
+
+### New adversarial case: complete receipt for an incomplete inventory
+
+Use the actual checked PR179 request as an isolated in-memory fixture. Its pinned handoff explicitly contains **K5** (stable obligation/knowledge IDs and narrative/structured agreement) and requires accounting for O1–O5 and K1–K5.
+
+1. Copy the request; remove K5 from item_ids; recompute request_id. Leave pinned artifact bytes and hashes unchanged.
+2. validate_request and verify_artifacts accept the structurally valid nine-item request.
+3. Construct a synthetic accepted receipt with dispositions for those nine IDs. validate_receipt accepts it; pending projects that test request into archived_request_ids.
+4. No actual queue, submission, receipt or archive was written.
+
+**Interpretation:** this is the documented semantic boundary, not a claim the current production worker has accepted a bad request. The adapter proves every *declared* item has a receipt disposition. It cannot detect an omission from the declaration. Matching hashes prove the artifacts are unchanged, not that all required knowledge was declared.
+
+### Same-case comparison of the written procedures
+
+| Surface | What it requires for this case | Remaining evidence |
+|---|---|---|
+| Preserved v2 | Material knowledge units, complete handoff and source-grounded review; no queued inventory/receipt boundary | No direct machine/narrative parity requirement |
+| PR179 v3 | Stable inventory IDs, source-to-handoff loss audit, schema/contract binding, matching narrative/structured outputs, QC review and receipts | Worker must execute semantic cross-check; structural pass alone cannot reject the omitted ID |
+| PR177 recovery candidate | Separate scan back to source anchors, authority classification, recover deferred ideas, self-audit caveat and explicit source-to-destination accounting | Supplies the review method; does not implement a queue or prove model extraction reliability |
+
+This comparison is a manual application to the same concrete omission case, not a blind or independently replicated model A/B test. No new score or measured retention gain is assigned. Existing supplied-output fixture tests still test formatting and selected retained anchors.
+
+### Smallest owner action and acceptance
+
+Reuse PR179's existing QC_WORKER semantic review; carry the PR177 source-anchor omission check into that step rather than add an evaluator or mutate the task schema.
+
+Before accepted/superseded review can be archived, reconcile **available source anchors → complete handoff inventory → submitted item_ids → receipt dispositions**. The reviewer must surface missing or extra IDs, unsupported authority and important lost meaning. If the handoff or source identifies a material omitted item, require rework on the same workstream; do not emit an archive receipt. If full original source is inaccessible, record review coverage and limits; hashes or matching declared IDs do not establish full recovery.
+
+Acceptance pair: intact 10-item request can advance to semantic review with preserved evidence; the nine-item perturbation with unchanged handoff containing K5 receives **rework**, no archive, with K5 named. Repeat unchanged input without duplicate writes. Keep actual revision and review evidence on existing #178/PR179 and route unresolved implementation through #136. No request identity or domain-owner work is invented by this probe.
