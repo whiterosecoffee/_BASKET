@@ -3,7 +3,7 @@
 ## v3 candidate — 2026-11-04
 
 - File: [HANDOFF_PROMPT.v3-candidate.md](HANDOFF_PROMPT.v3-candidate.md).
-- Complete reusable prompt approved for repository preservation in this conversation; exact content of the final chat prompt, without Markdown fences. No semantic editing or trimming during persistence.
+- Original complete chat candidate preserved at e949f402b84471dca89ba78f2a442573b0c8db39. The current candidate adds narrowly reviewed compatibility and actionability amendments; see VALIDATION.md. The v2 snapshot remains byte-identical.
 - This is the procedure that GENERATES a B00 handoff, not a generated handoff to send to B00.
 - Candidate, not adopted policy. Not wired into the CLI or default invocation. No merge or release implied.
 
@@ -26,6 +26,10 @@ Lossless means both source versions remain recoverable in full. It does not asse
 
 ## Verification and next pilot
 
-Verify full GitHub readback equality against both supplied strings and the v2 blob SHA. Documentation-only change; no runtime tests or independent semantic validation claimed. The next user-run pilot should use the complete v3 file and assess original obligations, mechanisms, authority, B00 recipient and scored improvements. Baseline conversation history is not committed here.
+Initial preservation was documentation-only with no semantic validation. The subsequent user-authorized comparison adds three bounded paired manual cases and seven frozen-output regression tests; see [VALIDATION.md](VALIDATION.md). These do not establish generalized model reliability. Baseline full conversation history is not available here.
+
+Run the new owner-local tests with:
+`python -m unittest discover -s orchestration/conversation_closeout/versions -p 'test_*.py' -v`.
+No external dependencies or services are required. They reuse Python unittest and the existing module's supplied-evidence testing pattern. No production validator, scheduler or CLI is added. Existing shared CI discovery is not claimed to execute these subtree tests; exact-head independent local review is separate from CI.
 
 Related: #178 (this preservation work), #169 / PR #170 (existing closeout implementation). Existing main and PR governance remains applicable.

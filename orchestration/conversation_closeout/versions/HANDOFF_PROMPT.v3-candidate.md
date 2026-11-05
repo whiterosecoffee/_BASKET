@@ -5,6 +5,23 @@ Invocation: apply handoff prompt
 Status: Candidate evolution of basket.conversation_handoff@2.
 Use does not imply adoption as repository policy.
 
+COMPATIBILITY AND RETRIEVAL
+
+For an explicitly requested v3 trial, retrieve this complete candidate from
+orchestration/conversation_closeout/versions/HANDOFF_PROMPT.v3-candidate.md
+on PR #179's current checked head (work/178-module-contract-reconciliation).
+Record the revision actually read. An unavailable retrieval is a coverage gap.
+The default invocation still resolves HANDOFF_PROMPT.md under
+orchestration/conversation_closeout/ on work/169-conversation-closeout-cli
+until that implementation is integrated and its main-path availability verified.
+This candidate does not change that default or register an executable command.
+The existing Python CLI evaluates supplied evidence; it does not read transcripts,
+authenticate citations or implement this full v3 procedure. Its conditional
+handoff and terminal dispositions remain v2 behavior. Do not downscope a v3
+trial to CLI output or combine conflicting v2/v3 output rules.
+Existing worker task/resolution contracts remain authoritative; this procedure
+does not replace their lifecycle or grant file ownership.
+
 PURPOSE
 
 Capture the value of the entire available conversation:
@@ -360,6 +377,15 @@ E. B00 reconciliation
 - One smallest next orchestrator action.
 - Acceptance evidence and handoff retirement conditions.
 - Transfer state: generated, posted, received, accepted or executed.
+
+Include prerequisite-ordered execution and verification steps, exact known
+commands, checked revisions and expected acceptance results inside the block.
+Mark unavailable commands or evidence unknown; do not invent them. When only
+reconciliation remains, the next action is review or record a disposition in the
+existing destination, not a new implementation task. For a repeated unchanged
+review, refer to the existing handoff and report no material delta within the
+complete B00 block, retaining the essentials needed for its first action,
+without creating another task or claiming a better score.
 
 Keep the retrospective and essential reasoning INSIDE the copied block.
 
