@@ -184,3 +184,48 @@ B06: verify market geometry uses same synchronized observation windows with no d
 B17 owner: integrate shared capital-flow / credit interpretation without adding new price-feed stores or competing market-context engine.
 B01: independently validate provider fixtures, expected test vectors, exact-head CI and post-integration main.
 Until all gates pass, report `research_spec_only`; no functioning all-session service, reliable 15m monitoring, or measured predictive performance is established.
+
+
+## Risk-gated market snapshot upgrade — 2026-11-06
+
+Status: **proposed B17 analysis contract, no production source ingestion or live deployment**.
+
+### Real captured example (Massive API one-time snapshot)
+2026-11-06T13:35:36Z approximate observed timestamp (per-ticker trade times differ by seconds; retain raw nanosecond `lastTrade_t`). Provider: Massive U.S. stocks full-market ticker snapshot, request universe `NVDA,SMH,QQQ,SPY,CRWV,MSFT,AMZN,GOOGL,ORCL,AAOI`. Representative observed last trades: NVDA 189.5054 (today change +4.3532%), SMH 469.91 (+4.9539%), QQQ 656.79 (+1.5053%), SPY 734.52 (+0.2074%), CRWV 47.5066 (+8.8104%), MSFT 530.32 (-1.0468%), ORCL 119.58 (+3.8381%), AAOI 48.74 (+3.9454%). Values are USD and quote-feed observations, not executions available at the reader's current time. This paragraph is provenance for a one-time research observation, NOT canonical ticker JSONL, permanent market capture or a guarantee of source persistency. Source provider response was retrieved on 2026-11-06. Data availability vs ingestion timestamp in this research report is not a substitute for an entitled durable B02 ingestion record.
+
+Descriptive read: highly positive semiconductor/AI dispersion vs SPY with weaker MSFT; a selective risk-on bid, not confirmed equity-market-wide reversal. Nothing in this snapshot proves bond/money-market net transfers, institutional participation, credit health or persistence after 09:30 ET. Do not convert this illustration into historical inference without preserved provider raw response and as-of timestamp.
+
+### Proposed risk-gate output fields (not yet a shared schema)
+- `as_of_utc`, `session_id`, `exchange_calendar_id`, `snapshot_source`, `entitlement`, `market_timestamp`, `first_available_at`, `ingested_at`, `ttd_seconds`, `coverage_status`, `age_seconds`.
+- `price_momentum`: synchronized 1/5/15/30/60m returns and session high/low position; source B06 market_geometry, not duplicate calculations.
+- `participation`: QQQ/SPY, SMH/QQQ, RSP/SPY, IWM/SPY relative strength; eligible constituents only; missing RSP/IWM => `unknown`, never `breadth_confirmed`.
+- `execution_liquidity`: spread/depth/eligible venue coverage and time-of-day expected volume (only if available); if missing, `unknown`.
+- `funding_credit`: published HY/IG spreads and trend; SOFR/repo and funding exceptions; last publication effective/available times; missing => `unknown`.
+- `fund_allocations`: last public MMF assets+MMF net flows, long-term bond/equity net flows, report period and latest vintage; must not be characterized as tick-by-tick transfers.
+- `event_overlay`: scheduled economic releases, earnings, financing events and stale/unknown source categories.
+- `interpretation`: independently report `ai_sector_bid`, `broad_market_confirmed`, `credit_confirmed`, `execution_liquidity_confirmed`, each true/false/unknown and supporting/contradicting inputs. If only sector bid confirmed, state `selective_rebound_unconfirmed`.
+- `scenario_triggers`: scenario, numeric reference baseline and as-of, what observation confirms/invalidates, without invented probability. The current provider last-trade print is not an order trigger or executable price.
+
+### Decision priority
+1. A current and entitled timestamped snapshot is necessary to make any statement about "now". Missing/stale inputs produce `UNKNOWN_CURRENT`, not zero returns.
+2. Cross-market confirmation is separate from sector intensity. AI names outperforming does not alone establish broad risk-on. Require explicit QQQ, SPY, RSP and IWM comparable observations and directional rules chosen by B17, validated later.
+3. Credit and funding change is separate from market prices and weekly fund-flow publications. If absent, indicate `CREDIT_UNVERIFIED`.
+4. Distinguish volatility compression, relief rallies, and trend reversals as different hypotheses; a confirmed reversal requires prespecified persistence and breadth/credit evidence plus historical testing before assigning predictive meaning.
+5. Protect against selection bias: for intraday "peak" tracking do not compare PRE highs of liquid stocks with thin AH highs on identical thresholds; preserve actual high touch, window volume, coverage and known first availability.
+6. Only score empirically tested signal combinations. The initial rule-based readout emits non-probabilistic states and exposes its data limitations. Validate any forecast against price-only and geometry-only baselines including slippage, false positives, missed reversals and transaction costs.
+
+### Owner-specific implementation sequence
+- B02 **capture first**: entitled Massive snapshot/minute adapters, replayable timestamped per-ticker daily JSONL with venue/coverage and TTD, 15m complete windows only on real bars. Source snapshotted results must not be passed off as durable canonical data unless the B02 owner ingests and verifies them. Dependency #148 and separate B02 handoff below.
+- B06 **recompute second**: consume canonical B02 observations, no duplicate bar store, independently verify 15m touch prices, volume and relative returns.
+- B17 **interpret third**: adapt existing market-context PR #101 with these risk gates after ownership/collision review; no parallel live market scanner and no hardcoded weights.
+- B00/B01 **contract/verify last**: B00 #202 mediates shared schema, B01 exact-head independent replay/CI; no merge before user authorization.
+
+### Proposed safety/regression acceptance
+R1: A price snapshot with all 10 names but no RSP/IWM and no verified credit input MUST show sector leadership with breadth/credit `unknown`.
+R2: Two identical snapshots with different observation ages, one over declared price TTD, MUST differ in admissibility even when price does not change.
+R3: A bond inflow published after decision time MUST NOT inform the earlier regime.
+R4: Missing 15m minute bars MUST NOT yield an asserted interval peak/full volume.
+R5: Repeated ingestion of identical raw trades MUST be idempotent; conflicting corrected values use append-only revision semantics.
+R6: Relative-return comparisons require synchronized eligible timestamps and compatible adjusted price scales.
+R7: PRE→RTH→AH replay must retain session anchor points and separate condition labels, never collapse separate market sessions into one unqualified "day high".
+R8: Any claimed predictive improvement must survive point-in-time out-of-sample ablation versus B06 price geometry and B17 base context. Not run yet.
