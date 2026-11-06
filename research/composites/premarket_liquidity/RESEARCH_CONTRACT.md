@@ -134,3 +134,53 @@ Prefer one tracking conversation with `session=auto|PRE|RTH|AH|all` queries. Con
 
 ## Disposition
 Research contract complete when this exact file is committed and a draft PR is opened. Implementation, backtesting and production operation explicitly **pending**, not falsely declared complete.
+
+
+## Deterministic receiver fixtures and decision rules (2026-11-06; specification only)
+
+These are explicit **synthetic test inputs**, not observations, live prices or empirical calibration. Each fixture declares `decision_as_of` and expected outcome; the receiving owner should transcribe the vectors into its own domain tests without altering this B17 document.
+
+### Minimum session algorithm (proposed, subject to B00 calendar governance)
+1. Parse each observation as an offset-aware UTC timestamp; resolve its US exchange-local wall-clock date and the applicable session calendar. Reject naive or ambiguous timestamps. Use the venue's eligible coverage; do not infer a consolidated tape from a limited provider.
+2. For a **normal full US equity session**, classify times [04:00,09:30) PRE, [09:30,16:00) RTH, [16:00,20:00) AH, otherwise CLOSED. Exactly 09:30 is RTH; exactly 16:00 AH; exactly 20:00 CLOSED. Special calendars, early close, halts and venue/product-specific overnight trading override this default mapping; unsupported windows must not be silently labeled CLOSED if the provider actually supports overnight trading.
+3. Compute windows using only completed eligible observed intervals ending at or before `decision_as_of`. A 15m peak means the max observed high over an explicit 15m interval, not merely the last trade or the rounded close; for missing intervals preserve `observed_peak` but set `complete=false` and withhold completeness-dependent comparisons. Partial first/last windows must be marked as partial.
+4. Session anchors use calendar-linked previous RTH close, AH latest, next PRE first/latest and subsequent RTH first. Preserve each anchor's timestamp/quality; do not substitute a later session price for a missing prior anchor. Gaps are descriptive differences, not proof of executable tradable returns.
+5. All released fundamental/fund-flow inputs must satisfy `first_available_at <= decision_as_of`, provider entitlement and source validity; `ingested_at` must also be visible. For a historical *as-known* replay, enforce `ingested_at <= replay_dataset_cutoff` or use an explicitly frozen vintage. Publication `period_end` alone never establishes availability.
+6. Classify a regime only when its required independent source families meet explicit availability and coverage; otherwise `indeterminate` with missing sources. Do not infer that equity inflows are funded by bond redemptions, or that equity turnover is a net flow.
+
+### Synthetic acceptance vectors
+| ID | Decision point and inputs (America/New_York unless explicit UTC) | Expected assertion |
+|---|---|---|
+| S01 | Normal trading day 03:59:59, 04:00:00, 09:29:59, 09:30:00 | CLOSED, PRE, PRE, RTH respectively |
+| S02 | Normal trading day 15:59:59, 16:00:00, 19:59:59, 20:00:00 | RTH, AH, AH, CLOSED respectively |
+| S03 | 2026-03-06 09:00 ET; 2026-03-09 09:00 ET (after US DST switch) | Both PRE by local exchange wall clock; offset differs -05:00 vs -04:00. Neither is matched to same UTC hour |
+| S04 | 2026-11-02 09:00 ET (after autumn DST switch) | PRE at -05:00; use calendar/time-zone conversion, not manually hard-coded UTC offset |
+| S05 | NYSE scheduled early-close date, decision at special close time and 15m afterward | RTH ends at the official special close; AH availability/classification depends on venue and approved calendar; expected `unsupported_or_unknown` until configured, not a fabricated normal RTH candle |
+| S06 | Saturday 09:30 ET for an ordinary US stock | CLOSED/unsupported; never fabricate RTH session merely from clock time |
+| S07 | Last RTH close 200.00; AH last 202.00; next PRE first 201.00; PRE latest 199.00 (synthetic USD) | AH/RTH +1.00%; PRE-first/AH -0.4950%; PRE-latest/prior-RTH -0.50%; separately labeled denominators, timestamps, venue and no interpretation as net order flow |
+| S08 | Prior RTH close 200.00; AH observation missing; PRE first 201.00 (synthetic USD) | AH anchor `null`, AH-to-PRE change `null`; PRE-first/prior-RTH +0.50% may be shown as separate comparison |
+| S09 | 09:00–09:15 PRE synthetic OHLCV: high 205.00, low 198.00, close 201.00, volume 1000; 09:15–09:30 missing | First observed 15m high 205.00; 09:15–09:30 peak/volume `null`, completeness false; no inferred uninterrupted high or full 30m volume |
+| S10 | RTH 15m 1,000,000 shares versus PRE 15m 10,000 shares | No absolute-volume strength comparison without same-clock/session historical baseline and coverage; both raw observations may remain available |
+| S11 | ICI report `period_end=2026-10-28`, `first_available_at=2026-11-06T09:00:00-05:00`, decision 2026-11-06T08:45:00-05:00 | Excluded from this PRE report and as-known replay despite older reporting period |
+| S12 | Same report as S11 at decision 2026-11-06T09:05:00-05:00 with valid ingest/vintage cutoff and approved TTD | Eligible as latest published weekly context; NOT a freshly measured five-minute flow |
+| S13 | Money-market assets +$20B, weekly net MMF subscriptions +$15B, equity fund net flows +$12B (synthetic, non-overlapping) | Show three distinct quantities; do not conclude $20B exited equities or add AUM delta to fund subscriptions |
+| S14 | Bond funds+ETFs +$10B, of which bond ETFs +$7B (synthetic same coverage interval) | Bond combined stays +$10B, ETF component shown as subset; NEVER report +$17B |
+| S15 | Source quote timestamp 08:00 ET, decision at 09:00 ET, configured quote TTD 60s | Stale price; no current-price claim or current-sensitive classification |
+| S16 | One volume provider supplies partial venues; benchmark from consolidated trade volume | Mark incompatible coverage; do not classify unusual 15m volume from incomparable venues |
+| S17 | Complete RTH fixture supplied to existing B06 geometry and proposed session adapter | Previously validated B06 return/range/velocity numbers remain identical, within declared numerical tolerance; any change is a regression |
+| S18 | Security supports overnight exchange trading outside 04:00–20:00 ET | Do not erase actual observed trades as CLOSED; require new explicit segment definition/owner decision under B00 |
+
+### Quantitative checks independent of empirical alpha
+- Formula: `percent_delta = 100 * (new_price / base_price - 1)` only if both positive, same split/FX basis, available and correctly tagged; `null` otherwise.
+- Shares and USD notional must stay different units. `notional_usd = sum(price_i * eligible_shares_i)` where an eligible trade stream is available; a minute bar's `close * volume` is an approximation and must be labeled, not reported as true executed notional.
+- For 15m time buckets, specify exact `[start,end)` and session membership; use 15m aligned windows local to session start unless a receiving contract explicitly dictates a different anchor.
+- Holiday, suspension and unexpectedly empty provider response are three different states: `not_scheduled`, `halted` when independently observed, `missing_source` otherwise.
+- Out-of-sample study must compare identical as-of clocks, traded instruments and eligibility, with same costs and missingness accounting. Define improvement targets before testing and preserve null outcomes. Synthetic fixtures validate contract semantics only, not trading performance.
+
+### Cross-owner release checklist
+B00: accept or explicitly change calendar, session identity and observation interface in existing shared-contract scope, resolving issues #202/#163.
+B02: prove canonical source resolver, entitlement, append-only daily JSONL/session partition and replay semantics on provider-supported real captures.
+B06: verify market geometry uses same synchronized observation windows with no duplicated calculations.
+B17 owner: integrate shared capital-flow / credit interpretation without adding new price-feed stores or competing market-context engine.
+B01: independently validate provider fixtures, expected test vectors, exact-head CI and post-integration main.
+Until all gates pass, report `research_spec_only`; no functioning all-session service, reliable 15m monitoring, or measured predictive performance is established.
