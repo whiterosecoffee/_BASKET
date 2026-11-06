@@ -6,7 +6,7 @@ Repository: https://github.com/whiterosecoffee/_BASKET. GitHub main is authorita
 
 ## Contract (declared inline; adopt the component black-box manifest from #103/#104 when it lands; no competing schema)
 - Inputs (defaults): ticker = NVDA; comparators = SMH, QQQ, SPY; session = current regular session; as_of = now, resolved to the latest completed minute actually available; windows = latest 3 completed five-minute windows plus one labeled partial; trade_lookback = 15 minutes; bin_width = $0.25 for NVDA (declare it for any other ticker); data_root = an operator-named durable path or none; hiro = optional supplied snapshot.
-- Outputs: report (section 4); write_receipt {added, revised, unchanged, missing, staged_unwritten}; status OK | STALE | UNVERIFIED | BLOCKED.
+- Outputs: report (section 4); write_receipt {added, revised, unchanged, missing, staged_unwritten}; status OK | STALE | UNVERIFIED | BLOCKED | EXPIRED.
 - Errors, each naming the missing field or source: BLOCKED_NO_DATA, BLOCKED_NOT_ENTITLED, STALE, UNWRITTEN, CONFLICT_REVISION.
 - Classification (#157): CONFIGURE (this prompt) plus REUSE (TickerStore, nvda_pilot resolver, B06 vocabulary). This prompt adds no engine, schema, scheduler, queue or ledger.
 
@@ -83,7 +83,7 @@ Bottom line first, narrow, no ticker background.
 6. End with one queued next action.
 
 ## 5. Status and evidence rules
-Evidence classes: verified observation, company statement, inference, scenario, unknown. Every datum carries timestamp, data age, TTD and a status of OK, STALE, UNVERIFIED, BLOCKED or EXPIRED. Historical captures carry ttd_seconds 0 and are never promoted to live. Price levels expire at the session close. Report USD and display America/Chicago; store UTC and the America/New_York exchange date. Probabilities appear only as labeled scenario outputs with formula and parameters.
+Evidence classes: verified observation, company statement, inference, scenario, unknown. For basket.worker_resolution@1 claims map them: verified observation to source_fact; company statement to issuer_statement; vendor or third-party data (HIRO, GEX) to third_party_claim; inference, scenario and unknown unchanged. Every datum carries timestamp, data age, TTD and a status of OK, STALE, UNVERIFIED, BLOCKED or EXPIRED. Historical captures carry ttd_seconds 0 and are never promoted to live. Price levels expire at the session close. Report USD and display America/Chicago; store UTC and the America/New_York exchange date. Probabilities appear only as labeled scenario outputs with formula and parameters.
 
 ## 6. Prior-art ledger (status; source class)
 - Return per turnover for ease (Amihud, 2002): adopted descriptively, not as impact; repo-cited.
