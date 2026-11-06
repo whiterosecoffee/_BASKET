@@ -2,6 +2,14 @@
 
 Worker B14 #185; branch work/185-nvda-daily-history-recovery. Main contract pinned to b4910122a4c3f6ade747f2e4d59bd2d2e84b3c95. Evidence only; no canonical data-plane or resolver edits.
 
+## Live-tape operator entry point
+
+Start with [Live-tape analysis prompt](LIVE_TAPE_PROMPT.md), then use the [battle-range runbook](BATTLE_RANGE_RUNBOOK.md) and [read-only tape matrix](tape_matrix.py). Example: **Analyze live tape for NVDA, regular session, as of now, with SMH, QQQ and SPY as comparators.**
+
+Read the [project operating contract](../../../../AGENTS.md), [worker protocol](../../../../orchestration/WORKER_PROTOCOL.md), [spark registry](../../../../orchestration/sparks.json), and [version policy](../../../../architecture/VERSIONING.md) on current main before changing system behavior. Reuse the existing B02 writer and B06 traversal contracts. Canonical integration is tracked in [#204](https://github.com/whiterosecoffee/_BASKET/issues/204).
+
+**Read local daily JSONL first. Backfill missing observations through Massive. Always append newly queried evidence to the correct daily partition through the authorized writer and verify replay before calling a refresh complete.** Use separate approved schemas for bars, trades, quotes and derived evidence. If writing is blocked, report the exact gap or staging result. Keep provider data out of Git.
+
 ## Result
 
 Eight New York session-date partitions: October 26–30 and November 2–4. Total 7,437 minute bars. All dates have 390 regular-session minute observations. November 4 ends at 23:08 UTC / 17:08 America/Chicago and is partial extended-hours coverage. Full capture metadata, per-file hashes, counts and flags are in manifest.json. These are minute aggregates, not individual trade ticks. One session date may cross UTC midnight after the November DST change.
