@@ -21,3 +21,29 @@ Massive unadjusted bars cover 101 regular-session minutes through the 10:10 bar.
 | 10:05–10:10 | 188.4500 | 1.216M | 188.50–<188.75, 637K | −0.34 |
 
 Each trade window exhausted its cursor on the first page. The 10:05 close and modal migration confirmed a move below the prior 189.25–<190.25 range. In the latest window 1.164M shares traded in 188.25–<188.75. The second close remained outside the old range while downside movement per share slowed. The 10:10 minute is a partial-window observation. Raw provider rows remain in the local workflow.
+
+## Live tape matrix v1.1
+
+Ask **which direction costs more shares per dollar, how active is the tape for this time of day, and did price gain acceptance at a boundary?** Keep the three readings separate. The cost is descriptive turnover, not dollars spent by buyers or sellers and not causal market impact.
+
+### Fixed-window measurements
+
+- Use completed, clock-aligned five-minute windows within one session. Use the preceding minute close as start, except at the regular open where the first eligible open starts the first window. Never mix opening or closing auction windows into an ordinary intraday comparison. Show partial windows separately and exclude them from shift confirmation.
+- Let d = end close minus start, V = bar shares in millions, and path = sum of absolute consecutive one-minute close changes, including the start. Report signed speed d/5, signed ease d/V, and directional cost V/abs(d) for material moves only. Report near-flat when abs(d) is below a predeclared noise floor. Pilot floor is 5 basis points of the starting price, explicitly uncalibrated. Invalid prices, coverage gaps or nonpositive volume make the comparison unavailable. Coherence = abs(d)/path where path is positive. Low coherence flags back-and-forth or a retrace within a window.
+- Participation = shares divided by the median for that same five-minute slot across the preceding 20 eligible sessions. Show the comparator count and use unavailable when 20 are not present. Show prior-window volume change separately. Keep cumulative regular-session turnover separate. Report matched-window returns versus SMH and QQQ as context without treating either as independent proof.
+- For directional cost compare the nearest completed opposite-direction window in the same session and within the previous six five-minute slots, excluding near-flat and auction windows. Report both timestamps, up and down cost, and which moved more easily. If there is no eligible pair, show the available direction only. High or low ease is relative to that comparator. Participation above or below its median gives context; no calibrated significance threshold is implied.
+
+### Read the combination, then check the boundary
+
+| Ease of directional movement | Above typical participation | Below typical participation |
+|---|---|---|
+| Higher | Directional momentum candidate. Check close and retest. | Price traveled readily. Check whether follow-through survives heavier trading. |
+| Lower | Possible resistance or absorption at a tested boundary. Check rejection, recovery and path coherence. | Muted move. Wait for a meaningful test. |
+
+At similar readings or missing participation, describe the measured change without assigning a quadrant. Repeated high turnover and low progress followed by rejection at the upper edge is consistent with supply capping the move. The mirror image at the lower edge is consistent with demand supporting it. Confirming aggressive side or replenishment requires eligible trades matched to contemporaneous quotes, with unknown classifications kept separate. Report that evidence independently from bar turnover.
+
+Use separate states: **ease flip** when the cheaper direction changes across eligible pairs, **probe / confirmed shift** under the existing five-minute close and modal-bin rule, and **reversal candidate** when a countertrend push is followed by a defended retest and a break of the prior countertrend swing. A fresh failure of the defended retest invalidates that candidate. A single efficient bar does not establish directional persistence. Report price-bin migration as unavailable when trade pagination is incomplete. Keep threshold and state versions with the input cutoff for replay. Before estimating predictive odds, validate by session type on time-ordered out-of-sample data.
+
+### Nov. 6 worked tape read
+
+10:30–10:35 CT rose $0.76 on 1.667M shares, costing 2.19M shares per dollar. 10:35–10:40 gained only $0.0191 on 1.393M and is near-flat under the pilot rule. The partial 10:40–10:44 drop lost $0.8991 on 0.735M, costing 0.82M shares per dollar. It is provisional and ineligible for the paired state. The confirmed observations are upward progress stalling near $189.45 and a subsequent partial decline to $188.29. Recheck the completed downside window and whether $188.25 holds before classifying a range shift.
