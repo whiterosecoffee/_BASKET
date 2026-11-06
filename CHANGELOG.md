@@ -6,6 +6,7 @@
 - Proposed independent conversation branching, domain ownership, handoff issues and 22 scoped launch sparks.
 - Proposed complete ChatGPT Project Instructions in one maintained block and separate version tracks for core, orchestration, schemas, datasets, engines and reports.
 - Add formal release manifest and evidence gates; do NOT raise the declared 0.4.1 baseline until validated and authorized.
+- Add a ticker-agnostic live-tape operator prompt (v2.1, worker issue #205) with an inline typed contract, prior-art ledger and a persistence section aligned to the existing NVDA writer and resolver; adds no engine, schema, scheduler or ledger.
 - Pending: strict SFTBY relationships schema/data reconciliation, passing CI, PR review/merge and an authorized immutable release tag.
 
 ## 0.4.1 — 2026-10-16
