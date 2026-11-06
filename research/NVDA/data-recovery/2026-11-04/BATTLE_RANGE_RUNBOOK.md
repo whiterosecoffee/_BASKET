@@ -47,3 +47,24 @@ Use separate states: **ease flip** when the cheaper direction changes across eli
 ### Nov. 6 worked tape read
 
 10:30–10:35 CT rose $0.76 on 1.667M shares, costing 2.19M shares per dollar. 10:35–10:40 gained only $0.0191 on 1.393M and is near-flat under the pilot rule. The partial 10:40–10:44 drop lost $0.8991 on 0.735M, costing 0.82M shares per dollar. It is provisional and ineligible for the paired state. The confirmed observations are upward progress stalling near $189.45 and a subsequent partial decline to $188.29. Recheck the completed downside window and whether $188.25 holds before classifying a range shift.
+
+## Executable research tool and prior art
+
+Run from the directory containing the tool:
+
+```bash
+python tape_matrix.py /path/to/2026-11-06.1m.jsonl --as-of 2026-11-06T16:44:30Z
+```
+
+Supply earlier daily journals via `--history` for the 20 eligible same-clock samples. The JSON includes input hashes, missing slots, completed windows, and the latest eligible directional pair. The cutoff applies to observation completion, source availability and ingestion. The research adapter currently accepts unadjusted Massive NVDA journals and assumes a standard 09:30–16:00 ET regular session. B06 integration must use the canonical exchange calendar for holidays, halts and early closes. This CLI does not fetch data, calculate trade bins, classify absorption or assign reversal odds.
+
+| Prior art | Integration |
+|---|---|
+| [Amihud, 2002](https://www.sciencedirect.com/science/article/pii/S1386418101000246) | Adapt the return-versus-turnover family as a descriptive baseline. The NVDA signed intraday share ratio has different units and is not the original daily illiquidity statistic. |
+| [Andersen and Bollerslev, 1997](https://doi.org/10.1016/S0927-5398(97)00004-2) | Account for intraday seasonality. The same-clock 20-session volume median is our pilot design. |
+| [Lee and Ready, 1991](https://doi.org/10.1111/j.1540-6261.1991.tb02683.x) | Add quote-based trade classification only when timestamp alignment, quote eligibility, and unknown-side coverage are tested. Do not copy historical timestamp offsets into modern SIP joins. |
+| [Cont, Kukanov and Stoikov](https://arxiv.org/abs/1011.6402) | Add best-quote order flow imbalance and displayed depth as a separate evidence tier. Trade totals do not capture quote additions, removals or depth. |
+
+B06 should reuse the sampled path and turnover primitives in PR #109, frozen range vocabulary in PR #145, and matched-clock geometry in PR #150. Specify window origin explicitly when comparing with #109, whose displayed window starts at the first bar open. Replay first, add quote features only after source qualification, and validate incremental reversal value over price-only and price-plus-volume baselines before issuing probabilities.
+
+Local replay verified 10:30:56 CT as-of: up cost 1.005M shares per dollar versus down cost 2.426M. At 10:44:30 CT the last completed slot was near-flat and the partial decline produced no eligible pair. Missing historical comparator data produced null relative volume.
