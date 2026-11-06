@@ -88,5 +88,49 @@ No fabricated dollar inflows, directional probabilities, index weights, or forwa
 ## Receiver handoff (for orchestrator triage)
 "Review B17 #163 and its draft research contract; reconcile with B17 #100/PR #101, #158/PR #159, B06 #149/PR #150, and B02 #148/#151. Assign source-entitled, timestamped published fund-flow ingestion to B02; existing geometry reuse to B06; any shared API schema to B00; independent point-in-time acceptance to B01. Preserve exact-owner paths and no-live/no-alpha guarantees. Do not open duplicate work without inspecting those existing issues; produce owner-specific contracts, tests and blockers."
 
+
+## Unified PRE/RTH/AH session-aware extension (2026-11-06; issue #163 revised)
+
+**Architecture decision:** one common market context/analysis engine, three exchange-calendar-derived session profiles, one canonical observation history. This research module supplies macro allocation/credit context; it DOES NOT reimplement B06 market geometry or B02 ingestion. This is an extension of the current B17 research proposal, not authorization to create a separate 'premarket engine'.
+
+### Session contract and acceptance logic
+- Trading calendar: US equities exchange-specific schedule in America/New_York, timezone-aware timestamps and DST; PRE 04:00–09:30 ET, RTH 09:30–16:00 ET, AH 16:00–20:00 ET for typical eligible US-stock extended-hours data. Trading availability, holidays, half days, exchange suspensions and broker-specific access override simplistic clock windows; session derivation belongs to canonical B02 adapter/B00 contract.
+- Session tags: `PRE`, `RTH`, `AH`, `CLOSED` as derived output, NEVER as a replacement for observed timestamp/venue. Cross-session trading can be continuous as observations, but prices/volumes do not share equal liquidity and executable depth.
+- Input observation fields: instrument, timestamp UTC, exchange-local timestamp, source, venue, price/bid/ask, volume and coverage, available_at, ingested_at, TTD, session and normal-session reference close. Do not invent premarket consolidated coverage or quote depth when feed lacks it.
+- Session snapshots: decision_as_of, session, completed 1/5/15/30/60m windows, session-to-date high/low/volume/number of actual observations, prior regular close, cross-session change, and missing-bar/completeness verdict. Include boundary snapshot sequence `RTH_close -> AH_last -> PRE_first -> PRE_last -> RTH_first` only if each observation exists; absent boundary fields null. 15-minute peaks represent actual observed high trades, not rounded candle closes; volumes must be provider coverage-verified.
+- For overnight gaps identify prior RTH close as anchor; preserve AH end and PRE first separately. "AH high" and "PRE high" are different maxima. No false uninterrupted bars across closed or unobserved periods.
+- Unify symbols and observed data through B02 resolver and daily JSONL partitions, preserve session tags and daily file policies. A daily partition must have explicit timezone/calendar key, including crossing UTC midnight. Never silently combine same symbol across disparate venues, corporate actions or currencies.
+- Shared macro inputs—ICI flows, money market AUM, Fed reserve/financial condition series, credit indices, yields and treasury settlements—retain publication cadence and timestamp; session requests read the most recent decision-time eligible release, not a fabricated 15m observation. Publication age visible independently of source-domain TTD.
+
+### Session-specific interpretation, without three engines
+| Profile | Main emphasis | Additional cautions |
+|---|---|---|
+| PRE | Overnight gap, AH persistence vs reversal, futures/ETF-sector divergence, expected open catalysts, quote spread/depth | Thin volume, participant selection, stale prints and unreliable breadth |
+| RTH | Tradable acceptance/rejection, synchronized index breadth, turnover, liquidity, options/hedging and cross-sector confirmation | Opening/closing auctions, volatility halts, intraday seasonality |
+| AH | Earnings/events, RTH close to AH repricing, sustained versus isolated prints, next-PRE reference | Thin depth, limited venue coverage, next-day continuation unproven |
+
+The same deterministic geometry functions should operate with session-scoped parameters. Compare 15-minute volume against same-session and same-clock-time historical distributions, not RTH against PRE raw counts. No predictive regime probabilities unless walk-forward calibrated.
+
+### Interfaces to existing work (read-only dependencies)
+- B17 #100 / PR #101: reuse `engines/composites/market_context/context.py` versioned basket/universe, synchronized 5/15/60m context and strict stale/missing evidence controls. B17 owns any eventual modification to this engine in its owning worker, not #163.
+- B17 #158 / PR #159: reuse macro delta and physical supply risk research; avoid separate flow archive and "no_new_observation" interpretations.
+- B06 #149 / PR #150: reuse `engines/traversal/market_geometry/core.py` 1/5/15/30/60m returns, range position, velocity/acceleration and QQQ/SPY, RSP/SPY, SMH/QQQ, IWM/SPY relatives; B06 owns future function modifications.
+- B02 #148, #151 / PR #153: use the canonical entitlement, venue, session calendar and replay/TTD source adapter when it is verified. Never assume available from a PR description.
+- B00 to define cross-domain session/output schema; B01 to independently test end-to-end point-in-time replay and source freshness.
+
+### Required acceptance tests by receiving owners
+T1: PRE/RTH/AH classification at 04:00, 09:30, 16:00, 20:00 ET and DST, early-close/holiday/session-not-supported cases.
+T2: AH-to-PRE and PRE-to-RTH comparisons preserve three separately timestamped anchors and null missing points.
+T3: 15m highs/lows and dollar-volume are based on observed bars/trades, with completeness checks and provider venue coverage.
+T4: Same-clock-time volume baseline; no RTH liquidity threshold applied to PRE/AH.
+T5: Weekly fund-flow observation first available after a decision timestamp is excluded from that report and replay.
+T6: Source stale/partial/unknown statuses force unknown classification where critical evidence missing; no manufactured certainty.
+T7: Existing B06 geometry outputs and B17 market context remain numerically identical on matched eligible RTH fixtures (non-regression).
+T8: Forward session-to-session trading research includes spreads/transaction costs, gap slippage, missed rebounds and distinct unexecutable thin-liquidity scenarios; no fabricated probabilities.
+
+### Proposed user-facing view
+`SESSION | as_of | prior RTH close | RTH/AH/PRE high-low-volume + observation coverage | 15m peak and volume | QQQ/SMH/NVDA relative | credit spread delta | MMF/equity/bond last-publication flows | state/supporting/contradicting observations | next falsifier`.
+Prefer one tracking conversation with `session=auto|PRE|RTH|AH|all` queries. Conversation UI is a readout, not a data store, durable worker or independent authority.
+
 ## Disposition
 Research contract complete when this exact file is committed and a draft PR is opened. Implementation, backtesting and production operation explicitly **pending**, not falsely declared complete.
