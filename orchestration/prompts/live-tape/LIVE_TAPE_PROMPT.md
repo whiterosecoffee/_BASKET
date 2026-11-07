@@ -1,6 +1,6 @@
 # _BASKET live-tape analysis prompt v2.1
 
-Capability: `basket.prompt.live_tape` | version 2.1.0 | mode: prompt | worker issue #205
+Capability: `basket.prompt.live_tape` | version 2.1.1 | mode: prompt | worker issue #205
 Supersedes the v1 text in draft PR #187 (pinned `3d148ba`); that file is unchanged.
 Repository: https://github.com/whiterosecoffee/_BASKET. GitHub main is authoritative; this prompt is history, not proof.
 
@@ -40,9 +40,9 @@ Historical replay excludes anything first available or ingested after the cutoff
 What main can write (verified against runtime/ticker_data.py at b4910122): TickerStore is NVDA-only; the kinds are market_bar and financial_fact only; there is one journal per explicit root at `<root>/tickers/NVDA/observations.jsonl`; put_many commits atomically; an identical repeat returns unchanged; a changed value needs supersedes plus expected_head; the whole file is rewritten and it is not built for trade-tick scale. Importer: `python runtime/ticker_data.py --root <root> import-massive --input <csv> --retrieved-at <UTC> --adjustment-basis unadjusted`. An activated nvda_pilot snapshot is immutable: new data means a new journal root and then freeze, stage and activate by its owner. Never edit an active snapshot.
 
 Tiers:
-- W1, NVDA minute bars: write through the importer or put_many to the operator-named durable root, then read back with TickerStore.read(as_of) and compare record IDs and the snapshot hash. Routing one exchange date per root (the #187 convention) awaits B00 approval (#183); say so in the receipt.
+- W1, NVDA minute bars: write through the importer or put_many to the operator-named durable root, then read back with TickerStore.read(as_of) and compare record IDs and the snapshot hash. B00 ruling R1 (#207, 2026-11-06): one exchange date per file, target layout `<root>/tickers/<T>/intraday/<YYYY-MM-DD>.1m.jsonl` with TickerStore named-field rows. That partitioned writer is not on main yet (owed by B02, #207). Until it ships, give each exchange date its own root so every observations.jsonl holds one date, and refuse to write a batch whose rows span more than one exchange date. Never append a second date to an existing journal; say in the receipt which form was used.
 - W2, comparators (SMH, QQQ, SPY), trades, quotes and price-bin evidence: no approved writer or schema exists. Stage recoverable files with sha256, query intervals and page counts, label them UNWRITTEN, deliver them to the operator, and hand off to B02. Never insert trades or quotes into a bar journal.
-- W3, never commit provider rows to Git. runtime/TICKER_DATA.md bars this for NVDA. The ORCL-first pilot permission in PR #153 does not extend to NVDA or other tickers without a B00 ruling.
+- W3, never commit provider rows to Git. runtime/TICKER_DATA.md bars this for NVDA. The ORCL-first pilot permission in PR #153 does not extend to NVDA or other tickers without a B00 ruling, and R1 keeps the durable root outside GitHub by default (the pilot is a labeled exception pending a provider-terms check).
 
 With no durable root, write nothing: everything is UNWRITTEN and delivered as files. Chat sandboxes are ephemeral. In a live session persist only completed minutes past the provider delay; the day stays provisional until it settles after close plus delay. Report the write_receipt with counts. If the replay check was not run, say "replay not verified".
 
