@@ -1,0 +1,119 @@
+{
+  "schema": "basket.openai_sftby_interface@1",
+  "created_on": "2026-10-17",
+  "owner": "B13",
+  "upstream_registry": "research/OPENAI/valuation-register.json",
+  "currency": "USD",
+  "overall_state": "methodology_only_not_current_nav",
+  "topology": [
+    {
+      "source": "SFTBY",
+      "edge": "ultimate_control_and_economic_fund_interest",
+      "target": "SVF2",
+      "quantified_interest": "unknown",
+      "source_url": "https://group.softbank/en/ir/stock/sotp"
+    },
+    {
+      "source": "SVF2",
+      "edge": "owns_preferred_securities_convertible_at_IPO",
+      "target": "OPENAI",
+      "disclosed_aggregate_ownership_approx": 0.13,
+      "as_of": "2026-10-01",
+      "source_url": "https://group.softbank/en/news/press/20261001"
+    },
+    {
+      "source": "OPENAI",
+      "edge": "buys_compute_service",
+      "target": "CRWV",
+      "face_value_contract": "reported_partial_not_net_exposure",
+      "source_url": "https://tradeinzone.in/heres-how-the-coreweave-sell-off-is-affecting-openai-vs-anthropic-valuations/"
+    }
+  ],
+  "official_nav_reference": {
+    "period_end": "2026-06-30",
+    "reported_currency": "JPY",
+    "publication_source": "https://group.softbank/en/ir/stock/sotp",
+    "classification": "historical_reported_nav_not_current",
+    "nav_items": [
+      "SVF2 is reported as ONE line within SFTBY holdings value",
+      "SVF2 represents SBG share of fund NAV and related adjustments",
+      "Existing SFTBY NAV subtracts adjusted net interest bearing debt"
+    ],
+    "risk": "NEVER add modeled OpenAI stake on top of existing SVF2 NAV"
+  },
+  "acceptance_gate": {
+    "required_to_model_net_sftby_openai_delta": [
+      "OpenAI_SVF2_holdings_as_of",
+      "OpenAI_security_class_term_sheet_and_conversion_waterfall",
+      "OpenAI_post_financing_diluted_shares_and_warrants",
+      "SoftBank_economic_share_of_SVF2_and_fund_fee_waterfall",
+      "OpenAI_value_embedded_in_reported_SVF2_NAV_at_matching_date",
+      "same_as_of_adjusted_SBG_debt_cash_collateral_and_LTV_basis",
+      "other_SVF2_holdings_and_no_double_count_lookthrough",
+      "FX_from_same_period_as_parent_NAV_if_base_is_JPY",
+      "fund_and_SBG_tax_discounts_and_reporting_policies"
+    ],
+    "current_eligibility": "blocked_missing_required_inputs",
+    "allow_output": "conditional_gross_security_sensitivity_only"
+  },
+  "method": {
+    "fundNAV_replacement": "new_SFTBY_lookthrough_NAV = old_SFTBY_NAV - current_SBG_attributable_OpenAI_in_SVF2_embedded_in_base_NAV + scenario_SBG_attributable_OpenAI_value_at_matching_date + other_verified_changes; preserve rest_of_SVF2, debt, cash, fund fees, FX and taxes exactly once",
+    "deltaNAV": "delta_SFTBY_NAV = net_SBG_attributable_delta_OpenAI_security_fair_value + verified_delta_other_assets - verified_delta_net_debt - fees_taxes_and_financing_adjustments; NEVER add gross OpenAI 13% as extra holding",
+    "gross_only": "hypothetical gross stake value = valuation_scenario_USD * 0.13; sensitivity = -0.04 * valuation_scenario_USD * 0.13, provided 13% held fixed",
+    "reporting_currency": "USD",
+    "time_policy": "all equity, FX, debt, portfolio holdings, preferred rights and reporting inputs must be synchronized and no later than scenario as_of",
+    "states": [
+      "historical_disclosed",
+      "conditional_gross_only",
+      "net_nav_unavailable",
+      "current_mark_blocked",
+      "reconciled_provisional",
+      "reconciled_verified"
+    ],
+    "rules": [
+      "Investment cost USD 64.6B is neither the implied stake fair value nor net parent equity.",
+      "Do not substitute March funding postmoney mark as a verified October mark.",
+      "SoftBank's approximately 13% interest is not a disclosure of fully diluted current common-equivalent percentage.",
+      "Funding underlying stake with debt can increase capital cost independently of OpenAI price.",
+      "LTV stress uses adjusted holdings value AND adjusted net debt and 25% normal/35% emergency company policy, not gross asset price alone.",
+      "No price target or traversal probability until reconciled NAV and post-IPO securities/ADR ratios exist."
+    ]
+  },
+  "illustrative_scenarios": [
+    {
+      "scenario_id": "OAI_FUNDING_BENCHMARK_HYPOTHETICAL_OCT_STAKE",
+      "assumed_openai_equity_value_usd_b": 852,
+      "assumed_openai_ownership_fraction": 0.13,
+      "assumed_move_pct": -4,
+      "gross_stake_value_usd_b": 110.76,
+      "gross_stake_move_usd_b": -4.4304,
+      "classification": "mixed_date_hypothetical_not_fair_value",
+      "remarks": "Applies Oct 1 approximate 13% to March 31 financing value for sensitivity, not an actual matched-date holding valuation."
+    },
+    {
+      "scenario_id": "OAI_PERP_ANCHOR_HYPOTHETICAL",
+      "assumed_openai_equity_value_usd_b": 1500,
+      "assumed_openai_ownership_fraction": 0.13,
+      "assumed_move_pct": -4,
+      "gross_stake_value_usd_b": 195,
+      "gross_stake_move_usd_b": -7.8,
+      "classification": "speculative_proxy_hypothetical_not_fair_value",
+      "remarks": "April-October funding terms and derivative future do not establish security-specific payoff; not NAV."
+    }
+  ],
+  "blocked_outputs": [
+    "current_SFTBY_NAV",
+    "current_SFTBY_discount_to_NAV",
+    "confirmed_OpenAI_fair_value",
+    "net_SBG_preferred_gain",
+    "ADR_per_share_price_delta",
+    "probability_of_repricing"
+  ],
+  "handoff_owners": {
+    "SFTBY_NAV": "B09: research/SFTBY/**",
+    "ownership_graph": "B05: tickers/*/relationships.json and research/graph/**",
+    "fundamental_valuation": "B04: engines/valuation/**",
+    "market_synthetic_history": "B02: runtime/** and exchange-specific market observations",
+    "shared_contracts": "B00: schemas/** and architecture/**"
+  }
+}
