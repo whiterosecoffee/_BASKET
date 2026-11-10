@@ -1,4 +1,4 @@
-"""Independent exact-source ETF and traversal component gates (B01 #214)."""
+"""Independent exact-source component gates (B01 #214 / #221)."""
 import argparse
 import hashlib
 import json
@@ -23,10 +23,55 @@ SUITES = {
             ("engines/traversal/metrics.py", "engines/traversal/tests")),
     "market-geometry": (150, "eade884d4423e5f7e6a899387e5f62bc3b24045a",
             "engines/traversal/market_geometry", 8, ("engines/traversal/market_geometry",)),
+    "market-context": (101, "1517dc3cf549c4e2dd7695781bf01485b9dc6db6",
+            "engines/composites/market_context/tests", 38,
+            ("engines/composites/market_context",)),
+    "ticker-comparison": (218, "37f6bfe0ef8cc243cfe319526cc7471bc0b77f5f",
+            "research/composites/market_context/ticker_comparison", 5,
+            ("research/composites/market_context/ticker_comparison",)),
+    "ticker-component": (220, "4c64f0927c7e9858dbf266aafc1b069821c41911",
+            "research/composites/ticker_comparison_component", 5,
+            ("research/composites/ticker_comparison_component",)),
     "daily-state": (160, "62e41633434602fd481b8a3ed7a1a92f3f628fcb",
             "research/traversal/self_relative_state", 22,
             ("research/traversal/self_relative_state",)),
 }
+
+# Only these reviewed inputs can be supplied to the composed adapter suite.
+DEPENDENCIES = {"ticker-component": {
+    "market-context": ("BASKET_CONTEXT_PATH", "engines/composites/market_context/context.py"),
+    "ticker-comparison": ("BASKET_COMPARE_PATH", "research/composites/market_context/ticker_comparison/compare.py"),
+}}
+MODES = ("actual_head", "unmerged_dependency_only", "explicit_exact_revision")
+
+
+def selection_outputs(root, suite_name, requested=""):
+    selected = select(root, suite_name, requested)
+    for name in DEPENDENCIES.get(suite_name, {}):
+        for key, value in select(root, name).items():
+            selected[name.replace("-", "_") + "_" + key] = value
+    return selected
+
+
+def dependency_inputs(suite, dependencies):
+    expected = DEPENDENCIES.get(suite, {})
+    if len(dependencies) != len(expected) or {d[0] for d in dependencies} != set(expected):
+        raise ValueError("Exact named dependency set required for " + suite)
+    inputs = {}
+    for name, root, sha, mode in dependencies:
+        if mode not in MODES:
+            raise ValueError("Invalid dependency source mode")
+        if mode == "unmerged_dependency_only" and sha != SUITES[name][1]:
+            raise ValueError("Dependency fallback does not match reviewed pin")
+        root = Path(root).resolve()
+        env_name, relative = expected[name]
+        hashes = fingerprint(root, sha)
+        if relative not in hashes or not (root / relative).is_file():
+            raise ValueError("Required tracked dependency missing: " + relative)
+        inputs[name] = {"root": root, "sha": sha, "mode": mode, "hashes": hashes,
+                        "env_name": env_name, "path": root / relative}
+    return inputs
+
 
 def select(root, suite_name, requested=""):
     _, pinned, _, _, markers = SUITES[suite_name]
@@ -76,14 +121,24 @@ def child(root, suite_name, result_path):
     return 0 if report["passed"] else 1
 
 
-def run_gate(source, expected_source, acceptance, expected_acceptance, suite, mode, output, timeout=300):
+def run_gate(source, expected_source, acceptance, expected_acceptance, suite, mode, output, timeout=300, dependencies=()):
     source, acceptance, output = source.resolve(), acceptance.resolve(), output.resolve()
     if output.is_relative_to(source) or output.is_relative_to(acceptance):
         raise ValueError("Evidence must be written outside both input checkouts")
+    for _, root, _, _ in dependencies:
+        if output.is_relative_to(Path(root).resolve()):
+            raise ValueError("Evidence must be written outside dependency checkouts")
     output.mkdir(parents=True, exist_ok=True)
     report = {"suite": suite, "source_pr": SUITES[suite][0], "source_sha": expected_source, "acceptance_sha": expected_acceptance,
               "source_mode": mode, "passed": False}
     try:
+        inputs = dependency_inputs(suite, dependencies)
+        report["dependencies"] = {}
+        for name, item in inputs.items():
+            (output / (name + "-files.json")).write_text(json.dumps(item["hashes"], sort_keys=True, indent=2) + "\n")
+            report["dependencies"][name] = {
+                "source_pr": SUITES[name][0], "source_sha": item["sha"], "source_mode": item["mode"],
+                "manifest_sha256": hashlib.sha256(json.dumps(item["hashes"], sort_keys=True).encode()).hexdigest()}
         before = fingerprint(source, expected_source)
         acceptance_before = fingerprint(acceptance, expected_acceptance)
         (output / "source-files.json").write_text(json.dumps(before, sort_keys=True, indent=2) + "\n")
@@ -92,14 +147,20 @@ def run_gate(source, expected_source, acceptance, expected_acceptance, suite, mo
             result_path = Path(temp) / "result.json"
             command = [sys.executable, str(Path(__file__).resolve()), "child", "--root", str(source),
                        "--suite", suite, "--result", str(result_path)]
+            environment = {k: v for k, v in os.environ.items()
+                           if k not in {"BASKET_COMPARE_PATH", "BASKET_CONTEXT_PATH"}}
+            environment.update({item["env_name"]: str(item["path"]) for item in inputs.values()})
+            environment["PYTHONDONTWRITEBYTECODE"] = "1"
             with (output / "suite.log").open("w") as log:
                 completed = subprocess.run(command, stdout=log, stderr=subprocess.STDOUT,
-                                           env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"}, timeout=timeout)
+                                           env=environment, timeout=timeout)
             report["exit_code"] = completed.returncode
             if result_path.exists():
                 report["result"] = json.loads(result_path.read_text())
             report["inputs_unchanged"] = (fingerprint(source, expected_source) == before
-                                           and fingerprint(acceptance, expected_acceptance) == acceptance_before)
+                                           and fingerprint(acceptance, expected_acceptance) == acceptance_before
+                                           and all(fingerprint(item["root"], item["sha"]) == item["hashes"]
+                                                   for item in inputs.values()))
             report["passed"] = (completed.returncode == 0 and report.get("result", {}).get("passed") is True
                                 and report["inputs_unchanged"])
     except (OSError, ValueError, subprocess.SubprocessError) as exc:
@@ -128,17 +189,19 @@ def main():
     p.add_argument("--acceptance", type=Path, required=True)
     p.add_argument("--expected-acceptance", required=True)
     p.add_argument("--suite", choices=SUITES, required=True)
-    p.add_argument("--mode", choices=("actual_head", "unmerged_dependency_only", "explicit_exact_revision"), required=True)
+    p.add_argument("--mode", choices=MODES, required=True)
     p.add_argument("--output", type=Path, required=True)
+    p.add_argument("--dependency", nargs=4, action="append", default=[],
+                   metavar=("NAME", "ROOT", "SHA", "MODE"))
     args = parser.parse_args()
     if args.command == "select":
-        for key, value in select(args.root.resolve(), args.suite, args.requested).items():
+        for key, value in selection_outputs(args.root.resolve(), args.suite, args.requested).items():
             print(f"{key}={value}")
         return 0
     if args.command == "child":
         return child(args.root.resolve(), args.suite, args.result.resolve())
     return run_gate(args.source, args.expected_source, args.acceptance, args.expected_acceptance,
-                    args.suite, args.mode, args.output)
+                    args.suite, args.mode, args.output, dependencies=args.dependency)
 
 
 if __name__ == "__main__":
