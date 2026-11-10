@@ -1,0 +1,70 @@
+{
+  "schema": "crwv.source-manifest@1",
+  "source_pr": 69,
+  "source_commit": "29463811e8f77eac9d05b631fcb1c6190bf3f3ff",
+  "files": [
+    {
+      "path": "research/CRWV/debt/2026-10-22/debt-stack.json",
+      "sha256": "d477f902b7e89377486cc360e466cc76ed2a139389aee265e604f3a0fe8bb23f",
+      "use": "read_only_dated_evidence"
+    },
+    {
+      "path": "research/CRWV/debt/2026-10-22/debt-repricing-2026-10-23.json",
+      "sha256": "521af175d1cf0775babb8fbd7465a370a2648dddd9c604398cedee1e22ffbaa0",
+      "use": "read_only_dated_evidence"
+    },
+    {
+      "path": "research/CRWV/debt/2026-10-22/capacity-conversion.md",
+      "sha256": "b7236b2cc972c1010e31e08a970eb13515466415a5ca54413a0c8fbc610582ef",
+      "use": "read_only_dated_evidence"
+    },
+    {
+      "path": "research/CRWV/debt/2026-10-22/integrated-assessment.md",
+      "sha256": "f2eb9e4dc9af01377c8c5847c8037402515192dd3bf705a6b2e116d9d5e64e18",
+      "use": "read_only_dated_evidence"
+    },
+    {
+      "path": "research/CRWV/debt/2026-10-22/factor_tracker.py",
+      "sha256": "420dc23b866f67f451e1e47944f64635a2dbcef6a9cce3d8eee309202b966347",
+      "use": "read_only_dated_evidence"
+    },
+    {
+      "path": "research/CRWV/debt/2026-10-22/october-turnover-velocity.json",
+      "sha256": "c561806a7fff076b8fc5105128fd40309edcaaa44cd06c9091ba0df10e37fb36",
+      "use": "read_only_dated_evidence"
+    },
+    {
+      "path": "research/CRWV/debt/2026-10-22/capacity-scenarios.py",
+      "sha256": "938c96b79743f75581a328326e01002bc4e38fefca5dae0f25da3237014f0d0d",
+      "use": "read_only_dated_evidence"
+    },
+    {
+      "path": "research/CRWV/debt/2026-10-22/functional-tool-blueprint.md",
+      "sha256": "917f0c41826239be8a9c2b1cf7061efbb94594b6d3c0728adc558baad3520230",
+      "use": "read_only_dated_evidence"
+    },
+    {
+      "path": "research/CRWV/debt/2026-10-22/next-conversation-prompt.md",
+      "sha256": "c2f17d72852a22fc2409faadbc22cb311e3ba5414101ff18fc94fa8952bea9a8",
+      "use": "read_only_dated_evidence"
+    },
+    {
+      "path": "research/CRWV/debt/2026-10-22/factor-closes-2026-10-23.csv",
+      "sha256": "9f5395b7b8040b0a0dff6cbcf0c743cf3b17e5d0134da6ecb88e37dedd0e9451",
+      "use": "read_only_dated_evidence"
+    }
+  ],
+  "audit": {
+    "opening_debt_50b": "old scenario assumption; not imported as current",
+    "opening_cash_3b": "old scenario assumption; not imported as current",
+    "opening_shares_600m": "old scenario assumption; not imported as current",
+    "uniform_borrowing_rate": "replaced by explicit fixed/floating instruments",
+    "automatic_equity_plug": "removed; explicit approved finite issues only",
+    "current_balances": null
+  },
+  "market_adapter_execution": {
+    "factor_explained_sessions": 143,
+    "turnover_cutoff": "Caller-supplied conservative demonstration availability; exact first-publication time not established",
+    "refresh_deployed": false
+  }
+}
