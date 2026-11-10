@@ -1,0 +1,51 @@
+{
+  "ledger_version": "b03.event-revisions@1",
+  "entity_id": "SFTBY",
+  "prepared_on": "2026-10-16",
+  "time_precision": "date_only; precise release/ingestion timestamps not verified",
+  "events": [
+    {
+      "revision_id": "SFTBY-2026-10-01-openai-followon-third-tranche:r1",
+      "event_id": "SFTBY-2026-10-01-openai-followon-third-tranche",
+      "supersedes": null,
+      "effective_at": "2026-10-01",
+      "available_at": "2026-10-01",
+      "observed_at": null,
+      "ingested_at": null,
+      "source_class": "issuer_primary",
+      "source_url": "https://group.softbank/en/news/press/20261001",
+      "status": "funded",
+      "classification": "issuer_statement_verified",
+      "accounting_group": "SFTBY-OpenAI-2026-followon",
+      "validation_note": "Issuer release checked 2026-10-16; exact ingestion instant unrecorded; date-only effective/availability not proof of market intraday availability."
+    },
+    {
+      "revision_id": "SFTBY-2026-10-08-sarawak-framework:r1",
+      "event_id": "SFTBY-2026-10-08-sarawak-framework",
+      "supersedes": null,
+      "effective_at": "2026-10-08",
+      "available_at": "2026-10-08",
+      "observed_at": null,
+      "ingested_at": null,
+      "source_class": "issuer_primary",
+      "source_url": "https://group.softbank/en/news/press/20261008",
+      "status": "signed_framework",
+      "classification": "issuer_statement_verified",
+      "accounting_group": null,
+      "validation_note": "Issuer release checked 2026-10-16; exact ingestion instant unrecorded; date-only effective/availability not proof of market intraday availability."
+    }
+  ],
+  "coverage": {
+    "SFTBY": "2 issuer-primary initial events only, not comprehensive",
+    "CRWV": "not backfilled",
+    "AAOI": "not backfilled",
+    "NVDA": "not backfilled; canonical path not present on main"
+  },
+  "uncertainties": [
+    "SFTBY OpenAI cumulative USD 64.6 billion and approximately 13% stake are issuer-reported; independent holdings reconciliation belongs B05.",
+    "SoftBank October 8 framework agreement does not establish committed project capex or revenue.",
+    "Time-of-day for public release and automated ingestion was unavailable; never fabricate timestamps.",
+    "No SEC accession numbers yet matched; add only after verified SEC primary filing.",
+    "DigitalBridge completion remains in source review queue, not canonicalized."
+  ]
+}
