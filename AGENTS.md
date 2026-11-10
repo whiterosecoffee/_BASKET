@@ -33,6 +33,8 @@ Domain unit tests follow the implementation owner. Resolve unmatched or shared p
 
 Follow `architecture/BLOCK_ENGINEERING_METHOD.md` and `architecture/BRANCH_PLAN.md`. Reuse existing contracts, templates and maintained prior art. Define inputs, outputs, units, assumptions, errors, dependencies, owned state and effects. Prefer one small adapter or pure check to a new framework. Keep branches and folders focused on one coherent problem.
 
+For each problem or blocker, compare viable options across benefit, risk, effort/cost, reversibility and downstream unlock. Use evidence-based qualitative scores; mark unknowns and choose the smallest permitted path. Unify proven repeating patterns so new blocks become easier to add. Keep the analysis proportionate to the decision; scores cannot override mandatory gates.
+
 Handoffs preserve source obligations, exact source/target revisions and paths, consumer outcome, dependencies, acceptance and a ready-to-use receiver prompt. Trace source obligations → handoff → issue/branch/PR IDs → explicit receiver claim → result → independent assessment. Accepted intake is not implementation completion. Structural validation does not establish semantic completeness. Resolve or explicitly defer every obligation; do not omit it from a shorter prompt. Continue independent eligible work while an item is blocked.
 
 ## Market data and source truth

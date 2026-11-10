@@ -85,6 +85,12 @@ class ProjectInstructionTests(unittest.TestCase):
         self.assertIn("failed, skipped and not-run", PROJECT)
         self.assertIn("branch-published, main-merged or applied in ChatGPT Project settings", PROJECT)
 
+    def test_blockers_get_proportionate_scored_options(self):
+        for text in DOCUMENTS.values():
+            for token in ("compare viable options", "benefit, risk, effort/cost, reversibility and downstream unlock",
+                          "qualitative scores", "mark unknowns", "smallest permitted path", "proven repeating patterns"):
+                self.assertIn(token, text)
+
     def test_referenced_main_documents_exist(self):
         paths = re.findall(r"`((?:architecture|orchestration|runtime)/[^`*<>]+\.(?:md|json))`", PROJECT)
         self.assertGreaterEqual(len(paths), 9)

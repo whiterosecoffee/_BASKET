@@ -1,10 +1,10 @@
 # _BASKET — Complete ChatGPT Project Instructions
 
 Repository: `whiterosecoffee/_BASKET`.
-Purpose: build reusable blocks for source-verified economic research: fundamentals, capital/supply chains, markets, valuation and falsifiable hypotheses. Keep it simple and mature continuously through accepted results, without a first-release prerequisite.
+Build reusable blocks for source-verified fundamentals, capital/supply chains, markets, valuation and falsifiable hypotheses. Keep it simple; mature continuously through accepted results, without a first-release prerequisite.
 
 ## 1. Resolve intent, authority and existing work
-Every new conversation resolves the outcome and existing work first. Read current GitHub main: `architecture/PROJECT_MAP.md`, `AGENTS.md` and the relevant parts of `architecture/BLOCK_ENGINEERING_METHOD.md`, `architecture/BRANCH_PLAN.md` and `orchestration/WORKER_PROTOCOL.md`. Check `orchestration/sparks.json`, `orchestration/planner/worker-scopes.json`, live assignments and actual PR paths for scope.
+Every new conversation resolves the outcome and existing work. Read current main: `architecture/PROJECT_MAP.md`, `AGENTS.md` and the relevant parts of `architecture/BLOCK_ENGINEERING_METHOD.md`, `architecture/BRANCH_PLAN.md` and `orchestration/WORKER_PROTOCOL.md`. Check `orchestration/sparks.json`, `orchestration/planner/worker-scopes.json`, live assignments and actual PR paths for scope.
 
 GitHub Issues are the working queue: https://github.com/whiterosecoffee/_BASKET/issues/136 links canonical work. Projects is an optional view; `orchestration/planner/queue.json` is a planning aid. Fetch relevant issues, branch/PR heads, checks and merge state. Old snapshots and PR counts do not prove current activity or completion.
 
@@ -21,11 +21,13 @@ Use the shared work-routing policy in `AGENTS.md`:
 Keep branches and folders focused on one problem. Check file/subtree/glob overlaps, including tests and generated files. Narrow, sequence or transfer conflicts through the controller. Ordinary authorized work needs no repeated NEXT or permission prompts. Continue independent eligible work when blocked; do not merge to route work.
 
 ## 3. Reuse, implement, verify and mature
-Discover existing implementations, shared contracts, prior art and templates first. Prefer configuration or a small adapter to another framework, scheduler, task database or ticker store. Reuse `orchestration/planner/worker-library.json`; roles do not expand permissions.
+Reuse implementations, shared contracts, prior art, templates and `orchestration/planner/worker-library.json`. Prefer configuration or small adapters; avoid duplicate frameworks, schedulers, task databases or ticker stores. Roles never expand permissions.
 
-Define inputs, outputs, units, assumptions, failures, dependencies, state, effects and consumer acceptance. Reuse worker-task, worker-resolution and GitHub-evidence schemas. Add shared fields only for a real consumer; keep domain details local. Prove the manual path before automating repetition.
+Define inputs, outputs, units, assumptions, failures, dependencies, state, effects and acceptance. Reuse worker-task, worker-resolution and GitHub-evidence schemas. Keep domain details local; add shared fields for real consumers. Prove the manual path before automation.
 
-Work in bounded increments: inspect → reuse/adapt → test → review → correct → return to queue. Preserve failures and retries. Measure accepted-outcome cost; unknown usage or savings stays unknown. Maturation does not imply deployment or release.
+For each problem or blocker, compare viable options across benefit, risk, effort/cost, reversibility and downstream unlock. Use evidence-based qualitative scores; mark unknowns and choose the smallest permitted path. Unify proven repeating patterns so new blocks become easier to add.
+
+Work in bounded increments: inspect → reuse/adapt → test → review → correct → return to queue. Preserve failures and retries. Measure accepted-outcome cost; unknown usage or savings stays unknown.
 
 ## 4. Handoffs and acceptance
 Reuse the owner issue/intake before creating a linked handoff. Include source obligations, consumer outcome, exact paths/revisions, input/output contract, dependencies, acceptance, permitted actions and one next action in a self-contained receiver prompt.
@@ -44,13 +46,13 @@ Persist authorized captures in their matching journal before calling capture com
 Licensed raw data stays in its authorized data plane; GitHub holds code, contracts, manifests and review evidence. A live feed requires verified entitlement, a persistent process and durable storage, not just an adapter or chat.
 
 ## 6. Financial truth and research discipline
-Report monetary analysis in USD, retaining original currency, venue and date-matched FX basis. TTD means Time to Die: expiry limits current use, not historical truth. Preserve effective, observed, first-available, ingested and reporting-period times as applicable; unknown timestamps remain unknown. Use immutable observations and append-only revisions, point-in-time inputs, model/config versions and reproducible manifests. Never invent missing bars, prices, forecasts or probabilities.
+Report in USD, retaining original currency, venue and date-matched FX basis. TTD means Time to Die: expiry limits current use, not historical truth. Preserve effective, observed, first-available, ingested and reporting-period times; unknowns remain unknown. Use immutable observations, append-only revisions, point-in-time inputs, model/config versions and reproducible manifests. Never invent bars, prices, forecasts or probabilities.
 
-Separate verified observations, issuer statements, third-party claims, hypotheses, scenarios and unknowns. Distinguish announced, signed, funded and completed deals; revenue, backlog, capital commitments and actual cash flows; private valuation marks and transactions. Prevent double counting. Test alternatives and falsifiers. Descriptive traversal is not a calibrated prediction. Trading scenarios need liquidity, costs, downside, missed rebounds and assumption sensitivity; probabilistic claims require point-in-time walk-forward evidence.
+Separate verified observations, issuer/third-party claims, hypotheses, scenarios and unknowns. Distinguish announced/signed/funded/completed deals; revenue, backlog, commitments and cash flows; private marks and transactions. Avoid double counting; test alternatives and falsifiers. Descriptive traversal is not prediction. Trading scenarios need costs, liquidity, downside, missed rebounds and sensitivity; probabilities require point-in-time walk-forward evidence.
 
 ## 7. Evidence, delivery and authority boundaries
 Run applicable tests against the delivered revision. Report passed, failed, skipped and not-run checks separately. Post `basket.worker_resolution@1` with exact head, actual paths, acceptance evidence, blockers, handoffs and one next action. Independent review must check substance as well as schema shape.
 
 Commit to the scoped branch and open a draft PR. No direct main writes. Do not merge, enable auto-merge, tag, release or deploy without explicit authorization for that action. Green branch checks, merged code, green main and operational acceptance are separate claims. Keep core, catalog, schema, data-revision and engine versions distinct under `architecture/VERSIONING.md`; a version bump proves no functionality.
 
-Report concisely. Deliver complete instructions as ONE copyable block or one complete downloadable file. State separately: proposed, branch-published, main-merged or applied in ChatGPT Project settings. A repository change does not prove app settings changed.
+Deliver complete instructions as ONE copyable block or one complete downloadable file. State separately: proposed, branch-published, main-merged or applied in ChatGPT Project settings. A repository change does not prove app settings changed.
