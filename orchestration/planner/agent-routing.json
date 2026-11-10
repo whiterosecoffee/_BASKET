@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "owner": "B00",
+  "policy": "Routing is a default suggestion for who drafts work. It never widens a spark's write_paths, never authorizes merges/tags/releases, and any tool may be swapped by the human owner. Every tool follows AGENTS.md, one issue and one work/<issue>-<slug> branch per task.",
+  "tools": {
+    "chatgpt": {
+      "strengths": [
+        "planning",
+        "source research",
+        "evidence review",
+        "project instructions"
+      ],
+      "entrypoint": "orchestration/PROJECT_INSTRUCTIONS.md"
+    },
+    "claude_code": {
+      "strengths": [
+        "multi-file implementation",
+        "tests",
+        "refactors",
+        "CI repair"
+      ],
+      "entrypoint": "CLAUDE.md"
+    },
+    "visual_studio_copilot": {
+      "strengths": [
+        "local edits",
+        "debugging",
+        "small fixes inside an existing branch"
+      ],
+      "entrypoint": ".github/copilot-instructions.md"
+    },
+    "human": {
+      "strengths": [
+        "authorization",
+        "merge",
+        "release",
+        "entitlements and credentials"
+      ],
+      "entrypoint": "AGENTS.md"
+    }
+  },
+  "human_only_actions": [
+    "merge",
+    "tag",
+    "release",
+    "grant data entitlements"
+  ],
+  "spark_defaults": {
+    "B00": "chatgpt",
+    "B01": "claude_code",
+    "B02": "claude_code",
+    "B03": "chatgpt",
+    "B04": "chatgpt",
+    "B05": "claude_code",
+    "B06": "claude_code",
+    "B07": "claude_code",
+    "B08": "claude_code",
+    "B09": "chatgpt",
+    "B10": "chatgpt",
+    "B11": "chatgpt",
+    "B12": "chatgpt",
+    "B13": "chatgpt",
+    "B14": "chatgpt",
+    "B15": "chatgpt",
+    "B16": "chatgpt",
+    "B17": "chatgpt",
+    "B18": "chatgpt",
+    "B19": "chatgpt",
+    "B20": "chatgpt",
+    "B21": "claude_code"
+  }
+}

@@ -17,3 +17,20 @@
 **Next development lanes:** Resume B02 #11 and B03 #12, and B19 #17 if those are indeed the conversations currently writing. GitHub alone does not prove activity; no extra worker capacity should be inferred. The next NEW worker is B01 T-009, then B21 T-006. No task branch is pre-created.
 
 **QC loop:** Every failed attempt stays associated with its task and owner. Close a milestone only after its own acceptance tests, evidence/TTD checks and relevant main CI pass. Explicitly document unsupported sources, provider entitlements and unknown timings.
+
+## Worker log — multi-tool control (B00, branch `copilot/control-repo-and-project-flow`)
+
+Not a milestone; this is the self-closing record for one worker session on 2026-10-30. No issue number exists for it yet, so the `basket.worker_resolution@1` payload cannot be posted or validated until the owner creates the B00 issue.
+
+| Item | State | Evidence |
+|---|---|---|
+| Identical agent entry point (`orchestration/AGENT_INSTRUCTIONS.md`, `CLAUDE.md`, `.github/copilot-instructions.md`) | Done on branch | `python orchestration/validate_agent_entrypoints.py` |
+| Agent routing table and one-claim-per-spark check | Done on branch | `validate_agent_routing.py`; `orchestration/tests/test_agent_routing.py` |
+| Standard module structure (`MODULE_STANDARD.md`) | Standard added; existing `engines/*` modules do not conform | `validate_module_structure.py` lists gaps (exit 0 unless `--strict`) |
+| Project board runbook (`PROJECT_BOARD.md`) | Written; board, labels and ruleset NOT created | Owner-only GitHub settings |
+| Unit tests | 67 pass locally | `python -m unittest discover -s orchestration/tests -p 'test_*.py'` |
+| CI on PR head | Not run or not verified | Needs a fresh Actions result on the exact head SHA |
+
+**Open handoffs:** B01 wires the two new validators into `validate.yml` and adds a path-ownership check; B04/B06/B21/B02 close module-structure gaps; owner creates the B00 issue, the board and labels, and decides on merge. B00 does not merge its own PR. Disposition: `component_verified` locally only, not integrated.
+
+**Next action:** owner creates the B00 issue and links it to the PR.
