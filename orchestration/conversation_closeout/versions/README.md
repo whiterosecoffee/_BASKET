@@ -1,5 +1,10 @@
 # Closeout prompt versions
 
+External Codex, Claude Code and other agents can prepare the same small review
+request file with [EXTERNAL_AGENTS.md](EXTERNAL_AGENTS.md) and `qc_submit.py`.
+This additive local helper feeds the existing intake adapter; it does not submit
+or accept work, launch a provider, or replace the Issues queue.
+
 ## Repository delivery and automatic QC overlay
 
 Primary work stays in its source owner's repository paths. The complete handoff
