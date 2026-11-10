@@ -1,3 +1,7 @@
+import json
+import subprocess
+import sys
+import tempfile
 import unittest
 from importlib.util import spec_from_file_location, module_from_spec
 from pathlib import Path
@@ -80,5 +84,45 @@ class TestMetrics(unittest.TestCase):
                 h=110,l=100 if i==0 else 110,v=100) for i in range(5)]
         b[-1]["t"] += 60000
         self.assertIsNone(m.evaluate("CRWV",b)["windows"]["5m"])
+
+
+    def test_sampled_path_is_defined_for_every_complete_horizon(self):
+        for sign in (1, -1):
+            source = [dict(t=i*60000, o=1000+sign*i,
+                           c=1000+sign*(i+1),
+                           h=max(1000+sign*i, 1000+sign*(i+1)),
+                           l=min(1000+sign*i, 1000+sign*(i+1)), v=100)
+                      for i in range(390)]
+            for ticker in ("CRWV", "ORCL"):
+                output = m.evaluate(ticker, source, as_of=390*60000)
+                for minutes in (5, 15, 60, 390):
+                    with self.subTest(sign=sign, ticker=ticker, minutes=minutes):
+                        window = output["windows"][str(minutes)+"m"]
+                        self.assertEqual(window["net_progress_usd"], sign*minutes)
+                        self.assertEqual(window["path_efficiency"], sign)
+
+    def test_single_bar_window_uses_open_to_close_path(self):
+        # No close-to-close pair exists; first-candle travel is still defined.
+        for close, expected in ((110, 1), (90, -1), (100, None)):
+            with self.subTest(close=close):
+                source = [dict(t=0, o=100, c=close, h=max(100, close),
+                               l=min(100, close), v=100)]
+                window = m.evaluate("CRWV", source, interval_minutes=5,
+                                    as_of=300000)["windows"]["5m"]
+                self.assertEqual(window["path_efficiency"], expected)
+
+    def test_cli_emits_same_complete_window_snapshot_as_api(self):
+        source = bars(n=15)
+        script = Path(__file__).resolve().parents[1]/"run_metrics.py"
+        with tempfile.TemporaryDirectory() as directory:
+            input_path = Path(directory)/"completed-bars.jsonl"
+            input_path.write_text("".join(json.dumps(row)+"\n" for row in source))
+            completed = subprocess.run(
+                [sys.executable, "-B", str(script), "ORCL", "--jsonl", str(input_path),
+                 "--interval", "1", "--as-of-ms", "900000"],
+                text=True, capture_output=True, timeout=10)
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        self.assertEqual(json.loads(completed.stdout),
+                         m.evaluate("ORCL", source, as_of=900000))
 
 if __name__=="__main__":unittest.main()
