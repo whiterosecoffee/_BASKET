@@ -239,6 +239,103 @@
         "R4"
       ],
       "request_id": "4341c2e000c9336d7b7f1eeac5eff7c7dc50acc48cc14d24e3408e57f5443266"
+    },
+    {
+      "artifacts": [
+        {
+          "path": "orchestration/conversation_closeout/versions/EXTERNAL_AGENTS.md",
+          "revision": "a51a3c53963307c01c6f097e4e55fefb34723b19",
+          "role": "handoff",
+          "sha256": "e66dc7c9a684a30502916a769e4d4961dd53528ded661738681c29082446b283"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/README.md",
+          "revision": "a51a3c53963307c01c6f097e4e55fefb34723b19",
+          "role": "primary",
+          "sha256": "cf386e2a7d8593f082e6a4947f66d331dbf87fc1e22d1f9c40b3430dcf54184c"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/qc_submit.py",
+          "revision": "a51a3c53963307c01c6f097e4e55fefb34723b19",
+          "role": "primary",
+          "sha256": "844b4845da4e3d72ec5db6afe08a5e1816599b9d642a69766bf12b044c1ebf69"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/test_qc_submit.py",
+          "revision": "a51a3c53963307c01c6f097e4e55fefb34723b19",
+          "role": "primary",
+          "sha256": "ac95e5ffd945412b98847b264fbee62d1f0d0ecd2a7fcbbabb197f00c652bae3"
+        }
+      ],
+      "item_ids": [
+        "K1",
+        "O1",
+        "O2",
+        "O3"
+      ],
+      "request_id": "de1836eb14f1a727226825556520667a936aca5cb3ff31bae9bf0cd165d7002d",
+      "review_kind": "closeout_semantic",
+      "source_pr": 179,
+      "task": {
+        "acceptance": [
+          {
+            "criterion": "The generated request is accepted by the unchanged qc_intake validator and enqueue replay does not duplicate it.",
+            "evidence_class": "test",
+            "id": "A1"
+          },
+          {
+            "criterion": "Hash committed source bytes and reject unsafe/unowned paths, bad pins, inventory mismatches, shared queue/archive targets and destructive output.",
+            "evidence_class": "test",
+            "id": "A2"
+          },
+          {
+            "criterion": "Run owner-local regression and real Git CLI fixtures, distinguish local tests from exact-head shared CI and independent review.",
+            "evidence_class": "test",
+            "id": "A3"
+          },
+          {
+            "criterion": "Document one provider-neutral file workflow and publish its pinned request to the existing source PR without claiming asynchronous acceptance.",
+            "evidence_class": "documentation",
+            "id": "A4"
+          }
+        ],
+        "branch": {
+          "base": "main",
+          "name": "work/178-module-contract-reconciliation"
+        },
+        "claimed_at": null,
+        "dependencies": [
+          {
+            "blocks_completion": false,
+            "issue_number": 136,
+            "kind": "review",
+            "reason": "Existing B00 intake owns canonical queue insertion and independent review."
+          },
+          {
+            "blocks_completion": false,
+            "issue_number": 78,
+            "kind": "review",
+            "reason": "Existing provider-neutral assignment/transport boundaries stay unchanged."
+          }
+        ],
+        "issue": {
+          "number": 178,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/178"
+        },
+        "note": "Narrow current-request continuation of issue178; no transfer of existing queue/archive writer ownership. Original source claims and receipt history retained.",
+        "objective": "Let external Codex and Claude Code produce one pinned owner-local request file for the existing B00 closeout QC intake.",
+        "schema": "basket.worker_task@1",
+        "spark_id": "B00",
+        "state": "review",
+        "task_id": "B00-178",
+        "write_paths": [
+          "orchestration/conversation_closeout/versions/qc_submit.py",
+          "orchestration/conversation_closeout/versions/test_qc_submit.py",
+          "orchestration/conversation_closeout/versions/EXTERNAL_AGENTS.md",
+          "orchestration/conversation_closeout/versions/EXTERNAL_AGENTS.request.json",
+          "orchestration/conversation_closeout/versions/README.md"
+        ]
+      }
     }
   ]
 }
