@@ -45,6 +45,25 @@ matches block selection. `viewerCanUpdate` is checked before existing-Project wr
 the create mutation is the authoritative owner-create permission check. Read-only
 discovery cannot prove create authorization. There is no token printed or embedded.
 
+To connect an existing board with any title, select its number or native node ID:
+
+```sh
+# Existing user-selected board: https://github.com/users/whiterosecoffee/projects/2
+# Use --native-status only after verifying Todo/In Progress/Done on that board.
+python orchestration/project_sync/control.py --owner whiterosecoffee --project-number 2 --report /tmp/basket-project-2-plan.json
+# After reviewing the dry-run and authorizing additive field/item synchronization:
+python orchestration/project_sync/control.py --owner whiterosecoffee --project-number 2 --apply --report /tmp/basket-project-2-applied.json
+```
+
+`--project-number` and `--project-id` are mutually exclusive with each other and
+`--create-project`. Selection is restricted to Projects visible under `--owner` and
+`--owner-kind`, never a global node lookup. An absent, closed, ambiguous or
+inaccessible explicit target blocks; it never falls back to the default title or
+creates a replacement board. Renaming the selected board does not change its
+identity. Without a selector, existing exact-title discovery/create behavior is
+unchanged. These flags do not verify live access, configure views, install a
+scheduler or authorize workflow/secrets changes.
+
 GitHub CLI uses supported credential storage or `GH_TOKEN`. A user-owned Project
 requires a credential authorized for Projects read/write (classic PAT `project`,
 plus appropriate repository access; or a supported fine-grained token with Projects

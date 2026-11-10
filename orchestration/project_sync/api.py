@@ -109,25 +109,52 @@ PAGE = "pageInfo{hasNextPage endCursor}"
 
 class Project:
     def __init__(self, api, owner="whiterosecoffee", owner_kind="user", apply=False,
-                 native_status=False):
+                 native_status=False, project_number=None, project_id=None):
         if owner_kind not in ("user", "organization"):
             raise ValueError("owner_kind must be user or organization")
+        if project_number is not None and project_id is not None:
+            raise ValueError("Select a Project by number or ID, not both")
+        if project_number is not None and (type(project_number) is not int or project_number <= 0):
+            raise ValueError("project_number must be a positive integer")
+        if project_id is not None and (not isinstance(project_id, str) or not project_id or
+                                       any(c.isspace() for c in project_id)):
+            raise ValueError("project_id must be a nonempty ID without whitespace")
         self.api, self.owner, self.kind, self.apply = api, owner, owner_kind, apply
         self.native_status = native_status
+        self.project_number, self.project_id = project_number, project_id
         self.operations = []
 
     def discover(self, create=False):
+        explicit = self.project_number is not None or self.project_id is not None
+        if explicit and create:
+            raise Blocked("invalid_project_selection", "discover",
+                          "Explicit Project selection cannot be combined with creation")
         q = '''query($login:String!,$after:String){OWNER(login:$login){
-          id projectsV2(first:100,after:$after){nodes{id title url closed viewerCanUpdate} PAGE}}}'''.replace("OWNER", self.kind).replace("PAGE", PAGE)
+          id projectsV2(first:100,after:$after){nodes{id number title url closed viewerCanUpdate} PAGE}}}'''.replace("OWNER", self.kind).replace("PAGE", PAGE)
         projects = self.api.connection(q, {"login": self.owner}, lambda d: (d[self.kind] or {}).get("projectsV2"))
-        matches = [p for p in projects if p["title"] == TITLE and not p["closed"]]
+        # Resolve IDs only inside the requested owner. Never fall back to the
+        # default title or create a replacement when an explicit target is absent.
+        if self.project_number is not None:
+            matches = [p for p in projects if p.get("number") == self.project_number]
+        elif self.project_id is not None:
+            matches = [p for p in projects if p.get("id") == self.project_id]
+        else:
+            matches = [p for p in projects if p["title"] == TITLE and not p["closed"]]
         if len(matches) > 1:
             raise Blocked("ambiguous_project", "discover", "Multiple matching Projects; B00 selection required")
         if matches:
             project = matches[0]
-            if self.apply and not project["viewerCanUpdate"]:
+            if explicit and project.get("closed") is not False:
+                raise Blocked("project_closed_or_unverified", "discover",
+                              "Selected Project must be verified open")
+            if explicit and (not isinstance(project.get("id"), str) or not project["id"]):
+                raise Blocked("invalid_response", "discover", "Selected Project has no native ID")
+            if self.apply and project.get("viewerCanUpdate") is not True:
                 raise Blocked("permission_denied", "updateProjectV2", "Project write permission required")
             return project
+        if explicit:
+            raise Blocked("project_missing", "discover",
+                          "Selected Project is not visible under the requested owner; no fallback or creation")
         if not create:
             raise Blocked("project_missing", "discover", "No suitable Project found; use --create-project")
         self.operations.append({"operation": "createProjectV2", "title": TITLE})

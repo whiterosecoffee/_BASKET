@@ -85,6 +85,12 @@
       "criterion": "Ordering and repeated sync preserve dependency/review gates without asserting readiness, completion or dispatch",
       "evidence_class": "test",
       "mandatory": true
+    },
+    {
+      "id": "A12",
+      "criterion": "Explicit existing-Project number or ID selection is owner-scoped, title-independent, fully paginated and fail-closed without fallback or creation; prior modes and unchanged-repeat behavior remain compatible",
+      "evidence_class": "test",
+      "mandatory": true
     }
   ],
   "dependencies": [
@@ -103,5 +109,5 @@
   ],
   "claimed_at": "2026-10-31T02:19:58Z",
   "state": "building",
-  "note": "2026-11-10 user-authorized continuation: current increment writes only orchestration/project_sync/** for explicit native ordering and cycle regression checks. Prior generated-scope repair retained. Catalog policy handoff completed by #201/PR209; reconcile its policy and this branch's Copier delta additively at future integration. Preserve PR #25, planner queue and all other owners. No merge, workflow installation, or live Project acceptance."
+  "note": "2026-11-10 controller-approved continuation transfer: original owner session unavailable; one exclusive B00-134 continuation writer handles only orchestration/project_sync/{api.py,control.py,README.md,test_selection.py,task.json}. Source head 6cba6eaba84ba9235c653d236758159ba8548e47. All prior obligations remain. No concurrent writer is assigned. Parent controller authorizes scoped commits and integration after checks; integration acceptance, catalog/Copier reconciliation with #201/PR209 and target-queue scope regeneration remain gates. No live Project write or workflow/credential change occurs in this increment."
 }

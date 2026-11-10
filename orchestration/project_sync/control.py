@@ -248,6 +248,22 @@ def parse_issue_order(value):
     return values
 
 
+def parse_project_number(value):
+    try:
+        number = int(value)
+    except (TypeError, ValueError):
+        raise argparse.ArgumentTypeError("Use a positive Project number") from None
+    if number <= 0:
+        raise argparse.ArgumentTypeError("Use a positive Project number")
+    return number
+
+
+def parse_project_id(value):
+    if not value or any(c.isspace() for c in value):
+        raise argparse.ArgumentTypeError("Use a native Project ID without whitespace")
+    return value
+
+
 def queue_order_records(report, numbers):
     """Validate explicit issue order before any Project mutation; never infer readiness."""
     if (not isinstance(numbers, list) or any(type(n) is not int or n <= 0 for n in numbers) or
@@ -272,7 +288,12 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--snapshot", type=Path, help="Historical/API export; never used for live mutations")
     p.add_argument("--apply", action="store_true", help="Explicitly apply additive Project mutations")
-    p.add_argument("--create-project", action="store_true")
+    selection = p.add_mutually_exclusive_group()
+    selection.add_argument("--create-project", action="store_true")
+    selection.add_argument("--project-number", type=parse_project_number,
+                           help="Select an existing Project number under --owner, regardless of title")
+    selection.add_argument("--project-id", type=parse_project_id,
+                           help="Select an existing native Project ID under --owner, regardless of title")
     p.add_argument("--native-status", action="store_true",
                    help="Explicitly map GitHub Todo/In Progress/Done; retain detailed Workflow State")
     p.add_argument("--queue-order", type=parse_issue_order,
@@ -295,7 +316,8 @@ def main():
             report["queue_order"] = {"issues": args.queue_order, "source": "explicit_operator_input",
                 "dispatch_authorized": False,
                 "blocked_issues": [r["issue"] for r in ordered if r.get("errors") or r.get("blocked_by") or r["fields"]["Status"] == "BLOCKED"]}
-        project = Project(api, args.owner, args.owner_kind, args.apply, args.native_status)
+        project = Project(api, args.owner, args.owner_kind, args.apply, args.native_status,
+                          project_number=args.project_number, project_id=args.project_id)
         try:
             board = project.discover(args.create_project)
             report["project"] = board
