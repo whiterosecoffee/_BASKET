@@ -1,0 +1,45 @@
+{
+  "schema": "basket.nvda_capture_evidence@1",
+  "source_endpoint": "/v2/aggs/ticker/NVDA/range/1/minute/2026-10-26/2026-10-30",
+  "params": {
+    "adjusted": false,
+    "sort": "asc",
+    "limit": 50000
+  },
+  "source_format": "connected_massive_tool_csv",
+  "verified_at": "2026-11-01T01:52:03Z",
+  "source_sha256": "78310f336a11a5561ac5fc39026fa3a37662a9ced79e5930e4e9e2847dc78898",
+  "market_rows_by_date": {
+    "2026-10-26": 934,
+    "2026-10-27": 914,
+    "2026-10-28": 946,
+    "2026-10-29": 943,
+    "2026-10-30": 953
+  },
+  "regular_session_rows_by_date": {
+    "2026-10-26": 390,
+    "2026-10-27": 390,
+    "2026-10-28": 390,
+    "2026-10-29": 390,
+    "2026-10-30": 390
+  },
+  "coverage_status": "observed_rows_only_not_independently_exchange_reconciled",
+  "snapshot_sha256": "8cdddd20197611c35d973e3fadadeaa66868a49b0630aaddc382e2d516710545",
+  "local_store": "/workspace/nvda-data/tickers/NVDA/observations.jsonl",
+  "no_other_ticker_data_written": true,
+  "import": {
+    "status": "created",
+    "records": 4690,
+    "errors": []
+  },
+  "retry": {
+    "status": "unchanged",
+    "records": 4690,
+    "errors": []
+  },
+  "financial": {
+    "status": "created",
+    "records": 1,
+    "errors": []
+  }
+}

@@ -1,0 +1,11 @@
+test_duplicate_resolution_acceptance_fails (test_worker_v2_contract.WorkerV2ContractTests.test_duplicate_resolution_acceptance_fails) ... ok
+test_missing_issue_is_invalid (test_worker_v2_contract.WorkerV2ContractTests.test_missing_issue_is_invalid) ... ok
+test_missing_mandatory_criterion_cannot_be_verified (test_worker_v2_contract.WorkerV2ContractTests.test_missing_mandatory_criterion_cannot_be_verified) ... ok
+test_no_pr_head_ci_is_not_component_verified (test_worker_v2_contract.WorkerV2ContractTests.test_no_pr_head_ci_is_not_component_verified) ... ok
+test_report_task_branch_mismatch_is_invalid (test_worker_v2_contract.WorkerV2ContractTests.test_report_task_branch_mismatch_is_invalid) ... ok
+test_unknown_acceptance_fails (test_worker_v2_contract.WorkerV2ContractTests.test_unknown_acceptance_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.002s
+
+OK

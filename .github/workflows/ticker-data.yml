@@ -1,0 +1,40 @@
+name: NVDA local data contract
+on:
+  pull_request:
+    paths:
+      - 'runtime/observations.py'
+      - 'runtime/test_observations.py'
+      - 'runtime/ticker_data.py'
+      - 'runtime/test_ticker_data.py'
+      - 'runtime/fixtures/nvda/**'
+      - 'schemas/ticker-data.v1.json'
+      - '.github/workflows/ticker-data.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'runtime/observations.py'
+      - 'runtime/test_observations.py'
+      - 'runtime/ticker_data.py'
+      - 'runtime/test_ticker_data.py'
+      - 'runtime/fixtures/nvda/**'
+      - 'schemas/ticker-data.v1.json'
+      - '.github/workflows/ticker-data.yml'
+permissions:
+  contents: read
+jobs:
+  nvda-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install jsonschema==4.23.0
+      - name: Exact tested revision
+        run: git rev-parse HEAD
+      - name: Recovered revision and replay acceptance
+        run: python -m unittest discover -s runtime -p 'test_observations.py' -v
+      - name: NVDA local repository acceptance
+        run: python -m unittest discover -s runtime -p 'test_ticker_data.py' -v

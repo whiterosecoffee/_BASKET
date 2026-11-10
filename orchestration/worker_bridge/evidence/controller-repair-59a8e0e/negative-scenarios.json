@@ -1,0 +1,49 @@
+{
+  "classification": "synthetic_negative_tests_not_live_ownership_or_host_recovery",
+  "controller_sha": "59a8e0eae91f96d64a1589ebfef03c4a7383662c",
+  "source_evidence_sha256": "68638fcddbc9651778a83ab593bee6859f2ae418219f967c6eb76201e1820a7c",
+  "cases": [
+    {
+      "case": "actual_pr_collision",
+      "result": "pass",
+      "rejected_with": "actual_pr_collision"
+    },
+    {
+      "case": "actual_pr_collision_recovery",
+      "result": "pass",
+      "action": "Remove only injected fixture; original owner/source remains unchanged"
+    },
+    {
+      "case": "declared_scope_collision",
+      "result": "pass",
+      "rejected_with": "declared_collision"
+    },
+    {
+      "case": "declared_scope_collision_recovery",
+      "result": "pass",
+      "action": "Remove only injected fixture; original owner/source remains unchanged"
+    },
+    {
+      "case": "stale_fencing_token",
+      "result": "pass",
+      "rejected_with": "stale_fence"
+    },
+    {
+      "case": "owner_acknowledged_test_recovery",
+      "result": "pass"
+    },
+    {
+      "case": "expired_lease",
+      "result": "pass",
+      "simulated_clock": true
+    },
+    {
+      "case": "source_fingerprint_drift",
+      "result": "pass",
+      "rejected_with": "controller_fingerprint"
+    }
+  ],
+  "case_count": 8,
+  "clock_mode": "historical_snapshot_replay_for_tests_only",
+  "live_authorization": false
+}
