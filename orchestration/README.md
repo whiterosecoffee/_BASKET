@@ -3,6 +3,7 @@
 > **Start here:** [Conversation Launchpad](LAUNCHPAD.md) — actual launch order, ready-to-paste prompts, worker status and branch-per-conversation bootstrap. The 22-spark registry below is a reference catalog, **not** a request to open 22 chats.
 
 **Start planning here:** [Reusable worker planner & queue](planner/README.md) — live-evidence task priorities, composed profiles, and next new-chat prompt.  
+**Conversation closeout:** [Offline audit command](conversation_closeout/README.md) — `python -m orchestration.agentic.cli closeout --input evidence.json --output report.md`.  
 **Worker reporting and evaluation:** [WORKER_PROTOCOL.md](WORKER_PROTOCOL.md) — task/resolution schemas, evidence checks, model tests and required response payload.  
 **Complete Project Instructions (single block):** [PROJECT_INSTRUCTIONS.md](PROJECT_INSTRUCTIONS.md)  
 **Release policy:** [VERSIONING.md](../architecture/VERSIONING.md) · **Version manifest:** [version-manifest.json](../architecture/version-manifest.json)  
