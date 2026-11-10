@@ -1,45 +1,58 @@
-# _BASKET — Agent and Conversation Operating Contract
+# _BASKET — Agent Operating Contract
 
-Repository: `whiterosecoffee/_BASKET`. Canonical complete, single-block ChatGPT Project Instructions: `orchestration/PROJECT_INSTRUCTIONS.md`. Release governance: `architecture/VERSIONING.md` and `architecture/version-manifest.json`. See `orchestration/sparks.json` for executable conversation spark scopes and `orchestration/README.md` for launch instructions.
+Repository: `whiterosecoffee/_BASKET`. Start at `architecture/PROJECT_MAP.md` on current main. Complete ChatGPT Project Instructions: `orchestration/PROJECT_INSTRUCTIONS.md`. Detailed evidence protocol: `orchestration/WORKER_PROTOCOL.md`. Reuse the existing spark catalog, worker schemas, capability library and domain implementations rather than adding parallel systems.
 
-## Mandatory conversation bootstrap
-At the start of **each new actionable _BASKET conversation**, read this document and the current catalog on GitHub main **after PR #2 merges**. During the initial bootstrap, read them from `work/1-conversation-sparks-orchestration` (PR #2) while creating the new worker branch **from current main**, never from another worker's branch. Inspect relevant open GitHub issues and branches. Determine objective, spark, disjoint write ownership and existing dependencies. Create a **new GitHub issue for that conversation**, then create a **new unique branch** from the latest `main`, formatted `work/<issue-number>-<objective-slug>`. Record spark ID and issue/branch references in the issue and subsequent PR. Never reuse another conversation's branch. Do not pre-create branches for dormant sparks. Read-only investigation does not require edits, but still creates issue/branch when explicitly designated as a project workstream.
+## Work-routing policy
 
-## File ownership is mandatory
-Only change files listed in **your spark's write_paths**. Anyone may READ referenced files on main or dependencies, but cannot write another spark's domain. Path patterns identify exact file contracts rather than unrestricted access to parent directories. If an existing workstream or PR already owns the same file, stop conflicting writes and post a handoff. For overlapping schema/architecture changes, request B00 orchestration approval; do not unilaterally modify shared contracts. New files under an owned path are allowed.
+This section is the shared routing rule referenced by the Project Instructions and Worker Protocol. It supersedes older conversation-per-branch bootstrap text and dated launch priorities. Current user directions and recorded controller assignments govern work within actual permissions. Older machine-generated procedures are guidelines: preserve their intended benefit with the smallest effective safeguard, record material supersessions and retain history. They cannot waive access controls, evidence requirements or required confirmation.
 
-Separation:
-- B02 owns market history, FX and runtime ingestion; company sparks cannot edit OHLCV or live snapshots.
-- B03 owns ticker `events.json`; ticker researchers submit verified event proposals, not direct writes.
-- B05 owns ticker `relationships.json`; company/theme researchers submit edge proposals, not direct writes.
-- Company sparks own only their respective `entity.json` and `research/<entity>/**`.
-- Domain unit tests follow code ownership: B02 owns `tests/test_ttd.py`; B21 owns `tests/test_narrative.py`; new domain tests should be placed in owned module test paths or get B00/B01 ownership arbitration. B01 owns shared `tests/validate_stores.py`, `tests/integration/**` and `.github/workflows/**` only.
-- B00 owns `AGENTS.md`, `orchestration/**`, `architecture/**`, `schemas/**`, root `README.md`/`CHANGELOG.md` and cross-domain contract arbitration.
+1. **Read-only:** a question or investigation creates no issue or branch merely because it starts a new chat.
+2. **Routine capture:** an existing authorized data-plane writer may capture/replay under its existing contract without a development branch. Resolve its actual destination and scope first. The first repository-content mutation, new writer or ingestion-contract change enters scoped engineering before writing.
+3. **Existing problem:** continue its canonical issue and feature branch; hand work to the branch worker that understands it. New chats and resumed sessions do not reset task identity. A completed or unrelated problem is not an excuse to expand that branch.
+4. **Owner transfer:** if continuation by the owner is unavailable, record a controller-approved transfer, current head, remaining obligations, exact paths and exclusive writer before proceeding. Do not take over from a stale status or a shared spark name. Release or sequence competing writes.
+5. **New problem:** reuse a matching unclaimed intake issue, or create one canonical issue, then create one `work/<issue-number>-<problem-slug>` branch from current main. Establish acceptance and `basket.worker_task@1` before content writes. A genuinely distinct feature gets its own branch even within the same conversation. Never pre-create dormant branches.
+6. **Cross-owner work:** use the existing receiver issue/intake and a self-contained handoff; create a linked issue only if no suitable record exists. A controller may narrow, sequence or transfer scope within delegated authority. Ordinary authorized work does not require another user approval round trip. Do not merge merely to route work.
 
-## Cross-domain requests
-Create an issue labeled/described as a dependency (labels if available), referencing the source issue and owner spark. Include requested contract/data change, reason, verified sources, input/output expectations, acceptance criteria and exact file scope. Provide a ready-to-paste prompt for the domain's conversation. Continue unrelated work; do not claim the receiving conversation has acted until it has retrieved the issue.
+## GitHub queue and write ownership
 
-## Git, quality, data truth
-No direct commits to main. Commit only to your branch; PR to main; never self-merge without authorization. Require tests and review of schema changes. Historical observations and revision records are append-only, with event/effective/available/ingested timestamps and provenance. TTD = **Time to Die**; expired data is historical, not current. Never claim continuous market refresh without authenticated entitled adapters and a persistent process. Report **USD**, retaining original currency and date-matched conversion basis. Distinguish verified facts, issuer claims, hypotheses, scenario outputs and missing evidence. Do not invent prices, ownership, contracts, fair value or probabilities.
+GitHub Issues are the authoritative working queue; start at issue #136 and follow canonical owner issues. Projects is an optional projection. `orchestration/planner/queue.json` is a historical/planned view, not another live ledger. Retrieve relevant current issues, branch heads, actual PR paths and checks. Open PR count is not active-worker capacity.
 
-## Required issue output
-At initialization report: `Spark ID | Issue URL | Branch | Objective | Write paths | Dependencies | Next task`. A PR should state validation evidence, changed files, linked issues and outstanding handoffs. Existing archived or incomplete conversations are context, not automatic authorization to modify another scope.
+Before writing, compare the current assignment with `orchestration/sparks.json`, `orchestration/planner/worker-scopes.json` and live claims. Inspect file, subtree and glob overlaps, including tests, schemas and generated output. Scope may narrow; expansion or transfer must be recorded. A reusable role or broad domain label does not confer exclusive write authority. Resolve stale catalog wording through this routing policy and the catalog owner; do not silently edit another worker's files.
 
-## Launch discipline, state and data-plane boundary
-Before starting a new work branch, read the current registry **from main if merged**, otherwise read the provisional instructions from `work/1-conversation-sparks-orchestration` (PR #2). Do not mistake the temporary read-only bootstrap source for your own development branch. Check active issue ownership and PR changed files; exact path strings alone do not protect against subtree/glob overlaps or multiple active workers using the same spark. Scope can be narrowed, but not silently expanded. Keep at most 3–5 worker conversations active initially; downstream research can proceed while data/computations are blocked, but may not claim a verified inference.
+Default domain separation:
+- B00: shared architecture, schemas, orchestration and contract coordination.
+- B01: `.github/workflows/**`, shared `tests/validate_stores.py` and `tests/integration/**`.
+- B02: market history, FX and ingestion/runtime; domain tests include `tests/test_ttd.py`.
+- B03: canonical ticker `events.json`; B05: canonical `relationships.json`.
+- B06: traversal; B21: narrative and falsification, including `tests/test_narrative.py`.
+- Company researchers: only explicitly assigned issuer entity/research paths. Propose canonical events or edges to their owners rather than writing them directly.
 
-GitHub owns source code, schemas, contracts and reproducible manifests. Time-sensitive minute bars and continuous JSONL writing need a durable local or hosted data plane and entitlement-aware adapters. GitHub and ChatGPT are **not** live polling workers. Standardize event effective, observed, first available, ingested and period-end times; always separate the value's observation freshness from the lifetime of its historical truth.
+Domain unit tests follow the implementation owner. Resolve unmatched or shared paths through the controller. Begin with one implementation lane and targeted independent verification; increase concurrency only with confirmed capacity, disjoint writes and evidence that coordination works.
 
-## Project instruction delivery and version governance
-When asked to provide or edit the project's ChatGPT Project Instructions, always provide the **complete current instructions in a single copyable block**, never fragments or only diffs. Maintain the canonical text in `orchestration/PROJECT_INSTRUCTIONS.md` on this conversation's authorized branch. Maintain separate versions for core, orchestration catalog, schemas, immutable observation revisions, engine logic and reports. Never claim v0.5.0 is released until the release gates pass, the user authorizes it, and the approved main commit is tagged. No tags/releases from worker branches.
+## Small reusable blocks and complete handoffs
 
-## Standardized worker claim and resolution payload
-Read `orchestration/WORKER_PROTOCOL.md` when beginning a new spark or reviewing a handoff. The worker issue contains one `basket.worker_task@1` JSON payload naming task ID, exclusive paths, dependencies and evidence-backed acceptance criteria. Before final reporting, post a `basket.worker_resolution@1` payload into the worker issue or PR with the current head SHA, actual tests, unchanged/changed paths, missing checks, blockers, cross-domain handoffs and ONE next action. Use null for unknowable timestamps. B00 verifies each claim against a freshly fetched GitHub issue, changed-file list, PR head SHA and workflow result. Component-complete/green branch work is NOT integrated main. Never claim a run executed unless a real runner produced evidence. Do not overwrite another worker's task/report.
+Follow `architecture/BLOCK_ENGINEERING_METHOD.md` and `architecture/BRANCH_PLAN.md`. Reuse existing contracts, templates and maintained prior art. Define inputs, outputs, units, assumptions, errors, dependencies, owned state and effects. Prefer one small adapter or pure check to a new framework. Keep branches and folders focused on one coherent problem.
 
-## Reusable worker planner and task queue
-B00 owns `orchestration/planner/queue.json` (planned objectives), `orchestration/planner/worker-library.json` (reusable capabilities/profiles/recipes), `orchestration/planner.py` and `orchestration/github_snapshot.py`. Before allocating a new spark, consult the live GitHub-backed plan, then select ONE priority objective. A single worker may compose multiple reusable capability profiles, but its modifications must stay exclusively inside the assigned spark's write paths. Roles and recipes are reusable; **GitHub issue and branch identities never are**.
+For each problem or blocker, compare viable options across benefit, risk, effort/cost, reversibility and downstream unlock. Use evidence-based qualitative scores; mark unknowns and choose the smallest permitted path. Unify proven repeating patterns so new blocks become easier to add. Keep the analysis proportionate to the decision; scores cannot override mandatory gates.
 
-The queue is an ordered proposal, not an authoritative live completion ledger: issue status, actual PR file changes, CI conclusions and current merge state must be fetched anew. Never infer the number of active conversations from open PRs; report worker capacity unknown until corroborated. Do not launch duplicate workers for incomplete existing issues: resume their owning chat if available or issue a new documented handoff with a new issue/branch. No automatic merge, tag, or new ChatGPT conversation creation.
+Handoffs preserve source obligations, exact source/target revisions and paths, consumer outcome, dependencies, acceptance and a ready-to-use receiver prompt. Trace source obligations → handoff → issue/branch/PR IDs → explicit receiver claim → result → independent assessment. Accepted intake is not implementation completion. Structural validation does not establish semantic completeness. Resolve or explicitly defer every obligation; do not omit it from a shorter prompt. Continue independent eligible work while an item is blocked.
 
-## Worker task learning and QC
-Every worker reads its compiled task scope in `orchestration/planner/worker-scopes.json`, including exact job, authorized paths, recipe steps, dependencies and acceptance. Record failed and successful attempts with objective evidence and retry lineage. Preserve failures; only promote corrective procedures after successful retesting. Never infer durations or optimization from unmeasured data; reusable roles do not expand access. See `orchestration/planner/WORKER_JOBS.md` and `schemas/worker-attempts.v1.json`.
+## Market data and source truth
+
+Resolve → read → validate → append → replay → analyze → report. Verify ticker, exchange-local date, source, record type, configured root, representative record and writer before capture. The external `_DATA/<TICKER>/<YYYY-MM-DD>.1m.jsonl` layout and the NVDA-only pilot in `runtime/TICKER_DATA.md` are separate contracts, not universal destinations. Missing access never grants authority to create another canonical store.
+
+Persist authorized captures before reporting capture complete; retain source IDs, timestamps, sessions, currency, interval, adjustment basis and append-only corrections. Verify duplicate-free replay. If destination or schema is unresolved, stage only in authorized storage with provenance and report the exact blocker to the owner. Documentation or fixture tests do not prove a production writer ran.
+
+GitHub holds code, schemas and manifests; licensed raw data belongs in its authorized durable data plane. A live feed requires an entitled provider, persistent worker and verified operation. Report **USD** with original currency and date-matched FX basis. TTD = **Time to Die**; expired observations remain history, not current evidence. Separate effective, observed, first-available, ingested and period-end times. Distinguish facts, issuer claims, hypotheses, scenarios and missing evidence. Do not invent prices, ownership, contracts, fair value or probabilities.
+
+## Verification and continuous maturation
+
+Reuse `basket.worker_task@1`, `basket.worker_resolution@1` and `basket.github_evidence@1`. Claims name the canonical issue, feature branch, exact scope, dependencies and testable acceptance. Results identify actual changed paths, exact head, actual tests, missing checks, blockers, handoffs and one next action. Use null for unknowable timestamps. B00 independently fetches relevant GitHub evidence and assesses acceptance; self-report or schema validity alone is insufficient.
+
+Pin the source and comparison baseline. Changed code, contracts, inputs or baseline invalidate affected evidence; preserve still-valid evidence and explain what needs rechecking. Refresh exact-head checks and scope before integration. Preserve failures, corrections and measured retry lineage. Do not invent efficiency or duration measurements. Follow `orchestration/planner/WORKER_JOBS.md` for applicable attempt evidence.
+
+Mature continuously through bounded accepted increments. No first-release milestone blocks useful independent work. Commit only to the scoped branch and open a draft PR. No direct main writes. No merge, auto-merge, tag, release or deployment without explicit authorization. Branch pass, merged main, main CI and operational acceptance remain distinct. Version policy in `architecture/VERSIONING.md` still governs actual releases; no version declaration proves operation.
+
+## Instruction delivery
+
+Maintain complete `orchestration/PROJECT_INSTRUCTIONS.md` text, not isolated amendments. Deliver it as ONE copyable block or one complete downloadable file. Separately state branch/main/application status. A repository commit is not proof that ChatGPT Project settings were changed. Do not overwrite other workers' claims or reports.
