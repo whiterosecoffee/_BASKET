@@ -9,6 +9,8 @@ import re
 import subprocess
 from pathlib import Path
 
+from orchestration.planner import ci_results
+
 REPO = "whiterosecoffee/_BASKET"
 EVENT_SCHEMA = "basket.agentic_event@1"
 PRIORITIES = {"P0": 3, "P1": 2, "P2": 1}
@@ -227,8 +229,10 @@ def lease_state(events, task_ids, now):
     return active, expired, trusted
 
 def ci_green(evidence, sha):
-    return any(run.get("head_sha") == sha and run.get("name") == "Validate BASKET data"
-               and run.get("conclusion") == "success" for run in evidence["workflow_runs"])
+    # Use the planner's exact-SHA, required-workflow, latest-attempt policy.
+    # Index by position so repeated URLs cannot hide a newer failed attempt.
+    return all(result["result"] == "PASS" for result in
+               ci_results(sha, dict(enumerate(evidence["workflow_runs"]))))
 
 def acceptance(task, pr, evidence, events):
     wanted = {"A%d" % (i+1) for i in range(len(task["acceptance"]))}
