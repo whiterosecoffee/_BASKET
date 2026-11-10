@@ -73,6 +73,18 @@
       "criterion": "Deterministic template generation and existing B00 regression tests pass",
       "evidence_class": "test",
       "mandatory": true
+    },
+    {
+      "id": "A10",
+      "criterion": "Explicit native Project ordering preflights the full request, preserves unselected items, repeats without position writes and stops on uncertain writes or observed drift",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A11",
+      "criterion": "Ordering and repeated sync preserve dependency/review gates without asserting readiness, completion or dispatch",
+      "evidence_class": "test",
+      "mandatory": true
     }
   ],
   "dependencies": [
@@ -91,5 +103,5 @@
   ],
   "claimed_at": "2026-10-31T02:19:58Z",
   "state": "building",
-  "note": "2026-11-10 user-authorized continuation: narrow generated-scope reconciliation on PR #135; preserve PR #25 branch and planner queue. No merge, workflow installation, or live Project acceptance."
+  "note": "2026-11-10 user-authorized continuation: current increment writes only orchestration/project_sync/** for explicit native ordering and cycle regression checks. Prior generated-scope repair retained. Catalog policy handoff completed by #201/PR209; reconcile its policy and this branch's Copier delta additively at future integration. Preserve PR #25, planner queue and all other owners. No merge, workflow installation, or live Project acceptance."
 }

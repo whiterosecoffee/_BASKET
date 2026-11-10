@@ -203,6 +203,87 @@ class Project:
             raise Blocked("pagination_limit", "fieldValues", "More than 100 field values; refusing incomplete comparison")
         return items
 
+    def position_items(self, project):
+        """Read complete native order, including unselected/redacted item IDs."""
+        q = '''query($id:ID!,$after:String){node(id:$id){... on ProjectV2{
+          items(first:100,after:$after,orderBy:{field:POSITION,direction:ASC}){
+            nodes{id content{... on Issue{id} ... on PullRequest{id}}} PAGE}}}}'''.replace("PAGE", PAGE)
+        rows = self.api.connection(q, {"id": project["id"]}, lambda d: (d["node"] or {}).get("items"))
+        ids, contents = set(), set()
+        for row in rows:
+            item_id = row.get("id")
+            content = (row.get("content") or {}).get("id")
+            if not isinstance(item_id, str) or not item_id or item_id in ids:
+                raise Blocked("invalid_project_order", "order", "Missing or duplicate Project item ID")
+            if content and content in contents:
+                raise Blocked("duplicate_project_items", "order", "Duplicate content IDs require review")
+            ids.add(item_id)
+            if content:
+                contents.add(content)
+        return rows
+
+    def order_items(self, project, content_ids):
+        """Put explicitly selected content first; preserve all other relative order.
+
+        This changes native item positions only, not Priority, lifecycle or
+        execution authority. GitHub provides no order CAS: callers must serialize
+        writers. Observed drift and uncertain mutations stop, never blind-retry.
+        """
+        if (not isinstance(content_ids, list) or
+                any(not isinstance(c, str) or not c for c in content_ids) or
+                len(content_ids) != len(set(content_ids))):
+            raise Blocked("invalid_queue_order", "order", "Unique nonempty native content IDs required")
+        if not content_ids:
+            return {"result": "unchanged", "moves": 0, "content_ids": [], "dispatch_authorized": False}
+        if self.apply and not project.get("viewerCanUpdate"):
+            raise Blocked("permission_denied", "order", "Project write permission required")
+        rows = self.position_items(project)
+        if not self.apply:
+            # sync() may have planned imports without making them. Synthetic IDs
+            # explain dependent moves only; apply always rereads real IDs/order.
+            known = {(r.get("content") or {}).get("id") for r in rows}
+            for op in self.operations:
+                if op["operation"] == "addProjectV2ItemById" and op["content"] not in known:
+                    rows.append({"id": "dry-run:" + op["content"], "content": {"id": op["content"]}})
+                    known.add(op["content"])
+        by_content = {(r.get("content") or {}).get("id"): r["id"] for r in rows if r.get("content")}
+        if any(c not in by_content for c in content_ids):
+            raise Blocked("queue_item_missing", "order", "All selected items must exist or have a dry-run import plan")
+        selected = [by_content[c] for c in content_ids]
+        identities = {r["id"]: (r.get("content") or {}).get("id") for r in rows}
+        def matches_order(expected):
+            observed = self.position_items(project)
+            return ([(r["id"], (r.get("content") or {}).get("id")) for r in observed] ==
+                    [(item_id, identities[item_id]) for item_id in expected])
+        current = [r["id"] for r in rows]
+        target = selected + [i for i in current if i not in set(selected)]
+        moves = 0
+        for index, item_id in enumerate(selected):
+            if current[index] == item_id:
+                continue
+            if self.apply and not matches_order(current):
+                raise Blocked("project_order_changed", "order", "Project order or identity changed; reread and replan")
+            after = selected[index - 1] if index else None
+            operation = {"operation": "updateProjectV2ItemPosition", "item": item_id,
+                         "after": after, "verified": False}
+            self.operations.append(operation)
+            predicted = [i for i in current if i != item_id]
+            predicted.insert(index, item_id)
+            if self.apply:
+                self.api.gql('''mutation($input:UpdateProjectV2ItemPositionInput!){
+                  updateProjectV2ItemPosition(input:$input){clientMutationId}}''',
+                  {"input": dict(projectId=project["id"], itemId=item_id, afterId=after)}, True)
+                if not matches_order(predicted):
+                    raise Blocked("project_order_changed", "order", "Post-write order or identity differs; stop and inspect")
+                operation["verified"] = True
+            current = predicted
+            moves += 1
+        if current != target:
+            raise Blocked("invalid_project_order", "order", "Order plan did not preserve unselected items")
+        return {"result": "verified" if self.apply and moves else "planned" if moves else "unchanged",
+                "moves": moves, "content_ids": list(content_ids),
+                "dispatch_authorized": False}
+
     def sync(self, project, records, fields):
         if self.native_status:
             # Validate all mappings before item import. Do not mutate callers'

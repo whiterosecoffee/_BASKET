@@ -98,6 +98,52 @@ rewrites the detailed filters, grouping and displayed lifecycle column to Workfl
 State. The original `views.json` targets custom lifecycle Status, not native mode.
 Generated specifications remain unapplied and require a real Project UI check.
 
+## Explicit native queue order
+
+The optional `--queue-order 134,201` uses canonical **open issue numbers** from the
+fresh repository observation. Replace these example numbers with the operator's
+chosen queue; this is not a recommended priority list. It moves the selected native
+Project items to the front in that order, leaving every unselected item (including
+PRs, draft/redacted items and other-repository items) in its prior relative order.
+No Rank field, local queue database, new issue or duplicate Project item is created.
+Existing Priority values and worker/dependency ownership are unchanged.
+
+```sh
+# Review a plan first; add --native-status if that is the board's configured mode.
+python orchestration/project_sync/control.py --queue-order 134,201 --report /tmp/basket-order-plan.json
+# Existing synchronization runs first, followed by explicit native position writes.
+python orchestration/project_sync/control.py --apply --queue-order 134,201 --report /tmp/basket-order-applied.json
+```
+
+The flag does not select a "next ready" issue. Blocked issues may be ordered, but
+remain blocked; `queue_order.blocked_issues` exposes those gates and
+`dispatch_authorized` stays false. Closing an upstream issue alone does not clear a
+declared completion dependency. The review/rework cycle and launch authorization
+remain with the existing owner/controller contracts, not Project position.
+
+All requested issue numbers are validated before Project setup. PR numbers,
+missing/duplicate issues and ambiguous native identities are rejected. Position
+writes run only after field/item synchronization has no operational failures.
+The full synchronization covers all collected records, not only the ordered
+subset; `--apply --queue-order` is not a position-only command.
+Dry-run plans include dependent imports without executing them. Repeating an
+unchanged successful order produces zero position writes.
+
+The adapter uses GitHub's native `updateProjectV2ItemPosition`, with complete
+POSITION-ascending pagination and pre/post-write order-and-identity comparisons.
+Uncertain mutation responses stop, and the next invocation reads actual state
+before planning another move. Serialize all Project writers: GitHub exposes no
+position compare-and-swap or atomic multi-item transaction. Detected concurrent
+changes stop further moves without undoing either writer's changes; this is not a
+lock and cannot eliminate the read/write race. If a later move fails, previously
+verified moves can remain applied: no rollback is attempted. Inspect the partial
+operations, then reread/replan the full order. Views sorted by a field may not
+display native item order. No live board/view behavior has been verified here.
+Each move reads the entire paginated order twice. Large boards or long selections
+can hit API limits and stop partially; bulk-order scalability is not established.
+See [GitHub's Projects GraphQL reference](https://docs.github.com/en/graphql/reference/projects)
+and `ORDERING-2026-11-10.md` for source and verification boundaries.
+
 ## Evidence and state boundaries
 
 - Validate fenced worker claims against existing schemas, spark scopes, issue/task/

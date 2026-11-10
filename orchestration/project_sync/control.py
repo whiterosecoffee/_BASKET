@@ -238,6 +238,36 @@ def view_specs(native_status=False):
     return specs
 
 
+def parse_issue_order(value):
+    try:
+        values = [int(part.strip()) for part in value.split(",")]
+    except (ValueError, AttributeError):
+        raise argparse.ArgumentTypeError("Use comma-separated positive canonical issue numbers") from None
+    if not values or any(n <= 0 for n in values) or len(values) != len(set(values)):
+        raise argparse.ArgumentTypeError("Issue numbers must be positive and unique")
+    return values
+
+
+def queue_order_records(report, numbers):
+    """Validate explicit issue order before any Project mutation; never infer readiness."""
+    if (not isinstance(numbers, list) or any(type(n) is not int or n <= 0 for n in numbers) or
+            len(numbers) != len(set(numbers))):
+        raise Blocked("invalid_queue_order", "order", "Unique positive canonical issue numbers required")
+    issues = {}
+    for record in report["records"]:
+        if "issue" in record:
+            if record["issue"] in issues:
+                raise Blocked("ambiguous_issue_identity", "order", "Canonical issue appears more than once")
+            issues[record["issue"]] = record
+    if any(n not in issues for n in numbers):
+        raise Blocked("queue_issue_missing", "order", "Only observed open canonical issues may be ordered; PR IDs are not backlog outcomes")
+    records = [issues[n] for n in numbers]
+    ids = [r.get("node_id") for r in records]
+    if any(not isinstance(i, str) or not i for i in ids) or len(ids) != len(set(ids)):
+        raise Blocked("ambiguous_issue_identity", "order", "Canonical issues need distinct native node IDs")
+    return records
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--snapshot", type=Path, help="Historical/API export; never used for live mutations")
@@ -245,6 +275,8 @@ def main():
     p.add_argument("--create-project", action="store_true")
     p.add_argument("--native-status", action="store_true",
                    help="Explicitly map GitHub Todo/In Progress/Done; retain detailed Workflow State")
+    p.add_argument("--queue-order", type=parse_issue_order,
+                   help="Explicit ordered issue numbers, e.g. 134,201; places these issues first without changing Priority or readiness")
     p.add_argument("--owner", default="whiterosecoffee")
     p.add_argument("--owner-kind", choices=["user", "organization"], default="user")
     p.add_argument("--report", type=Path, required=True)
@@ -258,6 +290,11 @@ def main():
         catalog = json.loads((ROOT / "orchestration/sparks.json").read_text())
         report.update(reconcile(snapshot, catalog))
         report["view_specifications"] = view_specs(args.native_status)
+        ordered = queue_order_records(report, args.queue_order) if args.queue_order is not None else None
+        if ordered is not None:
+            report["queue_order"] = {"issues": args.queue_order, "source": "explicit_operator_input",
+                "dispatch_authorized": False,
+                "blocked_issues": [r["issue"] for r in ordered if r.get("errors") or r.get("blocked_by") or r["fields"]["Status"] == "BLOCKED"]}
         project = Project(api, args.owner, args.owner_kind, args.apply, args.native_status)
         try:
             board = project.discover(args.create_project)
@@ -269,6 +306,8 @@ def main():
                 if incompatible:
                     raise Blocked("field_configuration_blocked", "sync", "Existing options/types require B00 review")
                 report["blocked"].extend(project.sync(board, report["records"], fields))
+                if ordered is not None and not report["blocked"]:
+                    report["queue_order"]["position_result"] = project.order_items(board, [r["node_id"] for r in ordered])
         finally:
             report["operations"] = project.operations
     except Blocked as exc:
