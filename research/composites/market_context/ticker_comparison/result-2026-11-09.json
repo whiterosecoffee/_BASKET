@@ -1,0 +1,137 @@
+{
+  "schema": "basket.ticker_comparison_research@1",
+  "currency": "USD",
+  "price_cutoff_date": "2026-11-09",
+  "evaluated_at": "2026-11-10T20:31:02.679Z",
+  "replay_class": "current_revision_historical_diagnostic",
+  "return_basis": "split_adjusted_price_return_not_total_return",
+  "dates_supplied": 92,
+  "complete_common_dates": 92,
+  "missing_prices": {
+    "NVDA": 0,
+    "CRWV": 0,
+    "SMH": 0,
+    "QQQ": 0
+  },
+  "calendar_completeness": "not_independently_certified",
+  "windows": [
+    {
+      "sessions": 1,
+      "start": "2026-11-06",
+      "end": "2026-11-09",
+      "price_return_pct": {
+        "NVDA": -4.270252893270465,
+        "CRWV": 5.5603448275862055,
+        "SMH": 5.054315027157519,
+        "QQQ": 3.5436671239140294
+      },
+      "relative_to_qqq_pp": {
+        "NVDA": -7.813920017184494,
+        "CRWV": 2.016677703672176,
+        "SMH": 1.5106479032434894,
+        "QQQ": 0.0
+      }
+    },
+    {
+      "sessions": 5,
+      "start": "2026-11-02",
+      "end": "2026-11-09",
+      "price_return_pct": {
+        "NVDA": -11.575769573394046,
+        "CRWV": -2.3330009970089716,
+        "SMH": -4.111664141960613,
+        "QQQ": -0.2554728449984611
+      },
+      "relative_to_qqq_pp": {
+        "NVDA": -11.320296728395585,
+        "CRWV": -2.0775281520105104,
+        "SMH": -3.856191296962152,
+        "QQQ": 0.0
+      }
+    },
+    {
+      "sessions": 20,
+      "start": "2026-10-12",
+      "end": "2026-11-09",
+      "price_return_pct": {
+        "NVDA": -21.054259455638036,
+        "CRWV": -38.97333665586844,
+        "SMH": -17.526523291426244,
+        "QQQ": -8.939198970564577
+      },
+      "relative_to_qqq_pp": {
+        "NVDA": -12.115060485073458,
+        "CRWV": -30.03413768530386,
+        "SMH": -8.587324320861667,
+        "QQQ": 0.0
+      }
+    },
+    {
+      "sessions": 60,
+      "start": "2026-08-14",
+      "end": "2026-11-09",
+      "price_return_pct": {
+        "NVDA": -20.647539527447158,
+        "CRWV": -53.46760402812085,
+        "SMH": -17.081759722363987,
+        "QQQ": -7.074561943452751
+      },
+      "relative_to_qqq_pp": {
+        "NVDA": -13.572977583994408,
+        "CRWV": -46.3930420846681,
+        "SMH": -10.007197778911237,
+        "QQQ": 0.0
+      }
+    }
+  ],
+  "correlation_window": {
+    "requested_returns": 60,
+    "start": "2026-08-14",
+    "end": "2026-11-09",
+    "method": "Pearson correlation of arithmetic daily price returns, not price levels",
+    "pairs": [
+      {
+        "a": "NVDA",
+        "b": "CRWV",
+        "paired_returns": 60,
+        "pearson": 0.4371943708878851,
+        "status": "complete"
+      },
+      {
+        "a": "NVDA",
+        "b": "SMH",
+        "paired_returns": 60,
+        "pearson": 0.7536663410348313,
+        "status": "complete"
+      },
+      {
+        "a": "NVDA",
+        "b": "QQQ",
+        "paired_returns": 60,
+        "pearson": 0.6455403572800101,
+        "status": "complete"
+      },
+      {
+        "a": "CRWV",
+        "b": "SMH",
+        "paired_returns": 60,
+        "pearson": 0.7379418650159818,
+        "status": "complete"
+      },
+      {
+        "a": "CRWV",
+        "b": "QQQ",
+        "paired_returns": 60,
+        "pearson": 0.6472247795828863,
+        "status": "complete"
+      },
+      {
+        "a": "SMH",
+        "b": "QQQ",
+        "paired_returns": 60,
+        "pearson": 0.9100941732121313,
+        "status": "complete"
+      }
+    ]
+  }
+}
