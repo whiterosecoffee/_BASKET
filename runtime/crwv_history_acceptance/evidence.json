@@ -1,0 +1,459 @@
+{
+  "schema": "crwv.acceptance_audit@1",
+  "source_head": "827dd1ee9e9239c5761013c05f320b30e795c84c",
+  "result": "historical_bytes_verified_canonical_adoption_pending",
+  "source_inventory": [
+    {
+      "path": "research/CRWV/market-research-2026-10-29/DAILY_STAGING.md",
+      "sha256": "bb4cb732c044f243fe57249e36b8473d47782def38230159fc799bc74b43c9bd"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/backfill_minutes.py",
+      "sha256": "a5a710b6f7ffd177bd088b5b3c6d9a414cb0e80e685084d6ca15e7ec34826d3d"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/capture-revisions-2026-10-30.json",
+      "sha256": "604c783ad2ec5d87b76a662eba38c1a03ffcee5e7112b02176385a2c51027f50"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/daily-capture-validation.json",
+      "sha256": "01de704e93aa91a68f3f51f3d740673b885b509a4414588c2c20a36b36cb826e"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/daily-shard-preparation.json",
+      "sha256": "e3c416797ac169805be65d8ee0a1ce6e9a15f122f24354f7e5574fa5a58b725a"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/findings.json",
+      "sha256": "236c7a909c0ef29c54f68148563498563249732542db8a9df85158c6b1a00404"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/prepare_daily_shards.py",
+      "sha256": "6fa2b7641122c66eda62c381422e3b63862269a65ae4ee3cd14588cc6b730c8b"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/recent-history-2026-10-30.json",
+      "sha256": "01db6a113d3a11e4cd50aa04824216352500cbeb5d9c9bcbea233eca062e42f7"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/test_daily_capture.py",
+      "sha256": "e6afa8f1c6e1c9cb83163ce8e14b00542e1f46cb0be75aa2d90d5c0e2f1c6863"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/test_prepare_daily_shards.py",
+      "sha256": "a62884e35e0366004e7882236e98f2edb44787171d32f198210f508cf7ad2d14"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/trading-update-2026-11-04.json",
+      "sha256": "9c902b83a5ec5f0a255af25f72408d4da9a478cfe373a10534ba19442dd7834d"
+    },
+    {
+      "path": "tickers/CRWV/intraday/2026-10.1m.jsonl",
+      "sha256": "9249539642e10805bcb1a6dfabb53de0bd53f4e5adbea454092f44ecfc55b1ac"
+    },
+    {
+      "path": "tickers/CRWV/intraday/2026-10.1m.meta.json",
+      "sha256": "7533896cf06d3891f0aef68d8c2467704ffd67aee769f84532ff10932ea207b2"
+    },
+    {
+      "path": "tickers/CRWV/intraday/2026-11-02.1m.jsonl",
+      "sha256": "7eac6236268ea9ce9a051326401f962042e2229a6ab42dd7d88eb049bfa0e162"
+    },
+    {
+      "path": "tickers/CRWV/intraday/2026-11-02.1m.meta.json",
+      "sha256": "cd2b84d6f024c9dccbebc7e6d2c94b7c7f8e4fd9459c791ccc8d0fc2531b709a"
+    },
+    {
+      "path": "tickers/CRWV/intraday/2026-11-03.1m.jsonl",
+      "sha256": "deea64969779dcb1960970f7b702fda5c496f886e16fb7b177dda93a59592f04"
+    },
+    {
+      "path": "tickers/CRWV/intraday/2026-11-03.1m.meta.json",
+      "sha256": "a99598da0b1a3a68825a64585213abe3ccd9d2be65ab3f276e4e8473ad4054be"
+    },
+    {
+      "path": "tickers/CRWV/intraday/2026-11-04.1m.jsonl",
+      "sha256": "024b4e6f0ae4429f2aeb3ea5dcb9cc1e1d37e59324d255ee3a8dcd74d20caa89"
+    },
+    {
+      "path": "tickers/CRWV/intraday/2026-11-04.1m.meta.json",
+      "sha256": "4d8c4885e1e431f55d38e7c2d6dea5d79484a69247c833bf6024effccf2330c5"
+    },
+    {
+      "path": "tickers/CRWV/intraday/README.md",
+      "sha256": "012b2e0259022f72fe2aff0bcc48edf384e9263201798c88aedc70b049587832"
+    }
+  ],
+  "october": {
+    "sha256": "9249539642e10805bcb1a6dfabb53de0bd53f4e5adbea454092f44ecfc55b1ac",
+    "records": 19186,
+    "dates": [
+      "2026-10-01",
+      "2026-10-02",
+      "2026-10-05",
+      "2026-10-06",
+      "2026-10-07",
+      "2026-10-08",
+      "2026-10-09",
+      "2026-10-12",
+      "2026-10-13",
+      "2026-10-14",
+      "2026-10-15",
+      "2026-10-16",
+      "2026-10-19",
+      "2026-10-20",
+      "2026-10-21",
+      "2026-10-22",
+      "2026-10-23",
+      "2026-10-26",
+      "2026-10-27",
+      "2026-10-28",
+      "2026-10-29",
+      "2026-10-30"
+    ],
+    "first_bar_start": "2026-10-01T04:00:00-04:00",
+    "last_bar_start": "2026-10-30T12:09:00-04:00",
+    "coverage_end_exclusive": "2026-10-30T12:10:00-04:00",
+    "regular_session_bars": 8350,
+    "vwap_outside_ohlc": 2374
+  },
+  "daily_partitions": [
+    {
+      "file": "2026-10-01.1m.jsonl",
+      "sha256": "13aa63b12601bf44c341b26ae3b319bfd222dbd8a6662bf25629ae81b47da948",
+      "records": 833,
+      "dates": [
+        "2026-10-01"
+      ],
+      "first_bar_start": "2026-10-01T04:00:00-04:00",
+      "last_bar_start": "2026-10-01T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-01T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 201
+    },
+    {
+      "file": "2026-10-02.1m.jsonl",
+      "sha256": "2899e6f9aa3c4462102cc5a07a21be09407f491546d5240f51afb36b3a779b2e",
+      "records": 810,
+      "dates": [
+        "2026-10-02"
+      ],
+      "first_bar_start": "2026-10-02T04:00:00-04:00",
+      "last_bar_start": "2026-10-02T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-02T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 187
+    },
+    {
+      "file": "2026-10-05.1m.jsonl",
+      "sha256": "5de0318a219c5664329dd9edca500c55c4b65f860cb7846d5593adca66111a14",
+      "records": 820,
+      "dates": [
+        "2026-10-05"
+      ],
+      "first_bar_start": "2026-10-05T04:00:00-04:00",
+      "last_bar_start": "2026-10-05T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-05T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 187
+    },
+    {
+      "file": "2026-10-06.1m.jsonl",
+      "sha256": "acdb837739d9668b224349dfd46f6bc92b8ba6b22c46dd25e48a8b7dcfe70731",
+      "records": 787,
+      "dates": [
+        "2026-10-06"
+      ],
+      "first_bar_start": "2026-10-06T04:00:00-04:00",
+      "last_bar_start": "2026-10-06T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-06T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 153
+    },
+    {
+      "file": "2026-10-07.1m.jsonl",
+      "sha256": "bbf941aa850b1aca441af107250c60d1b9ab1c6b15740f7841c76ea914355d54",
+      "records": 834,
+      "dates": [
+        "2026-10-07"
+      ],
+      "first_bar_start": "2026-10-07T04:00:00-04:00",
+      "last_bar_start": "2026-10-07T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-07T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 174
+    },
+    {
+      "file": "2026-10-08.1m.jsonl",
+      "sha256": "30ce6dc80db6c3ee3db67916cd0832f71ffe4878ed55ed9cfaeb2bde8ee349db",
+      "records": 865,
+      "dates": [
+        "2026-10-08"
+      ],
+      "first_bar_start": "2026-10-08T04:00:00-04:00",
+      "last_bar_start": "2026-10-08T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-08T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 170
+    },
+    {
+      "file": "2026-10-09.1m.jsonl",
+      "sha256": "4d7182bb7a0d46b8f06fa244e1e41359e1b4c6a8d5c666accc1c9c9025f1ad36",
+      "records": 820,
+      "dates": [
+        "2026-10-09"
+      ],
+      "first_bar_start": "2026-10-09T04:00:00-04:00",
+      "last_bar_start": "2026-10-09T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-09T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 181
+    },
+    {
+      "file": "2026-10-12.1m.jsonl",
+      "sha256": "d1796a3548e0bb4d197282a1d0e4450a198c31fc8849c704c745f07e8a543069",
+      "records": 777,
+      "dates": [
+        "2026-10-12"
+      ],
+      "first_bar_start": "2026-10-12T04:00:00-04:00",
+      "last_bar_start": "2026-10-12T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-12T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 171
+    },
+    {
+      "file": "2026-10-13.1m.jsonl",
+      "sha256": "038823cd83e4c48d01922eb0b6059794a5173c66573cabb7cb145612c203a7f9",
+      "records": 849,
+      "dates": [
+        "2026-10-13"
+      ],
+      "first_bar_start": "2026-10-13T04:00:00-04:00",
+      "last_bar_start": "2026-10-13T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-13T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 172
+    },
+    {
+      "file": "2026-10-14.1m.jsonl",
+      "sha256": "d731f22aa59313a49539153bd995a882dff120cc436979629aa5849cb20d610e",
+      "records": 944,
+      "dates": [
+        "2026-10-14"
+      ],
+      "first_bar_start": "2026-10-14T04:00:00-04:00",
+      "last_bar_start": "2026-10-14T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-14T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 50
+    },
+    {
+      "file": "2026-10-15.1m.jsonl",
+      "sha256": "069b65e2b2ba34e38b341a9cf57c9c97a07488dd14c4997e7860c10d74d5aed4",
+      "records": 959,
+      "dates": [
+        "2026-10-15"
+      ],
+      "first_bar_start": "2026-10-15T04:00:00-04:00",
+      "last_bar_start": "2026-10-15T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-15T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 24
+    },
+    {
+      "file": "2026-10-16.1m.jsonl",
+      "sha256": "f88b60ebe54a618c4f36248ce4a8ad6d1d5f7872be527c8105766bdd1f5b849e",
+      "records": 952,
+      "dates": [
+        "2026-10-16"
+      ],
+      "first_bar_start": "2026-10-16T04:00:00-04:00",
+      "last_bar_start": "2026-10-16T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-16T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 57
+    },
+    {
+      "file": "2026-10-19.1m.jsonl",
+      "sha256": "fefea4c9f71f9d4c574773d9d0fa57cc600aa6d8063b771aa153d0e3ad003baf",
+      "records": 951,
+      "dates": [
+        "2026-10-19"
+      ],
+      "first_bar_start": "2026-10-19T04:00:00-04:00",
+      "last_bar_start": "2026-10-19T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-19T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 78
+    },
+    {
+      "file": "2026-10-20.1m.jsonl",
+      "sha256": "ea26c45c41668cd37dbee548833048cfa2c0442263cfbc2229a99f41435dcbb1",
+      "records": 959,
+      "dates": [
+        "2026-10-20"
+      ],
+      "first_bar_start": "2026-10-20T04:00:00-04:00",
+      "last_bar_start": "2026-10-20T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-20T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 26
+    },
+    {
+      "file": "2026-10-21.1m.jsonl",
+      "sha256": "c58c1619c60600fa568cd0f6e30d8b71461c261966c177fff0dfbfd51774e5b9",
+      "records": 944,
+      "dates": [
+        "2026-10-21"
+      ],
+      "first_bar_start": "2026-10-21T04:00:00-04:00",
+      "last_bar_start": "2026-10-21T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-21T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 61
+    },
+    {
+      "file": "2026-10-22.1m.jsonl",
+      "sha256": "e9216570af43a02388c43363f869123f34ffbeaa6a3197d79dab7d371f913407",
+      "records": 956,
+      "dates": [
+        "2026-10-22"
+      ],
+      "first_bar_start": "2026-10-22T04:00:00-04:00",
+      "last_bar_start": "2026-10-22T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-22T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 49
+    },
+    {
+      "file": "2026-10-23.1m.jsonl",
+      "sha256": "ba40ad0cd1f0f673301fc9b08161c7eb4116d00f1c9a3b026f7a1c097970bfd3",
+      "records": 940,
+      "dates": [
+        "2026-10-23"
+      ],
+      "first_bar_start": "2026-10-23T04:00:00-04:00",
+      "last_bar_start": "2026-10-23T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-23T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 77
+    },
+    {
+      "file": "2026-10-26.1m.jsonl",
+      "sha256": "8958f654f637d0d886dc5ea9d5d798ae78595a96b080d94867791cb60e2b766d",
+      "records": 958,
+      "dates": [
+        "2026-10-26"
+      ],
+      "first_bar_start": "2026-10-26T04:00:00-04:00",
+      "last_bar_start": "2026-10-26T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-26T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 49
+    },
+    {
+      "file": "2026-10-27.1m.jsonl",
+      "sha256": "bdfed1e12e72a68c6d773d4326039ae97cdcb06019cc38da8f386ec21a567542",
+      "records": 921,
+      "dates": [
+        "2026-10-27"
+      ],
+      "first_bar_start": "2026-10-27T04:00:00-04:00",
+      "last_bar_start": "2026-10-27T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-27T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 121
+    },
+    {
+      "file": "2026-10-28.1m.jsonl",
+      "sha256": "3a458044a5840ca35f067b2b1897072053ed227bcb7a0bb48236f9df3caff049",
+      "records": 929,
+      "dates": [
+        "2026-10-28"
+      ],
+      "first_bar_start": "2026-10-28T04:00:00-04:00",
+      "last_bar_start": "2026-10-28T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-28T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 54
+    },
+    {
+      "file": "2026-10-29.1m.jsonl",
+      "sha256": "7478247b0e9e05c43ec6f9fc86f930e8e81fd6dbd0beb7125401182c4545d979",
+      "records": 929,
+      "dates": [
+        "2026-10-29"
+      ],
+      "first_bar_start": "2026-10-29T04:00:00-04:00",
+      "last_bar_start": "2026-10-29T19:59:00-04:00",
+      "coverage_end_exclusive": "2026-10-29T20:00:00-04:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 76
+    },
+    {
+      "file": "2026-10-30.1m.jsonl",
+      "sha256": "23cefdf0067278570c8000a76d9331ac374babb7579cac278615833e58744b92",
+      "records": 449,
+      "dates": [
+        "2026-10-30"
+      ],
+      "first_bar_start": "2026-10-30T04:00:00-04:00",
+      "last_bar_start": "2026-10-30T12:09:00-04:00",
+      "coverage_end_exclusive": "2026-10-30T12:10:00-04:00",
+      "regular_session_bars": 160,
+      "vwap_outside_ohlc": 56
+    }
+  ],
+  "november": [
+    {
+      "file": "2026-11-02.1m.jsonl",
+      "sha256": "7eac6236268ea9ce9a051326401f962042e2229a6ab42dd7d88eb049bfa0e162",
+      "records": 918,
+      "dates": [
+        "2026-11-02"
+      ],
+      "first_bar_start": "2026-11-02T04:00:00-05:00",
+      "last_bar_start": "2026-11-02T19:59:00-05:00",
+      "coverage_end_exclusive": "2026-11-02T20:00:00-05:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 78
+    },
+    {
+      "file": "2026-11-03.1m.jsonl",
+      "sha256": "deea64969779dcb1960970f7b702fda5c496f886e16fb7b177dda93a59592f04",
+      "records": 921,
+      "dates": [
+        "2026-11-03"
+      ],
+      "first_bar_start": "2026-11-03T04:00:00-05:00",
+      "last_bar_start": "2026-11-03T19:59:00-05:00",
+      "coverage_end_exclusive": "2026-11-03T20:00:00-05:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 84
+    },
+    {
+      "file": "2026-11-04.1m.jsonl",
+      "sha256": "024b4e6f0ae4429f2aeb3ea5dcb9cc1e1d37e59324d255ee3a8dcd74d20caa89",
+      "records": 819,
+      "dates": [
+        "2026-11-04"
+      ],
+      "first_bar_start": "2026-11-04T04:00:00-05:00",
+      "last_bar_start": "2026-11-04T17:42:00-05:00",
+      "coverage_end_exclusive": "2026-11-04T17:43:00-05:00",
+      "regular_session_bars": 390,
+      "vwap_outside_ohlc": 27
+    }
+  ],
+  "total_records": 21844,
+  "replay_changed_files": 0,
+  "source_unchanged": true,
+  "unknowns": [
+    "Original Massive transport CSV unavailable to this audit; its recorded hash is not independent source retrieval proof.",
+    "Historical first availability unknown: no point-in-time tradability acceptance.",
+    "No provider entitlement, current-use TTD, live process, atomic production writer or restart proof."
+  ],
+  "canonical_adoption": false,
+  "b01_independent_ci": "not_run"
+}
