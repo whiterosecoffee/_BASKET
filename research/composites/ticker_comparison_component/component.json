@@ -1,0 +1,52 @@
+{
+  "schema": "basket.component_contract@1",
+  "component_id": "b17.ticker_comparison",
+  "owner_spark": "B17",
+  "version": "1.0.0",
+  "determinism": "snapshot_replay",
+  "boundary_profile": "qualified_refs_v1",
+  "description": "Thin adapter over PR218 compare() and PR101 change(); immutable historical diagnostic only.",
+  "inputs": [
+    {
+      "name": "request",
+      "schema_ref": "request.schema.json",
+      "schema_sha256": "bfbd1353f9e17ef409cb8680641c4a101142d15951126386e4f6f8e343e82fde",
+      "required": true,
+      "freshness_policy": "immutable",
+      "source_class": "mixed"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "comparison",
+      "schema_ref": "comparison.schema.json",
+      "schema_sha256": "8054f36e0767827d6d387f63d1f4a15194c2bed516738820f502990ad19af565",
+      "required": true,
+      "freshness_policy": "immutable",
+      "source_class": "inference"
+    }
+  ],
+  "errors": [
+    {
+      "code": "invalid_history",
+      "retryable": false
+    }
+  ],
+  "effects": [],
+  "assumptions": [
+    "Caller supplies aligned split-adjusted USD close prices with authorized use.",
+    "Provider first-availability and revision vintages are unknown; no point-in-time or live-data qualification."
+  ],
+  "guarantees": [
+    "Missing values remain null; no forward fill.",
+    "No external writes, network fetch, manifest command execution or live signal."
+  ],
+  "acceptance": {
+    "test_command": "python -m unittest discover -s research/composites/ticker_comparison_component -p test_adapter.py -v",
+    "minimum_tests": 5,
+    "fixtures": [
+      "synthetic aligned daily prices; private real-input replay recorded in worker evidence"
+    ],
+    "ci_owner": "B01"
+  }
+}
