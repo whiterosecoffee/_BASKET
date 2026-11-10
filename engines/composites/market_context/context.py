@@ -13,7 +13,7 @@ import sqlite3
 import statistics
 from datetime import datetime, timezone
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 HERE = Path(__file__).resolve().parent
 
 
@@ -161,8 +161,16 @@ def relative(q, benchmark, snapshot, mode):
     return a-b if a is not None and b is not None else None
 
 
-def comparison(current, previous, mode):
-    """Cross-snapshot percent change. Pre/regular is allowed; same-clock volume is not inferred."""
+def observation_identity(quote):
+    """Keep source identity separate from capture/evaluation time; invent no source ID."""
+    if not quote:
+        return None
+    return {key: quote.get(key) for key in ("source", "observed_at", "available_at", "basis",
+                                           "currency", "observation_id", "revision_id")}
+
+
+def comparison_details(current, previous, mode):
+    """Classify source progression before computing cross-snapshot price returns."""
     if not previous:
         return {}
     if stamp(previous["as_of"]) >= stamp(current["as_of"]):
@@ -172,10 +180,41 @@ def comparison(current, previous, mode):
     out = {}
     for ticker, q in current["quotes"].items():
         p = previous["quotes"].get(ticker)
-        if eligible(q, current, mode) and eligible(p, previous, mode):
-            if q.get("basis") == p.get("basis"):
-                out[ticker] = change(q["price"], p["price"])
+        current_state, previous_state = usable(q, current, mode), usable(p, previous, mode)
+        detail = {"status": None, "return_pct": None, "observation_elapsed_seconds": None,
+                  "current_observation": observation_identity(q),
+                  "baseline_observation": observation_identity(p)}
+        if current_state not in ("valid", "provisional"):
+            detail["status"] = "current_" + current_state
+        elif previous_state not in ("valid", "provisional"):
+            detail["status"] = "baseline_" + previous_state
+        elif q.get("basis") != p.get("basis"):
+            detail["status"] = "basis_mismatch"
+        elif q.get("source") != p.get("source"):
+            detail["status"] = "source_mismatch"
+        else:
+            elapsed = (stamp(q["observed_at"])-stamp(p["observed_at"])).total_seconds()
+            detail["observation_elapsed_seconds"] = elapsed
+            if elapsed < 0:
+                detail["status"] = "regressed_observation"
+            elif elapsed == 0:
+                # A corrected price at an old source time is a revision, not a new market move.
+                detail["status"] = ("no_new_observation" if number(q["price"]) == number(p["price"])
+                                    else "observation_revision")
+            else:
+                detail.update(status="valid", return_pct=change(q["price"], p["price"]))
+        out[ticker] = detail
     return out
+
+
+def comparison(current, previous, mode):
+    """Numeric compatibility API: omit unavailable/repeated/revised observations.
+
+    Pre/regular is allowed; same-clock volume is not inferred. A genuine new
+    observation at an unchanged price remains a measured 0.0 return.
+    """
+    return {ticker: detail["return_pct"] for ticker, detail in
+            comparison_details(current, previous, mode).items() if detail["status"] == "valid"}
 
 
 def aggregate(rows, members, key, minimum=.75):
@@ -291,9 +330,12 @@ def window_deltas(registry, current, history, minutes=(5,15,60), mode="strict"):
         if prior is None or elapsed-window*60 > 120:
             result[str(window)+"m"] = {"state":"missing_aligned_baseline", "basket_mean_pct":None}
             continue
-        changes = comparison(current, prior, mode)
+        details = comparison_details(current, prior, mode)
+        changes = {t: d["return_pct"] for t, d in details.items() if d["status"] == "valid"}
         rows = [{"ticker":m["ticker"],"change":changes.get(m["ticker"]) if m.get("quote_admission", "admitted") == "admitted" else None} for m in members]
-        result[str(window)+"m"] = {**aggregate(rows,members,"change"),"elapsed_seconds":elapsed,"baseline_snapshot_id":prior["snapshot_id"]}
+        result[str(window)+"m"] = {**aggregate(rows,members,"change"),"elapsed_seconds":elapsed,
+                                  "baseline_snapshot_id":prior["snapshot_id"],
+                                  "current_snapshot_id":current["snapshot_id"],"comparisons":details}
     return result
 
 
@@ -305,13 +347,15 @@ def analyze(registry, current, previous=None, mode="strict", policy=None, retros
         raise ValueError("Registry not available/effective at snapshot; explicit retrospective mode required")
     if stamp(current["available_at"]) < stamp(current["as_of"]) or stamp(current["ingested_at"]) < stamp(current["available_at"]):
         raise ValueError("Invalid capture chronology")
-    changes = comparison(current, previous, mode)
+    details = comparison_details(current, previous, mode)
+    changes = {t: d["return_pct"] for t, d in details.items() if d["status"] == "valid"}
     rows = []
     for m in members:
         t = m["ticker"]; q = current["quotes"].get(t)
         state = usable(q, current, mode) if m.get("quote_admission", "admitted") == "admitted" else "symbol_unverified"
         r = {"ticker": t, "group": m.get("group", "unmapped"), "sector_proxy": m.get("sector_proxy"),
              "status": state, "return_day_pct": None, "return_since_previous_pct": None,
+             "interval_status": details.get(t, {}).get("status", "missing_baseline" if previous is None else "current_missing"),
              "relative_qqq_pp": None, "relative_sector_pp": None,
              "relative_qqq_since_previous_pp": None, "above_vwap_pct": None,
              "return_since_open_pct": None, "range_position": None}
@@ -340,6 +384,10 @@ def analyze(registry, current, previous=None, mode="strict", policy=None, retros
     valid_qqq = [r for r in rows if r["relative_qqq_pp"] is not None]
     daily = aggregate(rows, members, "return_day_pct")
     interval = aggregate(rows, members, "return_since_previous_pct")
+    interval.update(baseline_snapshot_id=previous["snapshot_id"] if previous else None,
+                    current_snapshot_id=current["snapshot_id"],
+                    elapsed_seconds=(stamp(current["as_of"])-stamp(previous["as_of"])).total_seconds() if previous else None,
+                    comparisons=details)
     relative_basket = aggregate(rows, members, "relative_qqq_pp")
     relative_basket["unit"] = "percentage_points"  # generic aggregate field names retain compatibility
     groups = {}

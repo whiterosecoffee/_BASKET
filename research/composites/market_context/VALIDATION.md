@@ -48,3 +48,34 @@ Static captures are historical and cannot be presented as a working live feed.
 No shared CI, schema, canonical registry, ticker market store, runtime adapter,
 or deployment file was modified. Related ORCL integration request #76 is read
 as a dependency, not a grant to edit another owner's tracker.
+
+## 2026-11-10 bounded D2 correction
+
+Continuation on the existing #100 / PR101 branch, under the B00 controller's
+explicit scoped transfer. The original captured observations and reports are
+unchanged historical fixtures. Engine version 1.0.1 fixes observation progression
+before cross-snapshot arithmetic; it does not add another engine, journal, daily
+adapter, ingestion route or live service.
+
+Reproduced on source head `565e582720a32d8d73c5421d6d99d503c4bbde03`:
+copy the existing `snapshot()` fixture and advance only capture/evaluation time by
+60 seconds. `comparison()` returned four 0.0 values and `analyze()` reported a
+fully covered 0.0 basket interval despite no new source observation.
+
+1. Added 11 focused regression methods. Before the implementation change, the
+   actual run failed with 5 failures and 12 subcase errors, including manufactured
+   zero returns and a falsely measured benchmark-relative interval.
+2. Added a reusable source-progression classification step. The original numeric
+   helper now omits inadmissible pairs; report/window details expose their reasons,
+   source identities and source elapsed time separately from evaluation elapsed.
+3. Actual domain run passed all 38 tests (27 original plus 11 regressions), zero
+   skips. Tests distinguish repeated quote capture from newly observed unchanged
+   price, corrections, regressed time, timezone aliases, missing baseline, partial
+   refresh/benchmark coverage, delayed windows and stale/future/invalid inputs.
+
+Command: `PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s engines/composites/market_context/tests -v`.
+
+This bounded D2 evidence does not accept the remaining D1-D8 release-cycle
+handoff, canonical source integration or production refresh. Independent review,
+hosted exact-head domain CI and merge status are recorded separately in #100/#102;
+the local test result is not a hosted CI claim.

@@ -51,6 +51,18 @@ to B02/B08. No scheduler is installed by this component.
 - Prior-snapshot aggregate uses only the intersection available at both captures,
   with coverage measured against the full configured basket. It never subtracts
   changing-universe averages.
+- Observation progression is checked before interval arithmetic. A later capture
+  of the same source timestamp has `no_new_observation` and a null interval return;
+  a changed price at that timestamp is `observation_revision`, not market movement.
+  Regressed source time, changed source/basis, stale or future input also withhold
+  interval returns. A **new** observation at the same price correctly returns 0.0.
+- `comparison()` retains the ticker-to-numeric-return API and omits inadmissible
+  pairs. `comparison_details()` exposes their reasons and source identities.
+  Report rows add `interval_status`; `interval` and aligned windows retain source
+  comparison details, baseline/current snapshot IDs and evaluation elapsed seconds.
+  `observation_elapsed_seconds` measures source progression separately. Missing
+  provider observation/revision IDs stay null. Prior-close returns continue to
+  describe the retained observation while it passes its original freshness gate.
 - `window_deltas()` supports 5/15/60 minute baselines. It requires the same session,
   prior source availability, and a baseline no more than two minutes older than
   requested. Missing windows stay missing. No interpolation into missing bars.
