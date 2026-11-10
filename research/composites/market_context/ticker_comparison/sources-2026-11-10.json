@@ -1,0 +1,91 @@
+{
+  "price_source": {
+    "provider": "Massive",
+    "paths": [
+      "/v2/aggs/ticker/NVDA/range/1/day/2026-07-01/2026-11-09",
+      "/v2/aggs/ticker/CRWV/range/1/day/2026-07-01/2026-11-09",
+      "/v2/aggs/ticker/SMH/range/1/day/2026-07-01/2026-11-09",
+      "/v2/aggs/ticker/QQQ/range/1/day/2026-07-01/2026-11-09"
+    ],
+    "params": {
+      "adjusted": true,
+      "sort": "asc",
+      "limit": 50000
+    },
+    "rows_per_ticker": 92,
+    "common_dates": 92,
+    "market_date_timezone": "America/New_York",
+    "price_cutoff_date": "2026-11-09",
+    "retrieved_no_later_than": "2026-11-10T20:31:02.679Z",
+    "first_available_at": null,
+    "revision_vintage_at": null,
+    "adjustment": "split adjusted, not dividend total return",
+    "input_sha256": "9a7a7fc26f35b13b1f179f1dff3eb664b64087c0d1dc13e13fe9e6f4f4874788",
+    "input_storage": "Private research scratch only; raw bars and input CSV not committed",
+    "cutoff_crosscheck": {
+      "method": "All four final daily c fields equal separate /v1/open-close/{ticker}/2026-11-09 close fields; afterHours and preMarket fields excluded",
+      "matched": 4
+    }
+  },
+  "computation": {
+    "dependency_issue": 100,
+    "dependency_pr": 101,
+    "dependency_commit": "565e582720a32d8d73c5421d6d99d503c4bbde03",
+    "dependency_file": "engines/composites/market_context/context.py",
+    "dependency_git_blob": "bc64d48b690c36934e536a0e82644c61da95f0c5",
+    "reused_function": "change(price, baseline)",
+    "result_sha256": "3710fb24f03b49ab4829e26d2cfc63f36a7d2eb04de6ef6aa1a05a8e7a9ef815",
+    "validation": "5 focused consumer tests; 16 return values compared against Decimal; 6 Pearson correlations compared against pandas and independent JavaScript arithmetic. Local only.",
+    "integration": "Separate scoped research consumer, not integrated main or full B17 acceptance"
+  },
+  "relationships": [
+    {
+      "from": "SMH",
+      "to": "NVDA",
+      "type": "fund_holding",
+      "weight_pct": 18.91,
+      "as_of": "2026-11-09",
+      "source_url": "https://www.vaneck.com/us/en/investments/semiconductor-etf-smh/downloads/holdings/",
+      "source_class": "issuer_primary",
+      "available_at": null,
+      "first_observed_no_later_than": "2026-11-10T20:33:44.291Z",
+      "coverage": "Full supplied issuer file: 25 stock rows and 2 cash/other rows. CRWV not listed.",
+      "notes": "Weight is fraction of SMH net assets, not ownership of NVIDIA or contribution to historical returns."
+    },
+    {
+      "from": "QQQ",
+      "to": "NVDA",
+      "type": "fund_holding",
+      "weight_pct": 7.11,
+      "as_of": "2026-11-08",
+      "source_url": "https://www.invesco.com/qqq-etf/en/about.html",
+      "source_class": "issuer_primary",
+      "available_at": null,
+      "first_observed_no_later_than": "2026-11-10T20:33:44.291Z",
+      "coverage": "Issuer top 10 only; full QQQ holdings not retrieved. CRWV inclusion/absence unresolved.",
+      "notes": "Different snapshot date from SMH. NVIDIA, AMD and Micron appear in both checked lists. No exact full-fund overlap computed."
+    },
+    {
+      "from": "NVDA",
+      "to": "CRWV",
+      "type": "equity_investment_and_infrastructure_relationship",
+      "source_url": "https://nvidianews.nvidia.com/news/nvidia-and-coreweave-strengthen-collaboration-to-accelerate-buildout-of-ai-factories",
+      "source_class": "issuer_primary_announcement",
+      "published_date": "2026-01-26",
+      "available_at": null,
+      "first_observed_no_later_than": "2026-11-10T20:33:44.291Z",
+      "announced_investment_usd": 2000000000,
+      "announced_purchase_price_usd": 87.2,
+      "current_ownership_pct": null,
+      "notes": "Issuer announced $2B Class A stock investment and collaboration on NVIDIA-powered infrastructure. More than 5 GW by 2030 is a forward-looking goal, not delivered capacity. This announcement does not establish current shares, ownership percentage or cause of observed returns."
+    }
+  ],
+  "limitations": [
+    "No future-dated prices are admitted; current-day incomplete session excluded.",
+    "Current-revision history retrieved November 10 is not proof of information known on earlier dates.",
+    "No independent exchange-calendar completeness certification; 92 dates coincide across all four source responses, but joint missing dates cannot be ruled out by alignment alone.",
+    "Price returns exclude dividend reinvestment. Observed ETF prices already reflect ongoing expenses/tracking; no separate expense drag subtracted.",
+    "Historical co-movement is descriptive, window-dependent and not causal or a prediction.",
+    "No full QQQ holdings file, same-date full ETF overlap, current NVIDIA CRWV ownership percentage, or ETF return attribution."
+  ]
+}
