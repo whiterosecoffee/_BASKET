@@ -186,7 +186,7 @@ class DomainSourceGateTests(unittest.TestCase):
 
     def test_each_domain_has_distinct_exact_source_and_minimum(self):
         self.assertEqual({n: s[3] for n, s in gate.SUITES.items()},
-            {'etf': 66, 'ticker-patterns': 26, 'traversal': 10,
+            {'etf': 66, 'ticker-patterns': 26, 'traversal': 13,
              'market-geometry': 8, 'daily-state': 22})
         for name, (_, sha, _, _, markers) in gate.SUITES.items():
             self.assertEqual(gate.revision(sha), sha)
@@ -227,6 +227,60 @@ class DomainSourceGateTests(unittest.TestCase):
                 self.assertTrue(gate.strict_result(minimum, result, minimum))
                 result.skipped = [('fixture', 'skip')]
                 self.assertFalse(gate.strict_result(minimum, result, minimum))
+
+    def test_ignored_untracked_source_tests_cannot_satisfy_minimum(self):
+        directory = self.source / 'engines/valuation/etf_forward'
+        directory.mkdir(parents=True)
+        (directory / 'marker.py').write_text('# tracked source marker')
+        (self.source / '.gitignore').write_text('test_untracked.py\n')
+        self.commit(self.source)
+        (directory / 'test_untracked.py').write_text('import unittest\nclass Fake(unittest.TestCase):\n' +
+            ''.join(f'    def test_{i}(self): pass\n' for i in range(66)))
+        code, report = self.run_fixture()
+        self.assertEqual(code, 1)
+        self.assertIn('ignored untracked', report['error'])
+        self.assertNotIn('result', report)
+
+    def test_ignored_untracked_acceptance_inputs_fail(self):
+        self.suite()
+        (self.acceptance / '.gitignore').write_text('ignored.py\n')
+        self.commit(self.acceptance)
+        (self.acceptance / 'ignored.py').write_text('# unversioned')
+        code, report = self.run_fixture()
+        self.assertEqual(code, 1)
+        self.assertIn('ignored untracked', report['error'])
+
+    def test_external_source_symlink_tests_cannot_satisfy_minimum(self):
+        directory = self.source / 'engines/valuation/etf_forward'
+        directory.mkdir(parents=True)
+        external = self.root / 'external.py'
+        external.write_text('import unittest\nclass Fake(unittest.TestCase):\n' +
+            ''.join(f'    def test_{i}(self): pass\n' for i in range(66)))
+        (directory / 'test_external.py').symlink_to(external)
+        self.commit(self.source)
+        code, report = self.run_fixture()
+        self.assertEqual(code, 1)
+        self.assertIn('symlink escapes', report['error'])
+        self.assertNotIn('result', report)
+
+    def test_external_acceptance_symlink_fails(self):
+        self.suite()
+        external = self.root / 'external.py'
+        external.write_text('# unversioned')
+        (self.acceptance / 'linked.py').symlink_to(external)
+        self.commit(self.acceptance)
+        code, report = self.run_fixture()
+        self.assertEqual(code, 1)
+        self.assertIn('symlink escapes', report['error'])
+
+    def test_ignored_input_created_by_source_fails_after_test_execution(self):
+        self.suite(body='Path("ignored.py").write_text("unversioned")')
+        (self.source / '.gitignore').write_text('ignored.py\n')
+        self.commit(self.source)
+        code, report = self.run_fixture()
+        self.assertEqual(code, 1)
+        self.assertEqual(report['result']['run'], 66)
+        self.assertIn('ignored untracked', report['error'])
 
 if __name__ == '__main__':
     unittest.main()

@@ -62,7 +62,7 @@ jobs:
           import unittest
           suite = unittest.TestLoader().discover('tests/integration', pattern='test_domain_source_gate.py')
           count = suite.countTestCases()
-          if count < 24:
+          if count < 29:
               raise SystemExit('Missing gate regression tests')
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           raise SystemExit(0 if result.wasSuccessful() and result.testsRun == count

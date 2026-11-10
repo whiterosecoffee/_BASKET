@@ -10,7 +10,7 @@ import tempfile
 import unittest
 
 # Reuse proven #212 integrity primitives without changing that owned runner.
-from project_sync_gate import git, revision, fingerprint, strict_result
+from project_sync_gate import git, revision, fingerprint as tracked_fingerprint, strict_result
 
 # (source PR, exact head, test directory, minimum count, source markers)
 SUITES = {
@@ -18,8 +18,8 @@ SUITES = {
             "engines/valuation/etf_forward", 66, ("engines/valuation/etf_forward",)),
     "ticker-patterns": (99, "f8e83f440023bcbf123687fc6c24248f1baf88c9",
             "research/CRWV/trading-tool/tests", 26, ("research/CRWV/trading-tool",)),
-    "traversal": (109, "318b24aaae49e50bbe4d242c73f0a757b72f6f34",
-            "engines/traversal/tests", 10,
+    "traversal": (109, "a235ff05bcb649e82fc97e3bd86db7645d49246d",
+            "engines/traversal/tests", 13,
             ("engines/traversal/metrics.py", "engines/traversal/tests")),
     "market-geometry": (150, "eade884d4423e5f7e6a899387e5f62bc3b24045a",
             "engines/traversal/market_geometry", 8, ("engines/traversal/market_geometry",)),
@@ -39,6 +39,23 @@ def select(root, suite_name, requested=""):
     if git(root, "log", "-1", "--format=%H", "--", *markers):
         raise ValueError("Previously present source was removed; refusing pinned fallback")
     return {"sha": pinned, "mode": "unmerged_dependency_only"}
+
+
+def fingerprint(root, expected):
+    """Reject unversioned import inputs as well as ordinary Git changes."""
+    root = root.resolve()
+    ignored = subprocess.check_output([
+        "git", "-C", str(root), "ls-files", "--others", "--ignored",
+        "--exclude-standard", "-z"])
+    if ignored:
+        raise ValueError("Checkout contains ignored untracked inputs")
+    tracked = subprocess.check_output([
+        "git", "-C", str(root), "ls-files", "-z"]).decode().split("\0")
+    for name in filter(None, tracked):
+        path = root / name
+        if path.is_symlink() and not path.resolve().is_relative_to(root):
+            raise ValueError("Tracked symlink escapes checkout: " + name)
+    return tracked_fingerprint(root, expected)
 
 
 def child(root, suite_name, result_path):

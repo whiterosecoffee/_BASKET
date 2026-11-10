@@ -13,13 +13,14 @@ reuses #212's revision, Git, fingerprint and strict-result helpers read-only.
 | --- | --- | --- | --- |
 | domain-etf | PR127 / B04 #126 | 76710defee89171c905f9f90f5b683ecc84c80b0 | 66 |
 | domain-ticker-patterns | PR99 / B10 #95 | f8e83f440023bcbf123687fc6c24248f1baf88c9 | 26 |
-| domain-traversal | PR109 / B06 #108 | 318b24aaae49e50bbe4d242c73f0a757b72f6f34 | 10 |
+| domain-traversal | PR109 / B06 #108 | a235ff05bcb649e82fc97e3bd86db7645d49246d | 13 |
 | domain-market-geometry | PR150 / B06 #149 | eade884d4423e5f7e6a899387e5f62bc3b24045a | 8 |
 | domain-daily-state | PR160 / B06 #154 | 62e41633434602fd481b8a3ed7a1a92f3f628fcb | 22 |
 
 Full `test_*.py` discovery runs independently for each directory. ETF discovery
 covers all seven modules, not the historical seven-test command. Canonical
-traversal has ten current tests; the earlier six-test result is historical.
+traversal has thirteen current tests after the B06 source repair; the earlier
+six-test result and ten-test failing head are historical.
 The daily-state oracle is research-only and its fixtures are synthetic. This
 workflow does not replay the separate PR69 historical corpus or establish
 provider entitlement, calendar integration, real ETF holdings/estimates/FX,
@@ -40,6 +41,10 @@ job has a fixed producer pin. A newer producer head needs review and a pin updat
 older success never certifies a newer producer revision. After source integration,
 normal runs test actual head. A local diagnostic `--requested` exact SHA remains
 available on `select`, labeled `explicit_exact_revision`.
+
+Both source and acceptance preflight reject ignored untracked files and tracked
+symlinks escaping their checkout, including inputs that Git status otherwise hides.
+The same checks repeat after execution.
 
 Checkouts do not persist credentials. Only contents-read permission is requested;
 no secrets, live API, dependency installation, polling or deployment is needed.
