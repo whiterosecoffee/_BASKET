@@ -1,15 +1,15 @@
 # _BASKET — Worker Task, Resolution & Evidence Protocol
 
-**Contract version:** `basket.worker_task@1`, `basket.worker_resolution@1`, `basket.github_evidence@1`. **Owner:** B00. **Current core:** 0.4.1 declared; 0.5.0 candidate remains unreleased.
+**Contract version:** `basket.worker_task@1`, `basket.worker_resolution@1`, `basket.github_evidence@1`. **Owner:** B00. **Version policy:** `architecture/VERSIONING.md` and `architecture/version-manifest.json`; declarations are not release evidence.
 
 ## Why
 
-A GitHub issue and a draft PR do not prove implementation is complete, nor do a worker's final chat message or a passing isolated test prove main is integrated. The four initial workers (B05 #8/PR #10, B01 #9/PR #13, B02 #11/PR #15, B03 #12/PR #14) demonstrated correct file isolation but inconsistent completion reports. This versioned protocol standardizes **claim → evidence → evaluation → integration**, with falsifiable status gates.
+A GitHub issue and a draft PR do not prove implementation is complete, nor do a worker's final chat message or a passing isolated test prove main is integrated. This versioned protocol standardizes **claim → evidence → evaluation → integration**, with falsifiable status gates.
 
 ## Sources of truth
 
 1. **GitHub actual state**: issue number + state, branch, PR changed paths and head SHA, CI run conclusion at a specific SHA, main SHA, and explicitly authorized merge. B00 must retrieve these from current GitHub; a manually saved evidence snapshot is historical.
-2. **Worker task claim**: one versioned JSON object (`basket.worker_task@1`) in the worker issue, naming issue, spark, unique branch from main, exclusive paths, dependencies, acceptance criteria and required proof classes. A handoff issue is separate from the worker issue.
+2. **Worker task claim**: one versioned JSON object (`basket.worker_task@1`) in the worker issue, naming issue, spark, problem-scoped branch originally based on main, exclusive paths, dependencies, acceptance criteria and required proof classes. Reuse a suitable existing intake issue when it becomes the canonical worker task; link separate source or receiver issues when needed. A new chat alone creates neither a new task nor a branch.
 3. **Worker resolution**: one versioned JSON object (`basket.worker_resolution@1`) as the **last substantive GitHub issue comment or PR comment**, plus a short human-readable final message linking to it. Report a provisional/unknown state rather than fabricating a passed test or publication timestamp.
 4. **Orchestrator decision**: B00 reads both worker payload and independently fetched GitHub evidence, runs offline evaluation (where possible) and records assessment as a GitHub issue/PR comment. Worker reports are **not** authoritative for merge/readiness without B00 evidence checks.
 
@@ -17,7 +17,7 @@ Do not commit a continually mutable central worker-status file as authoritative 
 
 ## State model (separate implementation and integration)
 
-- `claimed`: new worker issue and unique main-based branch exist.
+- `claimed`: the canonical worker issue, exclusive assignment and problem-scoped main-based branch exist; a receiving worker has explicitly claimed them.
 - `building`: branch has domain-owned changes, no accepted integration proof.
 - `review`: worker opened draft PR with test/evidence claims.
 - `component_verified`: all task-mandatory acceptance criteria have citations and branch/PR-head checks passed (if applicable), **not merged**.
@@ -28,20 +28,25 @@ Do not commit a continually mutable central worker-status file as authoritative 
 
 A worker may be `component_verified` and `integration_blocked` in different dimensions. A green branch workflow is not a GA release. Keep finance data freshness independent from task-state recency.
 
-## Planner task vs worker issue task
-B00 maintains a reusable plan queue in `orchestration/planner/queue.json`. A queue entry such as `T-006` is a **planned objective** and does not imply a worker conversation exists. When a user starts a new conversation, that chat creates its **own new issue** and issue-bound `task_id` such as `B21-17`; it may optionally record `task_queue_id: "T-006"`. Task recipes and capability profiles are reusable and combinable, but no recipe grants write access outside the assigned spark.
+## Work routing, continuity and queue
 
-Run `python orchestration/planner.py --live-github --active T-004 --active T-005 --next-worker` only when those active workers are confirmed. If activity is unknown, omit `--active` and the tool refrains from recommending an additional new chat. The historical evidence fixture cannot establish live status. See [planner guide](planner/README.md).
+Follow the shared [work-routing policy](../AGENTS.md#work-routing-policy). Read-only work requires no new issue or branch merely because it starts a chat. Routine capture uses an existing authorized writer/storage contract. Repository-content changes, new writers and ingestion-contract changes require a scoped engineering claim before writing.
+
+GitHub Issues are the working queue, with issue #136 as the project index. `orchestration/planner/queue.json` holds reusable planned objectives, not authoritative live status. A `T-006` entry does not imply that a worker exists. Use one canonical issue and `task_id` such as `B21-17` per coherent problem, optionally retaining `task_queue_id: "T-006"`. Resume the knowledgeable owner and feature branch when the problem continues. Reuse a matching unclaimed intake issue before opening another issue. Create a distinct issue/branch for unrelated work, not merely because the conversation changed.
+
+Record any controller-approved owner transfer with source head, remaining obligations, exact paths and exclusive writer before resuming. Never take over from a stale status. Task recipes and capability profiles are reusable; they cannot expand scope. Ordinary authorized work continues without repeated NEXT prompts or new permission requests.
+
+Run the existing planner with `--active` only for independently confirmed workers. If activity is unknown, report it unknown and do not infer it from open PRs. The historical fixture cannot establish live capacity. The planner's old conversation-launch wording is not authority to duplicate the canonical issue. See [planner guide](planner/README.md).
 
 ## Minimum task claim
 
-Post a fenced JSON object in the new **worker issue** matching `schemas/worker-task.v1.json`: `schema`, `task_id` (e.g. `B05-8`), `spark_id`, `issue`, `branch`, `objective`, `write_paths`, `acceptance`, `dependencies`, `claimed_at`, `state`. Use `null` rather than inventing an unknown claim timestamp. Stable criteria `A1`, `A2` identify independently testable acceptance conditions.
+Post a fenced JSON object in the canonical **worker issue** matching `schemas/worker-task.v1.json`: `schema`, `task_id` (e.g. `B05-8`), `spark_id`, `issue`, `branch`, `objective`, `write_paths`, `acceptance`, `dependencies`, `claimed_at`, `state`. Use `null` rather than inventing an unknown claim timestamp. Stable criteria `A1`, `A2` identify independently testable acceptance conditions.
 
 Full example: [B05 task](examples/B05.task.json).
 
 ## Required final worker response payload
 
-Workers must attach an object matching `schemas/worker-resolution.v1.json`. The final ChatGPT message should provide the issue/branch/PR links and a summary, **plus the complete machine-readable JSON** (one fenced block) that can be posted to GitHub. Required fields:
+Post the complete object matching `schemas/worker-resolution.v1.json` to the canonical issue or PR. Give the user a concise summary and a link to that payload. If publication is blocked, provide the complete payload as a file and state that it was not posted. Required fields:
 
 ```text
 schema, task_id, spark_id, issue, branch, pr, reported_at,
@@ -63,11 +68,11 @@ Full example: [B05 resolution](examples/B05.resolution.json).
 
 ## Orchestrator evidence reconciliation
 
-1. Fetch the worker issue and issue/PR changed files from GitHub. Confirm task ID issue number, branch belongs to its own new issue, and PR targets main.
+1. Fetch the worker issue and issue/PR changed files from GitHub. Confirm task ID issue number, branch is bound to the canonical issue, the current owner/transfer is recorded, and PR targets main.
 2. Fetch the latest PR SHA and its CI runs; preserve timestamps and URL. Compare every proposed `changed_paths` against **actual PR files** and the spark's exclusive write patterns.
 3. Verify that any claimed passing workflow is a successful run on the **same current PR head SHA**. Do not count a passing result from an older commit or a different worker.
-4. Compare task criteria against resolution evidence; missing or failed criteria block `component_verified` readiness. Manually reviewed citations remain labelled as manually reviewed.
-5. Determine if the PR merged. Only a separate green main CI run after merge supports integrated validation. No merges, tags or releases without explicit user approval.
+4. Reconcile every source obligation to implementation, an explicit handoff, a reasoned deferral or a blocker. Structural validation does not establish semantic completeness. Compare task criteria against resolution evidence; missing or failed criteria block `component_verified` readiness. Manually reviewed citations remain labelled as manually reviewed.
+5. Determine if the PR merged. Only a separate green main CI run after merge supports integrated validation. No merges, auto-merge, tags, releases or deployments without explicit authorization for that action.
 6. Return computed result, unresolved gate IDs and next action. Produce no trading or portfolio conclusions from the worker status metadata.
 
 Offline command:
@@ -80,32 +85,22 @@ python -m unittest discover -s orchestration/tests -p 'test_*.py' -v
 ```
 Dependencies: `jsonschema>=4.23`. The example evidence snapshot is **dated 2026-10-16** and deliberately immutable; it is not a live GitHub connector. On each new assessment, B00 gathers an updated snapshot before drawing conclusions.
 
-## Multi-conversation concurrency and routing
+## Coordination, handoff receipts and maturation
 
-- Start no more than **three active worker development conversations**, raising to five only after merged CI gate reliability is demonstrated. B00 remains the orchestrator; “active” means still modifying branch code, not a fully handed-off reporting cycle.
-- One domain owner per file at any given time. After a task ends, a new same-domain worker needs a **new issue and unique branch**; it does not inherit another chat's branch.
-- A downstream request (for example B03→B05 #16, ownership/NAV double-counting) becomes a **new scoped B05 worker objective**, not scope creep on the completed schema-only PR #10. B00 can bundle compatible new requests only if path ownership and dependencies permit.
-- First integration objective: review B05 PR #10 (component CI passed); then orchestration PR #2; then B01 PR #13 refreshed to main, with its regression/version validations all running; then independently recheck B02 #15 and B03 #14.
-- B02 and B03 remain incomplete with unit-test replay and source-coverage gaps. Neither PR is release-ready just because it exists.
-- After integration, prioritize **B21 narrative falsification** and **B06 descriptive traversal** only when upstream event/FX history contracts are adequately validated. Company research can run independently but cannot assert live NAV.
+- Begin with one implementation lane and targeted independent verification. Scale only with confirmed capacity, disjoint scope and demonstrated coordination, not historical worker counts.
+- Check live assignments and actual PR changed files, including subtree/glob overlap. Narrow, sequence or record a transfer before competing writes. Shared spark membership does not establish exclusive ownership.
+- Route work to the existing owner issue and the branch worker who understands it. A self-contained handoff includes source obligations, revisions, exact paths, input/output assumptions, acceptance, dependencies, permitted actions and one next step. Create another handoff issue only when no suitable record exists.
+- Trace source obligations → handoff → issue/branch/PR IDs → receiver claim → result → independent assessment. Sending a prompt is not a receiving claim. Accepted intake is not implementation completion; preserve `requested`, `claimed`, `accepted` and `completed` distinctions and explain what was accepted.
+- Record the source and comparison baseline of every assessment. Revalidate affected evidence when code, contracts, inputs or the baseline changes; preserve still-valid evidence. Always refresh current head/scope and relevant checks before integration. A passing earlier revision is not evidence for changed code.
+- Select the next eligible increment from current issue dependencies, consumer value, downstream unlock and cost. Historical integration orders are not current queue priorities. Continue useful independent work while another item is blocked.
+- Mature through bounded accepted increments, without a first-release prerequisite. Read-only research can proceed on explicitly incomplete inputs but cannot claim verified operational outputs. A branch handoff does not require merging it.
 
 ## Integration governance
 
-B01 owns integration tests and GitHub workflow changes. B00 owns the three protocol schemas under `schemas/**`, this document and `orchestration/worker_protocol.py`. **Do not update .github/workflows/** from B00. Use a B01 handoff issue and ready-to-paste prompt to add:
-```bash
-python -m unittest discover -s orchestration/tests -p 'test_*.py' -v
-python orchestration/worker_protocol.py --task ... --resolution ... --evidence ...
-```
+B01 owns integration tests and GitHub workflow changes. B00 owns the three protocol schemas under `schemas/**`, this document and `orchestration/worker_protocol.py`. **Do not update .github/workflows/** from B00. Reuse the existing orchestration and integration test jobs before requesting new coverage. Route genuine CI changes to B01's existing intake with exact acceptance and a self-contained prompt.
+
 For CI, use **static checked-in fixtures** for repeatable offline checks; live GitHub connector evidence belongs to orchestrator evaluations, not a fake self-updating repo file. Release manifest/catalog updates require independent version consistency checks.
 
-## Evaluation scoring
+## Acceptance assessment
 
-Score separately and with traceable evidence:
-- Scope compliance (20%): changed paths vs issue and registered spark.
-- Test evidence (25%): independently run and SHA-aligned; skipped checks not success.
-- Source/provenance fidelity (20%): direct source classes, dates, immutability and no fabricated live status.
-- Dependency discipline (15%): handoffs named and blocked/unblocked appropriately.
-- Reproducibility (10%): deterministic inputs, tests and version/snapshot identity.
-- Reporting clarity (10%): machine-readable payload, unknowns, precise next action.
-
-A weighted score describes **review maturity**, never a predictive probability or authorization to merge. Show missing/evidence gaps rather than awarding false precision.
+Report pass, fail or missing evidence separately for scope compliance, executed tests, source/provenance fidelity, dependencies, reproducibility and reporting completeness. Preserve each mandatory gate; a weighted average cannot erase a failed or unknown gate. If a comparison uses scores, explain their criteria and basis. A maturity assessment is neither a predictive probability nor authority to merge.
