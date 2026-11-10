@@ -1,0 +1,204 @@
+{
+  "contract": "crus-research-snapshot@1",
+  "ticker": "CRUS",
+  "registered_on": "2026-11-04",
+  "status": "research_only_not_canonical",
+  "source_time_policy": "Publication date only; exact available_at unknown. Capture timestamps are retrieval completion, not original publication. No historical point-in-time eligibility claimed.",
+  "records": [
+    {
+      "kind": "issuer_statement",
+      "review": "source_read",
+      "basis": "historical",
+      "source": {
+        "url": "https://www.sec.gov/Archives/edgar/data/772406/000077240626000036/shareholderletter.htm",
+        "class": "primary",
+        "published_on": "2026-08-05",
+        "accession": "0000772406-26-000036",
+        "locator": "Exhibit 99.2, strategy and revenue sections"
+      },
+      "available_at": null,
+      "observed_at": "2026-11-04T23:33:21Z",
+      "ingested_at": "2026-11-04T23:33:21Z",
+      "valid_until": null,
+      "period_end": "2026-06-27",
+      "id": "CRUS-Q1FY27-purpose-v1",
+      "metric": "product_role",
+      "value": "Management describes low-power voice processing for AI PCs.",
+      "locator": "lines 104-106"
+    },
+    {
+      "kind": "issuer_statement",
+      "review": "source_read",
+      "basis": "historical",
+      "source": {
+        "url": "https://www.sec.gov/Archives/edgar/data/772406/000077240626000036/shareholderletter.htm",
+        "class": "primary",
+        "published_on": "2026-08-05",
+        "accession": "0000772406-26-000036",
+        "locator": "Exhibit 99.2, strategy and revenue sections"
+      },
+      "available_at": null,
+      "observed_at": "2026-11-04T23:33:21Z",
+      "ingested_at": "2026-11-04T23:33:21Z",
+      "valid_until": null,
+      "period_end": "2026-06-27",
+      "id": "CRUS-Q1FY27-scale-v1",
+      "metric": "commercial_scale",
+      "value": "PC outlook was reduced; customer design interest is not quantified AI revenue.",
+      "locator": "lines 18-19"
+    },
+    {
+      "kind": "issuer_statement",
+      "review": "source_read",
+      "basis": "historical",
+      "source": {
+        "url": "https://www.sec.gov/Archives/edgar/data/772406/000077240626000036/shareholderletter.htm",
+        "class": "primary",
+        "published_on": "2026-08-05",
+        "accession": "0000772406-26-000036",
+        "locator": "Exhibit 99.2, strategy and revenue sections"
+      },
+      "available_at": null,
+      "observed_at": "2026-11-04T23:33:21Z",
+      "ingested_at": "2026-11-04T23:33:21Z",
+      "valid_until": null,
+      "period_end": "2026-06-27",
+      "id": "CRUS-Q1FY27-concentration-v1",
+      "metric": "customer_concentration",
+      "value": 0.9,
+      "unit": "fraction",
+      "locator": "line 51",
+      "caveat": "One unnamed customer; quarterly share, not annual or AI revenue share."
+    },
+    {
+      "kind": "issuer_statement",
+      "review": "source_read",
+      "basis": "historical",
+      "source": {
+        "url": "https://www.sec.gov/Archives/edgar/data/772406/000077240626000036/shareholderletter.htm",
+        "class": "primary",
+        "published_on": "2026-08-05",
+        "accession": "0000772406-26-000036",
+        "locator": "Exhibit 99.2, strategy and revenue sections"
+      },
+      "available_at": null,
+      "observed_at": "2026-11-04T23:33:21Z",
+      "ingested_at": "2026-11-04T23:33:21Z",
+      "valid_until": null,
+      "period_end": "2026-06-27",
+      "id": "CRUS-Q1FY27-margin-v1",
+      "metric": "margin_bridge",
+      "value": "Management expected a temporary Q2 wafer-cost benefit and higher R&D spending.",
+      "locator": "lines 60,69"
+    },
+    {
+      "id": "CRUS-missing-eps_fy2027-v1",
+      "metric": "eps_fy2027",
+      "kind": "unknown",
+      "review": "pending",
+      "basis": "estimate",
+      "value": null,
+      "available_at": null,
+      "observed_at": null,
+      "ingested_at": null,
+      "valid_until": null,
+      "reason": "No reconciled current input in this research package."
+    },
+    {
+      "id": "CRUS-missing-eps_fy2028-v1",
+      "metric": "eps_fy2028",
+      "kind": "unknown",
+      "review": "pending",
+      "basis": "estimate",
+      "value": null,
+      "available_at": null,
+      "observed_at": null,
+      "ingested_at": null,
+      "valid_until": null,
+      "reason": "No reconciled current input in this research package."
+    },
+    {
+      "id": "CRUS-missing-quote-v1",
+      "metric": "quote",
+      "kind": "unknown",
+      "review": "pending",
+      "basis": "current",
+      "value": null,
+      "available_at": null,
+      "observed_at": null,
+      "ingested_at": null,
+      "valid_until": null,
+      "reason": "No reconciled current input in this research package."
+    },
+    {
+      "id": "CRUS-missing-capital_structure-v1",
+      "metric": "capital_structure",
+      "kind": "unknown",
+      "review": "pending",
+      "basis": "current",
+      "value": null,
+      "available_at": null,
+      "observed_at": null,
+      "ingested_at": null,
+      "valid_until": null,
+      "reason": "No reconciled current input in this research package."
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H1",
+      "claim": "AI voice adoption could raise CRUS content and revenue.",
+      "dependencies": [
+        "CRUS-Q1FY27-purpose-v1",
+        "CRUS-Q1FY27-scale-v1"
+      ],
+      "milestone": "Named production shipment plus attributable units and revenue.",
+      "alternatives": [
+        "Existing codecs suffice",
+        "PC unit decline offsets content gains",
+        "OEM price pressure captures the benefit"
+      ],
+      "falsifiers": [
+        "Named design loss",
+        "Disclosed content declines",
+        "Attributable revenue fails to ramp after dated production commitment"
+      ]
+    },
+    {
+      "id": "H2",
+      "claim": "New-market profit could offset smartphone weakness.",
+      "dependencies": [
+        "CRUS-Q1FY27-concentration-v1",
+        "CRUS-Q1FY27-margin-v1"
+      ],
+      "milestone": "Reconciled segment mix, incremental gross profit and operating expense bridge.",
+      "alternatives": [
+        "R&D and costs consume incremental gross profit",
+        "Customer concentration persists"
+      ],
+      "falsifiers": [
+        "New-market gross profit remains below incremental expenses over the specified review horizon"
+      ]
+    }
+  ],
+  "corrections": [
+    {
+      "claim": "Prior 91% annual Apple concentration",
+      "status": "not_reverified_in_this_package",
+      "reason": "Prior secondary filing reproduction is not a current quarterly source; do not substitute Q1 90% for annual 91%."
+    },
+    {
+      "claim": "Prior November4 earnings and price snapshot",
+      "status": "historical_chat_evidence_only",
+      "reason": "Issuer Q2 page re-open failed this turn; earlier successful retrieval remains historical evidence, not freshly verified. Quote not refreshed; no Massive data acquired."
+    }
+  ],
+  "missing": [
+    "AI-attributable revenue and margin",
+    "Actual design shipments and content ASP",
+    "FY2027/FY2028 consensus vintage and GAAP reconciliation",
+    "Current cash debt diluted shares and buyback execution",
+    "Current quote/session and 200+ sessions",
+    "Independent source reconciliation"
+  ]
+}
