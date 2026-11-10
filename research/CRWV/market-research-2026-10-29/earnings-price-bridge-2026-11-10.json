@@ -1,0 +1,388 @@
+{
+  "scope": {
+    "ticker": "CRWV",
+    "purpose": "Premarket valuation and complete earnings review sequence",
+    "issue": 121,
+    "pr": 122,
+    "branch": "work/121-neocloud-market-research",
+    "currency": "USD",
+    "price_as_of": "2026-11-10T13:12:08.539Z",
+    "release_last_checked": "2026-11-10T13:05:55.529Z",
+    "status": "pre_release",
+    "operating_evidence_cutoff": "2026-11-10"
+  },
+  "sequence_provenance": "Prior standard sequences recovered through personal context, including the sequence attributed to dot: observe borrowing cost, independently justify credit premium, compute residual spread only with suitable evidence, then test funding. No direct dot exchange occurred. The borrowing-cost residual remains uncalculated pending matched current bond and benchmark evidence.",
+  "sources": {
+    "issuer": "https://investors.coreweave.com/overview/default.aspx",
+    "webcast": "https://investors.coreweave.com/events-and-presentations/event-details/2026/CoreWeave-Third-Quarter-2026-Earnings-Call/default.aspx",
+    "sec_q2": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+    "q2_results": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx",
+    "guidance": "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CoreWeave-Q2-26-Earnings-Outlook-Presentation.pdf",
+    "analyst": "https://finance.yahoo.com/quote/CRWV/analysis/",
+    "denominator": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+    "sep_convert": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000432/crwv-20260917.htm",
+    "atm": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000429/crwv-20260917.htm",
+    "ddtl_55": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000357/crwv-20260807.htm",
+    "ddtl_4": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Closes-Landmark-8-5-Billion-Financing-Facility-Achieving-First-Investment-Grade-Rated-GPU-backed-Financing/default.aspx",
+    "denmark": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Expands-Global-AI-Cloud-Platform-With-New-Capacity-in-Denmark-and-First-Global-AI-Network-Backbone/default.aspx",
+    "wayve": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-to-Power-Wayves-AI-Driver-Training-in-Multi-Year-Agreement/default.aspx",
+    "nvda_order": "https://www.sec.gov/Archives/edgar/data/1769628/000176962825000047/crwv-20250909.htm",
+    "nvda_equity": "https://www.coreweave.com/news/nvidia-and-coreweave-strengthen-collaboration-to-accelerate-buildout-of-ai-factories",
+    "reported_credit": "https://finance.yahoo.com/markets/stocks/articles/coreweave-borrowed-9-earlier-debt-120840418.html",
+    "market_data": "https://massive.com/docs/rest/stocks/snapshots/full-market-snapshot"
+  },
+  "market": {
+    "count": 245,
+    "first": "2026-11-10T09:00:00.000Z",
+    "cutoff": "2026-11-10T13:12:00.000Z",
+    "low": 47.94,
+    "high": 50.38,
+    "last_minute_close": 48.16,
+    "volume": 1128213.504757,
+    "estimated_turnover": 55247114.12268808,
+    "vwap_anomalies": 26,
+    "vwap": 48.968669396124156,
+    "bands": [
+      {
+        "low": 47.94,
+        "high": 48.5,
+        "estimated_turnover": 18214004.54360353,
+        "shares": 377818.280538,
+        "up_entries": 0,
+        "down_entries": 2,
+        "turnover_pct": 32.96824609364287
+      },
+      {
+        "low": 48.5,
+        "high": 49,
+        "estimated_turnover": 13717140.807735717,
+        "shares": 281132.01193200005,
+        "up_entries": 1,
+        "down_entries": 10,
+        "turnover_pct": 24.828701056264876
+      },
+      {
+        "low": 49,
+        "high": 49.5,
+        "estimated_turnover": 6787341.564964183,
+        "shares": 138000.61205499998,
+        "up_entries": 10,
+        "down_entries": 4,
+        "turnover_pct": 12.285422818450632
+      },
+      {
+        "low": 49.5,
+        "high": 50.4,
+        "estimated_turnover": 16528627.206384633,
+        "shares": 331262.600232,
+        "up_entries": 4,
+        "down_entries": 0,
+        "turnover_pct": 29.917630031641597
+      }
+    ],
+    "tape": [
+      {
+        "ticker": "NBIS",
+        "price": 138.75,
+        "prev": 141.45,
+        "ns": "1794316314528706442",
+        "stamp": "2026-11-10T13:11:54.528Z",
+        "change_pct": -1.9088016967126142
+      },
+      {
+        "ticker": "HYG",
+        "price": null,
+        "prev": 77.51,
+        "ns": "0",
+        "stamp": null,
+        "change_pct": null
+      },
+      {
+        "ticker": "IREN",
+        "price": 21,
+        "prev": 21.41,
+        "ns": "1794316313149112089",
+        "stamp": "2026-11-10T13:11:53.149Z",
+        "change_pct": -1.9149929939280663
+      },
+      {
+        "ticker": "QQQ",
+        "price": 676.15,
+        "prev": 679.35,
+        "ns": "1794316327443966720",
+        "stamp": "2026-11-10T13:12:07.443Z",
+        "change_pct": -0.47103849267683406
+      },
+      {
+        "ticker": "IEF",
+        "price": 91.65,
+        "prev": 91.8,
+        "ns": "1794315796227472601",
+        "stamp": "2026-11-10T13:03:16.227Z",
+        "change_pct": -0.16339869281044583
+      },
+      {
+        "ticker": "CRWV",
+        "price": 48.18,
+        "prev": 48.98,
+        "ns": "1794316328539500549",
+        "stamp": "2026-11-10T13:12:08.539Z",
+        "change_pct": -1.6333197223356466
+      },
+      {
+        "ticker": "NVDA",
+        "price": 177.24,
+        "prev": 178.67,
+        "ns": "1794316328746552265",
+        "stamp": "2026-11-10T13:12:08.746Z",
+        "change_pct": -0.8003582022723332
+      },
+      {
+        "ticker": "ORCL",
+        "price": 119.1,
+        "prev": 119.79,
+        "ns": "1794316225228217537",
+        "stamp": "2026-11-10T13:10:25.228Z",
+        "change_pct": -0.5760080140245538
+      }
+    ],
+    "session": "premarket",
+    "source": "Massive",
+    "cutoff_policy": "Only minute bars ended by the reference last trade. Times UTC. Tape price anchor is a dated eligible trade. HYG missing trade, IEF stale versus peers.",
+    "raw_stage": {
+      "rows": 245,
+      "sha256": "14e77f9fa49f037fcf33040aea1e4353834c6589b6ed079df03617722dca2e30",
+      "available_at": null,
+      "canonical_status": "pending B02/B01 #186"
+    },
+    "band_method": "Whole minute share count and provider volume times VWAP assigned to the minute close band, half-open bins. Entries only count changes in consecutive observed close bins. Turnover is approximate and carries the provider VWAP quality flag.",
+    "nearby_levels": {
+      "lower_reference": 47.94,
+      "previous_session_low": 45.15,
+      "first_reclaim": 48.5,
+      "prior_close_and_pm_vwap": [
+        48.98,
+        48.968669396124156
+      ],
+      "pm_high": 50.38
+    },
+    "relative_pct_points_vs_qqq": -1.1622812296588125
+  },
+  "earnings_bar": {
+    "call_utc": "2026-11-10T22:00:00Z",
+    "prior_issuer_guidance_date": "2026-08-11",
+    "q3_revenue_guidance_bn": [
+      3.45,
+      3.6
+    ],
+    "q3_consensus_revenue_bn": 3.54087206,
+    "q4_consensus_revenue_bn": 4.69724938,
+    "fy26_consensus_revenue_bn": 12.87552296,
+    "q3_consensus_eps_fields": [
+      -1.20885,
+      -1.55218
+    ],
+    "q3_adjusted_op_income_guidance_bn": [
+      0.2,
+      0.26
+    ],
+    "q3_interest_guidance_bn": [
+      0.86,
+      0.94
+    ],
+    "q3_capex_guidance_bn": [
+      11.5,
+      13.5
+    ],
+    "fy26_guidance_revenue_bn": [
+      12.4,
+      13.2
+    ],
+    "fy26_guidance_capex_bn": [
+      35,
+      39
+    ],
+    "exit_2026_arr_guidance_bn": [
+      18.5,
+      19.5
+    ],
+    "q4_revenue_street_seq_increase_pct": 32.65798087039609
+  },
+  "capacity": {
+    "june_30_active_gw": 1.5,
+    "june_30_contracted_gw": 3.7,
+    "august_11_contracted_gw": 4.2,
+    "current_billable_mw": null,
+    "june_backlog_bn": 104,
+    "june_rpo_bn": 103.7,
+    "rpo_24mo_expected_share": 0.41,
+    "rpo_24mo_expected_bn": 42.516999999999996,
+    "early_q3_commitments_lower_bound_bn": 25,
+    "backlog_rollforward": "Opening backlog + signed eligible additions − recognized revenue ± contract modifications and other changes. Do not treat $104B plus early Q3 commitments as quarter-end backlog.",
+    "denmark": "Oct 27 issuer says majority of planned 22.5 MW IT load online. Exact live IT MW and billing date undisclosed. IT load and facility power have different boundaries.",
+    "wayve": "Nov 9 multi-year Blackwell training agreement. Contract value, MW and billing dates undisclosed.",
+    "nvidia": "$6.3B initial Sep 2025 residual-unsold-capacity order through Apr 2032 subject to contract terms. Separate $2B equity investment at $87.20. Neither proves 100% portfolio-wide billable use or incremental backlog."
+  },
+  "financing": {
+    "balance_sheet_as_of": "2026-06-30",
+    "debt_carrying_bn": 35.068,
+    "debt_principal_bn": 35.551,
+    "unrestricted_cash_bn": 5.524,
+    "restricted_cash_approx_bn": 1.4,
+    "current_debt_carrying_bn": 7.513,
+    "operating_lease_liabilities_bn": 16.319,
+    "finance_lease_liabilities_bn": 0.221,
+    "undrawn_availability_then_bn": 10,
+    "scheduled_principal_bn": {
+      "2027": 6.184,
+      "2028": 4.416,
+      "remaining_2026_at_june": 4.413
+    },
+    "q2_cash_from_operations_bn": 0.679,
+    "q2_cash_ppe_bn": 6.422,
+    "q2_cfo_minus_cash_ppe_bn": -5.742999999999999,
+    "h1_cfo_minus_cash_ppe_bn": -10.454,
+    "draw_terms": [
+      {
+        "facility": "DDTL 4.0",
+        "committed_bn": 8.5,
+        "fixed_rate": 0.059,
+        "float_sofr_spread": 0.0225
+      },
+      {
+        "facility": "DDTL 5.5",
+        "committed_bn": 2.6,
+        "float_sofr_spread": 0.055,
+        "minimum_dscr": 1.35
+      }
+    ],
+    "sep_convert": {
+      "face_bn": 4.2,
+      "coupon": 0.02875,
+      "annual_coupon_bn": 0.12075000000000001,
+      "proceeds_before_issuer_expenses_and_capped_calls_bn": 4.137,
+      "initial_conversion_price": 97.85,
+      "initial_gross_conversion_shares": 42921480,
+      "settlement": "cash, shares, or combination at issuer election, subject to conditions and capped calls"
+    },
+    "authorized_equity": {
+      "shares": 35000000,
+      "actual_draw_or_issuance": null,
+      "illustrative_gross_at_quote_bn": 1.6863000000000001,
+      "share_count_increase_pct": 6.345907030119464
+    },
+    "credit_indicator": "Third-party Nov 9 report cites >16% yield on 9.625% unsecured 2032 notes as of Nov 6. Current TRACE print and matched spread unverified. This does not reset coupons or establish a company-wide marginal rate.",
+    "incremental_interest_stress": {
+      "funding_bn": 5,
+      "spread_shock_bps": 500,
+      "annual_pretax_cost_bn": 0.25
+    }
+  },
+  "valuation": {
+    "reference_share_as_of": "2026-07-31",
+    "reference_shares_bn": 0.551536602,
+    "equity_value_proxy_bn": 26.57303348436,
+    "enterprise_value_proxy_bn": 56.11703348435999,
+    "ev_over_2026_revenue": 4.358427510765745,
+    "ev_over_2027_revenue": 2.1217747265624047,
+    "ev_definition": "Price × July 31 A+B shares + June carrying debt − June unrestricted cash. Lease liabilities presented separately. September financing and Q3 cash use unbridged, so this is a mixed-date reference only.",
+    "street_2027_revenue_bn": 26.44815813,
+    "street_2027_eps": -4.70398,
+    "street_2027_pe": null,
+    "mechanical_2027_cases": [
+      {
+        "case": "slow",
+        "revenue_bn": 21,
+        "operating_margin": 0.1,
+        "interest_bn": 4.5,
+        "operating_income_bn": 2.1,
+        "pretax_bn": -2.4,
+        "net_income_bn": -2.4,
+        "eps": -4.3514791063676315,
+        "pe": null
+      },
+      {
+        "case": "base_inputs",
+        "revenue_bn": 26.44815813,
+        "operating_margin": 0.17,
+        "interest_bn": 4,
+        "operating_income_bn": 4.4961868821,
+        "pretax_bn": 0.49618688209999995,
+        "net_income_bn": 0.37214016157499996,
+        "eps": 0.6747333907224529,
+        "pe": 71.40598147723584
+      },
+      {
+        "case": "fast",
+        "revenue_bn": 31.46,
+        "operating_margin": 0.23,
+        "interest_bn": 3.5,
+        "operating_income_bn": 7.2358,
+        "pretax_bn": 3.7358000000000002,
+        "net_income_bn": 2.80185,
+        "eps": 5.080079889240062,
+        "pe": 9.484102819337224
+      }
+    ],
+    "reverse_earnings_hurdles": [
+      {
+        "pe": 15,
+        "eps": 3.212,
+        "net_bn": 1.7715355656240002,
+        "op_bn": 6.362047420832001,
+        "op_margin": 0.2405478441848684
+      },
+      {
+        "pe": 20,
+        "eps": 2.409,
+        "net_bn": 1.328651674218,
+        "op_bn": 5.771535565624,
+        "op_margin": 0.21822069942471264
+      },
+      {
+        "pe": 25,
+        "eps": 1.9272,
+        "net_bn": 1.0629213393744,
+        "op_bn": 5.4172284524992,
+        "op_margin": 0.2048244125686192
+      }
+    ],
+    "assumptions": "Revenue low/mean/high from analyst feed. Operating margin and net interest paired by judgment for stress tests. One operating margin after depreciation, operating leases and compensation. Tax 25% on positive pretax only. Flat July shares to isolate operating effects. No other income, estimates, terminal price, or credit dislocation probability.",
+    "cash_test": "To value cash generation, bridge CFO − maintenance GPU replacement − growth cash capex + financing proceeds − principal repayments. Reconcile upfront customer payments and lease treatment. Funding gap and distributable cash unknown before quarter-end evidence."
+  },
+  "post_release_sequence": [
+    {
+      "step": 1,
+      "action": "Pin release, 8-K/10-Q, deck, call and timestamps. Freeze pre-release quote, consensus and guidance. Extract actuals and compare consistent GAAP/non-GAAP fields."
+    },
+    {
+      "step": 2,
+      "action": "Bridge Q3 revenue, adjusted and GAAP margin, interest, cash flow and cash/noncash capex. Compare Q4 midpoint with $4.70B, FY range with previous $12.4–13.2B and exit ARR with $18.5–19.5B."
+    },
+    {
+      "step": 3,
+      "action": "Roll backlog and RPO, separating signed orders from options. Map each site through contracted grid power, energized IT load, commissioned GPU and customer-accepted billable capacity. Require named MW, dates, funding and delivery terms for new capacity and delays."
+    },
+    {
+      "step": 4,
+      "action": "Reconcile opening cash to unrestricted ending cash and actual DDTL draws, coupons, maturities, debt service, capped calls and issued versus authorized shares. Separate cash/financed capex and growth/refresh. Compare dated bond trade and benchmark, then quantify refinancing sensitivity."
+    },
+    {
+      "step": 5,
+      "action": "Recompute 2027/2028 earnings and free cash using observed commissioning, GPU utilization, depreciation, refresh, debt interest and actual diluted shares. Run correlated slow/base/fast paths and report funding gap and price hurdles. Leave 2028 unestimated if inputs are unavailable."
+    },
+    {
+      "step": 6,
+      "action": "Record regular close, extended-hours 5- and 15-minute prices, volume and VWAP, and next-session follow-through versus QQQ, NVDA, IREN, NBIS and credit. Test 47.94, 48.50, 48.97–48.98 and 50.38 as observed references. Wait for sustained multi-bar confirmation before labeling a reclaim."
+    },
+    {
+      "step": 7,
+      "action": "Publish dated evidence and data coverage on existing branch. Keep canonical bars and domain acceptance in #186."
+    }
+  ],
+  "evidence_thresholds": {
+    "constructive": "Q4 midpoint > $4.70B with firm new billing dates, validated capital and improved operating cash economics. Reclaim prior close/VWAP with volume and relative confirmation.",
+    "mixed": "Revenue near or above consensus while billing schedules, margin or funding evidence remain unclear.",
+    "adverse": "Q4 guide materially below $4.70B, delayed billing or a funding gap. An observed break of 47.94 would put prior-session low 45.15 in view. Invalidate if confirmed billing/guidance improves and the tape reclaims VWAP."
+  }
+}
