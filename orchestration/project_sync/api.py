@@ -99,14 +99,21 @@ STATES = ["BACKLOG", "READY", "CLAIMED", "IN_PROGRESS", "DRAFT_PR", "REVIEW",
 TEXT_FIELDS = ["Domain", "Spark ID", "Worker", "Branch", "Validation", "Acceptance"]
 SELECT_FIELDS = {"Status": STATES, "Priority": ["P0", "P1", "P2", "P3"],
                  "Execution Mode": ["Manual", "Codex", "Actions", "Other"]}
+# Explicit opt-in for GitHub's standard three-option Status field. Keep the
+# complete lifecycle separately; a coarse native status never proves acceptance.
+NATIVE_STATUS = {state: ("Done" if state in {"COMPLETE", "CANCELLED"} else
+                         "Todo" if state in {"BACKLOG", "READY"} else "In Progress")
+                 for state in STATES}
 PAGE = "pageInfo{hasNextPage endCursor}"
 
 
 class Project:
-    def __init__(self, api, owner="whiterosecoffee", owner_kind="user", apply=False):
+    def __init__(self, api, owner="whiterosecoffee", owner_kind="user", apply=False,
+                 native_status=False):
         if owner_kind not in ("user", "organization"):
             raise ValueError("owner_kind must be user or organization")
         self.api, self.owner, self.kind, self.apply = api, owner, owner_kind, apply
+        self.native_status = native_status
         self.operations = []
 
     def discover(self, create=False):
@@ -141,24 +148,46 @@ class Project:
     def ensure_fields(self, project):
         fields = self.fields(project)
         by_name = {f["name"]: f for f in fields}
+        if len(by_name) != len(fields):
+            raise Blocked("ambiguous_fields", "ensure_fields", "Duplicate field names require review")
+        selects = dict(SELECT_FIELDS)
+        if self.native_status:
+            selects["Status"] = ["Todo", "In Progress", "Done"]
+            selects["Workflow State"] = STATES
         wanted = {**{n: "TEXT" for n in TEXT_FIELDS}, "Last Verified": "DATE",
-                  **{n: "SINGLE_SELECT" for n in SELECT_FIELDS}}
+                  **{n: "SINGLE_SELECT" for n in selects}}
         blocked = []
         for name, dtype in wanted.items():
             if name in by_name:
                 f = by_name[name]
-                missing = set(SELECT_FIELDS.get(name, [])) - {o["name"] for o in f.get("options", [])}
+                option_names = [o["name"] for o in f.get("options", [])]
+                missing = set(selects.get(name, [])) - set(option_names)
+                if len(option_names) != len(set(option_names)):
+                    blocked.append({"field": name, "reason": "duplicate option names", "missing": []})
                 if f["dataType"] != dtype or missing:
                     # Do not replace existing option IDs or rewrite a live field.
                     blocked.append({"field": name, "reason": "incompatible type or missing options", "missing": sorted(missing)})
+        # Complete compatibility preflight before making even additive writes.
+        if blocked:
+            return fields, blocked
+        for name, dtype in wanted.items():
+            if name in by_name:
                 continue
             inp = dict(projectId=project["id"], name=name, dataType=dtype)
             if dtype == "SINGLE_SELECT":
-                inp["singleSelectOptions"] = [dict(name=n, color="GRAY", description=n) for n in SELECT_FIELDS[name]]
+                inp["singleSelectOptions"] = [dict(name=n, color="GRAY", description=n) for n in selects[name]]
             self.operations.append({"operation": "createProjectV2Field", "name": name})
             if self.apply:
                 self.api.gql('''mutation($input:CreateProjectV2FieldInput!){createProjectV2Field(input:$input){
                   projectV2Field{... on ProjectV2Field{id} ... on ProjectV2SingleSelectField{id}}}}''', {"input": inp}, True)
+            else:
+                # Plan dependent item writes with synthetic metadata. These IDs
+                # are local to this dry-run and never sent to GitHub.
+                planned = {"id": "dry-run:field:" + name, "name": name, "dataType": dtype}
+                if dtype == "SINGLE_SELECT":
+                    planned["options"] = [{"id": "dry-run:option:" + name + ":" + n, "name": n}
+                                          for n in selects[name]]
+                fields.append(planned)
         return (self.fields(project) if self.apply else fields), blocked
 
     def items(self, project):
@@ -175,6 +204,19 @@ class Project:
         return items
 
     def sync(self, project, records, fields):
+        if self.native_status:
+            # Validate all mappings before item import. Do not mutate callers'
+            # records or silently collapse the detailed lifecycle into Status.
+            mapped = []
+            for record in records:
+                values = dict(record.get("fields", {}))
+                state = values.get("Status")
+                if state is not None:
+                    if state not in NATIVE_STATUS:
+                        raise Blocked("unknown_lifecycle", "sync", "Unknown canonical workflow state")
+                    values.update({"Status": NATIVE_STATUS[state], "Workflow State": state})
+                mapped.append({**record, "fields": values})
+            records = mapped
         items = self.items(project)
         existing = {}
         for item in items:

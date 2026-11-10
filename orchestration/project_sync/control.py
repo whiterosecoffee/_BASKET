@@ -223,11 +223,28 @@ def resolution_gate(task, resolution, evidence, catalog, integration_proof=None)
     return {"status": "COMPLETE" if complete else "INTEGRATION_VERIFICATION", "evidence": result}
 
 
+def view_specs(native_status=False):
+    """Return unapplied view specifications for the selected lifecycle field."""
+    specs = json.loads((Path(__file__).parent / "views.json").read_text())
+    specs["lifecycle_field"] = "Workflow State" if native_status else "Status"
+    if native_status:
+        for view in specs["views"]:
+            if "filter" in view:
+                view["filter"] = view["filter"].replace("status:", '"Workflow State":')
+            if view.get("group_by") == "Status":
+                view["group_by"] = "Workflow State"
+            if "columns" in view:
+                view["columns"] = ["Workflow State" if c == "Status" else c for c in view["columns"]]
+    return specs
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--snapshot", type=Path, help="Historical/API export; never used for live mutations")
     p.add_argument("--apply", action="store_true", help="Explicitly apply additive Project mutations")
     p.add_argument("--create-project", action="store_true")
+    p.add_argument("--native-status", action="store_true",
+                   help="Explicitly map GitHub Todo/In Progress/Done; retain detailed Workflow State")
     p.add_argument("--owner", default="whiterosecoffee")
     p.add_argument("--owner-kind", choices=["user", "organization"], default="user")
     p.add_argument("--report", type=Path, required=True)
@@ -240,7 +257,8 @@ def main():
         snapshot = json.loads(args.snapshot.read_text()) if args.snapshot else collect(api)
         catalog = json.loads((ROOT / "orchestration/sparks.json").read_text())
         report.update(reconcile(snapshot, catalog))
-        project = Project(api, args.owner, args.owner_kind, args.apply)
+        report["view_specifications"] = view_specs(args.native_status)
+        project = Project(api, args.owner, args.owner_kind, args.apply, args.native_status)
         try:
             board = project.discover(args.create_project)
             report["project"] = board

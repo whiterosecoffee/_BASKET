@@ -4,8 +4,8 @@ import json
 from pathlib import Path
 import unittest
 
-from api import API, Blocked, Project, TITLE, STATES
-from control import reconcile, resolution_gate, overlap, check_state, payloads, ROOT
+from api import API, Blocked, Project, TITLE, STATES, NATIVE_STATUS
+from control import reconcile, resolution_gate, overlap, check_state, payloads, ROOT, view_specs
 
 
 def connection(rows, more=False, cursor=None):
@@ -37,7 +37,11 @@ class FakeGitHub:
         if "fields(" in q:
             return {"data": {"node": {"fields": connection(self.fields)}}}
         if "createProjectV2Field(" in q:
-            self.fields.append({"id": v["input"]["name"], **v["input"]})
+            field = {"id": v["input"]["name"], **v["input"]}
+            if field["dataType"] == "SINGLE_SELECT":
+                field["options"] = [{"id": field["name"] + "-" + str(i), **o}
+                                    for i, o in enumerate(field.pop("singleSelectOptions"))]
+            self.fields.append(field)
             return {"data": {"createProjectV2Field": {"projectV2Field": {"id": "field"}}}}
         if "items(" in q:
             return {"data": {"node": {"items": connection(self.items)}}}
@@ -58,6 +62,8 @@ class FakeGitHub:
             nodes = item["fieldValues"]["nodes"]
             nodes[:] = [n for n in nodes if n["field"]["name"] != field["name"]]
             value = next(iter(inp["value"].values()))
+            if "singleSelectOptionId" in inp["value"]:
+                value = next(o["name"] for o in field["options"] if o["id"] == value)
             nodes.append({"field": {"name": field["name"]}, "name": value})
             return {"data": {"updateProjectV2ItemFieldValue": {"projectV2Item": {"id": item["id"]}}}}
         if "user(login:" in q:
@@ -180,6 +186,94 @@ class APITests(unittest.TestCase):
         self.assertEqual(blocked[0]["field"], "Status")
         self.assertEqual(fake.writes, [])
 
+    def test_incompatible_field_preflight_prevents_all_apply_writes(self):
+        fake = FakeGitHub()
+        fake.fields[0]["options"] = []
+        p = Project(API(fake), apply=True)
+        _, blocked = p.ensure_fields(fake.board)
+        self.assertTrue(blocked)
+        self.assertEqual(fake.writes, [])
+        self.assertEqual(p.operations, [])
+
+    def native_project(self):
+        fake = FakeGitHub()
+        fake.fields[0]["options"] = [{"id": "native-" + str(i), "name": name}
+                                     for i, name in enumerate(["Todo", "In Progress", "Done"])]
+        return fake, Project(API(fake), apply=True, native_status=True)
+
+    def test_default_status_requires_explicit_opt_in(self):
+        fake, _ = self.native_project()
+        _, blocked = Project(API(fake), apply=True).ensure_fields(fake.board)
+        self.assertEqual(blocked[0]["field"], "Status")
+        self.assertEqual(fake.writes, [])
+
+    def test_native_status_fresh_dry_run_plans_fields_and_item_without_writes(self):
+        fake, _ = self.native_project()
+        original = copy.deepcopy(fake.fields)
+        p = Project(API(fake), native_status=True)
+        fields, blocked = p.ensure_fields(fake.board)
+        self.assertEqual(blocked, [])
+        self.assertEqual(p.sync(fake.board, [{"node_id": "I", "fields": {"Status": "BLOCKED"}}], fields), [])
+        values = {op["field"]: op["value"] for op in p.operations
+                  if op["operation"] == "updateProjectV2ItemFieldValue"}
+        self.assertEqual(values, {"Status": "In Progress", "Workflow State": "BLOCKED"})
+        self.assertEqual(fake.fields, original)
+        self.assertEqual(fake.writes, [])
+        self.assertEqual(fake.items, [])
+
+    def test_native_status_preserves_ids_and_creates_detailed_lifecycle(self):
+        fake, p = self.native_project()
+        original = copy.deepcopy(fake.fields[0])
+        fields, blocked = p.ensure_fields(fake.board)
+        self.assertEqual(blocked, [])
+        self.assertEqual(fake.fields[0], original)
+        workflow = next(f for f in fields if f["name"] == "Workflow State")
+        self.assertEqual([o["name"] for o in workflow["options"]], STATES)
+        writes = len(fake.writes)
+        self.assertEqual(p.ensure_fields(fake.board)[1], [])
+        self.assertEqual(len(fake.writes), writes)
+
+    def test_native_status_all_states_roundtrip_without_overwriting_priority(self):
+        fake, p = self.native_project()
+        fields, blocked = p.ensure_fields(fake.board)
+        rows = [{"node_id": state, "fields": {"Status": state}} for state in STATES]
+        original = copy.deepcopy(rows)
+        self.assertEqual(p.sync(fake.board, rows, fields), [])
+        for item in fake.items:
+            values = {v["field"]["name"]: v["name"] for v in item["fieldValues"]["nodes"]}
+            self.assertEqual(values["Status"], NATIVE_STATUS[item["content"]["id"]])
+            self.assertEqual(values["Workflow State"], item["content"]["id"])
+        fake.items[0]["fieldValues"]["nodes"].append({"field": {"name": "Priority"}, "name": "P0"})
+        writes = len(fake.writes)
+        self.assertEqual(p.sync(fake.board, rows, fields), [])
+        self.assertEqual(len(fake.writes), writes)
+        self.assertEqual(rows, original)
+
+    def test_unknown_native_state_is_rejected_before_import(self):
+        fake, p = self.native_project()
+        with self.assertRaises(Blocked):
+            p.sync(fake.board, [{"node_id": "x", "fields": {"Status": "UNKNOWN"}}], fake.fields)
+        self.assertEqual(fake.writes, [])
+
+    def test_native_status_incompatible_workflow_field_is_not_replaced(self):
+        fake, p = self.native_project()
+        fake.fields.append({"id": "w", "name": "Workflow State", "dataType": "TEXT"})
+        self.assertTrue(p.ensure_fields(fake.board)[1])
+        self.assertEqual(fake.writes, [])
+
+    def test_duplicate_field_names_fail_closed(self):
+        fake = FakeGitHub()
+        fake.fields.append(copy.deepcopy(fake.fields[0]))
+        with self.assertRaises(Blocked):
+            Project(API(fake), apply=True).ensure_fields(fake.board)
+        self.assertEqual(fake.writes, [])
+
+    def test_duplicate_option_names_fail_closed(self):
+        fake = FakeGitHub()
+        fake.fields[0]["options"].append({"id": "other", "name": "BACKLOG"})
+        self.assertTrue(Project(API(fake), apply=True).ensure_fields(fake.board)[1])
+        self.assertEqual(fake.writes, [])
+
 
 class GateTests(unittest.TestCase):
     def setUp(self):
@@ -197,6 +291,17 @@ class GateTests(unittest.TestCase):
 
     def run_report(self):
         return reconcile(self.snapshot, self.catalog, datetime(2026, 10, 31, tzinfo=timezone.utc))
+
+    def test_view_specs_follow_native_lifecycle_without_mutating_default(self):
+        default = view_specs()
+        native = view_specs(True)
+        self.assertEqual(native["state"], "specified_not_configured")
+        self.assertEqual(native["lifecycle_field"], "Workflow State")
+        self.assertTrue(all("status:" not in v.get("filter", "") for v in native["views"]))
+        blocked = next(v for v in native["views"] if v["name"] == "Dependency Queue")
+        self.assertEqual(blocked["filter"], '"Workflow State":BLOCKED')
+        self.assertIn("Workflow State", blocked["columns"])
+        self.assertEqual(view_specs(), default)
 
     def test_pr_associated_exact_branch_and_stale_visible(self):
         r = self.run_report()

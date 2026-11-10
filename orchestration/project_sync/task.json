@@ -16,7 +16,8 @@
     "copier.yml",
     "orchestration/bootstrap/**",
     "orchestration/sparks.json",
-    "architecture/version-manifest.json"
+    "architecture/version-manifest.json",
+    "orchestration/planner/worker-scopes.json"
   ],
   "acceptance": [
     {
@@ -90,5 +91,5 @@
   ],
   "claimed_at": "2026-10-31T02:19:58Z",
   "state": "building",
-  "note": "Same-conversation user-approved Copier extension; B00 assigns root copier.yml in catalog 1.6.1. No workflow install, merge or release."
+  "note": "2026-11-10 user-authorized continuation: narrow generated-scope reconciliation on PR #135; preserve PR #25 branch and planner queue. No merge, workflow installation, or live Project acceptance."
 }

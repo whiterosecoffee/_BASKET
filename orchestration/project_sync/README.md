@@ -11,6 +11,11 @@ adoption, `orchestration/bootstrap/**`, root `copier.yml`, `orchestration/sparks
 and `architecture/version-manifest.json`. See `../bootstrap/README.md`. Main baseline:
 `afc4ada7bc6d7294071b3610fa77e59b206b6312`. PR #2 is merged; no bootstrap exception applies.
 
+The 2026-11-10 user-authorized continuation additionally reconciles only the
+generated `orchestration/planner/worker-scopes.json` against this branch's catalog.
+PR #25's branch, queue, goals, and implementation are preserved. See
+`RECONCILIATION-2026-11-10.md` for the bounded correction and verification record.
+
 - Reuse `orchestration/worker_protocol.py` for schema, path and resolution evaluation.
 - Preserve #132 / PR #133's offline reducer, including its owned subtree. This adapter
   adds the missing API/mutation layer and translates actual worker-task@1 objects;
@@ -61,9 +66,21 @@ input is allowed for audit, and prohibited together with `--apply`.
 
 The adapter creates missing text fields Domain, Spark ID, Worker, Branch, Validation
 and Acceptance; DATE Last Verified; select Priority, Execution Mode and Status.
-It **does not rewrite existing option IDs**. GitHub's default Status options need
-manual mapping to the lifecycle options in `api.STATES`; an incompatible field
-blocks item updates. This prevents silently resetting an established board.
+It **does not rewrite existing option IDs**. The default mode expects the full
+lifecycle options in `api.STATES`. For a board using GitHub's standard `Todo`,
+`In Progress`, `Done` options, explicitly pass `--native-status` on both dry-run and
+apply. This mode preserves the native Status field and adds a single-select
+`Workflow State` field containing the detailed lifecycle. BACKLOG/READY map to
+Todo; COMPLETE/CANCELLED map to Done; other lifecycle states map to In Progress.
+The detailed field distinguishes BLOCKED, FAILED, draft/review and cancellation;
+coarse Status is not acceptance evidence or proof that a worker is active.
+Configure detailed views using Workflow State when this mode is selected.
+
+Existing field types/options and duplicate names are preflighted before any field
+is created. Incompatibility blocks all configuration writes and item updates.
+Neither mode infers priority or changes an existing Priority value unless a caller
+explicitly supplies that field. No priority order or ready/complete inference is
+introduced by this compatibility option.
 
 Keep native assignees, linked pull requests, issue dependencies and milestones for
 ownership/PR/Blocked By/Milestone. Do not create parallel text copies. Worker is
@@ -76,6 +93,10 @@ Priority and execution mode are not inferred from agent names or stale catalogs.
 creation/filter mutation is not implemented or verified by this adapter; configure
 through the Project UI after authorization and check each filter against actual
 field names. Views show the same native items, without making copies.
+Use the report's `view_specifications` for the selected mode: `--native-status`
+rewrites the detailed filters, grouping and displayed lifecycle column to Workflow
+State. The original `views.json` targets custom lifecycle Status, not native mode.
+Generated specifications remain unapplied and require a real Project UI check.
 
 ## Evidence and state boundaries
 
