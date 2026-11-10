@@ -112,6 +112,133 @@
         "K5"
       ],
       "request_id": "5c6c4c671d8eb6506cef80318baf0000343ecdc6ed2a7bae737613df19071ac9"
+    },
+    {
+      "task": {
+        "schema": "basket.worker_task@1",
+        "task_id": "B00-178",
+        "spark_id": "B00",
+        "issue": {
+          "number": 178,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/178"
+        },
+        "branch": {
+          "name": "work/178-module-contract-reconciliation",
+          "base": "main"
+        },
+        "objective": "Compare and mature v2/v3 closeout, persist primary work and complete B00 handoff, validate QC intake and route remaining enforcement through existing owners.",
+        "write_paths": [
+          "orchestration/conversation_closeout/versions/**"
+        ],
+        "acceptance": [
+          {
+            "id": "A1",
+            "criterion": "Preserve exact v2 source and bounded v3 comparison evidence",
+            "evidence_class": "source"
+          },
+          {
+            "id": "A2",
+            "criterion": "Account for independently sourced O1-O5/K1-K5 and review obligations R1-R4, with source-to-handoff-to-request agreement and no archival on omission",
+            "evidence_class": "code_review"
+          },
+          {
+            "id": "A3",
+            "criterion": "Execute owner-local intake negative and replay tests on source revision",
+            "evidence_class": "test"
+          },
+          {
+            "id": "A4",
+            "criterion": "Record existing-owner routing without claiming operational integration",
+            "evidence_class": "documentation"
+          }
+        ],
+        "dependencies": [
+          {
+            "issue_number": 103,
+            "kind": "schema",
+            "blocks_completion": false,
+            "reason": "Remaining project-wide contract enforcement, not bounded intake acceptance"
+          },
+          {
+            "issue_number": 136,
+            "kind": "review",
+            "blocks_completion": false,
+            "reason": "Canonical priority and owner routing"
+          }
+        ],
+        "claimed_at": null,
+        "state": "review",
+        "note": "Corrected immutable source claim for #178 rework; original claim and rework history preserved. Live lifecycle remains issue178."
+      },
+      "source_pr": 179,
+      "review_kind": "closeout_semantic",
+      "artifacts": [
+        {
+          "path": "orchestration/conversation_closeout/versions/HANDOFF_PROMPT.v3-candidate.md",
+          "revision": "20751856071ba9654bfdc70f3446ad895f0f7d25",
+          "sha256": "f240e45415b63800233f0f09644772b4d937b535e86e68cf44322a9aac2f158d",
+          "role": "primary"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/VALIDATION.md",
+          "revision": "20751856071ba9654bfdc70f3446ad895f0f7d25",
+          "sha256": "c8fcba8a770e5f60ba467880ecc969c11adbfda4c083e06bbee735a3d1453631",
+          "role": "primary"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/qc_intake.py",
+          "revision": "20751856071ba9654bfdc70f3446ad895f0f7d25",
+          "sha256": "cafa655113fc9fe8205c50e2be7bb2e58c0ce7c764639a63092df8fb64256feb",
+          "role": "primary"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/test_qc_intake.py",
+          "revision": "20751856071ba9654bfdc70f3446ad895f0f7d25",
+          "sha256": "659155abf672ea3df6b5ba31cd6a238d6e20db5b3702f9f0c3cb447164a7019a",
+          "role": "primary"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/QC_WORKER.md",
+          "revision": "20751856071ba9654bfdc70f3446ad895f0f7d25",
+          "sha256": "b94f9b4bfa373ddc9661d45b885f68de1720a2e64727658389b0c1b74d2ac440",
+          "role": "primary"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/QC_HANDOFF.md",
+          "revision": "20751856071ba9654bfdc70f3446ad895f0f7d25",
+          "sha256": "a517ea9c52f16b761fda82eb68884bf00ce9ed4aa9c3f897234622c09e457124",
+          "role": "handoff"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/test_acceptance.py",
+          "revision": "20751856071ba9654bfdc70f3446ad895f0f7d25",
+          "sha256": "37d8e36bfa1e92c9ad4c66466a65c2dab8a40490df6b7dbd4bcbbcf34644783f",
+          "role": "primary"
+        },
+        {
+          "path": "orchestration/conversation_closeout/versions/README.md",
+          "revision": "20751856071ba9654bfdc70f3446ad895f0f7d25",
+          "sha256": "467dd94025daf6c041633435aa01fce56a1b8dee9b45d565c17dbfaa2dac5a29",
+          "role": "primary"
+        }
+      ],
+      "item_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "K1",
+        "K2",
+        "K3",
+        "K4",
+        "K5",
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "request_id": "4341c2e000c9336d7b7f1eeac5eff7c7dc50acc48cc14d24e3408e57f5443266"
     }
   ]
 }
