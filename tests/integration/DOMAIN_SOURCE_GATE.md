@@ -47,7 +47,9 @@ symlinks escaping their checkout, including inputs that Git status otherwise hid
 The same checks repeat after execution.
 
 Checkouts do not persist credentials. Only contents-read permission is requested;
-no secrets, live API, dependency installation, polling or deployment is needed.
+no secrets, live API, polling or deployment is needed. The ETF job alone installs
+`jsonschema==4.23.0`, the existing repository validator dependency, before suite
+execution. Other domain jobs retain their standard-library-only environment.
 Each source suite runs in a bounded child with bytecode disabled. Empty/reduced
 discovery, import errors, skips, expected failures, unexpected successes, failed
 assertions, timeout, dirty/untracked source or acceptance inputs, wrong revisions,
