@@ -134,6 +134,26 @@ python orchestration/project_sync/control.py --queue-order 134,201 --report /tmp
 python orchestration/project_sync/control.py --apply --queue-order 134,201 --report /tmp/basket-order-applied.json
 ```
 
+For a bounded position-only change on an existing board, add `--order-only`:
+
+```sh
+python orchestration/project_sync/control.py --project-number 2 --order-only --queue-order 134,201 --report /tmp/basket-order-only-plan.json
+# After reviewing the plan, serialize writers and apply the same explicit order:
+python orchestration/project_sync/control.py --project-number 2 --order-only --queue-order 134,201 --apply --report /tmp/basket-order-only-applied.json
+```
+
+This mode requires `--queue-order` and an explicit `--project-number` or
+`--project-id`. It cannot create a Project or combine with `--native-status`.
+It still collects fresh repository evidence and reports ownership/dependency gates,
+but skips field configuration and item synchronization entirely. Every selected
+issue must already be on the board; missing or duplicate identities block before
+any position write. It never imports an item, changes field definitions/values,
+Priority or Status, or applies view specifications. Reports identify
+`sync_mode: order_only`; their derived record fields are observations only, not
+applied board values. Repeating an unchanged order performs zero writes. Historical
+`--snapshot --apply` remains forbidden. Full synchronization remains the default
+when `--order-only` is absent. This is a bounded command, not a scheduled worker.
+
 The flag does not select a "next ready" issue. Blocked issues may be ordered, but
 remain blocked; `queue_order.blocked_issues` exposes those gates and
 `dispatch_authorized` stays false. Closing an upstream issue alone does not clear a
@@ -141,7 +161,7 @@ declared completion dependency. The review/rework cycle and launch authorization
 remain with the existing owner/controller contracts, not Project position.
 
 All requested issue numbers are validated before Project setup. PR numbers,
-missing/duplicate issues and ambiguous native identities are rejected. Position
+missing/duplicate issues and ambiguous native identities are rejected. In full mode, position
 writes run only after field/item synchronization has no operational failures.
 The full synchronization covers all collected records, not only the ordered
 subset; `--apply --queue-order` is not a position-only command.

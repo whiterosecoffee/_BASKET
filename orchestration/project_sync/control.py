@@ -298,19 +298,30 @@ def main():
                    help="Explicitly map GitHub Todo/In Progress/Done; retain detailed Workflow State")
     p.add_argument("--queue-order", type=parse_issue_order,
                    help="Explicit ordered issue numbers, e.g. 134,201; places these issues first without changing Priority or readiness")
+    p.add_argument("--order-only", action="store_true",
+                   help="Only reorder existing items; requires --queue-order and an explicit existing Project selector")
     p.add_argument("--owner", default="whiterosecoffee")
     p.add_argument("--owner-kind", choices=["user", "organization"], default="user")
     p.add_argument("--report", type=Path, required=True)
     args = p.parse_args()
     if args.snapshot and args.apply:
         p.error("Historical exports cannot authorize live Project updates")
+    if args.order_only:
+        if args.queue_order is None:
+            p.error("--order-only requires --queue-order")
+        if args.project_number is None and args.project_id is None:
+            p.error("--order-only requires --project-number or --project-id")
+        if args.native_status:
+            p.error("--native-status configures synchronization and cannot be used with --order-only")
     api = API()
-    report = {"blocked": [], "dry_run": not args.apply}
+    report = {"blocked": [], "dry_run": not args.apply,
+              "sync_mode": "order_only" if args.order_only else "full"}
     try:
         snapshot = json.loads(args.snapshot.read_text()) if args.snapshot else collect(api)
         catalog = json.loads((ROOT / "orchestration/sparks.json").read_text())
         report.update(reconcile(snapshot, catalog))
-        report["view_specifications"] = view_specs(args.native_status)
+        if not args.order_only:
+            report["view_specifications"] = view_specs(args.native_status)
         ordered = queue_order_records(report, args.queue_order) if args.queue_order is not None else None
         if ordered is not None:
             report["queue_order"] = {"issues": args.queue_order, "source": "explicit_operator_input",
@@ -322,12 +333,15 @@ def main():
             board = project.discover(args.create_project)
             report["project"] = board
             if board:
-                fields, incompatible = project.ensure_fields(board)
-                report["incompatible_fields"] = incompatible
-                # Field incompatibility must be resolved before any item state writes.
-                if incompatible:
-                    raise Blocked("field_configuration_blocked", "sync", "Existing options/types require B00 review")
-                report["blocked"].extend(project.sync(board, report["records"], fields))
+                if not args.order_only:
+                    fields, incompatible = project.ensure_fields(board)
+                    report["incompatible_fields"] = incompatible
+                    # Field incompatibility must be resolved before any item state writes.
+                    if incompatible:
+                        raise Blocked("field_configuration_blocked", "sync", "Existing options/types require B00 review")
+                    report["blocked"].extend(project.sync(board, report["records"], fields))
+                # Order-only intentionally neither configures fields nor imports
+                # missing items. order_items preflights all existing identities.
                 if ordered is not None and not report["blocked"]:
                     report["queue_order"]["position_result"] = project.order_items(board, [r["node_id"] for r in ordered])
         finally:
