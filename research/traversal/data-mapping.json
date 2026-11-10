@@ -1,0 +1,65 @@
+{
+  "schema": "basket.traversal.data_mapping@1",
+  "audited_at": "2026-10-29",
+  "audit_scope": "GitHub main contents only; external mounts inaccessible",
+  "main_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+  "external_archive": {
+    "path": "_DATA",
+    "state": "not_accessible_or_verified",
+    "claimed_ticker_files": 356,
+    "claimed_bytes_approx": 15000000000,
+    "claim_verified": false
+  },
+  "instruments": [
+    {
+      "instrument": "CRWV",
+      "entity": "CRWV",
+      "store": "github_versioned_research_history",
+      "path": "tickers/CRWV/history.jsonl",
+      "schema": "market.daily@1",
+      "observation_types": [
+        "completed_daily_ohlcv"
+      ],
+      "interval": "1d",
+      "coverage": {
+        "start": "2025-10-01",
+        "end": "2026-10-15",
+        "records": 262,
+        "source": "tickers/CRWV/history.meta.json"
+      },
+      "source": "Massive",
+      "adjustment_basis": "split_adjusted",
+      "currency": "USD",
+      "watermark": "2026-10-15",
+      "refresh_owner": "B02",
+      "live_current": false
+    },
+    {
+      "instrument": "ORCL",
+      "entity": "ORCL",
+      "store": null,
+      "path": null,
+      "schema": null,
+      "observation_types": [],
+      "interval": null,
+      "coverage": null,
+      "source": null,
+      "adjustment_basis": null,
+      "currency": "USD",
+      "watermark": null,
+      "refresh_owner": "B02",
+      "status": "not_present_on_main_at_checked_paths; external archive unknown"
+    }
+  ],
+  "producer_dependency": {
+    "issue": 95,
+    "pr": 99,
+    "status": "draft_unmerged",
+    "storage": "SQLite local consumer; host persistence unverified"
+  },
+  "context_dependency": {
+    "issue": 100,
+    "pr": 101,
+    "status": "draft_unmerged"
+  }
+}
