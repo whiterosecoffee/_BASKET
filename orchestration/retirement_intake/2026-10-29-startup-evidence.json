@@ -1,0 +1,3701 @@
+{
+  "repository": "whiterosecoffee/_BASKET",
+  "observed_at": "2026-10-29T17:39:29.825Z",
+  "main_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+  "tree_truncated": false,
+  "main_tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1a5bf43036a249e59333ae9cd32f49b4f0bd77a3",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/1a5bf43036a249e59333ae9cd32f49b4f0bd77a3"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "78eba0d4a8579d0158aec386f13125a358ac6655",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/78eba0d4a8579d0158aec386f13125a358ac6655"
+    },
+    {
+      "path": ".github/workflows/narrative.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0c5c07b95beb7be3f6546b058f17b9a5de2fd9ee",
+      "size": 988,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/0c5c07b95beb7be3f6546b058f17b9a5de2fd9ee"
+    },
+    {
+      "path": ".github/workflows/openai-research.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3641978f5a3148d565d64ead899eed3a7372782",
+      "size": 4378,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/a3641978f5a3148d565d64ead899eed3a7372782"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f281c6abf5762184b03b0c8bd31b7102d832ad5",
+      "size": 3459,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/8f281c6abf5762184b03b0c8bd31b7102d832ad5"
+    },
+    {
+      "path": "AGENTS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a3294420db34f3e5b3aba4387acadcdf3785be0",
+      "size": 8649,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/2a3294420db34f3e5b3aba4387acadcdf3785be0"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c871845c8d7ccb772026771e27b5c62a853b793",
+      "size": 3781,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/8c871845c8d7ccb772026771e27b5c62a853b793"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1acdd43afa0df8f899f686fd6d8e813115ad092a",
+      "size": 638,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/1acdd43afa0df8f899f686fd6d8e813115ad092a"
+    },
+    {
+      "path": "architecture",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "584023fc9e8811c7d9c5d4418a86675a518c9e3b",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/584023fc9e8811c7d9c5d4418a86675a518c9e3b"
+    },
+    {
+      "path": "architecture/SFTBY_USD.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86fddeca28ffb6d9aaf7e9328bb996d6add897e0",
+      "size": 1136,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/86fddeca28ffb6d9aaf7e9328bb996d6add897e0"
+    },
+    {
+      "path": "architecture/VERSIONING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "46d6e7e15716cd557dc75b2011ee59f48905329c",
+      "size": 8451,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/46d6e7e15716cd557dc75b2011ee59f48905329c"
+    },
+    {
+      "path": "architecture/basket.architecture.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24ada4fa4b790f8def4671a654d1f68e1db910ed",
+      "size": 10716,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/24ada4fa4b790f8def4671a654d1f68e1db910ed"
+    },
+    {
+      "path": "architecture/version-manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "92f9701fb2eff3b589f7a28e01531d50b6deb1ce",
+      "size": 6163,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/92f9701fb2eff3b589f7a28e01531d50b6deb1ce"
+    },
+    {
+      "path": "engines",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8123f008715040e5cbb8bfca04fe78c11c7f19ba",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/8123f008715040e5cbb8bfca04fe78c11c7f19ba"
+    },
+    {
+      "path": "engines/economics",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d57524001b201cd2a017d217f44c2d5c68a90cbb",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/d57524001b201cd2a017d217f44c2d5c68a90cbb"
+    },
+    {
+      "path": "engines/economics/freshness.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1784667da358c29cdfac9cc880924620a6b5eaf2",
+      "size": 1080,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/1784667da358c29cdfac9cc880924620a6b5eaf2"
+    },
+    {
+      "path": "engines/narrative",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9602e810e861085c74e99b6d638446c8bb959c74",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/9602e810e861085c74e99b6d638446c8bb959c74"
+    },
+    {
+      "path": "engines/narrative/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e3a6e38a7dab2db1aea0e6646b44cf80dbd062e",
+      "size": 3815,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/1e3a6e38a7dab2db1aea0e6646b44cf80dbd062e"
+    },
+    {
+      "path": "engines/narrative/cases",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "57851c33bb05f289eb06e8047776cd3fddd253e8",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/57851c33bb05f289eb06e8047776cd3fddd253e8"
+    },
+    {
+      "path": "engines/narrative/cases/coreweave_2026-10-16.jsonl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5abff24004cbe316e2eabe9a68bf1ace56ac8553",
+      "size": 14376,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/5abff24004cbe316e2eabe9a68bf1ace56ac8553"
+    },
+    {
+      "path": "engines/narrative/engine.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cadf8dd611d99db678a6cad28237929e1c2f3e5e",
+      "size": 11597,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/cadf8dd611d99db678a6cad28237929e1c2f3e5e"
+    },
+    {
+      "path": "engines/traversal",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1210c7da518e56f87cfbf34308f5d514e9e18ab4",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/1210c7da518e56f87cfbf34308f5d514e9e18ab4"
+    },
+    {
+      "path": "engines/traversal/range.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6cc17c56691f3eeae40c00b41108a938e1c725c7",
+      "size": 2042,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/6cc17c56691f3eeae40c00b41108a938e1c725c7"
+    },
+    {
+      "path": "engines/traversal/sftby_zoom.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cbc21e056c7064d17210faa71829b2088c74e873",
+      "size": 1529,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/cbc21e056c7064d17210faa71829b2088c74e873"
+    },
+    {
+      "path": "fx",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9deb0195b2bde0c5e44e59f4603ff260e6448227",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/9deb0195b2bde0c5e44e59f4603ff260e6448227"
+    },
+    {
+      "path": "fx/JPYUSD",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9ecfadd647b3c60e712346931cab869ea68449f1",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/9ecfadd647b3c60e712346931cab869ea68449f1"
+    },
+    {
+      "path": "fx/JPYUSD/history.jsonl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6727721b1aa6f73dab192f67748c317e4e450224",
+      "size": 29937,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/6727721b1aa6f73dab192f67748c317e4e450224"
+    },
+    {
+      "path": "fx/JPYUSD/meta.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6568d80fa7b99af65d38a157dac088adc147dec",
+      "size": 431,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/f6568d80fa7b99af65d38a157dac088adc147dec"
+    },
+    {
+      "path": "orchestration",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bc240e0ab8cf9201358f0a6050a7ffc5dbf385e0",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/bc240e0ab8cf9201358f0a6050a7ffc5dbf385e0"
+    },
+    {
+      "path": "orchestration/EXECUTION_LOOP.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f8295e82217939136577c39f39c7b7c881c16b3",
+      "size": 5101,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/6f8295e82217939136577c39f39c7b7c881c16b3"
+    },
+    {
+      "path": "orchestration/LAUNCHPAD.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "51c560c2c141e00673b5784540624494a446b424",
+      "size": 7445,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/51c560c2c141e00673b5784540624494a446b424"
+    },
+    {
+      "path": "orchestration/PROJECT_INSTRUCTIONS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c3f411a4596a126dffcd405df49479240e814f6",
+      "size": 7893,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/4c3f411a4596a126dffcd405df49479240e814f6"
+    },
+    {
+      "path": "orchestration/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8233c77a57bb6bdae0db51f6bc72376c66159660",
+      "size": 10897,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/8233c77a57bb6bdae0db51f6bc72376c66159660"
+    },
+    {
+      "path": "orchestration/WORKER_PROTOCOL.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd56782cf54821d9e57c856c5476a4f5d5463585",
+      "size": 10861,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/cd56782cf54821d9e57c856c5476a4f5d5463585"
+    },
+    {
+      "path": "orchestration/examples",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f7bf2610fc30d7fcbff9957bb9191955ca75f6c4",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/f7bf2610fc30d7fcbff9957bb9191955ca75f6c4"
+    },
+    {
+      "path": "orchestration/examples/B05.resolution.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "20fd09edfac54ece57919f46b839e79f7a63704e",
+      "size": 3279,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/20fd09edfac54ece57919f46b839e79f7a63704e"
+    },
+    {
+      "path": "orchestration/examples/B05.task.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "496079426386ee7b9c576af3e6b0c2c6b08435fb",
+      "size": 1586,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/496079426386ee7b9c576af3e6b0c2c6b08435fb"
+    },
+    {
+      "path": "orchestration/examples/github-evidence-2026-10-16.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e40759dbf17b292289062cce8b9bced7e63624f",
+      "size": 4810,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/5e40759dbf17b292289062cce8b9bced7e63624f"
+    },
+    {
+      "path": "orchestration/execution_loop.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26ab58c6027026208c3bdb5eb0ee8ba0cba8ea93",
+      "size": 5508,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/26ab58c6027026208c3bdb5eb0ee8ba0cba8ea93"
+    },
+    {
+      "path": "orchestration/github_snapshot.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "be76b9e7767e47232b31dd06b9617d4997c98e0a",
+      "size": 5441,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/be76b9e7767e47232b31dd06b9617d4997c98e0a"
+    },
+    {
+      "path": "orchestration/handoffs.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "65cebdc4b52a9ba335ded417e9507534ad2ddcd5",
+      "size": 2423,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/65cebdc4b52a9ba335ded417e9507534ad2ddcd5"
+    },
+    {
+      "path": "orchestration/launch-pack.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a3a2d0bb93695dc8e1bc951a282ee4150b097b5",
+      "size": 8394,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/5a3a2d0bb93695dc8e1bc951a282ee4150b097b5"
+    },
+    {
+      "path": "orchestration/planner.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f7d865ce20bed2818950adb606a34cd0a548bca7",
+      "size": 14794,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/f7d865ce20bed2818950adb606a34cd0a548bca7"
+    },
+    {
+      "path": "orchestration/planner",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6c9230d680385976b06f2f681199de33e63dd144",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/6c9230d680385976b06f2f681199de33e63dd144"
+    },
+    {
+      "path": "orchestration/planner/NEXT_BATCH.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e61445f310e064a6489d2c602cc9b8f10f23f686",
+      "size": 9238,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/e61445f310e064a6489d2c602cc9b8f10f23f686"
+    },
+    {
+      "path": "orchestration/planner/PROGRESS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "05df529696aeeac38f9298bca54236701bdcd197",
+      "size": 2573,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/05df529696aeeac38f9298bca54236701bdcd197"
+    },
+    {
+      "path": "orchestration/planner/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41da1ad571531454fa1d22c2b81f17e00d46a9e8",
+      "size": 9112,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/41da1ad571531454fa1d22c2b81f17e00d46a9e8"
+    },
+    {
+      "path": "orchestration/planner/WORKER_JOBS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c65d93a7e5b352aae258ab6fc5a8633a6d6024f3",
+      "size": 2866,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/c65d93a7e5b352aae258ab6fc5a8633a6d6024f3"
+    },
+    {
+      "path": "orchestration/planner/attempts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7cdbd5e73f63b76bc12e79114e315934d55d130b",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/7cdbd5e73f63b76bc12e79114e315934d55d130b"
+    },
+    {
+      "path": "orchestration/planner/attempts/T-001.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d15522a6b40033308a4498981fa795112863e8d",
+      "size": 1885,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/4d15522a6b40033308a4498981fa795112863e8d"
+    },
+    {
+      "path": "orchestration/planner/goals.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23a560101322bacee302ecd3f1229bb9e2775c73",
+      "size": 5650,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/23a560101322bacee302ecd3f1229bb9e2775c73"
+    },
+    {
+      "path": "orchestration/planner/queue.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b818f43dbe4c80c1d48b37dbd72f3ea8cdcdaf0c",
+      "size": 15988,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/b818f43dbe4c80c1d48b37dbd72f3ea8cdcdaf0c"
+    },
+    {
+      "path": "orchestration/planner/worker-library.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7bd751001563a3d4bd2eb6dc31d22ac244081832",
+      "size": 9047,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/7bd751001563a3d4bd2eb6dc31d22ac244081832"
+    },
+    {
+      "path": "orchestration/planner/worker-scopes.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8284b759cc58809a26372b56856524b392bd4a0c",
+      "size": 21298,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/8284b759cc58809a26372b56856524b392bd4a0c"
+    },
+    {
+      "path": "orchestration/sparks.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a19d5ec188d80ffb38641cefc3594067c4a78a2b",
+      "size": 69719,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/a19d5ec188d80ffb38641cefc3594067c4a78a2b"
+    },
+    {
+      "path": "orchestration/strategic-review-2026-10-16.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0a95ba1bdd7b0264550fff2caf4382c780378d9c",
+      "size": 10715,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/0a95ba1bdd7b0264550fff2caf4382c780378d9c"
+    },
+    {
+      "path": "orchestration/tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a61682a8ecfda442f547a499cbd3346d6ee45575",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/a61682a8ecfda442f547a499cbd3346d6ee45575"
+    },
+    {
+      "path": "orchestration/tests/test_controller_fail_closed.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99b4bd303de526ead16ffd2f8c169ab2976e4516",
+      "size": 4101,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/99b4bd303de526ead16ffd2f8c169ab2976e4516"
+    },
+    {
+      "path": "orchestration/tests/test_execution_loop.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "02123eb0171bfa330a4a44055ec212b2be0e4772",
+      "size": 1953,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/02123eb0171bfa330a4a44055ec212b2be0e4772"
+    },
+    {
+      "path": "orchestration/tests/test_github_snapshot.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7939d71e3be40c27eb8a1e70a405f7ed7db9ad62",
+      "size": 3670,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/7939d71e3be40c27eb8a1e70a405f7ed7db9ad62"
+    },
+    {
+      "path": "orchestration/tests/test_goals.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b5f53e8e995e068c0fe0cd10dcd9373803acd27a",
+      "size": 1535,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/b5f53e8e995e068c0fe0cd10dcd9373803acd27a"
+    },
+    {
+      "path": "orchestration/tests/test_planner.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4581c1a333bca34e476c96816ed0d253bf680de8",
+      "size": 7808,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/4581c1a333bca34e476c96816ed0d253bf680de8"
+    },
+    {
+      "path": "orchestration/tests/test_worker_attempts.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ef327286f769c5b7ee286806c1ddc9307a039d4",
+      "size": 1474,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/2ef327286f769c5b7ee286806c1ddc9307a039d4"
+    },
+    {
+      "path": "orchestration/tests/test_worker_protocol.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23bd46e2258de7584ffd79952865ac0f8137c6cc",
+      "size": 4704,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/23bd46e2258de7584ffd79952865ac0f8137c6cc"
+    },
+    {
+      "path": "orchestration/tests/test_worker_scopes.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abe1ee8e818ca1c5d8c86c7feb21937ccc33ba38",
+      "size": 1282,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/abe1ee8e818ca1c5d8c86c7feb21937ccc33ba38"
+    },
+    {
+      "path": "orchestration/validate_goals.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cbc78996a2a1f70ec9ee7e85e17393eb23acd38f",
+      "size": 2486,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/cbc78996a2a1f70ec9ee7e85e17393eb23acd38f"
+    },
+    {
+      "path": "orchestration/validate_planner.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5d908435e8b2f7fd30304638397b27983a8d7dd",
+      "size": 2203,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/f5d908435e8b2f7fd30304638397b27983a8d7dd"
+    },
+    {
+      "path": "orchestration/validate_sparks.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c45fea99c2bcfc79b52e1ede18789bf6f57f04a9",
+      "size": 3870,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/c45fea99c2bcfc79b52e1ede18789bf6f57f04a9"
+    },
+    {
+      "path": "orchestration/validate_versions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b84a510f6a3287010b148010a4d8f265e109aecf",
+      "size": 4696,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/b84a510f6a3287010b148010a4d8f265e109aecf"
+    },
+    {
+      "path": "orchestration/validate_worker_attempts.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "690659d5e4bb7cef092688b9f60088648a93c12f",
+      "size": 3718,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/690659d5e4bb7cef092688b9f60088648a93c12f"
+    },
+    {
+      "path": "orchestration/validate_worker_scopes.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "36c83c4cb24e72658f7e3c1a51f3f8ba8b9d47be",
+      "size": 2872,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/36c83c4cb24e72658f7e3c1a51f3f8ba8b9d47be"
+    },
+    {
+      "path": "orchestration/worker_protocol.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71c63c423472e3bde0004dd019d326b9cc979711",
+      "size": 9631,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/71c63c423472e3bde0004dd019d326b9cc979711"
+    },
+    {
+      "path": "research",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ac3337b94993ea12ec2d807e5fec0b24277d3beb",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/ac3337b94993ea12ec2d807e5fec0b24277d3beb"
+    },
+    {
+      "path": "research/graph",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5bdfb4975a5cc77f7c6cf610283193c1560c5b79",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/5bdfb4975a5cc77f7c6cf610283193c1560c5b79"
+    },
+    {
+      "path": "research/graph/SFTBY",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "83f2591a179e148b16021b38311c65c5d554bbd5",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/83f2591a179e148b16021b38311c65c5d554bbd5"
+    },
+    {
+      "path": "research/graph/SFTBY/relationships-context-2026-10-16.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74e8b27dbe80f8b1b8eaa85d723dec4286bad4b3",
+      "size": 3947,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/74e8b27dbe80f8b1b8eaa85d723dec4286bad4b3"
+    },
+    {
+      "path": "runtime",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "159e0224142025dd24474a8dec73e2bce6b84b9b",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/159e0224142025dd24474a8dec73e2bce6b84b9b"
+    },
+    {
+      "path": "runtime/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bb2175ac563ee553c035237f562bb5d82a7c0783",
+      "size": 1728,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/bb2175ac563ee553c035237f562bb5d82a7c0783"
+    },
+    {
+      "path": "runtime/feeds.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa6ca4488751377f4e1aeba56ba97df35f30e68a",
+      "size": 1861,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/aa6ca4488751377f4e1aeba56ba97df35f30e68a"
+    },
+    {
+      "path": "runtime/ttd.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e29dd0dd2c68df9ec91394adad8da01e0fb9bdb",
+      "size": 5801,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/0e29dd0dd2c68df9ec91394adad8da01e0fb9bdb"
+    },
+    {
+      "path": "schemas",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "194208b4f1e6496c5440496f6ff1296df3256785",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/194208b4f1e6496c5440496f6ff1296df3256785"
+    },
+    {
+      "path": "schemas/architecture.schema.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3cc2affe84bbad049e339fe612862c6f9f7dfd34",
+      "size": 2525,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/3cc2affe84bbad049e339fe612862c6f9f7dfd34"
+    },
+    {
+      "path": "schemas/entity.v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3e41eb84b3b1893bed954f3815197e011ef13bfe",
+      "size": 1078,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/3e41eb84b3b1893bed954f3815197e011ef13bfe"
+    },
+    {
+      "path": "schemas/events.v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9cbb9247edefac3072578fc3c72e024366b52408",
+      "size": 1349,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/9cbb9247edefac3072578fc3c72e024366b52408"
+    },
+    {
+      "path": "schemas/freshness.v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd1c35d5fba9a281bc93368ce8c09f3f6cd909b5",
+      "size": 1469,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/dd1c35d5fba9a281bc93368ce8c09f3f6cd909b5"
+    },
+    {
+      "path": "schemas/history",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c4f35632f685d6ab8251203286bcf6b33b2630a8",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/c4f35632f685d6ab8251203286bcf6b33b2630a8"
+    },
+    {
+      "path": "schemas/history/market.daily.v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3742322dbb581ba33ab285eaff9d2fa6768cc3ea",
+      "size": 856,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/3742322dbb581ba33ab285eaff9d2fa6768cc3ea"
+    },
+    {
+      "path": "schemas/project-goals.v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a6f2eb9351ab757daef4b199c7a67a912624480",
+      "size": 3768,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/1a6f2eb9351ab757daef4b199c7a67a912624480"
+    },
+    {
+      "path": "schemas/relationships.v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00a0f2b1c3d8b712cefb6e058b5836d989f72b41",
+      "size": 2685,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/00a0f2b1c3d8b712cefb6e058b5836d989f72b41"
+    },
+    {
+      "path": "schemas/task-queue.v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e4a0b594841b0cd6dbf7689be9c9859c60b8f858",
+      "size": 4428,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/e4a0b594841b0cd6dbf7689be9c9859c60b8f858"
+    },
+    {
+      "path": "schemas/worker-attempts.v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "36c9581fc5b3cbbd41fa410da15f3f9b7ac2c225",
+      "size": 4477,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/36c9581fc5b3cbbd41fa410da15f3f9b7ac2c225"
+    },
+    {
+      "path": "schemas/worker-evidence.v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3d8b215ea552178237304015def92dfef33c8a8f",
+      "size": 3948,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/3d8b215ea552178237304015def92dfef33c8a8f"
+    },
+    {
+      "path": "schemas/worker-library.v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5795f4b38f0f8db0947086b7256c7dcd3cc5e8f",
+      "size": 3600,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/d5795f4b38f0f8db0947086b7256c7dcd3cc5e8f"
+    },
+    {
+      "path": "schemas/worker-resolution.v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7ae9f86d583e567537397ae310c8ab8230be9fa",
+      "size": 8796,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/e7ae9f86d583e567537397ae310c8ab8230be9fa"
+    },
+    {
+      "path": "schemas/worker-task.v1.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "240208c6033a44314df1000a65b3d971546442a9",
+      "size": 4197,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/240208c6033a44314df1000a65b3d971546442a9"
+    },
+    {
+      "path": "tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5b9692b1fb5ae456f46e84fc64fe0fd0273046a0",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/5b9692b1fb5ae456f46e84fc64fe0fd0273046a0"
+    },
+    {
+      "path": "tests/integration",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "45a91764167cb6fe965fb97bc0f86c716e2196df",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/45a91764167cb6fe965fb97bc0f86c716e2196df"
+    },
+    {
+      "path": "tests/integration/openai_research_acceptance.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97af41577f0b92ac77a76b482fe9ead6e4ac9fe2",
+      "size": 4160,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/97af41577f0b92ac77a76b482fe9ead6e4ac9fe2"
+    },
+    {
+      "path": "tests/integration/test_ci_contract.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "280dc7fd82bcfa25d5a998e08932b9a706d768fc",
+      "size": 5244,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/280dc7fd82bcfa25d5a998e08932b9a706d768fc"
+    },
+    {
+      "path": "tests/integration/test_openai_workflow_hotfix.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a5e7b029e81bd0bb2890f07ab56ded378caa767",
+      "size": 3953,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/4a5e7b029e81bd0bb2890f07ab56ded378caa767"
+    },
+    {
+      "path": "tests/integration/test_relationship_contract.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1937bd40752b9762b4a9138db061d9bcf8a3f840",
+      "size": 1870,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/1937bd40752b9762b4a9138db061d9bcf8a3f840"
+    },
+    {
+      "path": "tests/integration/test_worker_qc.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2ad261761366a59bef59efe6d17a92bf987d34d2",
+      "size": 5215,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/2ad261761366a59bef59efe6d17a92bf987d34d2"
+    },
+    {
+      "path": "tests/test_narrative.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4c37ef16ef61d154cded593eee819d9c71530985",
+      "size": 3223,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/4c37ef16ef61d154cded593eee819d9c71530985"
+    },
+    {
+      "path": "tests/test_ttd.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "696bac1264ab83fc5335e28b50e75fba5f6435a0",
+      "size": 1084,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/696bac1264ab83fc5335e28b50e75fba5f6435a0"
+    },
+    {
+      "path": "tests/validate_stores.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8d56771b1872d13b2f05720c194ad3dc4ddf30f0",
+      "size": 1900,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/8d56771b1872d13b2f05720c194ad3dc4ddf30f0"
+    },
+    {
+      "path": "tickers",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "43d52781f5a046991f2303bac2d513071d21b06e",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/43d52781f5a046991f2303bac2d513071d21b06e"
+    },
+    {
+      "path": "tickers/AAOI",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "56fb43558928ef5fcba3cf713be27447ed536d2b",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/56fb43558928ef5fcba3cf713be27447ed536d2b"
+    },
+    {
+      "path": "tickers/AAOI/entity.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d89cb6110332b80a3d80d828a8d67cb981879d3a",
+      "size": 231,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/d89cb6110332b80a3d80d828a8d67cb981879d3a"
+    },
+    {
+      "path": "tickers/AAOI/events.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "459f6b6e6b27dbb26fe88a68f1b104448355d458",
+      "size": 66,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/459f6b6e6b27dbb26fe88a68f1b104448355d458"
+    },
+    {
+      "path": "tickers/AAOI/history.jsonl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "59fbc7e5908b3f4dca4c1ae1450ed267958e3fb3",
+      "size": 18187,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/59fbc7e5908b3f4dca4c1ae1450ed267958e3fb3"
+    },
+    {
+      "path": "tickers/AAOI/history.meta.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "abdcdc8bd0d55891776582cdcfb33667d780fc95",
+      "size": 721,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/abdcdc8bd0d55891776582cdcfb33667d780fc95"
+    },
+    {
+      "path": "tickers/AAOI/relationships.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93e788d0a04f961c2bcbb87cd367e0f70fe42664",
+      "size": 144,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/93e788d0a04f961c2bcbb87cd367e0f70fe42664"
+    },
+    {
+      "path": "tickers/CRWV",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "840f8dc70c440367c3cb7b52ea4671a2c78bc50d",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/840f8dc70c440367c3cb7b52ea4671a2c78bc50d"
+    },
+    {
+      "path": "tickers/CRWV/entity.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "216589c957880986a3d0890d782fa35e32101c9a",
+      "size": 231,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/216589c957880986a3d0890d782fa35e32101c9a"
+    },
+    {
+      "path": "tickers/CRWV/events.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ce2b6fd1cbc536577b4b4e1be4e16ae6705262b",
+      "size": 66,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/6ce2b6fd1cbc536577b4b4e1be4e16ae6705262b"
+    },
+    {
+      "path": "tickers/CRWV/history.jsonl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66a01994787953af043ccfc0ea58ac5cbeab8736",
+      "size": 18260,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/66a01994787953af043ccfc0ea58ac5cbeab8736"
+    },
+    {
+      "path": "tickers/CRWV/history.meta.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "69329eb9aff49f37a46d37845da276c5dccfbe92",
+      "size": 721,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/69329eb9aff49f37a46d37845da276c5dccfbe92"
+    },
+    {
+      "path": "tickers/CRWV/relationships.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8b09dbc14c82423965626d5735981384378ed814",
+      "size": 144,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/8b09dbc14c82423965626d5735981384378ed814"
+    },
+    {
+      "path": "tickers/OPENAI",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "48f2574c77f86a0830b9187e95aa10e074888a7e",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/48f2574c77f86a0830b9187e95aa10e074888a7e"
+    },
+    {
+      "path": "tickers/OPENAI/entity.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ce2d61bc72ca77334aabe2ff3b3f694daee3f31",
+      "size": 370,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/6ce2d61bc72ca77334aabe2ff3b3f694daee3f31"
+    },
+    {
+      "path": "tickers/OPENAI/events.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9be08c7f7c642f4a68adb5789d06babf59d1b1a",
+      "size": 650,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/d9be08c7f7c642f4a68adb5789d06babf59d1b1a"
+    },
+    {
+      "path": "tickers/OPENAI/history.jsonl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tickers/OPENAI/relationships.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dea73ce3c3a83052214db60273e1bf15bc9d23f2",
+      "size": 384,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/dea73ce3c3a83052214db60273e1bf15bc9d23f2"
+    },
+    {
+      "path": "tickers/SFTBY",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "05f0b9f88ec12ee62eec40ea3ffe0f90120336c6",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/05f0b9f88ec12ee62eec40ea3ffe0f90120336c6"
+    },
+    {
+      "path": "tickers/SFTBY/entity.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a968148f3de1691916f4414f39e3cb4ae3d6053",
+      "size": 232,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/1a968148f3de1691916f4414f39e3cb4ae3d6053"
+    },
+    {
+      "path": "tickers/SFTBY/events.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27f3640fb624bb6867d30e4e0300181a9199d119",
+      "size": 67,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/27f3640fb624bb6867d30e4e0300181a9199d119"
+    },
+    {
+      "path": "tickers/SFTBY/history.jsonl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04c1e311e8c1d25902fc3dced896f9b94f9ecdb8",
+      "size": 16132,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/04c1e311e8c1d25902fc3dced896f9b94f9ecdb8"
+    },
+    {
+      "path": "tickers/SFTBY/history.meta.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c8c42dc643784e2bf308a3557c5269b5c873412",
+      "size": 722,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/8c8c42dc643784e2bf308a3557c5269b5c873412"
+    },
+    {
+      "path": "tickers/SFTBY/intraday",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d64c0cb7dd0c6b4fda805ee12b64d48c44e5bc93",
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/trees/d64c0cb7dd0c6b4fda805ee12b64d48c44e5bc93"
+    },
+    {
+      "path": "tickers/SFTBY/intraday/2026-10-16.5m.jsonl",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8945d257e3efc34d79ea716ca0f9df9d254b36a8",
+      "size": 1586,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/8945d257e3efc34d79ea716ca0f9df9d254b36a8"
+    },
+    {
+      "path": "tickers/SFTBY/intraday/2026-10-16.meta.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a76c867e5c3d57a79ed3fc6735aaf870f69e5bf",
+      "size": 526,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/6a76c867e5c3d57a79ed3fc6735aaf870f69e5bf"
+    },
+    {
+      "path": "tickers/SFTBY/relationships.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "772a78dc0b2df2daa9f69a69d9749fc370b0fde2",
+      "size": 478,
+      "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/git/blobs/772a78dc0b2df2daa9f69a69d9749fc370b0fde2"
+    }
+  ],
+  "open_prs_complete": true,
+  "open_issues_complete": true,
+  "branches_complete": true,
+  "branches": [
+    {
+      "name": "main",
+      "commit": {
+        "sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/afc4ada7bc6d7294071b3610fa77e59b206b6312"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/1-conversation-sparks-orchestration",
+      "commit": {
+        "sha": "fc47dd2f33b7d7b92a016e9b91e0cb6644cb3496",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/fc47dd2f33b7d7b92a016e9b91e0cb6644cb3496"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/8-sftby-relationship-integrity",
+      "commit": {
+        "sha": "9917c4c8c4e1d9a7cc7ec043de1096f689e80441",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/9917c4c8c4e1d9a7cc7ec043de1096f689e80441"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/9-b01-independent-ci-validation",
+      "commit": {
+        "sha": "a4a4a1702c241cb9502fa511a3035a0628e64f47",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/a4a4a1702c241cb9502fa511a3035a0628e64f47"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/11-market-fx-observation-replay",
+      "commit": {
+        "sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/68146c1443dc485d2e5f7e811dbfcd6d76b9ed77"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/12-b03-canonical-issuer-events",
+      "commit": {
+        "sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/63f7cf68d2c3d72afe4b0beb841c03867289a51c"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/17-mrie-revenue-pool-resources",
+      "commit": {
+        "sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/6eab180632d251147d13a073c967dbd3031dfe92"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/20-capital-profit-graph",
+      "commit": {
+        "sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/f7bd7a70934331e869c71119521aa2f37c9cfe57"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/21-underrepresented-ticker-coverage",
+      "commit": {
+        "sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/ea72a24da23aa5809ce41e22d327575369c3d09f"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/24-register-coverage-research-milestones",
+      "commit": {
+        "sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/8305cd895ccf89692b94ebf2adf67f343d319447"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/26-openai-preipo-valuation-sftby",
+      "commit": {
+        "sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/e41c42f82f16938f8a2fdda44722c96b04a862f8"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/32-mrie-agentic-readiness-audit",
+      "commit": {
+        "sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/192a31bed3858fc0fb0c0254cd85cf6672e49511"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/37-cross-support-evidence",
+      "commit": {
+        "sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/7b21d01c1ec63f1482cafe274ab89f13aae1ec30"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/42-ticker-first-worker-contract",
+      "commit": {
+        "sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/2deadc419d1f87726242579f8abeccd8ddb79c59"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/44-b01-worker-qc",
+      "commit": {
+        "sha": "7641bec4e1980df3aff4c654be144934272c6488",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/7641bec4e1980df3aff4c654be144934272c6488"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/45-b01-openai-ci",
+      "commit": {
+        "sha": "197c1a38445b25c1244b3c7cfa36de68e976c511",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/197c1a38445b25c1244b3c7cfa36de68e976c511"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/48-full-basket-capture-dispatch",
+      "commit": {
+        "sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/b63e917758b9eab1e40f01d72330262264fbbd90"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/53-b08-snapshot-service",
+      "commit": {
+        "sha": "24d77045575926be5499355f9d26de499ed2b5ae",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/24d77045575926be5499355f9d26de499ed2b5ae"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/57-b06-oct16-traversal-stress-fixture",
+      "commit": {
+        "sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/905549c98c88ab87f0e85b37e4603646ab4e4d45"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/59-orchestrator-retirement-intake",
+      "commit": {
+        "sha": "f69593830b8e3e1314c4d9444a6417dcaab2067e",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/f69593830b8e3e1314c4d9444a6417dcaab2067e"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/63-source-gate-audit",
+      "commit": {
+        "sha": "4f3f048ac577331b90b61084fee3a83d8165517d",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/4f3f048ac577331b90b61084fee3a83d8165517d"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/64-b01-openai-worker-contract",
+      "commit": {
+        "sha": "4f3f048ac577331b90b61084fee3a83d8165517d",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/4f3f048ac577331b90b61084fee3a83d8165517d"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/66-openai-gate-alert-hotfix",
+      "commit": {
+        "sha": "a1f919a0c264efc62a2ffb39209c2878c14734c1",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/a1f919a0c264efc62a2ffb39209c2878c14734c1"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/68-crwv-debt-stack-audit",
+      "commit": {
+        "sha": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/6d82bccacaaba9855ef6bd27c64d72eb0514c8c9"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/71-crwv-ops-vs-buildout",
+      "commit": {
+        "sha": "c6c35e3f59d40e8ca4505900542ae6153a3cf670",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/c6c35e3f59d40e8ca4505900542ae6153a3cf670"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/73-crwv-replacement-cost-rates",
+      "commit": {
+        "sha": "813ed77e0442548a0778fd12348a4b416683ed38",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/813ed77e0442548a0778fd12348a4b416683ed38"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/75-orcl-evolving-tracker",
+      "commit": {
+        "sha": "dc6a98e864558606b34d03148a9a95f881b52bf4",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/dc6a98e864558606b34d03148a9a95f881b52bf4"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/78-agent-neutral-dispatch-contract",
+      "commit": {
+        "sha": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/0eae03d6a2e0b98209761a365b9c891ff7b7c48b"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/80-orcl-forward-multiple-comparative",
+      "commit": {
+        "sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/ee488a0adaa8c36fb945e246d1a00eff0219af6e"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/81-orcl-range-traversal",
+      "commit": {
+        "sha": "86a80db25fcc0066955bacf7c8bf2af30aeed104",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/86a80db25fcc0066955bacf7c8bf2af30aeed104"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/82-orcl-vector-orchestration",
+      "commit": {
+        "sha": "389334012cc6ba1b3592df7e4aad1159f9b951e5",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/389334012cc6ba1b3592df7e4aad1159f9b951e5"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/86-crwv-functional-tool",
+      "commit": {
+        "sha": "7a33a6f49a2740a93310fa1c66a8090c25dd110a",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/7a33a6f49a2740a93310fa1c66a8090c25dd110a"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/89-crwv-independent-ci-acceptance",
+      "commit": {
+        "sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/f07763d929b383b5bef8927007a2d51ef1fe5460"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/91-crwv-functional-tool-collision",
+      "commit": {
+        "sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/afc4ada7bc6d7294071b3610fa77e59b206b6312"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/95-incremental-ticker-patterns",
+      "commit": {
+        "sha": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/f8e83f440023bcbf123687fc6c24248f1baf88c9"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/100-basket-market-context",
+      "commit": {
+        "sha": "565e582720a32d8d73c5421d6d99d503c4bbde03",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/565e582720a32d8d73c5421d6d99d503c4bbde03"
+      },
+      "protected": false
+    },
+    {
+      "name": "work/103-blackbox-component-contracts",
+      "commit": {
+        "sha": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa",
+        "url": "https://api.github.com/repos/whiterosecoffee/_BASKET/commits/3908ef1dc33c65ee19e87b54a6d63a191659b9fa"
+      },
+      "protected": false
+    }
+  ],
+  "issues": [
+    {
+      "number": 105,
+      "title": "[HANDOFF B00\u2192B01] Independent black-box contract validator and CI acceptance",
+      "updated_at": "2026-10-29T17:20:53Z",
+      "body_sha256": "defde7afef64c0e8949ab53ecd4850f29dd8922feda634a0e07b16e4ef2f5c38",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/105"
+    },
+    {
+      "number": 103,
+      "title": "[B00] Standard black-box input/output component contracts and retrofit specification",
+      "updated_at": "2026-10-29T17:26:56Z",
+      "body_sha256": "b3c009ac4046c7abe57430715c9b21fa92dcc43535f0b04540049c80c3da9aa1",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/103"
+    },
+    {
+      "number": 102,
+      "title": "Dependency #100: independently verify and connect basket market-context routine",
+      "updated_at": "2026-10-29T17:05:03Z",
+      "body_sha256": "76208d6e74e2194ca3680508357a6338c3659999d72ed6bccaee0f0ad221128e",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/102"
+    },
+    {
+      "number": 100,
+      "title": "[B17] Reusable basket market-context and delta subroutine",
+      "updated_at": "2026-10-29T16:52:40Z",
+      "body_sha256": "eed46afda218d8216b82c7cf7ff9c002b1261a19a66467bf74fb639b5a36f838",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/100"
+    },
+    {
+      "number": 98,
+      "title": "[HANDOFF B10\u2192B01] Independent exact-head ticker-pattern acceptance for #95",
+      "updated_at": "2026-10-29T03:44:34Z",
+      "body_sha256": "f8e324deeb0486db085cdfec81ec90cc75125817e8b61d558b9b6c7af3ca3af8",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/98"
+    },
+    {
+      "number": 97,
+      "title": "[HANDOFF B10\u2192B08/B02] Host and verify autonomous ticker aggregate consumer #95",
+      "updated_at": "2026-10-29T05:27:58Z",
+      "body_sha256": "350eaca2158cb9e36982bab1e034b11b81a92a6275965f871610226a8b4f84f9",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/97"
+    },
+    {
+      "number": 96,
+      "title": "[HANDOFF B10\u2192B00/B06] Register reusable local ticker traversal component #95",
+      "updated_at": "2026-10-29T03:44:33Z",
+      "body_sha256": "8415b1fd360cc6d9910ab9d3b2897b4cf9ec9f358f01353ed813902dd1ab95ab",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/96"
+    },
+    {
+      "number": 95,
+      "title": "[B10] Incremental ticker range-pattern consumer and historical matcher",
+      "updated_at": "2026-10-29T05:27:58Z",
+      "body_sha256": "ea22f058a4aefc155e68385d2b1946100976f8bc5455b3d4a839e2a3bd8915b7",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/95"
+    },
+    {
+      "number": 94,
+      "title": "[HANDOFF \u2192 B02] Current CRWV tape, 5-min RTH bars and peer/macro set for live scoring",
+      "updated_at": "2026-10-28T16:13:37Z",
+      "body_sha256": "aab860edbac891e755299032628aa0c25e4b3384d4a9b9ee7686f45d42a49d8a",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/94"
+    },
+    {
+      "number": 93,
+      "title": "[HANDOFF \u2192 B07] Append-only prediction ledger and weight calibration for traversal scores",
+      "updated_at": "2026-10-28T16:13:37Z",
+      "body_sha256": "b58d5e16563fe42b653aec2583bbefd80c0d1ae1a365c1bc3fac1e77e03643f9",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/93"
+    },
+    {
+      "number": 92,
+      "title": "[HANDOFF \u2192 B06] Reusable intraday traversal score with standardized-correlation overlay",
+      "updated_at": "2026-10-28T16:13:36Z",
+      "body_sha256": "debc2664a3e653023b2a8aa1c31998e3dd08e9bae44cb58f1ab69e29cb5b260a",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/92"
+    },
+    {
+      "number": 91,
+      "title": "[B10] CRWV tool ownership collision: implementation handoff to #86",
+      "updated_at": "2026-10-28T13:45:49Z",
+      "body_sha256": "5f5b57d94808b1c0bd2eac5e6facbc0b1dbc9bb7e9b38ea20377003255784b8a",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/91"
+    },
+    {
+      "number": 89,
+      "title": "[B01] Independent mandatory CI acceptance for CRWV offline finance tool",
+      "updated_at": "2026-10-29T17:17:11Z",
+      "body_sha256": "a862ed09819ef0c4ef20228cb0282a748ec56d259dde2cd5c58688b7a0ab7171",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/89"
+    },
+    {
+      "number": 88,
+      "title": "[HANDOFF B10\u2192B01] Independently run CRWV tool acceptance at PR #87 head",
+      "updated_at": "2026-10-27T16:04:36Z",
+      "body_sha256": "fb34467175e93aa840cf5f43bff18884d8ecd78b9924985f629427206b34a321",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/88"
+    },
+    {
+      "number": 86,
+      "title": "[B10] CRWV offline operating economics and valuation component",
+      "updated_at": "2026-10-28T16:13:38Z",
+      "body_sha256": "4c3497459cbd901faaa12873b804c928b5f648f5b3bc64057e4ada6b1a17b379",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/86"
+    },
+    {
+      "number": 82,
+      "title": "[B00] ORCL vector orchestration layer: registry, agent assignments, multi-computer launch, read-only status",
+      "updated_at": "2026-10-26T18:36:51Z",
+      "body_sha256": "047966723fbea1d2e1aee46aea539e92aa0416ad8ba668f9ba74ef9ee5d1fcfb",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/82"
+    },
+    {
+      "number": 81,
+      "title": "[B00] ORCL Range_Traversal analysis instructions: today, 72h, 10 trading days",
+      "updated_at": "2026-10-26T18:30:21Z",
+      "body_sha256": "0eb0c41da8912126d5e49d8ebcf431170c996590809a0e17059bd721c8635622",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/81"
+    },
+    {
+      "number": 80,
+      "title": "[HANDOFF \u2192 B00/B04] Reusable forward-multiple comparative analysis prompt (ORCL vs IBM/MSFT/SAP/AMZN/GOOGL, CRWV overlay)",
+      "updated_at": "2026-10-26T22:53:51Z",
+      "body_sha256": "9df0e3967a789198ead05d356ee41d2bff9e69a0f9d1cc2ffbb819fe603b32ee",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/80"
+    },
+    {
+      "number": 78,
+      "title": "[B00] Agent-neutral GitHub worker dispatch contracts and VS Code handoff",
+      "updated_at": "2026-10-26T14:51:40Z",
+      "body_sha256": "50d9adec879d034a4cfaef5ed8b9c24d65c3b1ddfc4d2bba8b601f33efbeffe3",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/78"
+    },
+    {
+      "number": 76,
+      "title": "Dependency #75: connect ORCL tracker to owned data, analytics and deployment",
+      "updated_at": "2026-10-26T23:01:09Z",
+      "body_sha256": "b8a15807b44df19174cac61e6a75579a1d924e57fa14b8af64313ecc24447125",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/76"
+    },
+    {
+      "number": 75,
+      "title": "B00: evolving ORCL ticker tracker orchestration and evidence ledger",
+      "updated_at": "2026-10-26T23:02:40Z",
+      "body_sha256": "c4518a406c93c485538e256063fc6051b1877409663bab0eb014d5fae05c30ee",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/75"
+    },
+    {
+      "number": 73,
+      "title": "[B10] CRWV replacement cost, contract rates per MW and depreciation sensitivity",
+      "updated_at": "2026-10-26T14:18:53Z",
+      "body_sha256": "8dfb9e7dd22a6ec08f636aa012d0bd95267494dfd53126209eaa9e0215f92ca4",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/73"
+    },
+    {
+      "number": 71,
+      "title": "[B10] CRWV operating margin vs buildout cost and capacity-conversion findings (2026-10-23)",
+      "updated_at": "2026-10-24T00:51:25Z",
+      "body_sha256": "05ff530d8c880b19e8d004676d9d65853468534bc5af0953df07ebeab61c7c5f",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/71"
+    },
+    {
+      "number": 70,
+      "title": "B00/B02/B06 handoff: refresh CRWV factor divergence history from entitled daily data",
+      "updated_at": "2026-10-29T03:28:09Z",
+      "body_sha256": "d07b870ce1f97c42ef4187968ad42e4d92dd52f2b0e549f30b51d7e068cb624c",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/70"
+    },
+    {
+      "number": 68,
+      "title": "[B10] CRWV debt stack, contract matching and >5GW funding audit",
+      "updated_at": "2026-10-29T03:28:07Z",
+      "body_sha256": "d73f6e5b4da4928f84400b8518b9451cdb85e2ce45ca29b024616e059e569b2c",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/68"
+    },
+    {
+      "number": 65,
+      "title": "[HANDOFF B00\u2192B01] Independently CI-gate agentic worker controller and dependency fingerprints",
+      "updated_at": "2026-10-18T04:30:55Z",
+      "body_sha256": "2903d7f77c48c890ec4c997ca3eeab89b6a92e4ed97bfa31d0e803a381988f04",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/65"
+    },
+    {
+      "number": 64,
+      "title": "[B01] Reusable OpenAI CI worker contract and fail-closed evidence runner",
+      "updated_at": "2026-10-18T18:26:35Z",
+      "body_sha256": "f9ba3e00948ebfc038249ed58598f6d07b5e3668a07f684100f3ada993647263",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/64"
+    },
+    {
+      "number": 63,
+      "title": "[B00] Source-to-gate evidence binding audit worker (receives #36)",
+      "updated_at": "2026-10-18T04:18:43Z",
+      "body_sha256": "3cc9b866ed789fdc26b883e655f028198b59dc8140f5236370dca3711e013e33",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/63"
+    },
+    {
+      "number": 62,
+      "title": "[HANDOFF B00\u2192B02] Massive continuous basket market-data maintenance workers",
+      "updated_at": "2026-10-18T04:33:15Z",
+      "body_sha256": "b5a8fbb27196c832e3d24b1c27fa2b3d0fbb01eafc48b5f89024ac8c173c202f",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/62"
+    },
+    {
+      "number": 61,
+      "title": "[HANDOFF B00 to B02] Persistent Massive basket data ingestion and freshness gates",
+      "updated_at": "2026-10-29T17:24:48Z",
+      "body_sha256": "e80e4cfdb931802a2c9e33330bccb4da5411109f1de28e366aa7b449b82a83e6",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/61"
+    },
+    {
+      "number": 59,
+      "title": "[B00] Orchestrator succession, retirement intake and QC repair coordination",
+      "updated_at": "2026-10-18T18:26:36Z",
+      "body_sha256": "1d892128f8c3f7340b4340820c9cd82a0be7893e447be8250e5ed54aa45bcc7d",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/59"
+    },
+    {
+      "number": 57,
+      "title": "[B06] October 16 SFTBY/CRWV/AAOI point-in-time traversal stress fixture",
+      "updated_at": "2026-10-18T04:21:28Z",
+      "body_sha256": "0571a5589ea1c49fbe788995b91065bb88e7f5cb433dd2c5d5074876c214c020",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/57"
+    },
+    {
+      "number": 56,
+      "title": "[HANDOFF B08\u2192B00/B01] Snapshot PR #55 review and runtime continuation",
+      "updated_at": "2026-10-18T03:55:47Z",
+      "body_sha256": "aca983973906363e1288a8b2e5e13131a57434b77ad231e0cbc6882f603ead64",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/56"
+    },
+    {
+      "number": 53,
+      "title": "[B08] Read-only snapshot REST component and deployment handoff",
+      "updated_at": "2026-10-18T03:47:50Z",
+      "body_sha256": "9aa23869d9dc932948697b0b43bb87e7b5ccc6faa2dbe46f942948a2696645cb",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/53"
+    },
+    {
+      "number": 52,
+      "title": "B01 handoff: graph contracts and economic anti-double-counting CI",
+      "updated_at": "2026-10-18T04:21:26Z",
+      "body_sha256": "2e5c27991837539c897c995687a0e7f38f579ffe1262b4f6c0b9872c92597d2f",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/52"
+    },
+    {
+      "number": 51,
+      "title": "B05 handoff: minimal economic graph read-only traversal",
+      "updated_at": "2026-10-28T12:34:30Z",
+      "body_sha256": "9752f8133f45c7f0fc7e1ccdf748e3695352871ee882f203826fd4663b185d16",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/51"
+    },
+    {
+      "number": 50,
+      "title": "B00 handoff: point-in-time AI+++ economic graph and segment query contracts",
+      "updated_at": "2026-10-18T03:49:14Z",
+      "body_sha256": "e071144658c569f07f386c544081094b012d3fa0bd8c5845ae22ec8a3d54086c",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/50"
+    },
+    {
+      "number": 48,
+      "title": "[B00] Executable full-basket capture dispatch and JSONL acceptance",
+      "updated_at": "2026-10-29T12:37:52Z",
+      "body_sha256": "46e56f8da407b0145db22d94fe59ccd73775cfa435c42f058ead0ac9f87960ff",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/48"
+    },
+    {
+      "number": 42,
+      "title": "[B00] Ticker-first research storage and reusable worker architecture contract",
+      "updated_at": "2026-10-24T19:50:47Z",
+      "body_sha256": "ad897e37cb01c0b75ddc53aaeca7b40cf4f9fabfcb84907d2a1e65fb7cce1b72",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/42"
+    },
+    {
+      "number": 41,
+      "title": "[B00 handoff] B19 audit disposition and dependency-ordered revenue evidence batch",
+      "updated_at": "2026-10-18T04:10:25Z",
+      "body_sha256": "291c705bfcc4b6d2ac43a68dde4d361cb59d1debffd9c1e20bfa12f4631b3801",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/41"
+    },
+    {
+      "number": 40,
+      "title": "[HANDOFF B21\u2192B03] Exol selection and AI-RAN milestone event intake",
+      "updated_at": "2026-10-18T03:21:03Z",
+      "body_sha256": "881d43c6ec4afa1cfd387430267976247e214e64ce7e2c1b82ebc16f7bd33aee",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/40"
+    },
+    {
+      "number": 39,
+      "title": "[HANDOFF B21\u2192B05] Exol and AI-RAN source-bounded relationship intake",
+      "updated_at": "2026-10-18T04:13:43Z",
+      "body_sha256": "d0923b53ccb10705fea82c692bbc4ad7fa901745497d7589c0f9d17429b911e5",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/39"
+    },
+    {
+      "number": 37,
+      "title": "[B21] Receive #27 cross-support evidence and falsification research",
+      "updated_at": "2026-10-18T04:13:44Z",
+      "body_sha256": "ce7025f1b880edfcc2983f1601f0f7279990a018f72d576642c78e77396dec0f",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/37"
+    },
+    {
+      "number": 36,
+      "title": "[HANDOFF B13\u2192B00] Queue staged 2027 OpenAI IPO valuation dependencies",
+      "updated_at": "2026-10-18T04:18:45Z",
+      "body_sha256": "c34069b984f1d853b845ec66ad38318bb1c798d839ec47e845ae11f67c2d1f1b",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/36"
+    },
+    {
+      "number": 34,
+      "title": "[HANDOFF B00\u2192B08] Deploy persistent MRIE agentic MCP/REST runtime",
+      "updated_at": "2026-10-29T17:21:35Z",
+      "body_sha256": "c0f6be8cd68c99cd22339f7d3d7e9b619cbf2b404a773856db1e440e04d5c622",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/34"
+    },
+    {
+      "number": 32,
+      "title": "[B00] MRIE design-to-implementation and agentic runtime readiness audit",
+      "updated_at": "2026-10-26T14:51:43Z",
+      "body_sha256": "5620dfa252d637ff5501acdb7bbe4a7c2681635ec40af18147184fb9177a122f",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/32"
+    },
+    {
+      "number": 30,
+      "title": "[HANDOFF B13\u2192B04] Deterministic OpenAI pre-IPO fundamental valuation bridge",
+      "updated_at": "2026-10-18T04:36:54Z",
+      "body_sha256": "2d96ce73a5377e49697a9479d6582ae3d5d5af846ae7c8af9c9e03b08bfdb49c",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/30"
+    },
+    {
+      "number": 29,
+      "title": "[HANDOFF B13\u2192B00] Define private-company valuation and fund look-through data contracts",
+      "updated_at": "2026-10-18T04:36:52Z",
+      "body_sha256": "1fe00ed341dd5eeb9d464c47719dc7af72bf6fe52e9d24a8c7cccec400928494",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/29"
+    },
+    {
+      "number": 28,
+      "title": "[HANDOFF B13\u2192B09] Integrate OpenAI private stake without SFTBY SVF2 NAV double-counting",
+      "updated_at": "2026-10-18T04:36:56Z",
+      "body_sha256": "f3fb7917b0a39c689e814dff02fe74017908a723a0fa0889499be3254f31a382",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/28"
+    },
+    {
+      "number": 27,
+      "title": "[B21] Preserve and falsify strategic cross-support basket thesis",
+      "updated_at": "2026-10-18T03:21:15Z",
+      "body_sha256": "157a14ea2c353995eac75ac6e900d3a7ec434d86550f6c59814d0c14fe1e2b79",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/27"
+    },
+    {
+      "number": 26,
+      "title": "[B13] OpenAI pre-IPO valuation evidence and SFTBY look-through interface",
+      "updated_at": "2026-10-18T04:40:30Z",
+      "body_sha256": "9a895f5ccdf33de8a082056a9c389343a48329b219791c1721248659a84a98ab",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/26"
+    },
+    {
+      "number": 24,
+      "title": "B00: Register whole-basket coverage and research-seed milestones in planner",
+      "updated_at": "2026-10-28T09:41:03Z",
+      "body_sha256": "6210ac80e56c0c46be22e2e8b13429be41466243ff4d5bc684d5c985787c6200",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/24"
+    },
+    {
+      "number": 21,
+      "title": "B19: Expand underrepresented economic-chain ticker coverage",
+      "updated_at": "2026-10-18T04:21:02Z",
+      "body_sha256": "c1f3f9e92da7ab6bcfd39d4c40e791259d97a3a0fa43c2a1fadaf62404e3eb2d",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/21"
+    },
+    {
+      "number": 20,
+      "title": "[B00] Specify capital-to-profit graph contracts across AI basket",
+      "updated_at": "2026-10-17T04:21:50Z",
+      "body_sha256": "c7ee54e2e2c59ecdad7dee3343b5beedde511b0aae1c929ef7d37c91fa151299",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/20"
+    },
+    {
+      "number": 17,
+      "title": "MRIE full-basket revenue pool resource structure and earnings evidence",
+      "updated_at": "2026-10-28T12:34:25Z",
+      "body_sha256": "7b69cb1d32fad88380a1668e2814c37981f2eaef64f8b188e3039f69db27fd80",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/17"
+    },
+    {
+      "number": 16,
+      "title": "[HANDOFF B03\u2192B05] Reconcile OpenAI investment exposure without NAV double-counting",
+      "updated_at": "2026-10-16T19:45:55Z",
+      "body_sha256": "f5199a8f1916fe320a836e2a211f251930c9e07e492cac329ebbdeb0f857f601",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/16"
+    },
+    {
+      "number": 12,
+      "title": "[B03] Point-in-time issuer event ledger and source verification",
+      "updated_at": "2026-10-29T12:37:50Z",
+      "body_sha256": "684022756c1810dad5d17a11831dd2913d0e34a23218a7b81de7e7341ba5b11f",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/12"
+    },
+    {
+      "number": 11,
+      "title": "[B02] Deterministic market/FX observations, replay and snapshot checkpoints",
+      "updated_at": "2026-10-18T04:13:34Z",
+      "body_sha256": "819483f0a6c8341178161f1f8face315498bb9c34dd0fc94647dfa68ec2fb1de",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/11"
+    },
+    {
+      "number": 7,
+      "title": "[HANDOFF B00\u2192B02] Implement immutable data snapshot manifests and version-aware TTD replay",
+      "updated_at": "2026-10-16T19:23:16Z",
+      "body_sha256": "ff45776bdaccc974c3bec200b11c4afa961ef8ab984f970dae7ab6910fc4e572",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/7"
+    },
+    {
+      "number": 3,
+      "title": "[HANDOFF B00\u2192B00] Decide SFTBY relationship schema boundaries and migration",
+      "updated_at": "2026-10-16T16:02:59Z",
+      "body_sha256": "0396c8765739d2e169e12a6e1317d1270344752b8fa7d019f3ac769308ee2031",
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/3"
+    }
+  ],
+  "main_ci": [
+    {
+      "name": "Validate BASKET data",
+      "head_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39154102082"
+    },
+    {
+      "name": "OpenAI research strict gate",
+      "head_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39154102166"
+    }
+  ],
+  "pull_requests": [
+    {
+      "number": 104,
+      "title": "B00 reusable black-box component contracts",
+      "body": "Draft review for Issue #103. Adds two B00-owned files: a JSON Schema for versioned component manifests and an architecture specification for typed input/output contracts, evidence, errors, deterministic replay, and owner-specific retrofit handoffs. No queue or domain implementation changes. Further B00/B01 validation required.",
+      "head_sha": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/103-blackbox-component-contracts",
+      "draft": true,
+      "updated_at": "2026-10-29T17:20:43Z",
+      "files": [
+        {
+          "path": "architecture/BLACK_BOX_COMPONENT_CONTRACT.md",
+          "blob_sha": "8e578cfd687109085844de06c956a8618f36418b",
+          "status": "added"
+        },
+        {
+          "path": "schemas/component-blackbox.v1.json",
+          "blob_sha": "0638cbf6e5a3a13c043a08938da4e86216b7e9e5",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40920434614",
+          "sha": "3908ef1dc33c65ee19e87b54a6d63a191659b9fa"
+        }
+      ]
+    },
+    {
+      "number": 101,
+      "title": "B17: track whole-basket market context and aligned return deltas",
+      "body": "Adds a reusable Python subroutine that separates market conditions, basket participation, sector-relative movement and ticker recovery. It generates a fetch plan from a versioned 66-name working research registry, rejects stale/conflicting/unknown-entitlement inputs in strict mode, computes common-universe deltas and preserves explicit missing coverage. Macro scores remain withheld when critical sources are absent.\n\nEntry point: engines/composites/market_context/context.py; see its README for CLI and callable API. Includes 5/15/60-minute aligned baseline support, consumer-local duplicate-safe SQLite replay/corrections, 21-indicator macro policy and real dated Massive capture fixtures. Research-mode examples are provisional; registry candidates are not canonical main or personal portfolio holdings. PAYP is unresolved and retained as missing.\n\nValidation: 27 local Python unittest tests passed, including captured-session replay and full-universe denominator tests. Test command: python3 -m unittest discover -s engines/composites/market_context/tests -v . Attempt log preserves an intermediate optional-volume failure and passing correction. Independent exact-head domain CI is pending B01. No polling service, scheduler, deployment, calibrated forecast or integrated main claim.\n\nTracks #100 and existing integration handoff #76. Exclusive changed subtrees: engines/composites/market_context/** and research/composites/market_context/**. No shared schemas/workflows/registries/runtime stores edited. B02/B06/B00/B01/B08 integration remains separate. No merge authorized.",
+      "head_sha": "565e582720a32d8d73c5421d6d99d503c4bbde03",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/100-basket-market-context",
+      "draft": true,
+      "updated_at": "2026-10-29T16:52:41Z",
+      "files": [
+        {
+          "path": "engines/composites/market_context/README.md",
+          "blob_sha": "c7225aea0ad766aefec390c3e08645484bbc70f2",
+          "status": "added"
+        },
+        {
+          "path": "engines/composites/market_context/context.py",
+          "blob_sha": "bc64d48b690c36934e536a0e82644c61da95f0c5",
+          "status": "added"
+        },
+        {
+          "path": "engines/composites/market_context/policy.v1.json",
+          "blob_sha": "90245479429c46e80a9ec784fd6bbe0d241b3135",
+          "status": "added"
+        },
+        {
+          "path": "engines/composites/market_context/tests/test_context.py",
+          "blob_sha": "3cc6996e2bfc9a3ed133a890a073e2cb42347308",
+          "status": "added"
+        },
+        {
+          "path": "research/composites/market_context/README.md",
+          "blob_sha": "dc3a7a5a563fdedc17076626d4d3be3a49cb0586",
+          "status": "added"
+        },
+        {
+          "path": "research/composites/market_context/VALIDATION.md",
+          "blob_sha": "43c64778bc5525b0251f112b2be61e8dfa6b0031",
+          "status": "added"
+        },
+        {
+          "path": "research/composites/market_context/fixtures/basket-report.json",
+          "blob_sha": "2f2b203e0648b8da7ec57d1d6ef856fcd84a0c09",
+          "status": "added"
+        },
+        {
+          "path": "research/composites/market_context/fixtures/basket.csv",
+          "blob_sha": "c6cee5a78c802c7ef1527958ddd21b590d59926b",
+          "status": "added"
+        },
+        {
+          "path": "research/composites/market_context/fixtures/basket.json",
+          "blob_sha": "0f21e9c9035f93d509c19c7ad80e5fb568f7efd2",
+          "status": "added"
+        },
+        {
+          "path": "research/composites/market_context/fixtures/midday-report.json",
+          "blob_sha": "58a2c0c22e4634a0b960e44c172cc8723a64b074",
+          "status": "added"
+        },
+        {
+          "path": "research/composites/market_context/fixtures/midday.csv",
+          "blob_sha": "bed115c8bb3e1dfafce91a278e267c08f7852217",
+          "status": "added"
+        },
+        {
+          "path": "research/composites/market_context/fixtures/midday.json",
+          "blob_sha": "fa2b0239f088ef07534dbe66e0e8798842cce6a4",
+          "status": "added"
+        },
+        {
+          "path": "research/composites/market_context/fixtures/premarket.csv",
+          "blob_sha": "93bb23ed4edcc518848419dd0784f5108bf124c5",
+          "status": "added"
+        },
+        {
+          "path": "research/composites/market_context/fixtures/premarket.json",
+          "blob_sha": "d48b6c4a21b31800f585e562ab6276f60ce50d5c",
+          "status": "added"
+        },
+        {
+          "path": "research/composites/market_context/registry.working.json",
+          "blob_sha": "a3b0d29714395da4685294e260781c1d01676c06",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40915516965",
+          "sha": "565e582720a32d8d73c5421d6d99d503c4bbde03"
+        }
+      ]
+    },
+    {
+      "number": 99,
+      "title": "[B10] Persist generic ticker range patterns and local traversal matrix",
+      "body": "Tracks #95. Adds a reusable local completed-minute consumer and stable CLI for any ticker. It freezes prospectively detected bands, records contacts/ambiguous same-bar responses/retreats/confirmed breaks and close traversals, and prints a compact matrix with 1-centered movement-per-dollar efficiency, independent path progress, turnover, ADV, same-clock RVOL and freshness. SQLite atomically preserves source observations, per-minute signals, checkpoints and explicit revision generations; JSONL/source exports support restart/replay. The separately hosted REST polling adapter handles bounded pagination/current-day backfill, provider market status and health gates.\n\nScope: only 12 files under research/CRWV/trading-tool/**. No shared engine/registry/runtime/CI edits or finance-tool collision. Pinned read-only parent corpus: PR69 at6d82bccacaaba9855ef6bd27c64d72eb0514c8c9; no dataset duplication. Local ignored SQLite contains the working replay data; GitHub is source/manifests, not a live database.\n\nValidation:26 local tests pass without skips. Full historical replay produced7,534 signals across20sessions; rerun added0. Last cutoff Oct28 11:34ET, explicitly historical. Tests cover ratio/path/RVOL arithmetic, no attempt vs rejection, contact debouncing/ordering, breaks, traversals, gaps, future exclusion, strict historical matching, persistence/revisions/rollback, ticker isolation, pagination and mocked polling. VALIDATION.md preserves two failed attempts and corrections. Published tree3bdea4173f71dfb2dfa342119f48dce3b0aacb4c matches tested local file contents. Independent exact-head domain CI remains #98; existing shared CI does not establish these26 tests ran.\n\nLimits:unfitted heuristics; OHLCV lacks signed flow, exact volume-at-price, within-bar ordering and executable profitability. Historical analogue mode is retrospective when availability is unknown; strict mode excludes those records. #96 requests minimal B00/B06 discoverability/engine adoption; #97 requests B08/B02 hosting, secrets, entitlement and in-session latency proof; existing #70/#92/#94 remain owners. Massive MCP last-trade and NBBO both NOT_ENTITLED on Oct29 03:34UTC; closed-market aggregates do not prove realtime entitlement. No daemon is running, no merged-main or live-service claim. No merge authorized.",
+      "head_sha": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/95-incremental-ticker-patterns",
+      "draft": true,
+      "updated_at": "2026-10-29T03:45:57Z",
+      "files": [
+        {
+          "path": "research/CRWV/trading-tool/.gitignore",
+          "blob_sha": "ff85d7d0533391ab58f25eb18c2d60efd0a1f114",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/trading-tool/HANDOFF.md",
+          "blob_sha": "2c5f05e9e572060f9db9a70476690ae75d811034",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/trading-tool/README.md",
+          "blob_sha": "701c427e38a824b473832486e6c037dec72f948a",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/trading-tool/VALIDATION.md",
+          "blob_sha": "c93e1ca52132bb494a6748f45439b4a012ece58e",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/trading-tool/component.json",
+          "blob_sha": "6a3ef6df8bd8cf1431e392aad5d81b4f67051db3",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/trading-tool/corpus.py",
+          "blob_sha": "9e8de134cc20b5347185327243807fd2fe74e359",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/trading-tool/examples/historical-matrix.json",
+          "blob_sha": "bc234f442420c449a0eac7c49bd231e6382c86c5",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/trading-tool/patterns.py",
+          "blob_sha": "06456651a502c5b8fa604abf8b790a801c3045b6",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/trading-tool/poller.py",
+          "blob_sha": "6b87823e7b104e93276e33ccaf2a27acedd2166b",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/trading-tool/run.py",
+          "blob_sha": "9a2a2b07561025c40a14be653e1b8567d608afd3",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/trading-tool/store.py",
+          "blob_sha": "3bb551e506c3ba319955731be80f03ce3889e84d",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/trading-tool/tests/test_patterns.py",
+          "blob_sha": "b52f85ad450a711dc7f135496d372cdbd1febe2e",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40813757265",
+          "sha": "f8e83f440023bcbf123687fc6c24248f1baf88c9"
+        }
+      ]
+    },
+    {
+      "number": 90,
+      "title": "[B01] Fail-closed CRWV financial acceptance CI",
+      "body": "Closes no existing handoff. Implements Issue #89 from B10\u2192B01 #88. Adds a dedicated CI workflow with exact-head checkout, source-presence gate, independent unittest discovery (>=39, zero/skip fail), and offline demo. **Integration blocked:** B10 source `research/CRWV/tool/**` is on draft PR #87 (`7a33a6f49a2740a93310fa1c66a8090c25dd110a`), not on main; this workflow intentionally fails closed on a main-based PR until the source is integrated or an authorized pinned-source testing strategy is agreed. No B10 source changes; no merge authorized. Must verify workflow execution, actual test count, demo artifact and SHA before acceptance.",
+      "head_sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/89-crwv-independent-ci-acceptance",
+      "draft": true,
+      "updated_at": "2026-10-29T17:17:00Z",
+      "files": [
+        {
+          "path": ".github/workflows/crwv-tool-acceptance.yml",
+          "blob_sha": "87ae28f4aad7acdf4e88d7af4e38ff37e66f85f0",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40919835473",
+          "sha": "f07763d929b383b5bef8927007a2d51ef1fe5460"
+        },
+        {
+          "name": "CRWV tool independent acceptance",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40919835438",
+          "sha": "f07763d929b383b5bef8927007a2d51ef1fe5460"
+        }
+      ]
+    },
+    {
+      "number": 87,
+      "title": "[B10] Run offline CRWV operating economics, funding and valuation",
+      "body": "Tracks #86; implements the first executable milestone from #68 / PR #69 at source SHA 29463811e8f77eac9d05b631fcb1c6190bf3f3ff. Reuses #70.\n\nThe old research scenario used assumed balances, a uniform borrowing rate and automatic equity funding. This component consumes dated local snapshots and computes 120 monthly periods of cohort billable capacity/contract revenue, fixed/floating/hedged instrument cash flows, restricted cash, explicit funding gaps, earnings/SBC/equity dilution, finite-fleet runoff DCF, forward P/E and reverse valuation. An unfunded fixture produces negative cash with null valuation indications rather than unlimited financing. It preserves valuation records and provides a fixed-horizon revision bridge, lifecycle sensitivities, JSON and readable outputs.\n\nOnly research/CRWV/tool/** changes (24 files). No canonical ingestion, shared engines/schemas/workflows, other CRWV research, or runtime changes. Pure finance uses the Python standard library. Historical factor and turnover adapters reuse the pinned #69 calculations/data via local interfaces; no dataset duplication or live-feed claim.\n\nValidation: 39 local unittest tests passed; end-to-end slow/base/bull/unfunded demo executed; pinned factor adapter ran 143 explained sessions per model; dated turnover transformation ran. Published tree 6f17f27ecfd344e4ba602213bfdc8852a8d4184f exactly matches the tested local staged tree. Full commands and captured compact results are under tool/README.md, VALIDATION.md and examples/. Exact-head shared CI passed: https://github.com/whiterosecoffee/_BASKET/actions/runs/40529029687 at 7a33a6f49a2740a93310fa1c66a8090c25dd110a; stores/worker-qc/validate succeeded and job logs confirm SHA. New domain tests were rerun locally at the published head (39 passed), but shared CI does not execute them. Independent domain acceptance is requested in #88.\n\nLimits: all executable finance fixtures are explicitly synthetic, not current CRWV balances or price targets. The primary DCF is finite retained-cash runoff, not perpetual going-concern fair value. Prepayment/refund deferred-revenue accounting, convertibles, detailed lease accounting and full GAAP reconciliation remain unsupported; declared unsupported features fail closed. No calibrated probabilities, verified NVIDIA trade-in guarantee, deployed worker or integrated-main claim. B01 must independently wire domain tests; owner feeds/traversal remain #70. No merge authorized.",
+      "head_sha": "7a33a6f49a2740a93310fa1c66a8090c25dd110a",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/86-crwv-functional-tool",
+      "draft": true,
+      "updated_at": "2026-10-27T15:17:08Z",
+      "files": [
+        {
+          "path": "research/CRWV/tool/README.md",
+          "blob_sha": "6f84cc14b74e263769e7df664d12a4892572e241",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/VALIDATION.md",
+          "blob_sha": "8ff3a218badff28d9fdbd6b8ac13e0f63144179a",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/contracts/README.md",
+          "blob_sha": "a5a1254db881330033296b699818e2be9b649db3",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/contracts/result.v1.json",
+          "blob_sha": "3bdbb2cd7a5c1d088521eef2f4f249fdf1765ebe",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/contracts/snapshot.v1.json",
+          "blob_sha": "cc5471913ea978d8be087c48359d0fc01cb9c4fc",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/demo.py",
+          "blob_sha": "929ccb77c0ff981de0639febf188d106ae8a3a9b",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/examples/base.txt",
+          "blob_sha": "1df9ca07bc7404816ef04a99d382d03d02ecc710",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/examples/revision-bridge.json",
+          "blob_sha": "8b0a651917537daf3e099b9dc92b1c442b7714f3",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/examples/sensitivities.json",
+          "blob_sha": "071c94c9594291110df461498d08a2c43b7c05b6",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/examples/summary.json",
+          "blob_sha": "b0aba17aaff31c92aac4175ae8a18e186eb7d669",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/examples/unfunded.txt",
+          "blob_sha": "bbfa870b5879aa397cb0422c4673a5da84b1e469",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/fixtures/base.json",
+          "blob_sha": "c1e1a2b3548202d1a6de8dcf5df4ae1efc18778a",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/fixtures/build.py",
+          "blob_sha": "38ebb02376c0eb0e522354af0f172d0124c89378",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/fixtures/bull.json",
+          "blob_sha": "110e915093d4c1c96951025d1fb06301df0aa5d0",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/fixtures/slow.json",
+          "blob_sha": "810998634874fd756cb41b6abfc9d8fa0e68de3e",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/fixtures/snapshot.json",
+          "blob_sha": "693b1fd6af6439a4aabfdc1069eda4438655a196",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/fixtures/unfunded-snapshot.json",
+          "blob_sha": "dd8a1ff7ac2c47d56cd5b09729bd6fda78aec34e",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/fixtures/unfunded.json",
+          "blob_sha": "91b94ae049077c0c5f8e57c5b404ac7b4a4815e4",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/history.py",
+          "blob_sha": "21b7067671c504601233c77cc88bd98370e47d94",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/market.py",
+          "blob_sha": "472e2e325894edec8b502a495378450cc02e42d0",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/model.py",
+          "blob_sha": "e54dce51837c81b80af79dd84b3beda6decfd859",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/run.py",
+          "blob_sha": "2471e5fca37836f5d6bb54bacfabacd0a68cbae8",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/source-manifest.json",
+          "blob_sha": "b5e70f08119b3ae63cd65a88eea1f6954cfd8721",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/tool/tests/test_model.py",
+          "blob_sha": "c34f2a0f40ce4c4593a8dd88855fe46a92b3f159",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40529029687",
+          "sha": "7a33a6f49a2740a93310fa1c66a8090c25dd110a"
+        }
+      ]
+    },
+    {
+      "number": 85,
+      "title": "[B00-draft] ORCL vector orchestration: registry, assignments, launch packets, read-only status",
+      "body": "Refs #82. Draft; no merge authorized.\n\n## What\nAdds `research/ORCL/Orchestration/`: `vectors.json`, two unclaimed `basket.agent_assignment@1` envelopes, `LAUNCH_PACKETS.md`, `status.py` with 18 offline unit tests, and `spark-proposal.json`.\n\n## Validation evidence\n18 unit tests pass offline. `spark-proposal.json` validated with `orchestration/validate_sparks.py` on a temporary copy (23 sparks, 58 write patterns, no overlap) after the validator caught and I fixed a launch-prompt defect. `status.py` run live against GitHub: no hard flags. No CI run.\n\n## Scope\nOnly `research/ORCL/**` paths on this branch; no existing file changed. `research/ORCL/**` has no registered spark (#76); B00 ratification is outstanding.\n\n## Outstanding handoffs\n- B00: ratify spark B22 or reassign ownership (proposal in #82).\n- B02 #61/#62: ORCL history and intraday data, needed for any real dry run.\n- B01: optional CI wiring for `status.py` (#82).\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01JtKH1KDoubG9EX4ofeasQv)_",
+      "head_sha": "389334012cc6ba1b3592df7e4aad1159f9b951e5",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/82-orcl-vector-orchestration",
+      "draft": true,
+      "updated_at": "2026-10-26T18:38:31Z",
+      "files": [
+        {
+          "path": "research/ORCL/Orchestration/LAUNCH_PACKETS.md",
+          "blob_sha": "408a4e7eef43542b9813c2ef5900697b7904ff2a",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Orchestration/README.md",
+          "blob_sha": "2084013a4645429dc267c8b2070e6e2fa17a1d88",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Orchestration/assignments/ORCL-FM.assignment.json",
+          "blob_sha": "1b2c497ad38e5c5de42daa134e219edccc8f6d09",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Orchestration/assignments/ORCL-RT.assignment.json",
+          "blob_sha": "401dcf4edc43c719b428bb8cdc3b8ad384770f5c",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Orchestration/spark-proposal.json",
+          "blob_sha": "350722aa7f86e9287d61b184acd13db50115886c",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Orchestration/status.py",
+          "blob_sha": "8339d7454946a69d3ceec818f6eaaa160731ee68",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Orchestration/test_status.py",
+          "blob_sha": "1909759ce4387443848b1a3b805bb38a448dae04",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Orchestration/vectors.json",
+          "blob_sha": "9caa4429404d952a9c1381b3bc8971e3f2a304bf",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379276481",
+          "sha": "389334012cc6ba1b3592df7e4aad1159f9b951e5"
+        }
+      ]
+    },
+    {
+      "number": 84,
+      "title": "[B00-draft] ORCL Range_Traversal: today / 72H / 10D traversal instructions",
+      "body": "Refs #81. Draft; no merge authorized.\n\n## What\nAdds `research/ORCL/Range_Traversal/`: README (index, freshness gate, output contract), BAND_METHOD, TODAY, 72H, 10D, CROSS_WINDOW, DIVERGENCE_OVERLAY and an append-only REVISIONS.md.\n\n## Validation evidence\nOffline check script: every cross-reference resolves, each vector has required sections, no price or probability asserted. No CI run, no dry run on ORCL data (`tickers/ORCL/` absent; B02 #61/#62).\n\n## Scope\nOnly `research/ORCL/**` paths on this branch; no existing file changed. `research/ORCL/**` has no registered spark (#76); B00 ratification is outstanding.\n\n## Outstanding handoffs\n- B00: ratify spark B22 or reassign ownership (proposal in #82).\n- B02 #61/#62: ORCL history and intraday data, needed for any real dry run.\n- B01: optional CI wiring for `status.py` (#82).\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01JtKH1KDoubG9EX4ofeasQv)_",
+      "head_sha": "86a80db25fcc0066955bacf7c8bf2af30aeed104",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/81-orcl-range-traversal",
+      "draft": true,
+      "updated_at": "2026-10-26T18:38:29Z",
+      "files": [
+        {
+          "path": "research/ORCL/Range_Traversal/10D.md",
+          "blob_sha": "807121a78e50f783461d6c03aeaeba1cb4ef2874",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Range_Traversal/72H.md",
+          "blob_sha": "0f2666e76fe2a56f81bc20b62b3505feb2990a15",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Range_Traversal/BAND_METHOD.md",
+          "blob_sha": "74b85a71f7d2fddafd11df99a445703810541a28",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Range_Traversal/CROSS_WINDOW.md",
+          "blob_sha": "469aa2c951758a3b33240d522dd14139bbf3a445",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Range_Traversal/DIVERGENCE_OVERLAY.md",
+          "blob_sha": "7f6df3f98d667f4ac75cf7d5370ee0bf3b79c1ed",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Range_Traversal/README.md",
+          "blob_sha": "1725387a46afd5ad0a9f268871e05c11cd58f76c",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Range_Traversal/REVISIONS.md",
+          "blob_sha": "57661025b8446b8c688b59c92ea37818ad4d51c2",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Range_Traversal/TODAY.md",
+          "blob_sha": "25b057a91ba91652cfaa54bb52433399b80c450e",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379271904",
+          "sha": "86a80db25fcc0066955bacf7c8bf2af30aeed104"
+        }
+      ]
+    },
+    {
+      "number": 83,
+      "title": "[B00-draft] ORCL Forward_Multiple: one file per analysis vector",
+      "body": "Refs #80. Draft; no merge authorized.\n\n## What\nAdds `research/ORCL/Forward_Multiple/`: master README, vectors 01 to 06 (peer set, weighted multiple, upside score, reverse check, factor checklist, thesis and ladder) and an append-only REVISIONS.md.\n\n## Validation evidence\nOffline check script: every cross-reference resolves, each vector has required sections, no price or probability asserted. No CI run, no dry run on ORCL data (`tickers/ORCL/` absent; B02 #61/#62).\n\n## Scope\nOnly `research/ORCL/**` paths on this branch; no existing file changed. `research/ORCL/**` has no registered spark (#76); B00 ratification is outstanding.\n\n## Outstanding handoffs\n- B00: ratify spark B22 or reassign ownership (proposal in #82).\n- B02 #61/#62: ORCL history and intraday data, needed for any real dry run.\n- B01: optional CI wiring for `status.py` (#82).\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_01JtKH1KDoubG9EX4ofeasQv)_",
+      "head_sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/80-orcl-forward-multiple-comparative",
+      "draft": true,
+      "updated_at": "2026-10-26T18:38:26Z",
+      "files": [
+        {
+          "path": "research/ORCL/Forward_Multiple/01_PEER_SET.md",
+          "blob_sha": "b87cb9c0b5617bd6fe518695bb342b3f153f9ef9",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Forward_Multiple/02_WEIGHTED_MULTIPLE.md",
+          "blob_sha": "f8b82ff1cf0692cfd70fded2d6c0c273864aa77e",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Forward_Multiple/03_UPSIDE_SCORE.md",
+          "blob_sha": "6f714b876710678be2e6de43a3256b6b1871911f",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Forward_Multiple/04_REVERSE_CHECK.md",
+          "blob_sha": "dfe3ace112e8a80ca513c1db05c96feb6884ca15",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Forward_Multiple/05_FACTOR_CHECKLIST.md",
+          "blob_sha": "d5091297cd7b2d7ba302ef329a3ba7d90452f1d8",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Forward_Multiple/06_THESIS_AND_LADDER.md",
+          "blob_sha": "92a225bb0539d3d7ba687a6f30d722d838652500",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Forward_Multiple/README.md",
+          "blob_sha": "62b887c1ddceb98fad801941630c47bdfd311c2f",
+          "status": "added"
+        },
+        {
+          "path": "research/ORCL/Forward_Multiple/REVISIONS.md",
+          "blob_sha": "531defb7cf60d1aa5eae85f0f9d00beb7497644c",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40379267489",
+          "sha": "ee488a0adaa8c36fb945e246d1a00eff0219af6e"
+        }
+      ]
+    },
+    {
+      "number": 79,
+      "title": "[B00] Agent-neutral assignment contract and VS Code handoff",
+      "body": "Closes no issue automatically. Tracks #78; depends on #32, #48, #59 and B01 #65.\n\nAdds `orchestration/agent_adapters/README.md`: `basket.agent_assignment@1` contract, ChatGPT/Codex/Claude/VS Code adapter boundaries, manual VS Code launch, lease and exact-head requirements. Documentation-only draft; no live provider transport, CI proof or deployment. Exclusive scope `orchestration/agent_adapters/**`. No merge authorization.",
+      "head_sha": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/78-agent-neutral-dispatch-contract",
+      "draft": true,
+      "updated_at": "2026-10-26T15:36:08Z",
+      "files": [
+        {
+          "path": "orchestration/agent_adapters/README.md",
+          "blob_sha": "8a0fcf81eb5a713952d394188377953eda3bb44c",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40350933155",
+          "sha": "0eae03d6a2e0b98209761a365b9c891ff7b7c48b"
+        }
+      ]
+    },
+    {
+      "number": 77,
+      "title": "Build ORCL tracker with valuation, peer comparisons and financing scenarios",
+      "body": "ORCL research needs a persistent tracker and an executable bridge from earnings/cash flow to relative value. This implements an append-only evidence ledger, replay/freshness gates, owner-routed refresh work, and a ninth conditional valuation panel.\n\nThe valuation engine calculates normalized forward EPS, modeled FCFF/equity FCF, EV-to-equity values, matching-basis weighted peer references, implied prices, reverse EPS/margin requirements, bear/base/bull cases, and incremental financing/dilution effects. A +/-50/100bp grid reprices only declared floating/refinancing/new debt. Negative cash flow remains visible; missing peer weights suppress affected price indications. It never averages unlike raw multiples or invents probabilities.\n\nThe publisher reads market/fundamentals/financing revisions from the tracker and appends dependent valuation output. Corrections and expiry hide conditional outputs; synthetic results are visibly labeled and stay in the refresh queue. Demo fixtures contain no actual ORCL prices.\n\nScope: B00 #75 with bounded B04 engine assignment recorded on #75. New engine subtree engines/valuation/orcl_bridge/** and existing orchestration/ticker_trackers/** only. Long-term engine ownership remains B04. Research work in #83/#84/#85 is untouched; methods coordinated in #80. No merge/release authorized.\n\nValidation: 29 targeted engine/tracker/end-to-end tests and 57 existing orchestration tests pass locally. Source tree published through the GitHub API exactly matches the tested local tree b151de9735a6053f38c9c1fb81954b9b603d2ea6. Tests cover hand-calculated earnings/cash flows/EV, debt repricing/dilution reconciliation, reverse valuation, incomplete peers, mismatched bases/horizons, negative FCF, future/stale/unverified inputs, correction replay, duplicate ingestion and HTML escaping. Missing jsonschema initially prevented broader-suite imports; installed it in the environment and the rerun passed. No repository dependency changes.\n\nLimitations: no production forward-estimate feed or deployed worker; no actual ORCL fair-value claim. NTM forecasts, debt/lease reconciliation and live source adapters remain #76/#61/#62. Financial payload truth is an upstream assertion. Modeling is a simplified annual forward-multiple bridge, not a DCF; share additions apply for the full period, and forecasts must exclude any incremental scenario funding already applied. B01 requested to wire all 29 tests into CI; a passing existing workflow does not prove those new tests ran remotely.\n\nRefs #75, #76, #80.",
+      "head_sha": "dc6a98e864558606b34d03148a9a95f881b52bf4",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/75-orcl-evolving-tracker",
+      "draft": true,
+      "updated_at": "2026-10-27T04:09:30Z",
+      "files": [
+        {
+          "path": "engines/valuation/orcl_bridge/README.md",
+          "blob_sha": "5656912cac0f96b00ea7f5195680e1f0f257e9f1",
+          "status": "added"
+        },
+        {
+          "path": "engines/valuation/orcl_bridge/engine.py",
+          "blob_sha": "90481c47fac3647ff7b2f439563a1d43d0fb636a",
+          "status": "added"
+        },
+        {
+          "path": "engines/valuation/orcl_bridge/example.py",
+          "blob_sha": "c4cab3ad1f6266ff0fb4ced39346ec5af2b95dd9",
+          "status": "added"
+        },
+        {
+          "path": "engines/valuation/orcl_bridge/test_engine.py",
+          "blob_sha": "df1db79712eccbb310f69754929eb67b686485ce",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/ticker_trackers/README.md",
+          "blob_sha": "a938e1bfedf5594e41582348422652d220eea53b",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/ticker_trackers/orcl.json",
+          "blob_sha": "e4e93d16e5bf0a3a2e4d004e416f6c544f30f9b8",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/ticker_trackers/publish_valuation.py",
+          "blob_sha": "d179119a664f90c8cf5aa561dc7d00b652390fad",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/ticker_trackers/test_tracker.py",
+          "blob_sha": "5e4c6539b3b179587d110020983ab3716b43698a",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/ticker_trackers/test_valuation.py",
+          "blob_sha": "34d5f392ce47af01cf993161f4838497d20958e3",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/ticker_trackers/tracker.py",
+          "blob_sha": "6187477ee5bf305594f385d7ab7f40a84890a0ca",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40416800478",
+          "sha": "dc6a98e864558606b34d03148a9a95f881b52bf4"
+        }
+      ]
+    },
+    {
+      "number": 74,
+      "title": "[B10] CRWV replacement cost, contract rates per MW and depreciation sensitivity",
+      "body": "Spark B10 \u00b7 Refs #73 \u00b7 Draft, no merge\n\nSeparate-topic branch: replacement cost vs EV per active MW, contract rates per MW, depreciation sensitivity. Moved out of PR #72 so each topic has its own issue, branch and folder.\n\n**Changed files:** README.md, findings.json, verify.py, all new under `research/CRWV/73-replacement-cost-rates/`. No overlap with PR #69 or PR #72 paths.\n\n**Validation evidence:** `python3 -I verify.py` passes locally (not CI). Task payload validated locally against `schemas/worker-task.v1.json`.\n\n**Missing checks:** repo CI not yet observed on this head; useful life and D&A split unverified; pre-increase $/MW not disclosed.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_012YJs563PeY36DTwZU4w1tV)_",
+      "head_sha": "813ed77e0442548a0778fd12348a4b416683ed38",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/73-crwv-replacement-cost-rates",
+      "draft": true,
+      "updated_at": "2026-10-26T14:18:52Z",
+      "files": [
+        {
+          "path": "research/CRWV/73-replacement-cost-rates/README.md",
+          "blob_sha": "96d3882e776e0e236f8df4e24aa8db23c3d17458",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/73-replacement-cost-rates/findings.json",
+          "blob_sha": "b0748c32855c5077470b5b87bfcebba4c6ccb4c6",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/73-replacement-cost-rates/verify.py",
+          "blob_sha": "3799230b63f2464be5fd911b29688c8cb8c00db3",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40338495839",
+          "sha": "813ed77e0442548a0778fd12348a4b416683ed38"
+        }
+      ]
+    },
+    {
+      "number": 72,
+      "title": "[B10] CRWV operating margin vs buildout cost and capacity-conversion findings (2026-10-23)",
+      "body": "Spark B10 \u00b7 Closes nothing (draft; no merge) \u00b7 Refs #71\n\nAdds sourced 2026-10-23 CRWV findings under `research/CRWV/operations-vs-buildout/2026-10-23/`: operating-margin vs buildout-cost bridge, paid-for vs capacity-converting split, tape/credit context, hypotheses without probabilities, and `verify.py` that re-runs the derived arithmetic.\n\n**Changed files:** README.md, findings.json, verify.py (all new, all inside the exclusive path). No overlap with PR #69 (`research/CRWV/debt/2026-10-22/**`). No entity/events/relationships, schema, or CI edits.\n\n**Validation evidence:** `python3 -I verify.py` -> \"all derived figures reproduce\" (local run, not CI). `basket.worker_task@1` payload validated against `schemas/worker-task.v1.json` locally.\n\n**Outstanding handoff:** debt totals conflict across sources ($35B debt-only / $51.6B incl. leases / about $42B pro forma); reconciliation belongs to #68 / PR #69.\n\n**Missing checks:** repo CI not yet observed on this head SHA; Q2 gross margin and Q2 backlog recognition schedule unverified from primary filings.\n\n---\n_Generated by [Claude Code](https://claude.ai/code/session_012YJs563PeY36DTwZU4w1tV)_",
+      "head_sha": "c6c35e3f59d40e8ca4505900542ae6153a3cf670",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/71-crwv-ops-vs-buildout",
+      "draft": true,
+      "updated_at": "2026-10-26T14:19:34Z",
+      "files": [
+        {
+          "path": "research/CRWV/operations-vs-buildout/2026-10-23/README.md",
+          "blob_sha": "18e81bc674da96b0cf47aaf00bd4c8dc75747994",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/operations-vs-buildout/2026-10-23/findings.json",
+          "blob_sha": "62e5d88c53b73ae095551bc1ef9d60a15d4a936b",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/operations-vs-buildout/2026-10-23/verify.py",
+          "blob_sha": "3f059d008ce072ebca4b4ae54f29bc7cfbeae9a7",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40338535260",
+          "sha": "c6c35e3f59d40e8ca4505900542ae6153a3cf670"
+        }
+      ]
+    },
+    {
+      "number": 69,
+      "title": "[B10] CRWV debt, capacity conversion and equity valuation",
+      "body": "Tracks #68. Reconciles the filed CRWV debt stack and subsequent financings, then connects contract protection, capacity deliveries, equipment life, software/services and dilution to equity value. All changes remain in research/CRWV/debt/2026-10-22/; no shared engine/schema/CI or canonical relationship/event edits.\n\nThe capacity audit distinguishes reported June active power from contracted MW and future landlord readiness, preserves conflicting October CORZ billing claims, and uses the filed RPO recognition schedule. A reproducible quarterly full-utilization scenario model includes equipment depreciation, borrowing, principal, cash funding gaps and new shares. Its 30/50/20 slow/base/bull weights and price/cost assumptions are subjective and conditional; they are not company guidance, statistically calibrated forecasts or a live quote. Earlier top-down valuations remain labeled as historical scenarios.\n\nValidation: capacity-scenarios.py executed successfully with quarter-by-quarter debt-conservation and nonnegative-capacity/share/cash assertions; scenario weights sum to one; arithmetic and source-period distinctions reviewed; git diff --check passed. Earlier CI passes apply only to earlier commits. Latest-head CI has not been independently checked. Current October total active/billable power, actual funding balances, a complete GPU age schedule and future exact convertible dilution remain unresolved. No merge authorized.",
+      "head_sha": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9",
+      "base_sha": "afc4ada7bc6d7294071b3610fa77e59b206b6312",
+      "branch": "work/68-crwv-debt-stack-audit",
+      "draft": true,
+      "updated_at": "2026-10-29T03:27:46Z",
+      "files": [
+        {
+          "path": "research/CRWV/debt/2026-10-22/README.md",
+          "blob_sha": "92ea65cded5b5eaf734472c7542363c960dfd4fd",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/battle-matrix-contract.md",
+          "blob_sha": "b126cbe197793ab4b8470b3b5aee82291bdcf268",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/battle-matrix-history.jsonl",
+          "blob_sha": "28eeafaf5b8c5188ff4752688c79a2a5cc951b88",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/battle_matrix.py",
+          "blob_sha": "c4427ebb9aef630e10015ca46e2c3340e0a3de1b",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/capacity-conversion.json",
+          "blob_sha": "300193921a6c21b935f241acc7fb235965842a04",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/capacity-conversion.md",
+          "blob_sha": "0c719c24824675482e1289a54801e8ffdfa723f1",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/capacity-scenarios.json",
+          "blob_sha": "a1922814c49fe1a53d5bc03f4e480a34c9434fec",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/capacity-scenarios.py",
+          "blob_sha": "0e23b2e458ea4263b99f4623a3a2e6a0f8c68c87",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/capacity-weighted-valuation.md",
+          "blob_sha": "320002007c47f41da95f9b8998e527d831ec514b",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/debt-repricing-2026-10-23.json",
+          "blob_sha": "6731a122e233b9e9283dc25664d76726e325e64b",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/debt-stack.json",
+          "blob_sha": "31675600a22a7e2c0a58b75ccd78ed1f316d48b4",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/directional-turnover-2026-10-28.json",
+          "blob_sha": "faacefb8e1cb4f1c79446cfb2be32e523372c533",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/discount-demand-and-oi-2026-10-28.json",
+          "blob_sha": "a5355ae6e732e3e27eb82ae99d5854d35c27892e",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/divergence-and-repricing-2026-10-23.md",
+          "blob_sha": "9aa163bf7a83357e358e71bda09607b77f881a42",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/earnings-lifespan-services.md",
+          "blob_sha": "bbd98702c818c06b24d6c2572c6485dabe476eee",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/factor-attribution-2026-10-22.json",
+          "blob_sha": "bf41779139e45ee457ad7b48eee6862195928e7a",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/factor-attribution-2026-10-23.json",
+          "blob_sha": "771732e4d380a6a2b19e626fa533f7be74d9affd",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/factor-closes-2026-10-22.csv",
+          "blob_sha": "d08ab068c9522631461598262eeea934195f85ef",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/factor-closes-2026-10-23.csv",
+          "blob_sha": "2141ec641004ca102ccf4589301fc4998f725e0d",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/factor_tracker.py",
+          "blob_sha": "cfc0ff43a97c80f07ba33dd5395baf3760789aab",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/flow-2026-10-28T1357Z.json",
+          "blob_sha": "dda9d5657a13fc18b259454c4e9697d137b16493",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/forward-valuation.json",
+          "blob_sha": "56811b6604f574f0cf693e8378f493f5a5cef30b",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/forward-valuation.md",
+          "blob_sha": "4fa46d2c5d588ce0c2b03b12d5cd17cc2cb61b9b",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/functional-tool-blueprint.md",
+          "blob_sha": "d070b8443a11dad0b2f722dec4f3e7d7a7eb1648",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/gray-contracted-power-overlay.md",
+          "blob_sha": "50ea6d91fab4034477b4a18d59398a66350ff14b",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV-daily-bars.csv",
+          "blob_sha": "2e5dabdb44c02103255c60b3a538da478d62920f",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV-minute-bars.csv",
+          "blob_sha": "7ee93a829e93e1cbdaa9887b6050f7ec731a7900",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV.range-patterns.jsonl",
+          "blob_sha": "a188353b4fbd2f14a6f4a30186d28fac50e25cc0",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/README.md",
+          "blob_sha": "b61cde0d853b5bd9b77e1fce8fb94a652b56f8e9",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/manifest.json",
+          "blob_sha": "fe31c25e424488c33dfd9af9db4ecd11a5ec6f0e",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/pattern-index.json",
+          "blob_sha": "07c29b785a88d724738ec1b3de6bf9acd25c385d",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/range_replay.py",
+          "blob_sha": "bcf1f1ec76035526cfc6f0038a34755152e8cdf2",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/summary.json",
+          "blob_sha": "45a51519f40a6c1d40c8334fa3705b6228e6f240",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/test_range_replay.py",
+          "blob_sha": "7533114af17b80937c27d3a37a7969b1b50bcc3e",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/integrated-assessment.md",
+          "blob_sha": "fd88a2b831288f9250bc9bc273d66e9b2e852d69",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/matrix-input-2026-10-28.json",
+          "blob_sha": "81136d33db74da4f9f92f08e19dcc43b10ad56a6",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/matrix-output-2026-10-28T1416Z-v1.1.0.json",
+          "blob_sha": "f6341d6d40b59a28f85a08820e2243d8a1454701",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/matrix-output-2026-10-28T1416Z.json",
+          "blob_sha": "9579af037a3728f8932c025d45b1d495e3f05839",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/next-conversation-prompt.md",
+          "blob_sha": "333c1d73606c15d38e5cad49a621dd4f42090044",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/october-turnover-velocity.json",
+          "blob_sha": "5e73159c0f807a2990639cf504e7550853b45f12",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/repricing-assessment.md",
+          "blob_sha": "3774c2ceab3a355e61b238eb14efb9edbab47e1c",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/test_battle_matrix.py",
+          "blob_sha": "d9be615cbcadd091496c1c9472f5cc8dc4c2036f",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/trajectory-2026-10-28.json",
+          "blob_sha": "cbe35b641174c823fe92e3416021b5d783017991",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/trajectory-2026-10-28.md",
+          "blob_sha": "7bf6dbb0d883f0c8d41f9bf19e80ad8ba096e5b3",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/traversal-compression-2026-10-23.json",
+          "blob_sha": "76bd9ff380eeb6ad79bbcc2946cea09e818cad7c",
+          "status": "added"
+        },
+        {
+          "path": "research/CRWV/debt/2026-10-22/traversal-prior-art-review.md",
+          "blob_sha": "ce47d7509a5d4ae2b079c9816223dfd5353c6505",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40812264585",
+          "sha": "6d82bccacaaba9855ef6bd27c64d72eb0514c8c9"
+        }
+      ]
+    },
+    {
+      "number": 60,
+      "title": "[B00] Orchestrator retirement intake and verified ownership baseline",
+      "body": "Closes no implementation gates. Tracks #59.\n\nPreserves source #24 retirement comment 6245348774 and independently refreshed main, 15 open PR heads and changed-file reservations. Records dependency-ordered repair and independent revalidation gates. Historical failures are retained as reported evidence, not represented as rerun.\n\nOnly new orchestration/retirement_intake/** records. #46/#47 reservations remain separate; no existing worker source changed. M-002 and #44/#6/#47 remain open. No merge authorized.",
+      "head_sha": "f69593830b8e3e1314c4d9444a6417dcaab2067e",
+      "base_sha": "1a9e08bd0842bd63708159936b0aceaa4b67300b",
+      "branch": "work/59-orchestrator-retirement-intake",
+      "draft": true,
+      "updated_at": "2026-10-23T16:04:17Z",
+      "files": [
+        {
+          "path": "orchestration/retirement_intake/2026-10-18-b00-baseline.json",
+          "blob_sha": "e61449e5a0a61109b83f7d57083dd0a9aeedf7f3",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/retirement_intake/2026-10-18-b08-snapshot.json",
+          "blob_sha": "3ae4157e78f1b3ec66336cf7d40c9f7ab16e85eb",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/retirement_intake/2026-10-18-b19-audit-reconciliation.json",
+          "blob_sha": "9f7e61305b495428fc6d90065611f5b59be774b5",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/retirement_intake/2026-10-18-capture-dispatch.json",
+          "blob_sha": "34ec85f7996b2f167afb88ed1b7f42046c0c05ec",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/retirement_intake/2026-10-18-ci-flood.json",
+          "blob_sha": "49d60d5cb25e9aa3b8f552f5ea5d23a734362cc3",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "OpenAI research strict gate",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096172899",
+          "sha": "f69593830b8e3e1314c4d9444a6417dcaab2067e"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096172910",
+          "sha": "f69593830b8e3e1314c4d9444a6417dcaab2067e"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096169882",
+          "sha": "f69593830b8e3e1314c4d9444a6417dcaab2067e"
+        }
+      ]
+    },
+    {
+      "number": 58,
+      "title": "[B06] October 16 cross-asset traversal stress research fixture",
+      "body": "Tracks #57. Research-only screenshot-sourced fixture under B06 ownership. No edits to market ingestion, planner, CI, graph or deployment. Timestamp and FX limitations explicit. Tests and CI pending; no claim of operational alerting. Dependencies #11/#15, #44/#47, #48/#49, #53/#55. No merge without review.",
+      "head_sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45",
+      "base_sha": "1a9e08bd0842bd63708159936b0aceaa4b67300b",
+      "branch": "work/57-b06-oct16-traversal-stress-fixture",
+      "draft": true,
+      "updated_at": "2026-10-18T04:20:58Z",
+      "files": [
+        {
+          "path": "engines/traversal/alert_gates.py",
+          "blob_sha": "78375452c3d5dc34c68f304e89710b4bae3d5180",
+          "status": "added"
+        },
+        {
+          "path": "engines/traversal/test_alert_gates.py",
+          "blob_sha": "2dc9dff41bef2d108f2a35c0499593a53176004a",
+          "status": "added"
+        },
+        {
+          "path": "research/traversal/2026-10-16-ai-infrastructure-stress.json",
+          "blob_sha": "3cf0546498639e8ce254c90775a0cd149f991b7f",
+          "status": "added"
+        },
+        {
+          "path": "research/traversal/B06-WORKER-CONTRACT.md",
+          "blob_sha": "d7eb05dbfef5c49b26bd4ced2f94259f5d6ed62d",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096777152",
+          "sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45"
+        },
+        {
+          "name": "OpenAI research strict gate",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096777150",
+          "sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096773915",
+          "sha": "905549c98c88ab87f0e85b37e4603646ab4e4d45"
+        }
+      ]
+    },
+    {
+      "number": 55,
+      "title": "[B08] Authenticated read-only snapshot REST component",
+      "body": "Receives #34; worker #53. Adds only services/mrie_snapshot/app.py, services/mrie_snapshot/test_app.py, deployment/mrie_snapshot/README.md. All-ticker entity discovery, bearer auth, immutable content hashes, explicit historical/missing states, bounded routes and authenticated global rate limit. Six local unittest cases pass; synthetic identity-only fixtures. Existing entity@1 id contract inspected at pinned main bb2c25fe1052d6ad14699ce213b54334c50383d8.\n\nLoopback proof component only: no production server, MCP transport, Render deployment, durable ledger, ingestion, native ChatGPT registration, or remote acceptance claimed. Configured source SHA is operator-supplied, not independently verified; build-derived deployment SHA/manifest is a successor gate. README contains exact orchestrator continuation and B00/B01/B02/B03 ownership routing. #25/#33/#43/#49 and B01 #46/#47 paths untouched. No merge; independent exact-head CI pending.",
+      "head_sha": "24d77045575926be5499355f9d26de499ed2b5ae",
+      "base_sha": "bb2c25fe1052d6ad14699ce213b54334c50383d8",
+      "branch": "work/53-b08-snapshot-service",
+      "draft": true,
+      "updated_at": "2026-10-18T03:49:03Z",
+      "files": [
+        {
+          "path": "deployment/mrie_snapshot/README.md",
+          "blob_sha": "1fcc83c3174a0805187c38d693848aa78e11cc65",
+          "status": "added"
+        },
+        {
+          "path": "services/mrie_snapshot/app.py",
+          "blob_sha": "c97a96362e12c4edc24091f45a5bc64e08aa4587",
+          "status": "added"
+        },
+        {
+          "path": "services/mrie_snapshot/test_app.py",
+          "blob_sha": "c5adc0abe605847f318e86560722645d03b02798",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39094943323",
+          "sha": "24d77045575926be5499355f9d26de499ed2b5ae"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39094941562",
+          "sha": "24d77045575926be5499355f9d26de499ed2b5ae"
+        }
+      ]
+    },
+    {
+      "number": 49,
+      "title": "[B00] Executable full-basket capture dispatch and JSONL owner gates",
+      "body": "Tracks #48; extends #42/PR #43. Adds an offline ticker-agnostic dispatch compiler with full canonical-folder discovery, stable ticker/capability proposals, provenance/freshness gaps and explicit unregistered research candidates. Adds JSONL data-plane requirements and exact B02/B03/B21/B08/B01 execution gates. Leaves active queue PR #25 and all domain runtime/ticker paths untouched.\n\nValidation: five local Python unittests passed, including 42 proposals from six synthetic entities, duplicate stability, stale/future/unsourced input handling, private entity exclusion, candidate separation and invalid identity rejection. Not a live ingestion implementation: no provider entitlement, economic capture, full-repository discovery, persistent host or CI completion is claimed. Monday five-ticker chat automation paused. Next: existing owners implement data-plane workers against reviewed contracts; do not duplicate #11/#12/#34.",
+      "head_sha": "b63e917758b9eab1e40f01d72330262264fbbd90",
+      "base_sha": "bb2c25fe1052d6ad14699ce213b54334c50383d8",
+      "branch": "work/48-full-basket-capture-dispatch",
+      "draft": true,
+      "updated_at": "2026-10-18T04:07:31Z",
+      "files": [
+        {
+          "path": "orchestration/capture_dispatch/README.md",
+          "blob_sha": "95c20b6686954d68119170c496d5a035ab2a0d5e",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/capture_dispatch/plan.py",
+          "blob_sha": "65d9f00aa307739d33fd0737eb0ea8fa4d92a47c",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/capture_dispatch/test_plan.py",
+          "blob_sha": "166b87b96e9eacd310ca7e3ddff1cd0ed54198ce",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "OpenAI research strict gate",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096006939",
+          "sha": "b63e917758b9eab1e40f01d72330262264fbbd90"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096006928",
+          "sha": "b63e917758b9eab1e40f01d72330262264fbbd90"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096005810",
+          "sha": "b63e917758b9eab1e40f01d72330262264fbbd90"
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "title": "[B00] Ticker-first research and reusable worker architecture",
+      "body": "Closes no issue automatically; design-only proposal for #42. Adds architecture/TICKER_FIRST_RESEARCH_ARCHITECTURE.md. Defines canonical ticker ownership, aggregates, point-in-time records, relationship identity, Massive/SEC/IR provider adapters, worker composition and phased migration. Does not edit queue.json (owned by #24/PR #25), schemas, ticker files or CI. Validation: GitHub commit succeeded; no runtime/CI tests claimed. Review required from B02/B03/B04/B05/B19/B01. No merge authorization implied.",
+      "head_sha": "2deadc419d1f87726242579f8abeccd8ddb79c59",
+      "base_sha": "bb2c25fe1052d6ad14699ce213b54334c50383d8",
+      "branch": "work/42-ticker-first-worker-contract",
+      "draft": true,
+      "updated_at": "2026-10-18T04:19:10Z",
+      "files": [
+        {
+          "path": "architecture/TICKER_FIRST_RESEARCH_ARCHITECTURE.md",
+          "blob_sha": "c7310ef48188f4f840f2405a519fdf3aae2e9e52",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "OpenAI research strict gate",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096671822",
+          "sha": "2deadc419d1f87726242579f8abeccd8ddb79c59"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096671841",
+          "sha": "2deadc419d1f87726242579f8abeccd8ddb79c59"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096669609",
+          "sha": "2deadc419d1f87726242579f8abeccd8ddb79c59"
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "title": "[B21] Preserve Exol and AI-RAN cross-support evidence and falsifiers",
+      "body": "Receives #27; tracks #37. Research-only addition: research/narrative/cross-support/exol-network-thesis-2026-10-17.md. Five primary announcements, seven unconfirmed opportunities, Exol/AI-RAN reference cases, milestones/falsifiers, economic-profit waterfall and double-counting controls. No engine, canonical events/relationships, valuation, shared schema or queue changes.\n\nValidation: structural checks and exact connector readback pass. Shared Validate BASKET data passed at exact head 7b21d01c1ec63f1482cafe274ab89f13aae1ec30: https://github.com/whiterosecoffee/_BASKET/actions/runs/39093307806 . This does not validate causal truth or narrative-engine integration.\n\nRemaining handoffs: B05 #39 identity/relationships; B03 #40 event intake; B00 #24/PR #25 queue reconciliation. Current funding/ownership and attributable revenue/profit remain unverified; Exol supplier opportunities are not confirmed selections. Archive handoff recorded in #37 and B00 #1. No overlapping paths found in newer PRs #43/#46/#47/#49/#54. Research preservation complete; ingestion/monitoring pending; draft/unmerged, no merge authorization.",
+      "head_sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30",
+      "base_sha": "bb2c25fe1052d6ad14699ce213b54334c50383d8",
+      "branch": "work/37-cross-support-evidence",
+      "draft": true,
+      "updated_at": "2026-10-18T03:49:30Z",
+      "files": [
+        {
+          "path": "research/narrative/cross-support/exol-network-thesis-2026-10-17.md",
+          "blob_sha": "f9d31cbdf6e8e444b62803b5f0faa62fb44807e0",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093307806",
+          "sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093280119",
+          "sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30"
+        }
+      ]
+    },
+    {
+      "number": 33,
+      "title": "[B00] Audit MRIE implementation and agentic runtime readiness (40/100)",
+      "body": "Closes no issues; audit evidence for #32. Spark B00. Scope is a single new B00-owned file `orchestration/audits/mrie-implementation-readiness-2026-10-17.json`, no cross-domain mutations.\n\nIndependent observed checks:\n- Materialized latest ChatGPT Library archive `MRIE_Project_v10_Optics_Evidence.zip` (not v08); ran `python -m unittest discover -s tests -v` -> 88/88 pass; `python run_all.py` -> success.\n- 17 stdio MCP tool definitions; MCP initialize, tools/list, tools/call pass; local HTTP /health 200, unauth /tools 401, authenticated /tools and /call 200.\n- SQLite contains 13 report observations (MU 9, CRWV 4), 31 source rows; graph 47 nodes, 57 edges (6 documented, 32 inferred, 19 hypotheses), 9 pools; zero bundled historical OHLCV ticker CSVs.\n- Render connected workspace `tea-db8r80qvcj2c73aua6cg`, services query returned null; deployed service unverified.\n- Actual GitHub PR metadata: #2, #10, #13 merged; #14, #15, #18, #22, #25 remain open draft, current version manifest contains stale historical release-gate references.\n- ChatGPT tasks exist, with earnings and market capture enabled, but no proof of hosted durable processing.\n- Overall rubric-weighted readiness 40.2/100, distinct from test pass rate.\n\nAcceptance A1\u2013A5 satisfied for read-only audit report and local smoke. Remaining work is owned by B02/B03/B04/B05/B06/B07/B08/B19/B01; do not claim implementation of these domains.\n\nAudit limitations: latest main CI SHA was not queried; no production security review; no calibration or live pipeline validation. Draft PR for review only, do not merge without authorization.\n\n## Same-conversation scope extension \u2014 progress manager audit\nUser requested functional prioritization/queue test and a concrete next batch. This PR now adds a second disjoint B00-owned file: `orchestration/audits/mrie-dispatch-readiness-2026-10-17.json` (no changes to `orchestration/planner/queue.json`, which remains owned by active PR #25). It records live GitHub issue/PR reconciliation for current main queue v1.1.0, the proposed PR #25 v1.3.0 T-012/T-013/T-014 ID reservation, CI evidence for PR #25 and historical B02/B03 failures, 9 passing audit assertions plus 1 expected failing B08 coverage assertion, and the dependency-gated next batch. B08 receiver handoff: #34. Queue owner handoff: comment to #25. Do not represent proposed T-015/T-016/T-017 as merged or registered.\n## Extended B00 worker scope \u2014 agentic project management control plane\nSource issue #32 was formally revised in the SAME conversation. New exclusive B00 paths: `orchestration/agentic/**`. Active queue PR #25 files were not modified.\n\nDeliverables:\n- `orchestration/agentic/manager.py`: deterministic priority/DAG engine, open-PR file-path collisions, exact-SHA acceptance, append-only attempt/deliverable/lease state, retry ancestry, fail-closed freshness and allowed local checks;\n- `github_adapter.py`: live read-only GitHub collector that inventories all open PRs (not solely pre-registered queue PRs), required issues and recent workflow evidence;\n- `cli.py`, package init and README: source hash, queue hash, ledger hash, decision log and documented runtime boundary;\n- `tests/test_manager.py`: 23 adversarial unit tests committed (local standalone variant passed 37 checks, but **the exact committed test suite has not yet been independently run by B01**).\n\nCI evidence: existing `Validate BASKET data` workflow on the PR head, latest result to be rechecked; it does **not** prove that the new agentic tests are wired to CI. Requests added to B01 handoff #6; B08 hosted runner/durable storage added to existing handoff #34. B00 queue owner PR #25 was notified to preserve T-012/T-013/T-014 and register proposed T-015 deployment; no queue collision or parallel write.\n\nNo autonomous ChatGPT session spawning, production scheduler or remote-hosted MCP is claimed. No merge, release or migration to main performed.\n\n## 2026-10-17: Massive-backed basket worker control-plane extension\nSame B00 worker issue #32 / branch. Added only new disjoint B00-owned paths:\n- `orchestration/agentic/massive_worker_contract.py` \u2014 explicit provider entitlements, output scope, event/available/ingested/observed timestamps, TTD, credential/heartbeat/live gating.\n- `orchestration/agentic/massive_worker_jobs.json` \u2014 eight separate logical jobs across B02, B03, B08 and B01 (not eight ChatGPT conversations).\n- `orchestration/agentic/tests/test_massive_worker_contract.py` \u2014 15 targeted tests, including fail-closed missing entitlement and B01 scope violation.\n\n**Independent checks:** local `python -m unittest orchestration.agentic.tests.test_massive_worker_contract -q` passed 15; local agentic test discovery passed 81. GitHub `Validate BASKET data` completed successfully on exact PR head `4aae4189b969ad84729cc591e5a23499ab24338a` in [run 39095368643](https://github.com/whiterosecoffee/_BASKET/actions/runs/39095368643); that current workflow does **not** execute all new agentic tests \u2014 B01 handoff #6 requests independent exact-head execution. No deployment, ingestion process or live data entitlement is claimed.\n\n**Domain handoffs:** B02 ingestion, history, FX/TTD [issue #61](https://github.com/whiterosecoffee/_BASKET/issues/61) linked to #11/PR #15; B08 persistent hosting #34; B01 #6 CI; B00 queue owner PR #25 asked to expand existing T-004 and stage T-015 B08 without editing its file from this branch.\n\nMassive probe on October 17: daily historical aggregates worked; `/v2/last/trade/NVDA` returned `NOT_ENTITLED`; minute, live streaming and server credentials not verified. Real-time is a dependency, not a deliverable claimed by this PR. No merge without explicit user authorization.\n\n## Worker Operating Contract v2 \u2014 Implementation and independent gates (2026-10-18)\n\n**Identity:** B00 issue #32, branch work/32-mrie-agentic-readiness-audit. Existing planner/execution_loop and queue remain exclusively PR #25; all changed files under orchestration/agentic/** or orchestration/audits/**.\n\nNew: WORKER_CONTRACT.md maps lifecycle labels to worker_task@1 / worker_resolution@1; dependency_gate.py and test_dependency_gate.py use source URL/class/revision/content SHA, effective/available/ingested/expiry, original currency and implicit FX reference. Recompute only on relevant input revisions; unchanged repeated poll is a no-op; expired/conflicted FX and future knowledge fail closed. No new scheduler or economic data store.\n\n**Local checks:** `python -m unittest orchestration.agentic.tests.test_dependency_gate orchestration.agentic.tests.test_massive_worker_contract -q` => 38 passed using committed-source copies. `python -m unittest discover -s orchestration/agentic/tests -q` => 104 passed in an extended local working tree, including additional uncommitted experimental tests/modules; **104 is not an exact PR-head test count**. `python -m compileall -q orchestration/agentic` => pass.\n\n**CI:** General `Validate BASKET data` run #39097419136 passed at previous exact PR-head SHA 192a31bed3858fc0fb0c0254cd85cf6672e49511. The separate OpenAI research gate #39097419181 failed at that SHA (zero-test discovery in a B01-owned integration suite, routed to #64). Agentic suite has NOT yet been independently included in GitHub CI; B01 handoff #65 owns this missing proof.\n\n**Receiver ledger:** B02 #62/#11 market/FX/entitlement, B08 #34 persisted hosted authenticated runtime, B01 #65 independent agentic QC, B00 queue owner #24/PR #25 T-015 registration, B01 #64 unrelated OpenAI gate repair. Branch remains draft, unmerged; no live Massive or hosted MCP claims.\n\n**Release boundary:** The source package is unit-tested locally, not independently component-verified, integrated, deployed or operationally observed. No merge or release without authorization.",
+      "head_sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511",
+      "base_sha": "bb2c25fe1052d6ad14699ce213b54334c50383d8",
+      "branch": "work/32-mrie-agentic-readiness-audit",
+      "draft": true,
+      "updated_at": "2026-10-18T04:38:10Z",
+      "files": [
+        {
+          "path": "orchestration/agentic/README.md",
+          "blob_sha": "d4d96c668626b66faeb23e5893bacfb75043cd19",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/agentic/WORKER_CONTRACT.md",
+          "blob_sha": "8c24d5c7b60406e107ac3b30487c555769f0a9b1",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/agentic/__init__.py",
+          "blob_sha": "1303f3bac11baffdd79f0bdb317b34736bf5748e",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/agentic/cli.py",
+          "blob_sha": "c1a80daf5513d7302423401e50ff598ac92cae08",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/agentic/dependency_gate.py",
+          "blob_sha": "3a094bc59f7d921c81e04ad5d18f1b5309ae18c5",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/agentic/github_adapter.py",
+          "blob_sha": "dcee11c3b42dd53b5aef2034ac7e9054a1bead13",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/agentic/manager.py",
+          "blob_sha": "2edd81e1fad313388436d0f54b27beaff407df05",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/agentic/massive_worker_contract.py",
+          "blob_sha": "156e0be712dfce846b5e9d25e33ee577b2a6a8c0",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/agentic/massive_worker_jobs.json",
+          "blob_sha": "8cd6da7ac1cfc7af4d5d11d3ffb52f350ae49aef",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/agentic/massive_workers.json",
+          "blob_sha": "37c9f05e2b6662eb01db9ae226ec0590aa7395c3",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/agentic/tests/test_dependency_gate.py",
+          "blob_sha": "fe6bf27f686ce5386156ebbdd3edd8700e3a5c48",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/agentic/tests/test_manager.py",
+          "blob_sha": "fb8e05794220ebcaeb36ee70e9032b0326c65046",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/agentic/tests/test_massive_worker_contract.py",
+          "blob_sha": "fbaf169fbed5071ab40ef90e70d44534a01b937f",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/audits/mrie-dispatch-readiness-2026-10-17.json",
+          "blob_sha": "38d73ae7493b13cf3d56b30a74b5077ab9d393da",
+          "status": "added"
+        },
+        {
+          "path": "orchestration/audits/mrie-implementation-readiness-2026-10-17.json",
+          "blob_sha": "32bfc02d7dce606ee7a89d6f4ad4de1dfb63788f",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097419136",
+          "sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511"
+        },
+        {
+          "name": "OpenAI research strict gate",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097419181",
+          "sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097416484",
+          "sha": "192a31bed3858fc0fb0c0254cd85cf6672e49511"
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "title": "[B13] OpenAI pre-IPO evidence, 2027 dynamic IPO weights and SFTBY methodology",
+      "body": "B13 Issue #26. Draft only; no merge.\n\n**Objective:** Extend existing `tickers/OPENAI/entity.json` as a non-tradable pre-IPO OpenAI Group PBC and provide source-verified private valuation evidence, conflicting methodologies, falsifiers and a fail-closed SFTBY Vision Fund 2 look-through scenario contract.\n\n**Exclusive changed paths:** `tickers/OPENAI/entity.json`; `research/OPENAI/{README.md,valuation-register.json,sftby-interface.json,assumption-register.json,check.py}`. No modification to B00 contracts, B01 CI workflows, B02 history, B03 events, B04 valuation engine, B05 graph, B09 NAV, B21 narratives, or existing OpenAI public-equity price history.\n\n**Dated first-party anchors:** OpenAI 2025 Foundation recap (historical equity 26%/~$130B); 2026-02-27 $730B pre-money / initially announced $110B round; 2026-03-31 $122B committed funding at $852B post-money; 2026-10-01 SBG $64.6B invested / ~13% via SVF2; September annualized reported ~$50B revenue (Reuters 2026-10-08/09, gross/net unclear). Oct 16 Hyperliquid perp proxy merely commentary, explicitly not equity.\n\n**NAV gates:** Official SFTBY reported NAV includes SVF2; using gross 13% mark on top doubles counts. The model blocks verified parent net NAV, LTV and SFTBY price targets until embedded fund value, financing, fees, share rights and FX reconcile. Historical 2026-06-30 SFTBY reporting cannot be silently combined with October ownership and March issuer funding.\n\n**Validation evidence:** Shared strict `Validate BASKET data` on branch-head `4528713e`: **pass**, https://github.com/whiterosecoffee/_BASKET/actions/runs/39003062229 . Independent JSON and numeric invariants inspected (10 original evidence records after historical Foundation addition, 10 falsifiable assumptions, 2 conditional scenarios). `research/OPENAI/check.py` is a research-only offline checker; it is not yet wired into B01 CI, and has NOT been independently executed via GitHub Action. No functioning live feeds, no claimed current OpenAI valuation or computed net SFTBY NAV.\n\n**Cross-domain receiver issues:** B09 #28 parent SVF2 look-through; B00 #29 interoperable private-market schemas; B04 #30 cashflow/EV equity valuation. These issues do not assert target work has begun.\n\n**Review:** Confirm sources, first-available date precision, security class and fund share assumptions; require B09/B00 integration gate before any model may replace current NAV. Do not merge without explicit user authorization.\n\n\n## 2026-10-17 B13 extension \u2014 2027 IPO shifting-weight measurements\n\nSame issue #26, same unique branch; formally extended scope and kept ownership. Four NEW files under B13's exclusive `research/OPENAI/**` plus B13 README:\n\n- `ipo2027-news.json`: 15 date-only source-classed claims, including confidential IPO, Altman delay, issuer enterprise disclosure, contested $278B reported 2026\u20132030 negative FCF, $50B September run-rate versus $70B year-end target/gross-net accounting, AWS/NVIDIA capacity, Atlassian announced distribution, SBG credit spreads, CRWV financing and infrastructure leadership risk.\n- `ipo2027-policy.json`: 8 factor dimensions, 4 IPO disclosure stages, 4 conditional regimes, hard gates, versioned weight-shift formula, explicit missing-coverage states.\n- `ipo2027.py`: deterministic point-in-time research weight calculator; refuses to auto-switch stage without verified public proof; scenario mode requires 5 explicitly supplied USD inputs and produces conditional enterprise/equity bridge, never fair value or net SFTBY NAV.\n- `test_ipo2027.py`: 8 offline deterministic tests (weights, credit stress, stage gate, missing-data bounds, no lookahead, evidence rating validation, scenario arithmetic, regime state), supplied as source but **not yet independently executed in CI**.\n\n**Method:** `W_i = 100 \u00d7 b_i(stage) \u00d7 m_i(regime) / \u03a3b_jm_j`. Analyst ratings do not set price targets; missing evidence creates unknown coverage rather than an optimistic quality score. IPO price is not output. Never add prospective funding proceeds to DCF and also subtract the same financing cash flows. Private perpetual market remains a sentiment proxy.\n\n**Evidence/QA:** Static JSON schema-class/unique-ID, date, positive weight, factor coverage and scenario arithmetic checks passed; total 15 news records, 8 factors and 4 stages. GitHub branch-head shared strict validation passed at https://github.com/whiterosecoffee/_BASKET/actions/runs/39072739553 on `fb87ad2dfa41cc50ffa36ff60c0f0bd79f503140`. Shared CI does **not** execute new B13 `test_ipo2027.py`; B01 integration needed. Current OpenAI valuation/SFTBY net NAV/IPO probability still unavailable and no live provider is claimed. No schemas, B04 valuation, B09 NAV, B02 feeds or B01 CI files edited. Do not merge without explicit authorization.\n\n\n## 2026-10-17 B13 provider capability/source readiness extension\n\nSame B13 issue/branch (no new conflicting branch). New B13-owned resources: `research/OPENAI/{RESOURCE_STRATEGY.md,resource-registry.json,resource_audit.py,test_resource_audit.py}`; README append. Inventory includes 15 evidence source classes, provenance and factor coverage, owner domains, data availability, TTD targets, fallback and actionable validation. Research-only source audit changes source *acquisition priority*, not OpenAI economic valuation.\n\n**Independently queried via connected tools 2026-10-17:** Firecrawl SEC Alexandria company/filings/concept endpoints for CRWV and MSFT; core CRWV CIK 0001769628 and 2026-09 8-Ks; MSFT us-gaap revenue concept with period+accession (Q3 record was cumulative year-to-date, not standalone quarter). Massive `/fed/v1/treasury-yields` returned Oct 15 and Oct 14 daily observations. Massive `/stocks/financials/v1/income-statements` for MSFT returned NOT_ENTITLED; SEC XBRL is tested fallback. Direct OpenAI security-class secondary data/Hyperliquid contract-specific data and persistent ingestion were NOT acquired or enabled. Discovery of a public API or connected market plugin is not proof of a live feed.\n\n**QA:** independently parsed/checked 15 source IDs, ownership/factor references, schema/access status, no fabricated cash/quote, positive normalized IPO factor weights and marginal source prioritization rules. Strict shared repository Actions passed at `edbd1791b9061c12a2324336e47f082473745e5f`, https://github.com/whiterosecoffee/_BASKET/actions/runs/39093794980 . B13 `resource_audit.py` and `test_resource_audit.py` have NOT been run by independent CI; B01 handoff #35 should run them on branch-head and report run/test evidence. Dated registry is static, it cannot replay future 2027 outcomes or mark unknown data as current. B00 queue issue #36 stays blocked by ongoing PR #25; no planner edits or duplicate tasks made.\n\n**Review:** B01 #35 independent Python validation; B02 #11 primary sources and dependable append-only data; B03 #12 accession-backed IPO/financing events; B00 #29 versioned valuation/provenance bridge; B04 #30 forward FCFF, peer normalization, sensitivity; B09 #28 SVF2 net parent NAV. Draft only; never merge absent explicit authorization.\n\n\nB13 source-readiness extension 2026-10-17: New files research/OPENAI/RESOURCE_STRATEGY.md, resource-registry.json, resource_audit.py, test_resource_audit.py. Fifteen dated-source classes are categorized by provider entitlement, owner, factor, missing metrics and TTD. Direct tools verified SEC EDGAR company/8-K index/XBRL for CRWV and MSFT and Massive Treasury yields. Massive public financial statements returned NOT_ENTITLED. Shared CI passed at edbd1791b9061c12a2324336e47f082473745e5f (run 39093794980), but the new Python source-audit tests were not executed in CI; B01 handoff #35 owns that check. No source polling or current valuation enabled. Queue handoff #36 still blocked by PR #25 collision. No merge.\n\n\nB13 correction for independent CI (2026-10-17): B01 #45 PR #46 uncovered a reproducible KeyError in research/OPENAI/ipo2027.py:152. Root cause was eager access to gate['required'] on an eligible pre-prospectus stage. B13 fixed this on its existing branch at commit 316dbea500591806e8f68fd8f1f66e17484772c9 by raising only when gate['eligible'] is false. Strict shared B13 GitHub Actions passed at https://github.com/whiterosecoffee/_BASKET/actions/runs/39094713027. B01 independent research gate remains pending retest: B01 workflow pinned older B13 SHA and will need pin+assertion update on its own branch; exact receiver handoff posted to issue #45. Do not interpret old red CI as resolved until new B01 run succeeds.\n\n\n## B13 existing worker #26 \u2014 Autonomous Contract v2 reliability increment\n\n**Scope:** Same B13 branch and issue; no new worker, scheduler, shared schema, price feed, or valuation model. New B13-owned files only: `research/OPENAI/WORKER_CONTRACT.md`, `research/OPENAI/evidence_fingerprint.py`, `research/OPENAI/test_evidence_fingerprint.py`. Canonical worker states are reused from main `basket.worker_task@1` and `basket.worker_resolution@1`, with contract/runbook, failure register and acceptance matrix in one B13 document.\n\n**Behavior:** Deterministic SHA-256 record fingerprints and B04/B09/B21/B02/B03/B13 consumer input hashes on exact 2026-10-17 research vintage. Conservative no-lookahead and no-2027-replay claims; append-only record-ID revisions, new IDs plus `supersedes`, source-class checks, negative correction and cycle checks. `compare()` produces targeted downstream recomputation *proposals*; B13 does not dispatch, persist quotes, or calculate SFTBY net NAV. Draft schema identifier `basket.b13_evidence_fingerprint@1` is local to research and requires B00 #29 review for cross-domain use.\n\n**Actual tests on SHA `c9fe366c77862a522ebeb77c7eea9a5bf58812b5`:** Shared `Validate BASKET data` passed https://github.com/whiterosecoffee/_BASKET/actions/runs/39097427367 . Dedicated `OpenAI research strict gate` https://github.com/whiterosecoffee/_BASKET/actions/runs/39097427403 ran B13 check/audit and **all 32 B13 Python unit tests successfully**, but overall job FAILED at B01 acceptance-suite discovery (exit 5, missing `gate/tests/integration/openai_research_acceptance.py` in older B13 fork). Preserve red CI. Owner B01 #64 comment 6245697240 requests exact-path independent checkout fix and retest; no edits to B01-owned workflow from B13.\n\n**Integration:** Main advanced after B13 branch fork; current PR is draft and diverged, not merged. B00 orchestrator must reconcile main changes, B01 must clear the exact-head research gate, and B00/B04/B09 handoffs #29/#30/#28 remain necessary for live valuation and parent NAV. User merge authorization still required.\n",
+      "head_sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8",
+      "base_sha": "bb2c25fe1052d6ad14699ce213b54334c50383d8",
+      "branch": "work/26-openai-preipo-valuation-sftby",
+      "draft": true,
+      "updated_at": "2026-10-18T04:37:30Z",
+      "files": [
+        {
+          "path": "research/OPENAI/README.md",
+          "blob_sha": "72b56da4ccedc380ef8bf78103a71ad181762761",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/RESOURCE_STRATEGY.md",
+          "blob_sha": "a3f9cd16bc72e5fbe08b43fcbf97316c864eafac",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/WORKER_CONTRACT.md",
+          "blob_sha": "6a1c78882f2efa726ff3c31ac3d26890dfbfa720",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/assumption-register.json",
+          "blob_sha": "317e49b6c7b6ea21dcb249cf15d86d98c9f44855",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/check.py",
+          "blob_sha": "eeaf774529616fa8bc5c98cd748f07c2fca31699",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/evidence_fingerprint.py",
+          "blob_sha": "e94e79a722a5a669fa6bc1079d3cd104e544268a",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/ipo2027-news.json",
+          "blob_sha": "5c861bdb8b0528506287c033736aadb26eb856bc",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/ipo2027-policy.json",
+          "blob_sha": "28ab9d590c10ed3e5a12dff2b4ea292a4f8ee9a3",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/ipo2027.py",
+          "blob_sha": "403b9996cca2e972c8c077035ef6af6adb2739d8",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/resource-registry.json",
+          "blob_sha": "651f50806419068bd89ea781fb653e8158093310",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/resource_audit.py",
+          "blob_sha": "06f63808a700707cab034de0e1d2e7f310a7496c",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/sftby-interface.json",
+          "blob_sha": "dd2212a5e96b8948f4ca78db5d514d68956fcaca",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/test_evidence_fingerprint.py",
+          "blob_sha": "ec278f632f90a88131f07a3424d862e3d3bf68e3",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/test_ipo2027.py",
+          "blob_sha": "2c28fe9f9510bddaba0b13f0f47ac3c295e1660e",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/test_resource_audit.py",
+          "blob_sha": "b738ea95cf73dfccd04add21d7d1c1f2cc987fb4",
+          "status": "added"
+        },
+        {
+          "path": "research/OPENAI/valuation-register.json",
+          "blob_sha": "990021948783ee9fd62b20ae74b20d5c261a1ec9",
+          "status": "added"
+        },
+        {
+          "path": "tickers/OPENAI/entity.json",
+          "blob_sha": "4403fc6802f8b4a18a3f27df4dece320881bab4d",
+          "status": "modified"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "OpenAI research strict gate",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097743023",
+          "sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097743021",
+          "sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39097741392",
+          "sha": "e41c42f82f16938f8a2fdda44722c96b04a862f8"
+        }
+      ]
+    },
+    {
+      "number": 25,
+      "title": "[B00] Queue whole-basket coverage and NVDA capital-capture research seeds",
+      "body": "Closes #24 when integrated. Adds T-012 (B00 whole-basket coverage inventory) and T-013 (B21 canonical research seed) to `orchestration/planner/queue.json`. Both remain planned, with dependencies and acceptance; no new worker launched and no research claim validated. Sources: #1 comments 6229599463 and 6229556803. Validation: JSON parsed, unique task IDs (13 total), all prior 11 tasks retained, no other files edited. Draft pending B00 review and CI; no merge.",
+      "head_sha": "8305cd895ccf89692b94ebf2adf67f343d319447",
+      "base_sha": "bb2c25fe1052d6ad14699ce213b54334c50383d8",
+      "branch": "work/24-register-coverage-research-milestones",
+      "draft": true,
+      "updated_at": "2026-10-18T04:33:44Z",
+      "files": [
+        {
+          "path": "orchestration/execution_loop.py",
+          "blob_sha": "0396d6dc8d52104bf1fd4ed28c7872e348810bd2",
+          "status": "modified"
+        },
+        {
+          "path": "orchestration/planner/README.md",
+          "blob_sha": "7fa8ccf795b54588166ce26ef0de30bcd0fca33f",
+          "status": "modified"
+        },
+        {
+          "path": "orchestration/planner/goals.json",
+          "blob_sha": "3a1d7b4454bdaf22c290c36d6390b1139f65ac71",
+          "status": "modified"
+        },
+        {
+          "path": "orchestration/planner/queue.json",
+          "blob_sha": "a2bfb99134fa46ca5da18b6e5fb5da51be865079",
+          "status": "modified"
+        },
+        {
+          "path": "orchestration/planner/worker-scopes.json",
+          "blob_sha": "aba17a9aac4fb1cf32e1f62321f2bcbb330b3ffd",
+          "status": "modified"
+        },
+        {
+          "path": "orchestration/tests/test_execution_loop.py",
+          "blob_sha": "ef444c200b3805deedc91907d83c1fec1f06042e",
+          "status": "modified"
+        },
+        {
+          "path": "orchestration/tests/test_planner.py",
+          "blob_sha": "c52419d4f7e84a658e5adbdc3100e5631ce51d66",
+          "status": "modified"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "OpenAI research strict gate",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096784321",
+          "sha": "8305cd895ccf89692b94ebf2adf67f343d319447"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096784343",
+          "sha": "8305cd895ccf89692b94ebf2adf67f343d319447"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096781706",
+          "sha": "8305cd895ccf89692b94ebf2adf67f343d319447"
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "title": "B19: research coverage for 42 underrepresented tickers",
+      "body": "Linked #21. Spark B19, exclusive NEW file `research/themes/supply-chain/coverage/underrepresented-2026-10-17.json`.\n\nAdds 42 distinct research candidates across 11 economic layers, with P0/P1/P2 research priorities, explicit current B19 PR #18 watchlist comparison, source links for initial verified issuer or third-party examples, unknown canonical membership, and controls separating capital, backlog, reported revenue and retained FCF.\n\nValidation: JSON.parse succeeded during creation; uniqueness check passed for 42 tickers; GitHub committed 3d12d2182717011981667725dd3df1467ddbe33e. No runner-based tests or independent CI yet. No claims of verified current prices, AI revenue percentages, canonical entity registration or actual portfolio holdings. Existing B19 #17 / PR #18 files untouched. B00/B03/B05 follow-ups required for integration, earnings and edges. No auto-merge.",
+      "head_sha": "ea72a24da23aa5809ce41e22d327575369c3d09f",
+      "base_sha": "bb2c25fe1052d6ad14699ce213b54334c50383d8",
+      "branch": "work/21-underrepresented-ticker-coverage",
+      "draft": true,
+      "updated_at": "2026-10-18T04:20:17Z",
+      "files": [
+        {
+          "path": "research/themes/supply-chain/coverage/WORKER_RUNBOOK.md",
+          "blob_sha": "f290501d5c52638869dfb670f2bb3ac0ee62a411",
+          "status": "added"
+        },
+        {
+          "path": "research/themes/supply-chain/coverage/check_coverage.py",
+          "blob_sha": "fb33bcde387bd1f71c596cf134f831aaf747bc41",
+          "status": "added"
+        },
+        {
+          "path": "research/themes/supply-chain/coverage/test_check_coverage.py",
+          "blob_sha": "791dd87217a369e4269ebb2c0a383ed2e6650a6b",
+          "status": "added"
+        },
+        {
+          "path": "research/themes/supply-chain/coverage/underrepresented-2026-10-17.json",
+          "blob_sha": "dc2946c6f398dd779ae8ba8826d634838f8134cc",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "OpenAI research strict gate",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096738185",
+          "sha": "ea72a24da23aa5809ce41e22d327575369c3d09f"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096738181",
+          "sha": "ea72a24da23aa5809ce41e22d327575369c3d09f"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096735362",
+          "sha": "ea72a24da23aa5809ce41e22d327575369c3d09f"
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "title": "[B00] Specify capital-to-profit economic graph contracts",
+      "body": "Tracks #20; B00 architecture-only design document `architecture/ECONOMIC_FLOW_GRAPH.md`. Describes final demand vs intermediary revenue paths, ownership/financing guarantees/contracts/IP royalties/capacity bottlenecks/profit capture, accounting non-double-counting invariants, point-in-time source/FX requirements and B05/B19/B03/B04/B02/B06/B21/B01 handoffs. No schema/runtime implementation or current financial claims. Review required; no automatic merge. Validation: branch file creation succeeded; no runner/CI evidence yet. Dependencies B05 #16, B19 #17/PR #18, B03 #12, B02 #11.",
+      "head_sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57",
+      "base_sha": "bb2c25fe1052d6ad14699ce213b54334c50383d8",
+      "branch": "work/20-capital-profit-graph",
+      "draft": true,
+      "updated_at": "2026-10-18T04:22:06Z",
+      "files": [
+        {
+          "path": "architecture/ECONOMIC_FLOW_GRAPH.md",
+          "blob_sha": "a300ab53b6a4f8389f3b7f87328eb41bfeaeca86",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "OpenAI research strict gate",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096804353",
+          "sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096804356",
+          "sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096801792",
+          "sha": "f7bd7a70934331e869c71119521aa2f37c9cfe57"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "title": "B19: MRIE full-basket revenue research resources",
+      "body": "Closes neither issue automatically; tracks #17. Seven source-controlled resources under B19-owned research/themes/supply-chain/**. Working ticker universe, pool registry, gateway rules, quarterly intake, reconciliation and explicit missing coverage. No issuer earnings imported without verification. No B02/B03/B05 or shared schema edits. JSON files are syntactically valid by construction; CI not yet independently checked.",
+      "head_sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+      "base_sha": "5bf7fc14e2577e479279efdedfeae4b90bf85820",
+      "branch": "work/17-mrie-revenue-pool-resources",
+      "draft": true,
+      "updated_at": "2026-10-18T04:19:19Z",
+      "files": [
+        {
+          "path": "research/themes/supply-chain/README.md",
+          "blob_sha": "dd2ce3eb0579907f5b1cf5880a792363e26418d1",
+          "status": "added"
+        },
+        {
+          "path": "research/themes/supply-chain/WORKER_CONTRACT.md",
+          "blob_sha": "f5d4e94652b0b850b82e7d5036212c3ebd097085",
+          "status": "added"
+        },
+        {
+          "path": "research/themes/supply-chain/coverage/missing.json",
+          "blob_sha": "43cb47407cede83e9dd71ebe6ef0743beb9d949b",
+          "status": "added"
+        },
+        {
+          "path": "research/themes/supply-chain/earnings/quarterly-intake.json",
+          "blob_sha": "1bd3a20452a9e82a2a626eb352eea432e98f0e7d",
+          "status": "added"
+        },
+        {
+          "path": "research/themes/supply-chain/reconciliation/check_research.py",
+          "blob_sha": "a1054148cd63759f98d0a722eb999df0a115cebb",
+          "status": "added"
+        },
+        {
+          "path": "research/themes/supply-chain/reconciliation/rules.json",
+          "blob_sha": "faa8538537f60243c489c42340c1b166c502b544",
+          "status": "added"
+        },
+        {
+          "path": "research/themes/supply-chain/reconciliation/test_check_research.py",
+          "blob_sha": "6a7228b25f4f4d61e50f69cd93c01035211a1c1c",
+          "status": "added"
+        },
+        {
+          "path": "research/themes/supply-chain/registry/pools.json",
+          "blob_sha": "f750c6ae3f9815c3c4479917d7a7c2b6a996fc05",
+          "status": "added"
+        },
+        {
+          "path": "research/themes/supply-chain/registry/tickers.json",
+          "blob_sha": "380d8dc992abb095749a77ef14285275399f6237",
+          "status": "added"
+        },
+        {
+          "path": "research/themes/supply-chain/relationships/gateway-model.json",
+          "blob_sha": "da48a35b8f9bc444fe49b27f3f78549bce696eca",
+          "status": "added"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "OpenAI research strict gate",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096679844",
+          "sha": "6eab180632d251147d13a073c967dbd3031dfe92"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096679765",
+          "sha": "6eab180632d251147d13a073c967dbd3031dfe92"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39096677208",
+          "sha": "6eab180632d251147d13a073c967dbd3031dfe92"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "title": "[B02] Append-only observation revisions and point-in-time snapshots",
+      "body": "Closes no issue automatically; implements initial scope of #11 and handoff #7. Spark B02, exclusive paths: `runtime/observations.py`, `runtime/test_observations.py`, `tests/test_ttd.py`.\n\nAdds portable fail-closed single-writer append journal with revision references, availability/ingestion temporal checks, point-in-time replay, deterministic snapshot SHA-256, explicit freshness states and provider entitlement/worker guard. Adds offline regression coverage within normal `tests/test_ttd.py` discovery. Existing 262-session SFTBY positional history remains untouched.\n\nNot implemented: Massive provider client or verified entitlement, USD/JPY ingestion, reconciliation of entire 200+ sessions into a revision-aware journal, persistent hosted worker, full cross-feed production evaluator. Existing unrelated SFTBY relationship schema CI problem awaits B05 #4/B01 #5. No live market claim. Testing pending independent runner execution; do not mark release gate green on this PR alone. PR #2 policy read from bootstrap branch; no edits to B00/B01/B05 paths except B02-owned `tests/test_ttd.py`. Never merge without user approval.",
+      "head_sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+      "base_sha": "4319c6c959387f2a1df333b6a86f6f94e57710e3",
+      "branch": "work/11-market-fx-observation-replay",
+      "draft": true,
+      "updated_at": "2026-10-16T19:45:31Z",
+      "files": [
+        {
+          "path": "runtime/observations.py",
+          "blob_sha": "e05de0422ad8da480ba36bd915963c0515670a34",
+          "status": "added"
+        },
+        {
+          "path": "runtime/test_observations.py",
+          "blob_sha": "dc5652cfe48317d500ca92af3377642ecbef66d7",
+          "status": "added"
+        },
+        {
+          "path": "tests/test_ttd.py",
+          "blob_sha": "5b192498dbb502709bb973ecea73c016ea5ea5cd",
+          "status": "modified"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957102730",
+          "sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957074452",
+          "sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "[B03] Initial canonical SoftBank issuer events and point-in-time revision register",
+      "body": "Closes no issues automatically; linked #12. Spark B03 only.\n\nChanges: two verified SoftBank issuer events in `tickers/SFTBY/events.json` (2026-10-01 completed $10bn third OpenAI tranche, 2026-10-08 signed exploratory Sarawak framework), initial research revision ledger, event ingest/revision/accounting policy. Original source references: https://group.softbank/en/news/press/20261001 and https://group.softbank/en/news/press/20261008.\n\nValidation evidence (connector fetched working-branch content): JSON parse of events@1 schema, canonical projection and revision register; required field checks, supported type checks, allowed top-level fields, URL checks, unique IDs and duplicate-negative test all passed (2 events, 2 revisions). No runner-based full JSON Schema validation or CI result yet. Main shared CI currently has unrelated B05 SFTBY relationship failure (#8/#9), not bypassed.\n\nLimitations: exact source publication and ingestion timestamps absent (date-only source evidence, null ingestion); remaining SFTBY/CRWV/AAOI/NVDA events and SEC accessions unverified; no historical MRIE backfill verified; USD amounts are disclosed issuer statements; no claim of current NAV/live data. These are evidence samples, not comprehensive coverage.\n\nDependencies: B00 orchestration PR #2/shared schema, B05 relationship/ownership accounting #8, B01 strict CI #9, B02 future TTD snapshots. No merge without user authorization.",
+      "head_sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+      "base_sha": "4319c6c959387f2a1df333b6a86f6f94e57710e3",
+      "branch": "work/12-b03-canonical-issuer-events",
+      "draft": true,
+      "updated_at": "2026-10-16T19:46:07Z",
+      "files": [
+        {
+          "path": "research/events/README.md",
+          "blob_sha": "bff6ee7a80a4858f87831fbc4bd4726e11dd1bad",
+          "status": "added"
+        },
+        {
+          "path": "research/events/SFTBY/2026-10-16-initial-ledger.json",
+          "blob_sha": "8b1ae5727b544dd4ab58dd2583bf203e2fbe80e0",
+          "status": "added"
+        },
+        {
+          "path": "research/events/validate.py",
+          "blob_sha": "0089ff3da43f085e79b6909dc217b89e97786b33",
+          "status": "added"
+        },
+        {
+          "path": "tickers/SFTBY/events.json",
+          "blob_sha": "b604525a9f4f9ae53d26ae92eec39878ca02bdda",
+          "status": "modified"
+        }
+      ],
+      "files_complete": true,
+      "ci": [
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957274923",
+          "sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c"
+        },
+        {
+          "name": "Validate BASKET data",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/38957268793",
+          "sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c"
+        }
+      ]
+    }
+  ],
+  "component_details": {
+    "87": {
+      "source": "research/CRWV/tool/README.md",
+      "version": "crwv-economics@0.1.0",
+      "inputs": "dated snapshot + scenario config",
+      "outputs": "monthly capacity/revenue, funding gap, EPS/dilution, conditional valuation, JSON/text",
+      "invocation": "python research/CRWV/tool/demo.py --output /tmp/crwv-demo",
+      "tests": "python -m unittest discover -s research/CRWV/tool/tests -v",
+      "evidence_class": "source declaration; independent pinned financial acceptance in PR90"
+    },
+    "99": {
+      "source": "research/CRWV/trading-tool/component.json",
+      "version": "ticker.pattern-component@1 / 1.0.0",
+      "inputs": "completed timestamped minute bars + source manifest",
+      "outputs": "range matrix, SQLite observations/signals, JSONL export",
+      "invocation": "python research/CRWV/trading-tool/run.py show --db /persistent/basket/patterns.sqlite --ticker CRWV",
+      "evidence_class": "component manifest declaration; persistent running process false"
+    },
+    "101": {
+      "source": "engines/composites/market_context/README.md",
+      "version": "basket.market_context_input@1",
+      "inputs": "aligned dated registry + current/previous quote and macro snapshots",
+      "outputs": "basket/sector/benchmark deltas, coverage and provisional state",
+      "invocation": "python -m unittest discover -s engines/composites/market_context/tests -v",
+      "evidence_class": "source declaration; independent domain acceptance pending #102"
+    },
+    "104": {
+      "source": "architecture/BLACK_BOX_COMPONENT_CONTRACT.md",
+      "version": "basket.component_contract@1 proposal",
+      "inputs": "manifest with typed ports, owner, version and acceptance",
+      "outputs": "schema/spec proposal; request/response runner unimplemented",
+      "evidence_class": "draft proposal; B01 independent validation #105"
+    }
+  },
+  "main_history_audit": {
+    "tickers/OPENAI/history.jsonl": {
+      "rows": 0,
+      "first_timestamp_ms": null,
+      "last_timestamp_ms": null,
+      "source_status": "stored history, freshness/provider not reverified"
+    },
+    "tickers/CRWV/history.jsonl": {
+      "rows": 262,
+      "first_timestamp_ms": 1759291200000,
+      "last_timestamp_ms": 1792036800000,
+      "source_status": "stored history, freshness/provider not reverified"
+    },
+    "tickers/SFTBY/history.jsonl": {
+      "rows": 262,
+      "first_timestamp_ms": 1759291200000,
+      "last_timestamp_ms": 1792036800000,
+      "source_status": "stored history, freshness/provider not reverified"
+    },
+    "tickers/AAOI/history.jsonl": {
+      "rows": 262,
+      "first_timestamp_ms": 1759291200000,
+      "last_timestamp_ms": 1792036800000,
+      "source_status": "stored history, freshness/provider not reverified"
+    }
+  },
+  "issue_body_policy": "Full issue bodies retrieved during audit; hashes and source URLs retained here. Re-fetch source comments for current assignment authority."
+}
