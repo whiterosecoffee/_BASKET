@@ -1,6 +1,6 @@
 {
   "schema": "basket.project_goals@1",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "repository": "whiterosecoffee/_BASKET",
   "goals": [
     {
@@ -140,6 +140,38 @@
       "exit_criteria": [
         "Narrative and traversal results reproduce from exact inputs and versions.",
         "No unsupported probabilities or stale data declared current."
+      ],
+      "evidence_policy": "verified_domain_acceptance"
+    },
+    {
+      "id": "M-006",
+      "goal_id": "G-001",
+      "objective": "Verify evidence-gated planner execution and canonical coverage audit dispatch",
+      "task_ids": [
+        "T-012",
+        "T-014"
+      ],
+      "depends_on": [
+        "M-001"
+      ],
+      "exit_criteria": [
+        "T-014 local allowlisted checks and fail-closed decision tests independently pass on exact PR head.",
+        "T-012 publishes dated canonical coverage inventory with owner-tagged gaps; no branch-only claims promoted to main."
+      ],
+      "evidence_policy": "verified_domain_acceptance"
+    },
+    {
+      "id": "M-007",
+      "goal_id": "G-004",
+      "objective": "Preserve source-bounded NVDA capital-capture hypotheses",
+      "task_ids": [
+        "T-013"
+      ],
+      "depends_on": [
+        "M-005"
+      ],
+      "exit_criteria": [
+        "B21 stores S1-S8 and NVDA-H01-H06 as dated unverified hypotheses with falsifiers and explicit graph/event dependencies."
       ],
       "evidence_policy": "verified_domain_acceptance"
     }
