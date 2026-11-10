@@ -184,6 +184,17 @@ class DomainSourceGateTests(unittest.TestCase):
         self.assertIn('if-no-files-found: error', text)
 
 
+    def test_workflow_pins_etf_schema_dependency_only(self):
+        workflow = Path(__file__).resolve().parents[2] / '.github/workflows/domain-source-acceptance.yml'
+        text = workflow.read_text()
+        dependency = """      - name: Install pinned ETF schema validator
+        if: ${{ matrix.suite == 'etf' }}
+        run: python -m pip install jsonschema==4.23.0
+"""
+        self.assertIn(dependency, text)
+        self.assertEqual(text.count('python -m pip install'), 1)
+        self.assertLess(text.index(dependency), text.index('Run named exact-source suite'))
+
     def test_each_domain_has_distinct_exact_source_and_minimum(self):
         self.assertEqual({n: s[3] for n, s in gate.SUITES.items()},
             {'etf': 66, 'ticker-patterns': 26, 'traversal': 13,
