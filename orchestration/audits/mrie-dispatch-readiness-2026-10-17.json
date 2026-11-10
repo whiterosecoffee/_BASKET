@@ -1,0 +1,374 @@
+{
+  "schema": "basket.dispatch_readiness@1",
+  "as_of": "2026-10-17",
+  "source_repository": "whiterosecoffee/_BASKET",
+  "source_queue_version": "1.1.0 main; 1.3.0 proposed PR #25",
+  "source": "GitHub main task queue + live GitHub fetched issues/PR metadata",
+  "spark_id": "B00",
+  "issue": "https://github.com/whiterosecoffee/_BASKET/issues/32",
+  "branch": "work/32-mrie-agentic-readiness-audit",
+  "readiness": "plan_valid_priority_execution_manual_orchestrator_not_autonomous",
+  "queue_status": {
+    "T-001": {
+      "owner": "B00",
+      "issue": 8,
+      "pr": 10,
+      "state": "merged_main_ci_unverified",
+      "blocking": []
+    },
+    "T-002": {
+      "owner": "B00",
+      "issue": 1,
+      "pr": 2,
+      "state": "merged_main_ci_unverified",
+      "blocking": []
+    },
+    "T-003": {
+      "owner": "B01",
+      "issue": 9,
+      "pr": 13,
+      "state": "merged_main_ci_unverified",
+      "blocking": []
+    },
+    "T-004": {
+      "owner": "B02",
+      "issue": 11,
+      "pr": 15,
+      "state": "resume_eligible",
+      "blocking": []
+    },
+    "T-005": {
+      "owner": "B03",
+      "issue": 12,
+      "pr": 14,
+      "state": "resume_eligible",
+      "blocking": []
+    },
+    "T-006": {
+      "owner": "B21",
+      "issue": null,
+      "pr": null,
+      "state": "launch_eligible_slot_unverified",
+      "blocking": []
+    },
+    "T-007": {
+      "owner": "B06",
+      "issue": null,
+      "pr": null,
+      "state": "blocked",
+      "blocking": [
+        "T-004(merged)"
+      ]
+    },
+    "T-008": {
+      "owner": "B05",
+      "issue": null,
+      "pr": null,
+      "state": "blocked",
+      "blocking": [
+        "T-005(merged)"
+      ]
+    },
+    "T-009": {
+      "owner": "B01",
+      "issue": null,
+      "pr": null,
+      "state": "launch_eligible_slot_unverified",
+      "blocking": []
+    },
+    "T-010": {
+      "owner": "B19",
+      "issue": 17,
+      "pr": 18,
+      "state": "resume_eligible",
+      "blocking": []
+    },
+    "T-011": {
+      "owner": "B09",
+      "issue": null,
+      "pr": null,
+      "state": "blocked",
+      "blocking": [
+        "T-004(merged)",
+        "T-008(merged)"
+      ]
+    }
+  },
+  "live_worker_active_count": "unknown",
+  "limit": 3,
+  "can_dispatch_new_worker_automatically": false,
+  "merged_prs": [
+    2,
+    10,
+    13
+  ],
+  "draft_prs": [
+    14,
+    15,
+    18,
+    25
+  ],
+  "test_results": [
+    {
+      "id": "unique_task_ids",
+      "result": "pass",
+      "note": "No duplicate IDs"
+    },
+    {
+      "id": "reference_validity",
+      "result": "pass",
+      "note": "All referenced task dependencies exist"
+    },
+    {
+      "id": "acyclic_dependency_graph",
+      "result": "pass",
+      "note": "No dependency cycles"
+    },
+    {
+      "id": "integrated_baseline_matches_github",
+      "result": "pass",
+      "note": "PRs 10, 2 and 13 merged"
+    },
+    {
+      "id": "draft_source_data_not_integrated",
+      "result": "pass",
+      "note": "B03/B02/B19 draft PRs remain unmerged"
+    },
+    {
+      "id": "new_worker_tickets_not_precreated",
+      "result": "pass",
+      "note": "Dormant sparks have no precreated worker tickets in queue"
+    },
+    {
+      "id": "live_activations_not_inferred",
+      "result": "pass",
+      "note": "PR status is not an active ChatGPT conversation indicator; active slots unknown"
+    },
+    {
+      "id": "b08_present",
+      "result": "fail",
+      "note": "B08 deployment MUST be scheduled; missing is an intentional failing coverage test"
+    },
+    {
+      "id": "pr25_task_id_collision_checked",
+      "result": "pass",
+      "note": "T-012/T-013/T-014 reserved; B08 new task T-015"
+    },
+    {
+      "id": "pr25_branch_ci_basic",
+      "result": "pass",
+      "note": "CI success at #25 head, full B00 and B01 acceptance tests not independently verified"
+    }
+  ],
+  "tests_passed": 9,
+  "tests_failed": 1,
+  "documented_gap": "B08 deployment task absent from main queue; handoff #34 created; queue.json is already owned by active PR #25, do not edit in audit branch.",
+  "actions": [
+    {
+      "rank": 0,
+      "priority": "P0",
+      "task_id": "T-014 branch-only",
+      "owner": "B00",
+      "state": "PR #25 branch proposed; base CI success",
+      "issue": 24,
+      "pr": 25,
+      "action": "Review candidate automated_safe/evidence/owner/authorization classifications, verify regression failures and source freshness; do not merge without authorization.",
+      "exit": "Exact main-sha evidence, independent worker QC on PR and reproducible checks.",
+      "gate": "Branch-only until PR #25 integration"
+    },
+    {
+      "rank": 1,
+      "priority": "P0",
+      "task_id": "T-004",
+      "owner": "B02",
+      "state": "resume_eligible",
+      "issue": 11,
+      "pr": 15,
+      "action": "Resume original B02 worker if that conversation is active; otherwise create separate new issue/branch instead of reusing prior worker branch. Complete 200+ session price history, USD FX, TTD and reproducible replay.",
+      "exit": "Exact-head unit/QC/negative tests, immutable observation provenance, 200+ session pilot histories, source/available/ingested times and explicit unavailable feed; B01 CI review.",
+      "gate": "No current blocker; existing PR draft."
+    },
+    {
+      "rank": 2,
+      "priority": "P0",
+      "task_id": "T-005",
+      "owner": "B03",
+      "state": "resume_eligible",
+      "issue": 12,
+      "pr": 14,
+      "action": "Resume canonical event and earnings ledger, verify primary sources, backfill six core tickers plus COHR via issuer filings; preserve revisions rather than overwrite.",
+      "exit": "Canonical sources, period_end and first-available times, reconciliation of 8-K/10-Q, correct loan vs equity vs customer purchases; independently validated issuer event schema.",
+      "gate": "No current blocker; draft PR."
+    },
+    {
+      "rank": 3,
+      "priority": "P0",
+      "task_id": "T-009",
+      "owner": "B01",
+      "state": "launch_eligible_slot_unverified",
+      "issue": 6,
+      "pr": null,
+      "action": "After verified free worker slot, launch new B01 worker for complete planner/attempts/worker-scope/goal validators in exact-head GitHub CI. Do not reuse B01 #9 branch.",
+      "exit": "All required scripts and tests execute in CI (not skipped), adversarial failure fixtures, main CI on exact commit.",
+      "gate": "Worker capacity unknown; handoff #6."
+    },
+    {
+      "rank": 4,
+      "priority": "P0",
+      "task_id": "T-015 proposed",
+      "owner": "B08",
+      "state": "handoff_created_not_queue_registered",
+      "issue": 34,
+      "pr": null,
+      "action": "After scope contract review, launch B08 runtime worker from handoff #34; integrate v10 via owned services/deployment paths; Render authenticated MCP/REST service, persistence, scheduler, monitoring, version pinning.",
+      "exit": "Real reachable service URL, auth negative tests, verified ChatGPT-to-MRIE MCP roundtrip, durable restart persistence, error/uptime metrics, reproducible CI.",
+      "gate": "Queue registration via B00 PR #25 owner; do not create B08 worker branch until launch"
+    },
+    {
+      "rank": 5,
+      "priority": "P1",
+      "task_id": "T-010",
+      "owner": "B19",
+      "state": "resume_eligible",
+      "issue": 17,
+      "pr": 18,
+      "action": "Continue existing supply-chain revenue pool evidence bridge; separate customers' final demand from upstream pass-through, optical laser inside module revenue, NVDA investments vs procurement.",
+      "exit": "Dated USD quarterly pool ledger, coherent share bounds and no double count with LITE/COHR/AAOI/CRWV/NVDA.",
+      "gate": "Can run in parallel, but original conversation-only branch continuation."
+    },
+    {
+      "rank": 6,
+      "priority": "P1",
+      "task_id": "T-006",
+      "owner": "B21",
+      "state": "launch_eligible_slot_unverified",
+      "issue": null,
+      "pr": null,
+      "action": "Launch falsification engine for cross-support and OpenAI/Anthropic synthetic valuation only when capacity allows.",
+      "exit": "Source-classed claims, alternatives, dated falsifiers; no probabilities without calibration.",
+      "gate": "B03 issue exists but work slot unknown; lower priority than P0."
+    },
+    {
+      "rank": 7,
+      "priority": "P1",
+      "task_id": "T-007",
+      "owner": "B06",
+      "state": "blocked",
+      "issue": null,
+      "pr": null,
+      "action": "After PR #15 merges and is independently verified, implement 5/20/60/200 session bidirectional price regime traversal and walk-forward descriptive tests.",
+      "exit": "No future leakage, source and input-manifest hash, no unsupported probability output.",
+      "gate": "Blocked on T-004 merged"
+    },
+    {
+      "rank": 8,
+      "priority": "P1",
+      "task_id": "T-008",
+      "owner": "B05",
+      "state": "blocked",
+      "issue": 16,
+      "pr": null,
+      "action": "After issuer events merge, reconcile OpenAI/SoftBank ownership, direct/fund stakes and financial obligations without duplicate NAV.",
+      "exit": "Signed/funded/authorized deal states, audited look-through ledger, strict relationships schema.",
+      "gate": "Blocked on T-005 merged"
+    },
+    {
+      "rank": 9,
+      "priority": "P1",
+      "task_id": "T-011",
+      "owner": "B09",
+      "state": "blocked",
+      "issue": null,
+      "pr": null,
+      "action": "After B02 FX/TTD and B05 graph integration, rebuild SFTBY look-through USD NAV.",
+      "exit": "Dated FX, audited holdings, fund-level double count filters, solvency, uncertainty and private securities.",
+      "gate": "Blocked on T-004 and T-008 merged"
+    },
+    {
+      "rank": 10,
+      "priority": "P1",
+      "task_id": "T-016 proposed",
+      "owner": "B04",
+      "state": "unregistered_missing_capability",
+      "issue": 30,
+      "pr": null,
+      "action": "After B02/B03 source coverage, integrate cohort cash-flow, MU cost/bit, AAOI/LITE qualification, NVDA durability, CRWV financial waterfall and fair-value distributions.",
+      "exit": "Out-of-sample tested as-of valuations, cash flow by vintage, signed contract reconciliation, sensitivity and counter-factuals.",
+      "gate": "B04 #30 private valuation handoff exists; queue integration only B00 owner."
+    },
+    {
+      "rank": 11,
+      "priority": "P1",
+      "task_id": "T-017 proposed",
+      "owner": "B07",
+      "state": "unregistered_missing_capability",
+      "issue": null,
+      "pr": null,
+      "action": "Calibrate and falsify traversal probabilities with point-in-time walk-forward data once input quality gates pass.",
+      "exit": "No uncalibrated probabilities; interval coverage and benchmark/baseline tracking.",
+      "gate": "Depends on B02+B04+B06."
+    }
+  ],
+  "progress_protocol": {
+    "on_each_pr_completion": [
+      "fetch latest live GitHub issue, PR changed files, head SHA and full CI",
+      "check task acceptance and exact ownership; record any failed step and retry history",
+      "record merged/closed separately; main CI green and current commit",
+      "recompute blocked dependencies and effective worker slots; do not infer active conversations from open drafts"
+    ],
+    "prohibitions": [
+      "never directly edit other active worker owned paths",
+      "no fabricated running service, live feed, financial probability or stock price",
+      "do not create branches for dormant sparks"
+    ],
+    "handoffs": [
+      {
+        "issue": 34,
+        "owner": "B08",
+        "state": "requested"
+      },
+      {
+        "issue": 6,
+        "owner": "B01",
+        "state": "requested"
+      },
+      {
+        "issue": 24,
+        "owner": "B00 queue editor of PR #25",
+        "state": "notification_needed"
+      },
+      {
+        "issue": 34,
+        "owner": "B08",
+        "state": "requested",
+        "proposed_queue_task": "T-015"
+      }
+    ]
+  },
+  "observed_pr25_queue_extension": {
+    "pr": 25,
+    "queue_version": "1.3.0",
+    "reserved_task_ids": {
+      "T-012": "B00 coverage audit",
+      "T-013": "B21 capital-capture research seed",
+      "T-014": "B00 evidence-gated planner decisions"
+    },
+    "workflow_run": 39003287840,
+    "conclusion": "success",
+    "note": "CI workflow success is limited to checks configured on that run; additional B01 gates pending"
+  },
+  "pr_dependency_review": {
+    "pr14": {
+      "run": 38957274923,
+      "status": "failure",
+      "failure_reason": "SFTBY relationships@1 baseline fields",
+      "context": "Pre-B05 merge; requires refresh from latest main and rerun"
+    },
+    "pr15": {
+      "run": 38957102730,
+      "status": "failure",
+      "failure_reason": "SFTBY relationships@1 baseline fields",
+      "context": "Pre-B05 merge; requires refresh from latest main and rerun"
+    }
+  }
+}

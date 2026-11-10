@@ -1,0 +1,28 @@
+{
+  "reviewer": "independent_B01",
+  "manifest_id": "1c27bf3a093dffcd971797a8a6fc7c6367e7b9976ada610078baa126b1df54d3",
+  "manifest_files": 12,
+  "raw_source_sha256": "78310f336a11a5561ac5fc39026fa3a37662a9ced79e5930e4e9e2847dc78898",
+  "market_values_checked": 32830,
+  "market_rows": 4690,
+  "financial_facts": 7,
+  "source_reports": 6,
+  "report_as_of": "2026-11-04T02:56:11Z",
+  "canonical_report_sha256": "5812655ad1969672b44baf477c1f638140aee9ff9b8e433a1472e40d59ae2f35",
+  "repeat_file_bytes_identical": true,
+  "independent_resolver_read_identical": true,
+  "historical_financial_facts": 1,
+  "historical_source_reports": 0,
+  "quality": {
+    "fractional_volume_bars": 4664,
+    "vwap_outside_ohlc_bars": 864
+  },
+  "code_fingerprints": {
+    "orchestration/nvda_pilot/store.py": "42bc8b6bd22b03373bb6662e635942812d08a21e0c711677de4d15f5704a81c2",
+    "orchestration/nvda_pilot/cli.py": "a50c9ebd09ed6d4c01875de83895cacf64d52dfae794262ea969f1ce6c0d37ec",
+    "tests/integration/test_nvda_pilot_acceptance.py": "812386da6393d542839f9d88cb747a9145304b3a039efa98909096c447986d65",
+    ".github/workflows/nvda-pilot.yml": "a1ad164b0c3b99d1185a5bf0ec0d751a0e84704dea86a6e9ecabc386b1b23197",
+    "runtime/ticker_data.py": "a2473507b247eb69246edd7efd5a67bdfa301b22b3382db434cc81696c715952",
+    "runtime/observations.py": "d0849f2907771f1dfc28594e41f291cbe6530eb80c0a9e1f9235efb9af16bd6a"
+  }
+}

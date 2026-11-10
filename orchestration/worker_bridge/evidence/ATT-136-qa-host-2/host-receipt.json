@@ -1,0 +1,23 @@
+{
+  "transport": "host_collaboration",
+  "worker": "/root/worker136_qa_reviewer",
+  "profile": "qa_reviewer",
+  "attempt_id": "ATT-136-qa-host-2",
+  "status": "executed_read_only",
+  "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s orchestration/tests -p test_worker_bridge.py -v",
+  "result": "24 tests passed; exit 0",
+  "reproductions": {
+    "unrelated_pr": "pr_identity",
+    "controller_lock_drift": "source_drift",
+    "unregistered_attempt": "attempt_unregistered",
+    "symlink_escape": "rejected"
+  },
+  "reviewed_sha256": {
+    "bridge": "01bf9b68645fa610c540645547760dd74d938d2067c9d4674d4e62d7d612ff45",
+    "cli": "0968ec30b2ce9971c5cb3d1ae7876e93e5cb1528c1c726fe7d58396018e5d4fd"
+  },
+  "remaining_finding": "Bind checkout HEAD when child commits are forbidden.",
+  "parent_disposition": "Added checkout-head fingerprint and read-only-profile write-sandbox rejection; current 82-test suite passes. This receipt remains tied to its exact reviewed fingerprint; final CI evaluates later source.",
+  "persistent_runtime": false,
+  "operator_mediated": true
+}

@@ -1,5 +1,19 @@
 # B00 worker v2 — contract compliance and acceptance audit
 
+## Current bounded repair scope (2026-11-10)
+
+The [B00 allocation](https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6776868011)
+and [receiving claim](https://github.com/whiterosecoffee/_BASKET/issues/106#issuecomment-6776869583)
+continue this issue and PR107. The current repair owns the two original paths
+plus `orchestration/worker_protocol.py`, `orchestration/agentic/manager.py` and,
+after independent review and a [further explicit B00 allocation](https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6776973340),
+`orchestration/planner.py`. This supersedes only the older read-only/controller
+restrictions for these named paths. #24/PR25 retains its queue, planner tests,
+compiled scopes and execution-loop work. All historical scope descriptions
+below are preserved as the original audit contract, not current grants.
+
+## Original audit scope and history
+
 Identity: B00; issue #106; branch `work/106-worker-v2-contract-audit`; parent/coordinator B00. This conversation is a B00-owned contract-audit worker, not the owner of other sparks' implementations. Exclusive writes: `orchestration/worker_contracts/worker-v2.md`, `orchestration/tests/test_worker_v2_contract.py`. Read-only: AGENTS.md, orchestration/sparks.json, orchestration/WORKER_PROTOCOL.md, schemas/worker-{task,resolution}.v1.json, orchestration/worker_protocol.py, issue/PR/CI evidence. No edits to CI, provider adapters, ticker research, shared schemas, B00's other active PR paths, or main.
 
 Purpose: confirm worker claims fail closed against fresh repository evidence, formalize repeatable work and explicit dependencies, and surface gaps to B00. Downstream consumers: B00 evidence evaluator and B01 independent CI. Success: tests, exact-head evidence and PR review; failure: invalid ownership, stale CI, unsupported provenance or missing gates. A draft PR is not integrated.
@@ -112,3 +126,37 @@ Near-term acceptance target: one real issue → deterministic worker match → u
 ### Effort/risk ranking and lifecycle decision
 
 P0 is low estimated effort and high risk reduction; P1–P2 have the highest functional value and external integration cost; P3–P5 are conditional on P1–P2. Do not schedule additional workers or change shared schemas merely to represent this plan. Completion of this document is **contract knowledge recorded**, not proof that P1–P6 were executed. Store status in existing GitHub issues and the canonical `basket.worker_resolution@1`, not a second backlog file.
+
+
+## Shared CI evidence gate (B00-106 repair)
+
+Worker protocol and the controller consume `orchestration.planner.ci_results`.
+The evaluator selects the latest `(id, run_attempt)` for the required
+`Validate BASKET data` workflow at exactly the requested SHA. Only `PASS`
+qualifies. Missing, pending, failed, cancelled, skipped, neutral and unknown
+results remain unverified; an older success cannot override a newer failure.
+Each passing workflow check must cite that workflow's selected latest
+successful URL at a verified PR head. Auxiliary checks remain valid, but only
+a check citing the required aggregate workflow can satisfy PR-head readiness. A newer unrelated run or
+wrong-SHA run cannot replace the required workflow. Main uses the same policy
+at the currently observed main SHA, separately from the merged PR's head.
+
+Evidence v1 already supports optional positive `run_attempt`; omitted attempts
+retain the legacy value 1. The snapshot adapter already captures this field.
+The planner evidence map and both consumers preserve records sharing a run
+URL, so an older rerun result cannot shadow a later attempt. Conflicting
+observations at the same latest run ID/attempt return UNKNOWN with no selected
+evidence URL. Identical duplicates do not alter the decision, and an
+unambiguous newer attempt supersedes older conflicts. The evidence schema,
+adapter and historical fixtures stay unchanged. The conformance matrix covers both PR-head and current-main gates
+in both input orders, including same-run rerun success/failure. This does not
+replace #63's separate source-binding audit or change the worker bridge's
+pinned controller dependency. Component verification, integrated main and
+operational runtime acceptance remain separate.
+
+
+Before a future worker-bridge controller pin update, its owner must also bind
+this manager's planner import to the approved source revision and test that
+provenance. The current bridge loads a pinned manager as a separate package;
+its historical `59a8e0e` pin stays unchanged in this repair. Current repository
+manager verification is not acceptance of a future bridge dependency update.

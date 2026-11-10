@@ -1,0 +1,20 @@
+{
+  "transport": "host_collaboration",
+  "worker": "/root/worker136_qa_reviewer",
+  "profile": "qa_reviewer",
+  "status": "executed_read_only",
+  "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s orchestration/tests -p test_worker_bridge.py -v",
+  "result": "19 tests passed, exit 0",
+  "findings": [
+    "Unrelated own_pr exemption bypassed collision guard",
+    "Stable dispatch fingerprints not compared after execution",
+    "Attempt ID not bound to authorized pending controller attempt",
+    "Symlinked evidence base could escape checkout"
+  ],
+  "reviewed_sha256": {
+    "bridge": "f3d502db39789c2a1c5316854617afbbead9f0157aa27e9a64a5190c797b20cd",
+    "cli": "9680ebf696548e2e0b27a4946734a3546e2aeccffbefacf695b0bdd4a1cdba77"
+  },
+  "publication_status": "Findings fixed by parent with regression tests; historical review is not acceptance of later code.",
+  "persistent_runtime": false
+}

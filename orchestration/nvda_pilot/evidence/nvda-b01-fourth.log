@@ -1,0 +1,35 @@
+======================================================================
+ERROR: test_corrupt_manifest_type_is_structured_rejection (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_corrupt_manifest_type_is_structured_rejection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/basket-nvda-pilot/tests/integration/test_nvda_pilot_acceptance.py", line 276, in test_corrupt_manifest_type_is_structured_rejection
+    self.pilot.report(EARLY)
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 35, in checked
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 340, in report
+    desc = self.resolve('NVDA', 'observations', 'read', as_of)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 35, in checked
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 327, in resolve
+    manifest = self._manifest(active['manifest_id'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 228, in _manifest
+    if m.get('manifest_id') != manifest_id:
+       ^^^^^
+AttributeError: 'list' object has no attribute 'get'
+
+======================================================================
+FAIL: test_resolved_report_files_are_usable_relative_to_returned_directory (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_resolved_report_files_are_usable_relative_to_returned_directory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/basket-nvda-pilot/tests/integration/test_nvda_pilot_acceptance.py", line 156, in test_resolved_report_files_are_usable_relative_to_returned_directory
+    self.assertTrue(document.is_file(), f'Resolver returned unusable document path: {document}')
+AssertionError: False is not true : Resolver returned unusable document path: /tmp/tmpxybakz5f/destination/_TICKERS/NVDA/versions/09e99fe68e1924d56cbb09f8cf4680fbcecf175c669c9297fadbc2eb50c2f435/reports/reports/FY2026-Q1.md
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.691s
+
+FAILED (failures=1, errors=1)
