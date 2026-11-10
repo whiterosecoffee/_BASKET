@@ -1,0 +1,39 @@
+{
+  "as_of": "2026-11-05",
+  "status": "research_provisional",
+  "price_source": "User screenshots Nov5 after-hours; phone time 5:10 timezone unspecified; not refreshed live",
+  "MRVL": {
+    "price": 132.27,
+    "fy2027_eps": 4.22,
+    "fy2027_end": "January 2027",
+    "pe": 31.3436018957346,
+    "fy2028_eps": 7.34,
+    "fy2028_end": "January 2028",
+    "fy2028_pe": 18.020435967302454,
+    "source": "https://stockanalysis.com/stocks/mrvl/forecast/",
+    "source_updated": "2026-11-03"
+  },
+  "LITE": {
+    "price": 505.74,
+    "fy2027_eps_trefis": 23.87,
+    "fy2027_end": "June 2027",
+    "pe": 21.18726434855467,
+    "source": "https://www.trefis.com/data/companies/LITE/",
+    "estimate_vintage": "not established",
+    "older_eps": 21.82,
+    "older_source": "https://walnutinvest.com/stocks/lite/forecast",
+    "older_source_status": "lags Nov2 actual and guidance; do not represent as fresh consensus",
+    "q1_actual_adjusted_eps": 4.57,
+    "q2_guidance_adjusted_eps": [
+      5.9,
+      6.2
+    ],
+    "company_source": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Lumentum-Announces-First-Quarter-of-Fiscal-Year-2027-Financial-Results/default.aspx"
+  },
+  "limitations": [
+    "Fiscal periods differ; not comparable calendar2027 forecasts",
+    "Standalone adjusted estimates; not verified combined-company EPS",
+    "No fair-value target inferred from price decline"
+  ],
+  "model_version": "arithmetic-comparison-v1"
+}
