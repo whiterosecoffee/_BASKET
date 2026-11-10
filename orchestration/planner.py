@@ -152,7 +152,7 @@ def validate_plan(queue, library, registry):
 def evidence_maps(evidence):
     return ({x["number"]: x for x in evidence["issues"]},
             {x["number"]: x for x in evidence["pull_requests"]},
-            {x["url"]: x for x in evidence["workflow_runs"]})
+            dict(enumerate(evidence["workflow_runs"])))
 
 
 def ci_results(sha, runs, workflow_names=("Validate BASKET data",)):
@@ -161,16 +161,23 @@ def ci_results(sha, runs, workflow_names=("Validate BASKET data",)):
     for name in workflow_names:
         matches = [r for r in runs.values()
                    if r.get("head_sha") == sha and r.get("name") == name]
-        latest = max(matches, key=lambda r: (r.get("id", 0), r.get("run_attempt", 1))) if matches else None
+        rank = lambda r: (r.get("id", 0), r.get("run_attempt", 1))
+        newest = max(map(rank, matches)) if matches else None
+        finalists = [r for r in matches if rank(r) == newest]
+        # Duplicate observations may agree, but conflicting latest observations
+        # cannot authorize readiness. Neither input order nor URL dedup wins.
+        outcomes = {(r.get("conclusion"), r.get("url")) for r in finalists}
+        conflict = len(outcomes) > 1
+        latest = finalists[0] if finalists else None
         conclusion = (latest or {}).get("conclusion")
-        state = ("NOT_RUN" if latest is None else "PASS" if conclusion == "success"
+        state = ("UNKNOWN" if conflict else "NOT_RUN" if latest is None else "PASS" if conclusion == "success"
                  else "PENDING" if conclusion in (None, "pending")
                  else "FAIL" if conclusion in ("failure", "cancelled", "timed_out",
                                                "action_required", "startup_failure", "stale")
                  else "UNKNOWN")
         results.append({"workflow": name, "result": state,
                         "run_id": (latest or {}).get("id"),
-                        "evidence_url": (latest or {}).get("url"), "revision": sha})
+                        "evidence_url": None if conflict else (latest or {}).get("url"), "revision": sha})
     return results
 
 
