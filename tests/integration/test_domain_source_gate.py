@@ -173,7 +173,7 @@ class DomainSourceGateTests(unittest.TestCase):
     def test_workflow_is_readonly_and_has_named_suites(self):
         workflow = Path(__file__).resolve().parents[2] / '.github/workflows/domain-source-acceptance.yml'
         text = workflow.read_text()
-        self.assertIn('suite: [etf, ticker-patterns, traversal, market-geometry, daily-state]', text)
+        self.assertIn('suite: [etf, ticker-patterns, traversal, market-geometry, daily-state, market-context, ticker-comparison, ticker-component]', text)
         self.assertIn('contents: read', text)
         self.assertIn('persist-credentials: false', text)
         self.assertIn('github.workflow_sha', text)
@@ -184,11 +184,11 @@ class DomainSourceGateTests(unittest.TestCase):
         self.assertIn('if-no-files-found: error', text)
 
 
-    def test_workflow_pins_etf_schema_dependency_only(self):
+    def test_workflow_pins_schema_dependency_only_where_required(self):
         workflow = Path(__file__).resolve().parents[2] / '.github/workflows/domain-source-acceptance.yml'
         text = workflow.read_text()
-        dependency = """      - name: Install pinned ETF schema validator
-        if: ${{ matrix.suite == 'etf' }}
+        dependency = """      - name: Install pinned schema validator where required
+        if: ${{ matrix.suite == 'etf' || matrix.suite == 'ticker-component' }}
         run: python -m pip install jsonschema==4.23.0
 """
         self.assertIn(dependency, text)
@@ -198,7 +198,8 @@ class DomainSourceGateTests(unittest.TestCase):
     def test_each_domain_has_distinct_exact_source_and_minimum(self):
         self.assertEqual({n: s[3] for n, s in gate.SUITES.items()},
             {'etf': 66, 'ticker-patterns': 26, 'traversal': 13,
-             'market-geometry': 8, 'daily-state': 22})
+             'market-geometry': 8, 'daily-state': 22, 'market-context': 38,
+             'ticker-comparison': 5, 'ticker-component': 5})
         for name, (_, sha, _, _, markers) in gate.SUITES.items():
             self.assertEqual(gate.revision(sha), sha)
             self.assertEqual(gate.select(self.source, name)['sha'], sha)
@@ -292,6 +293,132 @@ class DomainSourceGateTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertEqual(report['result']['run'], 66)
         self.assertIn('ignored untracked', report['error'])
+
+    def component_fixture(self, mutation=''):
+        dependencies = []
+        for name, (env_name, relative) in gate.DEPENDENCIES['ticker-component'].items():
+            root = self.root / name
+            root.mkdir()
+            self.git(root, 'init', '-b', 'main')
+            path = root / relative
+            path.parent.mkdir(parents=True)
+            path.write_text('# dependency fixture\n')
+            dependencies.append((name, root, self.commit(root), 'actual_head'))
+        directory = self.source / gate.SUITES['ticker-component'][2]
+        directory.mkdir(parents=True)
+        (directory / 'test_fixture.py').write_text('import os\nfrom pathlib import Path\nimport unittest\n'
+            'class ComposedFixture(unittest.TestCase):\n' + ''.join(
+                f'    def test_{i}(self):\n'
+                '        for key in ("BASKET_COMPARE_PATH", "BASKET_CONTEXT_PATH"):\n'
+                '            self.assertEqual(Path(os.environ[key]).read_text(), "# dependency fixture\\n")\n'
+                f'        {mutation or "pass"}\n' for i in range(5)))
+        self.commit(self.source)
+        return dependencies
+
+    def run_component(self, dependencies):
+        with contextlib.redirect_stdout(io.StringIO()):
+            code = gate.run_gate(self.source, self.git(self.source, 'rev-parse', 'HEAD'),
+                self.acceptance, self.git(self.acceptance, 'rev-parse', 'HEAD'),
+                'ticker-component', 'actual_head', self.output, dependencies=dependencies)
+        return code, json.loads((self.output / 'evidence.json').read_text())
+
+    def test_composed_dependency_selection_uses_actual_or_reviewed_source(self):
+        result = gate.selection_outputs(self.source, 'ticker-component')
+        self.assertEqual(result['market_context_sha'], gate.SUITES['market-context'][1])
+        self.assertEqual(result['ticker_comparison_mode'], 'unmerged_dependency_only')
+        marker = self.source / gate.SUITES['market-context'][4][0]
+        marker.parent.mkdir(parents=True)
+        marker.write_text('partial source')
+        sha = self.commit(self.source)
+        result = gate.selection_outputs(self.source, 'ticker-component')
+        self.assertEqual(result['market_context_sha'], sha)
+        self.assertEqual(result['market_context_mode'], 'actual_head')
+        marker.unlink()
+        self.commit(self.source)
+        with self.assertRaisesRegex(ValueError, 'removed'):
+            gate.selection_outputs(self.source, 'ticker-component')
+
+    def test_composed_dependencies_are_explicit_and_fingerprinted(self):
+        dependencies = self.component_fixture()
+        with patch.dict('os.environ', {'BASKET_COMPARE_PATH': '/wrong', 'BASKET_CONTEXT_PATH': '/wrong'}):
+            code, report = self.run_component(dependencies)
+        self.assertEqual(code, 0)
+        self.assertEqual(report['result']['run'], 5)
+        self.assertTrue(report['inputs_unchanged'])
+        for name, _, sha, _ in dependencies:
+            self.assertEqual(report['dependencies'][name]['source_sha'], sha)
+            self.assertEqual(len(report['dependencies'][name]['manifest_sha256']), 64)
+            self.assertTrue((self.output / (name + '-files.json')).is_file())
+
+    def test_missing_or_duplicate_composed_dependency_fails_before_execution(self):
+        dependencies = self.component_fixture()
+        for values in ([], dependencies[:1], [dependencies[0], dependencies[0]]):
+            with self.subTest(values=values):
+                code, report = self.run_component(values)
+                self.assertEqual(code, 1)
+                self.assertIn('Exact named dependency set', report['error'])
+                self.assertNotIn('result', report)
+
+    def test_composed_wrong_revision_or_fallback_label_fails(self):
+        dependencies = self.component_fixture()
+        name, root, sha, _ = dependencies[0]
+        for bad_sha, mode in [('a'*40, 'actual_head'), (sha, 'unmerged_dependency_only'), (sha, 'bogus')]:
+            with self.subTest(mode=mode):
+                code, report = self.run_component([(name, root, bad_sha, mode), dependencies[1]])
+                self.assertEqual(code, 1)
+                self.assertNotIn('result', report)
+
+    def test_composed_missing_tracked_file_fails(self):
+        dependencies = self.component_fixture()
+        name, root, _, mode = dependencies[0]
+        (root / gate.DEPENDENCIES['ticker-component'][name][1]).unlink()
+        dependencies[0] = (name, root, self.commit(root), mode)
+        code, report = self.run_component(dependencies)
+        self.assertEqual(code, 1)
+        self.assertIn('Required tracked dependency missing', report['error'])
+
+    def test_composed_dirty_or_ignored_dependency_fails(self):
+        dependencies = self.component_fixture()
+        name, root, _, mode = dependencies[0]
+        (root / '.gitignore').write_text('ignored.py\n')
+        dependencies[0] = (name, root, self.commit(root), mode)
+        (root / 'ignored.py').write_text('unversioned')
+        self.assertEqual(self.run_component(dependencies)[0], 1)
+        (root / 'ignored.py').unlink()
+        (root / gate.DEPENDENCIES['ticker-component'][name][1]).write_text('changed')
+        self.assertEqual(self.run_component(dependencies)[0], 1)
+
+    def test_composed_dependency_mutation_fails_after_success(self):
+        dependencies = self.component_fixture(
+            'Path(os.environ["BASKET_CONTEXT_PATH"]).parent.joinpath("untracked.py").write_text("changed")')
+        code, report = self.run_component(dependencies)
+        self.assertEqual(code, 1)
+        self.assertTrue(report['result']['passed'])
+        self.assertIn('changed or untracked', report['error'])
+
+    def test_evidence_cannot_modify_composed_dependency(self):
+        dependencies = self.component_fixture()
+        self.output = dependencies[0][1] / 'evidence'
+        with self.assertRaisesRegex(ValueError, 'outside dependency'):
+            self.run_component(dependencies)
+        self.assertFalse(self.output.exists())
+
+    def test_unexpected_dependencies_for_uncomposed_suite_fail(self):
+        dependencies = self.component_fixture()
+        with self.assertRaisesRegex(ValueError, 'Exact named dependency set'):
+            gate.dependency_inputs('etf', dependencies)
+
+    def test_workflow_wires_dependencies_and_triggers_actual_source(self):
+        text = (Path(__file__).resolve().parents[2] / '.github/workflows/domain-source-acceptance.yml').read_text()
+        for path in ('engines/composites/market_context/**',
+                     'research/composites/market_context/ticker_comparison/**',
+                     'research/composites/ticker_comparison_component/**',
+                     'orchestration/component_conformance.py', 'schemas/component-blackbox.v1.json'):
+            self.assertEqual(text.count("'" + path + "'"), 2)
+        self.assertIn('--dependency market-context context-source "$CONTEXT_SHA" "$CONTEXT_MODE"', text)
+        self.assertIn('--dependency ticker-comparison comparison-source "$COMPARISON_SHA" "$COMPARISON_MODE"', text)
+        self.assertIn('"${dependencies[@]}"', text)
+        self.assertIn('if count < 40:', text)
 
 if __name__ == '__main__':
     unittest.main()
