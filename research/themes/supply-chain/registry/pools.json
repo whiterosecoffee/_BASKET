@@ -1,0 +1,138 @@
+{
+  "schema": "mrie-pools@1",
+  "pools": [
+    {
+      "id": "consumer-ai",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "enterprise-ai-saas",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "hyperscaler-cloud",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "neocloud",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "on-prem-ai",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "telecom-edge",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "semiconductors",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "memory",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "optical-networking",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "power-cooling",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "industrial-automation",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "robotics",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "surgical-robotics",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "autonomous-mobility",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "cybersecurity",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "quantum-compute",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "quantum-sensing",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "photonics",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    },
+    {
+      "id": "biotech-ai",
+      "quarterly_final_demand_usd": null,
+      "reported_scope": null,
+      "evidence_refs": [],
+      "status": "unmeasured"
+    }
+  ]
+}
