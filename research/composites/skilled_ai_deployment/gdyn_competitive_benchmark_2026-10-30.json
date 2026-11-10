@@ -1,0 +1,88 @@
+{
+  "schema": "basket.gdyn_competitive_benchmark@1-provisional",
+  "as_of": "2026-10-30",
+  "benchmark_ticker": "GDYN",
+  "price_source": "user Apple Stocks screenshots October 30 evening ET, not verified closing quotes",
+  "thesis": "AI deployment capability scarcity and monetization, not generic employee volume or simple partner badge",
+  "benchmark": {
+    "ticker": "GDYN",
+    "reported_q3_2026": {
+      "revenue_growth_yoy_pct": 9.7,
+      "ai_revenue_growth_yoy_pct_greater_than": 45,
+      "ai_revenue_share_pct": 31,
+      "gaap_gross_margin_pct": 40.3,
+      "adjusted_ebitda_margin_pct": 20,
+      "adjusted_eps": 0.18,
+      "gaap_eps": 0.08,
+      "headcount_change_yoy_pct": -8.3,
+      "engineers_ai_trained_pct": 93,
+      "partner_influenced_revenue_usd_m": 21.5
+    },
+    "screenshot_price_usd": 13.36,
+    "screenshot_daily_change_pct": 40.78,
+    "annualized_q3_adjusted_eps": 0.72,
+    "price_to_annualized_q3_adjusted_eps": 18.56,
+    "not_forward_pe": true,
+    "source": "https://www.fool.com/earnings/call-transcripts/2026/10/30/grid-dynamics-gdyn-q3-2026-earnings-call-transcript/"
+  },
+  "comparators": [
+    {
+      "ticker": "EXLS",
+      "thesis": "strongest demonstrated operating alternative: faster total revenue and EPS growth; domain AI and entrenched regulated workflows",
+      "q3_yoy_revenue_growth_pct": 19.7,
+      "q3_adjusted_eps_growth_pct": 28.5,
+      "ai_data_revenue_growth_pct": 36,
+      "screenshot_price": 41.43,
+      "fy2026_guided_adjusted_eps_midpoint": 2.35,
+      "price_to_2026_guided_adjusted_eps": 17.63,
+      "current_2027_2028_eps": null,
+      "source": "https://ir.exlservice.com/news-releases/news-release-details/exl-reports-2026-third-quarter-results"
+    },
+    {
+      "ticker": "EPAM",
+      "thesis": "greater skilled-delivery capacity and Microsoft enterprise ecosystem; slower organic revenue growth",
+      "latest_period": "2026-Q2",
+      "revenue_growth_pct": 4.5,
+      "adjusted_eps_growth_pct": 22,
+      "screenshot_price": 140.51,
+      "fy2026_guided_adjusted_eps_midpoint": 13.16,
+      "price_to_2026_guided_adjusted_eps": 10.68,
+      "current_2027_2028_eps": null,
+      "source": "https://investors.epam.com/news/news-details/2026/EPAM-Reports-Results-for-Second-Quarter-2026/default.aspx"
+    },
+    {
+      "ticker": "INOD",
+      "thesis": "scarcer foundation-model data curation and evaluation; high concentration risk",
+      "latest_period": "2026-Q2",
+      "revenue_growth_pct": 58,
+      "adjusted_ebitda_margin_pct": 27.5,
+      "gaap_diluted_eps": 0.41,
+      "screenshot_price": 43.81,
+      "forward_eps": null,
+      "source": "https://investor.innodata.com/news/news-details/2026/Innodata-Reports-Record-Second-Quarter-2026-Results/default.aspx"
+    },
+    {
+      "ticker": "GLOB",
+      "thesis": "productized AI Pods delivery offering, but fresh earnings growth comparison pending",
+      "forward_eps": null
+    },
+    {
+      "ticker": "CACI",
+      "thesis": "hard-to-replicate government security qualifications, mission systems and backlog; different customer economics from commercial AI",
+      "latest_period": "FY2027-Q1",
+      "revenue_growth_pct": 8.2,
+      "adjusted_eps_growth_pct": 11.8,
+      "screenshot_price": 675.62,
+      "forward_eps": null,
+      "source": "https://investor.caci.com/2026-10-21-CACI-Reports-Results-for-Its-Fiscal-2027-First-Quarter"
+    }
+  ],
+  "caveats": [
+    "One-day price outperformance is not a competitive moat.",
+    "NVIDIA/Microsoft partnership badge is not contracted revenue or exclusive capacity.",
+    "Company FY2026 guidance ratios are not FY2027/28 forward P/E.",
+    "Peer fiscal years and EPS adjustments differ; do not rank on incomparable margins.",
+    "No verified 2027/2028 updated earnings consensus for all names; unknowns null.",
+    "Other screenshots contain hardware/infrastructure businesses, not all direct service competitors."
+  ]
+}

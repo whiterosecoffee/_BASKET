@@ -1,0 +1,253 @@
+{
+  "schema": "basket.full_universe_deep_dive@1-provisional",
+  "as_of": "2026-10-30",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "currency": "USD",
+  "scope": "15 primary US-listed candidates plus INOD and CACI specialist additions; platform benchmarks separated",
+  "method": "Verified issuer latest earnings where found, labeled qualitative moat and unresolved forward EPS and partner-sourced revenues; not a forecast/price target",
+  "ranked_research_priorities": [
+    {
+      "tier": "highest quality growth",
+      "tickers": [
+        "EXLS",
+        "GDYN",
+        "INOD"
+      ],
+      "thesis": "Verified AI-related revenue or earnings acceleration; differentiated regulated/model-data/physical-AI talent",
+      "falsifiers": [
+        "margin erosion",
+        "customer concentration",
+        "AI price pressure"
+      ]
+    },
+    {
+      "tier": "growth with valuation or profit conversion caveat",
+      "tickers": [
+        "CINT",
+        "EPAM",
+        "CTSH",
+        "CACI"
+      ],
+      "thesis": "CINT sales high but EBITDA falling; EPAM deep Microsoft talent but organic slow; CTSH bookings and stability; CACI cleared pipeline",
+      "falsifiers": [
+        "cash conversion deteriorates",
+        "backlog fails to convert",
+        "AI revenue not incremental"
+      ]
+    },
+    {
+      "tier": "watch for inflection",
+      "tickers": [
+        "GLOB",
+        "G",
+        "GIB",
+        "KD",
+        "INFY"
+      ],
+      "thesis": "Broad skills or client platform; verify software/agent monetization and organic acceleration",
+      "falsifiers": [
+        "AI products fail to raise earnings",
+        "legacy service cannibalization"
+      ]
+    },
+    {
+      "tier": "weaker evidence of growth or turnaround",
+      "tickers": [
+        "DAVA",
+        "WIT"
+      ],
+      "thesis": "Talent exists but organic earnings trajectory not presently convincing",
+      "falsifiers": [
+        "sustained accelerated organic growth proves assessment wrong"
+      ]
+    },
+    {
+      "tier": "large platform and systems benchmarks",
+      "tickers": [
+        "ACN",
+        "IBM",
+        "PLTR"
+      ],
+      "thesis": "Partnership/referrals and deployment software economics, not direct labor-based peer multiples"
+    }
+  ],
+  "observations": [
+    {
+      "ticker": "EXLS",
+      "period": "2026-Q3",
+      "yoy_revenue_growth_pct": 19.7,
+      "adjusted_eps": 0.62,
+      "adjusted_eps_growth_pct": 28.5,
+      "fy2026_adjusted_eps_guidance": [
+        2.34,
+        2.36
+      ],
+      "source": "https://ir.exlservice.com/news-releases/news-release-details/exl-reports-2026-third-quarter-results",
+      "moat": "regulated-domain AI, repeat customer deployment and iMerit model training"
+    },
+    {
+      "ticker": "CTSH",
+      "period": "2026-Q3",
+      "yoy_revenue_growth_pct": 4.6,
+      "adjusted_eps": 1.49,
+      "adjusted_eps_growth_pct": 7.2,
+      "fy2026_adjusted_eps_guidance": [
+        5.72,
+        5.79
+      ],
+      "ttm_bookings_usd_b": 28.7,
+      "source": "https://investors.cognizant.com/news-and-events/news/news-details/2026/Cognizant-Reports-Third-Quarter-2026-Results/default.aspx",
+      "moat": "large-scale client distribution; AI builder and Project Leap; less concentrated AI exposure"
+    },
+    {
+      "ticker": "EPAM",
+      "period": "2026-Q2",
+      "yoy_revenue_growth_pct": 4.5,
+      "adjusted_eps": 3.38,
+      "adjusted_eps_growth_pct": 22,
+      "fy2026_adjusted_eps_guidance": [
+        13.08,
+        13.24
+      ],
+      "source": "https://investors.epam.com/news/news-details/2026/EPAM-Reports-Results-for-Second-Quarter-2026/default.aspx",
+      "moat": "deep specialist engineering and 23k+ Microsoft ecosystem professionals"
+    },
+    {
+      "ticker": "GLOB",
+      "period": "2026-Q2",
+      "revenue_usd_m": 614.4,
+      "glob_ai_arr_usd_m": 52.8,
+      "glob_ai_arr_growth_qoq_pct": 61,
+      "source": "https://investors.globant.com/2026-08-13-Globant-Reports-2026-Second-Quarter-Financial-Results",
+      "moat": "AI Pods productization with unproven company-wide acceleration"
+    },
+    {
+      "ticker": "INOD",
+      "period": "2026-Q2",
+      "yoy_revenue_growth_pct": 58,
+      "gaap_eps": 0.41,
+      "adjusted_ebitda_margin_pct": 27.5,
+      "source": "https://investor.innodata.com/news/news-details/2026/Innodata-Reports-Record-Second-Quarter-2026-Results/default.aspx",
+      "moat": "expert model training data and evaluation; customer concentration"
+    },
+    {
+      "ticker": "CACI",
+      "period": "FY2027-Q1",
+      "yoy_revenue_growth_pct": 8.2,
+      "adjusted_eps": 7.66,
+      "adjusted_eps_growth_pct": 11.8,
+      "awards_usd_b": 4.8,
+      "book_to_bill": 2,
+      "source": "https://www.sec.gov/Archives/edgar/data/16058/000162828026066740/fy27-q1caci20261021ex991.htm",
+      "moat": "clearances and defense agency mission proximity"
+    },
+    {
+      "ticker": "CINT",
+      "period": "2026-Q2",
+      "yoy_revenue_growth_pct": 21.9,
+      "constant_currency_growth_pct": 14.1,
+      "adjusted_ebitda_usd_m": 19,
+      "adjusted_ebitda_prior_usd_m": 21.5,
+      "adjusted_ebitda_margin_pct": 13.3,
+      "source": "https://www.sec.gov/Archives/edgar/data/1868995/000129281426004198/cintfs2q26_6k.htm",
+      "moat": "delivery engineering but weaker earnings conversion"
+    },
+    {
+      "ticker": "WIT",
+      "period": "FY2027-Q2",
+      "IT_services_cc_growth_pct": 0.6,
+      "IT_services_operating_margin_pct": 16.5,
+      "bookings_qoq_change_pct": -22.9,
+      "source": "https://www.wipro.com/newsroom/press-releases/2026/wipro-announces-results-for-the-quarter-ended-september-30-2026/",
+      "moat": "large deployment base but weak new bookings"
+    },
+    {
+      "ticker": "ACN",
+      "period": "FY2027 guidance",
+      "fy2027_eps_guidance_gaap": [
+        14.39,
+        14.81
+      ],
+      "fy2027_local_currency_growth_pct": [
+        3,
+        6
+      ],
+      "fy2027_FCF_guidance_usd_b": [
+        11,
+        11.8
+      ],
+      "source": "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000037/q4fy26earnings8-kexhibit.htm",
+      "moat": "widest client access and institutionalized NVIDIA and Microsoft/Avanade integration"
+    },
+    {
+      "ticker": "IBM",
+      "period": "2026-Q3",
+      "consulting_growth_reported_pct": 0,
+      "consulting_growth_cc_pct": 2,
+      "consulting_margin_pct": 12.2,
+      "source": "https://newsroom.ibm.com/2026-10-21-IBM-RELEASES-THIRD-QUARTER-RESULTS",
+      "moat": "hybrid/regulatory customer distribution; consulting not yet fast-growing"
+    },
+    {
+      "ticker": "PLTR",
+      "period": "2026-Q2",
+      "revenue_growth_pct": 93,
+      "us_commercial_growth_pct": 149,
+      "gaap_eps": 0.41,
+      "adjusted_eps": 0.41,
+      "source": "https://investors.palantir.com/news-details/2026/Palantir-Reports",
+      "moat": "AIP plus platform-forward deployment; software valuation separate from IT services"
+    },
+    {
+      "ticker": "KD",
+      "period": "FY2027-Q1",
+      "revenue_usd_b": 3.6,
+      "net_loss_usd_m": -55,
+      "source": "https://www.sec.gov/Archives/edgar/data/1867072/000110465926090725/kd-20260805xex99d1.htm",
+      "moat": "mission-critical installed base and cloud consulting; earnings turnaround"
+    },
+    {
+      "ticker": "INFY",
+      "period": "FY2027-Q2",
+      "source": "https://www.infosys.com/investors/reports-filings/quarterly-results/2026-2027/q2.html",
+      "moat": "large-scale Microsoft engineering and client reach, verify latest USD EPS and forecast"
+    },
+    {
+      "ticker": "GDYN",
+      "period": "2026-Q3",
+      "yoy_revenue_growth_pct": 9.7,
+      "adjusted_eps": 0.18,
+      "adjusted_ebitda_margin_pct": 20,
+      "source": "https://www.nasdaq.com/press-release/grid-dynamics-reports-record-third-quarter-2026-financial-results-2026-10-29",
+      "moat": "NVIDIA Solution Advisor, physical AI, GAIN IP; top-10 client concentration"
+    },
+    {
+      "ticker": "G",
+      "period": null,
+      "source": null,
+      "moat": "BPO domain operations and agentic transformation; refreshed earnings verification pending"
+    },
+    {
+      "ticker": "GIB",
+      "period": null,
+      "source": null,
+      "moat": "regulated/government client base; refreshed FY2026 results pending"
+    },
+    {
+      "ticker": "DAVA",
+      "period": null,
+      "source": null,
+      "moat": "technical workforce with turnaround risk; refreshed earnings verification pending"
+    }
+  ],
+  "shared_required_fields": [
+    "FY2027/FY2028 GAAP EPS and adjusted EPS sourced timestamped",
+    "actual forward P/E from aligned price",
+    "organic revenue growth and AI-specific attributable mix",
+    "top-client concentration and referral/co-sell conversion",
+    "engagement economics gross profit per delivery professional",
+    "FCF conversion, share dilution and FX",
+    "partner tiers verified with vendor-side evidence"
+  ],
+  "unknowns": "No verified synchronized latest 2027/2028 street forecasts; null is required until provider date/source confirmed."
+}

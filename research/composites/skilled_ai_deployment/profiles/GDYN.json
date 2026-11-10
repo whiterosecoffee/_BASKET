@@ -1,0 +1,77 @@
+{
+  "schema": "basket.issuer_research_reference@1-provisional",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "ticker": "GDYN",
+  "venue": "NASDAQ",
+  "as_of": "2026-10-30",
+  "scope": "basket-linked company research profile; canonical issuer folder controlled separately",
+  "basket_member": true,
+  "classification": "core",
+  "skill_base": "GAIN agents, NVIDIA physical AI, specialist delivery",
+  "capabilities": "physical AI, enterprise agents and specialist engineering",
+  "partnerships": {
+    "nvidia": "solution advisor verified",
+    "microsoft": "Microsoft cloud consulting partner verified",
+    "partner_sources": [
+      "https://www.griddynamics.com/partnerships/nvidia",
+      "https://www.griddynamics.com/partnerships/microsoft"
+    ],
+    "partner_attributable_revenue": null
+  },
+  "price_observation": {
+    "usd": 13.36,
+    "day_pct": 40.78,
+    "as_of": "2026-10-30 screenshot",
+    "verified_close": false
+  },
+  "earnings": {
+    "latest_reported": "2026-Q3",
+    "revenue_growth_yoy_pct": 9.7,
+    "gaap_eps": 0.08,
+    "adjusted_eps": 0.18,
+    "adjusted_eps_growth_yoy_pct": null,
+    "reported_extra": {
+      "gaap_gross_margin_pct": 40.3,
+      "adjusted_ebitda_margin_pct": 20,
+      "ai_revenue_mix_pct": 31,
+      "ai_revenue_growth_yoy_pct_lower_bound": 45
+    },
+    "guidance": {
+      "period": "2026-Q4",
+      "revenue_usd_m": [
+        113.5,
+        115.5
+      ],
+      "adjusted_ebitda_usd_m": [
+        20,
+        22
+      ]
+    },
+    "adjusted_annual_guidance_midpoint_eps": null,
+    "price_to_guided_adjusted_eps": null,
+    "forward_2027_eps": null,
+    "forward_2027_pe": null,
+    "forward_2028_eps": null,
+    "forward_2028_pe": null,
+    "missing_reason": "Fresh date-matched 2027/28 forecasts not verified"
+  },
+  "forward_earnings_status": "2027/2028 consensus not independently verified",
+  "sources": [
+    "https://www.nasdaq.com/press-release/grid-dynamics-reports-record-third-quarter-2026-financial-results-2026-10-29",
+    "https://www.griddynamics.com/partnerships/nvidia",
+    "https://www.griddynamics.com/partnerships/microsoft"
+  ],
+  "data_quality": {
+    "company_guidance": "only if issuer sourced",
+    "screenshot_price_not_verified_close": true,
+    "unconfirmed_values": null,
+    "validation_status": "research_pending_independent_validation"
+  },
+  "research_tasks": [
+    "Verify most recent quarterly issuer release, GAAP and non-GAAP reconciliation",
+    "Verify 2027/2028 forward EPS estimates and source timestamp",
+    "Verify current price and calculate dated same-basis forward P/E",
+    "Verify NVIDIA/Microsoft partnership tier and commercial contribution",
+    "Score organic growth, skilled deployment capacity, margin expansion and operating cash conversion"
+  ]
+}
