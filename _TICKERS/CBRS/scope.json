@@ -1,0 +1,13 @@
+{
+  "symbol": "CBRS",
+  "instrument_type": "equity_or_depositary_receipt",
+  "basket_groups": [
+    "general",
+    "convexity"
+  ],
+  "tracking_status": "watchlist",
+  "price_data_status": "not_migrated",
+  "canonical_data_path": "tickers/CBRS/",
+  "review_status": "identity_listing_and_history_unverified",
+  "first_scope_as_of": "2026-11-03"
+}
