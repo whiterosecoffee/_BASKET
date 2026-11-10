@@ -1,0 +1,96 @@
+name: ETF and traversal exact-source domain gates
+on:
+  pull_request:
+    paths:
+      - 'engines/valuation/etf_forward/**'
+      - 'research/CRWV/trading-tool/**'
+      - 'engines/traversal/**'
+      - 'research/traversal/self_relative_state/**'
+      - '.github/workflows/domain-source-acceptance.yml'
+      - 'tests/integration/*domain_source_gate*'
+      - 'tests/integration/project_sync_gate.py'
+      - 'tests/integration/DOMAIN_SOURCE_GATE.md'
+  push:
+    branches: [main]
+    paths:
+      - 'engines/valuation/etf_forward/**'
+      - 'research/CRWV/trading-tool/**'
+      - 'engines/traversal/**'
+      - 'research/traversal/self_relative_state/**'
+      - '.github/workflows/domain-source-acceptance.yml'
+      - 'tests/integration/*domain_source_gate*'
+      - 'tests/integration/project_sync_gate.py'
+      - 'tests/integration/DOMAIN_SOURCE_GATE.md'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  domain-source:
+    name: domain-${{ matrix.suite }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [etf, ticker-patterns, traversal, market-geometry, daily-state]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          path: candidate
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.workflow_sha }}
+          path: acceptance
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently test fail-closed gate
+        working-directory: acceptance
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python - <<'PYTEST'
+          import unittest
+          suite = unittest.TestLoader().discover('tests/integration', pattern='test_domain_source_gate.py')
+          count = suite.countTestCases()
+          if count < 24:
+              raise SystemExit('Missing gate regression tests')
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          raise SystemExit(0 if result.wasSuccessful() and result.testsRun == count
+                           and not result.skipped and not result.expectedFailures else 1)
+          PYTEST
+      - name: Select actual source or labeled pinned unmerged dependency
+        id: source
+        run: python acceptance/tests/integration/domain_source_gate.py select --root candidate --suite "${{ matrix.suite }}" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.source.outputs.sha }}
+          path: source
+          persist-credentials: false
+      - name: Run named exact-source suite and preserve evidence
+        env:
+          SOURCE_SHA: ${{ steps.source.outputs.sha }}
+          SOURCE_MODE: ${{ steps.source.outputs.mode }}
+          ACCEPTANCE_SHA: ${{ github.workflow_sha }}
+          SUITE: ${{ matrix.suite }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python acceptance/tests/integration/domain_source_gate.py run \
+            --source source --expected-source "$SOURCE_SHA" \
+            --acceptance acceptance --expected-acceptance "$ACCEPTANCE_SHA" \
+            --suite "$SUITE" --mode "$SOURCE_MODE" --output "evidence/$SUITE"
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: domain-${{ matrix.suite }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: evidence/${{ matrix.suite }}
+          if-no-files-found: error
