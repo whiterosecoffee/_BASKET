@@ -1,7 +1,12 @@
-name: ETF and traversal exact-source domain gates
+name: Named component exact-source domain gates
 on:
   pull_request:
     paths:
+      - 'engines/composites/market_context/**'
+      - 'research/composites/market_context/ticker_comparison/**'
+      - 'research/composites/ticker_comparison_component/**'
+      - 'orchestration/component_conformance.py'
+      - 'schemas/component-blackbox.v1.json'
       - 'engines/valuation/etf_forward/**'
       - 'research/CRWV/trading-tool/**'
       - 'engines/traversal/**'
@@ -13,6 +18,11 @@ on:
   push:
     branches: [main]
     paths:
+      - 'engines/composites/market_context/**'
+      - 'research/composites/market_context/ticker_comparison/**'
+      - 'research/composites/ticker_comparison_component/**'
+      - 'orchestration/component_conformance.py'
+      - 'schemas/component-blackbox.v1.json'
       - 'engines/valuation/etf_forward/**'
       - 'research/CRWV/trading-tool/**'
       - 'engines/traversal/**'
@@ -37,7 +47,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [etf, ticker-patterns, traversal, market-geometry, daily-state]
+        suite: [etf, ticker-patterns, traversal, market-geometry, daily-state, market-context, ticker-comparison, ticker-component]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -53,8 +63,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install pinned ETF schema validator
-        if: ${{ matrix.suite == 'etf' }}
+      - name: Install pinned schema validator where required
+        if: ${{ matrix.suite == 'etf' || matrix.suite == 'ticker-component' }}
         run: python -m pip install jsonschema==4.23.0
       - name: Independently test fail-closed gate
         working-directory: acceptance
@@ -65,7 +75,7 @@ jobs:
           import unittest
           suite = unittest.TestLoader().discover('tests/integration', pattern='test_domain_source_gate.py')
           count = suite.countTestCases()
-          if count < 30:
+          if count < 40:
               raise SystemExit('Missing gate regression tests')
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           raise SystemExit(0 if result.wasSuccessful() and result.testsRun == count
@@ -79,18 +89,39 @@ jobs:
           ref: ${{ steps.source.outputs.sha }}
           path: source
           persist-credentials: false
+      - uses: actions/checkout@v4
+        if: ${{ matrix.suite == 'ticker-component' }}
+        with:
+          ref: ${{ steps.source.outputs.market_context_sha }}
+          path: context-source
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        if: ${{ matrix.suite == 'ticker-component' }}
+        with:
+          ref: ${{ steps.source.outputs.ticker_comparison_sha }}
+          path: comparison-source
+          persist-credentials: false
       - name: Run named exact-source suite and preserve evidence
         env:
           SOURCE_SHA: ${{ steps.source.outputs.sha }}
           SOURCE_MODE: ${{ steps.source.outputs.mode }}
           ACCEPTANCE_SHA: ${{ github.workflow_sha }}
           SUITE: ${{ matrix.suite }}
+          CONTEXT_SHA: ${{ steps.source.outputs.market_context_sha }}
+          CONTEXT_MODE: ${{ steps.source.outputs.market_context_mode }}
+          COMPARISON_SHA: ${{ steps.source.outputs.ticker_comparison_sha }}
+          COMPARISON_MODE: ${{ steps.source.outputs.ticker_comparison_mode }}
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
+          dependencies=()
+          if [ "$SUITE" = "ticker-component" ]; then
+            dependencies+=(--dependency market-context context-source "$CONTEXT_SHA" "$CONTEXT_MODE")
+            dependencies+=(--dependency ticker-comparison comparison-source "$COMPARISON_SHA" "$COMPARISON_MODE")
+          fi
           python acceptance/tests/integration/domain_source_gate.py run \
             --source source --expected-source "$SOURCE_SHA" \
             --acceptance acceptance --expected-acceptance "$ACCEPTANCE_SHA" \
-            --suite "$SUITE" --mode "$SOURCE_MODE" --output "evidence/$SUITE"
+            --suite "$SUITE" --mode "$SOURCE_MODE" --output "evidence/$SUITE" "${dependencies[@]}"
       - uses: actions/upload-artifact@v4
         if: ${{ always() }}
         with:

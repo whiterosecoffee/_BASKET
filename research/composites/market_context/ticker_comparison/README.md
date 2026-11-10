@@ -40,15 +40,15 @@ These holdings snapshots are context at their stated dates, not beginning-of-per
 
 ## Small, reusable increment
 
-This is a research consumer of the existing [B17 market-context component, PR101](https://github.com/whiterosecoffee/_BASKET/pull/101), not another engine or market-data store. It loads the existing `change(price, baseline)` helper from its pinned Git blob and uses Python's standard-library correlation. Original owner files and shared contracts remain unchanged. Scope handoff: [issue 217](https://github.com/whiterosecoffee/_BASKET/issues/217), linked to [issue 100](https://github.com/whiterosecoffee/_BASKET/issues/100).
+This is a research consumer of the existing [B17 market-context component, PR101](https://github.com/whiterosecoffee/_BASKET/pull/101), not another engine or market-data store. It loads the existing `change(price, baseline)` helper from either explicitly approved Git blob and uses Python's standard-library correlation. Original owner files and shared contracts remain unchanged. Scope handoff: [issue 217](https://github.com/whiterosecoffee/_BASKET/issues/217), linked to [issue 100](https://github.com/whiterosecoffee/_BASKET/issues/100).
 
 Files:
 - `result-2026-11-09.json`: machine-readable returns, relative performance, correlations and missing-data flags.
 - `sources-2026-11-10.json`: requests, input hash, pinned dependency, dated relationships and limitations.
 - `compare.py`: small reproducible consumer; no network fetch, polling, persistence or order execution.
-- `test_compare.py`: five focused checks, not 94 valuation tests.
+- `test_compare.py`: seven focused arithmetic, boundary and actual CLI checks.
 
-Those five tests guard exact windows/arithmetic, missing data without forward-fill, future/duplicate dates and absent cutoff, invalid/intraday input, and constant/short series. All five passed locally. Real input replay additionally matched 16 returns against Decimal arithmetic and six correlations against pandas and a separate JavaScript calculation. This checks the calculation, **not** investment merit, forecast accuracy or provider correctness. No independent CI or integrated-main claim is made.
+The original five tests guard exact windows/arithmetic, missing data without forward-fill, future/duplicate dates and absent cutoff, invalid/intraday input, and constant/short series. Two added regressions verify the integrated source loader, reject unknown code and execute the actual CSV CLI. Real input replay additionally matched 16 returns against Decimal arithmetic and six correlations against pandas and a separate JavaScript calculation. This checks the calculation, **not** investment merit, forecast accuracy or provider correctness. Exact-head integration evidence is recorded in #217; passing calculations do not qualify a live or point-in-time data source.
 
 ## Reproduce without committing licensed raw prices
 
@@ -58,18 +58,17 @@ Fetch each symbol through the entitled Massive connector:
 
 Use `adjusted=true`, `sort=asc`, `limit=50000`. Each returned 92 daily rows. Join on the source timestamp, retaining and reporting missing observations; verify the intersection is all 92 dates before reproducing this particular result. Save private CSV columns `t,NVDA,CRWV,SMH,QQQ`. Four final daily closes were cross-checked against `/v1/open-close/{ticker}/2026-11-09`, excluding `afterHours` and `preMarket`. Do not publish the raw CSV or bars.
 
-From a checkout with the pinned dependency commit available:
+From a checkout containing the integrated market-context component:
 
 ```sh
-git show 565e582720a32d8d73c5421d6d99d503c4bbde03:engines/composites/market_context/context.py > /tmp/basket-context.py
 python research/composites/market_context/ticker_comparison/compare.py \
   --csv /private/path/comparison-input.csv \
-  --context-module /tmp/basket-context.py \
+  --context-module engines/composites/market_context/context.py \
   --cutoff 2026-11-09 --evaluated-at 2026-11-10T20:31:02.679Z
 python -m unittest discover -s research/composites/market_context/ticker_comparison -v
 ```
 
-The module's Git blob is verified before import. The commit is on PR101, not necessarily in a default main-only checkout. Missing dependencies fail explicitly. A later provider correction can legitimately change the input hash and result; retain it as a new dated research revision rather than overwrite this snapshot.
+The module's Git blob is verified before its exact checked bytes execute. Approved identities are the original capture (`bc64d48b690c36934e536a0e82644c61da95f0c5`) and the freshness repair now integrated through PR101 (`97fcef9eb54dc3589ec5d958e151599c21ea987a`). The unchanged source manifest preserves the original capture's identity. Unknown or missing dependencies fail explicitly; a future code change requires a reviewed pin update. The legacy capture can still be replayed with its original source file. A later provider correction can legitimately change the input hash and result; retain it as a new dated research revision rather than overwrite this snapshot.
 
 ## Limits that remain visible
 

@@ -2,28 +2,34 @@
 import argparse
 import csv
 import hashlib
-import importlib.util
 import itertools
 import json
 import math
 import statistics
 from datetime import date, datetime, timezone
 from pathlib import Path
+from types import ModuleType
 from zoneinfo import ZoneInfo
 
 ET = ZoneInfo("America/New_York")
 TICKERS = ("NVDA", "CRWV", "SMH", "QQQ")
-CONTEXT_BLOB = "bc64d48b690c36934e536a0e82644c61da95f0c5"
+# Preserve the original capture's replay while accepting the reviewed freshness
+# repair now on main. New versions still need an explicit reviewed identity.
+CONTEXT_BLOBS = frozenset({
+    "bc64d48b690c36934e536a0e82644c61da95f0c5",  # original PR101 capture
+    "97fcef9eb54dc3589ec5d958e151599c21ea987a",  # PR101 freshness repair
+})
 
 
 def context_change(path):
     data = Path(path).read_bytes()
     blob = hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
-    if blob != CONTEXT_BLOB:
+    if blob not in CONTEXT_BLOBS:
         raise ValueError("B17 dependency differs from pinned PR101 source blob")
-    spec = importlib.util.spec_from_file_location("basket_context_101", path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    module = ModuleType("basket_context_101")
+    module.__file__ = str(path)
+    # Execute the checked bytes, not a second read or a cached bytecode file.
+    exec(compile(data, str(path), "exec"), module.__dict__)
     return module.change
 
 

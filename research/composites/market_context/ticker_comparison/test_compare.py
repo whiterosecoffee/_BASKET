@@ -1,7 +1,17 @@
-"""Five focused checks of the comparison consumer, not forecast validation."""
+"""Focused comparison and actual CLI checks, not forecast validation."""
+import csv
+import json
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
 import unittest
 from datetime import datetime
-from compare import compare, TICKERS, ET
+from unittest.mock import patch
+from compare import compare, context_change, TICKERS, ET
+
+ROOT = Path(__file__).resolve().parents[4]
+CONTEXT = ROOT / "engines/composites/market_context/context.py"
 
 
 def row(day, values):
@@ -60,6 +70,33 @@ class ComparisonTests(unittest.TestCase):
         self.assertIsNone(result["correlation_window"]["pairs"][2]["pearson"])
         short = self.run_comparison(self.rows[-2:])
         self.assertIsNone(short["windows"][1]["price_return_pct"]["NVDA"])
+
+    def test_current_dependency_uses_checked_bytes_and_rejects_unknown(self):
+        source = CONTEXT.read_bytes()
+        with patch.object(Path, "read_bytes", side_effect=[source, b"raise AssertionError('second read')"]) as read:
+            self.assertAlmostEqual(context_change(CONTEXT)(110, 100), 10)
+            self.assertEqual(read.call_count, 1)
+        with tempfile.TemporaryDirectory() as directory:
+            unknown = Path(directory) / "context.py"
+            unknown.write_text("raise AssertionError('unapproved source executed')\n")
+            with self.assertRaisesRegex(ValueError, "pinned PR101"):
+                context_change(unknown)
+
+    def test_cli_with_integrated_context_matches_direct_calculation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            data = Path(directory) / "input.csv"
+            with data.open("w", newline="") as handle:
+                writer = csv.DictWriter(handle, fieldnames=["t", *TICKERS])
+                writer.writeheader()
+                writer.writerows(self.rows)
+            actual = subprocess.check_output([
+                sys.executable, str(Path(__file__).with_name("compare.py")),
+                "--csv", str(data), "--context-module", str(CONTEXT),
+                "--cutoff", "2026-11-09", "--evaluated-at", "2026-11-10T12:00:00Z"],
+                text=True)
+        expected = compare(self.rows, "2026-11-09", "2026-11-10T12:00:00Z",
+                           lambda p, b: 100*(p/b-1))
+        self.assertEqual(json.loads(actual), expected)
 
 
 if __name__ == "__main__":
