@@ -1,0 +1,45 @@
+{
+  "main_sha": "b4910122a4c3f6ade747f2e4d59bd2d2e84b3c95",
+  "scope_count": 291,
+  "canonical_count": 4,
+  "scope_manifest_commit": "321c93c281aeeb7d63b5d107cca6a320070d5f02",
+  "dispatcher_commit": "b63e917758b9eab1e40f01d72330262264fbbd90",
+  "output_sha256": "38bd10e475876624891a1057c64d45baf5057db74cffce8133ccdd82034af3b2",
+  "source_scans": 0,
+  "scan_state": "incomplete",
+  "canonical_writes": 0,
+  "notifications_sent": 0,
+  "library_uploads": 0,
+  "failed_attempts": [
+    "Initial fullscope replay: dispatcher rejected futures identifiers; explicit unsupported-symbol reporting added without changing dispatcher.",
+    "Intermediate independent fixture run: backfill contract changed while tests authored; retained /tmp/mrie-integration.log."
+  ],
+  "token_usage": null,
+  "cost": null,
+  "local_checks": {
+    "orchestration_tests": {
+      "status": "PASS",
+      "count": 187
+    },
+    "integration_tests": {
+      "status": "PASS",
+      "count": 75
+    },
+    "strict_stores": {
+      "status": "PASS"
+    },
+    "pinned_dispatcher_tests": {
+      "status": "PASS",
+      "count": 9
+    },
+    "pinned_b03_validator": {
+      "status": "PASS",
+      "canonical_ledgers": 1,
+      "missing": [
+        "CRWV",
+        "AAOI",
+        "NVDA"
+      ]
+    }
+  }
+}
