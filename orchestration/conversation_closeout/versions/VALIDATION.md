@@ -1,6 +1,47 @@
 # B00 v2/v3 closeout comparison — 2026-11-04 (America/Chicago)
 
-## Repository delivery / automatic QC implementation increment
+## 2026-11-10 owner-continuity rework
+
+Continues issue #178 and the existing feature branch after the original owner
+conversation could be read but not resumed (not-found response; no new turn or
+source write there). PR179 was freshly checked at d150397b8a4ea2ede2d2024b9b882837825d8b57.
+A fresh inventory of all 64 open PR changed-file lists found only PR179 changing
+versions/**. The continuation claim is PR179 comment6768222432. No new work issue,
+branch, scheduler or queue was created; no merge or cross-owner edit occurred.
+
+Reconciled prior reviews 6648201032, 6648210045, 6648499459 and 6651277584:
+- Exact test command, ten-dimension execution assessment with reasons/confidence,
+  failure/recovery and R1-R4 review dispositions are inside both copied blocks.
+- Candidate explicitly checks current head, CI revision and actual named tests.
+- Worker reconciles independently annotated source anchors -> handoff inventory
+  -> request IDs -> receipt dispositions before archival.
+- The existing adapter verifies pinned artifact bytes and explicit ID conservation.
+  Accepted/superseded projection requires independent source inputs; mismatches
+  produce rework and no archived request ID. It is not a language evaluator.
+
+Failure evidence: before the fix, replaying the original request with K5 removed
+and a recomputed ID produced an archived synthetic request. No real receipt or
+archive was written. The first new regression then errored because the new guarded
+API was absent. After repair, all 28 local tests passed without failures/errors/
+skips. Paired cases cover the original ten/nine IDs and the current fourteen/
+thirteen IDs. Other tests cover a source obligation missing from both payloads,
+missing source inputs, duplicate/unanchored IDs, tampered bytes, copied-block
+self-containment and the unchanged exact v2 blob.
+
+A separate read-only reviewer independently ran the 27-test intermediate suite
+and additional sole-K5 omission and source-only obligation probes, found no
+blocking defect, and requested clearer historical-count wording, now corrected.
+The final published head and exact-source independent rerun are recorded in the
+PR resolution after publication, not fabricated here. Shared CI does not claim
+execution of these owner-local tests. Full conversation generalization, source
+authentication and accepted automatic archive/recovery remain unproved.
+
+Repinning uses a subsequent queue-only commit: preserve the original request
+and its rework history; append one corrected identity with O1-O5/K1-K5/R1-R4.
+Do not archive the old request by silently dropping its missing obligations.
+Independent semantic acceptance remains the next gate, not a user copy/paste task.
+
+## Repository delivery / automatic QC implementation increment (historical)
 
 User authorized primary-work persistence, a QC intake file, automatic review and
 archive, with project-wide prioritization replacing manually sequenced prompts.
@@ -20,7 +61,7 @@ Independent reviewer ran initial 17 tests and reproduced two failures: issue URL
 could disagree with number, and artifact/item reordering duplicated a request.
 Two regression tests were then run and both failed. Corrections require exact
 issue URL identity and normalize set-like artifact/inventory order for hashing.
-All 19 tests now pass locally (zero skips). Task claims remain immutable; live
+At that initial increment, all 19 tests passed locally (zero skips); this is historical evidence. Task claims remain immutable; live
 lifecycle changes are recorded on existing issues, not new intake revisions.
 This does not claim authentication of arbitrary receipt URLs or exactly-once
 external side effects. Concurrent metadata commits require expected-head CAS.
@@ -168,7 +209,23 @@ Scope: versions/** only; PR170 CLI/default and B01 workflows remain untouched. S
 Completed: v2/v3 requirement comparison, saved-handoff inspection, three bounded paired manual cases, seven negative/preservation tests, original 23-test replay, independent delegated review, compatibility and actionability amendments. Reuse these artifacts and PR170; do not recreate tests, queues, schemas or issues.
 Knowledge: a formatter preserves supplied fields but cannot prove source extraction; artifact retention and semantic completeness need separate evidence. Current-head binding prevents stale CI promotion. Stable source-linked knowledge units preserve rationale and falsifiers across compression. Review must distinguish source intake from implementation acceptance and unknown evidence from failure. Exact phrase checks are mutation regressions, not a semantic judge.
 Unresolved: generalized extraction reliability, held-out full-conversation coverage and downstream B00 actionability are not established. Original historical transcripts remain unavailable. Mandatory routine scorecard has a verbosity cost; benefit unmeasured. Shared CI is not claimed to run the new subtree tests. No policy adoption or CLI migration performed.
-Sequence: fetch current PR179 head and changed paths; run the versions unittest command above against that exact head, checking v2 bytes and all seven named tests. Inspect independent review evidence and compare manual propositions with both outputs. Before policy promotion, use held-out authorized complete conversations, freeze annotations before generation, apply both exact prompt revisions, retain raw outputs and disagreements, and independently verify false-authority rate, lost requirements/mechanisms and receiver actionability. Do not create a new system for that trial. If transcripts are unavailable, retain an explicit limitation rather than synthesize history. Existing PR170 remains a separate integration decision.
+Sequence: fetch current PR179 head and changed paths; from that exact repository root run python -m unittest discover -s orchestration/conversation_closeout/versions -p 'test_*.py' -v, checking v2 bytes and all currently discovered named tests. The historical seven/19 counts are not a claim about the new run. Inspect independent review evidence and compare manual propositions with both outputs. Before policy promotion, use held-out authorized complete conversations, freeze annotations before generation, apply both exact prompt revisions, retain raw outputs and disagreements, and independently verify false-authority rate, lost requirements/mechanisms and receiver actionability. Do not create a new system for that trial. If transcripts are unavailable, retain an explicit limitation rather than synthesize history. Existing PR170 remains a separate integration decision.
+R1 CORRECTED, independent acceptance pending: place exact commands and broad execution scorecard inside VALIDATION.md's copied block. Sources: https://github.com/whiterosecoffee/_BASKET/pull/179#issuecomment-6648201032 and https://github.com/whiterosecoffee/_BASKET/pull/179#issuecomment-6648210045. Destination: existing #178/PR179, VALIDATION.md. Regression checks inspect the block itself.
+R2 CORRECTED, independent acceptance pending: QC_HANDOFF.md now carries the command, execution scorecard and failure/recovery; prior review obligations R1-R4 are explicit rather than omitted by O1-O5/K1-K5. Source: https://github.com/whiterosecoffee/_BASKET/pull/179#issuecomment-6648499459. Destination: existing #178/PR179, this handoff and VALIDATION.md.
+R3 CORRECTED: candidate now explicitly requires current PR head, CI source revision and actual named job/test coverage before acceptance. Historical green cannot establish current acceptance. Source: https://github.com/whiterosecoffee/_BASKET/pull/179#issuecomment-6648210045. Destination: HANDOFF_PROMPT.v3-candidate.md; actual final-head checks remain separately reported.
+R4 IMPLEMENTED, semantic acceptance pending: compare independent source anchors to complete handoff IDs to request IDs to receipt dispositions before archive. Omitted K5 yields REWORK naming K5 and no archive. Sources: https://github.com/whiterosecoffee/_BASKET/pull/179#issuecomment-6648499459 and https://github.com/whiterosecoffee/_BASKET/pull/179#issuecomment-6651277584. Destination: qc_intake.py, existing test_qc_intake.py and QC_WORKER.md. Re-pin corrected artifacts under a new request identity; old history and rework remain preserved. Semantic meaning and unknown transcript coverage are still reviewer responsibilities.
+Execution scorecard (0-5, self-review of the observed rework before publication; moderate confidence, no aggregate):
+- Intent 4: directly addresses the recorded omissions and K5 loss; broader extraction remains unproved.
+- Execution 3: local repairs and regression execution completed; published-head independent verification remains a separate gate.
+- Reuse 4: existing branch, adapter, tests and issue retained; no replacement queue or evaluator.
+- Authority/ownership 4: only versions/** changed; stale owner-resume failure was documented, no merge or cross-owner writes.
+- Evidence 3: original bytes and local failure/recovery checked; shared CI and full transcript coverage remain limited.
+- Dependencies 4: PR170, B01, B08 and contract/controller obligations remain with their existing owners.
+- Resources/tools 2: broad retrieval produced truncation and owner-resume returned not found; targeted stored reads recovered evidence. Cost and duration unmeasured.
+- Communication/adaptation 3: concrete rework is now mapped; the historical omissions required repeated review.
+- Knowledge/handoff 3: commands, explanations, failures and prior obligations now travel inside each block; consumer benefit unverified.
+- Closure/outcome 2: corrected artifacts can be independently reviewed; intake archival and wider integration are not yet complete.
+Failure/recovery: earlier self-contained blocks omitted their command and execution assessment; review request IDs themselves were missing from the declared inventory. The old adapter archived a synthetic nine-item request with K5 still present in the pinned handoff. A new regression first errored because the guarded API was absent; the pre-change replay separately confirmed that invalid archival. The new archive path checks pinned bytes and independently annotated source IDs, leaving mismatches in REWORK. These repairs do not erase the earlier failures or prove arbitrary semantic completeness.
 Acceptance: current-head tests/readback and independent review support this bounded draft validation; broader adoption additionally requires held-out/receiving evidence and explicit authorization. Retirement: record disposition of this validation in existing #178/#179, leaving promotion gates explicit.
 One next B00 action: review the exact published candidate head and bounded evidence in PR179 for disposition; do not infer approval to merge.
 Transfer state: this handoff is persisted with the validation; receipt, acceptance and execution by B00 are unknown.

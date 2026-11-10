@@ -90,7 +90,20 @@ implementation complete merely because intake was accepted.
    read-only work, but expected-head commits and request-keyed archive files
    prevent silently replacing conflicting results. On conflicting decisions,
    leave the item pending for B00 reconciliation. No cross-domain execution lease.
-6. Review full declared scope: requirements, decisions/rejected alternatives,
+6. Independently recover consequential obligations and knowledge from available
+   source anchors, including earlier review comments and promised corrections.
+   Do not derive this inventory by copying request.item_ids. Record each stable
+   ID with the repository evidence URL(s) that justify it; record unavailable
+   transcript/source coverage explicitly. Compare, in order: source anchors ->
+   complete handoff inventory -> submitted item_ids -> receipt dispositions.
+   Handoffs use top-level O1/K1/R1-style ID records followed by a colon or space.
+   Call reconcile_inventory(request, read_bytes, source_items) with authenticated
+   pinned bytes and the independently annotated ID-to-URL mapping. Missing K5 or
+   any other source obligation is REWORK naming the omitted ID, never acceptance.
+   Missing/unreadable sources are a specific blocker or explicit bounded-review
+   limitation, not invented completeness. An intact ID inventory only advances
+   to semantic review; it does not accept the work.
+   Review full scope: requirements, decisions/rejected alternatives,
    causal knowledge, unresolved commitments, verified-vs-reported evidence,
    dependencies, ownership and actionable next owner step. Use prescribed exact
    revision tests where runnable and safe. Missing tests are not pass; receipt
@@ -99,7 +112,15 @@ implementation complete merely because intake was accepted.
    destination; include reviewer identity, evidence URLs, limitations and one
    next action. Outcomes: accepted, rework, blocked, superseded. Acceptance means
    the intake is reconciled and obligations routed, not that the work is merged.
-8. For accepted/superseded only, atomically commit immutable
+8. For accepted/superseded only, call pending with read_bytes and source_items
+   keyed by request ID. Structural validate_receipt alone is insufficient. This
+   projection now refuses missing source-review inputs and reports mismatched
+   inventories as rework while leaving them pending. Archive only IDs actually
+   returned in archived_request_ids. Include the reconciliation report and its
+   source anchors in review evidence; retain coverage limits in the receipt.
+   Verify receipt dispositions for every reconciled item. A knowingly incomplete
+   old request remains rework; never use superseded to bypass the same gate.
+   Then atomically commit immutable
    `qc_archive/<request_id>.json` plus any index append on the same guarded head.
    Do not delete intake history. Verify readback before reporting archived. A
    different existing receipt is a conflict, never an overwrite. Rework/blocked
@@ -126,3 +147,26 @@ pinning/readback, replay, ownership, inventory, priority and archive boundaries.
 The automation configuration is separate evidence from an observed future run.
 No runtime multiwriter lock, exactly-once external effects, hosted domain executor,
 automatic B01 CI or generalized semantic completeness is claimed.
+
+## 2026-11-10 compatibility and bounded evidence
+
+No task/request/receipt schema or second queue is introduced. Existing enqueue
+and validation stay structural. Accepted/superseded calls to pending now require
+pinned-byte and independently annotated source inputs; callers must migrate to
+this documented form rather than treating a ValueError as permission to archive.
+No accepted archive files existed in the inspected 11-file PR source. Preserve
+the initial rework request and append the corrected request after source commit.
+A historical request with known missing obligations remains pending rework until
+an explicit evidence-backed reconciliation can meet its disposition contract.
+
+The regression pair covers intact inventory entering review and the real K5
+omission returning rework without archive. It also covers an obligation absent
+from both request and handoff but retained by source annotations, duplicate IDs,
+unanchored IDs, tampered bytes and missing source inputs. These are bounded
+conservation checks, not source authentication or natural-language evaluation.
+A dishonest/incomplete reviewer inventory can still omit unseen obligations;
+independent source review and declared coverage limits remain necessary.
+
+Observed automatic run: PR179 comment6648499459 processed the original request
+and returned rework. Configuration alone was not evidence, but this receipt is.
+No accepted automatic archive/recovery or automatic domain execution is claimed.

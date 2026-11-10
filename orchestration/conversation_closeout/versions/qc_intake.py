@@ -105,6 +105,45 @@ def verify_artifacts(request, read_bytes):
     return True
 
 
+def reconcile_inventory(request, read_bytes, source_items):
+    """Compare independent source annotations, pinned handoff, and submitted IDs.
+
+    source_items maps IDs to source URLs, derived by the reviewer from available
+    conversation/review evidence, NEVER copied blindly from request.item_ids.
+    This gate checks explicit ID conservation, not natural-language meaning or
+    source authenticity. The reviewer must report unavailable source coverage.
+    """
+    require(callable(read_bytes), 'inventory review requires pinned artifact reader')
+    require(isinstance(source_items, dict) and source_items, 'missing independent source inventory')
+    for item, urls in source_items.items():
+        require(isinstance(item, str) and item.strip(), 'invalid source item')
+        require(isinstance(urls, list) and urls and all(isinstance(url, str) and
+                url.startswith('https://github.com/whiterosecoffee/_BASKET/') for url in urls),
+                'source item needs repository evidence')
+    cache = {}
+    def cached(path, revision):
+        key = (path, revision)
+        if key not in cache:
+            cache[key] = read_bytes(path, revision)
+        return cache[key]
+    verify_artifacts(request, cached)
+    handoff = next(a for a in request['artifacts'] if a['role'] == 'handoff')
+    text = cached(handoff['path'], handoff['revision']).decode('utf-8')
+    # Explicit top-level O1/K1/R1-style records, not incidental prose mentions.
+    observed = re.findall(r'^([A-Z][A-Z0-9_-]*[0-9])(?=[: \t])', text, re.M)
+    handoff_ids, submitted, sourced = set(observed), set(request['item_ids']), set(source_items)
+    duplicates = sorted({item for item in observed if observed.count(item) > 1})
+    missing_items = sorted((sourced | handoff_ids) - submitted)
+    missing_handoff = sorted((sourced | submitted) - handoff_ids)
+    unanchored = sorted((submitted | handoff_ids) - sourced)
+    complete = bool(observed) and not (duplicates or missing_items or missing_handoff or unanchored)
+    return {'request_id': request['request_id'], 'outcome': 'review' if complete else 'rework',
+            'handoff_sha256': handoff['sha256'], 'handoff_item_ids': sorted(handoff_ids),
+            'source_items': copy.deepcopy(source_items), 'missing_item_ids': missing_items,
+            'missing_handoff_ids': missing_handoff, 'unanchored_item_ids': unanchored,
+            'duplicate_handoff_ids': duplicates}
+
+
 def validate_receipt(receipt, request):
     validate_request(request)
     require(set(receipt) == {'request_id', 'reviewer', 'outcome', 'item_dispositions',
@@ -123,11 +162,12 @@ def validate_receipt(receipt, request):
             'missing repository evidence')
     require(isinstance(receipt['limitations'], list) and all(isinstance(x, str) for x in receipt['limitations']), 'invalid limitations')
     require(isinstance(receipt['next_action'], str) and receipt['next_action'].strip(), 'missing next action')
-    # Presence validation is not evidence authentication or semantic acceptance.
+    # Presence validation alone NEVER authorizes archive. pending additionally
+    # checks verified handoff bytes against independent source annotations.
     return receipt
 
 
-def pending(index, receipts, priority_issues):
+def pending(index, receipts, priority_issues, *, read_bytes=None, source_items=None):
     """Use B00's supplied issue order, never arrival order or invented priorities.
 
     Returns unrouted requests separately. Caller must refresh evidence and honor
@@ -137,7 +177,7 @@ def pending(index, receipts, priority_issues):
     require(isinstance(priority_issues, list) and all(type(i) is int and i > 0 for i in priority_issues)
             and len(set(priority_issues)) == len(priority_issues), 'invalid priority order')
     requests = {r['request_id']: r for r in index['requests']}
-    archived, receipt_ids = set(), set()
+    archived, receipt_ids, inventory_reviews = set(), set(), {}
     for receipt in receipts:
         rid = receipt['request_id']
         require(rid in requests, 'unknown receipt request')
@@ -145,11 +185,16 @@ def pending(index, receipts, priority_issues):
         receipt_ids.add(rid)
         validate_receipt(receipt, requests[rid])
         if receipt['outcome'] in ('accepted', 'superseded'):
-            archived.add(rid)
+            require(callable(read_bytes) and isinstance(source_items, dict) and rid in source_items,
+                    'archive requires pinned bytes and independent source inventory')
+            review = reconcile_inventory(requests[rid], read_bytes, source_items[rid])
+            inventory_reviews[rid] = review
+            if review['outcome'] == 'review':
+                archived.add(rid)
     rank = {issue: n for n, issue in enumerate(priority_issues)}
     active = [r for r in index['requests'] if r['request_id'] not in archived]
     ready = [r for r in active if r['task']['issue']['number'] in rank]
     ready.sort(key=lambda r: (rank[r['task']['issue']['number']], r['request_id']))
     return {'ordered_intake': ready,
             'needs_priority': [r for r in active if r['task']['issue']['number'] not in rank],
-            'archived_request_ids': sorted(archived)}
+            'archived_request_ids': sorted(archived), 'inventory_reviews': inventory_reviews}

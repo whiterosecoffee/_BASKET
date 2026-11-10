@@ -569,7 +569,11 @@ claims and fencing at the write boundary; an earlier collision scan is insuffici
 Route routine compatible work through existing bindings. Escalate only a missing
 contract, incompatible version, contested ownership or unresolved evidence rule.
 Cache unchanged metadata only with a verified freshness/invalidation rule; refresh
-the relevant head, claim and inputs before mutation and acceptance. A cache is
+the relevant head, claim and inputs before mutation and acceptance. Before a
+repository completion or acceptance decision, refresh the current PR head and
+relevant authoritative state. Compare claimed CI source revision and actual named
+job/test coverage with that head; historical green at another revision is not
+current acceptance. A cache is
 not permission to treat old state as current.
 
 Scale validation to the registered work class and consequence. Keep essential

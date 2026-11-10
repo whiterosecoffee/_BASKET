@@ -10,10 +10,12 @@ prompt copying for authorized repo_queue delivery; no merge/default-policy
 promotion is implied. The first real source handoff is [QC_HANDOFF.md](QC_HANDOFF.md).
 
 `qc_intake.py` reuses existing worker-task schemas/ownership helpers. It is a
-pure intake/receipt adapter, not a scheduler or domain executor. Twelve new tests
-plus seven previous tests pass locally. Independent review found two defects;
+pure intake/receipt adapter, not a scheduler or domain executor. At the initial ba757db increment, twelve QC tests
+plus seven previous tests passed locally. The 2026-11-10 rework has 28 passing
+owner-local tests, including paired intact/K5-omitted and prior-review regressions. Independent review found two defects;
 failed regression runs and corrections are recorded in VALIDATION.md. Automation
-configuration and observed future execution remain separate evidence.
+configuration and observed execution remain separate evidence: original review
+comment6648499459 shows an automatic run returning rework, not accepted archival.
 
 ## v3 candidate — 2026-11-04
 
@@ -45,6 +47,6 @@ Initial preservation was documentation-only with no semantic validation. The sub
 
 Run the new owner-local tests with:
 `python -m unittest discover -s orchestration/conversation_closeout/versions -p 'test_*.py' -v`.
-No external dependencies or services are required. They reuse Python unittest and the existing module's supplied-evidence testing pattern. No production validator, scheduler or CLI is added. Existing shared CI discovery is not claimed to execute these subtree tests; exact-head independent local review is separate from CI.
+No external services are required. Python jsonschema and the existing main worker protocol, task schema and spark catalog are required. They reuse Python unittest and the existing module's supplied-evidence testing pattern. No production validator, scheduler or CLI is added. Existing shared CI discovery is not claimed to execute these subtree tests; exact-head independent local review is separate from CI.
 
 Related: #178 (this preservation work), #169 / PR #170 (existing closeout implementation). Existing main and PR governance remains applicable.

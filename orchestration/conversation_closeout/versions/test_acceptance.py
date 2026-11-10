@@ -83,6 +83,31 @@ class AcceptanceTests(unittest.TestCase):
                        'prerequisite-ordered', 'exact known', 'no material delta']:
             self.assertIn(phrase, text)
 
+    def test_both_real_handoffs_keep_commands_scorecard_and_review_obligations(self):
+        command = "python -m unittest discover -s orchestration/conversation_closeout/versions -p 'test_*.py' -v"
+        for name, fence in [('QC_HANDOFF.md', '```'), ('VALIDATION.md', '````')]:
+            text = (HERE / name).read_text()
+            block = text.split(fence + 'text\n')[-1].split('\n' + fence)[0]
+            with self.subTest(name=name):
+                self.assertIn(command, block)
+                self.assertNotIn('versions unittest command above', block)
+                self.assertIn('Execution scorecard', block)
+                self.assertIn('moderate confidence', block)
+                self.assertIn('Failure/recovery:', block)
+                for dimension in ('Intent', 'Execution', 'Reuse', 'Authority/ownership',
+                                  'Evidence', 'Dependencies', 'Resources/tools',
+                                  'Communication/adaptation', 'Knowledge/handoff', 'Closure/outcome'):
+                    self.assertIn('- ' + dimension + ' ', block)
+                for item in ('R1', 'R2', 'R3', 'R4'):
+                    self.assertRegex(block, r'(?m)^' + item + r' ')
+                for comment in ('6648201032', '6648210045', '6648499459', '6651277584'):
+                    self.assertIn('#issuecomment-' + comment, block)
+
+    def test_current_head_and_named_ci_coverage_are_explicit(self):
+        text = (HERE / 'HANDOFF_PROMPT.v3-candidate.md').read_text()
+        self.assertIn('actual named\njob/test coverage', text)
+        self.assertIn('historical green at another revision is not\ncurrent acceptance', text)
+
 
 if __name__ == '__main__':
     unittest.main()
