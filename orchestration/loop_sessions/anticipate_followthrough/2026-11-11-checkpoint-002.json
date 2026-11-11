@@ -1,0 +1,82 @@
+{
+  "checkpoint": "AF-002",
+  "previous_checkpoint": {
+    "id": "AF-001",
+    "revision": "0d87983b4f5c2236782fc460186d81226797002a"
+  },
+  "owner_issue": 239,
+  "date": "2026-11-11",
+  "kind": "bounded_followthrough_delta",
+  "observations": [
+    {
+      "key": "progress:next-outcome:v1",
+      "owner": 236,
+      "status": "bounded_outcome_verified",
+      "previous": "baseline_only",
+      "outcome": "A source-backed check_exchange prior-intent reconciliation now exists beyond bootstrap.",
+      "evidence": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/236#issuecomment-6808183310",
+        "https://github.com/whiterosecoffee/_BASKET/blob/58387b6062c3f641f11bbf1c23fb04bedae75a3d/orchestration/loop_sessions/advance/2026-11-11-l1-02-exchange-intent-002.json"
+      ],
+      "verification": "Current PR238 head and exact file independently read; five acceptance cases explicitly not_run.",
+      "remaining": "Owner coordination for PI-03/PI-04 is proposed, not acknowledged; L1-02 and operational acceptance remain open.",
+      "next_trigger": "New existing-owner acknowledgement or resulting acceptance receipt"
+    },
+    {
+      "key": "map:hosted-coverage:f42cc68",
+      "owner": 230,
+      "status": "bounded_verification_closed",
+      "outcome": "Exact-head hosted discovery executed 40 cases: freshness 7, semantic boundary 14, queue handoff 12, admission 7.",
+      "evidence": [
+        "https://github.com/whiterosecoffee/_BASKET/pull/231",
+        "https://github.com/whiterosecoffee/_BASKET/actions/runs/43108696785/job/130818691714"
+      ],
+      "revision": "f42cc68ed6ebce65803c0b0cb562f4ebca707f06",
+      "verification": "Current PR head, matching successful workflow and MAP_HOSTED_DISCOVERY log independently inspected.",
+      "remaining": "Draft tests only, not production integration or recurring-loop proof.",
+      "next_trigger": "Changed head or new owner qualification evidence"
+    },
+    {
+      "key": "continuation:receipts:v1",
+      "owner": 234,
+      "status": "external_receipt_unchanged",
+      "last_public_receipt": 6807568874,
+      "remaining": "Unchanged public evidence is not proof of no work; do not infer failure or reroute.",
+      "next_trigger": "New owner receipt or independently available session evidence"
+    },
+    {
+      "key": "coverage:bounded-delta:v1",
+      "owner": 237,
+      "status": "external_receipt_unchanged",
+      "last_public_receipt": 6807582568,
+      "remaining": "Historical coverage remains unverified. Request-capture work stays with #237.",
+      "next_trigger": "New bounded coverage receipt"
+    }
+  ],
+  "decisions": [
+    "No duplicate owner handoff; retain active ownership.",
+    "Do not republish another owner's unverified or unavailable checkpoint.",
+    "Partial source coverage must not advance to full-history coverage."
+  ],
+  "score": {
+    "total": 10,
+    "maximum": 24,
+    "dimensions": {
+      "coverage": 1,
+      "correctness_evidence": 2,
+      "progress": 2,
+      "coordination": 2,
+      "continuity": 2,
+      "efficiency": 1
+    },
+    "change": 0,
+    "reason": "Useful bounded delta observed, but no independent session review, measured burden reduction or restart proof."
+  },
+  "next_action": "Inspect the next changed #234/#237 receipt and the existing #236 handoff acknowledgement; suppress unchanged findings.",
+  "checks": {
+    "json": "parsed",
+    "unique_observation_keys": true,
+    "source_readback": "completed",
+    "runtime": "not_run; evidence-only record"
+  }
+}
