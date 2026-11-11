@@ -22,6 +22,14 @@ failed regression runs and corrections are recorded in VALIDATION.md. Automation
 configuration and observed execution remain separate evidence: original review
 comment6648499459 shows an automatic run returning rework, not accepted archival.
 
+Subsequent bounded automatic acceptance is recorded separately in
+[comment6768491075](https://github.com/whiterosecoffee/_BASKET/pull/179#issuecomment-6768491075)
+for the corrected closeout and
+[comment6782317231](https://github.com/whiterosecoffee/_BASKET/pull/179#issuecomment-6782317231)
+for the external-agent request. Immutable requests and receipts remain pinned
+to their original revisions. These observed runs do not establish external
+provider operation, continuous monitoring or feature/main integration.
+
 ## v3 candidate — 2026-11-04
 
 - File: [HANDOFF_PROMPT.v3-candidate.md](HANDOFF_PROMPT.v3-candidate.md).
@@ -52,6 +60,20 @@ Initial preservation was documentation-only with no semantic validation. The sub
 
 Run the new owner-local tests with:
 `python -m unittest discover -s orchestration/conversation_closeout/versions -p 'test_*.py' -v`.
-No external services are required. Python jsonschema and the existing main worker protocol, task schema and spark catalog are required. They reuse Python unittest and the existing module's supplied-evidence testing pattern. No production validator, scheduler or CLI is added. Existing shared CI discovery is not claimed to execute these subtree tests; exact-head independent local review is separate from CI.
+No external services are required. Python jsonschema and the existing worker
+protocol, task schema and spark catalog are required. The current suite has 41
+tests, including the 13 external-agent request-builder tests; Git is required
+for the local repository fixtures. It reuses Python unittest and the existing
+module's supplied-evidence testing pattern.
+
+`orchestration/tests/test_closeout_versions.py` now imports the three canonical
+TestCase classes into the existing mandatory `worker-qc` discovery:
+`python -m unittest discover -s orchestration/tests -p 'test_*.py' -v`.
+No assertions, CI workflow or integration tests are duplicated or changed.
+Imports are unconditional, so a missing module/dependency fails instead of
+silently skipping the suite. Verify the current head and actual named tests in
+runner logs before claiming CI execution. Historical results predating this
+bridge remain local-only evidence for these 41 tests; they are not retroactively
+upgraded to CI evidence.
 
 Related: #178 (this preservation work), #169 / PR #170 (existing closeout implementation). Existing main and PR governance remains applicable.

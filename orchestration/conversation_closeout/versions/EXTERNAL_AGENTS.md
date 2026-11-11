@@ -124,9 +124,11 @@ routes to B00/#136. Submission and independent acceptance remain separate.
 O3: Verify replay, stale/missing sources, unsafe/unowned paths, symlinks, duplicate
 and omitted IDs, dirty worktrees and actual CLI output. Run
 `python -m unittest discover -s orchestration/conversation_closeout/versions -p 'test_*.py' -v`
-at the published source revision. Existing shared CI does not discover this
-versions suite; report its independent local execution separately. Verify the
-actual PR head and named tests before reporting CI evidence. Existing #178
+at the published source revision. The B00-owned test_closeout_versions.py bridge
+now exposes the same canonical tests to the existing shared CI discovery.
+Verify the actual PR head and named tests in runner logs before claiming that
+coverage ran. Earlier pinned requests/receipts remain historical: their local
+evidence is not retroactively CI evidence. Existing #178
 scope and prior queue/archive history remain intact.
 
 K1: A local commit/hash and a schema-valid request only establish reproducible
