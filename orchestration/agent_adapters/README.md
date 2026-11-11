@@ -3,6 +3,10 @@
 Owner: B00 issue #78. Branch: `work/78-agent-neutral-dispatch-contract`.
 Scope: `orchestration/agent_adapters/**` ONLY. This is a contract, not a running dispatcher.
 
+See [QUALIFICATION.md](QUALIFICATION.md) for the existing plan/result mapping,
+observed real source-checkout CLI replay and remaining external-provider gates.
+Python request-file replay is not an external model invocation.
+
 ## Goal
 Allow a GitHub-backed B00 planner/controller to hand the **same validated task** to a ChatGPT conversation, OpenAI Codex, a Claude agent, or a local VS Code task runner without transferring hidden chat history.
 
