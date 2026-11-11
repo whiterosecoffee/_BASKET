@@ -1,0 +1,193 @@
+{
+  "version": "0.1.0",
+  "status": "provisional_parallel_design",
+  "evidence_class": "design_specification",
+  "owner_issue": 228,
+  "canonical_queue_issue": 136,
+  "authority": "Read-only projection, not a queue, registry, permission grant, shared schema or executable runtime. Existing source authorities remain authoritative.",
+  "upstream_acceptance": "L1 prerequisites and broader L1 completion are not established by this bounded specimen.",
+  "record_type": "requirements_projection",
+  "sources": {
+    "task": {
+      "repository_path": "schemas/worker-task.v1.json",
+      "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "artifact": {
+        "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-task.v1.json",
+        "sha256": "fd89076d70986d5cb078b45d6de34c332433916249ba3254cfbaa7394a9b7429"
+      },
+      "access": "public_repository",
+      "resolution": "bytes_verified",
+      "operational_state": "not_established"
+    },
+    "resolution": {
+      "repository_path": "schemas/worker-resolution.v1.json",
+      "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "artifact": {
+        "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-resolution.v1.json",
+        "sha256": "a28307ac6abd3151d6a689aaa0ec6ccb78da902f361f357fd118418ec2325445"
+      },
+      "access": "public_repository",
+      "resolution": "bytes_verified",
+      "operational_state": "not_established"
+    },
+    "boundary": {
+      "repository_path": "schemas/component-blackbox.v1.json",
+      "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "artifact": {
+        "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/component-blackbox.v1.json",
+        "sha256": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc"
+      },
+      "access": "public_repository",
+      "resolution": "bytes_verified",
+      "operational_state": "not_established"
+    },
+    "library": {
+      "repository_path": "orchestration/planner/worker-library.json",
+      "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "artifact": {
+        "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/planner/worker-library.json",
+        "sha256": "9e2886866e5603b0f4b38967db39308b621dd1e48f62fc0a6cece99a75fc689d"
+      },
+      "access": "public_repository",
+      "resolution": "bytes_verified",
+      "operational_state": "not_established"
+    },
+    "quickstart": {
+      "repository_path": "architecture/COMPONENT_QUICKSTART.md",
+      "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "artifact": {
+        "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/COMPONENT_QUICKSTART.md",
+        "sha256": "0544cb6b486ef69d91a2a80c50c4339677c50a0e03a3e1dceff2839db56079fa"
+      },
+      "access": "public_repository",
+      "resolution": "bytes_verified",
+      "operational_state": "not_established"
+    },
+    "prior_model": {
+      "repository_path": "architecture/virtual_design/intake_worker_review/model.json",
+      "source_commit": "10be98031aa5dbd9b5841cc8f88bab5b834790e2",
+      "artifact": {
+        "ref": "https://github.com/whiterosecoffee/_BASKET/blob/10be98031aa5dbd9b5841cc8f88bab5b834790e2/architecture/virtual_design/intake_worker_review/model.json",
+        "sha256": "cdbf13aaff28dc5ca3169f2e62f81b0f62ed816fbf9157ad8cc14efc60c84250"
+      },
+      "access": "public_repository",
+      "resolution": "bytes_verified",
+      "operational_state": "not_established"
+    },
+    "index": {
+      "repository_path": "architecture/COMPONENT_INDEX.md",
+      "source_commit": "6900bf0b0c4ba518c9fde48180588471a3846164",
+      "artifact": {
+        "ref": "https://github.com/whiterosecoffee/_BASKET/blob/6900bf0b0c4ba518c9fde48180588471a3846164/architecture/COMPONENT_INDEX.md",
+        "sha256": "85e5d1a23ede9cae503c47bf4c81b622431568c4a1d615c0d15201d394844a61"
+      },
+      "access": "public_repository",
+      "resolution": "connector_bytes_verified",
+      "operational_state": "not_established"
+    }
+  },
+  "requirements": [
+    {
+      "id": "identity",
+      "queue_item": "L1-01",
+      "requirement": "Preserve authoritative identities; distinguish definitions, instances and aliases.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "coverage_meaning": "design addresses requirement; not accepted implementation"
+    },
+    {
+      "id": "separation",
+      "queue_item": "L1-03",
+      "requirement": "Containment, dependencies and dataflow have different semantics and owners.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "coverage_meaning": "design addresses requirement; not accepted implementation"
+    },
+    {
+      "id": "contracts",
+      "queue_item": "L1-04",
+      "requirement": "Reuse existing task, artifact, component call/result contracts; declare gaps.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "coverage_meaning": "design addresses requirement; not accepted implementation"
+    },
+    {
+      "id": "pins",
+      "queue_item": "L1-05",
+      "requirement": "Pin bytes and revision; missing, changed or disallowed inputs fail closed.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "coverage_meaning": "design addresses requirement; not accepted implementation"
+    },
+    {
+      "id": "evidence",
+      "queue_item": "L1-06",
+      "requirement": "Expected outcomes and assistant-simulated traces stay separate from actual validation.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "coverage_meaning": "design addresses requirement; not accepted implementation"
+    },
+    {
+      "id": "breadth",
+      "queue_item": "L1-07",
+      "requirement": "Represent all 17 indexed groups at pointer depth without inventing executable ports.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "coverage_meaning": "design addresses requirement; not accepted implementation"
+    },
+    {
+      "id": "nested",
+      "queue_item": "L1-09",
+      "requirement": "Nested research parent has data/analysis/report children and shared referenced validation unit.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "coverage_meaning": "design addresses requirement; not accepted implementation"
+    },
+    {
+      "id": "hard_gates",
+      "queue_item": "L1-16",
+      "requirement": "Exclude incompatible, unauthorized and unknown options before ranking.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "coverage_meaning": "design addresses requirement; not accepted implementation"
+    },
+    {
+      "id": "coverage",
+      "queue_item": "L1-18",
+      "requirement": "Coverage edges cite requirements; count definitions once, not parent and instances.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "coverage_meaning": "design addresses requirement; not accepted implementation"
+    },
+    {
+      "id": "selection",
+      "queue_item": "L1-19",
+      "requirement": "Rank minimum useful coverage with explicit cost/risk uncertainty; no measured savings claim.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "coverage_meaning": "design addresses requirement; not accepted implementation"
+    }
+  ],
+  "contract_mapping": [
+    {
+      "field": "source.artifact",
+      "authority": "boundary",
+      "json_pointer": "/$defs/artifact_ref"
+    },
+    {
+      "field": "worker claim",
+      "authority": "task",
+      "json_pointer": ""
+    },
+    {
+      "field": "worker result",
+      "authority": "resolution",
+      "json_pointer": ""
+    },
+    {
+      "field": "future component request",
+      "authority": "boundary",
+      "json_pointer": "/$defs/call"
+    },
+    {
+      "field": "future component response",
+      "authority": "boundary",
+      "json_pointer": "/$defs/result"
+    }
+  ],
+  "gaps": [
+    "No shared software composition/selection schema is declared. Local record shapes are provisional.",
+    "No actual component-call/result instance or domain computation is emitted by this design.",
+    "Copier seed compatibility has not been established; do not fabricate a supported nested option."
+  ]
+}
