@@ -35,3 +35,7 @@ Domain mapping is now explicitly `unmapped`, `partial` or `mapped`. B00 has one 
 Closure validation checks evidence references, inventory hashes and review-record structure; it cannot authenticate an external reviewer merely from a URL. Actual owner/independent review remains a separate acceptance gate. No full-domain or full-system closure is claimed here.
 
 For shallow CI checkouts, `_MAP/prepare_sources.py` allows only immutable pins from `source_pins.json` and the exact _BASKET origin. The discovery bridge permits source-only fetch when `GITHUB_ACTIONS=true`; ordinary local runs fail on missing pins unless the operator explicitly runs `python _MAP/prepare_sources.py --fetch-missing`. Fetching adds Git objects only, not branch integration or checkout changes. Failures remain failures, not skipped suites.
+
+## Historical availability and future effects
+
+`compositions/admission/residual-disposition.json` records the #230 owner handoff disposition. The pure reference now requires exact-revision `available_at` and tests historical cutoff admission separately from observation age. Source-change and permission-revocation guards are adopted requirements with owner-routed acceptance criteria, not implemented runtime effects. The reference request change is intentionally fail-closed for old callers; previous evidence remains pinned in the disposition.

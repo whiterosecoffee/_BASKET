@@ -29,6 +29,7 @@ def evaluate(case,model,schemas):
             actual=q['semantics'].get(key)
             if actual is None:errors.append(key+'_missing')
             elif actual!=expected:errors.append(key+'_mismatch')
+        if stamp(q['available_at'])>stamp(q['as_of']):errors.append('not_available_at_cutoff')
         age=(stamp(q['as_of'])-stamp(q['observed_at'])).total_seconds()
         if age<0:errors.append('future_observation')
         elif config['max_age_seconds'] is not None and age>=config['max_age_seconds']:errors.append('expired')

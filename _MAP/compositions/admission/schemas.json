@@ -9,7 +9,8 @@
         "value",
         "observed_at",
         "as_of",
-        "semantics"
+        "semantics",
+        "available_at"
       ],
       "properties": {
         "source_id": {
@@ -35,6 +36,11 @@
               "null"
             ]
           }
+        },
+        "available_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "First externally available time for this exact source revision, not event/observation time or local ingestion time. Required; unknown availability fails closed."
         }
       }
     },
@@ -54,7 +60,8 @@
             "value",
             "observed_at",
             "as_of",
-            "semantics"
+            "semantics",
+            "available_at"
           ],
           "properties": {
             "source_id": {
@@ -80,6 +87,11 @@
                   "null"
                 ]
               }
+            },
+            "available_at": {
+              "type": "string",
+              "format": "date-time",
+              "description": "First externally available time for this exact source revision, not event/observation time or local ingestion time. Required; unknown availability fails closed."
             }
           }
         },

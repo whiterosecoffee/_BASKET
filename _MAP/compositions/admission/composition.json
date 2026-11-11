@@ -141,12 +141,30 @@
         "market_ok",
         "filing_ok"
       ]
+    },
+    {
+      "id": "R-AVAILABLE",
+      "intent": "An observed historical value is not usable before its exact source revision was available; missing/unknown availability fails closed. Equality at cutoff is available.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/230#issuecomment-6808749146",
+      "definitions": [
+        "check_semantics"
+      ],
+      "cases": [
+        "filing_unavailable",
+        "filing_available_boundary",
+        "filing_unknown_availability",
+        "filing_invalid_availability",
+        "filing_missing_availability"
+      ]
     }
   ],
   "limits": [
     "No production contract adoption or domain-owner acceptance",
     "Only two fixed synthetic use cases, not general workflow interpreter",
     "Historical old schemas remain evidence, not imported primitive implementations",
-    "No claimed savings, entitlement, independent fact verification or complete system coverage"
-  ]
+    "No claimed savings, entitlement, independent fact verification or complete system coverage",
+    "Availability is synthetic source-publication knowledge, not proof of local ingestion or permission to execute effects."
+  ],
+  "interface_revision": 2,
+  "interface_revision_note": "Reference input contract revision 2 requires available_at. The format @1 identifies document shape, not interface compatibility. Consumers must pin commit and schema content digest; revision 1 inputs are not automatically upgraded."
 }
