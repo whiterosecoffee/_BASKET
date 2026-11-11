@@ -24,6 +24,18 @@ def price(v):
         raise ValueError("positive finite USD price required")
     return float(v)
 
+def event_number(value):
+    """Require a finite JSON number; never turn booleans or text into data."""
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValueError("finite numeric economic value required")
+    try:
+        result = float(value)
+    except OverflowError as exc:
+        raise ValueError("finite numeric economic value required") from exc
+    if not math.isfinite(result):
+        raise ValueError("finite numeric economic value required")
+    return result
+
 def provenance(row, as_of):
     fields = ("observed_at", "available_at", "ingested_at", "expires_at")
     if any(row.get(f) is None for f in fields):
@@ -131,10 +143,10 @@ def analyze(payload):
                     and consensus_at <= as_of
                     and timestamp(event["scheduled_at"]) <= available
                     and same_units):
-                actual, consensus = float(event["actual"]), float(event["consensus"])
-                if math.isfinite(actual) and math.isfinite(consensus):
-                    e["surprise"] = round(actual - consensus, 8)
-                    e["status"] = "reported"
+                actual, consensus = event_number(event["actual"]), event_number(event["consensus"])
+                surprise = event_number(actual - consensus)
+                e["surprise"] = round(surprise, 8)
+                e["status"] = "reported"
             else:
                 e["status"] = "unavailable_as_of"
         out["events"].append(e)
@@ -178,3 +190,4 @@ def markdown(report):
     lines.extend("- " + u for u in report["unknowns"] or ["None additionally supplied"])
     lines.append("\nEngine %s | input SHA256 %s" % (report["engine_version"], report["input_manifest_hash"]))
     return "\n".join(lines) + "\n"
+

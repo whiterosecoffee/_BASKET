@@ -21,6 +21,22 @@ SAMPLE = {
 }
 
 class CoreTests(unittest.TestCase):
+ def test_event_values_reject_coercion(self):
+  for field in ("actual", "consensus"):
+   for value in (True, False, "3.1"):
+    with self.subTest(field=field, value=value):
+     b=copy.deepcopy(SAMPLE); b["events"][0][field]=value
+     with self.assertRaises(ValueError): analyze(b)
+ def test_event_difference_overflow_rejected(self):
+  b=copy.deepcopy(SAMPLE)
+  b["events"][0].update(actual=1e308, consensus=-1e308)
+  with self.assertRaises(ValueError): analyze(b)
+ def test_event_large_integer_rejected_cleanly(self):
+  b=copy.deepcopy(SAMPLE); b["events"][0]["actual"]=10**400
+  with self.assertRaises(ValueError): analyze(b)
+ def test_event_zero_and_negative_values_retained(self):
+  b=copy.deepcopy(SAMPLE); b["events"][0].update(actual=0, consensus=-1)
+  self.assertEqual(analyze(b)["events"][0]["surprise"], 1.0)
  def test_determinism(self):
   a=analyze(SAMPLE); self.assertEqual(a,analyze(copy.deepcopy(SAMPLE)))
   self.assertAlmostEqual(a["instruments"][0]["rth_return_pct"],2.0408)
@@ -105,3 +121,4 @@ class CoreTests(unittest.TestCase):
   self.assertIsNone(analyze(b)["events"][0]["surprise"])
 
 if __name__=="__main__": unittest.main()
+
