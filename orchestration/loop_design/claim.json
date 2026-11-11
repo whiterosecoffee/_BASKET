@@ -1,0 +1,63 @@
+{
+  "schema": "basket.worker_task@1",
+  "task_id": "B00-232",
+  "spark_id": "B00",
+  "issue": {
+    "number": 232,
+    "url": "https://github.com/whiterosecoffee/_BASKET/issues/232"
+  },
+  "branch": {
+    "name": "work/232-scoped-loop-contracts",
+    "base": "main"
+  },
+  "objective": "Score and refine JSON-first scoped loop contracts with explicit operational boundaries.",
+  "write_paths": [
+    "orchestration/loop_design/**"
+  ],
+  "acceptance": [
+    {
+      "id": "A1",
+      "criterion": "Source-backed score and explicit unknowns",
+      "evidence_class": "source"
+    },
+    {
+      "id": "A2",
+      "criterion": "JSON role cadence checkpoint and selection contracts",
+      "evidence_class": "documentation"
+    },
+    {
+      "id": "A3",
+      "criterion": "Synthetic positive/negative checks and independent review",
+      "evidence_class": "test"
+    },
+    {
+      "id": "A4",
+      "criterion": "Remote scope/head and hosted CI disclosed",
+      "evidence_class": "ci"
+    }
+  ],
+  "dependencies": [
+    {
+      "issue_number": 24,
+      "kind": "source",
+      "blocks_completion": false
+    },
+    {
+      "issue_number": 32,
+      "kind": "source",
+      "blocks_completion": false
+    },
+    {
+      "issue_number": 136,
+      "kind": "source",
+      "blocks_completion": false
+    },
+    {
+      "issue_number": 230,
+      "kind": "source",
+      "blocks_completion": false
+    }
+  ],
+  "claimed_at": null,
+  "state": "building"
+}
