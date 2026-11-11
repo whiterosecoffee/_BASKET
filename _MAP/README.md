@@ -1,0 +1,15 @@
+# _MAP — structured system planning
+
+Owner: B00, [#230](https://github.com/whiterosecoffee/_BASKET/issues/230), `work/230-map-system-planning`. Sole write scope `_MAP/**`; current ownership claim is linked in system.json.
+
+Start with **system.json**: architecture pointers, eight system groups, typed relationships, seven module-review patterns, planning flow, queue read/write contract and explicit coverage gaps. **map.schema.json** describes this local planning document and explains fields; it does not replace shared schemas.
+
+Every new or changed module should check the applicable patterns and report evidence or exceptions in its existing issue/PR. Existing architecture, schema, worker library and domain owners remain authoritative. Shared catalog/AGENTS registration needs additive reconciliation by its existing owner; no shared files are changed here.
+
+The canonical queue remains issue #136. This branch is a dedicated top-level planning lane, not a second task ledger. Read fresh queue state before choosing work; record authorized scoped deltas through the existing controller, preserve unrelated obligations, detect drift and verify readback. The JSON describes this contract; it does **not** implement queue execution.
+
+JSON-first Level 1 remains the priority. PR225, PR227 and PR229 are unmerged candidate references. Existing historical method prose can lag later integration; pinned source presence does not imply present operational acceptance. No seed selected, clone, runtime activation, merge or deployment.
+
+Run `python _MAP/validate.py` for local structure/pointers/coverage checks. For existing boundary regressions: `python -m unittest discover -s orchestration/tests -p 'test_component*.py'`. Checks do not establish full-system semantic completeness. Continue expanding source-backed modules and ports inside this lane, recording gaps and queue receipts rather than claiming universal coverage.
+
+**Rebuild direction:** existing components must be rewritten against a cohesive system. Current source pointers preserve behavior/evidence, not an endorsement of legacy reuse. Define the new contracts and patterns first, then queue scoped replacements and acceptance. Additive top-level design diffs should support new use cases without repeatedly refactoring that new design; they do not exempt old components from rewrite. No source is deleted by this planning increment.
