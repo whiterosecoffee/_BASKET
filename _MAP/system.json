@@ -463,12 +463,16 @@
     "validation_needed": [
       "Actual guarded read/write adapter tests under existing queue owner",
       "Concurrent edit, duplicate, denied action, uncertain write and unchanged-repeat proof"
-    ]
+    ],
+    "prior_operator_receipt": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6539423865",
+    "prior_receipt_scope": "Historical operator-mediated bridge proof, not current autonomous execution. Re-read original receipt and current source before using its claims.",
+    "next_bounded_trace": "After AM1 qualification, inspect historical bridge receipt and design deterministic stale-claim, duplicate-result and uncertain-write cases; do not perform real queue writes from the experiment."
   },
   "coverage": {
     "complete": false,
     "basis": "Eight existing queue groups are represented by pointers, not exhaustive component/schema/port enumeration.",
     "next": [
+      "Independently qualify AM1 nested boundary and archive experiment, then choose the next intent-linked missing contract.",
       "Reconcile conflicting project instructions by intent with #201 owner; define archive-backed microtests before replacement work.",
       "Expand each group with source-resolved existing module pointers and field notes",
       "Use PR225 inventory and PR229 relationships as evidence to identify rewrite scope; validate all proposed replacements against cohesive patterns.",
@@ -1007,7 +1011,8 @@
         "input": "An observation beyond its declared lifetime",
         "expected": "Clean design retains historical truth but rejects current-use qualification",
         "difference_class": "preserve_required_behavior",
-        "execution": "not_run"
+        "execution": "executed_offline_microtest",
+        "evidence_ref": "microtests/freshness/evidence.json"
       },
       {
         "id": "AM2",
@@ -1043,7 +1048,7 @@
       "Clean implementation microtest checks current admitted intent",
       "Independent comparison classifies intentional differences and unresolved regressions"
     ],
-    "execution_status": "design_cases_only; no archived behavior replay or clean component implementation executed here",
+    "execution_status": "AM1 has seven executed offline cases against pinned archived schema/runtime and a separate test model, four malformed-input rejections and three invalid-output rejections; AM2-AM4 remain design-only. No rewritten production component.",
     "exit_gate": "Every selected replacement has at least one useful outcome case and one relevant rejection case; every old/new difference has an intent-linked disposition. Scope remains bounded, not universal equivalence."
   }
 }

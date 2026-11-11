@@ -1,0 +1,115 @@
+{
+  "contradictory_outputs_rejected": 2,
+  "evidence_class": "executed_offline_microtest",
+  "results": [
+    {
+      "id": "fresh",
+      "archived_schema": "accepts_shape",
+      "archived_runtime_state": "fresh",
+      "test_model_result": {
+        "state": "fresh",
+        "eligible_current": true,
+        "historical_source_preserved": true
+      },
+      "difference_class": "preserve_required_behavior"
+    },
+    {
+      "id": "expiry_boundary",
+      "archived_schema": "accepts_shape",
+      "archived_runtime_state": "stale",
+      "test_model_result": {
+        "state": "stale",
+        "eligible_current": false,
+        "historical_source_preserved": true
+      },
+      "difference_class": "preserve_required_behavior"
+    },
+    {
+      "id": "expired_claims_fresh",
+      "archived_schema": "accepts_shape",
+      "archived_runtime_state": "stale",
+      "test_model_result": {
+        "state": "stale",
+        "eligible_current": false,
+        "historical_source_preserved": true
+      },
+      "difference_class": "intended_correction"
+    },
+    {
+      "id": "future_availability",
+      "archived_schema": "accepts_shape",
+      "archived_runtime_state": "unavailable",
+      "test_model_result": {
+        "state": "unavailable",
+        "eligible_current": false,
+        "historical_source_preserved": true
+      },
+      "difference_class": "preserve_required_behavior"
+    },
+    {
+      "id": "future_observation",
+      "archived_schema": "accepts_shape",
+      "archived_runtime_state": "conflicted",
+      "test_model_result": {
+        "state": "conflicted",
+        "eligible_current": false,
+        "historical_source_preserved": true
+      },
+      "difference_class": "preserve_required_behavior"
+    },
+    {
+      "id": "missing_value",
+      "archived_schema": "accepts_shape",
+      "archived_runtime_state": "unavailable",
+      "test_model_result": {
+        "state": "unavailable",
+        "eligible_current": false,
+        "historical_source_preserved": true
+      },
+      "difference_class": "preserve_required_behavior"
+    },
+    {
+      "id": "future_observation_missing_value",
+      "archived_schema": "accepts_shape",
+      "archived_runtime_state": "conflicted",
+      "test_model_result": {
+        "state": "conflicted",
+        "eligible_current": false,
+        "historical_source_preserved": true
+      },
+      "difference_class": "preserve_required_behavior"
+    }
+  ],
+  "negative_inputs_rejected": [
+    "missing_source",
+    "negative_ttd",
+    "naive_as_of",
+    "bad_observed"
+  ],
+  "invalid_output_rejected": true,
+  "archive_hashes_verified": true,
+  "source_mutation": false,
+  "not_claimed": [
+    "production component",
+    "general nested workflow execution",
+    "provider qualification",
+    "queue write"
+  ],
+  "experiment_files": {
+    "payload.schema.json": "122c633c3204e977d488258f1b4a552c653b03851ad4f02f11d6086decbb709b",
+    "cases.json": "8b8dc59d72b81d0a9da17c33a51df245218ff54399d2108874b0411789b39591",
+    "contract.json": "f71048c4dafc56c883a4d0134b3d9178c2fea4c785e63bbc5135f0b70d4a7691",
+    "run.py": "7033ad1c8efee3821144819ab4a52678a55b4d3f1a004d4704acaca4d316cc46"
+  },
+  "note": "Historical local result; rerun run.py to verify. Source references identify immutable old behavior, not production adoption.",
+  "review_history": [
+    {
+      "finding": "Output schema accepted stale/eligible=true and fresh/eligible=false",
+      "disposition": "Added state/eligibility conditional invariant and two negative tests; rerun rejects both."
+    },
+    {
+      "finding": "Combined future observation/missing value had untested precedence difference",
+      "disposition": "Specified intended precedence, added seventh fixture and corrected local model; observed archived/runtime test-model outcome is conflicted."
+    }
+  ]
+}
