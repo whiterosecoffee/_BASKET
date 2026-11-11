@@ -1,0 +1,167 @@
+{
+  "record_type": "virtual_design_scenarios",
+  "model_ref": {
+    "ref": "model.json",
+    "sha256": "cdbf13aaff28dc5ca3169f2e62f81b0f62ed816fbf9157ad8cc14efc60c84250"
+  },
+  "scenarios": [
+    {
+      "scenario_id": "success",
+      "input_class": "synthetic_fixture",
+      "task": {
+        "schema": "basket.worker_task@1",
+        "task_id": "B00-226",
+        "spark_id": "B00",
+        "issue": {
+          "number": 226,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/226"
+        },
+        "branch": {
+          "name": "work/226-json-virtual-workflow",
+          "base": "main"
+        },
+        "objective": "Synthetic task-shaped fixture for virtual drafting only; not the actual task claim.",
+        "write_paths": [
+          "architecture/virtual_design/intake_worker_review/**"
+        ],
+        "acceptance": [
+          {
+            "id": "A1",
+            "criterion": "Synthetic review checks task identity and draft reference only.",
+            "evidence_class": "documentation"
+          }
+        ],
+        "dependencies": [],
+        "claimed_at": null,
+        "state": "claimed",
+        "note": "Synthetic specimen. Does not authorize or claim real work on issue 226."
+      },
+      "simulated_authorization": "allowed",
+      "actors": {
+        "author": "actor-a",
+        "reviewer": "actor-b"
+      },
+      "draft_fixture": {
+        "ref": "synthetic-draft.json",
+        "sha256": "2dfd7acacbbd6c0de0cac0cb231c3cdcba4daa230da2dc00141412c473c7e2d7"
+      },
+      "expected": {
+        "task_schema_valid": true,
+        "terminal_state": "virtually_accepted",
+        "error_code": null,
+        "draft_emitted": true,
+        "external_effect_count": 0
+      },
+      "coverage_limit": "Assertions are design expectations, not actual modeled execution."
+    },
+    {
+      "scenario_id": "missing",
+      "input_class": "synthetic_fixture",
+      "task": null,
+      "simulated_authorization": "allowed",
+      "actors": {
+        "author": "actor-a",
+        "reviewer": "actor-b"
+      },
+      "draft_fixture": null,
+      "expected": {
+        "task_schema_valid": null,
+        "terminal_state": "blocked",
+        "error_code": "missing_task",
+        "draft_emitted": false,
+        "external_effect_count": 0
+      },
+      "coverage_limit": "Assertions are design expectations, not actual modeled execution."
+    },
+    {
+      "scenario_id": "invalid",
+      "input_class": "synthetic_fixture",
+      "task": {
+        "schema": "basket.worker_task@1",
+        "task_id": "B00-226",
+        "spark_id": "B00",
+        "issue": {
+          "number": 226,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/226"
+        },
+        "branch": {
+          "name": "work/226-json-virtual-workflow",
+          "base": "main"
+        },
+        "objective": "Synthetic task-shaped fixture for virtual drafting only; not the actual task claim.",
+        "write_paths": "not-an-array",
+        "acceptance": [
+          {
+            "id": "A1",
+            "criterion": "Synthetic review checks task identity and draft reference only.",
+            "evidence_class": "documentation"
+          }
+        ],
+        "dependencies": [],
+        "claimed_at": null,
+        "state": "claimed",
+        "note": "Synthetic specimen. Does not authorize or claim real work on issue 226."
+      },
+      "simulated_authorization": "allowed",
+      "actors": {
+        "author": "actor-a",
+        "reviewer": "actor-b"
+      },
+      "draft_fixture": null,
+      "expected": {
+        "task_schema_valid": false,
+        "terminal_state": "rejected",
+        "error_code": "invalid_task",
+        "draft_emitted": false,
+        "external_effect_count": 0
+      },
+      "coverage_limit": "Assertions are design expectations, not actual modeled execution."
+    },
+    {
+      "scenario_id": "denied",
+      "input_class": "synthetic_fixture",
+      "task": {
+        "schema": "basket.worker_task@1",
+        "task_id": "B00-226",
+        "spark_id": "B00",
+        "issue": {
+          "number": 226,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/226"
+        },
+        "branch": {
+          "name": "work/226-json-virtual-workflow",
+          "base": "main"
+        },
+        "objective": "Synthetic task-shaped fixture for virtual drafting only; not the actual task claim.",
+        "write_paths": [
+          "architecture/virtual_design/intake_worker_review/**"
+        ],
+        "acceptance": [
+          {
+            "id": "A1",
+            "criterion": "Synthetic review checks task identity and draft reference only.",
+            "evidence_class": "documentation"
+          }
+        ],
+        "dependencies": [],
+        "claimed_at": null,
+        "state": "claimed",
+        "note": "Synthetic specimen. Does not authorize or claim real work on issue 226."
+      },
+      "simulated_authorization": "denied",
+      "actors": {
+        "author": "actor-a",
+        "reviewer": "actor-b"
+      },
+      "draft_fixture": null,
+      "expected": {
+        "task_schema_valid": true,
+        "terminal_state": "blocked",
+        "error_code": "authorization_not_granted",
+        "draft_emitted": false,
+        "external_effect_count": 0
+      },
+      "coverage_limit": "Assertions are design expectations, not actual modeled execution."
+    }
+  ]
+}

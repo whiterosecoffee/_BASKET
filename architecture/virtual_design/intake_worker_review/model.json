@@ -1,0 +1,355 @@
+{
+  "record_type": "virtual_design_model",
+  "model_id": "design.intake_worker_review",
+  "version": "0.1.0",
+  "status": "proposed",
+  "evidence_class": "design_specification",
+  "purpose": "Explore nested intake → worker → independent review using JSON records and explicit rules before building functionality.",
+  "scope": {
+    "owner_issue": 226,
+    "canonical_queue_issue": 136,
+    "discovery_pr": 225,
+    "source_baseline": "74d913e8913d630d85451344689e093aeea07efc",
+    "runtime": "assistant_interpreted_only",
+    "real_external_effects_allowed": false,
+    "production_qualification": "not_established"
+  },
+  "authority": "This specimen is not the queue, role registry, permissions source or executable worker protocol. Existing authorities remain authoritative. Synthetic approval only controls hypothetical transitions.",
+  "source_refs": {
+    "task_schema": {
+      "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-task.v1.json",
+      "sha256": "fd89076d70986d5cb078b45d6de34c332433916249ba3254cfbaa7394a9b7429",
+      "repository_path": "schemas/worker-task.v1.json",
+      "source_commit": "74d913e8913d630d85451344689e093aeea07efc"
+    },
+    "resolution_schema": {
+      "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-resolution.v1.json",
+      "sha256": "a28307ac6abd3151d6a689aaa0ec6ccb78da902f361f357fd118418ec2325445",
+      "repository_path": "schemas/worker-resolution.v1.json",
+      "source_commit": "74d913e8913d630d85451344689e093aeea07efc"
+    },
+    "boundary_schema": {
+      "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/component-blackbox.v1.json",
+      "sha256": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc",
+      "repository_path": "schemas/component-blackbox.v1.json",
+      "source_commit": "74d913e8913d630d85451344689e093aeea07efc"
+    },
+    "worker_protocol": {
+      "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/WORKER_PROTOCOL.md",
+      "sha256": "667887a1dd8bb04f44219567367d34208968329d915399145ba15724ac77baf7",
+      "repository_path": "orchestration/WORKER_PROTOCOL.md",
+      "source_commit": "74d913e8913d630d85451344689e093aeea07efc"
+    },
+    "worker_library": {
+      "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/planner/worker-library.json",
+      "sha256": "9e2886866e5603b0f4b38967db39308b621dd1e48f62fc0a6cece99a75fc689d",
+      "repository_path": "orchestration/planner/worker-library.json",
+      "source_commit": "74d913e8913d630d85451344689e093aeea07efc"
+    },
+    "authority": {
+      "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/AGENTS.md",
+      "sha256": "69181a7171a76c9c6af9c6144d56e665c7520d1728dba4cf458e1ee0fa1102e3",
+      "repository_path": "AGENTS.md",
+      "source_commit": "74d913e8913d630d85451344689e093aeea07efc"
+    }
+  },
+  "identity_rules": {
+    "component_ids": "Definitions identified once; instances refer to definitions. IDs here are specimen-local, not new canonical library IDs.",
+    "instance_ids": "Unique per virtual model; shared SFUs use references rather than copied definitions.",
+    "containment": "Responsibility and ownership, not scheduling. No containment cycles.",
+    "dataflow": "Named output-to-input edges; no implicit field mapping.",
+    "versions": "Model version is distinct from referenced schema, contract, source and future seed versions."
+  },
+  "payload_contracts": {
+    "task": {
+      "kind": "existing_schema",
+      "source_ref": "task_schema",
+      "schema_identity": "basket.worker_task@1"
+    },
+    "artifact": {
+      "kind": "existing_definition",
+      "source_ref": "boundary_schema",
+      "json_pointer": "/$defs/artifact_ref"
+    },
+    "review": {
+      "kind": "local_provisional_schema",
+      "not_a_shared_contract": true,
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "status",
+          "reason",
+          "evidence_class"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "virtually_accepted",
+              "blocked",
+              "rejected"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_class": {
+            "const": "assistant_simulated"
+          }
+        }
+      }
+    }
+  },
+  "definitions": [
+    {
+      "id": "workflow",
+      "kind": "composition",
+      "owner_role": "coordinator",
+      "ports": {
+        "inputs": {},
+        "outputs": {}
+      },
+      "effects": []
+    },
+    {
+      "id": "intake",
+      "kind": "capability",
+      "owner_role": "coordinator",
+      "ports": {
+        "inputs": {
+          "request": "task"
+        },
+        "outputs": {
+          "accepted_task": "task"
+        }
+      },
+      "effects": []
+    },
+    {
+      "id": "worker",
+      "kind": "composition",
+      "owner_role": "author",
+      "ports": {
+        "inputs": {
+          "task": "task"
+        },
+        "outputs": {
+          "draft": "artifact"
+        }
+      },
+      "effects": [
+        "hypothetical draft construction only"
+      ]
+    },
+    {
+      "id": "prepare",
+      "kind": "sfu",
+      "owner_role": "author",
+      "ports": {
+        "inputs": {
+          "task": "task"
+        },
+        "outputs": {
+          "draft": "artifact"
+        }
+      },
+      "effects": [
+        "hypothetical draft construction only"
+      ]
+    },
+    {
+      "id": "review",
+      "kind": "capability",
+      "owner_role": "independent_reviewer",
+      "ports": {
+        "inputs": {
+          "draft": "artifact",
+          "task": "task"
+        },
+        "outputs": {
+          "verdict": "review"
+        }
+      },
+      "effects": []
+    }
+  ],
+  "instances": [
+    {
+      "id": "flow",
+      "definition_id": "workflow",
+      "parent_id": null
+    },
+    {
+      "id": "intake-1",
+      "definition_id": "intake",
+      "parent_id": "flow"
+    },
+    {
+      "id": "worker-1",
+      "definition_id": "worker",
+      "parent_id": "flow"
+    },
+    {
+      "id": "prepare-1",
+      "definition_id": "prepare",
+      "parent_id": "worker-1"
+    },
+    {
+      "id": "review-1",
+      "definition_id": "review",
+      "parent_id": "flow"
+    }
+  ],
+  "dataflow": [
+    {
+      "id": "e1",
+      "from": {
+        "instance": "intake-1",
+        "port": "accepted_task"
+      },
+      "to": {
+        "instance": "worker-1",
+        "port": "task"
+      },
+      "contract": "task"
+    },
+    {
+      "id": "e2",
+      "from": {
+        "instance": "worker-1",
+        "port": "draft"
+      },
+      "to": {
+        "instance": "review-1",
+        "port": "draft"
+      },
+      "contract": "artifact"
+    },
+    {
+      "id": "e3",
+      "from": {
+        "instance": "intake-1",
+        "port": "accepted_task"
+      },
+      "to": {
+        "instance": "review-1",
+        "port": "task"
+      },
+      "contract": "task"
+    }
+  ],
+  "delegation_bindings": [
+    {
+      "parent_instance": "worker-1",
+      "child_instance": "prepare-1",
+      "parent_input": "task",
+      "child_input": "task",
+      "child_output": "draft",
+      "parent_output": "draft",
+      "rule": "R4"
+    }
+  ],
+  "states": [
+    "received",
+    "blocked",
+    "rejected",
+    "admitted",
+    "drafted",
+    "virtually_accepted"
+  ],
+  "rules": [
+    {
+      "id": "R1",
+      "from": "received",
+      "to": "blocked",
+      "condition": "Task input absent.",
+      "code": "missing_task",
+      "precedence": 1,
+      "output": "No admitted task or draft; retain diagnostic."
+    },
+    {
+      "id": "R2",
+      "from": "received",
+      "to": "rejected",
+      "condition": "Task present but fails the pinned existing worker-task schema.",
+      "code": "invalid_task",
+      "precedence": 2,
+      "output": "No admitted task or draft; retain schema error path."
+    },
+    {
+      "id": "R3",
+      "from": "received",
+      "to": "blocked",
+      "condition": "Task valid but simulated authorization is denied or unknown.",
+      "code": "authorization_not_granted",
+      "precedence": 3,
+      "output": "No worker delegation, draft or external effects."
+    },
+    {
+      "id": "R4",
+      "from": "received",
+      "to": "admitted",
+      "condition": "Task valid and simulated authorization is allowed.",
+      "code": null,
+      "precedence": 4,
+      "output": "Bind unchanged task on e1 and e3; delegate worker input to prepare SFU."
+    },
+    {
+      "id": "R5",
+      "from": "admitted",
+      "to": "drafted",
+      "condition": "Synthetic draft fixture is supplied and its actual bytes match the artifact reference.",
+      "code": null,
+      "precedence": 5,
+      "output": "Bubble prepare output through worker boundary on e2. Missing/mismatched fixture blocks with no draft."
+    },
+    {
+      "id": "R6",
+      "from": "drafted",
+      "to": "virtually_accepted",
+      "condition": "Different simulated author/reviewer actors, pinned task match and synthetic review criteria satisfied.",
+      "code": null,
+      "precedence": 6,
+      "output": "Assistant-simulated verdict only; no component_verified, integrated or live claims. Failed review blocks and preserves diagnostics."
+    }
+  ],
+  "invariants": [
+    "Never bypass earlier rejection/denial with later rules.",
+    "Missing, invalid or denied input produces no draft and no success verdict.",
+    "No external effects in any scenario.",
+    "Reviewer actor differs from author actor; role names alone do not prove actual independence.",
+    "Every simulated trace names its rule and evidence class.",
+    "Existing task-schema validity proves shape only, not ownership, live issue state, permissions or completed work.",
+    "Artifact hash proves fixture bytes, not an executed worker."
+  ],
+  "seed_options": {
+    "selected_seed": null,
+    "status": "deferred_until_shape_review",
+    "existing_candidate": "https://github.com/whiterosecoffee/_BASKET/pull/135",
+    "reason": "Reference existing Copier owner; no generator or legacy import in this specimen."
+  },
+  "review_criteria": [
+    "C1 task identity is preserved across the three children.",
+    "C2 draft reference resolves to the labelled synthetic fixture bytes.",
+    "C3 author and reviewer actors differ in scenario metadata.",
+    "C4 simulated verdict makes no real execution or integration claim."
+  ],
+  "known_gaps": [
+    "The top-level model/scenario/trace shapes are provisional and not a new shared schema family.",
+    "No domain algorithms, real worker launch, external effects, scheduling, retry/concurrency semantics or performance tests.",
+    "No actual component call/result exchange is claimed; this design maps the existing task and artifact definitions only.",
+    "Four fixtures do not prove general correctness or exhaust the rule space. R5 missing/mismatched draft and R6 failed-review branches are specified in prose only; explicit transition/fixture coverage is deferred.",
+    "Actual independent review is separate from the simulated reviewer actor."
+  ],
+  "validation_recipe": [
+    "Parse all JSON strictly, rejecting duplicate keys and nonfinite values.",
+    "Check unique IDs, existing parents, acyclic containment and matching named ports/contracts.",
+    "Verify source references against pinned repository bytes and resolve JSON Pointer fragments locally.",
+    "Validate nonmissing scenario task payloads with the existing worker-task schema and explicit date-time checker; invalid fixture must fail.",
+    "Validate draft references with component-blackbox artifact_ref and local review verdicts with the provisional review schema.",
+    "Compare traces against fixture expectations; this is consistency checking, not execution of the modeled worker.",
+    "Run existing focused black-box and component-conformance regressions unchanged."
+  ]
+}
