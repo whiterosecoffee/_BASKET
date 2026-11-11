@@ -1,0 +1,885 @@
+{
+  "version": "0.1.0",
+  "status": "provisional_parallel_design",
+  "evidence_class": "design_specification",
+  "owner_issue": 228,
+  "canonical_queue_issue": 136,
+  "authority": "Read-only projection, not a queue, registry, permission grant, shared schema or executable runtime. Existing source authorities remain authoritative.",
+  "upstream_acceptance": "L1 prerequisites and broader L1 completion are not established by this bounded specimen.",
+  "record_type": "relationship_projection",
+  "requirements_ref": {
+    "ref": "requirements.json",
+    "sha256": "ca08a11cbd273b8ac11cf50f1116d81c56c21441fe0c41067af36aac2a3cdb1c"
+  },
+  "indexed_groups": [
+    {
+      "id": "architecture/PROJECT_MAP.md",
+      "category": "Project",
+      "display_name": "_BASKET / MRIE",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "architecture/PROJECT_MAP.md",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/PROJECT_MAP.md",
+            "sha256": "e0a999d72dc0a543607abf3e1834ff4d5172946511285c25b9053f3bd51a3e99"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "architecture/BRANCH_PLAN.md",
+      "category": "Architecture",
+      "display_name": "Composition and ownership map",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "architecture/BRANCH_PLAN.md",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/BRANCH_PLAN.md",
+            "sha256": "71fcf189e3a942dee2e8ae3689b59bc61c839a88d986b8c3404f33459e7d4137"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "architecture/basket.architecture.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/basket.architecture.json",
+            "sha256": "160cac001a74cdc2008061585a8f14255d1e05d22ff10439ac1466e0fdc755eb"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "architecture/BLOCK_ENGINEERING_METHOD.md",
+      "category": "Methodology",
+      "display_name": "Block engineering and adoption",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "architecture/BLOCK_ENGINEERING_METHOD.md",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/BLOCK_ENGINEERING_METHOD.md",
+            "sha256": "0bb06277ae37a627918d227a44cebb1080e7699224d799ad8cfee48d4e032ebe"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "architecture/COMPONENT_QUICKSTART.md",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/COMPONENT_QUICKSTART.md",
+            "sha256": "0544cb6b486ef69d91a2a80c50c4339677c50a0e03a3e1dceff2839db56079fa"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "architecture/BLACK_BOX_COMPONENT_CONTRACT.md",
+      "category": "Contracts",
+      "display_name": "Black-box boundary",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "architecture/BLACK_BOX_COMPONENT_CONTRACT.md",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/BLACK_BOX_COMPONENT_CONTRACT.md",
+            "sha256": "3bc783880f8006a7cf8e517aff6dee228083ca012481ee906f453ad04e7d119f"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "schemas/component-blackbox.v1.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/component-blackbox.v1.json",
+            "sha256": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "schemas/entity.v1.json",
+      "category": "Schemas",
+      "display_name": "Canonical data contracts",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "schemas/entity.v1.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/entity.v1.json",
+            "sha256": "d6d081d7d75a8dbf5333d02663ab7eb432eaa259a7eeadc777b0a7c0394e232b"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "schemas/events.v1.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/events.v1.json",
+            "sha256": "e806567094afd42753381da973a86301c60f60fb7f9e229b5ba5604b2f93792b"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "schemas/relationships.v1.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/relationships.v1.json",
+            "sha256": "69134e939b162f54c905015002172f94cfb81ff2dc2e92daa1ed305077ac588a"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "schemas/history/market.daily.v1.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/history/market.daily.v1.json",
+            "sha256": "fc1a9e7e2c7dc59f6a66463b08548b87c309fdb949e39978a43659754e04851b"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "schemas/freshness.v1.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/freshness.v1.json",
+            "sha256": "2790109582aede988f5c57384b9684d973e417de66a99d1f160d1639409b7214"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "orchestration/WORKER_PROTOCOL.md",
+      "category": "Contracts",
+      "display_name": "Worker lifecycle and evidence",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "orchestration/WORKER_PROTOCOL.md",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/WORKER_PROTOCOL.md",
+            "sha256": "667887a1dd8bb04f44219567367d34208968329d915399145ba15724ac77baf7"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "schemas/worker-task.v1.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-task.v1.json",
+            "sha256": "fd89076d70986d5cb078b45d6de34c332433916249ba3254cfbaa7394a9b7429"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "schemas/worker-resolution.v1.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-resolution.v1.json",
+            "sha256": "a28307ac6abd3151d6a689aaa0ec6ccb78da902f361f357fd118418ec2325445"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "schemas/worker-evidence.v1.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-evidence.v1.json",
+            "sha256": "c7333111c28b1c2271e481ccd60a0d4397305931fc8a7d00b363cd7260949efb"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "orchestration/planner/worker-library.json",
+      "category": "Workers",
+      "display_name": "Reusable capability/profile/recipe library",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "orchestration/planner/worker-library.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/planner/worker-library.json",
+            "sha256": "9e2886866e5603b0f4b38967db39308b621dd1e48f62fc0a6cece99a75fc689d"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "orchestration/planner/worker-scopes.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/planner/worker-scopes.json",
+            "sha256": "fa353605713b062af5aa954c25d5772a864823f3506ed38ed18ace0363fea98e"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "orchestration/sparks.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/sparks.json",
+            "sha256": "6cd07104ad2d643b10cfade22283e3916d68ec963f0264782a94810017871f0f"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "orchestration/planner.py",
+      "category": "Tools",
+      "display_name": "Planner and evidence reader",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "orchestration/planner.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/planner.py",
+            "sha256": "409828e9b3ea8042a943d84611b8e4883b35d361b132dedcb6ec654dfaf8c6dc"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "orchestration/github_snapshot.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/github_snapshot.py",
+            "sha256": "eb234480f2d0bfbe9c1a61a2a59d20c3a61feaa5035a96c1a17bc8afe1149e33"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "orchestration/planner/queue.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/planner/queue.json",
+            "sha256": "3aee9b2fa824d33ff7dc02eda0f3eb539f0171f316adc49d68cb3e82507bcd76"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "orchestration/progress_tracker.py",
+      "category": "Tools",
+      "display_name": "Progress reporting",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "orchestration/progress_tracker.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/progress_tracker.py",
+            "sha256": "a2fa4ff1ae9a54693938d9c1f88915807aadd4f0a30ac0a31ee998039f1b7eab"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "schemas/progress-report.v1.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/progress-report.v1.json",
+            "sha256": "e424818a23c4c8dfbd83ad5c50759324c79e6ed63f63f5ed43f4317878e6cb58"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "orchestration/agentic/manager.py",
+      "category": "Tools",
+      "display_name": "Agentic controller and worker bridge",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "orchestration/agentic/manager.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/agentic/manager.py",
+            "sha256": "ef6807803d9dca7fc58a596d8c613bcf8dbeae578c74a4a41d45ec3551689487"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "orchestration/agentic/dependency_gate.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/agentic/dependency_gate.py",
+            "sha256": "b4d03b85a5e476a6f2f52a9acc66bf38ac3303ba480b250fe9bece4c7984d38a"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "orchestration/worker_bridge/bridge.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/worker_bridge/bridge.py",
+            "sha256": "a7efa85ee82db5a4c7518d9afa39116728ad95e81269c69c011b4fdf1056f81d"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "runtime/observations.py",
+      "category": "Data",
+      "display_name": "Observation journal, replay and TTD",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "runtime/observations.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/runtime/observations.py",
+            "sha256": "d0849f2907771f1dfc28594e41f291cbe6530eb80c0a9e1f9235efb9af16bd6a"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "runtime/ttd.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/runtime/ttd.py",
+            "sha256": "cd04a0e62dd392cab867381497e3dfaa99a56f27acdbeb5de614b4f4d375d871"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "runtime/ticker_data.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/runtime/ticker_data.py",
+            "sha256": "a2473507b247eb69246edd7efd5a67bdfa301b22b3382db434cc81696c715952"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "runtime/TICKER_DATA.md",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/runtime/TICKER_DATA.md",
+            "sha256": "7d386b75f2cf5a75b3104824c86cc335713a84fd56f9fba5163962799bd22d2b"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "runtime/feeds.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/runtime/feeds.json",
+            "sha256": "6ff4fbc7b7fc9340c9be00fbdb9ea6ccff1b169a4823b001db3b7c76056f231f"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "tickers/SFTBY/entity.json",
+      "category": "Data",
+      "display_name": "Issuer records and relationships",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "tickers/SFTBY/entity.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/tickers/SFTBY/entity.json",
+            "sha256": "defcb274d83d6653a64a58f5e85426ca8b08ba0b5d69905b510b5e0c3f6957b7"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "tickers/SFTBY/events.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/tickers/SFTBY/events.json",
+            "sha256": "d096ce22658de39c9939bc566e24306b5cfaed295565861fdceb32b1c35861b5"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "tickers/SFTBY/relationships.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/tickers/SFTBY/relationships.json",
+            "sha256": "16642367e1575c283f52554da68ca1d07408feb394a44afe6f50e7654d62dc2e"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "engines/traversal/metrics.py",
+      "category": "Tools",
+      "display_name": "Traversal metrics",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "engines/traversal/metrics.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/engines/traversal/metrics.py",
+            "sha256": "1887093987ee40919b1ad852a2397d54ae5973c80cc1019ca0d02d859e0ca1f2"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "engines/traversal/tests/test_metrics.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/engines/traversal/tests/test_metrics.py",
+            "sha256": "158635e931e880211227b5466acc0c72c14350d6376c9dfe0160f65821cf70c3"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "engines/composites/market_context/context.py",
+      "category": "Tools",
+      "display_name": "Market context",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "engines/composites/market_context/context.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/engines/composites/market_context/context.py",
+            "sha256": "6c27025681566b5c6a101402f708bedb79ba1d20c1db9d2ffe6e6bf6f1c459d2"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "engines/composites/market_context/policy.v1.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/engines/composites/market_context/policy.v1.json",
+            "sha256": "f8b653e9696b2b6b8dc270eb93bd76752f4c5be5942aab498cc9cbdd17a0da67"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "engines/narrative/engine.py",
+      "category": "Tools",
+      "display_name": "Narrative falsification",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "engines/narrative/engine.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/engines/narrative/engine.py",
+            "sha256": "e60648113f4e7271067dce5dd150bf2ac6f458c133ad59e468ca78b56ff84dd1"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "engines/narrative/README.md",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/engines/narrative/README.md",
+            "sha256": "812b1f9ec02f0fc5a403a13debd0dba2a4a22dacb8702a2996166ddfecf6acc3"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "orchestration/tests/test_component_conformance.py",
+      "category": "Templates",
+      "display_name": "Boundary specimen and worker examples",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "orchestration/tests/test_component_conformance.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/tests/test_component_conformance.py",
+            "sha256": "24d3be8d497fd7efc88313b02b5a1b33a7b2cf32e0d89569001acb6696217cb7"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "orchestration/examples/B05.task.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/examples/B05.task.json",
+            "sha256": "5d19b5c68cea2328e8112e0fa60f9adecf0bca810aa23edadc2fc5d0cdfc181b"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        },
+        {
+          "repository_path": "orchestration/examples/B05.resolution.json",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/examples/B05.resolution.json",
+            "sha256": "f3aaacb7b300eedf53f67540efb48dfc107ff018ef9799fd541927357d11efe9"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    },
+    {
+      "id": "tests/validate_stores.py",
+      "category": "Tools",
+      "display_name": "Independent acceptance and store validation",
+      "identity_basis": "canonical repository path, not a new registered ID",
+      "sources": [
+        {
+          "repository_path": "tests/validate_stores.py",
+          "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "artifact": {
+            "ref": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/tests/validate_stores.py",
+            "sha256": "5a475e646be14cb3ebf78fd1a438cdb9da0055bc48ae493697d95b2f4b4d7b03"
+          },
+          "access": "public_repository",
+          "resolution": "bytes_verified",
+          "operational_state": "not_established"
+        }
+      ],
+      "ports": null,
+      "reason": "Inventory pointer only; source presence is not an executable interface."
+    }
+  ],
+  "relationship_kinds": {
+    "containment": "One state/effect owner per child; not execution order.",
+    "dependency": "Availability/version prerequisite; does not imply containment.",
+    "dataflow": "Named producer output to consumer input with explicit binding.",
+    "definition_reference": "Multiple instances refer to one definition; no cloned shared algorithm."
+  },
+  "definitions": [
+    {
+      "id": "research",
+      "kind": "composition",
+      "state_owner": "coordinator",
+      "effects": [],
+      "ports": {
+        "inputs": [
+          "request"
+        ],
+        "outputs": [
+          "proposal"
+        ]
+      },
+      "evidence_class": "proposed_interface_not_implemented"
+    },
+    {
+      "id": "data",
+      "kind": "capability",
+      "state_owner": "source_owner",
+      "effects": [],
+      "ports": {
+        "inputs": [
+          "request"
+        ],
+        "outputs": [
+          "evidence"
+        ]
+      },
+      "evidence_class": "proposed_interface_not_implemented"
+    },
+    {
+      "id": "analysis",
+      "kind": "capability",
+      "state_owner": "analyst",
+      "effects": [],
+      "ports": {
+        "inputs": [
+          "evidence"
+        ],
+        "outputs": [
+          "options"
+        ]
+      },
+      "evidence_class": "proposed_interface_not_implemented"
+    },
+    {
+      "id": "report",
+      "kind": "capability",
+      "state_owner": "author",
+      "effects": [],
+      "ports": {
+        "inputs": [
+          "options"
+        ],
+        "outputs": [
+          "proposal"
+        ]
+      },
+      "evidence_class": "proposed_interface_not_implemented"
+    },
+    {
+      "id": "resolve_validate",
+      "kind": "sfu",
+      "state_owner": "boundary_owner",
+      "effects": [],
+      "ports": {
+        "inputs": [
+          "artifact"
+        ],
+        "outputs": [
+          "validated_artifact"
+        ]
+      },
+      "evidence_class": "proposed_interface_not_implemented"
+    }
+  ],
+  "instances": [
+    {
+      "id": "research-1",
+      "definition_id": "research",
+      "parent_id": null
+    },
+    {
+      "id": "data-1",
+      "definition_id": "data",
+      "parent_id": "research-1"
+    },
+    {
+      "id": "analysis-1",
+      "definition_id": "analysis",
+      "parent_id": "research-1"
+    },
+    {
+      "id": "report-1",
+      "definition_id": "report",
+      "parent_id": "research-1"
+    },
+    {
+      "id": "validate-data",
+      "definition_id": "resolve_validate",
+      "parent_id": "data-1"
+    },
+    {
+      "id": "validate-analysis",
+      "definition_id": "resolve_validate",
+      "parent_id": "analysis-1"
+    }
+  ],
+  "dataflow": [
+    {
+      "id": "evidence-to-analysis",
+      "kind": "dataflow",
+      "from": {
+        "instance": "data-1",
+        "port": "evidence"
+      },
+      "to": {
+        "instance": "analysis-1",
+        "port": "evidence"
+      },
+      "payload": "artifact_ref",
+      "semantic_payload_schema": null,
+      "status": "proposed_binding_requires_domain_schema"
+    },
+    {
+      "id": "options-to-report",
+      "kind": "dataflow",
+      "from": {
+        "instance": "analysis-1",
+        "port": "options"
+      },
+      "to": {
+        "instance": "report-1",
+        "port": "options"
+      },
+      "payload": "artifact_ref",
+      "semantic_payload_schema": null,
+      "status": "proposed_binding_requires_domain_schema"
+    }
+  ],
+  "dependencies": [
+    {
+      "from": "analysis-1",
+      "requires": "data-1",
+      "kind": "dependency",
+      "requirement": "pins"
+    },
+    {
+      "from": "report-1",
+      "requires": "analysis-1",
+      "kind": "dependency",
+      "requirement": "evidence"
+    }
+  ],
+  "delegation": [
+    {
+      "parent": "research-1",
+      "input": "request",
+      "child": "data-1",
+      "child_input": "request"
+    },
+    {
+      "parent": "research-1",
+      "output": "proposal",
+      "child": "report-1",
+      "child_output": "proposal"
+    }
+  ],
+  "shared_sfu_bindings": [
+    {
+      "parent": "data-1",
+      "child": "validate-data",
+      "request": "artifact_ref",
+      "response": "artifact_ref",
+      "failure": "Parent blocks; no validated artifact emitted.",
+      "semantics": "Proposed internal reference resolution only; does not assert real validation execution."
+    },
+    {
+      "parent": "analysis-1",
+      "child": "validate-analysis",
+      "request": "artifact_ref",
+      "response": "artifact_ref",
+      "failure": "Parent blocks; no validated artifact emitted.",
+      "semantics": "Proposed internal reference resolution only; does not assert real validation execution."
+    }
+  ],
+  "failure_policy": "A child failure blocks dependent children and parent proposal. Keep diagnostics and unaffected observations; no automatic fallback, partial success or real effects.",
+  "clone_fetch_boundary": {
+    "clone": "Future authorized seed structure only; no inherited branch authority or private bytes.",
+    "fetch": "Resolve permitted pinned source through existing owner/resolver; never bypass access denial.",
+    "current_execution": "Neither clone nor FETCH is executed here."
+  },
+  "known_gaps": [
+    "Research payload schemas and shared-unit invocation bindings remain owner decisions.",
+    "No scheduling, concurrency, deterministic runtime or domain semantic acceptance.",
+    "All 17 existing groups represented; representative source links do not prove exhaustive inventory."
+  ]
+}

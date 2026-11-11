@@ -1,0 +1,311 @@
+{
+  "version": "0.1.0",
+  "status": "provisional_parallel_design",
+  "evidence_class": "design_specification",
+  "owner_issue": 228,
+  "canonical_queue_issue": 136,
+  "authority": "Read-only projection, not a queue, registry, permission grant, shared schema or executable runtime. Existing source authorities remain authoritative.",
+  "upstream_acceptance": "L1 prerequisites and broader L1 completion are not established by this bounded specimen.",
+  "record_type": "option_scenarios",
+  "options_ref": {
+    "ref": "options.json",
+    "sha256": "04c18761a2bfb3f11732288fff6c89483bd66108bf3bb805717089b6d346994d"
+  },
+  "cases": [
+    {
+      "id": "eligible",
+      "input_class": "synthetic_fixture",
+      "input": {
+        "gates": {
+          "scope_allowed": true,
+          "effect_allowed": true,
+          "source_resolved": true,
+          "contract_compatible": true
+        },
+        "coverage": [
+          "pins",
+          "contracts"
+        ],
+        "cost": "unknown"
+      },
+      "expected": {
+        "eligibility": "eligible",
+        "failed_gate": null,
+        "external_effect_count": 0
+      },
+      "trace": {
+        "evidence_class": "assistant_simulated",
+        "rule": "first non-true hard gate halts; no ranking excluded/unknown candidates",
+        "steps": [
+          {
+            "gate": "scope_allowed",
+            "value": true,
+            "state_after": "pass"
+          },
+          {
+            "gate": "effect_allowed",
+            "value": true,
+            "state_after": "pass"
+          },
+          {
+            "gate": "source_resolved",
+            "value": true,
+            "state_after": "pass"
+          },
+          {
+            "gate": "contract_compatible",
+            "value": true,
+            "state_after": "pass"
+          }
+        ],
+        "outcome": "eligible",
+        "selection": null,
+        "actual_execution": false
+      }
+    },
+    {
+      "id": "denied_scope",
+      "input_class": "synthetic_fixture",
+      "input": {
+        "gates": {
+          "scope_allowed": false,
+          "effect_allowed": true,
+          "source_resolved": true,
+          "contract_compatible": true
+        },
+        "coverage": [
+          "pins",
+          "contracts"
+        ],
+        "cost": "unknown"
+      },
+      "expected": {
+        "eligibility": "excluded",
+        "failed_gate": "scope_allowed",
+        "external_effect_count": 0
+      },
+      "trace": {
+        "evidence_class": "assistant_simulated",
+        "rule": "first non-true hard gate halts; no ranking excluded/unknown candidates",
+        "steps": [
+          {
+            "gate": "scope_allowed",
+            "value": false,
+            "state_after": "excluded"
+          }
+        ],
+        "outcome": "excluded",
+        "selection": null,
+        "actual_execution": false
+      }
+    },
+    {
+      "id": "denied_effect",
+      "input_class": "synthetic_fixture",
+      "input": {
+        "gates": {
+          "scope_allowed": true,
+          "effect_allowed": false,
+          "source_resolved": true,
+          "contract_compatible": true
+        },
+        "coverage": [
+          "pins",
+          "contracts"
+        ],
+        "cost": "unknown"
+      },
+      "expected": {
+        "eligibility": "excluded",
+        "failed_gate": "effect_allowed",
+        "external_effect_count": 0
+      },
+      "trace": {
+        "evidence_class": "assistant_simulated",
+        "rule": "first non-true hard gate halts; no ranking excluded/unknown candidates",
+        "steps": [
+          {
+            "gate": "scope_allowed",
+            "value": true,
+            "state_after": "pass"
+          },
+          {
+            "gate": "effect_allowed",
+            "value": false,
+            "state_after": "excluded"
+          }
+        ],
+        "outcome": "excluded",
+        "selection": null,
+        "actual_execution": false
+      }
+    },
+    {
+      "id": "wrong_hash",
+      "input_class": "synthetic_fixture",
+      "input": {
+        "gates": {
+          "scope_allowed": true,
+          "effect_allowed": true,
+          "source_resolved": false,
+          "contract_compatible": true
+        },
+        "coverage": [
+          "pins",
+          "contracts"
+        ],
+        "cost": "unknown"
+      },
+      "expected": {
+        "eligibility": "excluded",
+        "failed_gate": "source_resolved",
+        "external_effect_count": 0
+      },
+      "trace": {
+        "evidence_class": "assistant_simulated",
+        "rule": "first non-true hard gate halts; no ranking excluded/unknown candidates",
+        "steps": [
+          {
+            "gate": "scope_allowed",
+            "value": true,
+            "state_after": "pass"
+          },
+          {
+            "gate": "effect_allowed",
+            "value": true,
+            "state_after": "pass"
+          },
+          {
+            "gate": "source_resolved",
+            "value": false,
+            "state_after": "excluded"
+          }
+        ],
+        "outcome": "excluded",
+        "selection": null,
+        "actual_execution": false
+      }
+    },
+    {
+      "id": "unknown_contract",
+      "input_class": "synthetic_fixture",
+      "input": {
+        "gates": {
+          "scope_allowed": true,
+          "effect_allowed": true,
+          "source_resolved": true,
+          "contract_compatible": null
+        },
+        "coverage": [
+          "pins",
+          "contracts"
+        ],
+        "cost": "unknown"
+      },
+      "expected": {
+        "eligibility": "blocked_unknown",
+        "failed_gate": "contract_compatible",
+        "external_effect_count": 0
+      },
+      "trace": {
+        "evidence_class": "assistant_simulated",
+        "rule": "first non-true hard gate halts; no ranking excluded/unknown candidates",
+        "steps": [
+          {
+            "gate": "scope_allowed",
+            "value": true,
+            "state_after": "pass"
+          },
+          {
+            "gate": "effect_allowed",
+            "value": true,
+            "state_after": "pass"
+          },
+          {
+            "gate": "source_resolved",
+            "value": true,
+            "state_after": "pass"
+          },
+          {
+            "gate": "contract_compatible",
+            "value": null,
+            "state_after": "blocked_unknown"
+          }
+        ],
+        "outcome": "blocked_unknown",
+        "selection": null,
+        "actual_execution": false
+      }
+    },
+    {
+      "id": "incompatible_contract",
+      "input_class": "synthetic_fixture",
+      "input": {
+        "gates": {
+          "scope_allowed": true,
+          "effect_allowed": true,
+          "source_resolved": true,
+          "contract_compatible": false
+        },
+        "coverage": [
+          "pins",
+          "contracts"
+        ],
+        "cost": "unknown"
+      },
+      "expected": {
+        "eligibility": "excluded",
+        "failed_gate": "contract_compatible",
+        "external_effect_count": 0
+      },
+      "trace": {
+        "evidence_class": "assistant_simulated",
+        "rule": "first non-true hard gate halts; no ranking excluded/unknown candidates",
+        "steps": [
+          {
+            "gate": "scope_allowed",
+            "value": true,
+            "state_after": "pass"
+          },
+          {
+            "gate": "effect_allowed",
+            "value": true,
+            "state_after": "pass"
+          },
+          {
+            "gate": "source_resolved",
+            "value": true,
+            "state_after": "pass"
+          },
+          {
+            "gate": "contract_compatible",
+            "value": false,
+            "state_after": "excluded"
+          }
+        ],
+        "outcome": "excluded",
+        "selection": null,
+        "actual_execution": false
+      }
+    }
+  ],
+  "additional_expectations": [
+    {
+      "id": "all_candidates_excluded",
+      "eligible_count": 0,
+      "expected": "no_suitable_option",
+      "selection": null
+    },
+    {
+      "id": "equal_unknown_cost",
+      "eligible_count": 2,
+      "expected": "needs_decision",
+      "selection": null
+    }
+  ],
+  "coverage_limits": [
+    "Eligibility cases do not implement a ranker.",
+    "Additional expectations are not traced or runtime-tested.",
+    "No actual seed availability, access, permissions or compatibility is inferred from synthetic booleans."
+  ]
+}
