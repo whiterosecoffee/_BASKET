@@ -35,10 +35,10 @@
       "notes": "Exact duplicate collapse; conflicting duplicate rejects entire batch; no coercion, rounding, fill or resampling"
     },
     "verification.partition": {
-      "input": "raw capture + partition + pinned objects contract",
+      "input": "raw capture + partition + exact objects, capture schema and transform/verifier byte identities",
       "output": "basket.verified_partition@1",
       "effects": [],
-      "notes": "Recompute sanitation and hashes; reject incomplete artifact set, source drift, semantic mismatch and receipt edits"
+      "notes": "Recompute sanitation and all identity hashes; reject incomplete artifacts, source drift, semantic mismatch, schema/transform changes and receipt edits. Historical reader selection remains unsupported."
     },
     "access.verified_partition": {
       "input": "source pin + ticker + day + as_of",

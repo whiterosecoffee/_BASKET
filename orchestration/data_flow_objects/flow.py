@@ -13,6 +13,8 @@ from zoneinfo import ZoneInfo
 
 HERE = Path(__file__).resolve().parent
 CONTRACT = HERE / 'objects.json'
+SCHEMA = HERE / 'capture.schema.json'
+TRANSFORM = Path(__file__).resolve()
 
 
 def encoded(value):
@@ -107,7 +109,9 @@ def build(capture_bytes):
         'coverage': 'observed_bars_only_not_complete_session_certification',
         'available_at': capture['captured_at'], 'historical_first_available_at': None,
         'source_sha256': digest(capture_bytes), 'partition_sha256': digest(partition),
-        'contract_sha256': digest(CONTRACT.read_bytes()), 'rows': len(rows),
+        'contract_sha256': digest(CONTRACT.read_bytes()),
+        'schema_sha256': digest(SCHEMA.read_bytes()),
+        'transform_sha256': digest(TRANSFORM.read_bytes()), 'rows': len(rows),
         'duplicates_removed': duplicates, 'verification': 'reference_checks_passed',
     }
     return {'capture.json': capture_bytes, 'bars.jsonl': partition, 'receipt.json': encoded(manifest)}
@@ -130,7 +134,7 @@ def verify(directory):
     expected = build((directory / 'capture.json').read_bytes())
     for name, data in expected.items():
         if (directory / name).read_bytes() != data:
-            raise ValueError('changed source, partition, contract or receipt: ' + name)
+            raise ValueError('changed source, partition, contract, schema, transform or receipt: ' + name)
     return strict_load(expected['receipt.json'])
 
 

@@ -38,5 +38,11 @@
     "Provider API request ID/envelope unavailable in connector projection",
     "Single-writer reference; no multiwriter or crash-durability certification",
     "No full-standard PROV/OpenLineage implementation"
-  ]
+  ],
+  "verification_identity": {
+    "schema_sha256": "bc8f7ac55276c5dbd0985d43a8bdab6d9f15822ab15601a2e378c901eb45b93f",
+    "transform_sha256": "f43d7b6357a5548c8c47195ca6ec5ea9e823b9add25792d9998847857b475821",
+    "contract_sha256": "6a1a347e962ba44d4e76656cb33795288ed1deaa862d10de79b2c512f4b57afd"
+  },
+  "previous_artifact": "Original weaker-identity probe remains unchanged; this proof used a new isolated temporary root and the same capture bytes."
 }

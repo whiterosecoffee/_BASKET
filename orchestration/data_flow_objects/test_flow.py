@@ -9,8 +9,11 @@ import unittest
 from unittest.mock import patch
 
 import jsonschema
-import flow
-import consumer
+if __package__:
+    from . import flow, consumer
+else:
+    import flow
+    import consumer
 
 
 def sample():
@@ -132,6 +135,19 @@ class FlowTests(unittest.TestCase):
         path=self.write();other=self.root/'contract.json';other.write_text('{}')
         with patch.object(flow,'CONTRACT',other):
             with self.assertRaises(ValueError):flow.verify(path)
+
+    def test_schema_and_transform_identity_changes_rejected(self):
+        path=self.write()
+        original=flow.verify(path)
+        self.assertEqual(original['schema_sha256'],flow.digest(flow.SCHEMA.read_bytes()))
+        self.assertEqual(original['transform_sha256'],flow.digest(flow.TRANSFORM.read_bytes()))
+        for identity in ('SCHEMA','TRANSFORM'):
+            with self.subTest(identity=identity):
+                other=self.root/(identity+'.changed');other.write_text('changed identity')
+                with patch.object(flow,identity,other):
+                    with self.assertRaises(ValueError):flow.verify(path)
+                    with self.assertRaises(ValueError):flow.read_verified(path,**self.request())
+        self.assertEqual(original,flow.verify(path))
 
     def test_consumer_boundary_rejections(self):
         path=self.write()

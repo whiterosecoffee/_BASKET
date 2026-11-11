@@ -1,7 +1,10 @@
 """Separate read-only component using only the verified access boundary."""
 import argparse
 import json
-from flow import read_verified
+if __package__:
+    from .flow import read_verified
+else:
+    from flow import read_verified
 
 
 def summary(directory, **request):
