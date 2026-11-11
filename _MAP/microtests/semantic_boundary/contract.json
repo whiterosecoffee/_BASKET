@@ -1,0 +1,56 @@
+{
+  "format": "basket.map.microcontract@1",
+  "version": "0.1.0",
+  "status": "offline_test_model_not_production",
+  "purpose": "AM2: reject shape-valid producer data that violates a consumer semantic boundary",
+  "queue_basis": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6804013049",
+  "owner": "B00-230",
+  "archive": {
+    "path": "schemas/ticker-data.v1.json",
+    "commit": "74d913e8913d630d85451344689e093aeea07efc",
+    "sha256": "23ba9cd97cf418cd65e5c173836b818fc505c6d0103d394b5325b2e69efaf639"
+  },
+  "boundary": {
+    "input_schema": "request.schema.json",
+    "output": "compatible or ordered semantic rejection reason; malformed/out-of-profile requests raise jsonschema.ValidationError, never compatibility.",
+    "children": [
+      "resolve_payload_and_shape",
+      "match_consumer_semantics"
+    ],
+    "edges": [
+      {
+        "kind": "dataflow",
+        "from": "resolve_payload_and_shape",
+        "to": "match_consumer_semantics"
+      }
+    ],
+    "effects": [],
+    "invariants": [
+      "Archive schema validation does not establish consumer compatibility",
+      "Payload digest binds canonical JSON content (not original serialization bytes); unknown required semantics reject.",
+      "No unit, basis or fractional-volume coercion",
+      "Only explicitly supported producer 1.0.0 / consumer major 1 can match; equal unknown versions are not eligibility.",
+      "Synthetic rights/freshness declarations do not establish real provider permission or live freshness"
+    ]
+  },
+  "checks": [
+    "payload digest",
+    "archived payload shape",
+    "schema major",
+    "unit",
+    "session",
+    "rights",
+    "time basis",
+    "freshness",
+    "adjustment basis",
+    "interval",
+    "fractional volume"
+  ],
+  "limits": [
+    "No domain rewrite or shared schema change",
+    "No entitlement, session calendar or provenance certification",
+    "No actual value/unit conversions",
+    "New matcher is a bounded offline reference model, not general composition engine",
+    "Loop-design branch and real queue remain untouched"
+  ]
+}

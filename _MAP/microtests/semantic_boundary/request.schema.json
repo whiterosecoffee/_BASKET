@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local semantic matching microtest input; not a domain schema replacement",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "payload",
+    "payload_sha256",
+    "schema_version",
+    "semantics",
+    "consumer",
+    "qualification_note"
+  ],
+  "properties": {
+    "payload": {
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "const": "market_bar"
+        }
+      }
+    },
+    "payload_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "semantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit",
+        "session",
+        "rights",
+        "time_basis",
+        "freshness"
+      ],
+      "properties": {
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "session": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rights": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "time_basis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "freshness": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "consumer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit",
+        "session",
+        "rights",
+        "time_basis",
+        "freshness",
+        "adjustment_basis",
+        "interval",
+        "volume",
+        "schema_major"
+      ],
+      "properties": {
+        "unit": {
+          "const": "USD_per_share"
+        },
+        "session": {
+          "const": "RTH"
+        },
+        "rights": {
+          "const": [
+            "synthetic_not_required"
+          ]
+        },
+        "time_basis": {
+          "const": "observation_time"
+        },
+        "freshness": {
+          "const": "qualified_by_fixture"
+        },
+        "adjustment_basis": {
+          "const": "split_adjusted"
+        },
+        "interval": {
+          "const": "1m"
+        },
+        "volume": {
+          "enum": [
+            "fractional_allowed",
+            "integer_only"
+          ]
+        },
+        "schema_major": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "qualification_note": {
+      "type": "string"
+    }
+  }
+}

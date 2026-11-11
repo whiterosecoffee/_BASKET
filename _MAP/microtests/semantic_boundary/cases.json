@@ -1,0 +1,705 @@
+{
+  "fixture_class": "synthetic_offline",
+  "cases": [
+    {
+      "id": "compatible",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "1e2d9f114a16b8c20d58092cb0cf655fbd8dedb2645b9d0a756c572bbcf62418",
+        "schema_version": "1.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": "synthetic_not_required",
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "fractional_allowed",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "compatible"
+    },
+    {
+      "id": "basis_mismatch",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "unadjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "962ce11d347efb0b6df2efe02f8e6f6d81496704c8dd466bd48c7b619f171196",
+        "schema_version": "1.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": "synthetic_not_required",
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "fractional_allowed",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "basis_mismatch"
+    },
+    {
+      "id": "interval_mismatch",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1d",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "9a5f9c4dac82b744454ada343f09e0452af0a13143bbbe1c261ced37d01336c8",
+        "schema_version": "1.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": "synthetic_not_required",
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "fractional_allowed",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "interval_mismatch"
+    },
+    {
+      "id": "unit_mismatch",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "1e2d9f114a16b8c20d58092cb0cf655fbd8dedb2645b9d0a756c572bbcf62418",
+        "schema_version": "1.0.0",
+        "semantics": {
+          "unit": "USD",
+          "session": "RTH",
+          "rights": "synthetic_not_required",
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "fractional_allowed",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "unit_mismatch"
+    },
+    {
+      "id": "session_mismatch",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "1e2d9f114a16b8c20d58092cb0cf655fbd8dedb2645b9d0a756c572bbcf62418",
+        "schema_version": "1.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "extended",
+          "rights": "synthetic_not_required",
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "fractional_allowed",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "session_mismatch"
+    },
+    {
+      "id": "rights_unknown",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "1e2d9f114a16b8c20d58092cb0cf655fbd8dedb2645b9d0a756c572bbcf62418",
+        "schema_version": "1.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": null,
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "fractional_allowed",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "rights_unknown"
+    },
+    {
+      "id": "time_basis_mismatch",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "1e2d9f114a16b8c20d58092cb0cf655fbd8dedb2645b9d0a756c572bbcf62418",
+        "schema_version": "1.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": "synthetic_not_required",
+          "time_basis": "ingestion_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "fractional_allowed",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "time_basis_mismatch"
+    },
+    {
+      "id": "freshness_unknown",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "1e2d9f114a16b8c20d58092cb0cf655fbd8dedb2645b9d0a756c572bbcf62418",
+        "schema_version": "1.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": "synthetic_not_required",
+          "time_basis": "observation_time",
+          "freshness": null
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "fractional_allowed",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "freshness_unknown"
+    },
+    {
+      "id": "fractional_volume_rejected",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "1e2d9f114a16b8c20d58092cb0cf655fbd8dedb2645b9d0a756c572bbcf62418",
+        "schema_version": "1.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": "synthetic_not_required",
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "integer_only",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "fractional_volume_mismatch"
+    },
+    {
+      "id": "major_version_mismatch",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "1e2d9f114a16b8c20d58092cb0cf655fbd8dedb2645b9d0a756c572bbcf62418",
+        "schema_version": "2.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": "synthetic_not_required",
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "fractional_allowed",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "schema_version_mismatch"
+    },
+    {
+      "id": "changed_payload",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10.5,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "1e2d9f114a16b8c20d58092cb0cf655fbd8dedb2645b9d0a756c572bbcf62418",
+        "schema_version": "1.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": "synthetic_not_required",
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "fractional_allowed",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "payload_hash_mismatch"
+    },
+    {
+      "id": "rights_not_allowed",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "1e2d9f114a16b8c20d58092cb0cf655fbd8dedb2645b9d0a756c572bbcf62418",
+        "schema_version": "1.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": "redistribution_unqualified",
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "fractional_allowed",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "rights_mismatch"
+    },
+    {
+      "id": "integer_consumer_compatible",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "ac9e5a349be2acfee8f793238cc1085560e5670dc45e3f6b1aec57bff176fcf1",
+        "schema_version": "1.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": "synthetic_not_required",
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "integer_only",
+          "schema_major": 1
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "compatible"
+    },
+    {
+      "id": "both_unknown_major",
+      "request": {
+        "payload": {
+          "schema": "basket.ticker_observation@1",
+          "entity_id": "NVDA",
+          "kind": "market_bar",
+          "source": "synthetic-only",
+          "source_record_id": "fixture-1",
+          "currency": "USD",
+          "ttd_seconds": 60,
+          "value": {
+            "interval": "1m",
+            "adjustment_basis": "split_adjusted",
+            "open": 10,
+            "high": 11,
+            "low": 9,
+            "close": 10,
+            "volume": 12.5
+          },
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z"
+        },
+        "payload_sha256": "1e2d9f114a16b8c20d58092cb0cf655fbd8dedb2645b9d0a756c572bbcf62418",
+        "schema_version": "2.0.0",
+        "semantics": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": "synthetic_not_required",
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture"
+        },
+        "consumer": {
+          "unit": "USD_per_share",
+          "session": "RTH",
+          "rights": [
+            "synthetic_not_required"
+          ],
+          "time_basis": "observation_time",
+          "freshness": "qualified_by_fixture",
+          "adjustment_basis": "split_adjusted",
+          "interval": "1m",
+          "volume": "fractional_allowed",
+          "schema_major": 2
+        },
+        "qualification_note": "Synthetic declarations only; no entitlement or source truth established."
+      },
+      "expected": "schema_version_unsupported"
+    }
+  ]
+}

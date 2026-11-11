@@ -477,6 +477,7 @@
     "complete": false,
     "basis": "Eight existing queue groups are represented by pointers, not exhaustive component/schema/port enumeration.",
     "next": [
+      "Use qualified semantic boundary cases to specify next smallest cohesive producer/consumer contract; do not expand into loop design or domain implementation.",
       "Independently qualify AM1 nested boundary and archive experiment, then choose the next intent-linked missing contract.",
       "Reconcile conflicting project instructions by intent with #201 owner; define archive-backed microtests before replacement work.",
       "Expand each group with source-resolved existing module pointers and field notes",
@@ -1022,11 +1023,12 @@
       {
         "id": "AM2",
         "intent": "New cohesive contract supersedes accidental legacy output",
-        "archive_pointer": "schemas/component-blackbox.v1.json",
+        "archive_pointer": "schemas/ticker-data.v1.json",
         "input": "Structurally shaped payload with incompatible units or basis",
         "expected": "Reject semantically incompatible composition even if an old component accepted it",
         "difference_class": "intended_correction",
-        "execution": "not_run"
+        "execution": "executed_offline_microtest",
+        "evidence_ref": "microtests/semantic_boundary/evidence.json"
       },
       {
         "id": "AM3",
@@ -1053,7 +1055,7 @@
       "Clean implementation microtest checks current admitted intent",
       "Independent comparison classifies intentional differences and unresolved regressions"
     ],
-    "execution_status": "AM1 has seven executed offline cases against pinned archived schema/runtime and a separate test model, four malformed-input rejections and three invalid-output rejections; AM2-AM4 remain design-only. No rewritten production component.",
+    "execution_status": "AM1 freshness and AM2 semantic-boundary have executed offline experiments; AM3/AM4 remain design cases. Separate queue experiment tests synthetic handoff guards. No rewritten production component.",
     "exit_gate": "Every selected replacement has at least one useful outcome case and one relevant rejection case; every old/new difference has an intent-linked disposition. Scope remains bounded, not universal equivalence."
   }
 }
