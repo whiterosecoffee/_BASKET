@@ -16,3 +16,9 @@ Run `python _MAP/run_suites.py`. It first validates the map, then executes each 
 - Review the suite manifest and runner changes as executable test code. The manifest does not grant permission to arbitrary commands.
 - Shared-green CI alone remains distinct from this dedicated check until the owner installs and verifies it.
 - Existing workflow collision, ownership and required-check decisions belong to B01. No direct workflow mutation, required-check change or production integration is authorized by this document.
+
+## Bounded B00 discovery resolution
+
+Instead of changing a B01-owned workflow, the coordinator authorized one new B00-owned discovery test, `orchestration/tests/test_map_suite_discovery.py`, after 68 open PR file lists showed no collision. It uses the existing orchestration unittest step to prepare missing exact source objects and execute the declared suite runner. No B01 acceptance, required-check policy change or workflow ownership transfer is inferred. The old external-comment gate was not retried; the repository scope amendment records this exact extension.
+
+Exact-head hosted proof must show the discovery test passing plus `MAP_HOSTED_DISCOVERY` with the tested SHA and every suite receipt in worker-qc logs. Implementation and local shallow-checkout tests alone are not that proof.

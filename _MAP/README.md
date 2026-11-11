@@ -1,6 +1,6 @@
 # _MAP — structured system planning
 
-Owner: B00, [#230](https://github.com/whiterosecoffee/_BASKET/issues/230), `work/230-map-system-planning`. Sole write scope `_MAP/**`; current ownership claim is linked in system.json.
+Owner: B00, [#230](https://github.com/whiterosecoffee/_BASKET/issues/230), `work/230-map-system-planning`. Write scope `_MAP/**` plus the exact B00 discovery bridge `orchestration/tests/test_map_suite_discovery.py`; bounded coordinator arbitration and collision evidence are in `scope-amendment.json`.
 
 Start with **system.json**: architecture pointers, eight system groups, typed relationships, seven module-review patterns, planning flow, queue read/write contract and explicit coverage gaps. **map.schema.json** describes this local planning document and explains fields; it does not replace shared schemas.
 
@@ -30,6 +30,8 @@ Intent reconciliation is explicit in `instruction_semantics`: resolve scope, chr
 
 Domain mapping is now explicitly `unmapped`, `partial` or `mapped`. B00 has one partial reference binding; the other domains remain unmapped. Full domain mapping requires an independently reviewed full-domain requirement inventory, digest-bound closure evidence and no remaining gaps; clearing a partial binding’s gap list is insufficient. Group/full-system completion requires additional closure evidence; flipping a flag cannot complete the map. This is representation maturity, not domain-owner or production acceptance.
 
-`python _MAP/run_suites.py` executes all suites declared in `suites.json`. Expected case sets come from versioned fixtures rather than frozen counts. The root validator only checks structure and retained evidence; the suite runner performs actual experiments. Hosted execution is **not installed** by this PR: see `HOSTED_GATE_HANDOFF.md` for the existing B01 owner. The ordinary shared CI result does not substitute for this gate.
+`python _MAP/run_suites.py` executes all suites declared in `suites.json`. Expected case sets come from versioned fixtures rather than frozen counts. The root validator only checks structure and retained evidence; the suite runner performs actual experiments. The new B00 discovery bridge calls the aggregate runner from the existing shared orchestration test step. No B01 workflow was edited. Qualification requires the actual exact-head log to contain MAP_HOSTED_DISCOVERY and all declared suite receipts; green CI from before this bridge does not count. See HOSTED_GATE_HANDOFF.md for the original request and its bounded discovery resolution.
 
 Closure validation checks evidence references, inventory hashes and review-record structure; it cannot authenticate an external reviewer merely from a URL. Actual owner/independent review remains a separate acceptance gate. No full-domain or full-system closure is claimed here.
+
+For shallow CI checkouts, `_MAP/prepare_sources.py` allows only immutable pins from `source_pins.json` and the exact _BASKET origin. The discovery bridge permits source-only fetch when `GITHUB_ACTIONS=true`; ordinary local runs fail on missing pins unless the operator explicitly runs `python _MAP/prepare_sources.py --fetch-missing`. Fetching adds Git objects only, not branch integration or checkout changes. Failures remain failures, not skipped suites.

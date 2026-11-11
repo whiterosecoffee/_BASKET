@@ -1,0 +1,21 @@
+{
+  "owner": "B00-230",
+  "branch": "work/230-map-system-planning",
+  "scope": [
+    "_MAP/**",
+    "orchestration/tests/test_map_suite_discovery.py"
+  ],
+  "reason": "Existing B00 orchestration unittest discovery is the smallest nonconflicting bridge to execute the map suites on shared exact-head CI; no B01 workflow or integration-test change.",
+  "arbitration": "Parent B00 coordinator approved the exact additional path under user direction to advance.",
+  "collision_check": {
+    "open_pr_file_lists_read": 68,
+    "overlapping_prs": []
+  },
+  "claim_limit": "Prior issue comment lists only _MAP; public verification comments remain denied and were not retried. This artifact records the bounded coordinator-approved scope, not owner acceptance of production.",
+  "not_changed": [
+    ".github/workflows/**",
+    "tests/integration/**",
+    "shared registries",
+    "main"
+  ]
+}

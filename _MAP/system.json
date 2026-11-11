@@ -9,9 +9,11 @@
     "issue": 230,
     "branch": "work/230-map-system-planning",
     "write_paths": [
-      "_MAP/**"
+      "_MAP/**",
+      "orchestration/tests/test_map_suite_discovery.py"
     ],
-    "claim": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6804134000"
+    "claim": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6804134000",
+    "scope_amendment": "scope-amendment.json"
   },
   "authority": {
     "queue": "https://github.com/whiterosecoffee/_BASKET/issues/136",
@@ -498,7 +500,13 @@
       "Cohesive replacement contracts and rewritten components"
     ],
     "suite_manifest": "suites.json",
-    "reference_composition": "compositions/admission/composition.json"
+    "reference_composition": "compositions/admission/composition.json",
+    "hosted_discovery": {
+      "bridge": "orchestration/tests/test_map_suite_discovery.py",
+      "status": "implemented_pending_exact_head_hosted_evidence",
+      "source_pins": "source_pins.json",
+      "workflow_change": false
+    }
   },
   "field_notes": {
     "sources": "Canonical path keyed, commit-pinned byte references; candidates remain draft.",

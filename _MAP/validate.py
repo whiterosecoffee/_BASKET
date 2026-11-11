@@ -127,7 +127,13 @@ def validate(doc):
     assert {'expected_updated_at_and_body_hash', 'idempotency_key', 'minimal_delta', 'preserved_obligations', 'evidence_urls', 'next_owner_action'} <= set(queue['proposal_fields'])
     for field in ('reader', 'writer'):
         assert isinstance(queue[field], str) and queue[field].strip()
-    assert doc['owner']['write_paths'] == ['_MAP/**']
+    assert doc['owner']['write_paths'] == ['_MAP/**', 'orchestration/tests/test_map_suite_discovery.py']
+    amendment = reference(doc['owner']['scope_amendment'])
+    assert amendment['scope'] == doc['owner']['write_paths']
+    assert amendment['collision_check']['overlapping_prs'] == []
+    pins = reference('source_pins.json')['commits']
+    assert len(pins) == len(set(pins))
+    assert set(pins) == {source['commit'] for source in doc['sources'].values()}
     if doc['coverage']['complete']:
         assert all(g['coverage'] == 'complete' for g in doc['groups'])
         assert all(n['mapping_state'] == 'mapped' for n in doc['domains'])
