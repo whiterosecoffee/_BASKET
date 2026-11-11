@@ -43,3 +43,7 @@ For shallow CI checkouts, `_MAP/prepare_sources.py` allows only immutable pins f
 ## Prior-art families
 
 `prior_art/families.json` organizes existing map objects through six complementary lenses: catalog, contracts, composition, provenance, design/runtime lineage and graph QC. Each has primary-source links, adopt/adapt reasoning, rejected scope and checked local pointers. Two navigation examples locate shared admission definitions and bounded evidence without conflating a plan with a run. `prior_art/run.py` executes positive and mutation checks through the existing suite manifest; no external framework or runtime is installed.
+
+## Candidate data-flow projection
+
+`data_flow/projection.json` pins the seven #241 / PR242 reference boundaries, nested composition and sanitized probe report. Projection tests check source hashes, exact definition coverage, effects, composition and partial schema coverage without running the other owner’s code. Local-capture availability is explicitly incompatible with an automatic first-publication alias. Real-source execution remains the source owner’s evidence; this map run checks integrity and relationships only. No raw bars are copied, and production ownership remains unchanged.

@@ -184,6 +184,27 @@
       "sha256": "cdbf13aaff28dc5ca3169f2e62f81b0f62ed816fbf9157ad8cc14efc60c84250",
       "url": "https://github.com/whiterosecoffee/_BASKET/blob/10be98031aa5dbd9b5841cc8f88bab5b834790e2/architecture/virtual_design/intake_worker_review/model.json",
       "state": "draft_unmerged"
+    },
+    "orchestration/data_flow_objects/objects.json": {
+      "path": "orchestration/data_flow_objects/objects.json",
+      "commit": "ca8990efc3a97ae9ed9a38e2479810951cc0c153",
+      "sha256": "fabbd8807527c2117fd30f93099d7a2718cd208f33d41e828119036110be4b00",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/ca8990efc3a97ae9ed9a38e2479810951cc0c153/orchestration/data_flow_objects/objects.json",
+      "state": "draft_unmerged"
+    },
+    "orchestration/data_flow_objects/capture.schema.json": {
+      "path": "orchestration/data_flow_objects/capture.schema.json",
+      "commit": "ca8990efc3a97ae9ed9a38e2479810951cc0c153",
+      "sha256": "bc8f7ac55276c5dbd0985d43a8bdab6d9f15822ab15601a2e378c901eb45b93f",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/ca8990efc3a97ae9ed9a38e2479810951cc0c153/orchestration/data_flow_objects/capture.schema.json",
+      "state": "draft_unmerged"
+    },
+    "orchestration/data_flow_objects/probe-evidence.json": {
+      "path": "orchestration/data_flow_objects/probe-evidence.json",
+      "commit": "ca8990efc3a97ae9ed9a38e2479810951cc0c153",
+      "sha256": "d3f41fffaca7fa57767c35d7ed2539c36ed2dbde23d58dcb77bc705de9a0cb04",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/ca8990efc3a97ae9ed9a38e2479810951cc0c153/orchestration/data_flow_objects/probe-evidence.json",
+      "state": "draft_unmerged"
     }
   },
   "groups": [

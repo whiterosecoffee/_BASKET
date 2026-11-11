@@ -224,8 +224,8 @@
       "issue": 241,
       "branch": "work/241-json-data-flow-objects",
       "owned_scope": "orchestration/data_flow_objects/**",
-      "state": "owner_proposed_not_integrated",
-      "source": "Internal owner coordination; exact commit pending",
+      "state": "pinned_candidate_reference_not_integrated",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/ca8990efc3a97ae9ed9a38e2479810951cc0c153/orchestration/data_flow_objects/objects.json",
       "candidate_ids": [
         "source.massive.bars",
         "fetch.capture",
@@ -241,7 +241,8 @@
         "lineage",
         "graph_qc"
       ],
-      "limit": "Candidate labels are not resolved _MAP objects or accepted contracts. No write authority transferred."
+      "limit": "Candidate labels are not resolved _MAP objects or accepted contracts. No write authority transferred.",
+      "map_projection": "data_flow/projection.json"
     }
   ]
 }

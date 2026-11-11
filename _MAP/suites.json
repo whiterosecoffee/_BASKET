@@ -41,6 +41,14 @@
       "evidence": "prior_art/evidence.json",
       "results_key": "results",
       "evidence_class": "executed_offline_projection_checks"
+    },
+    {
+      "id": "data_flow_projection",
+      "runner": "data_flow/run.py",
+      "cases": "data_flow/cases.json",
+      "evidence": "data_flow/evidence.json",
+      "results_key": "results",
+      "evidence_class": "executed_offline_pinned_projection_checks"
     }
   ]
 }

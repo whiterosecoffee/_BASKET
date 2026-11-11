@@ -1,0 +1,45 @@
+{
+  "evidence_class": "executed_offline_pinned_projection_checks",
+  "results": [
+    {
+      "id": "valid_projection",
+      "result": "accepted"
+    },
+    {
+      "id": "source_digest_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "missing_definition",
+      "result": "rejected"
+    },
+    {
+      "id": "wrong_instance_binding",
+      "result": "rejected"
+    },
+    {
+      "id": "changed_effects",
+      "result": "rejected"
+    },
+    {
+      "id": "false_contract_coverage",
+      "result": "rejected"
+    },
+    {
+      "id": "unsafe_availability_alias",
+      "result": "rejected"
+    },
+    {
+      "id": "false_production",
+      "result": "rejected"
+    }
+  ],
+  "external_effects": 0,
+  "source_implementation_executed": false,
+  "production_qualified": false,
+  "experiment_files": {
+    "projection.json": "805e142fc19572303b39aa98458d9de2c444915deb4ab0f6eb52e216d93a7caa",
+    "cases.json": "7c4f689e85432e02b7807c67dc1ffea51ba5e215180966780c6a6f178e7a415d",
+    "run.py": "b1401858e1158ed10ddc6bb3e7b2fe8ba53a5a4211999237a3ed9b8848f37de0"
+  }
+}

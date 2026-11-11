@@ -1,0 +1,197 @@
+{
+  "format": "basket.map.data_flow_projection@1",
+  "owner": "B00-230",
+  "source_owner": "B00-241",
+  "source_pr": 242,
+  "state": "candidate_reference_not_integrated",
+  "sources": {
+    "objects.json": {
+      "path": "orchestration/data_flow_objects/objects.json",
+      "commit": "ca8990efc3a97ae9ed9a38e2479810951cc0c153",
+      "sha256": "fabbd8807527c2117fd30f93099d7a2718cd208f33d41e828119036110be4b00",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/ca8990efc3a97ae9ed9a38e2479810951cc0c153/orchestration/data_flow_objects/objects.json",
+      "state": "draft_unmerged"
+    },
+    "capture.schema.json": {
+      "path": "orchestration/data_flow_objects/capture.schema.json",
+      "commit": "ca8990efc3a97ae9ed9a38e2479810951cc0c153",
+      "sha256": "bc8f7ac55276c5dbd0985d43a8bdab6d9f15822ab15601a2e378c901eb45b93f",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/ca8990efc3a97ae9ed9a38e2479810951cc0c153/orchestration/data_flow_objects/capture.schema.json",
+      "state": "draft_unmerged"
+    },
+    "probe-evidence.json": {
+      "path": "orchestration/data_flow_objects/probe-evidence.json",
+      "commit": "ca8990efc3a97ae9ed9a38e2479810951cc0c153",
+      "sha256": "d3f41fffaca7fa57767c35d7ed2539c36ed2dbde23d58dcb77bc705de9a0cb04",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/ca8990efc3a97ae9ed9a38e2479810951cc0c153/orchestration/data_flow_objects/probe-evidence.json",
+      "state": "draft_unmerged"
+    }
+  },
+  "definitions": [
+    {
+      "id": "source.massive.bars",
+      "pointer": "/definitions/source.massive.bars",
+      "families": [
+        "catalog",
+        "lineage"
+      ],
+      "effects": [
+        "read authorized Massive connector"
+      ],
+      "contract_coverage": "descriptive_not_complete",
+      "schema_pointer": null
+    },
+    {
+      "id": "fetch.capture",
+      "pointer": "/definitions/fetch.capture",
+      "families": [
+        "contracts",
+        "provenance"
+      ],
+      "effects": [
+        "serialize explicit connector projection"
+      ],
+      "contract_coverage": "capture_schema",
+      "schema_pointer": "/$defs/capture"
+    },
+    {
+      "id": "local.raw",
+      "pointer": "/definitions/local.raw",
+      "families": [
+        "provenance"
+      ],
+      "effects": [
+        "write isolated explicit root"
+      ],
+      "contract_coverage": "descriptive_not_complete",
+      "schema_pointer": null
+    },
+    {
+      "id": "sanitation.bars",
+      "pointer": "/definitions/sanitation.bars",
+      "families": [
+        "composition",
+        "graph_qc"
+      ],
+      "effects": [],
+      "contract_coverage": "descriptive_not_complete",
+      "schema_pointer": null
+    },
+    {
+      "id": "verification.partition",
+      "pointer": "/definitions/verification.partition",
+      "families": [
+        "contracts",
+        "graph_qc"
+      ],
+      "effects": [],
+      "contract_coverage": "descriptive_not_complete",
+      "schema_pointer": null
+    },
+    {
+      "id": "access.verified_partition",
+      "pointer": "/definitions/access.verified_partition",
+      "families": [
+        "contracts",
+        "lineage"
+      ],
+      "effects": [
+        "read-only access"
+      ],
+      "contract_coverage": "descriptive_not_complete",
+      "schema_pointer": null
+    },
+    {
+      "id": "consumer.summary",
+      "pointer": "/definitions/consumer.summary",
+      "families": [
+        "composition",
+        "provenance"
+      ],
+      "effects": [],
+      "contract_coverage": "descriptive_not_complete",
+      "schema_pointer": null
+    }
+  ],
+  "flow": [
+    "source.massive.bars",
+    "fetch.capture",
+    "local.raw",
+    "sanitation.bars",
+    "verification.partition",
+    "access.verified_partition",
+    "consumer.summary"
+  ],
+  "instances": [
+    {
+      "id": "capture",
+      "definition": "fetch.capture",
+      "parent": "source_to_consumer"
+    },
+    {
+      "id": "persist",
+      "definition": "local.raw",
+      "parent": "source_to_consumer"
+    },
+    {
+      "id": "clean",
+      "definition": "sanitation.bars",
+      "parent": "qualify"
+    },
+    {
+      "id": "check",
+      "definition": "verification.partition",
+      "parent": "qualify"
+    },
+    {
+      "id": "read",
+      "definition": "access.verified_partition",
+      "parent": "source_to_consumer"
+    },
+    {
+      "id": "summary",
+      "definition": "consumer.summary",
+      "parent": "source_to_consumer"
+    }
+  ],
+  "compositions": {
+    "source_to_consumer": {
+      "children": [
+        "capture",
+        "persist",
+        "qualify",
+        "read",
+        "summary"
+      ]
+    },
+    "qualify": {
+      "children": [
+        "clean",
+        "check"
+      ]
+    }
+  },
+  "evidence": {
+    "source": "probe-evidence.json",
+    "verification_here": "Pinned report integrity and map relationships only; no new live fetch or replay of unpublished capture.",
+    "production_qualified": false
+  },
+  "availability_bridge": {
+    "from": "#241 access.verified_partition conservative local capture time",
+    "to": "_MAP admission interface revision 2 available_at: first externally available revision",
+    "compatible": false,
+    "action": "Explicit adapter/contract decision required. Do not rename captured_at as historical first availability. A conservative cutoff can support access after capture, but cannot reconstruct earlier historical access.",
+    "acceptance": [
+      "Consumer must declare source-publication versus local-observation availability policy.",
+      "Missing historical first-available time must not be filled from capture time for historical PIT claims.",
+      "Source/contract pins and as-of semantics must be checked before accepting a mapped port."
+    ],
+    "owner_issue": 103
+  },
+  "remaining_gaps": [
+    "Only capture has a machine-readable schema link here; other ports remain descriptive.",
+    "No production FETCH or durable-root binding; B02 #207 retains receiving ownership.",
+    "Provider raw envelope, historical first availability and independent price truth remain unverified.",
+    "No runtime invocation or new effect authorization follows from a map edge."
+  ]
+}

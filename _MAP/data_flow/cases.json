@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "id": "valid_projection"
+    },
+    {
+      "id": "source_digest_drift"
+    },
+    {
+      "id": "missing_definition"
+    },
+    {
+      "id": "wrong_instance_binding"
+    },
+    {
+      "id": "changed_effects"
+    },
+    {
+      "id": "false_contract_coverage"
+    },
+    {
+      "id": "unsafe_availability_alias"
+    },
+    {
+      "id": "false_production"
+    }
+  ]
+}
