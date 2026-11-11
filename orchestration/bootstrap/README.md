@@ -108,3 +108,24 @@ Do not merge until the owning worker reconciles that manifest and CI passes.
 
 Sources: [Copier configuration](https://copier.readthedocs.io/en/v9.19.1/configuring/)
 and [native updates](https://copier.readthedocs.io/en/v9.19.1/updating/).
+
+## Opt-in runnable clone-me branch increment
+
+Add `--data include_component=true` to the existing pinned Copier copy command
+to render `clone_me/`: a pure empty-payload request/result seam, strict local JSON
+contracts, sample request, runnable CLI, tests and a queue-first worker handoff.
+Default generation remains the existing five-file baseline. No new generator,
+shared schema, dispatch engine or queue is introduced. Use a new empty staging
+directory, then review generated files under the receiving owner's scoped branch.
+
+Run `python -m clone_me.component clone_me/request.json` and
+`python -m unittest discover -s clone_me -p 'test_*.py' -v` from the generated root.
+The result acknowledges request identity, not a completed business calculation.
+The generated HANDOFF.md requires a real queue issue, single owner, unique branch,
+exclusive paths and acceptance before domain work. Its unassigned fields are
+intentional: generation must never manufacture a claimed worker or queue item.
+
+The local contracts are specimen payload schemas, not replacements for _BASKET's
+approved component and worker schemas. Extend them only within assigned domain
+scope. Existing #156 shared conformance and #136 finite worker bridge remain
+canonical; this template neither invokes nor duplicates their control planes.

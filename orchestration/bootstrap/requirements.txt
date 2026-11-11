@@ -1,2 +1,5 @@
 # Development-only tool. No application/runtime dependency.
 copier==9.19.1
+
+# Validate rendered specimen contracts in bootstrap acceptance tests.
+jsonschema==4.23.0

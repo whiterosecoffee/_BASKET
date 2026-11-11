@@ -35,3 +35,8 @@ test_directory:
     {% if not (test_directory | regex_search('^[A-Za-z0-9_-]+(/[A-Za-z0-9_-]+)*$')) %}
     Use a relative directory without dots, spaces or shell syntax.
     {% endif %}
+
+include_component:
+  type: bool
+  help: Include the runnable offline clone-me plumbing specimen (no domain logic)
+  default: false
