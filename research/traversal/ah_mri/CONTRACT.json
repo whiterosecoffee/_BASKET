@@ -1,0 +1,124 @@
+{
+  "schema": "basket.ah_mri.research_contract@0.2",
+  "status": "research_local_not_shared_or_deployed",
+  "owner": "B06",
+  "issue": 166,
+  "language": "Python stdlib",
+  "entrypoint": "research/traversal/ah_mri/run.py",
+  "input": {
+    "required": [
+      "as_of",
+      "session",
+      "instruments"
+    ],
+    "as_of": "ISO8601 timezone-aware point-in-time offset",
+    "session": {
+      "required": [
+        "status",
+        "date",
+        "calendar_id",
+        "rth_end_at"
+      ],
+      "status": "completed only; external exchange-calendar assertion, not independently verified",
+      "date": "YYYY-MM-DD",
+      "calendar_id": "MIC such as XNYS, caller supplied",
+      "rth_end_at": "official regular close ISO offset",
+      "ah_end_at": "optional extended-hours end; default 20:00 America/New_York"
+    },
+    "instruments": "array, unique ticker required; entries may have rth, ah, levels",
+    "rth": {
+      "required": [
+        "session",
+        "source",
+        "currency",
+        "observed_at",
+        "available_at",
+        "ingested_at",
+        "expires_at",
+        "close_usd"
+      ],
+      "session": "RTH",
+      "source": "provider identity (string, caller assertion only)",
+      "currency": "USD",
+      "observed_at": "must equal RTH end",
+      "previous_close_usd": "optional positive USD"
+    },
+    "ah": {
+      "required": [
+        "session",
+        "kind",
+        "source",
+        "currency",
+        "observed_at",
+        "available_at",
+        "ingested_at",
+        "expires_at",
+        "price_usd"
+      ],
+      "session": "AH",
+      "kind": "eligible trade only; quote not accepted",
+      "observed_at": "after regular close and before/equal ah_end_at"
+    },
+    "levels": {
+      "kind": [
+        "reference",
+        "observed",
+        "scenario"
+      ],
+      "lower_usd": "positive finite number",
+      "upper_usd": "number >= lower",
+      "evidence_ids": "list; caller-supplied non-verifying references",
+      "sample_window": "required to avoid downgrade of observed to reference",
+      "calculation": "required to avoid downgrade",
+      "confirmation": "optional human-readable",
+      "invalidation": "optional human-readable"
+    },
+    "events": {
+      "name": "text",
+      "scheduled_at": "ISO8601",
+      "units": "required for a numerical surprise",
+      "actual": "optional",
+      "consensus": "required when actual is given",
+      "consensus_available_at": "ISO8601 before actual available_at",
+      "actual_available_at": "ISO8601 no later than as_of"
+    },
+    "scenarios": {
+      "name": [
+        "absorption",
+        "continuation",
+        "dislocation"
+      ],
+      "trigger": "optional text",
+      "invalidation": "optional text"
+    },
+    "readiness_evidence": "optional mapping; all supplied statuses are UNVERIFIED assertions"
+  },
+  "output": {
+    "schema": "basket.ah_mri.result@0.2",
+    "fields": [
+      "as_of",
+      "session_date",
+      "calendar_id",
+      "engine_version",
+      "market_state",
+      "instruments",
+      "events",
+      "scenarios",
+      "unknowns",
+      "readiness",
+      "input_manifest_hash"
+    ],
+    "rth_price_policy": "historical expired may appear labeled; no live claim",
+    "ah_price_policy": "only nonexpired eligible reported trades",
+    "level_policy": "observed claimed level downgraded if key evidence absent; no independent support certification",
+    "readiness_policy": "production_ready and release_authorized always false until external review through B00/B01; no self-certification",
+    "input_manifest_hash": "SHA256 of canonical JSON input; NOT provider manifest proof"
+  },
+  "limitations": [
+    "no licensed provider or market calendar adapter",
+    "no independently certified evidence IDs",
+    "no automated scheduler",
+    "no signed gamma or calibrated probabilities",
+    "no historical backtest or externally verified source fixture"
+  ]
+}
