@@ -1,0 +1,171 @@
+{
+  "format": "basket.data_flow_objects@1",
+  "status": "reference_probe_not_production",
+  "owner": "B00-241",
+  "purpose": "Reusable source-to-consumer contracts; independently bound adapters, storage and consumers",
+  "definitions": {
+    "source.massive.bars": {
+      "input": "ticker + one exchange-local date + explicit adjusted basis",
+      "output": "source capture",
+      "effects": [
+        "read authorized Massive connector"
+      ],
+      "notes": "1 minute OHLCV, USD, America/New_York, fractional volume retained; entitlement only for observed endpoint"
+    },
+    "fetch.capture": {
+      "input": "provider rows and request metadata",
+      "output": "basket.data_capture@1",
+      "effects": [
+        "serialize explicit connector projection"
+      ],
+      "notes": "Projection is not a byte-identical API response; historical first availability unknown"
+    },
+    "local.raw": {
+      "input": "capture bytes",
+      "output": "immutable capture.json + sha256",
+      "effects": [
+        "write isolated explicit root"
+      ],
+      "notes": "No implicit durable-authoritative root; no credential or source rows in GitHub"
+    },
+    "sanitation.bars": {
+      "input": "capture.json",
+      "output": "sorted one-day bars.jsonl",
+      "effects": [],
+      "notes": "Exact duplicate collapse; conflicting duplicate rejects entire batch; no coercion, rounding, fill or resampling"
+    },
+    "verification.partition": {
+      "input": "raw capture + partition + exact objects, capture schema and transform/verifier byte identities",
+      "output": "basket.verified_partition@1",
+      "effects": [],
+      "notes": "Recompute sanitation and all identity hashes; reject incomplete artifacts, source drift, semantic mismatch, schema/transform changes and receipt edits. Historical reader selection remains unsupported."
+    },
+    "access.verified_partition": {
+      "input": "source pin + ticker + day + as_of",
+      "output": "verified records + receipt",
+      "effects": [
+        "read-only access"
+      ],
+      "notes": "Reverify on access; captured-at is conservative availability, not historical PIT availability; synthetic denied by default"
+    },
+    "consumer.summary": {
+      "input": "verified records + receipt",
+      "output": "basket.partition_summary@1",
+      "effects": [],
+      "notes": "Independent process imports access boundary only; summary is QC evidence, not investment output"
+    }
+  },
+  "instances": [
+    {
+      "id": "capture",
+      "definition": "fetch.capture",
+      "parent": "source_to_consumer"
+    },
+    {
+      "id": "persist",
+      "definition": "local.raw",
+      "parent": "source_to_consumer"
+    },
+    {
+      "id": "clean",
+      "definition": "sanitation.bars",
+      "parent": "qualify"
+    },
+    {
+      "id": "check",
+      "definition": "verification.partition",
+      "parent": "qualify"
+    },
+    {
+      "id": "read",
+      "definition": "access.verified_partition",
+      "parent": "source_to_consumer"
+    },
+    {
+      "id": "summary",
+      "definition": "consumer.summary",
+      "parent": "source_to_consumer"
+    }
+  ],
+  "compositions": {
+    "source_to_consumer": {
+      "children": [
+        "capture",
+        "persist",
+        "qualify",
+        "read",
+        "summary"
+      ]
+    },
+    "qualify": {
+      "children": [
+        "clean",
+        "check"
+      ]
+    }
+  },
+  "flow": [
+    "source.massive.bars",
+    "fetch.capture",
+    "local.raw",
+    "sanitation.bars",
+    "verification.partition",
+    "access.verified_partition",
+    "consumer.summary"
+  ],
+  "bindings": {
+    "source": "Massive connector outside reference runner",
+    "capture": "explicit normalized connector projection",
+    "reference": "flow.py",
+    "consumer": "consumer.py",
+    "production_fetch": null,
+    "durable_local_authoritative_root": null
+  },
+  "partition": {
+    "calendar": "America/New_York local date, not an exchange holiday calendar",
+    "grain": "1m",
+    "basis": "split-adjusted provider bars",
+    "volume": "provider shares, fractions preserved",
+    "file": "<ticker>.<YYYY-MM-DD>.1m.adjusted/bars.jsonl",
+    "completeness": "Observed rows only; missing minutes are not inferred or filled"
+  },
+  "recovery": {
+    "same_capture": "unchanged, no writes",
+    "changed_capture": "reject; explicit version/supersession design required",
+    "partial_artifact": "reject",
+    "uncertain_external_fetch": "inspect capture before refetch; no automatic retry"
+  },
+  "trust_boundary": "Hashes bind bytes, not provider authenticity. Connector identity and capture time are caller assertions backed by separately retained execution evidence. Not tamper-proof against an actor replacing all files and pins.",
+  "reuse_families": [
+    {
+      "family": "ports and adapters",
+      "disposition": "adapt",
+      "reason": "Keep Massive access outside pure qualification/storage seam"
+    },
+    {
+      "family": "W3C PROV / OpenLineage",
+      "disposition": "adapt",
+      "reason": "Source entity, sanitation activity, output identity and consumer provenance; not full standard conformance"
+    },
+    {
+      "family": "content-addressed immutable artifacts",
+      "disposition": "adapt",
+      "reason": "Hash pins and deterministic replay; no mutable latest pointer"
+    },
+    {
+      "family": "contract-first data quality",
+      "disposition": "adapt",
+      "reason": "Fail closed on incompatible session, basis, grain and numeric data"
+    }
+  ],
+  "handoffs": {
+    "B02": "Bind existing FETCH/QC and approved durable root; calendar/session/coverage/freshness policy, version supersession and concurrency acceptance remain open",
+    "B00_230": "Map these objects as candidate references, not accepted production bindings",
+    "B01": "Add focused suite only through existing hosted-gate ownership if accepted"
+  },
+  "source_references": [
+    "https://github.com/whiterosecoffee/_BASKET/issues/207",
+    "https://github.com/whiterosecoffee/_BASKET/pull/231",
+    "https://github.com/whiterosecoffee/_BASKET/issues/136"
+  ]
+}
