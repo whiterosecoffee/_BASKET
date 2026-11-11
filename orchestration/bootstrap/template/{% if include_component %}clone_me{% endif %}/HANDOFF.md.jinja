@@ -1,0 +1,47 @@
+# {{ project_name }} clone-me handoff
+
+Repository: https://github.com/{{ repository }}
+Maintainer: @{{ maintainer }}
+
+## Queue first
+
+Capture or amend the canonical GitHub issue before starting domain work. This file
+is a reusable handoff template, not a second queue or an active worker claim.
+Do not dispatch merely because this file exists.
+
+Fill these fields from the real queue and current repository:
+- Canonical issue URL: UNASSIGNED
+- Single receiving owner: UNASSIGNED
+- Unique issue-scoped branch from current main: UNASSIGNED
+- Exclusive write paths and current collision check: UNASSIGNED
+- Input meaning, useful output and acceptance: UNASSIGNED
+- Source revision, dependencies and independent reviewer: UNASSIGNED
+
+Stop domain work until these fields are resolved. For _BASKET, reuse the existing
+basket.worker_task@1 and basket.worker_resolution@1 protocols and approved
+component-blackbox schema; do not substitute this document for those contracts.
+
+## Executable plumbing proof
+
+From the generated project root:
+
+    python -m clone_me.component clone_me/request.json
+    python -m unittest discover -s clone_me -p 'test_*.py' -v
+
+Expected CLI output:
+
+    {"payload":{},"request_id":"smoke-1","status":"ok"}
+
+The request/result schemas describe only this empty-domain specimen. No queue
+mutation, provider connection, worker launch, domain calculation or production
+acceptance is implemented. Run twice: results must match and input bytes must
+remain unchanged. Invalid input must exit nonzero without a success result.
+
+## Receiving worker
+
+Adapt the empty payload schemas, pure run function and consumer expectation to
+one approved component. Reuse existing domain code and shared conformance tools;
+do not copy the whole repository. Preserve input identity and test likely failure,
+repeat/recovery and the actual consumer. Record source SHA, command, test outcome,
+missing checks and one next owner action in the canonical issue. Independent
+review and exact-head CI precede acceptance; merge/release require authorization.

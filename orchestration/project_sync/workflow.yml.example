@@ -1,0 +1,55 @@
+# INACTIVE B01 handoff. Review/install only from B01's own authorized branch.
+name: BASKET Project reconciliation
+on:
+  issues:
+    types: [opened, edited, assigned, unassigned, reopened, closed, labeled, unlabeled]
+  issue_comment:
+    types: [created, edited, deleted]
+  pull_request:
+    types: [opened, synchronize, ready_for_review, converted_to_draft, closed, reopened, edited]
+  check_suite:
+    types: [completed]
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+  checks: read
+  actions: read
+concurrency:
+  group: basket-project-sync
+  cancel-in-progress: false
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/heads/main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      # Existing repository dependency; B01 should use its existing install policy.
+      - run: python -m pip install 'jsonschema>=4.23'
+      - name: Synchronize trusted main implementation
+        env:
+          GH_TOKEN: ${{ secrets.PROJECTS_TOKEN }}
+        run: python orchestration/project_sync/control.py --apply --report project-report.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: project-reconciliation
+          path: project-report.json
+      - name: Write concise operational summary
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          p = pathlib.Path('project-report.json')
+          r = json.loads(p.read_text()) if p.exists() else {'blocked': ['report unavailable']}
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              f.write('```json\n' + json.dumps({k: r.get(k) for k in ['summary', 'project', 'blocked']}, indent=2) + '\n```\n')
+          PY

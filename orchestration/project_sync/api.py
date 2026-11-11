@@ -1,0 +1,380 @@
+"""Small injectable GitHub transport. Never retry a mutation blindly."""
+import json
+import subprocess
+import time
+
+
+class Blocked(RuntimeError):
+    def __init__(self, code, operation, detail, retry_after=None):
+        self.result = dict(code=code, operation=operation, detail=detail,
+                           retry_after=retry_after)
+        super().__init__(json.dumps(self.result))
+
+
+def gh_request(endpoint, payload=None):
+    # gh uses its supported credential mechanism; credentials never enter argv.
+    command = ["gh", "api", endpoint]
+    if payload is not None:
+        command += ["--method", "POST", "--input", "-"]
+    try:
+        proc = subprocess.run(command, input=json.dumps(payload) if payload else None,
+                              text=True, capture_output=True, timeout=45)
+    except (OSError, subprocess.TimeoutExpired):
+        raise Blocked("api_unavailable", endpoint, "CLI unavailable or timed out; re-read before retry") from None
+    if proc.returncode:
+        # Do not print raw CLI stderr (may include credential/proxy diagnostics).
+        text = proc.stderr.lower()
+        code = ("rate_limited" if "rate limit" in text or "429" in text else
+                "permission_denied" if any(x in text for x in
+                    ("401", "403", "scope", "authentication", "token")) else "api_unavailable")
+        raise Blocked(code, endpoint, "GitHub CLI request failed; inspect credential permissions")
+    try:
+        return json.loads(proc.stdout)
+    except ValueError:
+        raise Blocked("invalid_response", endpoint, "Expected JSON") from None
+
+
+class API:
+    def __init__(self, request=gh_request, sleep=time.sleep):
+        self.request, self.sleep = request, sleep
+
+    def call(self, endpoint, payload=None, mutation=False):
+        for attempt in range(3):
+            try:
+                result = self.request(endpoint, payload)
+                if isinstance(result, dict) and result.get("errors"):
+                    errors = result["errors"]
+                    kinds = {e.get("type", "UNKNOWN") for e in errors}
+                    code = ("rate_limited" if "RATE_LIMITED" in kinds else
+                            "permission_denied" if kinds & {"FORBIDDEN", "UNAUTHORIZED", "INSUFFICIENT_SCOPES"}
+                            else "graphql_error")
+                    raise Blocked(code, endpoint, "GraphQL returned errors; partial data rejected")
+                return result
+            except Blocked as exc:
+                # Mutation responses can be lost after application. Caller must re-read.
+                if mutation or exc.result["code"] != "rate_limited" or attempt == 2:
+                    raise
+                delay = exc.result.get("retry_after") or 2 ** attempt
+                if delay > 30:
+                    raise
+                self.sleep(delay)
+
+    def rest_pages(self, endpoint, key=None):
+        rows = []
+        for page in range(1, 1001):
+            data = self.call(endpoint + ("&" if "?" in endpoint else "?") +
+                             f"per_page=100&page={page}")
+            batch = data[key] if key else data
+            if not isinstance(batch, list):
+                raise Blocked("invalid_response", endpoint, "Expected paginated list")
+            rows.extend(batch)
+            if len(batch) < 100:
+                return rows
+        raise Blocked("pagination_limit", endpoint, "Refusing incomplete snapshot")
+
+    def gql(self, query, variables=None, mutation=False):
+        return self.call("graphql", dict(query=query, variables=variables or {}), mutation)["data"]
+
+    def connection(self, query, variables, locate):
+        rows, seen = [], set()
+        variables = dict(variables)
+        for _ in range(1000):
+            conn = locate(self.gql(query, variables))
+            if conn is None:
+                raise Blocked("permission_denied", "connection", "Owner or Project not visible")
+            rows.extend(conn["nodes"])
+            if not conn["pageInfo"]["hasNextPage"]:
+                return rows
+            cursor = conn["pageInfo"]["endCursor"]
+            if not cursor or cursor in seen:
+                raise Blocked("pagination_invalid", "connection", "Repeated or missing cursor")
+            seen.add(cursor)
+            variables["after"] = cursor
+        raise Blocked("pagination_limit", "connection", "Refusing incomplete snapshot")
+
+
+TITLE = "_BASKET — Intelligence & Execution"
+STATES = ["BACKLOG", "READY", "CLAIMED", "IN_PROGRESS", "DRAFT_PR", "REVIEW",
+          "VALIDATION", "INTEGRATION_VERIFICATION", "COMPLETE", "BLOCKED", "FAILED", "CANCELLED"]
+TEXT_FIELDS = ["Domain", "Spark ID", "Worker", "Branch", "Validation", "Acceptance"]
+SELECT_FIELDS = {"Status": STATES, "Priority": ["P0", "P1", "P2", "P3"],
+                 "Execution Mode": ["Manual", "Codex", "Actions", "Other"]}
+# Explicit opt-in for GitHub's standard three-option Status field. Keep the
+# complete lifecycle separately; a coarse native status never proves acceptance.
+NATIVE_STATUS = {state: ("Done" if state in {"COMPLETE", "CANCELLED"} else
+                         "Todo" if state in {"BACKLOG", "READY"} else "In Progress")
+                 for state in STATES}
+PAGE = "pageInfo{hasNextPage endCursor}"
+
+
+class Project:
+    def __init__(self, api, owner="whiterosecoffee", owner_kind="user", apply=False,
+                 native_status=False, project_number=None, project_id=None):
+        if owner_kind not in ("user", "organization"):
+            raise ValueError("owner_kind must be user or organization")
+        if project_number is not None and project_id is not None:
+            raise ValueError("Select a Project by number or ID, not both")
+        if project_number is not None and (type(project_number) is not int or project_number <= 0):
+            raise ValueError("project_number must be a positive integer")
+        if project_id is not None and (not isinstance(project_id, str) or not project_id or
+                                       any(c.isspace() for c in project_id)):
+            raise ValueError("project_id must be a nonempty ID without whitespace")
+        self.api, self.owner, self.kind, self.apply = api, owner, owner_kind, apply
+        self.native_status = native_status
+        self.project_number, self.project_id = project_number, project_id
+        self.operations = []
+
+    def discover(self, create=False):
+        explicit = self.project_number is not None or self.project_id is not None
+        if explicit and create:
+            raise Blocked("invalid_project_selection", "discover",
+                          "Explicit Project selection cannot be combined with creation")
+        q = '''query($login:String!,$after:String){OWNER(login:$login){
+          id projectsV2(first:100,after:$after){nodes{id number title url closed viewerCanUpdate} PAGE}}}'''.replace("OWNER", self.kind).replace("PAGE", PAGE)
+        projects = self.api.connection(q, {"login": self.owner}, lambda d: (d[self.kind] or {}).get("projectsV2"))
+        # Resolve IDs only inside the requested owner. Never fall back to the
+        # default title or create a replacement when an explicit target is absent.
+        if self.project_number is not None:
+            matches = [p for p in projects if p.get("number") == self.project_number]
+        elif self.project_id is not None:
+            matches = [p for p in projects if p.get("id") == self.project_id]
+        else:
+            matches = [p for p in projects if p["title"] == TITLE and not p["closed"]]
+        if len(matches) > 1:
+            raise Blocked("ambiguous_project", "discover", "Multiple matching Projects; B00 selection required")
+        if matches:
+            project = matches[0]
+            if explicit and project.get("closed") is not False:
+                raise Blocked("project_closed_or_unverified", "discover",
+                              "Selected Project must be verified open")
+            if explicit and (not isinstance(project.get("id"), str) or not project["id"]):
+                raise Blocked("invalid_response", "discover", "Selected Project has no native ID")
+            if self.apply and project.get("viewerCanUpdate") is not True:
+                raise Blocked("permission_denied", "updateProjectV2", "Project write permission required")
+            return project
+        if explicit:
+            raise Blocked("project_missing", "discover",
+                          "Selected Project is not visible under the requested owner; no fallback or creation")
+        if not create:
+            raise Blocked("project_missing", "discover", "No suitable Project found; use --create-project")
+        self.operations.append({"operation": "createProjectV2", "title": TITLE})
+        if not self.apply:
+            return None
+        owner = self.api.gql(f'query($login:String!){{{self.kind}(login:$login){{id}}}}', {"login": self.owner})[self.kind]
+        if not owner:
+            raise Blocked("permission_denied", "createProjectV2", "Owner not visible")
+        return self.api.gql('''mutation($owner:ID!,$title:String!){createProjectV2(input:{ownerId:$owner,title:$title}){
+          projectV2{id title url closed viewerCanUpdate}}}''', {"owner": owner["id"], "title": TITLE}, True)["createProjectV2"]["projectV2"]
+
+    def fields(self, project):
+        q = '''query($id:ID!,$after:String){node(id:$id){... on ProjectV2{fields(first:100,after:$after){
+        nodes{... on ProjectV2Field{id name dataType} ... on ProjectV2SingleSelectField{id name dataType options{id name}}
+        ... on ProjectV2IterationField{id name dataType}} PAGE}}}}'''.replace("PAGE", PAGE)
+        return self.api.connection(q, {"id": project["id"]}, lambda d: (d["node"] or {}).get("fields"))
+
+    def ensure_fields(self, project):
+        fields = self.fields(project)
+        by_name = {f["name"]: f for f in fields}
+        if len(by_name) != len(fields):
+            raise Blocked("ambiguous_fields", "ensure_fields", "Duplicate field names require review")
+        selects = dict(SELECT_FIELDS)
+        if self.native_status:
+            selects["Status"] = ["Todo", "In Progress", "Done"]
+            selects["Workflow State"] = STATES
+        wanted = {**{n: "TEXT" for n in TEXT_FIELDS}, "Last Verified": "DATE",
+                  **{n: "SINGLE_SELECT" for n in selects}}
+        blocked = []
+        for name, dtype in wanted.items():
+            if name in by_name:
+                f = by_name[name]
+                option_names = [o["name"] for o in f.get("options", [])]
+                missing = set(selects.get(name, [])) - set(option_names)
+                if len(option_names) != len(set(option_names)):
+                    blocked.append({"field": name, "reason": "duplicate option names", "missing": []})
+                if f["dataType"] != dtype or missing:
+                    # Do not replace existing option IDs or rewrite a live field.
+                    blocked.append({"field": name, "reason": "incompatible type or missing options", "missing": sorted(missing)})
+        # Complete compatibility preflight before making even additive writes.
+        if blocked:
+            return fields, blocked
+        for name, dtype in wanted.items():
+            if name in by_name:
+                continue
+            inp = dict(projectId=project["id"], name=name, dataType=dtype)
+            if dtype == "SINGLE_SELECT":
+                inp["singleSelectOptions"] = [dict(name=n, color="GRAY", description=n) for n in selects[name]]
+            self.operations.append({"operation": "createProjectV2Field", "name": name})
+            if self.apply:
+                self.api.gql('''mutation($input:CreateProjectV2FieldInput!){createProjectV2Field(input:$input){
+                  projectV2Field{... on ProjectV2Field{id} ... on ProjectV2SingleSelectField{id}}}}''', {"input": inp}, True)
+            else:
+                # Plan dependent item writes with synthetic metadata. These IDs
+                # are local to this dry-run and never sent to GitHub.
+                planned = {"id": "dry-run:field:" + name, "name": name, "dataType": dtype}
+                if dtype == "SINGLE_SELECT":
+                    planned["options"] = [{"id": "dry-run:option:" + name + ":" + n, "name": n}
+                                          for n in selects[name]]
+                fields.append(planned)
+        return (self.fields(project) if self.apply else fields), blocked
+
+    def items(self, project):
+        q = '''query($id:ID!,$after:String){node(id:$id){... on ProjectV2{items(first:100,after:$after){nodes{id
+          content{... on Issue{id} ... on PullRequest{id}}
+          fieldValues(first:100){pageInfo{hasNextPage} nodes{
+            ... on ProjectV2ItemFieldTextValue{text field{... on ProjectV2FieldCommon{name}}}
+            ... on ProjectV2ItemFieldDateValue{date field{... on ProjectV2FieldCommon{name}}}
+            ... on ProjectV2ItemFieldSingleSelectValue{name field{... on ProjectV2FieldCommon{name}}}
+          }}} PAGE}}}}'''.replace("PAGE", PAGE)
+        items = self.api.connection(q, {"id": project["id"]}, lambda d: (d["node"] or {}).get("items"))
+        if any(i["fieldValues"]["pageInfo"]["hasNextPage"] for i in items):
+            raise Blocked("pagination_limit", "fieldValues", "More than 100 field values; refusing incomplete comparison")
+        return items
+
+    def position_items(self, project):
+        """Read complete native order, including unselected/redacted item IDs."""
+        q = '''query($id:ID!,$after:String){node(id:$id){... on ProjectV2{
+          items(first:100,after:$after,orderBy:{field:POSITION,direction:ASC}){
+            nodes{id content{... on Issue{id} ... on PullRequest{id}}} PAGE}}}}'''.replace("PAGE", PAGE)
+        rows = self.api.connection(q, {"id": project["id"]}, lambda d: (d["node"] or {}).get("items"))
+        ids, contents = set(), set()
+        for row in rows:
+            item_id = row.get("id")
+            content = (row.get("content") or {}).get("id")
+            if not isinstance(item_id, str) or not item_id or item_id in ids:
+                raise Blocked("invalid_project_order", "order", "Missing or duplicate Project item ID")
+            if content and content in contents:
+                raise Blocked("duplicate_project_items", "order", "Duplicate content IDs require review")
+            ids.add(item_id)
+            if content:
+                contents.add(content)
+        return rows
+
+    def order_items(self, project, content_ids):
+        """Put explicitly selected content first; preserve all other relative order.
+
+        This changes native item positions only, not Priority, lifecycle or
+        execution authority. GitHub provides no order CAS: callers must serialize
+        writers. Observed drift and uncertain mutations stop, never blind-retry.
+        """
+        if (not isinstance(content_ids, list) or
+                any(not isinstance(c, str) or not c for c in content_ids) or
+                len(content_ids) != len(set(content_ids))):
+            raise Blocked("invalid_queue_order", "order", "Unique nonempty native content IDs required")
+        if not content_ids:
+            return {"result": "unchanged", "moves": 0, "content_ids": [], "dispatch_authorized": False}
+        if self.apply and not project.get("viewerCanUpdate"):
+            raise Blocked("permission_denied", "order", "Project write permission required")
+        rows = self.position_items(project)
+        if not self.apply:
+            # sync() may have planned imports without making them. Synthetic IDs
+            # explain dependent moves only; apply always rereads real IDs/order.
+            known = {(r.get("content") or {}).get("id") for r in rows}
+            for op in self.operations:
+                if op["operation"] == "addProjectV2ItemById" and op["content"] not in known:
+                    rows.append({"id": "dry-run:" + op["content"], "content": {"id": op["content"]}})
+                    known.add(op["content"])
+        by_content = {(r.get("content") or {}).get("id"): r["id"] for r in rows if r.get("content")}
+        if any(c not in by_content for c in content_ids):
+            raise Blocked("queue_item_missing", "order", "All selected items must exist or have a dry-run import plan")
+        selected = [by_content[c] for c in content_ids]
+        identities = {r["id"]: (r.get("content") or {}).get("id") for r in rows}
+        def matches_order(expected):
+            observed = self.position_items(project)
+            return ([(r["id"], (r.get("content") or {}).get("id")) for r in observed] ==
+                    [(item_id, identities[item_id]) for item_id in expected])
+        current = [r["id"] for r in rows]
+        target = selected + [i for i in current if i not in set(selected)]
+        moves = 0
+        for index, item_id in enumerate(selected):
+            if current[index] == item_id:
+                continue
+            if self.apply and not matches_order(current):
+                raise Blocked("project_order_changed", "order", "Project order or identity changed; reread and replan")
+            after = selected[index - 1] if index else None
+            operation = {"operation": "updateProjectV2ItemPosition", "item": item_id,
+                         "after": after, "verified": False}
+            self.operations.append(operation)
+            predicted = [i for i in current if i != item_id]
+            predicted.insert(index, item_id)
+            if self.apply:
+                self.api.gql('''mutation($input:UpdateProjectV2ItemPositionInput!){
+                  updateProjectV2ItemPosition(input:$input){clientMutationId}}''',
+                  {"input": dict(projectId=project["id"], itemId=item_id, afterId=after)}, True)
+                if not matches_order(predicted):
+                    raise Blocked("project_order_changed", "order", "Post-write order or identity differs; stop and inspect")
+                operation["verified"] = True
+            current = predicted
+            moves += 1
+        if current != target:
+            raise Blocked("invalid_project_order", "order", "Order plan did not preserve unselected items")
+        return {"result": "verified" if self.apply and moves else "planned" if moves else "unchanged",
+                "moves": moves, "content_ids": list(content_ids),
+                "dispatch_authorized": False}
+
+    def sync(self, project, records, fields):
+        if self.native_status:
+            # Validate all mappings before item import. Do not mutate callers'
+            # records or silently collapse the detailed lifecycle into Status.
+            mapped = []
+            for record in records:
+                values = dict(record.get("fields", {}))
+                state = values.get("Status")
+                if state is not None:
+                    if state not in NATIVE_STATUS:
+                        raise Blocked("unknown_lifecycle", "sync", "Unknown canonical workflow state")
+                    values.update({"Status": NATIVE_STATUS[state], "Workflow State": state})
+                mapped.append({**record, "fields": values})
+            records = mapped
+        items = self.items(project)
+        existing = {}
+        for item in items:
+            content = (item.get("content") or {}).get("id")
+            if content in existing:
+                raise Blocked("duplicate_project_items", "sync", "Resolve existing duplicate content IDs manually")
+            if content:
+                existing[content] = item
+        available = {f["name"]: f for f in fields}
+        failures = []
+        for record in records:
+            try:
+                content = record["node_id"]
+                item = existing.get(content)
+                if item is None:
+                    self.operations.append({"operation": "addProjectV2ItemById", "content": content})
+                    if self.apply:
+                        item = self.api.gql('''mutation($p:ID!,$c:ID!){addProjectV2ItemById(input:{projectId:$p,contentId:$c}){item{id}}}''',
+                                            {"p": project["id"], "c": content}, True)["addProjectV2ItemById"]["item"]
+                    else:
+                        item = {"id": "dry-run:" + content}
+                    existing[content] = item
+                current = {v["field"]["name"]: v.get("text", v.get("date", v.get("name")))
+                           for v in item.get("fieldValues", {}).get("nodes", []) if "field" in v}
+                for name, value in record.get("fields", {}).items():
+                    if value is None or current.get(name) == value:
+                        continue
+                    field = available.get(name)
+                    if not field:
+                        raise Blocked("field_missing", name, "Configure compatible field first")
+                    dtype = field["dataType"]
+                    if dtype == "SINGLE_SELECT":
+                        options = {o["name"]: o["id"] for o in field["options"]}
+                        if value not in options:
+                            raise Blocked("option_missing", name, "Configure lifecycle options without replacing IDs")
+                        inp = {"singleSelectOptionId": options[value]}
+                    elif dtype in ("TEXT", "DATE"):
+                        inp = {"text" if dtype == "TEXT" else "date": value}
+                    else:
+                        raise Blocked("unsupported_field", name, "Native relationships must not be copied to text fields")
+                    self.operations.append({"operation": "updateProjectV2ItemFieldValue", "content": content, "field": name, "value": value})
+                    if self.apply:
+                        self.api.gql('''mutation($input:UpdateProjectV2ItemFieldValueInput!){updateProjectV2ItemFieldValue(input:$input){projectV2Item{id}}}''',
+                                     {"input": dict(projectId=project["id"], itemId=item["id"], fieldId=field["id"], value=inp)}, True)
+                    current[name] = value
+                # Update in-memory comparison too for repeated records in the same run.
+                item["fieldValues"] = {"nodes": [{"field": {"name": n}, "text": v} for n, v in current.items()]}
+            except Blocked as exc:
+                failures.append({"content": record.get("node_id"), **exc.result})
+                # Any lost mutation response stops this run; re-read all state on retry.
+                if exc.result["code"] not in {"field_missing", "option_missing", "unsupported_field"}:
+                    break
+        return failures
