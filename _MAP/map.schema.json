@@ -21,7 +21,9 @@
     "field_notes",
     "domains",
     "decision_method",
-    "semantic_diffs"
+    "semantic_diffs",
+    "instruction_semantics",
+    "archive_microtests"
   ],
   "properties": {
     "$schema": {
@@ -128,6 +130,14 @@
     "semantic_diffs": {
       "type": "object",
       "description": "Versioned proposal envelopes explain applicability and compatibility without mutating source contracts. Examples are design, not executed fixtures."
+    },
+    "instruction_semantics": {
+      "type": "object",
+      "description": "Resolve intended outcomes before admitting rules into the clean system; do not carry contradictory historical instructions forward."
+    },
+    "archive_microtests": {
+      "type": "object",
+      "description": "Use immutable archived versions to extract and challenge behaviors while qualifying the clean system against current intended outcomes."
     }
   }
 }

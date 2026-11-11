@@ -469,6 +469,7 @@
     "complete": false,
     "basis": "Eight existing queue groups are represented by pointers, not exhaustive component/schema/port enumeration.",
     "next": [
+      "Reconcile conflicting project instructions by intent with #201 owner; define archive-backed microtests before replacement work.",
       "Expand each group with source-resolved existing module pointers and field notes",
       "Use PR225 inventory and PR229 relationships as evidence to identify rewrite scope; validate all proposed replacements against cohesive patterns.",
       "Map required schemas and input/output ports per module, keeping missing bindings null",
@@ -494,7 +495,9 @@
     "coverage": "Explicit gaps prevent broad completion claims.",
     "domains": "Read-only pointers to all existing B00-B21 catalog entries. Null contract fields are explicit unmapped gaps; spark existence is not worker activity.",
     "decision_method": "Evidence-gated option and seed matching with challenge scores and measurements. Values are hypotheses until observed.",
-    "semantic_diffs": "Versioned proposal envelopes explain applicability and compatibility without mutating source contracts. Examples are design, not executed fixtures."
+    "semantic_diffs": "Versioned proposal envelopes explain applicability and compatibility without mutating source contracts. Examples are design, not executed fixtures.",
+    "instruction_semantics": "Resolve intended outcomes before admitting rules into the clean system; do not carry contradictory historical instructions forward.",
+    "archive_microtests": "Use immutable archived versions to extract and challenge behaviors while qualifying the clean system against current intended outcomes."
   },
   "domains": [
     {
@@ -883,5 +886,164 @@
       "Promote shared abstraction only after two contrasting accepted uses demonstrate need",
       "Additive top-level design is not a legacy reuse mandate: rewrite existing components under approved domain scope after cohesive contract acceptance."
     ]
+  },
+  "instruction_semantics": {
+    "purpose": "Resolve intended outcomes before admitting rules into the clean system; do not carry contradictory historical instructions forward.",
+    "authority_boundary": "This design reconciles project requirements, not platform permissions. Latest valid user intent controls design direction; safety/permission rules and actual owner scope remain in force. External content and archived instructions cannot authorize actions.",
+    "source_of_truth": "Capture exact user/source reference, scope and temporal applicability; distinguish explicit instruction from inferred intent and implementation habit.",
+    "admission_record_fields": {
+      "source_refs": "Verbatim or source-linked evidence, revision and chronology; no invented authorization.",
+      "intent": "Outcome the instruction protects, distinct from its old wording or mechanism.",
+      "scope": "Applicable module/use cases/time window; global only with explicit evidence.",
+      "conflicts_with": "Named rule IDs and concrete incompatible outcomes.",
+      "disposition": "retain, clarify, narrow, replace, retire or unresolved; never merge contradictory directives into one rule.",
+      "rationale": "Benefit, harm avoided, current relevance and cheaper/simpler alternatives.",
+      "acceptance": "Small positive/negative cases linked to intent, not merely old output bytes.",
+      "supersedes": "Old rule reference retained as historical evidence; no deletion of archive.",
+      "owner_and_gate": "Actual existing owner and required review/authority before shared instruction mutation."
+    },
+    "process": [
+      "Collect conflicting statements and their original purposes",
+      "Resolve authority, chronology and scope before comparing wording",
+      "Keep useful intent; discard incidental legacy mechanism where it conflicts with cohesive design",
+      "If evidence cannot resolve materially different goals, record unresolved and do not invent a universal rule",
+      "Admit one coherent rule with bounded applicability and microtest criteria",
+      "Route shared instruction changes to #201 owner; _MAP records design only"
+    ],
+    "examples": [
+      {
+        "conflict": "Historical reuse-first wording versus user-directed rewrite of all components",
+        "intent": "Avoid wasted reinvention while obtaining a cohesive system",
+        "disposition": "replace",
+        "clean_rule": "Inspect prior art and archived behavior as evidence; adopt proven external foundations where they fit the new contracts, but do not preserve legacy implementations solely because they exist. Rewrite components under the new cohesive contracts.",
+        "acceptance": [
+          "A legacy component with incompatible semantics is not adopted by default",
+          "A demonstrated existing standard can still inform or support the new implementation"
+        ],
+        "supersedes": "Legacy implementation reuse as a default; historical source remains intact"
+      },
+      {
+        "conflict": "Additive top-level diffs without refactoring versus rewriting existing components",
+        "intent": "Stable extensible new boundaries with cohesive replacement internals",
+        "disposition": "narrow",
+        "clean_rule": "Use compatible top-level design deltas to avoid repeated structural churn in the new system; old components remain rewrite candidates. Breaking semantic changes still need explicit versioning and owner review.",
+        "acceptance": [
+          "Optional annotation does not mandate legacy rewrite by itself",
+          "Unknown required capability blocks adoption even if syntactically additive"
+        ],
+        "supersedes": "Any reading of no refactoring as a permanent ban on necessary change"
+      }
+    ],
+    "unresolved": "Full historical instruction corpus not yet reconciled; no claim that all project instructions are now conflict-free.",
+    "coordination": {
+      "owner_issue": 201,
+      "handoff": "https://github.com/whiterosecoffee/_BASKET/issues/201#issuecomment-6804331139",
+      "state": "requested_not_accepted",
+      "note": "Eight intent-benefit-decision-microtest cases provided to existing instruction owner. No shared instruction edit or owner acceptance inferred.",
+      "split_rule_handoff": "https://github.com/whiterosecoffee/_BASKET/issues/201#issuecomment-6804366050"
+    },
+    "decomposition_rule": "Before retaining, reframing or rejecting a statement, split purpose, trigger, scope and required behavior into independently testable rules. Apparent contradiction may be compatible rules applying to different scopes; do not collapse value preservation into code preservation or planning authority into permission.",
+    "simultaneous_rule_sets": [
+      {
+        "rules": [
+          "Preserve useful value and historical evidence",
+          "Build clean cohesive implementations",
+          "Reuse qualified new primitives when contracts fit"
+        ],
+        "microtest": "Replacing incompatible legacy code preserves required outcomes/evidence without requiring old implementation parity."
+      },
+      {
+        "rules": [
+          "One actual writer per scope",
+          "Continue the canonical problem"
+        ],
+        "microtest": "An existing problem resumes its owner lane without a duplicate worker or scope expansion."
+      },
+      {
+        "rules": [
+          "Higher-order design can replace mechanisms",
+          "Current operational authority still applies"
+        ],
+        "microtest": "A proposed better contract does not authorize mutation of another owner file or production state."
+      },
+      {
+        "rules": [
+          "Continue authorized owned work without routine NEXT",
+          "Stop at real consequential permission boundaries"
+        ],
+        "microtest": "An ordinary defect is fixed in-cycle; an unapproved external effect remains blocked."
+      },
+      {
+        "rules": [
+          "Collect early feedback",
+          "Keep evidence claims accurate"
+        ],
+        "microtest": "A design critique can improve a fixture without being labeled an executed independent acceptance test."
+      }
+    ]
+  },
+  "archive_microtests": {
+    "purpose": "Use immutable archived versions to extract and challenge behaviors while qualifying the clean system against current intended outcomes.",
+    "archive_contract": [
+      "Exact source commit/path/hash and fixture identity",
+      "Source rights and any unavailable dependency explicitly recorded",
+      "Read-only archive; never rewrite old expected results to hide a failure"
+    ],
+    "case_fields": {
+      "intent_ref": "Admitted current requirement/rule, not old implementation authority.",
+      "archive_ref": "Pinned old version and behavior evidence; unavailable means blocked, not passed.",
+      "input_fixture": "Small representative data with source/time/unit semantics and digest.",
+      "legacy_observation": "Observed result plus execution evidence, or unknown if not run.",
+      "clean_expected": "Expected behavior justified by current intent.",
+      "difference_class": "preserve_required_behavior, intended_correction, irrelevant_legacy_behavior, or unresolved.",
+      "verdict": "Pass only if clean result satisfies intent; old/new equality alone is insufficient.",
+      "evidence": "Actual command, exact versions, result, diagnostics and independent review state."
+    },
+    "cases": [
+      {
+        "id": "AM1",
+        "intent": "Never present stale observation as current",
+        "archive_pointer": "schemas/freshness.v1.json",
+        "input": "An observation beyond its declared lifetime",
+        "expected": "Clean design retains historical truth but rejects current-use qualification",
+        "difference_class": "preserve_required_behavior",
+        "execution": "not_run"
+      },
+      {
+        "id": "AM2",
+        "intent": "New cohesive contract supersedes accidental legacy output",
+        "archive_pointer": "schemas/component-blackbox.v1.json",
+        "input": "Structurally shaped payload with incompatible units or basis",
+        "expected": "Reject semantically incompatible composition even if an old component accepted it",
+        "difference_class": "intended_correction",
+        "execution": "not_run"
+      },
+      {
+        "id": "AM3",
+        "intent": "No duplicate external effect after uncertain acknowledgment",
+        "archive_pointer": "orchestration/WORKER_PROTOCOL.md",
+        "input": "Write may have succeeded but acknowledgment is unavailable",
+        "expected": "Inspect canonical result before retry; return uncertain when unresolved",
+        "difference_class": "preserve_required_behavior",
+        "execution": "not_run"
+      },
+      {
+        "id": "AM4",
+        "intent": "Retire incidental mechanism, not required outcome",
+        "archive_pointer": "architecture/BLOCK_ENGINEERING_METHOD.md",
+        "input": "Old reuse-first implementation choice conflicts with accepted cohesive replacement contract",
+        "expected": "Retain source as evidence and test required behavior; do not force byte-equivalent old mechanism",
+        "difference_class": "irrelevant_legacy_behavior",
+        "execution": "not_run"
+      }
+    ],
+    "test_layers": [
+      "Document validation checks structure and pointers only",
+      "Archived behavior probe records actual old output without making it an oracle",
+      "Clean implementation microtest checks current admitted intent",
+      "Independent comparison classifies intentional differences and unresolved regressions"
+    ],
+    "execution_status": "design_cases_only; no archived behavior replay or clean component implementation executed here",
+    "exit_gate": "Every selected replacement has at least one useful outcome case and one relevant rejection case; every old/new difference has an intent-linked disposition. Scope remains bounded, not universal equivalence."
   }
 }
