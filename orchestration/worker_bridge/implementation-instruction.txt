@@ -1,0 +1,5 @@
+Role: existing contract_engineer profile, bounded child instance of issue B00-136.
+Implement actual unittest coverage in ONLY orchestration/worker_bridge/test_agent_profiles.py.
+Read orchestration/worker_bridge/bridge.py and orchestration/planner/worker-library.json.
+Cover match_profile: deterministic match of contract_engineer for contract_governance+implementation, qa_reviewer for adversarial_validation+github_evidence, eligibility rejection, unknown capability rejection, no mutation of the library and deterministic behavior independent of profile order. Use stdlib unittest and existing Blocked errors; do not add dependencies, schemas, profiles, scheduler code or network calls. Import from orchestration.worker_bridge.bridge. Run the tests you author and report exact command, result and changed path.
+Do not create an issue, branch, commit or PR: this is a delegated implementation step within the existing #136 assignment, and the supervising B00 process owns publication. Do not edit any file other than the named new test file. In particular leave the existing controller/adapter/schema/workflow files untouched. Do not spawn further workers or inspect secrets.

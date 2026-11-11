@@ -1,0 +1,35 @@
+======================================================================
+ERROR: test_corrupt_manifest_type_is_structured_rejection (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_corrupt_manifest_type_is_structured_rejection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/basket-nvda-pilot/tests/integration/test_nvda_pilot_acceptance.py", line 276, in test_corrupt_manifest_type_is_structured_rejection
+    self.pilot.report(EARLY)
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 35, in checked
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 345, in report
+    desc = self.resolve('NVDA', 'observations', 'read', as_of)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 35, in checked
+    return function(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 332, in resolve
+    manifest = self._manifest(active['manifest_id'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/basket-nvda-pilot/orchestration/nvda_pilot/store.py", line 233, in _manifest
+    if m.get('manifest_id') != manifest_id:
+       ^^^^^
+AttributeError: 'list' object has no attribute 'get'
+
+======================================================================
+FAIL: test_cli_metadata_output_symlink_cannot_overwrite_source (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_cli_metadata_output_symlink_cannot_overwrite_source)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/basket-nvda-pilot/tests/integration/test_nvda_pilot_acceptance.py", line 296, in test_cli_metadata_output_symlink_cannot_overwrite_source
+    self.assertEqual(proc.returncode, 1)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.641s
+
+FAILED (failures=1, errors=1)

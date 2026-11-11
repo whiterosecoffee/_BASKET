@@ -1,0 +1,19 @@
+{
+  "transport": "host_collaboration",
+  "tool": "collaboration.spawn_agent",
+  "worker": "/root/worker136_contract_engineer",
+  "profile": "contract_engineer",
+  "assignment_sha256": "38bc4cb06ed4865204c55719720bd5a4dad9bb5e9dbdb09b2780644256ece8e6",
+  "status": "executed",
+  "reported_result": "10 unittest tests passed; exit 0",
+  "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest orchestration.worker_bridge.test_agent_profiles -v",
+  "changed_paths": [
+    "orchestration/worker_bridge/test_agent_profiles.py"
+  ],
+  "artifact_sha256": "3e4f5b4fd4e55d0c250d1eaf0793ec1e24c5bcf1504c4ab5e6d657383adbb028",
+  "model_identity": "Inherited host default; not independently exposed by transport",
+  "persistent_runtime": false,
+  "operator_mediated": true,
+  "prior_failed_attempt": "ATT-136-engineer-1",
+  "note": "Actual host tool invocation and completed worker response; not a mock, CLI success or B08 deployment."
+}

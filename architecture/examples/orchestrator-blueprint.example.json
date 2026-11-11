@@ -1,0 +1,179 @@
+{
+  "schema": "basket.worker_library@1",
+  "library_version": "1.0.0",
+  "capabilities": [
+    {
+      "id": "capture_message",
+      "description": "Preserve one authorized source message with identity and receipt.",
+      "required_evidence": [
+        "schema_validation"
+      ],
+      "artifacts": [
+        "source-linked intake record"
+      ]
+    },
+    {
+      "id": "extract_intent",
+      "description": "Extract requirements, constraints, questions and canonical relationships.",
+      "required_evidence": [
+        "uncertainty_audit"
+      ],
+      "artifacts": [
+        "requirement coverage map"
+      ]
+    },
+    {
+      "id": "analyze_problem",
+      "description": "Develop evidence-backed causal explanations and discriminating questions.",
+      "required_evidence": [
+        "uncertainty_audit",
+        "primary_source"
+      ],
+      "artifacts": [
+        "causal map and open questions"
+      ]
+    },
+    {
+      "id": "evaluate_options",
+      "description": "Compare relevant alternatives and record maturity, tradeoffs and reopening triggers.",
+      "required_evidence": [
+        "uncertainty_audit"
+      ],
+      "artifacts": [
+        "option decision record"
+      ]
+    },
+    {
+      "id": "select_eligible_work",
+      "description": "Select one dependency-ready authorized task using outcomes and resource evidence.",
+      "required_evidence": [
+        "schema_validation"
+      ],
+      "artifacts": [
+        "eligibility and selection result"
+      ]
+    },
+    {
+      "id": "reconcile_progress",
+      "description": "Reconcile observed results into the current canonical task and portfolio view.",
+      "required_evidence": [
+        "schema_validation"
+      ],
+      "artifacts": [
+        "progress delta and evidence links"
+      ]
+    },
+    {
+      "id": "review_result",
+      "description": "Review one stage artifact against its requirements and qualification criteria.",
+      "required_evidence": [
+        "schema_validation",
+        "uncertainty_audit"
+      ],
+      "artifacts": [
+        "attribute review and disposition"
+      ]
+    },
+    {
+      "id": "compose_blocks",
+      "description": "Specify compatible connections between qualified provided and required interfaces.",
+      "required_evidence": [
+        "schema_validation"
+      ],
+      "artifacts": [
+        "assembly recipe and compatibility evidence"
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "planning_orchestrator",
+      "description": "Example planning profile, not a registered or connected executor.",
+      "capabilities": [
+        "capture_message",
+        "extract_intent",
+        "analyze_problem",
+        "evaluate_options",
+        "select_eligible_work",
+        "reconcile_progress",
+        "review_result",
+        "compose_blocks"
+      ],
+      "constraints": [
+        "Planning example only; no dispatch registration or new runtime implied.",
+        "Use existing service package; unknown quota is not assumed sufficient.",
+        "Do not turn current conversation order into execution priority.",
+        "Resolve routine review findings within the authorized work cycle."
+      ]
+    },
+    {
+      "id": "independent_stage_reviewer",
+      "description": "Example independent review profile usable only through a qualified executor.",
+      "capabilities": [
+        "review_result"
+      ],
+      "constraints": [
+        "Do not approve own implementation as independent evidence.",
+        "No worker or model connection is implied by this profile."
+      ]
+    }
+  ],
+  "recipes": [
+    {
+      "id": "planning_cycle",
+      "description": "Example complete planning cycle with stage reviews, not an executable workflow definition.",
+      "steps": [
+        {
+          "capability": "capture_message",
+          "output": "Source identity and recorded intake"
+        },
+        {
+          "capability": "extract_intent",
+          "output": "Coverage and canonical requirement links"
+        },
+        {
+          "capability": "review_result",
+          "output": "Intake review and correction disposition"
+        },
+        {
+          "capability": "analyze_problem",
+          "output": "Causal explanations, evidence and uncertainty"
+        },
+        {
+          "capability": "evaluate_options",
+          "output": "Compared options and selected justified approach"
+        },
+        {
+          "capability": "review_result",
+          "output": "Analysis review and retained alternative triggers"
+        },
+        {
+          "capability": "select_eligible_work",
+          "output": "Eligible bounded work package and resource gate"
+        },
+        {
+          "capability": "review_result",
+          "output": "Readiness review with unresolved gates explicit"
+        },
+        {
+          "capability": "reconcile_progress",
+          "output": "Current progress and portfolio return delta"
+        }
+      ]
+    },
+    {
+      "id": "composition_review",
+      "description": "Example contract-composition analysis with semantic review; not live execution.",
+      "steps": [
+        {
+          "capability": "compose_blocks",
+          "output": "Provided/required compatibility and effect analysis"
+        },
+        {
+          "capability": "review_result",
+          "output": "Composition qualification gaps and acceptance scenarios"
+        }
+      ]
+    }
+  ]
+}
