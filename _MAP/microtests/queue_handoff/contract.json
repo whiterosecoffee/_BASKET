@@ -1,0 +1,102 @@
+{
+  "format": "basket.map.microcontract@1",
+  "version": "0.1.0",
+  "status": "offline_test_model_not_production",
+  "purpose": "Claim -> result -> independent acceptance -> next eligible proposal, without real effects",
+  "owner": "B00-230",
+  "archive_commit": "74d913e8913d630d85451344689e093aeea07efc",
+  "archive_sources": [
+    {
+      "path": "orchestration/worker_bridge/bridge.py",
+      "sha256": "a7efa85ee82db5a4c7518d9afa39116728ad95e81269c69c011b4fdf1056f81d"
+    },
+    {
+      "path": "orchestration/agentic/manager.py",
+      "sha256": "ef6807803d9dca7fc58a596d8c613bcf8dbeae578c74a4a41d45ec3551689487"
+    },
+    {
+      "path": "orchestration/planner.py",
+      "sha256": "409828e9b3ea8042a943d84611b8e4883b35d361b132dedcb6ec654dfaf8c6dc"
+    },
+    {
+      "path": "orchestration/worker_protocol.py",
+      "sha256": "694accc7a8cc1e38cca9aeff41222651b5318e1fb5c3f14f8dc6910114bce191"
+    },
+    {
+      "path": "orchestration/validate_sparks.py",
+      "sha256": "d968a21a0773161df881c3b6a3c041ea45ad504aee958a04ace1a04e50a6a1a9"
+    }
+  ],
+  "historical_receipt": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6539423865",
+  "receipt_scope": "Finite operator-mediated proof at 7f9b7ab; not autonomous or integrated acceptance. This experiment pins current-main source separately.",
+  "boundary": {
+    "input": [
+      "Synthetic owner ledger",
+      "Claim fence and registered attempt",
+      "Result identity",
+      "Exact-head CI/acceptance evidence",
+      "Synthetic uncertain-write observation"
+    ],
+    "output": [
+      "Stage trace",
+      "Outcome or blocker",
+      "Next proposal allowed boolean",
+      "External effects always zero"
+    ],
+    "effects": [],
+    "children": [
+      "check_claim",
+      "reconcile_result",
+      "verify_acceptance",
+      "propose_next"
+    ],
+    "edges": [
+      {
+        "kind": "dataflow",
+        "from": "check_claim",
+        "to": "reconcile_result"
+      },
+      {
+        "kind": "dataflow",
+        "from": "reconcile_result",
+        "to": "verify_acceptance"
+      },
+      {
+        "kind": "dataflow",
+        "from": "verify_acceptance",
+        "to": "propose_next"
+      }
+    ],
+    "invariants": [
+      "No next proposal before claim, result and exact-head independent acceptance pass",
+      "Unknown write outcome requires readback, never blind retry",
+      "Same result identity is never accepted twice",
+      "A next proposal is not a worker launch or queue mutation",
+      "Synthetic independent-reviewer strings are fixtures, not actual reviewer acceptance"
+    ]
+  },
+  "archive_calls": [
+    "bridge.assert_fence",
+    "bridge.assert_attempt",
+    "manager.event_check",
+    "manager.attempts",
+    "manager.acceptance"
+  ],
+  "new_model_only": [
+    "Uncertain-write readback matching and absent/unknown disposition",
+    "Ordered stage composition and next proposal, not production controller execution"
+  ],
+  "uncertain_write_contract": {
+    "matching_readback": "Compare actual observed envelope and canonical SHA256 against expected target scope/task/attempt/step/head/event/kind/payload; consume the observed result once with no additional write.",
+    "absent_readback": "Return retry_requires_fresh_authority_and_state; do not write in this experiment.",
+    "unknown_readback": "Return inspect_before_retry; stop.",
+    "mismatched_readback": "Return write_conflict; stop."
+  },
+  "limits": [
+    "No live issue/board writes",
+    "No native worker launch or persistent supervisor",
+    "No scheduler or general workflow engine",
+    "No production transaction/CAS guarantee; distributed races remain owner runtime work"
+  ],
+  "invariant_notes": "Content digest is computed from canonical JSON of the full scoped result envelope, not a symbolic label."
+}

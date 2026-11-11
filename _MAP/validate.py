@@ -71,6 +71,11 @@ def validate(doc):
                 assert hashlib.sha256((ROOT / '_MAP/microtests/freshness' / name).read_bytes()).hexdigest() == digest
         assert case['difference_class'] in {'preserve_required_behavior', 'intended_correction', 'irrelevant_legacy_behavior', 'unresolved'}
     assert doc['instruction_semantics']['examples'][0]['disposition'] == 'replace'
+    queue_evidence = load(ROOT / '_MAP' / doc['queue_contract']['offline_experiment']['evidence'])
+    assert queue_evidence['external_effects'] == 0
+    assert len(queue_evidence['cases']) == 12
+    for name, digest in queue_evidence['experiment_files'].items():
+        assert hashlib.sha256((ROOT / '_MAP/microtests/queue_handoff' / name).read_bytes()).hexdigest() == digest
 if __name__ == '__main__':
     document = load(ROOT / '_MAP/system.json')
     validate(document)
@@ -100,4 +105,4 @@ if __name__ == '__main__':
         except (AssertionError, KeyError, jsonschema.ValidationError):
             continue
         raise AssertionError('review regression accepted')
-    print('PASS: shape, pinned sources, unique group/pattern/domain references, required queue field presence; 8 rejection cases. Queue semantics NOT executed; AM1 evidence is an offline microtest, not production.')
+    print('PASS: shape, pinned sources, unique group/pattern/domain references, required queue field presence; 8 rejection cases. Freshness and queue evidence are bounded offline microtests, not production or autonomous execution.')

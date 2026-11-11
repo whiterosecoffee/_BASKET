@@ -466,7 +466,12 @@
     ],
     "prior_operator_receipt": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6539423865",
     "prior_receipt_scope": "Historical operator-mediated bridge proof, not current autonomous execution. Re-read original receipt and current source before using its claims.",
-    "next_bounded_trace": "After AM1 qualification, inspect historical bridge receipt and design deterministic stale-claim, duplicate-result and uncertain-write cases; do not perform real queue writes from the experiment."
+    "next_bounded_trace": "Review offline trace evidence, then qualify real adapter readback/transaction semantics under existing owner and permissions; do not infer live readiness from this experiment.",
+    "offline_experiment": {
+      "contract": "microtests/queue_handoff/contract.json",
+      "evidence": "microtests/queue_handoff/evidence.json",
+      "scope": "12 synthetic offline traces call pinned archived claim/result/acceptance guards; uncertain-write readback uses a new test model. No live queue mutation or autonomous loop."
+    }
   },
   "coverage": {
     "complete": false,
