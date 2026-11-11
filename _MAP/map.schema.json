@@ -121,7 +121,7 @@
     },
     "domains": {
       "type": "array",
-      "description": "Read-only pointers to all existing B00-B21 catalog entries. Null contract fields are explicit unmapped gaps; spark existence is not worker activity."
+      "description": "Unmapped/partial/mapped domain representation. Full mapped requires reviewed full-domain inventory and digest-bound closure; a bounded reference binding stays partial. No production qualification implied."
     },
     "decision_method": {
       "type": "object",

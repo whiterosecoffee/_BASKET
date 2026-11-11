@@ -1,0 +1,152 @@
+{
+  "format": "basket.map.reference_composition@1",
+  "status": "offline_reference_only",
+  "purpose": "Two-level admission composition with shared clean semantics and report primitives; no archived implementation imports.",
+  "owner": "B00-230",
+  "definitions": {
+    "admit": {
+      "input": "schemas.json#/$defs/request",
+      "output": "schemas.json#/$defs/report",
+      "effects": []
+    },
+    "qualify": {
+      "input": "schemas.json#/$defs/request",
+      "output": "schemas.json#/$defs/qualification",
+      "effects": []
+    },
+    "check_semantics": {
+      "input": "schemas.json#/$defs/request",
+      "output": "schemas.json#/$defs/qualification",
+      "effects": []
+    },
+    "render_report": {
+      "input": "schemas.json#/$defs/qualification",
+      "output": "schemas.json#/$defs/report",
+      "effects": []
+    }
+  },
+  "instances": [
+    {
+      "id": "outer",
+      "definition": "admit",
+      "parent": null
+    },
+    {
+      "id": "qualification",
+      "definition": "qualify",
+      "parent": "outer"
+    },
+    {
+      "id": "semantic_check",
+      "definition": "check_semantics",
+      "parent": "qualification"
+    },
+    {
+      "id": "report",
+      "definition": "render_report",
+      "parent": "outer"
+    }
+  ],
+  "delegation": [
+    {
+      "from": "outer.input",
+      "to": "qualification.input"
+    },
+    {
+      "from": "qualification.input",
+      "to": "semantic_check.input"
+    },
+    {
+      "from": "semantic_check.output",
+      "to": "qualification.output"
+    },
+    {
+      "from": "qualification.output",
+      "to": "report.input"
+    },
+    {
+      "from": "report.output",
+      "to": "outer.output"
+    }
+  ],
+  "use_cases": {
+    "market_observation": {
+      "required_semantics": {
+        "unit": "USD_per_share",
+        "rights": "synthetic",
+        "time_basis": "observed"
+      },
+      "max_age_seconds": 60
+    },
+    "filing_fact": {
+      "required_semantics": {
+        "unit": "USD",
+        "rights": "public_synthetic",
+        "time_basis": "fiscal_period",
+        "period": "FY2025"
+      },
+      "max_age_seconds": null
+    }
+  },
+  "requirements": [
+    {
+      "id": "R-TYPED",
+      "intent": "Every nested boundary validates input and output",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6804013049",
+      "definitions": [
+        "admit",
+        "qualify",
+        "check_semantics",
+        "render_report"
+      ],
+      "cases": [
+        "market_ok",
+        "filing_ok",
+        "malformed_input"
+      ]
+    },
+    {
+      "id": "R-SEMANTIC",
+      "intent": "Unknown/incompatible required semantics reject without coercion",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6804013049",
+      "definitions": [
+        "check_semantics"
+      ],
+      "cases": [
+        "market_wrong_unit",
+        "filing_missing_period"
+      ]
+    },
+    {
+      "id": "R-TIME",
+      "intent": "Future observations and expired current-use data do not qualify",
+      "source": "schemas/freshness.v1.json@74d913e8913d630d85451344689e093aeea07efc",
+      "definitions": [
+        "check_semantics"
+      ],
+      "cases": [
+        "market_expired",
+        "filing_future"
+      ]
+    },
+    {
+      "id": "R-REUSE",
+      "intent": "Two contrasting scenarios invoke the same clean primitive definitions",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6804013049",
+      "definitions": [
+        "check_semantics",
+        "render_report"
+      ],
+      "cases": [
+        "market_ok",
+        "filing_ok"
+      ]
+    }
+  ],
+  "limits": [
+    "No production contract adoption or domain-owner acceptance",
+    "Only two fixed synthetic use cases, not general workflow interpreter",
+    "Historical old schemas remain evidence, not imported primitive implementations",
+    "No claimed savings, entitlement, independent fact verification or complete system coverage"
+  ]
+}

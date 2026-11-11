@@ -1,0 +1,263 @@
+{
+  "evidence_class": "executed_offline_reference_composition",
+  "results": [
+    {
+      "id": "market_ok",
+      "use_case": "market_observation",
+      "result": {
+        "source_id": "synthetic-market",
+        "status": "accepted",
+        "value": 10,
+        "reasons": []
+      },
+      "trace": [
+        {
+          "definition": "check_semantics",
+          "input_hash": "ca30144a313e7356411231861ad08a22aa120fd66373b48f800862076d6f9855",
+          "output_hash": "2d242368803392b61aef4339f1b1c93af0fca15093dd6c0ffa22cd0c67ae9a13",
+          "boundary": "validated"
+        },
+        {
+          "definition": "qualify",
+          "input_hash": "ca30144a313e7356411231861ad08a22aa120fd66373b48f800862076d6f9855",
+          "output_hash": "2d242368803392b61aef4339f1b1c93af0fca15093dd6c0ffa22cd0c67ae9a13",
+          "boundary": "validated"
+        },
+        {
+          "definition": "render_report",
+          "input_hash": "2d242368803392b61aef4339f1b1c93af0fca15093dd6c0ffa22cd0c67ae9a13",
+          "output_hash": "e1ae02a41b09865dbbfb99f50d12243b0bda7f38a2b81815c46a18d3f37fc01d",
+          "boundary": "validated"
+        },
+        {
+          "definition": "admit",
+          "input_hash": "ca30144a313e7356411231861ad08a22aa120fd66373b48f800862076d6f9855",
+          "output_hash": "e1ae02a41b09865dbbfb99f50d12243b0bda7f38a2b81815c46a18d3f37fc01d",
+          "boundary": "validated"
+        }
+      ],
+      "input_unchanged": true
+    },
+    {
+      "id": "filing_ok",
+      "use_case": "filing_fact",
+      "result": {
+        "source_id": "synthetic-filing",
+        "status": "accepted",
+        "value": 100,
+        "reasons": []
+      },
+      "trace": [
+        {
+          "definition": "check_semantics",
+          "input_hash": "03c2e13c01720dcd238c1b5f5919c41b0a5c971eb4bd40e55c2b38dcfedcd48f",
+          "output_hash": "20ac0ae944cd926a71886c7560236657cee0e0792c79e4c8c4836f4817439d5f",
+          "boundary": "validated"
+        },
+        {
+          "definition": "qualify",
+          "input_hash": "03c2e13c01720dcd238c1b5f5919c41b0a5c971eb4bd40e55c2b38dcfedcd48f",
+          "output_hash": "20ac0ae944cd926a71886c7560236657cee0e0792c79e4c8c4836f4817439d5f",
+          "boundary": "validated"
+        },
+        {
+          "definition": "render_report",
+          "input_hash": "20ac0ae944cd926a71886c7560236657cee0e0792c79e4c8c4836f4817439d5f",
+          "output_hash": "3c342ea67fcea4abd5bb389c01316ba737959cb721d9cac90f27e8976acb2bbc",
+          "boundary": "validated"
+        },
+        {
+          "definition": "admit",
+          "input_hash": "03c2e13c01720dcd238c1b5f5919c41b0a5c971eb4bd40e55c2b38dcfedcd48f",
+          "output_hash": "3c342ea67fcea4abd5bb389c01316ba737959cb721d9cac90f27e8976acb2bbc",
+          "boundary": "validated"
+        }
+      ],
+      "input_unchanged": true
+    },
+    {
+      "id": "market_wrong_unit",
+      "use_case": "market_observation",
+      "result": {
+        "source_id": "synthetic-market",
+        "status": "rejected",
+        "value": null,
+        "reasons": [
+          "unit_mismatch"
+        ]
+      },
+      "trace": [
+        {
+          "definition": "check_semantics",
+          "input_hash": "c3235a9989abca6432526ac7d97c5cf48a907215bea8bf81d9f52b32f78e8b13",
+          "output_hash": "324dcb3ad2d9a0a97a0047b70ddedb07a8044a557ae79adf63b2df45b4c485fc",
+          "boundary": "validated"
+        },
+        {
+          "definition": "qualify",
+          "input_hash": "c3235a9989abca6432526ac7d97c5cf48a907215bea8bf81d9f52b32f78e8b13",
+          "output_hash": "324dcb3ad2d9a0a97a0047b70ddedb07a8044a557ae79adf63b2df45b4c485fc",
+          "boundary": "validated"
+        },
+        {
+          "definition": "render_report",
+          "input_hash": "324dcb3ad2d9a0a97a0047b70ddedb07a8044a557ae79adf63b2df45b4c485fc",
+          "output_hash": "b20be504bd97a23da43867c609c4fe8254987932986b54d4a351420f24d750d8",
+          "boundary": "validated"
+        },
+        {
+          "definition": "admit",
+          "input_hash": "c3235a9989abca6432526ac7d97c5cf48a907215bea8bf81d9f52b32f78e8b13",
+          "output_hash": "b20be504bd97a23da43867c609c4fe8254987932986b54d4a351420f24d750d8",
+          "boundary": "validated"
+        }
+      ],
+      "input_unchanged": true
+    },
+    {
+      "id": "filing_missing_period",
+      "use_case": "filing_fact",
+      "result": {
+        "source_id": "synthetic-filing",
+        "status": "rejected",
+        "value": null,
+        "reasons": [
+          "period_missing"
+        ]
+      },
+      "trace": [
+        {
+          "definition": "check_semantics",
+          "input_hash": "233332a25449eb32ee3a2aed1e70a5a2c733ac787985294265ebe79e3cb524c5",
+          "output_hash": "8f1967662ecea7e0428c080bd2a6b3e011204120eb2f8ce9c553162111d8be45",
+          "boundary": "validated"
+        },
+        {
+          "definition": "qualify",
+          "input_hash": "233332a25449eb32ee3a2aed1e70a5a2c733ac787985294265ebe79e3cb524c5",
+          "output_hash": "8f1967662ecea7e0428c080bd2a6b3e011204120eb2f8ce9c553162111d8be45",
+          "boundary": "validated"
+        },
+        {
+          "definition": "render_report",
+          "input_hash": "8f1967662ecea7e0428c080bd2a6b3e011204120eb2f8ce9c553162111d8be45",
+          "output_hash": "5ef84da5f61f0e4689ebd89d7573568c551859d67edc85a3e1d4680494e45bf9",
+          "boundary": "validated"
+        },
+        {
+          "definition": "admit",
+          "input_hash": "233332a25449eb32ee3a2aed1e70a5a2c733ac787985294265ebe79e3cb524c5",
+          "output_hash": "5ef84da5f61f0e4689ebd89d7573568c551859d67edc85a3e1d4680494e45bf9",
+          "boundary": "validated"
+        }
+      ],
+      "input_unchanged": true
+    },
+    {
+      "id": "market_expired",
+      "use_case": "market_observation",
+      "result": {
+        "source_id": "synthetic-market",
+        "status": "rejected",
+        "value": null,
+        "reasons": [
+          "expired"
+        ]
+      },
+      "trace": [
+        {
+          "definition": "check_semantics",
+          "input_hash": "8233f8f5be6e5c33e92ffc3259584a4cbf9efd209c5159231f8de270e478bb0c",
+          "output_hash": "268f5bd6dec8a1391123635023a2746667416548c8c32036884a113831087029",
+          "boundary": "validated"
+        },
+        {
+          "definition": "qualify",
+          "input_hash": "8233f8f5be6e5c33e92ffc3259584a4cbf9efd209c5159231f8de270e478bb0c",
+          "output_hash": "268f5bd6dec8a1391123635023a2746667416548c8c32036884a113831087029",
+          "boundary": "validated"
+        },
+        {
+          "definition": "render_report",
+          "input_hash": "268f5bd6dec8a1391123635023a2746667416548c8c32036884a113831087029",
+          "output_hash": "c5f4da55234ee218d60ed21bcf3668111b2b71c9b1b3a12c9134e594731dab79",
+          "boundary": "validated"
+        },
+        {
+          "definition": "admit",
+          "input_hash": "8233f8f5be6e5c33e92ffc3259584a4cbf9efd209c5159231f8de270e478bb0c",
+          "output_hash": "c5f4da55234ee218d60ed21bcf3668111b2b71c9b1b3a12c9134e594731dab79",
+          "boundary": "validated"
+        }
+      ],
+      "input_unchanged": true
+    },
+    {
+      "id": "filing_future",
+      "use_case": "filing_fact",
+      "result": {
+        "source_id": "synthetic-filing",
+        "status": "rejected",
+        "value": null,
+        "reasons": [
+          "future_observation"
+        ]
+      },
+      "trace": [
+        {
+          "definition": "check_semantics",
+          "input_hash": "b91561c4bd2498f818627ed235342254312fae83a23f99c31622f079f3b8c721",
+          "output_hash": "7dd25936881dc2270f1288a98c796ac2c0790cda9e21f56e29669943eb2902a7",
+          "boundary": "validated"
+        },
+        {
+          "definition": "qualify",
+          "input_hash": "b91561c4bd2498f818627ed235342254312fae83a23f99c31622f079f3b8c721",
+          "output_hash": "7dd25936881dc2270f1288a98c796ac2c0790cda9e21f56e29669943eb2902a7",
+          "boundary": "validated"
+        },
+        {
+          "definition": "render_report",
+          "input_hash": "7dd25936881dc2270f1288a98c796ac2c0790cda9e21f56e29669943eb2902a7",
+          "output_hash": "57e8ce7f2734a7498899f7d156f0e4bc407ee0bc96be16f12d42b1c59793a7ae",
+          "boundary": "validated"
+        },
+        {
+          "definition": "admit",
+          "input_hash": "b91561c4bd2498f818627ed235342254312fae83a23f99c31622f079f3b8c721",
+          "output_hash": "57e8ce7f2734a7498899f7d156f0e4bc407ee0bc96be16f12d42b1c59793a7ae",
+          "boundary": "validated"
+        }
+      ],
+      "input_unchanged": true
+    },
+    {
+      "id": "malformed_input",
+      "use_case": "market_observation",
+      "result": {
+        "error": "invalid_input"
+      },
+      "trace": [],
+      "input_unchanged": true
+    }
+  ],
+  "requirements_covered": [
+    "R-TYPED",
+    "R-SEMANTIC",
+    "R-TIME",
+    "R-REUSE"
+  ],
+  "graph_and_output_negatives": 3,
+  "shared_clean_primitives": [
+    "check_semantics",
+    "render_report"
+  ],
+  "external_effects": 0,
+  "production_qualified": false,
+  "experiment_files": {
+    "composition.json": "ca5f6a68dd67d31a67fbea87400f1a3df164af176a5b25b3420d9f76ed903233",
+    "cases.json": "2af79746322fb72a873ffb725d9e987bde31fd13a93f1309a612d4d239faf331",
+    "schemas.json": "1863a223289e252bc1658f721c5201327f35fea82bf18fa99c477ceaea20a40f",
+    "run.py": "c852fa0b2aaa6bdc565d6fed6f56606be56e8da35be4f24ad8d12b02485e8ec6"
+  }
+}

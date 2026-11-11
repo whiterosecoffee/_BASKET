@@ -477,6 +477,9 @@
     "complete": false,
     "basis": "Eight existing queue groups are represented by pointers, not exhaustive component/schema/port enumeration.",
     "next": [
+      "Extend intent-to-contract-to-scenario-to-evidence coverage from the first two-use-case reference composition.",
+      "Route hosted suite discovery to B01 using the local suite manifest/runner; exact shared CI alone does not run these suites.",
+      "Keep domain mapping partial until remaining owner-scoped contracts are linked; do not equate one reference composition with full B00 coverage.",
       "Use qualified semantic boundary cases to specify next smallest cohesive producer/consumer contract; do not expand into loop design or domain implementation.",
       "Independently qualify AM1 nested boundary and archive experiment, then choose the next intent-linked missing contract.",
       "Reconcile conflicting project instructions by intent with #201 owner; define archive-backed microtests before replacement work.",
@@ -493,7 +496,9 @@
       "All L1 gates",
       "Operational qualification",
       "Cohesive replacement contracts and rewritten components"
-    ]
+    ],
+    "suite_manifest": "suites.json",
+    "reference_composition": "compositions/admission/composition.json"
   },
   "field_notes": {
     "sources": "Canonical path keyed, commit-pinned byte references; candidates remain draft.",
@@ -503,7 +508,7 @@
     "flow": "Planning input/output contract, not executable ports.",
     "queue_contract": "Safe effect design for existing owner, not a competing queue store.",
     "coverage": "Explicit gaps prevent broad completion claims.",
-    "domains": "Read-only pointers to all existing B00-B21 catalog entries. Null contract fields are explicit unmapped gaps; spark existence is not worker activity.",
+    "domains": "Unmapped/partial/mapped domain representation. Full mapped requires reviewed full-domain inventory and digest-bound closure; a bounded reference binding stays partial. No production qualification implied.",
     "decision_method": "Evidence-gated option and seed matching with challenge scores and measurements. Values are hypotheses until observed.",
     "semantic_diffs": "Versioned proposal envelopes explain applicability and compatibility without mutating source contracts. Examples are design, not executed fixtures.",
     "instruction_semantics": "Resolve intended outcomes before admitting rules into the clean system; do not carry contradictory historical instructions forward.",
@@ -516,11 +521,30 @@
       "source_ref": "orchestration/sparks.json",
       "json_pointer": "/sparks/0",
       "owner_spark": "B00",
-      "coverage": "inventoried_pointer_only",
-      "inputs": null,
-      "outputs": null,
-      "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "coverage": "partial_reference_mapping",
+      "inputs": {
+        "schema_ref": "compositions/admission/schemas.json#/$defs/request"
+      },
+      "outputs": {
+        "schema_ref": "compositions/admission/schemas.json#/$defs/report"
+      },
+      "binding": {
+        "contract_ref": "compositions/admission/composition.json",
+        "evidence_ref": "compositions/admission/evidence.json",
+        "scope": "Bounded B00-owned reference admission composition, not all B00 responsibilities",
+        "requirement_ids": [
+          "R-TYPED",
+          "R-SEMANTIC",
+          "R-TIME",
+          "R-REUSE"
+        ],
+        "root_definition": "admit"
+      },
+      "note": "One scoped clean reference composition is mapped; domain is not complete or production-qualified.",
+      "mapping_state": "partial",
+      "remaining_gaps": [
+        "Remaining orchestration/planning contracts, real adapters and production acceptance are unmapped."
+      ]
     },
     {
       "id": "B01",
@@ -532,7 +556,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B02",
@@ -544,7 +572,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B03",
@@ -556,7 +588,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B04",
@@ -568,7 +604,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B05",
@@ -580,7 +620,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B06",
@@ -592,7 +636,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B07",
@@ -604,7 +652,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B08",
@@ -616,7 +668,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B09",
@@ -628,7 +684,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B10",
@@ -640,7 +700,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B11",
@@ -652,7 +716,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B12",
@@ -664,7 +732,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B13",
@@ -676,7 +748,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B14",
@@ -688,7 +764,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B15",
@@ -700,7 +780,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B16",
@@ -712,7 +796,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B17",
@@ -724,7 +812,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B18",
@@ -736,7 +828,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B19",
@@ -748,7 +844,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B20",
@@ -760,7 +860,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     },
     {
       "id": "B21",
@@ -772,7 +876,11 @@
       "inputs": null,
       "outputs": null,
       "binding": null,
-      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker."
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
     }
   ],
   "decision_method": {
