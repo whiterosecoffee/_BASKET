@@ -33,6 +33,14 @@
       "evidence": "compositions/admission/evidence.json",
       "results_key": "results",
       "evidence_class": "executed_offline_reference_composition"
+    },
+    {
+      "id": "prior_art",
+      "runner": "prior_art/run.py",
+      "cases": "prior_art/cases.json",
+      "evidence": "prior_art/evidence.json",
+      "results_key": "results",
+      "evidence_class": "executed_offline_projection_checks"
     }
   ]
 }

@@ -39,3 +39,7 @@ For shallow CI checkouts, `_MAP/prepare_sources.py` allows only immutable pins f
 ## Historical availability and future effects
 
 `compositions/admission/residual-disposition.json` records the #230 owner handoff disposition. The pure reference now requires exact-revision `available_at` and tests historical cutoff admission separately from observation age. Source-change and permission-revocation guards are adopted requirements with owner-routed acceptance criteria, not implemented runtime effects. The reference request change is intentionally fail-closed for old callers; previous evidence remains pinned in the disposition.
+
+## Prior-art families
+
+`prior_art/families.json` organizes existing map objects through six complementary lenses: catalog, contracts, composition, provenance, design/runtime lineage and graph QC. Each has primary-source links, adopt/adapt reasoning, rejected scope and checked local pointers. Two navigation examples locate shared admission definitions and bounded evidence without conflating a plan with a run. `prior_art/run.py` executes positive and mutation checks through the existing suite manifest; no external framework or runtime is installed.
