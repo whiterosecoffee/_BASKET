@@ -79,7 +79,7 @@
       "source_commit": "6900bf0b0c4ba518c9fde48180588471a3846164",
       "artifact": {
         "ref": "https://github.com/whiterosecoffee/_BASKET/blob/6900bf0b0c4ba518c9fde48180588471a3846164/architecture/COMPONENT_INDEX.md",
-        "sha256": "85e5d1a23ede9cae503c47bf4c81b622431568c4a1d615c0d15201d394844a61"
+        "sha256": "40c60413fff4708fb11a7ff74369c7d1471365e4c22fbdb68ff24f25a4dabc6d"
       },
       "access": "public_repository",
       "resolution": "connector_bytes_verified",

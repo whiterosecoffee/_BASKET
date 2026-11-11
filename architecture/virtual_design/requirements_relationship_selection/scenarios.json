@@ -9,7 +9,7 @@
   "record_type": "option_scenarios",
   "options_ref": {
     "ref": "options.json",
-    "sha256": "a7752f9c549a1cd77443fde365992b261efa1390294f05127ed13e3b05876855"
+    "sha256": "04c18761a2bfb3f11732288fff6c89483bd66108bf3bb805717089b6d346994d"
   },
   "cases": [
     {

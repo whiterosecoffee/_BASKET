@@ -9,7 +9,7 @@
   "record_type": "option_decision_projection",
   "requirements_ref": {
     "ref": "requirements.json",
-    "sha256": "3e56866645a06461a717e63879694e95f80cc4660c08efa2e0cadaa4f3060888"
+    "sha256": "ca08a11cbd273b8ac11cf50f1116d81c56c21441fe0c41067af36aac2a3cdb1c"
   },
   "hard_gate_order": [
     "scope_allowed",
@@ -28,7 +28,11 @@
       ],
       "implementation": "reuse owner sources or propose smallest missing seam; not a new module",
       "cost": "unmeasured",
-      "risk": "requires_owner_review"
+      "risk": "requires_owner_review",
+      "relationship_definition_ids": [
+        "resolve_validate"
+      ],
+      "binding_status": "proposed_design_responsibility"
     },
     {
       "primitive": "contract_validation",
@@ -38,7 +42,11 @@
       ],
       "implementation": "reuse owner sources or propose smallest missing seam; not a new module",
       "cost": "unmeasured",
-      "risk": "requires_owner_review"
+      "risk": "requires_owner_review",
+      "relationship_definition_ids": [
+        "resolve_validate"
+      ],
+      "binding_status": "proposed_design_responsibility"
     },
     {
       "primitive": "composition_binding",
@@ -48,7 +56,11 @@
       ],
       "implementation": "reuse owner sources or propose smallest missing seam; not a new module",
       "cost": "unmeasured",
-      "risk": "requires_owner_review"
+      "risk": "requires_owner_review",
+      "relationship_definition_ids": [
+        "research"
+      ],
+      "binding_status": "proposed_design_responsibility"
     },
     {
       "primitive": "trace_evidence",
@@ -57,7 +69,9 @@
       ],
       "implementation": "reuse owner sources or propose smallest missing seam; not a new module",
       "cost": "unmeasured",
-      "risk": "requires_owner_review"
+      "risk": "requires_owner_review",
+      "relationship_definition_ids": [],
+      "binding_status": "unresolved_definition_binding"
     },
     {
       "primitive": "inventory_projection",
@@ -66,7 +80,9 @@
       ],
       "implementation": "reuse owner sources or propose smallest missing seam; not a new module",
       "cost": "unmeasured",
-      "risk": "requires_owner_review"
+      "risk": "requires_owner_review",
+      "relationship_definition_ids": [],
+      "binding_status": "unresolved_definition_binding"
     },
     {
       "primitive": "option_selection",
@@ -77,7 +93,11 @@
       ],
       "implementation": "reuse owner sources or propose smallest missing seam; not a new module",
       "cost": "unmeasured",
-      "risk": "requires_owner_review"
+      "risk": "requires_owner_review",
+      "relationship_definition_ids": [
+        "analysis"
+      ],
+      "binding_status": "proposed_design_responsibility"
     }
   ],
   "recommended_design_sequence": [
@@ -131,5 +151,23 @@
     "measured_duration": null,
     "measured_savings": null,
     "coverage": "10 distinct design requirements represented; not implementation coverage or queue completion"
+  },
+  "coverage_counting": {
+    "relationship_model_ref": {
+      "ref": "relationships.json",
+      "sha256": "0433a7b5f695b50d9d8284e0185dbfafd3142c78e5c945c3dc622893e085a321"
+    },
+    "distinct_linked_definition_ids": [
+      "analysis",
+      "research",
+      "resolve_validate"
+    ],
+    "distinct_linked_definition_count": 3,
+    "counting_rule": "Set union of linked definition IDs; never add instance or containment-parent totals. Shared resolve_validate appears in two primitive rows but counts once.",
+    "unbound_primitives": [
+      "trace_evidence",
+      "inventory_projection"
+    ],
+    "limit": "Proposed design responsibility only, not implemented coverage. Two primitives lack a bound relationship definition, so L1-18 full component coverage is not accepted."
   }
 }

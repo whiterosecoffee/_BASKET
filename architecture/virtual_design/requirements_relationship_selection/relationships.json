@@ -9,7 +9,7 @@
   "record_type": "relationship_projection",
   "requirements_ref": {
     "ref": "requirements.json",
-    "sha256": "3e56866645a06461a717e63879694e95f80cc4660c08efa2e0cadaa4f3060888"
+    "sha256": "ca08a11cbd273b8ac11cf50f1116d81c56c21441fe0c41067af36aac2a3cdb1c"
   },
   "indexed_groups": [
     {
