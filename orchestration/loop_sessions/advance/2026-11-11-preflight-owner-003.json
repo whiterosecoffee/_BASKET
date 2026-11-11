@@ -1,0 +1,123 @@
+{
+  "record_type": "immutable_owner_and_acceptance_reconciliation",
+  "record_id": "B00-236-preflight-003",
+  "previous_revision": "58387b6062c3f641f11bbf1c23fb04bedae75a3d",
+  "date": "2026-11-11",
+  "owner": "B00-236",
+  "sources": {
+    "map_head": "f42cc68ed6ebce65803c0b0cb562f4ebca707f06",
+    "map_run": 43108696785,
+    "map_worker_qc_job": 130818691714,
+    "prior_own_run": 43108873254,
+    "main": "74d913e8913d630d85451344689e093aeea07efc"
+  },
+  "verified": {
+    "own_prior_head_ci": "success",
+    "map_head_ci": "success",
+    "map_named_runner": "worker-qc log includes test_declared_map_suites_execute and admission/semantic_boundary/queue_handoff receipts; 247 orchestration and 113 integration tests pass",
+    "own_independent_review": "No submitted PR reviews returned; no independent acceptance established"
+  },
+  "responsibility_map": [
+    {
+      "issue": 230,
+      "role": "Clean nested composition design",
+      "scope": "_MAP/**",
+      "evidence": "Current issue claim and admission composition owner B00-230",
+      "status": "Existing design owner; not production preflight acceptance"
+    },
+    {
+      "issue": 103,
+      "role": "Shared structural boundary and semantic requirements",
+      "scope": "Existing schema/contract allocation",
+      "status": "Integrated structural increment; domain qualification remains open"
+    },
+    {
+      "issue": 32,
+      "role": "Existing agentic controller implementation",
+      "scope": "orchestration/agentic/**",
+      "status": "Existing implementation owner; no new effect-preflight allocation inferred"
+    },
+    {
+      "issue": 24,
+      "role": "Queue/execution-loop lane",
+      "scope": "Existing planner/execution-loop scope",
+      "status": "No scope transfer"
+    },
+    {
+      "issue": 105,
+      "role": "Independent acceptance",
+      "status": "Future semantic/effect verification not implied by shared CI"
+    }
+  ],
+  "case_reconciliation": [
+    {
+      "case": "PI-01",
+      "status": "prior_source_review_only",
+      "note": "No new invocation of check_exchange."
+    },
+    {
+      "case": "PI-02",
+      "status": "prior_source_review_only",
+      "note": "No new missing-byte execution here."
+    },
+    {
+      "case": "PI-03",
+      "status": "partial_existing_evidence",
+      "covered": [
+        "market_wrong_unit",
+        "market_expired"
+      ],
+      "source": "_MAP/compositions/admission/cases.json and hosted admission receipt",
+      "gap": "available_at/ingested_at are absent from request schema; future observed_at test is not availability-before-as_of evidence. No effectful child exists, so prevention of external effects is untested."
+    },
+    {
+      "case": "PI-04",
+      "status": "uncovered",
+      "gap": "Admission is pure and has no authorization revision, expected source revision recheck or effect boundary. dependency_gate.py returns nonexecuting intent and does not prove an effect fence."
+    },
+    {
+      "case": "PI-05",
+      "status": "prior_source_review_only",
+      "note": "No new wrong-run exchange execution here."
+    }
+  ],
+  "decision": {
+    "selected": "Route only residual PI-03 availability and PI-04 decision-to-effect requirements to existing design owner.",
+    "reason": "Avoid duplicating demonstrated unit/expiry cases or assigning runtime ownership by implication.",
+    "recommendation": "Keep pure semantic qualification separate from authorization; define which future effect owner consumes a revision-bound decision and checks current authority immediately before its bounded effect.",
+    "not_selected": "New runtime guard/controller; outside this evidence scope and current L1 gates."
+  },
+  "proposed_residual_cases": [
+    {
+      "id": "PI-03b",
+      "fixture": "observed_at <= as_of < available_at",
+      "expected": "unavailable; never accepted as known at as_of",
+      "execution": "not_run"
+    },
+    {
+      "id": "PI-04a",
+      "fixture": "qualification succeeds at source revision A; source becomes B before proposed effect",
+      "expected": "stop/requalify; no stale effect",
+      "execution": "not_run"
+    },
+    {
+      "id": "PI-04b",
+      "fixture": "permission revoked between qualification and proposed effect",
+      "expected": "stop; no effect",
+      "execution": "not_run"
+    }
+  ],
+  "method_improvement": "Check existing owner experiments before allocating a test; split partial coverage into exact remaining predicates.",
+  "horizon": {
+    "retained_count": 25,
+    "authority": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+    "status": "No canonical item closed or reordered; prior obligations retained."
+  },
+  "score": {
+    "total": 13,
+    "maximum": 30,
+    "change": 0,
+    "note": "Useful reconciliation but no independent acceptance or operational reliability gain established."
+  },
+  "next_action": "Existing #230 owner decides residual availability and revision-bound authorization contracts; #236 verifies returned disposition before further work."
+}
