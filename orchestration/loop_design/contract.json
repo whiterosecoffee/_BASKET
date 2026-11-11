@@ -3,7 +3,8 @@
   "issue": 232,
   "branch": "work/232-scoped-loop-contracts",
   "scope": [
-    "orchestration/loop_design/**"
+    "orchestration/loop_design/**",
+    "orchestration/tests/test_loop_design_bridge.py"
   ],
   "authority": {
     "queue": "https://github.com/whiterosecoffee/_BASKET/issues/136",

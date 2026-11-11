@@ -1,6 +1,6 @@
 # Scoped loop design
 
-B00 [#232](https://github.com/whiterosecoffee/_BASKET/issues/232), branch `work/232-scoped-loop-contracts`. Only `orchestration/loop_design/**` is owned here. Canonical queue is #136; `_MAP` #230 and execution/controller owners #24/#32 remain authoritative and read-only.
+B00 [#232](https://github.com/whiterosecoffee/_BASKET/issues/232), branch `work/232-scoped-loop-contracts`. Scope: `orchestration/loop_design/**` plus the single discovery adapter `orchestration/tests/test_loop_design_bridge.py`. Canonical queue is #136; `_MAP` #230 and execution/controller owners #24/#32 remain authoritative and read-only.
 
 Start with `contract.json`: four explicit audit → advance → independent review → outer-improvement roles, event cadence, inputs/outputs, hard eligibility gates, bounded budgets and checkpoint recovery. `checkpoint.schema.json` is a local design schema, not shared registration. `claim.json` uses the existing worker-task contract.
 
@@ -20,3 +20,7 @@ Requires Python and `jsonschema`. The test module is a small pure conformance mo
 4. Compare measured outcomes/rework/effort and test one method change at a time. Unknown cost stays unknown.
 
 No scheduler is configured, no recurring job is activated, and no merge/deploy is requested. This design can inform a separately authorized scheduling/runtime task after the current Level 1 qualification gates.
+
+## Shared CI discovery
+
+The B00 adapter loads every `test_*.py` in this folder through the existing shared orchestration discovery, enforcing required design-test identities and rejecting static or runtime skips and unexpected-success results. Missing imports, removed required tests and actual failures remain failures. No workflow file changes or network source fetches. In shallow checkouts lacking the archived commit, unchanged repository file bytes must still match the pinned SHA-256 values; missing or changed source bytes fail. This verifies content identity, not Git ancestry. Score remains 22/50; CI coverage is stronger evidence, not runtime qualification.

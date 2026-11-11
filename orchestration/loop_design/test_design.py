@@ -1,5 +1,4 @@
 """Offline design conformance model, not a production controller or effect executor."""
-import copy
 import hashlib
 import json
 from pathlib import Path
@@ -74,7 +73,13 @@ def review(producer, reviewer, candidate, tested, reviewed, required_suites, rec
 class DesignTests(unittest.TestCase):
     def test_source_pins(self):
         for source in CONTRACT['sources']:
-            content = subprocess.check_output(['git', 'show', source['commit'] + ':' + source['path']], cwd=ROOT)
+            # Default hosted checkout is shallow. Unchanged working-tree bytes
+            # may prove the pinned content hash without pretending history exists.
+            probe = subprocess.run(['git', 'cat-file', '-e', source['commit'] + '^{commit}'], cwd=ROOT, capture_output=True)
+            if probe.returncode == 0:
+                content = subprocess.check_output(['git', 'show', source['commit'] + ':' + source['path']], cwd=ROOT)
+            else:
+                content = (ROOT / source['path']).read_bytes()
             self.assertEqual(hashlib.sha256(content).hexdigest(), source['sha256'])
 
     def test_roles_and_ports(self):
@@ -88,7 +93,7 @@ class DesignTests(unittest.TestCase):
     def test_boundary(self):
         self.assertTrue(CONTRACT['authority']['spec_is_not_scheduler'])
         self.assertIsNone(CONTRACT['authority']['configured_schedule'])
-        self.assertEqual(CONTRACT['scope'], ['orchestration/loop_design/**'])
+        self.assertEqual(CONTRACT['scope'], ['orchestration/loop_design/**', 'orchestration/tests/test_loop_design_bridge.py'])
         self.assertFalse(CONTRACT['review']['acceptance_is_merge_authorization'])
 
     def test_claim_schema(self):

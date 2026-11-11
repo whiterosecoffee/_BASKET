@@ -12,7 +12,8 @@
   },
   "objective": "Score and refine JSON-first scoped loop contracts with explicit operational boundaries.",
   "write_paths": [
-    "orchestration/loop_design/**"
+    "orchestration/loop_design/**",
+    "orchestration/tests/test_loop_design_bridge.py"
   ],
   "acceptance": [
     {
