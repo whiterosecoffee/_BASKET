@@ -132,7 +132,12 @@
         "test_evidence": [],
         "acceptance_evidence": [],
         "next_action": "Recheck synthetic source when its revision changes.",
-        "blocker": null,
+        "blocker": {
+          "reason": "Synthetic publication awaits authorization",
+          "action": "Publish synthetic result artifact",
+          "approval_authority": "synthetic-project-owner",
+          "unblock_condition": "Explicit approval for this artifact and destination is recorded"
+        },
         "recheck_condition": "Synthetic source revision changes."
       }
     },

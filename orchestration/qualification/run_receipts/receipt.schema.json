@@ -30,8 +30,15 @@
       "format": "date-time"
     },
     "subject_revision": {
-      "type": "string",
-      "pattern": "^[a-f0-9]{40}$"
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "sources": {
       "type": "array",
@@ -415,6 +422,10 @@
             "unblock_condition": {
               "type": "string",
               "pattern": "\\S"
+            },
+            "approval_authority": {
+              "type": "string",
+              "pattern": "\\S"
             }
           }
         },
@@ -510,8 +521,69 @@
               "unblock_condition": {
                 "type": "string",
                 "pattern": "\\S"
+              },
+              "approval_authority": {
+                "type": "string",
+                "pattern": "\\S"
               }
             }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome_state": {
+            "const": "awaiting_approval"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "blocker": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "reason",
+              "action",
+              "unblock_condition",
+              "approval_authority"
+            ],
+            "properties": {
+              "reason": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "action": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "unblock_condition": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "approval_authority": {
+                "type": "string",
+                "pattern": "\\S"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "subject_revision": {
+            "type": "null"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "outcome_state": {
+            "const": "monitoring_only"
           }
         }
       }
