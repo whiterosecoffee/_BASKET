@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Clean template seed boundary v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "intent", "references", "requires", "acceptance"],
+  "properties": {
+    "schema": {"const": "basket.clean_seed@1"},
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]+$"},
+    "intent": {"type": "string", "minLength": 1},
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["locator", "use", "rationale"],
+        "properties": {
+          "locator": {"type": "string", "minLength": 1},
+          "use": {"const": "reference_only"},
+          "rationale": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "requires": {
+      "type": "array", "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^capability:[a-z][a-z0-9.-]+$"}
+    },
+    "acceptance": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    }
+  }
+}

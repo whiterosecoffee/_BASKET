@@ -1,0 +1,11 @@
+{
+  "schema": "basket.clean_seed@1",
+  "id": "intake-review-seed",
+  "intent": "Specify a clean intake-to-independent-review component before any runtime implementation.",
+  "references": [
+    {"locator": "https://github.com/whiterosecoffee/_BASKET/issues/226", "use": "reference_only", "rationale": "Reuse nested intake/review intent, not candidate implementation or authority."},
+    {"locator": "https://github.com/whiterosecoffee/_BASKET/issues/103", "use": "reference_only", "rationale": "Align with existing input/output contract vocabulary; this seed does not replace those contracts."}
+  ],
+  "requires": [],
+  "acceptance": ["Input and output contracts are explicit before implementation", "Independent review records actual evidence, not dispatch", "No reference is treated as a runtime prerequisite"]
+}
