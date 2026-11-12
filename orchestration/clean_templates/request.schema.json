@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "seed",
+    "available_capabilities"
+  ],
+  "properties": {
+    "seed": {},
+    "available_capabilities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^capability:[a-z][a-z0-9.-]+$"
+      }
+    }
+  }
+}

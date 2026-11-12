@@ -1,0 +1,48 @@
+{
+  "schema": "basket.component_contract@1",
+  "component_id": "clean-seed-probe",
+  "owner_spark": "B00",
+  "version": "1.0.0",
+  "description": "Offline JSON boundary for the existing seed validator; readiness is not execution or acceptance.",
+  "determinism": "pure",
+  "inputs": [
+    {
+      "name": "request",
+      "schema_ref": "orchestration/clean_templates/request.schema.json",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "readiness",
+      "schema_ref": "orchestration/clean_templates/readiness.schema.json",
+      "required": true
+    }
+  ],
+  "errors": [
+    {
+      "code": "INVALID_REQUEST",
+      "retryable": false,
+      "description": "ValueError for malformed request envelope; invalid seeds produce state=invalid."
+    }
+  ],
+  "acceptance": {
+    "test_command": "python -m unittest discover -s orchestration/clean_templates/tests -v",
+    "minimum_tests": 20,
+    "fixtures": [
+      "orchestration/clean_templates/seed.json"
+    ],
+    "ci_owner": "B01",
+    "required_checks": [
+      "worker-qc"
+    ]
+  },
+  "assumptions": [
+    "Available capabilities are caller assertions, not verified implementation or permission."
+  ],
+  "guarantees": [
+    "Reference locators are never opened.",
+    "No execution, dispatch or lifecycle acceptance is inferred."
+  ],
+  "effects": []
+}
