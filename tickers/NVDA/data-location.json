@@ -1,0 +1,18 @@
+{
+  "schema": "basket.ticker_local_input@1",
+  "ticker": "NVDA",
+  "analysis_owner": "_TICKER NVDA",
+  "data_owner": "_FETCH",
+  "data_owner_session": "6af629d6-45e0-8191-a5ea-c0041adda006",
+  "branch": "work/local-20261112-ticker-nvda",
+  "working_directory": "tickers/NVDA",
+  "history_file": "Nvidia.jsonl",
+  "source_manifest": "source-manifest.json",
+  "coverage_manifest": "coverage.json",
+  "state": "awaiting_canonical_resolver_and_qualified_data",
+  "raw_data_git_policy": "ignored; never committed",
+  "consumer_access": "read_only",
+  "provider_calls_by_consumer": false,
+  "canonical_component": "_TICKERS",
+  "path_basis": "Repository-relative analyst directory; input filenames are unresolved consumer expectations, not placement authority."
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "basket.ticker_fetch_request@1",
+  "ticker": "NVDA",
+  "owner": "_FETCH",
+  "target": "_TICKERS/NVDA/Nvidia.jsonl",
+  "source_manifest_target": "_TICKERS/NVDA/source-manifest.json",
+  "coverage_target": "_TICKERS/NVDA/coverage.json",
+  "requested_action": "Owner to resolve canonical project-relative placement and provide analyst access to one maintained dataset plus matching quality manifests. These targets are proposed expectations pending owner evidence, not proof of placement or authorization for this analyst to move data.",
+  "requirements": [
+    "Retain raw data outside Git tracking.",
+    "Provide source hash, schema, adjustment basis, timestamp/session semantics, freshness, coverage and explicit gaps.",
+    "Use the existing data-owner branch and code/tests; this consumer branch is for NVDA analysis only.",
+    "Confirm destination acceptance and actual readback before marking available."
+  ],
+  "analysis_need": "October 1 onward cumulative share volume and turnover, with regular/extended-session boundaries and complete-period qualification.",
+  "state": "awaiting_owner_resolution_not_acknowledged",
+  "raw_data_created_by_consumer": false
+}

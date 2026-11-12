@@ -1,0 +1,6 @@
+# Private market data maintained exclusively by _FETCH
+*.jsonl
+*.jsonl.*
+source-manifest.json
+coverage.json
+.writer.lock
