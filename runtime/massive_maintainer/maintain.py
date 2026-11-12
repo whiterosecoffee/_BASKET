@@ -319,7 +319,10 @@ def resolve(pointer, ticker, day, required_through=None, max_age_seconds=1200):
     cfg=read(Path(pointer))
     if not isinstance(cfg,dict) or cfg.get('schema')!=SCHEMA:
         raise ValueError('incompatible resolver pointer')
-    root=Path(cfg['root'])
+    root_value=cfg.get('root')
+    if not isinstance(root_value,str) or not root_value.strip() or '\x00' in root_value or not Path(root_value).is_absolute():
+        raise ValueError('invalid resolver root: expected an absolute non-empty path string')
+    root=Path(root_value)
     index=read(root/'index.json')
     if index is not None and (not isinstance(index,dict) or index.get('schema')!=SCHEMA or index.get('source')!='Massive' or not isinstance(index.get('partitions'),dict)):
         raise ValueError('incompatible partition index')

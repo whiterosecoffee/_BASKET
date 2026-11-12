@@ -150,4 +150,19 @@ class MaintenanceTests(unittest.TestCase):
         m.atomic(self.pointer,m.encode({'root':str(self.root),'schema':m.SCHEMA}))
         self.assertEqual(m.resolve(self.pointer,'NVDA',self.day)['status'],'qualified_historical')
 
+    def test_resolver_root_contract_before_data_access(self):
+        configs=[{'schema':m.SCHEMA}]+[
+            {'schema':m.SCHEMA,'root':value}
+            for value in (None,42,True,[],{},'', '   ', 'bad\x00root', 'relative-root')]
+        for cfg in configs:
+            with self.subTest(pointer=cfg):
+                with patch.object(m,'read',side_effect=[cfg,AssertionError('data-root read before validation')]) as reader:
+                    with patch.object(Path,'open',side_effect=AssertionError('unexpected data access')):
+                        with patch.object(Path,'mkdir',side_effect=AssertionError('unexpected data write')):
+                            with self.assertRaisesRegex(ValueError,'^invalid resolver root: expected an absolute non-empty path string$'):
+                                m.resolve(self.pointer,'NVDA',self.day)
+                    self.assertEqual(reader.call_count,1)
+        self.publish()
+        self.assertEqual(m.resolve(self.pointer,'NVDA',self.day)['status'],'qualified_historical')
+
 if __name__=='__main__': unittest.main()

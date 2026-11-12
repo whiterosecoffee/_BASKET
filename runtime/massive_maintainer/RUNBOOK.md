@@ -200,3 +200,26 @@ Next independent acceptance remains the actual NVDA consumer and qualified input
 contract once its existing data/discovery dependencies are met. Preserve the
 no-repull restriction and unresolved migration handoff; do not launch a second
 writer or infer permission to move data from this artifact review.
+
+### Data-root contract repair (maintenance 2026-11-12T23:55:10Z)
+
+At source head `10a0353b5aa9481d5854b1d4e01b79b7d76d615d`, the new offline
+root-contract regression reproduced six KeyError/TypeError cases and four cases
+that reached the root read before validation. The earlier independent receipt is
+historical evidence; its unresolved error-type issue is addressed by this change.
+
+After reading the pointer and validating its schema, resolve now requires root to
+be a non-empty, non-whitespace, NUL-free absolute path string. Missing, null,
+boolean, numeric, list, object, empty, whitespace, NUL and relative roots raise
+`ValueError: invalid resolver root: expected an absolute non-empty path string`
+before accessing the supplied data root. Relative roots are deliberately rejected
+so they cannot silently resolve against a receiving worker's working directory.
+The pointer itself must still be read; this is not a claim of zero filesystem IO.
+OS availability/access errors for syntactically valid absolute paths remain OS
+errors, not this configuration error.
+
+`python -B -m unittest runtime.massive_maintainer.test_maintain -v` passed 19 tests,
+including ten invalid-root subcases with root reads/writes guarded and a valid
+historical-resolution control. `git diff --check` passed. This is owner-run offline
+validation; independent acceptance of the new revision remains pending. No live
+data qualification, migration, refresh, schedule, merge or deployment is claimed.
