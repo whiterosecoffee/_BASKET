@@ -282,15 +282,51 @@ def fetch_day(client, ticker, day):
         path=body.get('next_url')
     return promote(client.root,ticker,day,bars,evidence,ref_evidence)
 
+def validate_partition(root, entry, ticker, day):
+    """Bind one checksum-verified byte snapshot to its requested partition."""
+    query=entry.get('source_confirmed_query')
+    expected={'ticker':ticker,'date':day,'grain':'1m','adjusted':True}
+    if not isinstance(query,dict) or any(query.get(k)!=v for k,v in expected.items()) or query.get('adjusted') is not True:
+        raise ValueError('partition query mismatch')
+    path=(root/entry['path']).resolve()
+    if not path.is_relative_to(root.resolve()): raise ValueError('escaped root')
+    data=path.read_bytes()
+    if digest(data)!=entry['sha256']: raise ValueError('checksum mismatch')
+    try:
+        rows=[json.loads(line) for line in data.splitlines()]
+        if type(entry.get('rows')) is not int or entry['rows']<=0 or len(rows)!=entry['rows']:
+            raise ValueError('partition row count mismatch')
+        previous=None
+        for row in rows:
+            if not isinstance(row,dict) or row.get('ticker')!=ticker or row.get('session_date')!=day:
+                raise ValueError('partition row identity mismatch')
+            # Exact canonical shape binds schema, source, currency, grain,
+            # adjustment and timezone as well as decimal-safe values and date.
+            if row!=normalize(row,ticker,day):
+                raise ValueError('partition row schema mismatch')
+            if previous is not None and row['t']<=previous:
+                raise ValueError('partition timestamps not strictly increasing')
+            previous=row['t']
+        if any(type(entry.get(k)) is not int for k in ('first_t','last_t')) or (rows[0]['t'],rows[-1]['t'])!=(entry['first_t'],entry['last_t']):
+            raise ValueError('partition bounds mismatch')
+    except (KeyError,TypeError,ArithmeticError) as exc:
+        raise ValueError('invalid partition row or manifest') from exc
+    return path
+
 def resolve(pointer, ticker, day, required_through=None, max_age_seconds=1200):
     """Local-only resolution. The consumer cannot fetch or pretend missing data is fresh."""
     symbol(ticker)
     cfg=read(Path(pointer)); root=Path(cfg['root'])
-    entry=read(root/'index.json',{'partitions':{}})['partitions'].get(ticker+'/'+day)
+    index=read(root/'index.json')
+    if index is not None and (not isinstance(index,dict) or index.get('schema')!=SCHEMA or index.get('source')!='Massive' or not isinstance(index.get('partitions'),dict)):
+        raise ValueError('incompatible partition index')
+    entry=index['partitions'].get(ticker+'/'+day) if index is not None else None
     reason=None
     if not entry: reason='missing'
     elif entry['conflicts'] or entry['qualification']!='source_confirmed_returned_bars': reason='unqualified'
-    elif required_through is not None and (entry['last_t']<required_through or (datetime.now(UTC)-datetime.fromisoformat(entry['fetched_at'])).total_seconds()>max_age_seconds): reason='stale'
+    else:
+        path=validate_partition(root,entry,ticker,day)
+        if required_through is not None and (entry['last_t']<required_through or (datetime.now(UTC)-datetime.fromisoformat(entry['fetched_at'])).total_seconds()>max_age_seconds): reason='stale'
     if reason:
         request={'ticker':ticker,'date':day,'reason':reason,'required_through':required_through,'owner':OWNER}
         payload=encode(request)
@@ -301,9 +337,6 @@ def resolve(pointer, ticker, day, required_through=None, max_age_seconds=1200):
             with target.open('xb') as f: f.write(payload)
         except FileExistsError: pass
         return {'status':'refresh_required','request':str(target),'reason':reason}
-    path=(root/entry['path']).resolve()
-    if not path.is_relative_to(root.resolve()): raise ValueError('escaped root')
-    if digest(path.read_bytes())!=entry['sha256']: raise ValueError('checksum mismatch')
     return dict(entry,status='qualified_historical' if required_through is None else 'qualified_current',path=str(path))
 
 def run(args):

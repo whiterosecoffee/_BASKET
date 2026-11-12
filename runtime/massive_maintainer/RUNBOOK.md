@@ -133,3 +133,28 @@ the `_TICKERS` cutover contract with `_MAP`, preserving single-writer ownership 
 the no-repull constraint. A receiving worker must verify branch/HEAD, dirty state,
 local data availability and prior writer exit before taking ownership. Pulling the
 branch alone does not transfer writer ownership.
+
+## Resolver integrity repair
+
+Independent review found that checksum verification alone did not bind the bytes to
+the requested ticker/date or index schema/count. On the original checkpoint, four
+new offline regressions failed: ticker relabel, exchange-date relabel, incompatible
+index schema, and a declared one-row count for a 960-row fixture.
+
+The resolver now validates the index schema/source, query identity/date/grain and
+adjustment, then reads the partition once and validates that checksum-verified byte
+snapshot. Every row must match the canonical schema and requested ticker/date;
+count, chronological uniqueness and first/last bounds must match the manifest.
+Integrity rejection raises ValueError before a current/historical qualification or
+freshness request. Additional tests cover checksum-valid row metadata corruption,
+manifest bounds, boolean row counts and query mismatch.
+
+After repair, `python -B -m unittest runtime.massive_maintainer.test_maintain -v`
+passed all 17 tests. The earlier four failures are intentional reproduction evidence,
+not hidden failed attempts. Tests use temporary synthetic data; no vendor requests
+or production-data writes occurred. This supersedes the 11-test checkpoint count.
+Independent review of the new revision remains required. Hash/semantic consistency
+is not cryptographic proof of provider provenance, complete coverage, consumer
+adoption or freshness. Returned paths still require consumers to pin/check revisions
+when reading later; this change does not provide a filesystem transaction spanning
+a consumer's subsequent open.

@@ -79,4 +79,64 @@ class MaintenanceTests(unittest.TestCase):
         c=m.Massive(self.root,self.root/'nonexistent-key')
         with self.assertRaises(ValueError): c.get('https://evil.example/path')
 
+    def rewrite_index(self, change):
+        index=m.read(self.root/'index.json')
+        change(index)
+        m.atomic(self.root/'index.json',m.encode(index))
+
+    def test_resolver_rejects_relabelled_ticker(self):
+        self.publish()
+        def relabel(index):
+            entry=index['partitions'].pop('NVDA/'+self.day)
+            entry['source_confirmed_query']['ticker']='AAOI'
+            index['partitions']['AAOI/'+self.day]=entry
+        self.rewrite_index(relabel)
+        with self.assertRaises(ValueError): m.resolve(self.pointer,'AAOI',self.day)
+
+    def test_resolver_rejects_relabelled_date(self):
+        self.publish()
+        day='2026-11-10'
+        def relabel(index):
+            entry=index['partitions'].pop('NVDA/'+self.day)
+            entry['source_confirmed_query']['date']=day
+            index['partitions']['NVDA/'+day]=entry
+        self.rewrite_index(relabel)
+        with self.assertRaises(ValueError): m.resolve(self.pointer,'NVDA',day)
+
+    def test_resolver_rejects_incompatible_index_schema(self):
+        self.publish()
+        self.rewrite_index(lambda index: index.update(schema='incompatible@99'))
+        with self.assertRaises(ValueError): m.resolve(self.pointer,'NVDA',self.day)
+
+    def test_resolver_rejects_false_row_count(self):
+        start=int(datetime(2026,11,11,9,tzinfo=timezone.utc).timestamp())*1000
+        self.publish([dict(self.row,t=start+i*60000) for i in range(960)])
+        self.rewrite_index(lambda index: index['partitions']['NVDA/'+self.day].update(rows=1))
+        with self.assertRaises(ValueError): m.resolve(self.pointer,'NVDA',self.day)
+
+    def test_resolver_rejects_checksum_valid_row_metadata_corruption(self):
+        for field,value in [('schema','other@1'),('source','other'),('grain','1d'),
+                            ('currency','EUR'),('adjustment','unadjusted'),
+                            ('timezone','UTC'),('session_date','2026-11-10'),
+                            ('ticker','AAOI'),('t',self.t+86400000)]:
+            with self.subTest(field=field):
+                result=self.publish()
+                data_path=self.root/result['path']
+                original=data_path.read_bytes()
+                try:
+                    row=json.loads(original); row[field]=value
+                    data=m.encode(row); data_path.write_bytes(data)
+                    self.rewrite_index(lambda index: index['partitions']['NVDA/'+self.day].update(sha256=m.digest(data)))
+                    with self.assertRaises(ValueError): m.resolve(self.pointer,'NVDA',self.day)
+                finally:
+                    data_path.write_bytes(original)
+
+    def test_resolver_rejects_manifest_metadata_corruption(self):
+        for field,value in [('rows',True),('first_t',self.t-60000),('last_t',self.t+60000),
+                            ('source_confirmed_query',{'ticker':'AAOI','date':self.day,'grain':'1m','adjusted':True})]:
+            with self.subTest(field=field):
+                self.publish()
+                self.rewrite_index(lambda index: index['partitions']['NVDA/'+self.day].update({field:value}))
+                with self.assertRaises(ValueError): m.resolve(self.pointer,'NVDA',self.day)
+
 if __name__=='__main__': unittest.main()
