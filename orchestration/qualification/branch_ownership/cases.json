@@ -1,0 +1,834 @@
+{
+  "cases": [
+    {
+      "arguments": {
+        "github": {
+          "capture_mode": "live_connector",
+          "issues": [
+            {
+              "number": 9001,
+              "state": "open",
+              "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+            }
+          ],
+          "main_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "observed_at": "2026-11-12T00:00:00+00:00",
+          "pull_requests": [],
+          "repository": "whiterosecoffee/_BASKET",
+          "schema": "basket.github_evidence@1",
+          "workflow_runs": []
+        },
+        "report": {
+          "acceptance": [],
+          "blockers": [],
+          "branch": {
+            "base": "main",
+            "name": "work/9001-synthetic-a"
+          },
+          "changed_paths": [],
+          "checks": [],
+          "disposition": "in_progress",
+          "handoffs": [],
+          "issue": {
+            "number": 9001,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+          },
+          "next_action": "Independently verify actual source state.",
+          "pr": null,
+          "reported_at": null,
+          "schema": "basket.worker_resolution@1",
+          "spark_id": "B00",
+          "task_id": "B00-9001",
+          "unknowns": [
+            "Synthetic, no operation authorized"
+          ]
+        },
+        "spark_catalog": {
+          "sparks": [
+            {
+              "id": "B00",
+              "write_paths": [
+                "orchestration/**"
+              ]
+            }
+          ]
+        },
+        "task": {
+          "acceptance": [
+            {
+              "criterion": "Synthetic observable criterion",
+              "evidence_class": "test",
+              "id": "A1"
+            }
+          ],
+          "branch": {
+            "base": "main",
+            "name": "work/9001-synthetic-a"
+          },
+          "claimed_at": "2026-11-12T00:00:00+00:00",
+          "dependencies": [],
+          "issue": {
+            "number": 9001,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+          },
+          "objective": "Synthetic ownership qualification only",
+          "schema": "basket.worker_task@1",
+          "spark_id": "B00",
+          "state": "building",
+          "task_id": "B00-9001",
+          "write_paths": [
+            "orchestration/qualification/synthetic-a/**"
+          ]
+        }
+      },
+      "category": "success",
+      "context_only": {},
+      "expected_disposition": "valid_claim_not_execution_authority",
+      "expected_observation": {
+        "blockers": [],
+        "errors": [],
+        "merge_authorized": false,
+        "phase": "claimed_or_building_no_pr"
+      },
+      "gap": null,
+      "id": "unique_branch_owned_scope",
+      "operation": "worker",
+      "policy_source": "branch"
+    },
+    {
+      "arguments": {
+        "evidence": {
+          "pull_requests": [
+            {
+              "changed_paths": [
+                "orchestration/qualification/synthetic-b/case.json"
+              ],
+              "head_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "merged": false,
+              "number": 9002,
+              "state": "open"
+            }
+          ]
+        },
+        "scope": [
+          "orchestration/qualification/synthetic-a/**"
+        ]
+      },
+      "category": "success",
+      "context_only": {},
+      "expected_disposition": "no_repository_path_conflict",
+      "expected_observation": [],
+      "gap": null,
+      "id": "disjoint_open_pr",
+      "operation": "collisions",
+      "policy_source": "ownership"
+    },
+    {
+      "arguments": {
+        "github": {
+          "capture_mode": "live_connector",
+          "issues": [
+            {
+              "number": 9001,
+              "state": "open",
+              "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+            }
+          ],
+          "main_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "observed_at": "2026-11-12T00:00:00+00:00",
+          "pull_requests": [],
+          "repository": "whiterosecoffee/_BASKET",
+          "schema": "basket.github_evidence@1",
+          "workflow_runs": []
+        },
+        "report": {
+          "acceptance": [],
+          "blockers": [],
+          "branch": {
+            "base": "main",
+            "name": "work/9002-other"
+          },
+          "changed_paths": [],
+          "checks": [],
+          "disposition": "in_progress",
+          "handoffs": [],
+          "issue": {
+            "number": 9001,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+          },
+          "next_action": "Independently verify actual source state.",
+          "pr": null,
+          "reported_at": null,
+          "schema": "basket.worker_resolution@1",
+          "spark_id": "B00",
+          "task_id": "B00-9001",
+          "unknowns": [
+            "Synthetic, no operation authorized"
+          ]
+        },
+        "spark_catalog": {
+          "sparks": [
+            {
+              "id": "B00",
+              "write_paths": [
+                "orchestration/**"
+              ]
+            }
+          ]
+        },
+        "task": {
+          "acceptance": [
+            {
+              "criterion": "Synthetic observable criterion",
+              "evidence_class": "test",
+              "id": "A1"
+            }
+          ],
+          "branch": {
+            "base": "main",
+            "name": "work/9002-other"
+          },
+          "claimed_at": "2026-11-12T00:00:00+00:00",
+          "dependencies": [],
+          "issue": {
+            "number": 9001,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+          },
+          "objective": "Synthetic ownership qualification only",
+          "schema": "basket.worker_task@1",
+          "spark_id": "B00",
+          "state": "building",
+          "task_id": "B00-9001",
+          "write_paths": [
+            "orchestration/qualification/synthetic-a/**"
+          ]
+        }
+      },
+      "category": "branch_conflict",
+      "context_only": {},
+      "expected_disposition": "reject_branch_reuse",
+      "expected_observation": {
+        "blockers": [],
+        "errors": [
+          "worker branch must be named from its new issue"
+        ],
+        "merge_authorized": false,
+        "phase": "evidence_invalid"
+      },
+      "gap": null,
+      "id": "different_issues_same_branch",
+      "operation": "worker",
+      "policy_source": "branch"
+    },
+    {
+      "arguments": {
+        "events": [
+          {
+            "at": "2026-11-12T00:00:00+00:00",
+            "branch": "work/9001-synthetic-a",
+            "event_id": "a",
+            "expires_at": "2026-11-12T01:00:00+00:00",
+            "issue": 9001,
+            "schema": "basket.agentic_event@1",
+            "task_id": "T-901",
+            "type": "lease_granted"
+          },
+          {
+            "at": "2026-11-12T00:00:00+00:00",
+            "branch": "work/9001-synthetic-a",
+            "event_id": "b",
+            "expires_at": "2026-11-12T01:00:00+00:00",
+            "issue": 9001,
+            "schema": "basket.agentic_event@1",
+            "task_id": "T-902",
+            "type": "lease_granted"
+          }
+        ],
+        "now": "2026-11-12T00:00:00+00:00"
+      },
+      "category": "branch_conflict",
+      "context_only": {
+        "writers": [
+          "synthetic-worker-a",
+          "synthetic-worker-b"
+        ]
+      },
+      "expected_disposition": "block_until_one_writer_is_verified",
+      "expected_observation": null,
+      "gap": "event_check validates issue prefix but does not detect two tasks using one issue/branch; caller must reconcile real writers.",
+      "id": "two_writers_same_issue_branch",
+      "operation": "events",
+      "policy_source": "ownership"
+    },
+    {
+      "arguments": {
+        "evidence": {
+          "pull_requests": [
+            {
+              "changed_paths": [
+                "orchestration/qualification/synthetic-a/case.json"
+              ],
+              "head_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "merged": false,
+              "number": 9002,
+              "state": "open"
+            }
+          ]
+        },
+        "scope": [
+          "orchestration/qualification/synthetic-a/**"
+        ]
+      },
+      "category": "path_conflict",
+      "context_only": {},
+      "expected_disposition": "block_conflicting_repository_write",
+      "expected_observation": [
+        {
+          "path": "orchestration/qualification/synthetic-a/case.json",
+          "pr": 9002
+        }
+      ],
+      "gap": null,
+      "id": "overlapping_changed_path",
+      "operation": "collisions",
+      "policy_source": "ownership"
+    },
+    {
+      "arguments": {
+        "a": "orchestration/qualification/synthetic-a/**",
+        "b": "orchestration/**"
+      },
+      "category": "path_conflict",
+      "context_only": {},
+      "expected_disposition": "block_overlapping_writer_claims",
+      "expected_observation": true,
+      "gap": null,
+      "id": "overlapping_claim_globs",
+      "operation": "intersect",
+      "policy_source": "ownership"
+    },
+    {
+      "arguments": {
+        "evidence": {
+          "pull_requests": []
+        },
+        "scope": [
+          "orchestration/qualification/synthetic-a/**"
+        ]
+      },
+      "category": "path_conflict",
+      "context_only": {
+        "other_active_claim": {
+          "write_paths": [
+            "orchestration/qualification/synthetic-a/**"
+          ]
+        }
+      },
+      "expected_disposition": "block_overlapping_writer_claims",
+      "expected_observation": [],
+      "gap": "collisions examines PR changed files only; pending/unwritten task claims require separate live claim inspection.",
+      "id": "unwritten_claim_not_in_pr_inventory",
+      "operation": "collisions",
+      "policy_source": "ownership"
+    },
+    {
+      "arguments": {
+        "github": {
+          "capture_mode": "live_connector",
+          "issues": [
+            {
+              "number": 9001,
+              "state": "open",
+              "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+            }
+          ],
+          "main_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "observed_at": "2026-11-12T00:00:00+00:00",
+          "pull_requests": [],
+          "repository": "whiterosecoffee/_BASKET",
+          "schema": "basket.github_evidence@1",
+          "workflow_runs": []
+        },
+        "report": {
+          "acceptance": [],
+          "blockers": [],
+          "branch": {
+            "base": "main",
+            "name": "work/9001-synthetic-a"
+          },
+          "changed_paths": [],
+          "checks": [],
+          "disposition": "in_progress",
+          "handoffs": [],
+          "issue": {
+            "number": 9001,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+          },
+          "next_action": "Independently verify actual source state.",
+          "pr": null,
+          "reported_at": null,
+          "schema": "basket.worker_resolution@1",
+          "spark_id": "B00",
+          "task_id": "B00-9001",
+          "unknowns": [
+            "Synthetic, no operation authorized"
+          ]
+        },
+        "spark_catalog": {
+          "sparks": [
+            {
+              "id": "B00",
+              "write_paths": [
+                "orchestration/**"
+              ]
+            }
+          ]
+        },
+        "task": {
+          "acceptance": [
+            {
+              "criterion": "Synthetic observable criterion",
+              "evidence_class": "test",
+              "id": "A1"
+            }
+          ],
+          "branch": {
+            "base": "main",
+            "name": "work/9001-synthetic-a"
+          },
+          "claimed_at": "2026-11-12T00:00:00+00:00",
+          "dependencies": [],
+          "issue": {
+            "number": 9001,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+          },
+          "objective": "Synthetic ownership qualification only",
+          "schema": "basket.worker_task@1",
+          "spark_id": "B00",
+          "state": "building",
+          "task_id": "B00-9001",
+          "write_paths": [
+            "orchestration/qualification/synthetic-a/**"
+          ]
+        }
+      },
+      "category": "stale_evidence",
+      "context_only": {
+        "branch_origin_sha": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "current_main_sha": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "expected_disposition": "refresh_base_before_new_claim",
+      "expected_observation": {
+        "blockers": [],
+        "errors": [],
+        "merge_authorized": false,
+        "phase": "claimed_or_building_no_pr"
+      },
+      "gap": "Worker v1 base records only the main branch name; evidence_check cannot compare branch origin SHA to current main.",
+      "id": "stale_base_commit",
+      "operation": "worker",
+      "policy_source": "branch"
+    },
+    {
+      "arguments": {
+        "github": {
+          "capture_mode": "live_connector",
+          "issues": [
+            {
+              "number": 9001,
+              "state": "open",
+              "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+            }
+          ],
+          "main_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "observed_at": "2026-11-12T00:00:00+00:00",
+          "pull_requests": [],
+          "repository": "whiterosecoffee/_BASKET",
+          "schema": "basket.github_evidence@1",
+          "workflow_runs": []
+        },
+        "report": {
+          "acceptance": [],
+          "blockers": [],
+          "branch": {
+            "base": "main",
+            "name": "work/9001-synthetic-a"
+          },
+          "changed_paths": [],
+          "checks": [],
+          "disposition": "in_progress",
+          "handoffs": [],
+          "issue": {
+            "number": 9001,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+          },
+          "next_action": "Independently verify actual source state.",
+          "pr": null,
+          "reported_at": null,
+          "schema": "basket.worker_resolution@1",
+          "spark_id": "B00",
+          "task_id": "B00-9001",
+          "unknowns": [
+            "Synthetic, no operation authorized"
+          ]
+        },
+        "spark_catalog": {
+          "sparks": [
+            {
+              "id": "B00",
+              "write_paths": [
+                "orchestration/**"
+              ]
+            }
+          ]
+        },
+        "task": {
+          "acceptance": [
+            {
+              "criterion": "Synthetic observable criterion",
+              "evidence_class": "test",
+              "id": "A1"
+            }
+          ],
+          "branch": {
+            "base": "main",
+            "name": "work/9001-synthetic-a"
+          },
+          "claimed_at": "2020-01-01T00:00:00Z",
+          "dependencies": [],
+          "issue": {
+            "number": 9001,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+          },
+          "objective": "Synthetic ownership qualification only",
+          "schema": "basket.worker_task@1",
+          "spark_id": "B00",
+          "state": "building",
+          "task_id": "B00-9001",
+          "write_paths": [
+            "orchestration/qualification/synthetic-a/**"
+          ]
+        }
+      },
+      "category": "stale_evidence",
+      "context_only": {},
+      "expected_disposition": "revalidate_live_owner_not_timestamp_alone",
+      "expected_observation": {
+        "blockers": [],
+        "errors": [],
+        "merge_authorized": false,
+        "phase": "claimed_or_building_no_pr"
+      },
+      "gap": "Claim age is not evaluated; an old timestamp neither transfers ownership nor certifies a live lease.",
+      "id": "stale_claim_timestamp",
+      "operation": "worker",
+      "policy_source": "evidence"
+    },
+    {
+      "arguments": {
+        "evidence": {
+          "capture_mode": "live_connector",
+          "issues": [
+            {
+              "number": 9001,
+              "state": "open",
+              "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+            }
+          ],
+          "main_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "observed_at": "2026-11-11T00:00:00+00:00",
+          "pull_requests": [],
+          "repository": "whiterosecoffee/_BASKET",
+          "schema": "basket.github_evidence@1",
+          "workflow_runs": []
+        },
+        "now": "2026-11-12T00:00:00+00:00"
+      },
+      "category": "stale_evidence",
+      "context_only": {},
+      "expected_disposition": "refresh_snapshot_before_action",
+      "expected_observation": {
+        "error": "GitHub snapshot expired or future dated"
+      },
+      "gap": null,
+      "id": "stale_github_snapshot",
+      "operation": "snapshot",
+      "policy_source": "evidence"
+    },
+    {
+      "arguments": {
+        "events": [
+          {
+            "at": "2026-11-11T22:00:00+00:00",
+            "branch": "work/9001-synthetic-a",
+            "event_id": "expired",
+            "expires_at": "2026-11-11T23:00:00+00:00",
+            "issue": 9001,
+            "schema": "basket.agentic_event@1",
+            "task_id": "T-901",
+            "type": "lease_granted"
+          }
+        ],
+        "now": "2026-11-12T00:00:00+00:00",
+        "task_ids": [
+          "T-901"
+        ]
+      },
+      "category": "stale_evidence",
+      "context_only": {},
+      "expected_disposition": "reconcile_expired_lease_no_automatic_takeover",
+      "expected_observation": [
+        {},
+        [
+          "T-901"
+        ],
+        false
+      ],
+      "gap": null,
+      "id": "expired_claim_lease",
+      "operation": "leases",
+      "policy_source": "evidence"
+    },
+    {
+      "arguments": {
+        "events": [
+          {
+            "at": "2026-11-12T00:00:00+00:00",
+            "attempt_id": "ATT-synthetic",
+            "event_id": "attempt-a",
+            "schema": "basket.agentic_event@1",
+            "step_id": "write",
+            "task_id": "T-901",
+            "type": "attempt_started"
+          }
+        ],
+        "task_id": "T-901"
+      },
+      "category": "uncertain_outcome",
+      "context_only": {},
+      "expected_disposition": "inspect_outcome_before_any_retry",
+      "expected_observation": {
+        "attempts": 1,
+        "failures": 0,
+        "last_attempt": "ATT-synthetic",
+        "last_result": null,
+        "pending": [
+          "ATT-synthetic"
+        ],
+        "retry_required": false
+      },
+      "gap": "Pending attempt is observable, but attempts() does not enforce a write/retry barrier; do not interpret retry_required=false as permission.",
+      "id": "unconfirmed_previous_write",
+      "operation": "attempts",
+      "policy_source": "recovery"
+    },
+    {
+      "arguments": {
+        "claimed": "**",
+        "owned": [
+          "orchestration/qualification/synthetic-a/**"
+        ]
+      },
+      "category": "path_conflict",
+      "context_only": {},
+      "expected_disposition": "reject_scope_expansion",
+      "expected_observation": false,
+      "gap": null,
+      "id": "broad_wildcard_outside_owned_scope",
+      "operation": "subset",
+      "policy_source": "ownership"
+    },
+    {
+      "arguments": {
+        "claimed": "orchestration/**",
+        "owned": [
+          "orchestration/**"
+        ]
+      },
+      "category": "path_conflict",
+      "context_only": {},
+      "expected_disposition": "require_exact_worker_allocation",
+      "expected_observation": true,
+      "gap": "Domain subset alone accepts a broad B00 glob; it is not an exclusive worker allocation.",
+      "id": "broad_domain_wildcard_not_task_allocation",
+      "operation": "subset",
+      "policy_source": "ownership"
+    },
+    {
+      "arguments": {
+        "evidence": {
+          "pull_requests": [
+            {
+              "changed_paths": [
+                "orchestration/qualification/synthetic-a/case.json"
+              ],
+              "head_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "merged": true,
+              "number": 9002,
+              "state": "closed"
+            }
+          ]
+        },
+        "scope": [
+          "orchestration/qualification/synthetic-a/**"
+        ]
+      },
+      "category": "archived_reference",
+      "context_only": {
+        "read_only": true,
+        "reference_role": "historical_evidence"
+      },
+      "expected_disposition": "reference_only_not_active_owner",
+      "expected_observation": [],
+      "gap": null,
+      "id": "archived_closed_pr_reference",
+      "operation": "collisions",
+      "policy_source": "archive"
+    },
+    {
+      "arguments": {
+        "evidence": {
+          "pull_requests": [
+            {
+              "changed_paths": [
+                "orchestration/qualification/synthetic-a/case.json"
+              ],
+              "head_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "merged": false,
+              "number": 9002,
+              "state": "open"
+            }
+          ]
+        },
+        "scope": [
+          "orchestration/qualification/synthetic-a/**"
+        ]
+      },
+      "category": "path_conflict",
+      "context_only": {
+        "reference_role": "claimed_archived_by_submitter"
+      },
+      "expected_disposition": "block_current_path_conflict_despite_archive_label",
+      "expected_observation": [
+        {
+          "path": "orchestration/qualification/synthetic-a/case.json",
+          "pr": 9002
+        }
+      ],
+      "gap": null,
+      "id": "archive_label_cannot_hide_open_writer",
+      "operation": "collisions",
+      "policy_source": "ownership"
+    },
+    {
+      "arguments": {
+        "github": {
+          "capture_mode": "live_connector",
+          "issues": [
+            {
+              "number": 9001,
+              "state": "open",
+              "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+            }
+          ],
+          "main_commit": "74d913e8913d630d85451344689e093aeea07efc",
+          "observed_at": "2026-11-12T00:00:00+00:00",
+          "pull_requests": [],
+          "repository": "whiterosecoffee/_BASKET",
+          "schema": "basket.github_evidence@1",
+          "workflow_runs": []
+        },
+        "report": {
+          "acceptance": [],
+          "blockers": [
+            {
+              "blocking": true,
+              "kind": "other",
+              "reason": "Synthetic publication approval pending"
+            }
+          ],
+          "branch": {
+            "base": "main",
+            "name": "work/9001-synthetic-a"
+          },
+          "changed_paths": [],
+          "checks": [],
+          "disposition": "blocked",
+          "handoffs": [],
+          "issue": {
+            "number": 9001,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+          },
+          "next_action": "Independently verify actual source state.",
+          "pr": null,
+          "reported_at": null,
+          "schema": "basket.worker_resolution@1",
+          "spark_id": "B00",
+          "task_id": "B00-9001",
+          "unknowns": [
+            "Synthetic, no operation authorized"
+          ]
+        },
+        "spark_catalog": {
+          "sparks": [
+            {
+              "id": "B00",
+              "write_paths": [
+                "orchestration/**"
+              ]
+            }
+          ]
+        },
+        "task": {
+          "acceptance": [
+            {
+              "criterion": "Synthetic observable criterion",
+              "evidence_class": "test",
+              "id": "A1"
+            }
+          ],
+          "branch": {
+            "base": "main",
+            "name": "work/9001-synthetic-a"
+          },
+          "claimed_at": "2026-11-12T00:00:00+00:00",
+          "dependencies": [],
+          "issue": {
+            "number": 9001,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+          },
+          "objective": "Synthetic ownership qualification only",
+          "schema": "basket.worker_task@1",
+          "spark_id": "B00",
+          "state": "building",
+          "task_id": "B00-9001",
+          "write_paths": [
+            "orchestration/qualification/synthetic-a/**"
+          ]
+        }
+      },
+      "category": "pending_approval",
+      "context_only": {},
+      "expected_disposition": "wait_for_required_approval_only",
+      "expected_observation": {
+        "blockers": [
+          {
+            "blocking": true,
+            "kind": "other",
+            "reason": "Synthetic publication approval pending"
+          }
+        ],
+        "errors": [],
+        "merge_authorized": false,
+        "phase": "claimed_or_building_no_pr"
+      },
+      "gap": "Worker output preserves the reported blocker but has no publication approval adjudicator; this is not a path conflict.",
+      "id": "pending_approval_without_path_collision",
+      "operation": "worker",
+      "policy_source": "recovery"
+    }
+  ],
+  "classification": "synthetic_offline_qualification_not_live_authority",
+  "now": "2026-11-12T00:00:00+00:00",
+  "schema": "basket.branch_ownership_qualification_cases@1"
+}

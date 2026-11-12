@@ -1,0 +1,329 @@
+{
+  "cases_executed": 17,
+  "classification": "executed_offline_synthetic_not_operational",
+  "explicit_gaps": 7,
+  "observation_mismatches": 0,
+  "results": [
+    {
+      "deterministic": true,
+      "expected_disposition": "valid_claim_not_execution_authority",
+      "expected_observation": {
+        "blockers": [],
+        "errors": [],
+        "merge_authorized": false,
+        "phase": "claimed_or_building_no_pr"
+      },
+      "gap": null,
+      "id": "unique_branch_owned_scope",
+      "matches_observation": true,
+      "observed": {
+        "blockers": [],
+        "errors": [],
+        "merge_authorized": false,
+        "phase": "claimed_or_building_no_pr"
+      },
+      "operation": "worker",
+      "policy_enforcement": "bounded_check_only"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "no_repository_path_conflict",
+      "expected_observation": [],
+      "gap": null,
+      "id": "disjoint_open_pr",
+      "matches_observation": true,
+      "observed": [],
+      "operation": "collisions",
+      "policy_enforcement": "bounded_check_only"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "reject_branch_reuse",
+      "expected_observation": {
+        "blockers": [],
+        "errors": [
+          "worker branch must be named from its new issue"
+        ],
+        "merge_authorized": false,
+        "phase": "evidence_invalid"
+      },
+      "gap": null,
+      "id": "different_issues_same_branch",
+      "matches_observation": true,
+      "observed": {
+        "blockers": [],
+        "errors": [
+          "worker branch must be named from its new issue"
+        ],
+        "merge_authorized": false,
+        "phase": "evidence_invalid"
+      },
+      "operation": "worker",
+      "policy_enforcement": "bounded_check_only"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "block_until_one_writer_is_verified",
+      "expected_observation": null,
+      "gap": "event_check validates issue prefix but does not detect two tasks using one issue/branch; caller must reconcile real writers.",
+      "id": "two_writers_same_issue_branch",
+      "matches_observation": true,
+      "observed": null,
+      "operation": "events",
+      "policy_enforcement": "explicit_gap"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "block_conflicting_repository_write",
+      "expected_observation": [
+        {
+          "path": "orchestration/qualification/synthetic-a/case.json",
+          "pr": 9002
+        }
+      ],
+      "gap": null,
+      "id": "overlapping_changed_path",
+      "matches_observation": true,
+      "observed": [
+        {
+          "path": "orchestration/qualification/synthetic-a/case.json",
+          "pr": 9002
+        }
+      ],
+      "operation": "collisions",
+      "policy_enforcement": "bounded_check_only"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "block_overlapping_writer_claims",
+      "expected_observation": true,
+      "gap": null,
+      "id": "overlapping_claim_globs",
+      "matches_observation": true,
+      "observed": true,
+      "operation": "intersect",
+      "policy_enforcement": "bounded_check_only"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "block_overlapping_writer_claims",
+      "expected_observation": [],
+      "gap": "collisions examines PR changed files only; pending/unwritten task claims require separate live claim inspection.",
+      "id": "unwritten_claim_not_in_pr_inventory",
+      "matches_observation": true,
+      "observed": [],
+      "operation": "collisions",
+      "policy_enforcement": "explicit_gap"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "refresh_base_before_new_claim",
+      "expected_observation": {
+        "blockers": [],
+        "errors": [],
+        "merge_authorized": false,
+        "phase": "claimed_or_building_no_pr"
+      },
+      "gap": "Worker v1 base records only the main branch name; evidence_check cannot compare branch origin SHA to current main.",
+      "id": "stale_base_commit",
+      "matches_observation": true,
+      "observed": {
+        "blockers": [],
+        "errors": [],
+        "merge_authorized": false,
+        "phase": "claimed_or_building_no_pr"
+      },
+      "operation": "worker",
+      "policy_enforcement": "explicit_gap"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "revalidate_live_owner_not_timestamp_alone",
+      "expected_observation": {
+        "blockers": [],
+        "errors": [],
+        "merge_authorized": false,
+        "phase": "claimed_or_building_no_pr"
+      },
+      "gap": "Claim age is not evaluated; an old timestamp neither transfers ownership nor certifies a live lease.",
+      "id": "stale_claim_timestamp",
+      "matches_observation": true,
+      "observed": {
+        "blockers": [],
+        "errors": [],
+        "merge_authorized": false,
+        "phase": "claimed_or_building_no_pr"
+      },
+      "operation": "worker",
+      "policy_enforcement": "explicit_gap"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "refresh_snapshot_before_action",
+      "expected_observation": {
+        "error": "GitHub snapshot expired or future dated"
+      },
+      "gap": null,
+      "id": "stale_github_snapshot",
+      "matches_observation": true,
+      "observed": {
+        "error": "GitHub snapshot expired or future dated"
+      },
+      "operation": "snapshot",
+      "policy_enforcement": "bounded_check_only"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "reconcile_expired_lease_no_automatic_takeover",
+      "expected_observation": [
+        {},
+        [
+          "T-901"
+        ],
+        false
+      ],
+      "gap": null,
+      "id": "expired_claim_lease",
+      "matches_observation": true,
+      "observed": [
+        {},
+        [
+          "T-901"
+        ],
+        false
+      ],
+      "operation": "leases",
+      "policy_enforcement": "bounded_check_only"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "inspect_outcome_before_any_retry",
+      "expected_observation": {
+        "attempts": 1,
+        "failures": 0,
+        "last_attempt": "ATT-synthetic",
+        "last_result": null,
+        "pending": [
+          "ATT-synthetic"
+        ],
+        "retry_required": false
+      },
+      "gap": "Pending attempt is observable, but attempts() does not enforce a write/retry barrier; do not interpret retry_required=false as permission.",
+      "id": "unconfirmed_previous_write",
+      "matches_observation": true,
+      "observed": {
+        "attempts": 1,
+        "failures": 0,
+        "last_attempt": "ATT-synthetic",
+        "last_result": null,
+        "pending": [
+          "ATT-synthetic"
+        ],
+        "retry_required": false
+      },
+      "operation": "attempts",
+      "policy_enforcement": "explicit_gap"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "reject_scope_expansion",
+      "expected_observation": false,
+      "gap": null,
+      "id": "broad_wildcard_outside_owned_scope",
+      "matches_observation": true,
+      "observed": false,
+      "operation": "subset",
+      "policy_enforcement": "bounded_check_only"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "require_exact_worker_allocation",
+      "expected_observation": true,
+      "gap": "Domain subset alone accepts a broad B00 glob; it is not an exclusive worker allocation.",
+      "id": "broad_domain_wildcard_not_task_allocation",
+      "matches_observation": true,
+      "observed": true,
+      "operation": "subset",
+      "policy_enforcement": "explicit_gap"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "reference_only_not_active_owner",
+      "expected_observation": [],
+      "gap": null,
+      "id": "archived_closed_pr_reference",
+      "matches_observation": true,
+      "observed": [],
+      "operation": "collisions",
+      "policy_enforcement": "bounded_check_only"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "block_current_path_conflict_despite_archive_label",
+      "expected_observation": [
+        {
+          "path": "orchestration/qualification/synthetic-a/case.json",
+          "pr": 9002
+        }
+      ],
+      "gap": null,
+      "id": "archive_label_cannot_hide_open_writer",
+      "matches_observation": true,
+      "observed": [
+        {
+          "path": "orchestration/qualification/synthetic-a/case.json",
+          "pr": 9002
+        }
+      ],
+      "operation": "collisions",
+      "policy_enforcement": "bounded_check_only"
+    },
+    {
+      "deterministic": true,
+      "expected_disposition": "wait_for_required_approval_only",
+      "expected_observation": {
+        "blockers": [
+          {
+            "blocking": true,
+            "kind": "other",
+            "reason": "Synthetic publication approval pending"
+          }
+        ],
+        "errors": [],
+        "merge_authorized": false,
+        "phase": "claimed_or_building_no_pr"
+      },
+      "gap": "Worker output preserves the reported blocker but has no publication approval adjudicator; this is not a path conflict.",
+      "id": "pending_approval_without_path_collision",
+      "matches_observation": true,
+      "observed": {
+        "blockers": [
+          {
+            "blocking": true,
+            "kind": "other",
+            "reason": "Synthetic publication approval pending"
+          }
+        ],
+        "errors": [],
+        "merge_authorized": false,
+        "phase": "claimed_or_building_no_pr"
+      },
+      "operation": "worker",
+      "policy_enforcement": "explicit_gap"
+    }
+  ],
+  "source_commit": "74d913e8913d630d85451344689e093aeea07efc",
+  "source_sha256": {
+    "AGENTS.md": "69181a7171a76c9c6af9c6144d56e665c7520d1728dba4cf458e1ee0fa1102e3",
+    "orchestration/WORKER_PROTOCOL.md": "667887a1dd8bb04f44219567367d34208968329d915399145ba15724ac77baf7",
+    "orchestration/agentic/manager.py": "ef6807803d9dca7fc58a596d8c613bcf8dbeae578c74a4a41d45ec3551689487",
+    "orchestration/planner.py": "409828e9b3ea8042a943d84611b8e4883b35d361b132dedcb6ec654dfaf8c6dc",
+    "orchestration/validate_sparks.py": "d968a21a0773161df881c3b6a3c041ea45ad504aee958a04ace1a04e50a6a1a9",
+    "orchestration/worker_contracts/worker-v2.md": "ff9f37e3759ee7ec6e88350db969e78c34b6c2ad25ad5f9af89f729eb308fd5f",
+    "orchestration/worker_protocol.py": "694accc7a8cc1e38cca9aeff41222651b5318e1fb5c3f14f8dc6910114bce191",
+    "schemas/worker-evidence.v1.json": "c7333111c28b1c2271e481ccd60a0d4397305931fc8a7d00b363cd7260949efb",
+    "schemas/worker-resolution.v1.json": "a28307ac6abd3151d6a689aaa0ec6ccb78da902f361f357fd118418ec2325445",
+    "schemas/worker-task.v1.json": "fd89076d70986d5cb078b45d6de34c332433916249ba3254cfbaa7394a9b7429"
+  },
+  "unchanged_sources_and_inputs": true
+}
