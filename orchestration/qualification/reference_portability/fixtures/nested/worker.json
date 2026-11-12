@@ -1,0 +1,8 @@
+{
+  "references": [
+    {
+      "ref": "../shared/payload.json",
+      "sha256": "5b08b4b682503392545241f9b7340db08825aaf6cbe02f458aec0463010f9b7c"
+    }
+  ]
+}

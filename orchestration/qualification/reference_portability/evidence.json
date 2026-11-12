@@ -1,0 +1,197 @@
+{
+  "base_sha": "74d913e8913d630d85451344689e093aeea07efc",
+  "checks": [
+    {
+      "command": "python -B -m unittest discover -s orchestration/qualification/reference_portability -p 'test_*.py' -v",
+      "errors": 0,
+      "failures": 0,
+      "result": "pass",
+      "skips": 0,
+      "tests": 37
+    },
+    {
+      "command": "python -B -m unittest discover -s orchestration/tests -p 'test_component*.py' -v",
+      "errors": 0,
+      "failures": 0,
+      "result": "pass",
+      "skips": 0,
+      "tests": 47
+    },
+    {
+      "command": "copy owned subtree to a temporary directory; python -B -m unittest discover -s <isolated-subtree> -p test_*.py -v",
+      "errors": 0,
+      "failures": 0,
+      "result": "pass",
+      "skips": 0,
+      "test_ids": [
+        "test_broken_symlink_rejects_even_archive (test_audit.PortabilityTests.test_broken_symlink_rejects_even_archive)",
+        "test_cli_success_failure_and_json_stdout (test_audit.PortabilityTests.test_cli_success_failure_and_json_stdout)",
+        "test_cycle_terminates (test_audit.PortabilityTests.test_cycle_terminates)",
+        "test_declarations_are_explicit_not_schema_resolution (test_audit.PortabilityTests.test_declarations_are_explicit_not_schema_resolution)",
+        "test_deterministic_replay_and_unchanged_inputs (test_audit.PortabilityTests.test_deterministic_replay_and_unchanged_inputs)",
+        "test_directory_not_regular_file (test_audit.PortabilityTests.test_directory_not_regular_file)",
+        "test_exact_byte_hash_not_canonical_json (test_audit.PortabilityTests.test_exact_byte_hash_not_canonical_json)",
+        "test_file_and_depth_limits (test_audit.PortabilityTests.test_file_and_depth_limits)",
+        "test_fixture_archive_traversal (test_audit.PortabilityTests.test_fixture_archive_traversal)",
+        "test_fixture_backslash (test_audit.PortabilityTests.test_fixture_backslash)",
+        "test_fixture_bad_hash (test_audit.PortabilityTests.test_fixture_bad_hash)",
+        "test_fixture_fragment (test_audit.PortabilityTests.test_fixture_fragment)",
+        "test_fixture_missing_required (test_audit.PortabilityTests.test_fixture_missing_required)",
+        "test_fixture_network (test_audit.PortabilityTests.test_fixture_network)",
+        "test_fixture_percent (test_audit.PortabilityTests.test_fixture_percent)",
+        "test_fixture_posix_absolute (test_audit.PortabilityTests.test_fixture_posix_absolute)",
+        "test_fixture_traversal (test_audit.PortabilityTests.test_fixture_traversal)",
+        "test_fixture_unc (test_audit.PortabilityTests.test_fixture_unc)",
+        "test_fixture_unknown_key (test_audit.PortabilityTests.test_fixture_unknown_key)",
+        "test_fixture_unknown_use (test_audit.PortabilityTests.test_fixture_unknown_use)",
+        "test_fixture_windows_drive (test_audit.PortabilityTests.test_fixture_windows_drive)",
+        "test_fixture_windows_relative_drive (test_audit.PortabilityTests.test_fixture_windows_relative_drive)",
+        "test_fixture_wrong_hash (test_audit.PortabilityTests.test_fixture_wrong_hash)",
+        "test_in_root_symlink_is_explicitly_unsupported (test_audit.PortabilityTests.test_in_root_symlink_is_explicitly_unsupported)",
+        "test_invalid_nested_json_fails (test_audit.PortabilityTests.test_invalid_nested_json_fails)",
+        "test_invalid_root_and_entry (test_audit.PortabilityTests.test_invalid_root_and_entry)",
+        "test_malformed_declarations_fail_closed (test_audit.PortabilityTests.test_malformed_declarations_fail_closed)",
+        "test_no_network_or_referenced_code_execution (test_audit.PortabilityTests.test_no_network_or_referenced_code_execution)",
+        "test_nonfinite_json_rejects (test_audit.PortabilityTests.test_nonfinite_json_rejects)",
+        "test_present_archive_never_read_or_followed (test_audit.PortabilityTests.test_present_archive_never_read_or_followed)",
+        "test_reference_limit (test_audit.PortabilityTests.test_reference_limit)",
+        "test_relocated_root_same_report (test_audit.PortabilityTests.test_relocated_root_same_report)",
+        "test_second_case_reuses_exact_bytes (test_audit.PortabilityTests.test_second_case_reuses_exact_bytes)",
+        "test_size_limit (test_audit.PortabilityTests.test_size_limit)",
+        "test_symlink_directory_escape (test_audit.PortabilityTests.test_symlink_directory_escape)",
+        "test_symlink_escape (test_audit.PortabilityTests.test_symlink_escape)",
+        "test_valid_nested_reference (test_audit.PortabilityTests.test_valid_nested_reference)"
+      ],
+      "tests": 37
+    }
+  ],
+  "evidence_type": "synthetic local execution",
+  "example_reports": {
+    "nested-case.json": {
+      "files": [
+        {
+          "path": "nested-case.json",
+          "sha256": "b2ef18f9cbbd2a5d7b665d278144ca811c30aee248e85c4cf9c8cf07a5028e66"
+        },
+        {
+          "path": "nested/worker.json",
+          "sha256": "f6397642567ca7842abe70d08c9a6ed62d97b1dbc9735d3b80a5cdadaa8c3b52"
+        },
+        {
+          "path": "shared/payload.json",
+          "sha256": "5b08b4b682503392545241f9b7340db08825aaf6cbe02f458aec0463010f9b7c"
+        }
+      ],
+      "findings": [],
+      "ok": true,
+      "references": [
+        {
+          "expected_sha256": null,
+          "pointer": "/references/0",
+          "ref": "nested/worker.json",
+          "sha256": "f6397642567ca7842abe70d08c9a6ed62d97b1dbc9735d3b80a5cdadaa8c3b52",
+          "source": "nested-case.json",
+          "status": "resolved",
+          "target": "nested/worker.json",
+          "use": "required"
+        },
+        {
+          "expected_sha256": "5b08b4b682503392545241f9b7340db08825aaf6cbe02f458aec0463010f9b7c",
+          "pointer": "/references/0",
+          "ref": "../shared/payload.json",
+          "sha256": "5b08b4b682503392545241f9b7340db08825aaf6cbe02f458aec0463010f9b7c",
+          "source": "nested/worker.json",
+          "status": "resolved",
+          "target": "shared/payload.json",
+          "use": "required"
+        }
+      ]
+    },
+    "reuse-case.json": {
+      "files": [
+        {
+          "path": "reuse-case.json",
+          "sha256": "90d1c3688ce2af8449ff3887a32214865d4c703ad27a8a73519cd19e2a7d2cfa"
+        },
+        {
+          "path": "shared/payload.json",
+          "sha256": "5b08b4b682503392545241f9b7340db08825aaf6cbe02f458aec0463010f9b7c"
+        }
+      ],
+      "findings": [
+        {
+          "code": "missing_reference",
+          "pointer": "/references/1",
+          "severity": "info",
+          "source": "reuse-case.json"
+        },
+        {
+          "code": "missing_reference",
+          "pointer": "/references/2",
+          "severity": "info",
+          "source": "reuse-case.json"
+        }
+      ],
+      "ok": true,
+      "references": [
+        {
+          "expected_sha256": "5b08b4b682503392545241f9b7340db08825aaf6cbe02f458aec0463010f9b7c",
+          "pointer": "/references/0",
+          "ref": "shared/payload.json",
+          "sha256": "5b08b4b682503392545241f9b7340db08825aaf6cbe02f458aec0463010f9b7c",
+          "source": "reuse-case.json",
+          "status": "resolved",
+          "target": "shared/payload.json",
+          "use": "required"
+        },
+        {
+          "expected_sha256": null,
+          "pointer": "/references/1",
+          "ref": "absent-archive.json",
+          "sha256": null,
+          "source": "reuse-case.json",
+          "status": "missing_reference",
+          "target": "absent-archive.json",
+          "use": "archive"
+        },
+        {
+          "expected_sha256": null,
+          "pointer": "/references/2",
+          "ref": "absent-reference.json",
+          "sha256": null,
+          "source": "reuse-case.json",
+          "status": "missing_reference",
+          "target": "absent-reference.json",
+          "use": "reference_only"
+        }
+      ]
+    }
+  },
+  "failed_test_attempts": [],
+  "limitations": [
+    "Synthetic Linux execution only; no Windows runner",
+    "No independent reviewer execution",
+    "Shared hosted CI does not discover this nested suite",
+    "Static isolated root; no concurrent-hostile-filesystem guarantee",
+    "No arbitrary JSON Schema resolution; only explicit top-level references"
+  ],
+  "next_action": "Independent review and source-pinned hosted acceptance via the existing B01 owner before integration.",
+  "non_test_setup_failures": [
+    "gh api unavailable: no CLI login; supported GitHub connector used",
+    "initial connector calls used incorrect argument names; corrected before any mutation",
+    "Local prepublication staging caught generated bytecode; removed and ignored before remote publication."
+  ],
+  "platform": "Linux",
+  "python": "3.12.14",
+  "source_sha256": {
+    ".gitignore": "6feaded4e28ea86e001a6751b4e3d960e8b7c31b9616ff9936b79297086e809b",
+    "README.md": "c9c0350847a797acf5e23c4f93aa5d43b722ee9b9ecd4868964559b954df78ed",
+    "audit.py": "51d9e3fbec139c845f01aec040556817a7bbab2901654efe07c0f02540cd465a",
+    "fixtures/negative-cases.json": "2edb7d2776e5bd1d31bd49ac09cddfcb4d0e7e1b62024ac6aac7d6df07464ce5",
+    "fixtures/nested-case.json": "b2ef18f9cbbd2a5d7b665d278144ca811c30aee248e85c4cf9c8cf07a5028e66",
+    "fixtures/nested/worker.json": "f6397642567ca7842abe70d08c9a6ed62d97b1dbc9735d3b80a5cdadaa8c3b52",
+    "fixtures/reuse-case.json": "90d1c3688ce2af8449ff3887a32214865d4c703ad27a8a73519cd19e2a7d2cfa",
+    "fixtures/shared/payload.json": "5b08b4b682503392545241f9b7340db08825aaf6cbe02f458aec0463010f9b7c",
+    "test_audit.py": "c31cf681cb25bebb100fd7770e19fddb10c3d2ef21232c47b2905086b52f0df8"
+  }
+}
