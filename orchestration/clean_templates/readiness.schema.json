@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "state",
+    "errors",
+    "missing_capabilities"
+  ],
+  "properties": {
+    "state": {
+      "enum": [
+        "invalid",
+        "blocked",
+        "ready_for_local_probe"
+      ]
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_capabilities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^capability:[a-z][a-z0-9.-]+$"
+      }
+    }
+  }
+}
