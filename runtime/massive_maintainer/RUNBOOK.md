@@ -158,3 +158,15 @@ is not cryptographic proof of provider provenance, complete coverage, consumer
 adoption or freshness. Returned paths still require consumers to pin/check revisions
 when reading later; this change does not provide a filesystem transaction spanning
 a consumer's subsequent open.
+
+### Pointer contract follow-up
+
+Independent retesting accepted the partition repair but found that an incompatible
+pointer schema was still accepted. The new regression failed on eafc097 before the
+fix. The resolver now requires a dictionary pointer with schema
+`basket.massive.minute@1` before accessing its root or index. Regression controls
+reject incompatible, omitted and malformed pointer schemas and retain a valid
+pointer success case. All 18 offline tests pass after repair; no production data
+or vendor requests were involved. Independent retesting of this follow-up remains
+pending. Pointer schema validation does not authenticate who supplied the pointer
+or establish dataset completeness or current freshness.

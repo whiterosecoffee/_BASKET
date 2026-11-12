@@ -316,7 +316,10 @@ def validate_partition(root, entry, ticker, day):
 def resolve(pointer, ticker, day, required_through=None, max_age_seconds=1200):
     """Local-only resolution. The consumer cannot fetch or pretend missing data is fresh."""
     symbol(ticker)
-    cfg=read(Path(pointer)); root=Path(cfg['root'])
+    cfg=read(Path(pointer))
+    if not isinstance(cfg,dict) or cfg.get('schema')!=SCHEMA:
+        raise ValueError('incompatible resolver pointer')
+    root=Path(cfg['root'])
     index=read(root/'index.json')
     if index is not None and (not isinstance(index,dict) or index.get('schema')!=SCHEMA or index.get('source')!='Massive' or not isinstance(index.get('partitions'),dict)):
         raise ValueError('incompatible partition index')

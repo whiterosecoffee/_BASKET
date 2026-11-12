@@ -17,7 +17,7 @@ class MaintenanceTests(unittest.TestCase):
         self.row={'t':self.t,'o':Decimal('1.000000000000000001'),'h':2,'l':1,'c':1,'v':3,'n':1}
         self.ev=[{'fetched_at':m.now(),'sha256':'fixture'}]
         self.pointer=self.root/'pointer.json'
-        m.atomic(self.pointer,m.encode({'root':str(self.root)}))
+        m.atomic(self.pointer,m.encode({'root':str(self.root),'schema':m.SCHEMA}))
 
     def publish(self,rows=None):
         return m.promote(self.root,'NVDA',self.day,rows or [self.row],self.ev,{})
@@ -138,5 +138,16 @@ class MaintenanceTests(unittest.TestCase):
                 self.publish()
                 self.rewrite_index(lambda index: index['partitions']['NVDA/'+self.day].update({field:value}))
                 with self.assertRaises(ValueError): m.resolve(self.pointer,'NVDA',self.day)
+
+    def test_resolver_rejects_incompatible_pointer_schema(self):
+        self.publish()
+        for cfg in ({'root':str(self.root),'schema':'incompatible@99'},
+                    {'root':str(self.root)}, [], None):
+            with self.subTest(pointer=cfg):
+                m.atomic(self.pointer,m.encode(cfg))
+                with self.assertRaisesRegex(ValueError,'incompatible resolver pointer'):
+                    m.resolve(self.pointer,'NVDA',self.day)
+        m.atomic(self.pointer,m.encode({'root':str(self.root),'schema':m.SCHEMA}))
+        self.assertEqual(m.resolve(self.pointer,'NVDA',self.day)['status'],'qualified_historical')
 
 if __name__=='__main__': unittest.main()
