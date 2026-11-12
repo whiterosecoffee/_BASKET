@@ -1,0 +1,232 @@
+{
+  "format": "basket.map.data_flow_projection@1",
+  "owner": "B00-230",
+  "source_owner": "B00-241",
+  "source_pr": 242,
+  "state": "candidate_reference_not_integrated",
+  "sources": {
+    "objects.json": {
+      "path": "orchestration/data_flow_objects/objects.json",
+      "commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+      "sha256": "6a1a347e962ba44d4e76656cb33795288ed1deaa862d10de79b2c512f4b57afd",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/objects.json",
+      "state": "draft_unmerged"
+    },
+    "capture.schema.json": {
+      "path": "orchestration/data_flow_objects/capture.schema.json",
+      "commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+      "sha256": "bc8f7ac55276c5dbd0985d43a8bdab6d9f15822ab15601a2e378c901eb45b93f",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/capture.schema.json",
+      "state": "draft_unmerged"
+    },
+    "probe-evidence.json": {
+      "path": "orchestration/data_flow_objects/probe-evidence.json",
+      "commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+      "sha256": "402d2c9248de6e5ad7b3a411e0ecb1aa9ba2c80f98befec1a0bb2777680040b9",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/probe-evidence.json",
+      "state": "draft_unmerged"
+    },
+    "flow.py": {
+      "path": "orchestration/data_flow_objects/flow.py",
+      "commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+      "sha256": "f43d7b6357a5548c8c47195ca6ec5ea9e823b9add25792d9998847857b475821",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/flow.py",
+      "state": "draft_unmerged"
+    }
+  },
+  "definitions": [
+    {
+      "id": "source.massive.bars",
+      "pointer": "/definitions/source.massive.bars",
+      "families": [
+        "catalog",
+        "lineage"
+      ],
+      "effects": [
+        "read authorized Massive connector"
+      ],
+      "contract_coverage": "descriptive_not_complete",
+      "schema_pointer": null,
+      "declared_input": "ticker + one exchange-local date + explicit adjusted basis",
+      "declared_output": "source capture"
+    },
+    {
+      "id": "fetch.capture",
+      "pointer": "/definitions/fetch.capture",
+      "families": [
+        "contracts",
+        "provenance"
+      ],
+      "effects": [
+        "serialize explicit connector projection"
+      ],
+      "contract_coverage": "capture_schema",
+      "schema_pointer": "/$defs/capture",
+      "declared_input": "provider rows and request metadata",
+      "declared_output": "basket.data_capture@1"
+    },
+    {
+      "id": "local.raw",
+      "pointer": "/definitions/local.raw",
+      "families": [
+        "provenance"
+      ],
+      "effects": [
+        "write isolated explicit root"
+      ],
+      "contract_coverage": "descriptive_not_complete",
+      "schema_pointer": null,
+      "declared_input": "capture bytes",
+      "declared_output": "immutable capture.json + sha256"
+    },
+    {
+      "id": "sanitation.bars",
+      "pointer": "/definitions/sanitation.bars",
+      "families": [
+        "composition",
+        "graph_qc"
+      ],
+      "effects": [],
+      "contract_coverage": "descriptive_not_complete",
+      "schema_pointer": null,
+      "declared_input": "capture.json",
+      "declared_output": "sorted one-day bars.jsonl"
+    },
+    {
+      "id": "verification.partition",
+      "pointer": "/definitions/verification.partition",
+      "families": [
+        "contracts",
+        "graph_qc"
+      ],
+      "effects": [],
+      "contract_coverage": "descriptive_not_complete",
+      "schema_pointer": null,
+      "declared_input": "raw capture + partition + exact objects, capture schema and transform/verifier byte identities",
+      "declared_output": "basket.verified_partition@1"
+    },
+    {
+      "id": "access.verified_partition",
+      "pointer": "/definitions/access.verified_partition",
+      "families": [
+        "contracts",
+        "lineage"
+      ],
+      "effects": [
+        "read-only access"
+      ],
+      "contract_coverage": "descriptive_not_complete",
+      "schema_pointer": null,
+      "declared_input": "source pin + ticker + day + as_of",
+      "declared_output": "verified records + receipt"
+    },
+    {
+      "id": "consumer.summary",
+      "pointer": "/definitions/consumer.summary",
+      "families": [
+        "composition",
+        "provenance"
+      ],
+      "effects": [],
+      "contract_coverage": "descriptive_not_complete",
+      "schema_pointer": null,
+      "declared_input": "verified records + receipt",
+      "declared_output": "basket.partition_summary@1"
+    }
+  ],
+  "flow": [
+    "source.massive.bars",
+    "fetch.capture",
+    "local.raw",
+    "sanitation.bars",
+    "verification.partition",
+    "access.verified_partition",
+    "consumer.summary"
+  ],
+  "instances": [
+    {
+      "id": "capture",
+      "definition": "fetch.capture",
+      "parent": "source_to_consumer"
+    },
+    {
+      "id": "persist",
+      "definition": "local.raw",
+      "parent": "source_to_consumer"
+    },
+    {
+      "id": "clean",
+      "definition": "sanitation.bars",
+      "parent": "qualify"
+    },
+    {
+      "id": "check",
+      "definition": "verification.partition",
+      "parent": "qualify"
+    },
+    {
+      "id": "read",
+      "definition": "access.verified_partition",
+      "parent": "source_to_consumer"
+    },
+    {
+      "id": "summary",
+      "definition": "consumer.summary",
+      "parent": "source_to_consumer"
+    }
+  ],
+  "compositions": {
+    "source_to_consumer": {
+      "children": [
+        "capture",
+        "persist",
+        "qualify",
+        "read",
+        "summary"
+      ]
+    },
+    "qualify": {
+      "children": [
+        "clean",
+        "check"
+      ]
+    }
+  },
+  "evidence": {
+    "source": "probe-evidence.json",
+    "verification_here": "Pinned report integrity and map relationships only; no new live fetch or replay of unpublished capture.",
+    "production_qualified": false
+  },
+  "availability_bridge": {
+    "from": "#241 access.verified_partition conservative local capture time",
+    "to": "_MAP admission interface revision 2 available_at: first externally available revision",
+    "compatible": false,
+    "action": "Explicit adapter/contract decision required. Do not rename captured_at as historical first availability. A conservative cutoff can support access after capture, but cannot reconstruct earlier historical access.",
+    "acceptance": [
+      "Consumer must declare source-publication versus local-observation availability policy.",
+      "Missing historical first-available time must not be filled from capture time for historical PIT claims.",
+      "Source/contract pins and as-of semantics must be checked before accepting a mapped port."
+    ],
+    "owner_issue": 103
+  },
+  "remaining_gaps": [
+    "Only capture has a machine-readable schema link here; other ports remain descriptive.",
+    "No production FETCH or durable-root binding; B02 #207 retains receiving ownership.",
+    "Provider raw envelope, historical first availability and independent price truth remain unverified.",
+    "No runtime invocation or new effect authorization follows from a map edge."
+  ],
+  "pin_update": {
+    "previous_commit": "ca8990efc3a97ae9ed9a38e2479810951cc0c153",
+    "current_commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+    "disposition": "compatible_projection_with_stronger_identity_checks",
+    "unchanged": [
+      "Seven definition IDs, composition, effects and capture schema",
+      "Availability meaning and candidate/nonintegrated status"
+    ],
+    "changed": [
+      "Verification input now requires schema and transform/verifier byte identities",
+      "Sanitized probe records those identities; map independently recomputes hashes from pinned bytes"
+    ],
+    "limit": "Hash agreement is integrity evidence only, not execution here, provider authenticity, historical reader selection or production integration."
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "cases": [
+    {
+      "id": "valid_projection"
+    },
+    {
+      "id": "duplicate_family"
+    },
+    {
+      "id": "missing_source"
+    },
+    {
+      "id": "dangling_pointer"
+    },
+    {
+      "id": "unknown_family"
+    },
+    {
+      "id": "dangling_edge"
+    },
+    {
+      "id": "wrong_endpoint_kind"
+    },
+    {
+      "id": "false_production_evidence"
+    },
+    {
+      "id": "unknown_relation"
+    },
+    {
+      "id": "instance_pointer_drift"
+    },
+    {
+      "id": "contract_pointer_drift"
+    },
+    {
+      "id": "evidence_pointer_drift"
+    }
+  ]
+}

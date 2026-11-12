@@ -1,0 +1,10 @@
+{
+  "purpose": "Read-only Git objects needed by offline map suites in shallow CI checkouts; no branch checkout or source integration.",
+  "repository": "whiterosecoffee/_BASKET",
+  "commits": [
+    "74d913e8913d630d85451344689e093aeea07efc",
+    "10be98031aa5dbd9b5841cc8f88bab5b834790e2",
+    "c33ecd6f8f790af7e43d58d980ed88d59734bf67",
+    "d103a99486589aa4aee24d4fa978532f1b288ac1"
+  ]
+}

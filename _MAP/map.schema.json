@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local _MAP planning document shape, not shared runtime authority",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "format",
+    "version",
+    "status",
+    "purpose",
+    "owner",
+    "authority",
+    "sources",
+    "groups",
+    "relationships",
+    "patterns",
+    "flow",
+    "queue_contract",
+    "coverage",
+    "field_notes",
+    "domains",
+    "decision_method",
+    "semantic_diffs",
+    "instruction_semantics",
+    "archive_microtests"
+  ],
+  "properties": {
+    "$schema": {
+      "description": "Planning document $schema",
+      "type": "string"
+    },
+    "format": {
+      "const": "basket.map.design@1"
+    },
+    "version": {
+      "description": "Planning document version",
+      "type": "string"
+    },
+    "status": {
+      "const": "design_only"
+    },
+    "purpose": {
+      "description": "Planning document purpose",
+      "type": "string"
+    },
+    "owner": {
+      "description": "Planning document owner",
+      "type": "object"
+    },
+    "authority": {
+      "description": "Planning document authority",
+      "type": "object"
+    },
+    "sources": {
+      "description": "Canonical path keyed, commit-pinned byte references; candidates remain draft.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "commit",
+          "sha256",
+          "url",
+          "state"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "commit": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{40}$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://github.com/whiterosecoffee/_BASKET/blob/"
+          },
+          "state": {
+            "enum": [
+              "main_source",
+              "draft_unmerged"
+            ]
+          }
+        }
+      }
+    },
+    "groups": {
+      "description": "Read-only projection of G1-G8 in canonical queue, not new component IDs.",
+      "type": "array"
+    },
+    "relationships": {
+      "description": "Design edges; containment is not runtime invocation or dataflow.",
+      "type": "array"
+    },
+    "patterns": {
+      "description": "Module review obligations with evidence; explanatory design notes are not executable schemas.",
+      "type": "array"
+    },
+    "flow": {
+      "description": "Planning input/output contract, not executable ports.",
+      "type": "object"
+    },
+    "queue_contract": {
+      "description": "Safe effect design for existing owner, not a competing queue store.",
+      "type": "object"
+    },
+    "coverage": {
+      "description": "Explicit gaps prevent broad completion claims.",
+      "type": "object"
+    },
+    "field_notes": {
+      "description": "Planning document field_notes",
+      "type": "object"
+    },
+    "domains": {
+      "type": "array",
+      "description": "Unmapped/partial/mapped domain representation. Full mapped requires reviewed full-domain inventory and digest-bound closure; a bounded reference binding stays partial. No production qualification implied."
+    },
+    "decision_method": {
+      "type": "object",
+      "description": "Evidence-gated option and seed matching with challenge scores and measurements. Values are hypotheses until observed."
+    },
+    "semantic_diffs": {
+      "type": "object",
+      "description": "Versioned proposal envelopes explain applicability and compatibility without mutating source contracts. Examples are design, not executed fixtures."
+    },
+    "instruction_semantics": {
+      "type": "object",
+      "description": "Resolve intended outcomes before admitting rules into the clean system; do not carry contradictory historical instructions forward."
+    },
+    "archive_microtests": {
+      "type": "object",
+      "description": "Use immutable archived versions to extract and challenge behaviors while qualifying the clean system against current intended outcomes."
+    }
+  }
+}

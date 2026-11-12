@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local microtest boundary, not shared production schema",
+  "$defs": {
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observation",
+        "as_of"
+      ],
+      "properties": {
+        "observation": {
+          "type": "object"
+        },
+        "as_of": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "eligible_current",
+        "historical_source_preserved"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "fresh",
+            "stale",
+            "unavailable",
+            "conflicted"
+          ]
+        },
+        "eligible_current": {
+          "type": "boolean"
+        },
+        "historical_source_preserved": {
+          "const": true
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "fresh"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "eligible_current": {
+                "const": true
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "eligible_current": {
+                "const": false
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1205 @@
+{
+  "$schema": "map.schema.json",
+  "format": "basket.map.design@1",
+  "version": "0.1.0",
+  "status": "design_only",
+  "purpose": "Top-level structured planning and module pattern review surface; not a second registry, queue or runtime.",
+  "owner": {
+    "spark": "B00",
+    "issue": 230,
+    "branch": "work/230-map-system-planning",
+    "write_paths": [
+      "_MAP/**",
+      "orchestration/tests/test_map_suite_discovery.py"
+    ],
+    "claim": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6804134000",
+    "scope_amendment": "scope-amendment.json"
+  },
+  "authority": {
+    "queue": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+    "priority": "JSON-first Level 1; nested contracts and virtual qualification before clean seed or deeper build.",
+    "source_rule": "Pinned pointers describe historical bytes; refresh actual main, issue, PR and CI state before decisions. Source presence is not qualification.",
+    "registry_rule": "Existing source authorities prevail. New subtree claim is bounded; catalog reconciliation belongs to existing owner.",
+    "module_rule": "Every new or changed module must report applicable pattern IDs, evidence and exceptions in its existing issue/PR. This is a review contract, not installed enforcement.",
+    "rebuild_direction": "User requires existing components to be rewritten against a cohesive system. Existing code is evidence and behavior reference, not an approved reusable foundation. First establish the cohesive contracts/patterns; then plan owner-scoped rewrites with equivalence and improved-contract acceptance. Do not delete historical source or imply rewrite execution from this map."
+  },
+  "sources": {
+    "architecture/PROJECT_MAP.md": {
+      "path": "architecture/PROJECT_MAP.md",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "e0a999d72dc0a543607abf3e1834ff4d5172946511285c25b9053f3bd51a3e99",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/PROJECT_MAP.md",
+      "state": "main_source"
+    },
+    "architecture/basket.architecture.json": {
+      "path": "architecture/basket.architecture.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "160cac001a74cdc2008061585a8f14255d1e05d22ff10439ac1466e0fdc755eb",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/basket.architecture.json",
+      "state": "main_source"
+    },
+    "architecture/BLOCK_ENGINEERING_METHOD.md": {
+      "path": "architecture/BLOCK_ENGINEERING_METHOD.md",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "0bb06277ae37a627918d227a44cebb1080e7699224d799ad8cfee48d4e032ebe",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/BLOCK_ENGINEERING_METHOD.md",
+      "state": "main_source"
+    },
+    "architecture/BLACK_BOX_COMPONENT_CONTRACT.md": {
+      "path": "architecture/BLACK_BOX_COMPONENT_CONTRACT.md",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "3bc783880f8006a7cf8e517aff6dee228083ca012481ee906f453ad04e7d119f",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/BLACK_BOX_COMPONENT_CONTRACT.md",
+      "state": "main_source"
+    },
+    "architecture/COMPONENT_QUICKSTART.md": {
+      "path": "architecture/COMPONENT_QUICKSTART.md",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "0544cb6b486ef69d91a2a80c50c4339677c50a0e03a3e1dceff2839db56079fa",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/COMPONENT_QUICKSTART.md",
+      "state": "main_source"
+    },
+    "orchestration/sparks.json": {
+      "path": "orchestration/sparks.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "6cd07104ad2d643b10cfade22283e3916d68ec963f0264782a94810017871f0f",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/sparks.json",
+      "state": "main_source"
+    },
+    "orchestration/WORKER_PROTOCOL.md": {
+      "path": "orchestration/WORKER_PROTOCOL.md",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "667887a1dd8bb04f44219567367d34208968329d915399145ba15724ac77baf7",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/WORKER_PROTOCOL.md",
+      "state": "main_source"
+    },
+    "orchestration/planner/worker-library.json": {
+      "path": "orchestration/planner/worker-library.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "9e2886866e5603b0f4b38967db39308b621dd1e48f62fc0a6cece99a75fc689d",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/planner/worker-library.json",
+      "state": "main_source"
+    },
+    "orchestration/planner/worker-scopes.json": {
+      "path": "orchestration/planner/worker-scopes.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "fa353605713b062af5aa954c25d5772a864823f3506ed38ed18ace0363fea98e",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/planner/worker-scopes.json",
+      "state": "main_source"
+    },
+    "orchestration/planner/queue.json": {
+      "path": "orchestration/planner/queue.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "3aee9b2fa824d33ff7dc02eda0f3eb539f0171f316adc49d68cb3e82507bcd76",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/planner/queue.json",
+      "state": "main_source"
+    },
+    "schemas/component-blackbox.v1.json": {
+      "path": "schemas/component-blackbox.v1.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/component-blackbox.v1.json",
+      "state": "main_source"
+    },
+    "schemas/worker-task.v1.json": {
+      "path": "schemas/worker-task.v1.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "fd89076d70986d5cb078b45d6de34c332433916249ba3254cfbaa7394a9b7429",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-task.v1.json",
+      "state": "main_source"
+    },
+    "schemas/worker-resolution.v1.json": {
+      "path": "schemas/worker-resolution.v1.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "a28307ac6abd3151d6a689aaa0ec6ccb78da902f361f357fd118418ec2325445",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-resolution.v1.json",
+      "state": "main_source"
+    },
+    "schemas/worker-library.v1.json": {
+      "path": "schemas/worker-library.v1.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "d3d5bec4e49afb680b490a14a43d753d12ca9bc6e3b809e0b958bf1fcf33ba16",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-library.v1.json",
+      "state": "main_source"
+    },
+    "schemas/task-queue.v1.json": {
+      "path": "schemas/task-queue.v1.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "5f3372ede191abc257a061fd86a6a4e78dc8f25b10620d9ac66f910c37ef65e0",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/task-queue.v1.json",
+      "state": "main_source"
+    },
+    "schemas/architecture.schema.json": {
+      "path": "schemas/architecture.schema.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "cc919f349e981dcb3da2a78af9b4434a204ccf0a2a594af672c59480b43dc07b",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/architecture.schema.json",
+      "state": "main_source"
+    },
+    "schemas/entity.v1.json": {
+      "path": "schemas/entity.v1.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "d6d081d7d75a8dbf5333d02663ab7eb432eaa259a7eeadc777b0a7c0394e232b",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/entity.v1.json",
+      "state": "main_source"
+    },
+    "schemas/relationships.v1.json": {
+      "path": "schemas/relationships.v1.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "69134e939b162f54c905015002172f94cfb81ff2dc2e92daa1ed305077ac588a",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/relationships.v1.json",
+      "state": "main_source"
+    },
+    "schemas/events.v1.json": {
+      "path": "schemas/events.v1.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "e806567094afd42753381da973a86301c60f60fb7f9e229b5ba5604b2f93792b",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/events.v1.json",
+      "state": "main_source"
+    },
+    "schemas/ticker-data.v1.json": {
+      "path": "schemas/ticker-data.v1.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "23ba9cd97cf418cd65e5c173836b818fc505c6d0103d394b5325b2e69efaf639",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/ticker-data.v1.json",
+      "state": "main_source"
+    },
+    "schemas/freshness.v1.json": {
+      "path": "schemas/freshness.v1.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "2790109582aede988f5c57384b9684d973e417de66a99d1f160d1639409b7214",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/freshness.v1.json",
+      "state": "main_source"
+    },
+    "architecture/virtual_design/requirements_relationship_selection/relationships.json": {
+      "path": "architecture/virtual_design/requirements_relationship_selection/relationships.json",
+      "commit": "c33ecd6f8f790af7e43d58d980ed88d59734bf67",
+      "sha256": "0433a7b5f695b50d9d8284e0185dbfafd3142c78e5c945c3dc622893e085a321",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/c33ecd6f8f790af7e43d58d980ed88d59734bf67/architecture/virtual_design/requirements_relationship_selection/relationships.json",
+      "state": "draft_unmerged"
+    },
+    "architecture/virtual_design/intake_worker_review/model.json": {
+      "path": "architecture/virtual_design/intake_worker_review/model.json",
+      "commit": "10be98031aa5dbd9b5841cc8f88bab5b834790e2",
+      "sha256": "cdbf13aaff28dc5ca3169f2e62f81b0f62ed816fbf9157ad8cc14efc60c84250",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/10be98031aa5dbd9b5841cc8f88bab5b834790e2/architecture/virtual_design/intake_worker_review/model.json",
+      "state": "draft_unmerged"
+    },
+    "orchestration/data_flow_objects/objects.json": {
+      "path": "orchestration/data_flow_objects/objects.json",
+      "commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+      "sha256": "6a1a347e962ba44d4e76656cb33795288ed1deaa862d10de79b2c512f4b57afd",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/objects.json",
+      "state": "draft_unmerged"
+    },
+    "orchestration/data_flow_objects/capture.schema.json": {
+      "path": "orchestration/data_flow_objects/capture.schema.json",
+      "commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+      "sha256": "bc8f7ac55276c5dbd0985d43a8bdab6d9f15822ab15601a2e378c901eb45b93f",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/capture.schema.json",
+      "state": "draft_unmerged"
+    },
+    "orchestration/data_flow_objects/probe-evidence.json": {
+      "path": "orchestration/data_flow_objects/probe-evidence.json",
+      "commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+      "sha256": "402d2c9248de6e5ad7b3a411e0ecb1aa9ba2c80f98befec1a0bb2777680040b9",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/probe-evidence.json",
+      "state": "draft_unmerged"
+    },
+    "orchestration/data_flow_objects/flow.py": {
+      "path": "orchestration/data_flow_objects/flow.py",
+      "commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+      "sha256": "f43d7b6357a5548c8c47195ca6ec5ea9e823b9add25792d9998847857b475821",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/flow.py",
+      "state": "draft_unmerged"
+    }
+  },
+  "groups": [
+    {
+      "id": "G1",
+      "purpose": "Library",
+      "source_refs": [
+        "architecture/COMPONENT_QUICKSTART.md",
+        "orchestration/planner/worker-library.json"
+      ],
+      "coverage": "partial",
+      "gap": "Complete source-backed inventory and prior-art qualification remain open."
+    },
+    {
+      "id": "G2",
+      "purpose": "Contracts and composition",
+      "source_refs": [
+        "architecture/basket.architecture.json",
+        "schemas/component-blackbox.v1.json",
+        "architecture/virtual_design/requirements_relationship_selection/relationships.json"
+      ],
+      "coverage": "partial",
+      "gap": "Domain payload coverage and binding compatibility remain open."
+    },
+    {
+      "id": "G3",
+      "purpose": "Virtual flows and evidence",
+      "source_refs": [
+        "architecture/virtual_design/requirements_relationship_selection/relationships.json",
+        "architecture/virtual_design/intake_worker_review/model.json"
+      ],
+      "coverage": "partial",
+      "gap": "Synthetic design scenarios do not demonstrate execution or independent review."
+    },
+    {
+      "id": "G4",
+      "purpose": "Clean seeds",
+      "source_refs": [
+        "architecture/COMPONENT_QUICKSTART.md"
+      ],
+      "coverage": "partial",
+      "gap": "L1-14 shape acceptance and L1-15 inventory precede seed selection; no selected seed."
+    },
+    {
+      "id": "G5",
+      "purpose": "Queue and workers",
+      "source_refs": [
+        "orchestration/WORKER_PROTOCOL.md",
+        "orchestration/planner/worker-scopes.json"
+      ],
+      "coverage": "partial",
+      "gap": "Live queue authority is #136; operational cycle and qualified providers remain open."
+    },
+    {
+      "id": "G6",
+      "purpose": "Data and events",
+      "source_refs": [
+        "schemas/entity.v1.json",
+        "schemas/events.v1.json",
+        "schemas/ticker-data.v1.json",
+        "schemas/freshness.v1.json"
+      ],
+      "coverage": "partial",
+      "gap": "Data-plane, rights, freshness, lineage and domain qualification are separate gates."
+    },
+    {
+      "id": "G7",
+      "purpose": "Analytical compositions",
+      "source_refs": [
+        "architecture/basket.architecture.json",
+        "schemas/relationships.v1.json"
+      ],
+      "coverage": "partial",
+      "gap": "Existing domain implementations need per-component source and acceptance mapping."
+    },
+    {
+      "id": "G8",
+      "purpose": "Integration and operation",
+      "source_refs": [
+        "orchestration/WORKER_PROTOCOL.md"
+      ],
+      "coverage": "partial",
+      "gap": "Exact-head independent checks, authorized merge and main verification remain separate."
+    }
+  ],
+  "relationships": [
+    {
+      "kind": "contains",
+      "from": "system",
+      "to": "G1"
+    },
+    {
+      "kind": "contains",
+      "from": "system",
+      "to": "G2"
+    },
+    {
+      "kind": "contains",
+      "from": "system",
+      "to": "G3"
+    },
+    {
+      "kind": "contains",
+      "from": "system",
+      "to": "G4"
+    },
+    {
+      "kind": "contains",
+      "from": "system",
+      "to": "G5"
+    },
+    {
+      "kind": "contains",
+      "from": "system",
+      "to": "G6"
+    },
+    {
+      "kind": "contains",
+      "from": "system",
+      "to": "G7"
+    },
+    {
+      "kind": "contains",
+      "from": "system",
+      "to": "G8"
+    },
+    {
+      "kind": "depends_on",
+      "from": "G2",
+      "to": "G1"
+    },
+    {
+      "kind": "depends_on",
+      "from": "G3",
+      "to": "G2"
+    },
+    {
+      "kind": "depends_on",
+      "from": "G4",
+      "to": "G3"
+    },
+    {
+      "kind": "depends_on",
+      "from": "G5",
+      "to": "G2"
+    },
+    {
+      "kind": "depends_on",
+      "from": "G7",
+      "to": "G6"
+    },
+    {
+      "kind": "depends_on",
+      "from": "G8",
+      "to": "G3"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "P1",
+      "purpose": "One purpose and one writer per bounded module",
+      "required_evidence": "Owner, consumer, exact paths and collision check.",
+      "source_refs": [
+        "orchestration/sparks.json",
+        "orchestration/WORKER_PROTOCOL.md"
+      ]
+    },
+    {
+      "id": "P2",
+      "purpose": "Typed black-box contracts at every nesting level",
+      "required_evidence": "Input/output schemas, assumptions, effects, errors, guarantees and compatibility gaps.",
+      "source_refs": [
+        "schemas/component-blackbox.v1.json"
+      ]
+    },
+    {
+      "id": "P3",
+      "purpose": "Separate containment, dependency and dataflow",
+      "required_evidence": "Acyclic containment, explicit port wiring and shared definition references; no duplicate implementations.",
+      "source_refs": [
+        "architecture/virtual_design/requirements_relationship_selection/relationships.json"
+      ]
+    },
+    {
+      "id": "P4",
+      "purpose": "Inspect prior art and existing behavior, then compare cohesive replacement designs before building",
+      "required_evidence": "Required behavior, new cohesive contract, prior-art alternatives, replacement scope, acceptance, downstream impact and reopen trigger; source existence never mandates reuse.",
+      "source_refs": [
+        "architecture/BLOCK_ENGINEERING_METHOD.md"
+      ]
+    },
+    {
+      "id": "P5",
+      "purpose": "Evidence does not exceed maturity",
+      "required_evidence": "Distinguish specified, simulated, tested, independently verified, integrated and operational.",
+      "source_refs": [
+        "orchestration/WORKER_PROTOCOL.md"
+      ]
+    },
+    {
+      "id": "P6",
+      "purpose": "Preserve historical truth and ownership",
+      "required_evidence": "Source hashes, timestamps, rights, missingness, append-only revisions and fail-closed effects.",
+      "source_refs": [
+        "schemas/freshness.v1.json"
+      ]
+    },
+    {
+      "id": "P7",
+      "purpose": "Close the queue loop without duplicating it",
+      "required_evidence": "Read current canonical issues, propose minimal delta, serialize authorized write, read back and retain receipt.",
+      "source_refs": [
+        "orchestration/WORKER_PROTOCOL.md"
+      ]
+    }
+  ],
+  "flow": {
+    "input_contract": [
+      "Source-backed request and requirement references",
+      "Fresh queue issue body/comments and linked owner/PR/CI evidence",
+      "Pinned source schemas, module pointers, ownership and explicit permissions"
+    ],
+    "steps": [
+      "Capture and deduplicate in existing queue",
+      "Resolve sources and existing patterns/prior art",
+      "Map nested boundaries and affected consumers",
+      "Reject options with missing authority, scope, evidence or compatibility",
+      "Compare eligible options by unmet coverage, downstream benefit, cost, risk and reversibility",
+      "Return smallest useful proposal or explicit no-selection reason",
+      "Review each affected module against P1-P7",
+      "Write only authorized queue delta and verify readback"
+    ],
+    "output_contract": [
+      "Existing worker-task/resolution objects when applicable, never incompatible extra fields",
+      "Design decision with source refs, options, gate outcomes, uncertainty and next owner action",
+      "Queue write proposal and confirmed receipt, or precise blocked/uncertain outcome"
+    ],
+    "non_goals": [
+      "No scheduler, live queue execution, seed selection, clone, domain rewrite or integration in this increment",
+      "No model score represents probability or measured efficiency"
+    ]
+  },
+  "queue_contract": {
+    "authority_issue": 136,
+    "reader": "B00 planning owner",
+    "writer": "One B00 controller per queue update; domain owners keep their issues",
+    "read": [
+      "Fetch full issue body and latest relevant comments",
+      "Fetch affected canonical issues, changed files, exact PR heads and CI",
+      "Refresh priority and ownership immediately before preparing delta"
+    ],
+    "proposal_fields": [
+      "source_message_or_issue",
+      "target_issue_or_comment",
+      "expected_updated_at_and_body_hash",
+      "idempotency_key",
+      "requirements_and_pattern_ids",
+      "minimal_delta",
+      "preserved_obligations",
+      "evidence_urls",
+      "next_owner_action"
+    ],
+    "write": [
+      "Check current user authorization and exclusive queue writer",
+      "Prefer append-only scoped decision/receipt comment; do not overwrite queue body from a stale snapshot",
+      "For body amendment re-read immediately, compare expected state, preserve unrelated text and stop on drift; API without compare-and-swap requires serialized owner coordination",
+      "Check existing idempotency marker before append",
+      "Perform bounded authorized write; read back target and compare exact intended delta",
+      "On uncertain outcome inspect before retry; no blind duplicate writes"
+    ],
+    "reject": [
+      "Stale source or owner conflict",
+      "Missing permission or unknown mandatory gate",
+      "Duplicate request or already-applied idempotency marker",
+      "Attempt to mark simulated or draft work integrated",
+      "Queue body race without safe serialization"
+    ],
+    "runtime_status": "specified_not_implemented",
+    "validation_needed": [
+      "Actual guarded read/write adapter tests under existing queue owner",
+      "Concurrent edit, duplicate, denied action, uncertain write and unchanged-repeat proof"
+    ],
+    "prior_operator_receipt": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6539423865",
+    "prior_receipt_scope": "Historical operator-mediated bridge proof, not current autonomous execution. Re-read original receipt and current source before using its claims.",
+    "next_bounded_trace": "Review offline trace evidence, then qualify real adapter readback/transaction semantics under existing owner and permissions; do not infer live readiness from this experiment.",
+    "offline_experiment": {
+      "contract": "microtests/queue_handoff/contract.json",
+      "evidence": "microtests/queue_handoff/evidence.json",
+      "scope": "12 synthetic offline traces call pinned archived claim/result/acceptance guards; uncertain-write readback uses a new test model. No live queue mutation or autonomous loop."
+    }
+  },
+  "coverage": {
+    "complete": false,
+    "basis": "Eight existing queue groups are represented by pointers, not exhaustive component/schema/port enumeration.",
+    "next": [
+      "Extend intent-to-contract-to-scenario-to-evidence coverage from the first two-use-case reference composition.",
+      "Route hosted suite discovery to B01 using the local suite manifest/runner; exact shared CI alone does not run these suites.",
+      "Keep domain mapping partial until remaining owner-scoped contracts are linked; do not equate one reference composition with full B00 coverage.",
+      "Use qualified semantic boundary cases to specify next smallest cohesive producer/consumer contract; do not expand into loop design or domain implementation.",
+      "Independently qualify AM1 nested boundary and archive experiment, then choose the next intent-linked missing contract.",
+      "Reconcile conflicting project instructions by intent with #201 owner; define archive-backed microtests before replacement work.",
+      "Expand each group with source-resolved existing module pointers and field notes",
+      "Use PR225 inventory and PR229 relationships as evidence to identify rewrite scope; validate all proposed replacements against cohesive patterns.",
+      "Map required schemas and input/output ports per module, keeping missing bindings null",
+      "Review representative nested scenarios and prior art before eligible seed choice",
+      "Record each accepted increment in #136; retain at least 25 future actions there"
+    ],
+    "not_proven": [
+      "Full system coverage",
+      "Pattern enforcement in every module",
+      "Queue executor or autonomous loop",
+      "All L1 gates",
+      "Operational qualification",
+      "Cohesive replacement contracts and rewritten components"
+    ],
+    "suite_manifest": "suites.json",
+    "reference_composition": "compositions/admission/composition.json",
+    "hosted_discovery": {
+      "bridge": "orchestration/tests/test_map_suite_discovery.py",
+      "status": "implemented_pending_exact_head_hosted_evidence",
+      "source_pins": "source_pins.json",
+      "workflow_change": false
+    }
+  },
+  "field_notes": {
+    "sources": "Canonical path keyed, commit-pinned byte references; candidates remain draft.",
+    "groups": "Read-only projection of G1-G8 in canonical queue, not new component IDs.",
+    "relationships": "Design edges; containment is not runtime invocation or dataflow.",
+    "patterns": "Module review obligations with evidence; explanatory design notes are not executable schemas.",
+    "flow": "Planning input/output contract, not executable ports.",
+    "queue_contract": "Safe effect design for existing owner, not a competing queue store.",
+    "coverage": "Explicit gaps prevent broad completion claims.",
+    "domains": "Unmapped/partial/mapped domain representation. Full mapped requires reviewed full-domain inventory and digest-bound closure; a bounded reference binding stays partial. No production qualification implied.",
+    "decision_method": "Evidence-gated option and seed matching with challenge scores and measurements. Values are hypotheses until observed.",
+    "semantic_diffs": "Versioned proposal envelopes explain applicability and compatibility without mutating source contracts. Examples are design, not executed fixtures.",
+    "instruction_semantics": "Resolve intended outcomes before admitting rules into the clean system; do not carry contradictory historical instructions forward.",
+    "archive_microtests": "Use immutable archived versions to extract and challenge behaviors while qualifying the clean system against current intended outcomes."
+  },
+  "domains": [
+    {
+      "id": "B00",
+      "purpose": "Orchestrator & Contracts",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/0",
+      "owner_spark": "B00",
+      "coverage": "partial_reference_mapping",
+      "inputs": {
+        "schema_ref": "compositions/admission/schemas.json#/$defs/request"
+      },
+      "outputs": {
+        "schema_ref": "compositions/admission/schemas.json#/$defs/report"
+      },
+      "binding": {
+        "contract_ref": "compositions/admission/composition.json",
+        "evidence_ref": "compositions/admission/evidence.json",
+        "scope": "Bounded B00-owned reference admission composition, not all B00 responsibilities",
+        "requirement_ids": [
+          "R-TYPED",
+          "R-SEMANTIC",
+          "R-TIME",
+          "R-REUSE"
+        ],
+        "root_definition": "admit"
+      },
+      "note": "One scoped clean reference composition is mapped; domain is not complete or production-qualified.",
+      "mapping_state": "partial",
+      "remaining_gaps": [
+        "Remaining orchestration/planning contracts, real adapters and production acceptance are unmapped."
+      ]
+    },
+    {
+      "id": "B01",
+      "purpose": "Integrity & CI Rescue",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/1",
+      "owner_spark": "B01",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B02",
+      "purpose": "Market Feeds, FX & TTD",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/2",
+      "owner_spark": "B02",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B03",
+      "purpose": "Earnings & Event Ledger",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/3",
+      "owner_spark": "B03",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B04",
+      "purpose": "Company Economics & Valuation",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/4",
+      "owner_spark": "B04",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B05",
+      "purpose": "Ownership & Economic Graph",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/5",
+      "owner_spark": "B05",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B06",
+      "purpose": "Traversal & Cycle Engine",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/6",
+      "owner_spark": "B06",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B07",
+      "purpose": "Calibration, Falsification & Risk",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/7",
+      "owner_spark": "B07",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B08",
+      "purpose": "Service & Tool Deployment",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/8",
+      "owner_spark": "B08",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B09",
+      "purpose": "SFTBY Parent NAV & Holdings",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/9",
+      "owner_spark": "B09",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B10",
+      "purpose": "CRWV GPU Lifecycle",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/10",
+      "owner_spark": "B10",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B11",
+      "purpose": "AAOI Optical Manufacturing",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/11",
+      "owner_spark": "B11",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B12",
+      "purpose": "ARM Royalties & Compute Mix",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/12",
+      "owner_spark": "B12",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B13",
+      "purpose": "OpenAI & Anthropic Private Value",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/13",
+      "owner_spark": "B13",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B14",
+      "purpose": "NVIDIA Compute Moat & Capital Loop",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/14",
+      "owner_spark": "B14",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B15",
+      "purpose": "Optical Bottlenecks: LITE/COHR",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/15",
+      "owner_spark": "B15",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B16",
+      "purpose": "Telco Edge: CHTR/TMUS/NOK",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/16",
+      "owner_spark": "B16",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B17",
+      "purpose": "Cross-Market Signal Composite",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/17",
+      "owner_spark": "B17",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B18",
+      "purpose": "MU Memory Contract Economics",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/18",
+      "owner_spark": "B18",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B19",
+      "purpose": "AI Supply Chain & Profit Pools",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/19",
+      "owner_spark": "B19",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B20",
+      "purpose": "CHTR Cable Edge Economics",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/20",
+      "owner_spark": "B20",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    },
+    {
+      "id": "B21",
+      "purpose": "Narrative, Claims & Falsification Engine",
+      "source_ref": "orchestration/sparks.json",
+      "json_pointer": "/sparks/21",
+      "owner_spark": "B21",
+      "coverage": "inventoried_pointer_only",
+      "inputs": null,
+      "outputs": null,
+      "binding": null,
+      "note": "Null means interface not mapped here, not no inputs/outputs. Catalog remains authoritative; this does not launch a worker.",
+      "mapping_state": "unmapped",
+      "remaining_gaps": [
+        "Domain input/output contracts and bindings not yet specified in this map."
+      ]
+    }
+  ],
+  "decision_method": {
+    "purpose": "Choose the smallest justified planning increment that unlocks downstream accepted work, rather than maximize map size.",
+    "hard_gates": [
+      "Current user authority and exclusive ownership",
+      "Resolved source and compatible required contracts",
+      "L1 prerequisite and evidence gates",
+      "No unqualified operational claim"
+    ],
+    "options": [
+      {
+        "option": "Central copy of all source documents",
+        "benefit": "One reading surface",
+        "risk": "Duplicate truth and drift",
+        "disposition": "reject_as_default"
+      },
+      {
+        "option": "Executable universal planner now",
+        "benefit": "Potential automation",
+        "risk": "Premature runtime and schema authority before L1 proof",
+        "disposition": "defer"
+      },
+      {
+        "option": "Thin typed planning overlay with source pointers and decision/evidence loop",
+        "benefit": "Trace requirements through cohesive new contracts, replacement candidates and acceptance while keeping historical source evidence",
+        "risk": "Can become a static index unless each increment resolves an actual downstream uncertainty",
+        "disposition": "preferred_design_not_proven"
+      }
+    ],
+    "selection_rule": "First reject failed/unknown gates. Then compare unique unmet requirement coverage, downstream blocked work unlocked, risk, total adaptation/review/maintenance effort and reversibility. Unknown cost or tied benefit yields needs_decision, not invented precision.",
+    "decision_record_fields": [
+      "requirement_refs",
+      "affected_modules",
+      "source_revisions",
+      "options",
+      "gate_evidence",
+      "unmet_coverage",
+      "downstream_consumers",
+      "selected_or_no_selection",
+      "cost_basis_and_unknowns",
+      "reopen_trigger",
+      "queue_receipt"
+    ],
+    "seed_matching": "Match proposed clean seeds against the new cohesive nested contracts and required effects. Existing implementations are behavior evidence, not automatically eligible seeds. Missing schema or binding blocks eligibility; L1-14/L1-15 remain open.",
+    "challenge_score": {
+      "scale": "0 absent; 1 specified; 2 representative demonstration; 3 independent verification; 4 observed operations; unknown allowed",
+      "current": {
+        "source_traceability": 1,
+        "module_contract_completeness": 0,
+        "queue_loop_execution": 0,
+        "downstream_unlock": "unknown",
+        "measured_savings": "unknown"
+      },
+      "note": "Conservative design self-assessment, not a measured benefit or average readiness score. Structural validation must be reported separately."
+    },
+    "success_measures": [
+      "Time from scoped request to accepted useful output, separated from waiting",
+      "Required fields and edges with resolved authoritative pointers divided by declared inventory denominator",
+      "Repeated handoff/rework defects before and after pattern adoption",
+      "Actual downstream tasks unblocked with linked accepted evidence",
+      "Maintenance effort and drift defects introduced by this overlay"
+    ],
+    "baseline": "Unknown until comparable accepted cycles are observed; no token or speed savings claimed."
+  },
+  "semantic_diffs": {
+    "status": "design_only",
+    "purpose": "Evolve the new cohesive top-level design through additive, versioned use-case deltas; this does not preserve legacy components from the user-directed rewrite.",
+    "envelope_fields": {
+      "target_ref": "Existing stable path or ID plus optional JSON Pointer; never a copied registry identity.",
+      "base_revision": "Exact source commit and digest before amendment.",
+      "diff_version": "Version of this local proposal shape, separate from target schema version.",
+      "kind": "additive_annotation, optional_extension, or breaking_change_proposal.",
+      "applicability": "Explicit use cases, consumers, required capabilities and exclusions.",
+      "changes": "Small field or relationship changes with purpose notes.",
+      "compatibility": "Existing consumer behavior, unknown-field handling and fail-closed major-version or required-capability rules.",
+      "evidence": "Representative positive and negative cases; measured claims remain unknown until observed.",
+      "invalidate_when": "Changed source, failed assumption or incompatible consumer; reopen decision.",
+      "migration_trigger": "Only demonstrated mandatory semantic change justifies owner-reviewed migration."
+    },
+    "examples": [
+      {
+        "target_ref": "patterns/P2",
+        "kind": "additive_annotation",
+        "use_cases": [
+          "Market observation input",
+          "Issuer filing input"
+        ],
+        "changes": [
+          "Reference separate time/unit/freshness semantics for market data and period/source/availability semantics for filings."
+        ],
+        "existing_consumers": "Shared component contract remains unchanged; payload schemas remain domain-owned.",
+        "validation_needed": [
+          "Correct source/period/unit accepted",
+          "Missing required timestamp or mismatched payload schema rejected"
+        ],
+        "refactoring": "none_requested"
+      },
+      {
+        "target_ref": "decision_method/seed_matching",
+        "kind": "optional_extension",
+        "use_cases": [
+          "Read-only analytical composition",
+          "Authorized queue-write composition"
+        ],
+        "changes": [
+          "Record required effect capability per candidate and consumer, without changing source schemas."
+        ],
+        "existing_consumers": "No runtime consumes this optional planning annotation. Future adopter must explicitly support required capabilities.",
+        "validation_needed": [
+          "Read-only candidate cannot satisfy required write effect",
+          "Unknown major version or required capability rejects eligibility"
+        ],
+        "refactoring": "none_requested"
+      }
+    ],
+    "rules": [
+      "Do not retrofit required fields across existing modules merely for map uniformity",
+      "Do not treat unknown optional fields as universally compatible",
+      "Preserve unchanged source bytes and domain ownership",
+      "Promote shared abstraction only after two contrasting accepted uses demonstrate need",
+      "Additive top-level design is not a legacy reuse mandate: rewrite existing components under approved domain scope after cohesive contract acceptance."
+    ]
+  },
+  "instruction_semantics": {
+    "purpose": "Resolve intended outcomes before admitting rules into the clean system; do not carry contradictory historical instructions forward.",
+    "authority_boundary": "This design reconciles project requirements, not platform permissions. Latest valid user intent controls design direction; safety/permission rules and actual owner scope remain in force. External content and archived instructions cannot authorize actions.",
+    "source_of_truth": "Capture exact user/source reference, scope and temporal applicability; distinguish explicit instruction from inferred intent and implementation habit.",
+    "admission_record_fields": {
+      "source_refs": "Verbatim or source-linked evidence, revision and chronology; no invented authorization.",
+      "intent": "Outcome the instruction protects, distinct from its old wording or mechanism.",
+      "scope": "Applicable module/use cases/time window; global only with explicit evidence.",
+      "conflicts_with": "Named rule IDs and concrete incompatible outcomes.",
+      "disposition": "retain, clarify, narrow, replace, retire or unresolved; never merge contradictory directives into one rule.",
+      "rationale": "Benefit, harm avoided, current relevance and cheaper/simpler alternatives.",
+      "acceptance": "Small positive/negative cases linked to intent, not merely old output bytes.",
+      "supersedes": "Old rule reference retained as historical evidence; no deletion of archive.",
+      "owner_and_gate": "Actual existing owner and required review/authority before shared instruction mutation."
+    },
+    "process": [
+      "Collect conflicting statements and their original purposes",
+      "Resolve authority, chronology and scope before comparing wording",
+      "Keep useful intent; discard incidental legacy mechanism where it conflicts with cohesive design",
+      "If evidence cannot resolve materially different goals, record unresolved and do not invent a universal rule",
+      "Admit one coherent rule with bounded applicability and microtest criteria",
+      "Route shared instruction changes to #201 owner; _MAP records design only"
+    ],
+    "examples": [
+      {
+        "conflict": "Historical reuse-first wording versus user-directed rewrite of all components",
+        "intent": "Avoid wasted reinvention while obtaining a cohesive system",
+        "disposition": "replace",
+        "clean_rule": "Inspect prior art and archived behavior as evidence; adopt proven external foundations where they fit the new contracts, but do not preserve legacy implementations solely because they exist. Rewrite components under the new cohesive contracts.",
+        "acceptance": [
+          "A legacy component with incompatible semantics is not adopted by default",
+          "A demonstrated existing standard can still inform or support the new implementation"
+        ],
+        "supersedes": "Legacy implementation reuse as a default; historical source remains intact"
+      },
+      {
+        "conflict": "Additive top-level diffs without refactoring versus rewriting existing components",
+        "intent": "Stable extensible new boundaries with cohesive replacement internals",
+        "disposition": "narrow",
+        "clean_rule": "Use compatible top-level design deltas to avoid repeated structural churn in the new system; old components remain rewrite candidates. Breaking semantic changes still need explicit versioning and owner review.",
+        "acceptance": [
+          "Optional annotation does not mandate legacy rewrite by itself",
+          "Unknown required capability blocks adoption even if syntactically additive"
+        ],
+        "supersedes": "Any reading of no refactoring as a permanent ban on necessary change"
+      }
+    ],
+    "unresolved": "Full historical instruction corpus not yet reconciled; no claim that all project instructions are now conflict-free.",
+    "coordination": {
+      "owner_issue": 201,
+      "handoff": "https://github.com/whiterosecoffee/_BASKET/issues/201#issuecomment-6804331139",
+      "state": "requested_not_accepted",
+      "note": "Eight intent-benefit-decision-microtest cases provided to existing instruction owner. No shared instruction edit or owner acceptance inferred.",
+      "split_rule_handoff": "https://github.com/whiterosecoffee/_BASKET/issues/201#issuecomment-6804366050"
+    },
+    "decomposition_rule": "Before retaining, reframing or rejecting a statement, split purpose, trigger, scope and required behavior into independently testable rules. Apparent contradiction may be compatible rules applying to different scopes; do not collapse value preservation into code preservation or planning authority into permission.",
+    "simultaneous_rule_sets": [
+      {
+        "rules": [
+          "Preserve useful value and historical evidence",
+          "Build clean cohesive implementations",
+          "Reuse qualified new primitives when contracts fit"
+        ],
+        "microtest": "Replacing incompatible legacy code preserves required outcomes/evidence without requiring old implementation parity."
+      },
+      {
+        "rules": [
+          "One actual writer per scope",
+          "Continue the canonical problem"
+        ],
+        "microtest": "An existing problem resumes its owner lane without a duplicate worker or scope expansion."
+      },
+      {
+        "rules": [
+          "Higher-order design can replace mechanisms",
+          "Current operational authority still applies"
+        ],
+        "microtest": "A proposed better contract does not authorize mutation of another owner file or production state."
+      },
+      {
+        "rules": [
+          "Continue authorized owned work without routine NEXT",
+          "Stop at real consequential permission boundaries"
+        ],
+        "microtest": "An ordinary defect is fixed in-cycle; an unapproved external effect remains blocked."
+      },
+      {
+        "rules": [
+          "Collect early feedback",
+          "Keep evidence claims accurate"
+        ],
+        "microtest": "A design critique can improve a fixture without being labeled an executed independent acceptance test."
+      }
+    ]
+  },
+  "archive_microtests": {
+    "purpose": "Use immutable archived versions to extract and challenge behaviors while qualifying the clean system against current intended outcomes.",
+    "archive_contract": [
+      "Exact source commit/path/hash and fixture identity",
+      "Source rights and any unavailable dependency explicitly recorded",
+      "Read-only archive; never rewrite old expected results to hide a failure"
+    ],
+    "case_fields": {
+      "intent_ref": "Admitted current requirement/rule, not old implementation authority.",
+      "archive_ref": "Pinned old version and behavior evidence; unavailable means blocked, not passed.",
+      "input_fixture": "Small representative data with source/time/unit semantics and digest.",
+      "legacy_observation": "Observed result plus execution evidence, or unknown if not run.",
+      "clean_expected": "Expected behavior justified by current intent.",
+      "difference_class": "preserve_required_behavior, intended_correction, irrelevant_legacy_behavior, or unresolved.",
+      "verdict": "Pass only if clean result satisfies intent; old/new equality alone is insufficient.",
+      "evidence": "Actual command, exact versions, result, diagnostics and independent review state."
+    },
+    "cases": [
+      {
+        "id": "AM1",
+        "intent": "Never present stale observation as current",
+        "archive_pointer": "schemas/freshness.v1.json",
+        "input": "An observation beyond its declared lifetime",
+        "expected": "Clean design retains historical truth but rejects current-use qualification",
+        "difference_class": "preserve_required_behavior",
+        "execution": "executed_offline_microtest",
+        "evidence_ref": "microtests/freshness/evidence.json"
+      },
+      {
+        "id": "AM2",
+        "intent": "New cohesive contract supersedes accidental legacy output",
+        "archive_pointer": "schemas/ticker-data.v1.json",
+        "input": "Structurally shaped payload with incompatible units or basis",
+        "expected": "Reject semantically incompatible composition even if an old component accepted it",
+        "difference_class": "intended_correction",
+        "execution": "executed_offline_microtest",
+        "evidence_ref": "microtests/semantic_boundary/evidence.json"
+      },
+      {
+        "id": "AM3",
+        "intent": "No duplicate external effect after uncertain acknowledgment",
+        "archive_pointer": "orchestration/WORKER_PROTOCOL.md",
+        "input": "Write may have succeeded but acknowledgment is unavailable",
+        "expected": "Inspect canonical result before retry; return uncertain when unresolved",
+        "difference_class": "preserve_required_behavior",
+        "execution": "not_run"
+      },
+      {
+        "id": "AM4",
+        "intent": "Retire incidental mechanism, not required outcome",
+        "archive_pointer": "architecture/BLOCK_ENGINEERING_METHOD.md",
+        "input": "Old reuse-first implementation choice conflicts with accepted cohesive replacement contract",
+        "expected": "Retain source as evidence and test required behavior; do not force byte-equivalent old mechanism",
+        "difference_class": "irrelevant_legacy_behavior",
+        "execution": "not_run"
+      }
+    ],
+    "test_layers": [
+      "Document validation checks structure and pointers only",
+      "Archived behavior probe records actual old output without making it an oracle",
+      "Clean implementation microtest checks current admitted intent",
+      "Independent comparison classifies intentional differences and unresolved regressions"
+    ],
+    "execution_status": "AM1 freshness and AM2 semantic-boundary have executed offline experiments; AM3/AM4 remain design cases. Separate queue experiment tests synthetic handoff guards. No rewritten production component.",
+    "exit_gate": "Every selected replacement has at least one useful outcome case and one relevant rejection case; every old/new difference has an intent-linked disposition. Scope remains bounded, not universal equivalence."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "format": "basket.map.suites@1",
+  "scope": "Offline experiments only; no hosted discovery implied",
+  "suites": [
+    {
+      "id": "freshness",
+      "runner": "microtests/freshness/run.py",
+      "cases": "microtests/freshness/cases.json",
+      "evidence": "microtests/freshness/evidence.json",
+      "results_key": "results",
+      "evidence_class": "executed_offline_microtest"
+    },
+    {
+      "id": "semantic_boundary",
+      "runner": "microtests/semantic_boundary/run.py",
+      "cases": "microtests/semantic_boundary/cases.json",
+      "evidence": "microtests/semantic_boundary/evidence.json",
+      "results_key": "results",
+      "evidence_class": "executed_offline_microtest"
+    },
+    {
+      "id": "queue_handoff",
+      "runner": "microtests/queue_handoff/run.py",
+      "cases": "microtests/queue_handoff/cases.json",
+      "evidence": "microtests/queue_handoff/evidence.json",
+      "results_key": "cases",
+      "evidence_class": "executed_offline_microtest"
+    },
+    {
+      "id": "admission",
+      "runner": "compositions/admission/run.py",
+      "cases": "compositions/admission/cases.json",
+      "evidence": "compositions/admission/evidence.json",
+      "results_key": "results",
+      "evidence_class": "executed_offline_reference_composition"
+    },
+    {
+      "id": "prior_art",
+      "runner": "prior_art/run.py",
+      "cases": "prior_art/cases.json",
+      "evidence": "prior_art/evidence.json",
+      "results_key": "results",
+      "evidence_class": "executed_offline_projection_checks"
+    },
+    {
+      "id": "data_flow_projection",
+      "runner": "data_flow/run.py",
+      "cases": "data_flow/cases.json",
+      "evidence": "data_flow/evidence.json",
+      "results_key": "results",
+      "evidence_class": "executed_offline_pinned_projection_checks"
+    }
+  ]
+}

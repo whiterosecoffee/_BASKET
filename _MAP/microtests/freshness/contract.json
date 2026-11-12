@@ -1,0 +1,86 @@
+{
+  "format": "basket.map.microcontract@1",
+  "version": "0.1.0",
+  "purpose": "AM1: qualify current use while retaining original historical evidence",
+  "status": "offline_test_model_not_production",
+  "owner": "B00-230",
+  "source_archives": [
+    {
+      "path": "schemas/freshness.v1.json",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "2790109582aede988f5c57384b9684d973e417de66a99d1f160d1639409b7214"
+    },
+    {
+      "path": "runtime/observations.py",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "d0849f2907771f1dfc28594e41f291cbe6530eb80c0a9e1f9235efb9af16bd6a"
+    }
+  ],
+  "boundary": {
+    "input": "payload.schema.json#/$defs/request",
+    "output": "payload.schema.json#/$defs/result",
+    "effects": [],
+    "assumptions": [
+      "Single observation, UTC or offset-aware timestamps",
+      "No FX/dependency/calculation expiry qualification in this slice",
+      "No entitlement, source quality or market-session completeness inferred"
+    ],
+    "guarantees": [
+      "Fresh only before observed_at + ttd_seconds and after availability/ingestion",
+      "Expired data remains historical evidence; input bytes unchanged",
+      "Missing value is unavailable; future observation is conflicted",
+      "A supplied freshness_status label is not trusted as current truth",
+      "Precedence: not yet available/ingested -> unavailable; otherwise future observation -> conflicted; otherwise missing value -> unavailable; then expiry. Combined future observation and missing value is conflicted."
+    ],
+    "errors": [
+      "invalid_input"
+    ],
+    "children": [
+      {
+        "id": "validate_input",
+        "input": "payload.schema.json#/$defs/request",
+        "output": "same validated request or invalid_input",
+        "purpose": "Check shape and actual timezone-aware timestamps"
+      },
+      {
+        "id": "qualify_current",
+        "input": "validated request",
+        "output": "payload.schema.json#/$defs/result",
+        "purpose": "Apply current-use semantics independent of historical retention"
+      }
+    ],
+    "edges": [
+      {
+        "kind": "contains",
+        "from": "boundary",
+        "to": "validate_input"
+      },
+      {
+        "kind": "contains",
+        "from": "boundary",
+        "to": "qualify_current"
+      },
+      {
+        "kind": "dataflow",
+        "from": "validate_input.request",
+        "to": "qualify_current.request"
+      }
+    ]
+  },
+  "archive_comparison": {
+    "schema": "Run pinned archived schema to demonstrate shape acceptance, not freshness truth",
+    "runtime": "Call only pinned observations.state; no append/replay/write functions invoked",
+    "intentional_delta": "Reject current-use inference from a supplied fresh label when expired. Archived runtime already distinguishes stale; retain that useful behavior without requiring implementation reuse.",
+    "test_model": "Independent small reference function in run.py; not a new deployed module or universal workflow interpreter"
+  },
+  "acceptance": [
+    "Seven representative outcomes agree with current intent and observed archived runtime",
+    "Four malformed inputs reject",
+    "Original observations unchanged; schemas and runtime source hashes match pins",
+    "Invalid result shape and contradictory state/eligibility pairs fail output schema"
+  ],
+  "limits": [
+    "No runtime wiring, historical data ingestion, provider call, queue write or replacement rollout",
+    "Nested composition is represented and manually staged in test harness, not executed by a general engine"
+  ]
+}
