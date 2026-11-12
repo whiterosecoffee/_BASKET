@@ -1,0 +1,893 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "policy_version",
+    "identity",
+    "purpose",
+    "manifest",
+    "owned_folders",
+    "allowed_writes",
+    "authority",
+    "executor",
+    "inputs",
+    "prerequisites",
+    "acceptance_tests",
+    "permitted_effects",
+    "recovery",
+    "lifecycle",
+    "fallback"
+  ],
+  "properties": {
+    "schema": {
+      "const": "basket.execution_request@1"
+    },
+    "policy_version": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task_id",
+        "owner",
+        "spark",
+        "branch",
+        "head",
+        "worktree"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "owner": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "spark": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "branch": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "head": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "worktree": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        }
+      }
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "owned_folders": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "allowed_writes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "inherited_from",
+        "scope"
+      ],
+      "properties": {
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "inherited_from": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "scope": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "executor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "host",
+        "os",
+        "resources"
+      ],
+      "properties": {
+        "host": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "os": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "schema",
+          "sha256",
+          "max_age_seconds"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "schema": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "max_age_seconds": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "acceptance_tests": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "permitted_effects": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "recovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "idempotency_key",
+        "strategy",
+        "uncertain_effects_action"
+      ],
+      "properties": {
+        "idempotency_key": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "strategy": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "uncertain_effects_action": {
+          "const": "reconcile_before_retry"
+        }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "previous_owner",
+        "transfer_ref"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "new",
+            "continuation",
+            "transfer"
+          ]
+        },
+        "previous_owner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "transfer_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "fallback": {
+      "const": "park_only"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_kind",
+        "collector",
+        "observed_at",
+        "identity",
+        "host",
+        "os",
+        "isolated_worktree",
+        "purpose_present",
+        "manifest_sha256",
+        "ownership_complete",
+        "ownership",
+        "writers_complete",
+        "writers",
+        "resources",
+        "inputs",
+        "prerequisites",
+        "prior_effects",
+        "prior_idempotency_key",
+        "continuation",
+        "transfer",
+        "online"
+      ],
+      "properties": {
+        "evidence_kind": {
+          "const": "executor_observation"
+        },
+        "collector": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "identity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "task_id",
+            "owner",
+            "spark",
+            "branch",
+            "head",
+            "worktree"
+          ],
+          "properties": {
+            "task_id": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "owner": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "spark": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "branch": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "head": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{40}$"
+            },
+            "worktree": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "host": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "os": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "isolated_worktree": {
+          "type": "boolean"
+        },
+        "purpose_present": {
+          "type": "boolean"
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "ownership_complete": {
+          "type": "boolean"
+        },
+        "ownership": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "task_id",
+              "owner",
+              "branch",
+              "worktree",
+              "paths"
+            ],
+            "properties": {
+              "task_id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "branch": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "worktree": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "paths": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            }
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "writers_complete": {
+          "type": "boolean"
+        },
+        "writers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "task_id",
+              "owner",
+              "branch",
+              "worktree",
+              "active",
+              "session_id",
+              "lease_id"
+            ],
+            "properties": {
+              "task_id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "branch": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "worktree": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "active": {
+                "type": "boolean"
+              },
+              "session_id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "lease_id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              }
+            }
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "confirmed"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "confirmed": {
+                "type": "boolean"
+              }
+            }
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "readable",
+              "schema",
+              "schema_valid",
+              "sha256",
+              "observed_at"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "readable": {
+                "type": "boolean"
+              },
+              "schema": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "schema_valid": {
+                "type": "boolean"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "observed_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "prerequisites": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "confirmed"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "confirmed": {
+                "type": "boolean"
+              }
+            }
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "prior_effects": {
+          "enum": [
+            "none",
+            "confirmed_complete",
+            "uncertain"
+          ]
+        },
+        "prior_idempotency_key": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "continuation": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "identity",
+                "session_id",
+                "lease_id",
+                "lease_confirmed",
+                "lease_expires_at"
+              ],
+              "properties": {
+                "identity": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "task_id",
+                    "owner",
+                    "spark",
+                    "branch",
+                    "head",
+                    "worktree"
+                  ],
+                  "properties": {
+                    "task_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "owner": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "spark": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "branch": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "head": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{40}$"
+                    },
+                    "worktree": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    }
+                  }
+                },
+                "session_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "lease_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "lease_confirmed": {
+                  "type": "boolean"
+                },
+                "lease_expires_at": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          ]
+        },
+        "transfer": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "previous_owner",
+                "ref",
+                "stopped",
+                "confirmed"
+              ],
+              "properties": {
+                "previous_owner": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "stopped": {
+                  "type": "boolean"
+                },
+                "confirmed": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "online": {
+          "type": "boolean"
+        }
+      }
+    },
+    "trusted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy_version",
+        "request_sha256",
+        "identity",
+        "authority_source",
+        "authority_parent",
+        "allowed_scope",
+        "effects",
+        "host",
+        "os",
+        "collector",
+        "max_evidence_age_seconds",
+        "task_registered",
+        "new_identity_confirmed",
+        "continuation_binding"
+      ],
+      "properties": {
+        "policy_version": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "request_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "identity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "task_id",
+            "owner",
+            "spark",
+            "branch",
+            "head",
+            "worktree"
+          ],
+          "properties": {
+            "task_id": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "owner": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "spark": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "branch": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "head": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{40}$"
+            },
+            "worktree": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            }
+          }
+        },
+        "authority_source": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "authority_parent": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "allowed_scope": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "host": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "os": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "collector": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "max_evidence_age_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "task_registered": {
+          "type": "boolean"
+        },
+        "new_identity_confirmed": {
+          "type": "boolean"
+        },
+        "continuation_binding": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "session_id",
+                "lease_id"
+              ],
+              "properties": {
+                "session_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "lease_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

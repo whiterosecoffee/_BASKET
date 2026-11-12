@@ -1,0 +1,73 @@
+{
+  "schema": "basket.local_candidate@1",
+  "task_id": "local-20261112-execution-admission",
+  "spark_id": "B00",
+  "owner": "delegated-admission-worker",
+  "purpose": "Bounded pure execution-admission contracts and validation on WORKSTATION-A",
+  "issue": null,
+  "branch": "work/local-20261112-execution-admission-portable",
+  "base": "74d913e8913d630d85451344689e093aeea07efc",
+  "worktree": "admission-isolated-worktree",
+  "state": "portable_candidate_prepared_for_publication",
+  "write_paths": [
+    "orchestration/execution_admission/**"
+  ],
+  "authority": "B00 delegated bounded implementation; subsequent user direction authorizes scoped portable branch publication subject to permission review. Prior public issue creation denial remains in force.",
+  "dependencies": [
+    134,
+    136,
+    207,
+    201
+  ],
+  "permitted_effects": [
+    "local_owned_source_changes",
+    "local_tests",
+    "local_branch_commit",
+    "review_gated_portable_branch_publication"
+  ],
+  "excluded_effects": [
+    "runtime_activation",
+    "market_data_changes",
+    "merge",
+    "deployment",
+    "denied_publication_retry"
+  ],
+  "acceptance": [
+    "Strict reusable request and receipt schemas",
+    "Declared intent separate from observed proof and trusted controller pins",
+    "Reject identity, scope, inputs, writer, prerequisites and uncertain effects failures",
+    "Continuation preserves ownership; transfer requires cessation and record",
+    "Offline parking only; deterministic repeat and negative tests",
+    "Durable purpose/scope/authority README and explicit integration boundary"
+  ],
+  "next_action": "Dot/B00 binds reviewed implementation 3395a0a to the existing launch-path owner for bounded observation/lease integration; retain denied-publication gate",
+  "integration": {
+    "canonical_queue": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+    "independent_recheck_reported_at": "2026-11-12T21:35:42.428363+00:00",
+    "implementation_revision": "3395a0a41371c80282114b748f44e5673cb1a322",
+    "evidence_class": "retrieved_controller_report_plus_local_exact_head_tests",
+    "local_component_status": "independently_rechecked_as_reported_by_controller",
+    "system_integration_status": "not_enforced_in_session_launch",
+    "publication_status": "portable_branch_prepared_issue_creation_still_denied",
+    "plan_steps_supported": [
+      1,
+      2,
+      5
+    ],
+    "plan_steps_requiring_other_owners": [
+      3,
+      4,
+      6
+    ],
+    "handoff_status": "prepared_for_parent_return_not_a_verified_launch_or_queue_update",
+    "next_owner": "existing Dot/B00 controller and its current executor/launch-path owner",
+    "integration_gates": [
+      "Bind authentic controller authority and actual executor observations to the reviewed validator",
+      "Acquire exclusive session lease and recheck inputs/head/ownership immediately before effects",
+      "Demonstrate blocked launch produces no effects",
+      "Qualify one existing data-worker continuation and one code worker on WORKSTATION-A",
+      "Resolve the separate denied-publication gate before any public issue creation",
+      "Reconcile template/policy adoption through existing owners; preserve _FETCH/_MAP/_TICKER responsibilities"
+    ]
+  }
+}
