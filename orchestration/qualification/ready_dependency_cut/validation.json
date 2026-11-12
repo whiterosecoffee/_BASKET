@@ -1,0 +1,44 @@
+{
+  "status": "local_snapshot_integrity_only",
+  "attempts": [
+    {
+      "id": "write-1",
+      "result": "failed_before_process_start",
+      "reason": "Argument list too long; no repository files written"
+    },
+    {
+      "id": "write-2",
+      "result": "pass",
+      "retry_of": "write-1",
+      "procedure": "Bounded writes in exclusive scope"
+    },
+    {
+      "id": "test-1",
+      "result": "pass",
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "test-2",
+      "result": "pass",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s orchestration/qualification/ready_dependency_cut -p 'test_*.py' -v",
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "id": "diff-1",
+      "result": "fail",
+      "reason": "Extra blank line at EOF of retained source capture; commit/push did not execute",
+      "resolution": "Normalize trailing whitespace only; retain all 25 action texts and refresh capture hash"
+    }
+  ],
+  "limits": [
+    "No candidate implementation executed",
+    "No independent reviewer or ten-lane completeness acceptance",
+    "Shared CI omits this focused directory"
+  ]
+}

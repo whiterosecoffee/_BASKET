@@ -1,0 +1,634 @@
+{
+  "format": "basket.ready_dependency_cut.disposition_addendum@1",
+  "record_id": "B00-252-2026-11-12-session-disposition-002",
+  "as_of": "2026-11-12T17:43:05Z",
+  "owner_issue": 252,
+  "scope": "orchestration/qualification/ready_dependency_cut/**",
+  "baseline": {
+    "commit": "cc1e1cc3812f44b9424555cdc1455cb6a8bb3969",
+    "path": "snapshot-2026-11-12.json",
+    "sha256": "8a641ab054623b9d1b23b8700d4041e1db9458795db21e3c74bd19fa6a683427",
+    "preserved_files": {
+      "README.md": "5f6aa62e6d45b8da1db2a390e84d2b13fb1b17c3b2583cedc2ab61d6b4b9a014",
+      "canonical-l1-source.md": "ef2cade1a5ea2662389704d5fa6f6e38346ddd34b9da3b19ec949c7b94b193eb",
+      "snapshot-2026-11-12.json": "8a641ab054623b9d1b23b8700d4041e1db9458795db21e3c74bd19fa6a683427",
+      "task.json": "b8ee7b566e99e35c9aac73c7aca2a9cac53770e74b04b965dd9676d7948fd4b8",
+      "test_snapshot.py": "aae0eff421d13b5f4c571b5d8f5d43a86ab8dc7648d38f58c25fa43b0e08ceac",
+      "validation.json": "fbfc055131b4bf639cf35cd70549c6647450bdb5f6d190c3c19b4fd0ce67cc87"
+    }
+  },
+  "decision": "The eight-of-ten public-claim gap is resolved as session accounting: exactly ten identified sessions, seven published artifact lanes and three unpublished lanes. Session existence, branch existence, publication, execution and acceptance are separate facts.",
+  "counts": {
+    "identified_sessions": 10,
+    "published_artifact_lanes": 7,
+    "unpublished_artifact_lanes": 3,
+    "unidentified_sessions": 0
+  },
+  "sessions": [
+    {
+      "id": "reference-portability",
+      "identity_status": "identified",
+      "identity_basis": "Explicit session receipt reconciliation; public issue and PR independently refreshed",
+      "issue": 245,
+      "issue_url": "https://github.com/whiterosecoffee/_BASKET/issues/245",
+      "branch": "work/245-cloud-json-reference-portability",
+      "publication": {
+        "status": "published",
+        "pr": 253,
+        "url": "https://github.com/whiterosecoffee/_BASKET/pull/253",
+        "head_sha": "94382dc27eba88042baee2fad754407068b170c1",
+        "draft": true,
+        "merged": false
+      },
+      "execution_acceptance": {
+        "independently_executed_in_this_addendum": false,
+        "execution_status": "not_assessed",
+        "acceptance_status": "unknown"
+      },
+      "retry_denied_action": false
+    },
+    {
+      "id": "run-receipts",
+      "identity_status": "identified",
+      "identity_basis": "Explicit session receipt reconciliation; public issue and PR independently refreshed",
+      "issue": 246,
+      "issue_url": "https://github.com/whiterosecoffee/_BASKET/issues/246",
+      "branch": "work/246-cloud-run-receipt-conformance",
+      "publication": {
+        "status": "published",
+        "pr": 256,
+        "url": "https://github.com/whiterosecoffee/_BASKET/pull/256",
+        "head_sha": "2f395d475abace7fe58afbb9f0c5fa3d596c25e2",
+        "draft": true,
+        "merged": false
+      },
+      "execution_acceptance": {
+        "independently_executed_in_this_addendum": false,
+        "execution_status": "not_assessed",
+        "acceptance_status": "unknown"
+      },
+      "retry_denied_action": false
+    },
+    {
+      "id": "port-compatibility",
+      "identity_status": "identified",
+      "identity_basis": "Explicit session receipt reconciliation; public issue and PR independently refreshed",
+      "issue": 247,
+      "issue_url": "https://github.com/whiterosecoffee/_BASKET/issues/247",
+      "branch": "work/247-cloud-port-compatibility-fixtures",
+      "publication": {
+        "status": "published",
+        "pr": 254,
+        "url": "https://github.com/whiterosecoffee/_BASKET/pull/254",
+        "head_sha": "65c9782ff2a6fa9b8fd0b4fe3d40dfb3a89c913c",
+        "draft": true,
+        "merged": false
+      },
+      "execution_acceptance": {
+        "independently_executed_in_this_addendum": false,
+        "execution_status": "not_assessed",
+        "acceptance_status": "unknown"
+      },
+      "retry_denied_action": false
+    },
+    {
+      "id": "branch-ownership",
+      "identity_status": "identified",
+      "identity_basis": "Explicit session receipt reconciliation; public issue and PR independently refreshed",
+      "issue": 248,
+      "issue_url": "https://github.com/whiterosecoffee/_BASKET/issues/248",
+      "branch": "work/248-cloud-branch-ownership-cases",
+      "publication": {
+        "status": "published",
+        "pr": 258,
+        "url": "https://github.com/whiterosecoffee/_BASKET/pull/258",
+        "head_sha": "6a2a49ffba03cff47a3e628b10ddc59eb8c39b3d",
+        "draft": true,
+        "merged": false
+      },
+      "execution_acceptance": {
+        "independently_executed_in_this_addendum": false,
+        "execution_status": "not_assessed",
+        "acceptance_status": "unknown"
+      },
+      "retry_denied_action": false
+    },
+    {
+      "id": "schema-standards",
+      "identity_status": "identified",
+      "identity_basis": "Explicit session receipt reconciliation; public issue and PR independently refreshed",
+      "issue": 249,
+      "issue_url": "https://github.com/whiterosecoffee/_BASKET/issues/249",
+      "branch": "work/249-cloud-schema-standards-decision",
+      "publication": {
+        "status": "published",
+        "pr": 257,
+        "url": "https://github.com/whiterosecoffee/_BASKET/pull/257",
+        "head_sha": "3d3b9910230c44e4d9441777ae230c54fc8cdefb",
+        "draft": true,
+        "merged": false
+      },
+      "execution_acceptance": {
+        "independently_executed_in_this_addendum": false,
+        "execution_status": "not_assessed",
+        "acceptance_status": "unknown"
+      },
+      "retry_denied_action": false
+    },
+    {
+      "id": "recovery-scenarios",
+      "identity_status": "identified",
+      "identity_basis": "Explicit session receipt reconciliation; public issue and PR independently refreshed",
+      "issue": 250,
+      "issue_url": "https://github.com/whiterosecoffee/_BASKET/issues/250",
+      "branch": "work/250-cloud-recovery-scenario-qualification",
+      "publication": {
+        "status": "published",
+        "pr": 255,
+        "url": "https://github.com/whiterosecoffee/_BASKET/pull/255",
+        "head_sha": "e570dfc0cb2f5852edf2a7d65817dcb3468ccaa8",
+        "draft": true,
+        "merged": false
+      },
+      "execution_acceptance": {
+        "independently_executed_in_this_addendum": false,
+        "execution_status": "not_assessed",
+        "acceptance_status": "unknown"
+      },
+      "retry_denied_action": false
+    },
+    {
+      "id": "ready-dependency-cut",
+      "identity_status": "identified",
+      "identity_basis": "Explicit session receipt reconciliation; public issue and PR independently refreshed",
+      "issue": 252,
+      "issue_url": "https://github.com/whiterosecoffee/_BASKET/issues/252",
+      "branch": "work/252-cloud-ready-dependency-cut",
+      "publication": {
+        "status": "published",
+        "pr": 259,
+        "url": "https://github.com/whiterosecoffee/_BASKET/pull/259",
+        "head_sha": "cc1e1cc3812f44b9424555cdc1455cb6a8bb3969",
+        "draft": true,
+        "merged": false
+      },
+      "execution_acceptance": {
+        "independently_executed_in_this_addendum": false,
+        "execution_status": "not_assessed",
+        "acceptance_status": "unknown"
+      },
+      "retry_denied_action": false
+    },
+    {
+      "id": "linux-baseline",
+      "identity_status": "identified",
+      "identity_basis": "Explicit session receipt reconciliation; public session identifiers intentionally omitted",
+      "issue": 251,
+      "issue_url": "https://github.com/whiterosecoffee/_BASKET/issues/251",
+      "branch": "work/251-cloud-linux-baseline-qualification",
+      "publication": {
+        "status": "unpublished",
+        "pr": null,
+        "url": null,
+        "head_sha": null,
+        "reason": "publication_denied",
+        "evidence_basis": "Reported by coordinating owner; denied action not retried"
+      },
+      "execution_acceptance": {
+        "independently_executed_in_this_addendum": false,
+        "execution_status": "unknown",
+        "acceptance_status": "unknown"
+      },
+      "retry_denied_action": false
+    },
+    {
+      "id": "temporal-lineage-candidate",
+      "identity_status": "identified",
+      "identity_basis": "Explicit session receipt reconciliation; public session identifiers intentionally omitted",
+      "issue": null,
+      "issue_url": null,
+      "branch": null,
+      "publication": {
+        "status": "unpublished",
+        "pr": null,
+        "url": null,
+        "head_sha": null,
+        "reason": "publication_denied",
+        "evidence_basis": "Reported by coordinating owner; denied action not retried"
+      },
+      "execution_acceptance": {
+        "independently_executed_in_this_addendum": false,
+        "execution_status": "unknown",
+        "acceptance_status": "unknown"
+      },
+      "retry_denied_action": false
+    },
+    {
+      "id": "artifact-reproducibility-candidate",
+      "identity_status": "identified",
+      "identity_basis": "Explicit session receipt reconciliation; public session identifiers intentionally omitted",
+      "issue": null,
+      "issue_url": null,
+      "branch": null,
+      "publication": {
+        "status": "unpublished",
+        "pr": null,
+        "url": null,
+        "head_sha": null,
+        "reason": "publication_denied",
+        "evidence_basis": "Reported by coordinating owner; denied action not retried"
+      },
+      "execution_acceptance": {
+        "independently_executed_in_this_addendum": false,
+        "execution_status": "unknown",
+        "acceptance_status": "unknown"
+      },
+      "retry_denied_action": false
+    }
+  ],
+  "retained_actions": [
+    {
+      "id": "L1-01",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/224",
+        "https://github.com/whiterosecoffee/_BASKET/issues/59"
+      ],
+      "acceptance_test": "every known group has a source/owner/revision or an explicit unresolved reference. Start with the existing 17-group index and candidate destinations, not a fresh registry.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [],
+      "complete": false
+    },
+    {
+      "id": "L1-02",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/224",
+        "https://github.com/whiterosecoffee/_BASKET/issues/223"
+      ],
+      "acceptance_test": "queued disposition linked to the original owner; no old implementation imported, moved or relabelled as reusable.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [],
+      "complete": false
+    },
+    {
+      "id": "L1-03",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136",
+        "https://github.com/whiterosecoffee/_BASKET/issues/156"
+      ],
+      "acceptance_test": "decisions include alternatives, rationale, unresolved questions and revisit triggers.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-01"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-04",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/103",
+        "https://github.com/whiterosecoffee/_BASKET/issues/105"
+      ],
+      "acceptance_test": "version/provenance/error/missingness fields have one authority; genuine schema gaps are explicit, not invented contracts.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-01",
+        "L1-03"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-05",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136",
+        "https://github.com/whiterosecoffee/_BASKET/issues/103"
+      ],
+      "acceptance_test": "changed/unavailable/disallowed pointers fail explicitly; private bindings and data remain outside public records.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-03",
+        "L1-04"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-06",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136",
+        "https://github.com/whiterosecoffee/_BASKET/issues/103"
+      ],
+      "acceptance_test": "three compatible provisional JSON record roles mapped to existing authorities, with evidence class and unknown values preserved.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-03",
+        "L1-04",
+        "L1-05"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-07",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136",
+        "https://github.com/whiterosecoffee/_BASKET/issues/224"
+      ],
+      "acceptance_test": "every major category represented or explicitly missing; no duplicate status database, fabricated executable ports for documents/data, or financial-relationship schema overloaded with software composition.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-01",
+        "L1-04",
+        "L1-05",
+        "L1-06"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-08",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/103",
+        "https://github.com/whiterosecoffee/_BASKET/issues/105"
+      ],
+      "acceptance_test": "source-pinned positive/negative validation receipt identifies what was actually checked versus manually reviewed.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-07"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-09",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136"
+      ],
+      "acceptance_test": "named inputs/outputs, state/effect owner, failure propagation and a clean boundary between clone and FETCH responsibilities.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-07",
+        "L1-08"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-10",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136",
+        "https://github.com/whiterosecoffee/_BASKET/issues/105"
+      ],
+      "acceptance_test": "synthetic or permitted pointer fixtures, independent expected structural outcomes and explicit invariants; no real effects.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-06",
+        "L1-09"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-11",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136"
+      ],
+      "acceptance_test": "immutable model/scenario/rule references, ordered handoffs and before/after state; result labelled assistant-simulated, never runtime-executed.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-10"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-12",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136"
+      ],
+      "acceptance_test": "typed failure/blocked outcomes, retained diagnostics and explicit semantic unknowns; no fabricated current assessment.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-10"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-13",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/105",
+        "https://github.com/whiterosecoffee/_BASKET/issues/136"
+      ],
+      "acceptance_test": "disagreement/change register distinguishes interpretation consistency from deterministic execution, concurrency or calculation correctness.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-11",
+        "L1-12"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-14",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136",
+        "https://github.com/whiterosecoffee/_BASKET/issues/103"
+      ],
+      "acceptance_test": "each change links failing scenario \u2192 decision \u2192 revised contract/model; prior traces remain intact and affected cases are retraced.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-13"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-15",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/134",
+        "https://github.com/whiterosecoffee/_BASKET/issues/156"
+      ],
+      "acceptance_test": "a JSON projection of existing Copier/kit choices, not a second generator or a claim that today's flat scaffold proves nesting.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-03",
+        "L1-04"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-16",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/134",
+        "https://github.com/whiterosecoffee/_BASKET/issues/136"
+      ],
+      "acceptance_test": "selected candidate, alternatives, bounded delta and explicit no-suitable-seed outcome; never silently choose a merely similar incompatible seed.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-09",
+        "L1-14",
+        "L1-15"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-17",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136",
+        "https://github.com/whiterosecoffee/_BASKET/issues/78",
+        "https://github.com/whiterosecoffee/_BASKET/issues/106"
+      ],
+      "acceptance_test": "clone/FETCH scopes remain disjoint; prior branch authority is not inherited by cloning.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-03",
+        "L1-16"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-18",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136",
+        "https://github.com/whiterosecoffee/_BASKET/issues/156"
+      ],
+      "acceptance_test": "every coverage edge cites a concrete requirement; distinguish component count from repeated instances and avoid double-counting nested parents.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-07",
+        "L1-14"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-19",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136",
+        "https://github.com/whiterosecoffee/_BASKET/issues/156"
+      ],
+      "acceptance_test": "transparent assumptions, sensitivity check and ranked minimum set; no invented measured savings or score precision.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-18"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-20",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/78",
+        "https://github.com/whiterosecoffee/_BASKET/issues/106"
+      ],
+      "acceptance_test": "each recipe has versioned instructions, examples, input/result contracts, allowed effects, stop/escalation rules and ownership; recipe definition is not worker launch.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-04",
+        "L1-17",
+        "L1-19"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-21",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/78",
+        "https://github.com/whiterosecoffee/_BASKET/issues/106",
+        "https://github.com/whiterosecoffee/_BASKET/issues/64"
+      ],
+      "acceptance_test": "virtual duplicate/partial-failure cases cannot double-complete or bypass an unresolved approval.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-20"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-22",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/64",
+        "https://github.com/whiterosecoffee/_BASKET/issues/105"
+      ],
+      "acceptance_test": "proposed rubric, pass threshold, failure taxonomy and regression/version policy. \u201cTrained\u201d initially means instructed and evaluated recipes; model fine-tuning requires a separate demonstrated need and decision.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-10",
+        "L1-20",
+        "L1-21"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-23",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136",
+        "https://github.com/whiterosecoffee/_BASKET/issues/134",
+        "https://github.com/whiterosecoffee/_BASKET/issues/138"
+      ],
+      "acceptance_test": "source-backed recommendation with one canonical authority and migration criteria. Do not create a Linear workspace, mirror issues, add sync machinery or reopen #138 during research.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [],
+      "complete": false
+    },
+    {
+      "id": "L1-24",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136",
+        "https://github.com/whiterosecoffee/_BASKET/issues/156"
+      ],
+      "acceptance_test": "explicit decisions needed, bounded first implementation scope and evidence gaps. Proposal acceptance remains distinct from build/integration approval.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-14",
+        "L1-16",
+        "L1-19",
+        "L1-22",
+        "L1-23"
+      ],
+      "complete": false
+    },
+    {
+      "id": "L1-25",
+      "owner_sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/136",
+        "https://github.com/whiterosecoffee/_BASKET/issues/105"
+      ],
+      "acceptance_test": "go/no-go with exact scope and acceptance. Only then implement/prove the selected clone; legacy adaptation and integration remain separately gated downstream.",
+      "authoritative_source": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+      "dependencies": [
+        "L1-24"
+      ],
+      "complete": false
+    }
+  ],
+  "followups": [
+    {
+      "id": "run-receipts-denied-followup",
+      "owner_issue": 246,
+      "status": "pending_denied",
+      "publication_status": "not_resolved_by_this_addendum",
+      "retry": false,
+      "evidence_basis": "Coordinating owner reports a denied follow-up publication and explicitly prohibits retry.",
+      "verified_other_publication": {
+        "pr": 256,
+        "head_sha": "2f395d475abace7fe58afbb9f0c5fa3d596c25e2",
+        "source": "https://github.com/whiterosecoffee/_BASKET/issues/246#issuecomment-6817791339",
+        "finding": "A static-review increment is publicly recorded at this head. No exact mapping between it and the separately reported denied follow-up was supplied; neither erase the denial nor claim the pending action completed."
+      },
+      "unblock_condition": "Existing #246 owner reconciles the exact denied action against the published head and receives any required authorization; this session must not retry it."
+    }
+  ],
+  "ownership_check": {
+    "open_pr_inventories": 77,
+    "overlapping_prs": [
+      259
+    ],
+    "new_assignments": 0,
+    "branch_before": "cc1e1cc3812f44b9424555cdc1455cb6a8bb3969",
+    "main": "74d913e8913d630d85451344689e093aeea07efc",
+    "linux_baseline_branch_head": "74d913e8913d630d85451344689e093aeea07efc",
+    "note": "A main-based branch alone is not publication of a lane artifact."
+  },
+  "acceptance_boundary": {
+    "accounting": "Ten sessions accounted for using coordinating-owner receipts and live public evidence",
+    "canonical_obligations_completed": 0,
+    "reuse_case_acceptance": "unchanged; no execution or acceptance promoted",
+    "ranking": "No new ranking or assignment; the dated baseline remains historical",
+    "shared_ci": "Shared CI does not discover this focused directory; report direct tests separately"
+  },
+  "privacy": {
+    "private_session_ids_included": false,
+    "conversation_excerpts_included": false,
+    "private_paths_included": false
+  },
+  "next_action": "Existing #246 owner reconciles its denied follow-up identity with the verified published review increment; retain all three unpublished lanes without retrying denied publication."
+}

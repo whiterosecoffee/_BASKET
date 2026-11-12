@@ -1,0 +1,62 @@
+{
+  "schema": "basket.worker_task@1",
+  "task_id": "B00-252",
+  "spark_id": "B00",
+  "issue": {
+    "number": 252,
+    "url": "https://github.com/whiterosecoffee/_BASKET/issues/252"
+  },
+  "branch": {
+    "name": "work/252-cloud-ready-dependency-cut",
+    "base": "main"
+  },
+  "objective": "Dated read-only JSON-first ready horizon and minimal cloud dependency cut",
+  "write_paths": [
+    "orchestration/qualification/ready_dependency_cut/**"
+  ],
+  "acceptance": [
+    {
+      "id": "A1",
+      "criterion": "At least 25 source-linked actions preserve owners, acceptance, revisions and blocker conditions",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A2",
+      "criterion": "Rank only authorized unblocked candidates without duplicate assignments and distinguish dependency classes",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A3",
+      "criterion": "Two second-reuse seams with acceptance tests or evidenced nonqualification; current ten lanes checked",
+      "evidence_class": "documentation",
+      "mandatory": true
+    },
+    {
+      "id": "A4",
+      "criterion": "Scoped tested artifact and exact-head draft publication with limits",
+      "evidence_class": "source",
+      "mandatory": true
+    }
+  ],
+  "dependencies": [
+    {
+      "issue_number": 136,
+      "kind": "source",
+      "blocks_completion": false
+    },
+    {
+      "issue_number": 230,
+      "kind": "source",
+      "blocks_completion": false
+    },
+    {
+      "issue_number": 236,
+      "kind": "source",
+      "blocks_completion": false
+    }
+  ],
+  "claimed_at": null,
+  "state": "claimed"
+}
