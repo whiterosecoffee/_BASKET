@@ -1,0 +1,30 @@
+{
+  "canonical_eligible": false,
+  "conclusions": [
+    "Single capture read/replay qualified synthetically",
+    "Changed captures rejected; append-only generations not implemented",
+    "Changed reader rejects historical receipt; revision dispatch not implemented",
+    "High-precision volume loss detected by receiving guard",
+    "No source-data or production-FETCH execution"
+  ],
+  "errors": 0,
+  "failures": 0,
+  "reference_revision": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+  "reference_sha256": {
+    "capture.schema.json": "bc8f7ac55276c5dbd0985d43a8bdab6d9f15822ab15601a2e378c901eb45b93f",
+    "flow.py": "f43d7b6357a5548c8c47195ca6ec5ea9e823b9add25792d9998847857b475821",
+    "objects.json": "6a1a347e962ba44d4e76656cb33795288ed1deaa862d10de79b2c512f4b57afd"
+  },
+  "status": "passed",
+  "synthetic_only": true,
+  "tests": [
+    "test_asof_and_synthetic_admission_remain_closed",
+    "test_changed_capture_rejects_without_generation",
+    "test_changed_reader_cannot_read_old_receipt",
+    "test_create_read_and_identical_replay",
+    "test_guard_exposes_reference_precision_loss",
+    "test_loader_ignores_timestamp_valid_cached_bytecode",
+    "test_wrong_source_pin_rejected"
+  ],
+  "tests_run": 7
+}
