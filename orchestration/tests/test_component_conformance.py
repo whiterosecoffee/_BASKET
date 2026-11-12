@@ -229,5 +229,84 @@ class ComponentConformanceTests(unittest.TestCase):
         self.check()
 
 
+class DependencyPreflightTests(unittest.TestCase):
+    def setUp(self):
+        self.manifest, self.call, self.result, self.artifacts, self.fingerprint, _, _ = example()
+        self.manifest['dependencies'] = [dict(component_id='synthetic.unavailable', version_range='>=2.0.0')]
+
+    def check(self, inventory=None):
+        return cc.check_exchange(self.manifest, self.call, self.result, self.artifacts,
+                                 expected_input_sha256=self.fingerprint,
+                                 dependency_inventory=inventory)
+
+    def test_missing_inventory_rejects_original_gap(self):
+        with self.assertRaisesRegex(cc.ConformanceError, 'explicit inventory'):
+            self.check()
+
+    def test_unavailable_dependency_rejects(self):
+        with self.assertRaisesRegex(cc.ConformanceError, 'Dependency unavailable'):
+            self.check({})
+
+    def test_compatible_lower_bound_and_numeric_order(self):
+        for version in ['2.0.0', '2.0.1', '2.10.0', '10.0.0']:
+            with self.subTest(version=version):
+                self.check({'synthetic.unavailable': version})
+
+    def test_incompatible_version_rejects(self):
+        for version in ['0.9.9', '1.99.99']:
+            with self.subTest(version=version), self.assertRaisesRegex(cc.ConformanceError, 'Incompatible'):
+                self.check({'synthetic.unavailable': version})
+
+    def test_exact_versions(self):
+        for constraint in ['2.0.0', '=2.0.0']:
+            with self.subTest(constraint=constraint):
+                self.manifest['dependencies'][0]['version_range'] = constraint
+                self.check({'synthetic.unavailable': '2.0.0'})
+                with self.assertRaisesRegex(cc.ConformanceError, 'Incompatible'):
+                    self.check({'synthetic.unavailable': '2.0.1'})
+
+    def test_unsupported_constraint_syntax_rejects(self):
+        for constraint in ['', '*', '^2.0.0', '~2.0.0', '>2.0.0', '<=2.0.0',
+                           '>=2.0.0 <3.0.0', '2.0.0 || 3.0.0', ' 2.0.0',
+                           '2.0.0\n', '02.0.0', '2.0', '2.0.0-rc1', '2.0.0+build',
+                           '٢.0.0']:
+            with self.subTest(constraint=constraint):
+                self.manifest['dependencies'][0]['version_range'] = constraint
+                with self.assertRaisesRegex(cc.ConformanceError, 'Unsupported dependency constraint'):
+                    self.check({'synthetic.unavailable': '2.0.0'})
+
+    def test_malformed_inventory_rejects(self):
+        for inventory in [[], '2.0.0', {'bad identity': '2.0.0'},
+                          {'synthetic.unavailable': None}, {'synthetic.unavailable': True},
+                          {'synthetic.unavailable': '02.0.0'},
+                          {'synthetic.unavailable': '2.0.0', 'unused.component': 'invalid'}]:
+            with self.subTest(inventory=inventory), self.assertRaises(cc.ConformanceError):
+                self.check(inventory)
+
+    def test_duplicate_declaration_rejects(self):
+        self.manifest['dependencies'] *= 2
+        with self.assertRaisesRegex(cc.ConformanceError, 'Duplicate declaration'):
+            self.check({'synthetic.unavailable': '2.0.0'})
+
+    def test_all_declared_dependencies_required(self):
+        self.manifest['dependencies'].append(dict(component_id='second.component', version_range='1.0.0'))
+        with self.assertRaisesRegex(cc.ConformanceError, 'Dependency unavailable'):
+            self.check({'synthetic.unavailable': '2.0.0'})
+        self.check({'synthetic.unavailable': '2.0.0', 'second.component': '1.0.0'})
+
+    def test_dependency_free_preserves_previous_behavior(self):
+        del self.manifest['dependencies']
+        self.check()
+        self.manifest['dependencies'] = []
+        self.check()
+
+    def test_repeat_and_inputs_unchanged(self):
+        inventory = {'synthetic.unavailable': '2.1.0'}
+        inputs = (self.manifest, self.call, self.result, self.artifacts, inventory)
+        before = copy.deepcopy(inputs)
+        self.assertEqual(self.check(inventory), self.check(inventory))
+        self.assertEqual(before, inputs)
+
+
 if __name__ == '__main__':
     unittest.main()

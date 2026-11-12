@@ -1,0 +1,62 @@
+{
+  "task_id": "B00-247",
+  "attempts": [
+    {
+      "step": "focused-corpus",
+      "result": "bounded_pass_with_unsupported_case",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python orchestration/qualification/port_compatibility/run.py",
+      "tests_run": 19,
+      "passes": 18,
+      "expected_failures": 1,
+      "unexpected_failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "evidence": "evidence.json",
+      "duration_seconds": null
+    },
+    {
+      "step": "existing-regression",
+      "result": "pass",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s orchestration/tests -p 'test_component*.py' -v",
+      "tests_run": 47,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "duration_seconds": null
+    },
+    {
+      "step": "dependency-preflight-focused",
+      "result": "pass",
+      "command": "python orchestration/qualification/port_compatibility/run.py",
+      "tests_run": 26,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "expected_failures": 0,
+      "duration_seconds": null
+    },
+    {
+      "step": "dependency-preflight-components",
+      "result": "pass",
+      "command": "python -m unittest discover -s orchestration/tests -p 'test_component*.py' -v",
+      "tests_run": 58,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "expected_failures": 0,
+      "duration_seconds": null
+    },
+    {
+      "step": "dependency-preflight-orchestration",
+      "result": "pass",
+      "command": "python -m unittest discover -s orchestration/tests -p 'test_*.py' -q",
+      "tests_run": 253,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "expected_failures": 0,
+      "duration_seconds": null
+    }
+  ],
+  "next_action": "Independent #105 acceptance of bounded dependency preflight under #103 authority."
+}

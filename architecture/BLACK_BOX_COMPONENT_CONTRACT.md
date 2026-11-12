@@ -82,3 +82,31 @@ B01 #105 receives the exact reviewed revision plus the existing integration-test
 ## Retained owner map
 
 B02 market/FX observations and replay; B03 issuer-event ledger; B04 valuation; B06 descriptive traversal; B07 calibration; B08 authenticated hosted service; B10 CRWV operating economics; B17 market context/macro analysis; B19 revenue pools; B21 falsification. Each retains its domain schemas, financial semantics, fixtures and implementation. B00 owns only this shared boundary and arbitration; B01 owns independent CI. Component verification, integrated main with passing CI and entitled persistent operation remain separate states.
+
+
+## Bounded offline dependency preflight (#247)
+
+`component_conformance.check_exchange(..., dependency_inventory={"component.id": "2.1.0"})`
+checks declared direct dependencies before accepting an exchange, including error
+results. The inventory is an explicit caller-approved map of available component
+IDs to versions; it is not fetched, discovered, executed or independently attested.
+A declaration requires an inventory, a present dependency and a compatible version.
+Dependency-free exchanges retain the original behavior (inventory is unused).
+
+Supported constraints are exactly `M.m.p`, `=M.m.p` or `>=M.m.p`. Each part is
+ASCII decimal, zero or a nonzero digit followed by digits, with no leading zeros.
+Comparison is numeric by major, minor, patch; >= includes equality and higher
+major versions. This is an explicit caller-selected lower bound, not a guarantee
+that a higher major is semantically compatible. Whitespace, prerelease/build
+suffixes, wildcards, caret/tilde, inequality combinations, intervals and unions
+are unsupported and rejected. Duplicate dependency declarations reject. Inventory
+must be a dict; all supplied IDs must match `[a-z][a-z0-9_.-]+` and all supplied
+versions must use the same three-part form, even unused entries when dependencies
+are declared. Omitted/malformed inventory, unavailable and incompatible dependencies
+raise `ConformanceError`. No transitive resolution, range dialect adoption, schema
+mutation, version inference, network access or authorization follows. Existing
+exact schema and component-boundary checks still apply independently.
+
+Independent #105 acceptance of this candidate remains required. Inventory truth,
+actual dependency implementation/bytes and domain compatibility remain caller/owner
+responsibilities; syntactic version compatibility is not operational acceptance.

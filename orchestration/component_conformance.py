@@ -145,13 +145,53 @@ def _bindings(ports, bindings, artifacts, require_ports=True):
                 _bytes(source['supersedes'], artifacts)
 
 
-def check_exchange(manifest, call, result, artifacts, *, expected_input_sha256):
+def _dependency_preflight(dependencies, inventory):
+    """Check direct declarations against caller-approved offline version facts.
+
+    This deliberately supports exact versions and a single >= bound only.
+    It neither discovers dependencies nor interprets a general range dialect.
+    """
+    if not dependencies:
+        return
+    if not isinstance(inventory, dict):
+        raise ConformanceError('Declared dependencies require an explicit inventory')
+    version_pattern = r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)'
+
+    def version(value):
+        if not isinstance(value, str) or not re.fullmatch(version_pattern, value):
+            raise ConformanceError('Unsupported dependency version: ' + repr(value))
+        # Length/string comparison avoids integer conversion limits for large parts.
+        return tuple((len(part), part) for part in value.split('.'))
+
+    for identity, value in inventory.items():
+        if not isinstance(identity, str) or not re.fullmatch(r'[a-z][a-z0-9_.-]+', identity):
+            raise ConformanceError('Invalid dependency inventory identity')
+        version(value)
+    declared = _named(dependencies, 'component_id')
+    for identity, dependency in declared.items():
+        expression = dependency['version_range']
+        match = re.fullmatch(r'(>=|=)?(' + version_pattern + r')', expression)
+        if match is None:
+            raise ConformanceError('Unsupported dependency constraint: ' + expression)
+        required = version(match[2])
+        if identity not in inventory:
+            raise ConformanceError('Dependency unavailable: ' + identity)
+        actual = version(inventory[identity])
+        compatible = actual >= required if match[1] == '>=' else actual == required
+        if not compatible:
+            raise ConformanceError('Incompatible dependency version: ' + identity)
+
+
+def check_exchange(manifest, call, result, artifacts, *, expected_input_sha256,
+                   dependency_inventory=None):
     """Check an exchange against an approved manifest and explicitly supplied bytes.
 
     expected_input_sha256 is computed independently using the consumer's documented
     input serialization; the common schema intentionally defines no universal one.
     Unknown/unprovided references fail, even for failure results. Input preflight
     is a separate owner responsibility; this is a post-execution exchange check.
+    dependency_inventory maps direct component IDs to caller-approved versions.
+    Declarations require this explicit inventory; no dependency discovery occurs.
     No adapter is invoked here.
     """
     _envelope(manifest)
@@ -159,6 +199,7 @@ def check_exchange(manifest, call, result, artifacts, *, expected_input_sha256):
     _envelope(result, 'result')
     if manifest.get('boundary_profile') != 'qualified_refs_v1':
         raise ConformanceError('Pinned reference profile required for this helper')
+    _dependency_preflight(manifest.get('dependencies', []), dependency_inventory)
     _named(manifest['inputs'], 'name')
     _named(manifest['outputs'], 'name')
     errors = _named(manifest['errors'], 'code')

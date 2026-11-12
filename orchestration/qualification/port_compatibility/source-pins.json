@@ -1,0 +1,19 @@
+{
+  "base_commit": "74d913e8913d630d85451344689e093aeea07efc",
+  "sha256": {
+    "orchestration/component_conformance.py": "10dd943064b6cb7d4f70c88c8a9c5204b29b06e4ade1e14b419f5eb2f77d0ca6",
+    "schemas/component-blackbox.v1.json": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc",
+    "architecture/BLACK_BOX_COMPONENT_CONTRACT.md": "0cf9205c27d67821d8fb7fa607e8475aa500d57c0f0f067037a863b504d50567"
+  },
+  "validator": "orchestration.component_conformance.check_exchange",
+  "owners": [
+    103,
+    105
+  ],
+  "related_design_only": [
+    226,
+    230
+  ],
+  "compatibility": "Exact schema/component pins plus explicit offline direct dependency inventory: numeric M.m.p, =M.m.p or >=M.m.p only.",
+  "qualification_revision": "Controller-authorized continuation from 65c9782ff2a6fa9b8fd0b4fe3d40dfb3a89c913c; hashes identify exact candidate bytes."
+}
