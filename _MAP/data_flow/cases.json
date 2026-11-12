@@ -23,6 +23,24 @@
     },
     {
       "id": "false_production"
+    },
+    {
+      "id": "transform_identity_drift"
+    },
+    {
+      "id": "input_contract_drift"
+    },
+    {
+      "id": "output_contract_drift"
+    },
+    {
+      "id": "reported_schema_sha256_drift"
+    },
+    {
+      "id": "reported_transform_sha256_drift"
+    },
+    {
+      "id": "reported_contract_sha256_drift"
     }
   ]
 }

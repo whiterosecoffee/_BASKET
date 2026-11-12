@@ -187,23 +187,30 @@
     },
     "orchestration/data_flow_objects/objects.json": {
       "path": "orchestration/data_flow_objects/objects.json",
-      "commit": "ca8990efc3a97ae9ed9a38e2479810951cc0c153",
-      "sha256": "fabbd8807527c2117fd30f93099d7a2718cd208f33d41e828119036110be4b00",
-      "url": "https://github.com/whiterosecoffee/_BASKET/blob/ca8990efc3a97ae9ed9a38e2479810951cc0c153/orchestration/data_flow_objects/objects.json",
+      "commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+      "sha256": "6a1a347e962ba44d4e76656cb33795288ed1deaa862d10de79b2c512f4b57afd",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/objects.json",
       "state": "draft_unmerged"
     },
     "orchestration/data_flow_objects/capture.schema.json": {
       "path": "orchestration/data_flow_objects/capture.schema.json",
-      "commit": "ca8990efc3a97ae9ed9a38e2479810951cc0c153",
+      "commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
       "sha256": "bc8f7ac55276c5dbd0985d43a8bdab6d9f15822ab15601a2e378c901eb45b93f",
-      "url": "https://github.com/whiterosecoffee/_BASKET/blob/ca8990efc3a97ae9ed9a38e2479810951cc0c153/orchestration/data_flow_objects/capture.schema.json",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/capture.schema.json",
       "state": "draft_unmerged"
     },
     "orchestration/data_flow_objects/probe-evidence.json": {
       "path": "orchestration/data_flow_objects/probe-evidence.json",
-      "commit": "ca8990efc3a97ae9ed9a38e2479810951cc0c153",
-      "sha256": "d3f41fffaca7fa57767c35d7ed2539c36ed2dbde23d58dcb77bc705de9a0cb04",
-      "url": "https://github.com/whiterosecoffee/_BASKET/blob/ca8990efc3a97ae9ed9a38e2479810951cc0c153/orchestration/data_flow_objects/probe-evidence.json",
+      "commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+      "sha256": "402d2c9248de6e5ad7b3a411e0ecb1aa9ba2c80f98befec1a0bb2777680040b9",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/probe-evidence.json",
+      "state": "draft_unmerged"
+    },
+    "orchestration/data_flow_objects/flow.py": {
+      "path": "orchestration/data_flow_objects/flow.py",
+      "commit": "d103a99486589aa4aee24d4fa978532f1b288ac1",
+      "sha256": "f43d7b6357a5548c8c47195ca6ec5ea9e823b9add25792d9998847857b475821",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/flow.py",
       "state": "draft_unmerged"
     }
   },

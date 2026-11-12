@@ -225,7 +225,7 @@
       "branch": "work/241-json-data-flow-objects",
       "owned_scope": "orchestration/data_flow_objects/**",
       "state": "pinned_candidate_reference_not_integrated",
-      "source": "https://github.com/whiterosecoffee/_BASKET/blob/ca8990efc3a97ae9ed9a38e2479810951cc0c153/orchestration/data_flow_objects/objects.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/objects.json",
       "candidate_ids": [
         "source.massive.bars",
         "fetch.capture",

@@ -32,14 +32,38 @@
     {
       "id": "false_production",
       "result": "rejected"
+    },
+    {
+      "id": "transform_identity_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "input_contract_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "output_contract_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "reported_schema_sha256_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "reported_transform_sha256_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "reported_contract_sha256_drift",
+      "result": "rejected"
     }
   ],
   "external_effects": 0,
   "source_implementation_executed": false,
   "production_qualified": false,
   "experiment_files": {
-    "projection.json": "805e142fc19572303b39aa98458d9de2c444915deb4ab0f6eb52e216d93a7caa",
-    "cases.json": "7c4f689e85432e02b7807c67dc1ffea51ba5e215180966780c6a6f178e7a415d",
-    "run.py": "b1401858e1158ed10ddc6bb3e7b2fe8ba53a5a4211999237a3ed9b8848f37de0"
+    "projection.json": "2cf2263e5bf71f57328278eb4dacba2c82d7168c4cebe653dddf94ccbc2e0155",
+    "cases.json": "69f7daf7224945c7f5fa1df251dec4b178834a9944d8cad0d6dbc52f46fa9ba8",
+    "run.py": "25fbbddb474dedf8ae259f25887462e6176ba47e2662eabb44358194c5001a91"
   }
 }
