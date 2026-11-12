@@ -1,5 +1,5 @@
 {
-  "schema": "basket.handoff_objectives@0.1-draft",
+  "schema": "basket.handoff_objectives@0.2-draft",
   "revision": 0,
   "canonical_record": "https://github.com/whiterosecoffee/_BASKET/issues/169",
   "claim": {
@@ -68,10 +68,29 @@
   "blocker_fingerprint": null,
   "next_action": "Review scoped component",
   "dimensions": {
-    "scheduling": "not_created",
-    "execution": "not_started",
-    "publication": "example_only",
-    "acceptance": "not_established",
-    "delivery": "not_established"
+    "scheduling": {
+      "status": "not_established",
+      "evidence": []
+    },
+    "dispatch": {
+      "status": "not_established",
+      "evidence": []
+    },
+    "execution": {
+      "status": "not_established",
+      "evidence": []
+    },
+    "publication": {
+      "status": "not_established",
+      "evidence": []
+    },
+    "acceptance": {
+      "status": "not_established",
+      "evidence": []
+    },
+    "delivery": {
+      "status": "not_established",
+      "evidence": []
+    }
   }
 }

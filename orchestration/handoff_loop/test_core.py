@@ -3,7 +3,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
-from .core import digest, evaluate, persist, validate
+from .core import criterion_digest, digest, evaluate, persist, validate
 
 
 class LoopTests(unittest.TestCase):
@@ -81,7 +81,7 @@ class LoopTests(unittest.TestCase):
         row = self.s['objectives'][0]
         row.update(status='accepted', evidence=['r'], artifact_revisions=['v1'])
         row['acceptance'][0]['evidence'] = ['r']
-        receipt = dict(kind='acceptance',source='independent-review',revision='v1',objective='handoff',criterion='A1')
+        receipt = dict(kind='acceptance',source='independent-review',revision='v1',objective='handoff',criterion='A1',criterion_digest=criterion_digest(row['acceptance'][0]))
         with self.assertRaises(ValueError): validate(self.s, {'r':receipt})
         self.s['objectives'].pop()
         validate(self.s, {'r':receipt})

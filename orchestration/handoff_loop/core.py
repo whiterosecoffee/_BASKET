@@ -6,7 +6,12 @@ import os
 from pathlib import Path
 import tempfile
 
-SCHEMA = 'basket.handoff_objectives@0.1-draft'
+SCHEMA = 'basket.handoff_objectives@0.2-draft'
+DIMENSION_SUCCESSES = {
+    'scheduling': {'scheduled'}, 'dispatch': {'dispatched'},
+    'execution': {'executed', 'operational'}, 'publication': {'published'},
+    'acceptance': {'accepted'}, 'delivery': {'delivered'},
+}
 
 
 def digest(value):
@@ -16,6 +21,36 @@ def digest(value):
 def require(condition, reason):
     if not condition:
         raise ValueError(reason)
+
+
+def criterion_digest(gate):
+    return digest({'id': gate['id'], 'condition': gate['condition']})
+
+
+def subject_digest(state):
+    """Bind dimension evidence to exact ownership and objective contents."""
+    return digest({'claim': state['claim'], 'objectives': state['objectives']})
+
+
+def validate_dimensions(state, receipts):
+    dimensions = state['dimensions']
+    require(isinstance(dimensions, dict) and set(dimensions) == set(DIMENSION_SUCCESSES), 'dimension fields')
+    revisions = {v for row in state['objectives'] for v in row['artifact_revisions']}
+    for name, value in dimensions.items():
+        require(isinstance(value, dict) and set(value) == {'status', 'evidence'}, 'dimension shape')
+        status, refs = value['status'], value['evidence']
+        require(isinstance(status, str) and status in DIMENSION_SUCCESSES[name] | {'unknown', 'not_established', 'pending', 'blocked'}, 'dimension status')
+        require(isinstance(refs, list) and all(isinstance(r, str) for r in refs) and len(set(refs)) == len(refs), 'dimension evidence references')
+        if status in DIMENSION_SUCCESSES[name]:
+            require(bool(refs), 'dimension receipt required')
+            for ref in refs:
+                require(ref in receipts, 'unverified dimension evidence')
+                r = receipts[ref]
+                require(r.get('kind') == 'dimension' and r.get('dimension') == name and r.get('status') == status and bool(r.get('source')) and r.get('revision') in revisions and r.get('subject_digest') == subject_digest(state), 'dimension receipt mismatch')
+            if name == 'acceptance':
+                require(all(row['status'] == 'accepted' for row in state['objectives']), 'overall acceptance requires all objectives')
+        else:
+            require(not refs, 'non-success dimension cannot carry success evidence')
 
 
 def validate(state, receipts):
@@ -48,6 +83,7 @@ def validate(state, receipts):
         for gate in row['acceptance']:
             require(gate['id'] and gate['condition'], 'acceptance identity')
             require(set(gate['evidence']).issubset(evidence), 'unknown gate evidence')
+            require(all(receipts[r]['kind'] == 'acceptance' and receipts[r].get('objective') == key and receipts[r].get('criterion') == gate['id'] and receipts[r].get('criterion_digest') == criterion_digest(gate) for r in gate['evidence']), 'acceptance criterion receipt mismatch')
         require(len({a['id'] for a in row['acceptance']}) == len(row['acceptance']), 'duplicate acceptance ID')
         if row['status'] == 'accepted':
             require(not row['blockers'], 'accepted with blockers')
@@ -69,6 +105,7 @@ def validate(state, receipts):
         done.add(key)
     for key in nodes:
         visit(key)
+    validate_dimensions(state, receipts)
 
 
 def evaluate(state, observation, receipts, *, now, max_age=300):
@@ -136,11 +173,18 @@ def persist(path, expected_digest, update, receipts, observation, *, now):
         require(updated['revision'] == current['revision'] + 1, 'revision must increment')
         require(updated['claim'] == current['claim'], 'transfer requires separate ownership protocol')
         require(updated['canonical_record'] == current['canonical_record'], 'canonical record immutable')
-        require(set(current['processed_wakes']).issubset(updated['processed_wakes']), 'wake history cannot regress')
+        expected_wakes = current['processed_wakes'] + [observation['wake_id']]
+        require(updated['processed_wakes'] in (current['processed_wakes'], expected_wakes), 'callback cannot rewrite wake history')
+        # Wake consumption is part of this atomic commit, never a callback obligation.
+        updated['processed_wakes'] = expected_wakes
         old_nodes = {x['id']: x for x in current['objectives']}
         new_nodes = {x['id']: x for x in updated['objectives']}
         require(set(old_nodes).issubset(new_nodes), 'objective IDs cannot disappear')
         require(all(old_nodes[k][field] == new_nodes[k][field] for k in old_nodes for field in ('parent', 'owner', 'scope')), 'objective identity cannot change')
+        for key, row in old_nodes.items():
+            old_gates = {g['id']: g for g in row['acceptance']}
+            for gate in new_nodes[key]['acceptance']:
+                require(gate['id'] not in old_gates or criterion_digest(gate) == criterion_digest(old_gates[gate['id']]), 'changed condition requires a new criterion ID')
         require({digest(x) for x in current['source_coverage']['persisted_ranges']}.issubset({digest(x) for x in updated['source_coverage']['persisted_ranges']}), 'persisted coverage cannot regress')
         validate(updated, receipts)
         with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=path.parent, delete=False) as f:
