@@ -1,0 +1,1293 @@
+{
+  "classification": "historical_public_repository_preflight_not_live_ownership",
+  "base_commit": "74d913e8913d630d85451344689e093aeea07efc",
+  "scope": "orchestration/qualification/branch_ownership/**",
+  "issue": 248,
+  "branch": "work/248-cloud-branch-ownership-cases",
+  "open_pr_count": 70,
+  "issue_and_pr_records_scanned": 211,
+  "conflicts": [],
+  "inventories": [
+    {
+      "number": 244,
+      "files": [
+        "orchestration/clean_templates/COMPONENT.md",
+        "orchestration/clean_templates/README.md",
+        "orchestration/clean_templates/component.json",
+        "orchestration/clean_templates/component.py",
+        "orchestration/clean_templates/readiness.schema.json",
+        "orchestration/clean_templates/request.schema.json",
+        "orchestration/clean_templates/seed.json",
+        "orchestration/clean_templates/seed.schema.json",
+        "orchestration/clean_templates/tests/test_component.py",
+        "orchestration/clean_templates/tests/test_seed.py",
+        "orchestration/clean_templates/validate.py",
+        "orchestration/tests/test_clean_template_seed.py"
+      ]
+    },
+    {
+      "number": 242,
+      "files": [
+        "orchestration/data_flow_objects/.gitignore",
+        "orchestration/data_flow_objects/README.md",
+        "orchestration/data_flow_objects/__init__.py",
+        "orchestration/data_flow_objects/capture.schema.json",
+        "orchestration/data_flow_objects/consumer.py",
+        "orchestration/data_flow_objects/flow.py",
+        "orchestration/data_flow_objects/objects.json",
+        "orchestration/data_flow_objects/probe-evidence.json",
+        "orchestration/data_flow_objects/test_discovery.py",
+        "orchestration/data_flow_objects/test_flow.py",
+        "orchestration/tests/test_data_flow_objects.py"
+      ]
+    },
+    {
+      "number": 240,
+      "files": [
+        "orchestration/loop_sessions/anticipate_followthrough/2026-11-11-checkpoint-001.json",
+        "orchestration/loop_sessions/anticipate_followthrough/2026-11-11-checkpoint-002.json"
+      ]
+    },
+    {
+      "number": 238,
+      "files": [
+        "orchestration/loop_sessions/advance/2026-11-11-baseline-001.json",
+        "orchestration/loop_sessions/advance/2026-11-11-dependency-delta-004.json",
+        "orchestration/loop_sessions/advance/2026-11-11-l1-02-exchange-intent-002.json",
+        "orchestration/loop_sessions/advance/2026-11-11-preflight-owner-003.json",
+        "orchestration/loop_sessions/advance/2026-11-11-preflight-reconciled-005.json"
+      ]
+    },
+    {
+      "number": 233,
+      "files": [
+        "orchestration/loop_design/README.md",
+        "orchestration/loop_design/checkpoint.schema.json",
+        "orchestration/loop_design/claim.json",
+        "orchestration/loop_design/contract.json",
+        "orchestration/loop_design/scorecard.json",
+        "orchestration/loop_design/test_ci_discovery.py",
+        "orchestration/loop_design/test_design.py",
+        "orchestration/tests/test_loop_design_bridge.py"
+      ]
+    },
+    {
+      "number": 231,
+      "files": [
+        "_MAP/HOSTED_GATE_HANDOFF.md",
+        "_MAP/README.md",
+        "_MAP/compositions/admission/cases.json",
+        "_MAP/compositions/admission/composition.json",
+        "_MAP/compositions/admission/evidence.json",
+        "_MAP/compositions/admission/residual-disposition.json",
+        "_MAP/compositions/admission/run.py",
+        "_MAP/compositions/admission/schemas.json",
+        "_MAP/data_flow/cases.json",
+        "_MAP/data_flow/evidence.json",
+        "_MAP/data_flow/projection.json",
+        "_MAP/data_flow/run.py",
+        "_MAP/map.schema.json",
+        "_MAP/microtests/freshness/cases.json",
+        "_MAP/microtests/freshness/contract.json",
+        "_MAP/microtests/freshness/evidence.json",
+        "_MAP/microtests/freshness/payload.schema.json",
+        "_MAP/microtests/freshness/run.py",
+        "_MAP/microtests/queue_handoff/cases.json",
+        "_MAP/microtests/queue_handoff/contract.json",
+        "_MAP/microtests/queue_handoff/evidence.json",
+        "_MAP/microtests/queue_handoff/run.py",
+        "_MAP/microtests/semantic_boundary/cases.json",
+        "_MAP/microtests/semantic_boundary/contract.json",
+        "_MAP/microtests/semantic_boundary/evidence.json",
+        "_MAP/microtests/semantic_boundary/request.schema.json",
+        "_MAP/microtests/semantic_boundary/run.py",
+        "_MAP/prepare_sources.py",
+        "_MAP/prior_art/cases.json",
+        "_MAP/prior_art/evidence.json",
+        "_MAP/prior_art/families.json",
+        "_MAP/prior_art/run.py",
+        "_MAP/run_suites.py",
+        "_MAP/scope-amendment.json",
+        "_MAP/source_pins.json",
+        "_MAP/suites.json",
+        "_MAP/system.json",
+        "_MAP/validate.py",
+        "orchestration/tests/test_map_suite_discovery.py"
+      ]
+    },
+    {
+      "number": 229,
+      "files": [
+        "architecture/virtual_design/requirements_relationship_selection/options.json",
+        "architecture/virtual_design/requirements_relationship_selection/relationships.json",
+        "architecture/virtual_design/requirements_relationship_selection/requirements.json",
+        "architecture/virtual_design/requirements_relationship_selection/scenarios.json"
+      ]
+    },
+    {
+      "number": 227,
+      "files": [
+        "architecture/virtual_design/intake_worker_review/model.json",
+        "architecture/virtual_design/intake_worker_review/scenarios.json",
+        "architecture/virtual_design/intake_worker_review/synthetic-draft.json",
+        "architecture/virtual_design/intake_worker_review/traces.json"
+      ]
+    },
+    {
+      "number": 225,
+      "files": [
+        "architecture/COMPONENT_INDEX.md"
+      ]
+    },
+    {
+      "number": 220,
+      "files": [
+        "research/composites/ticker_comparison_component/README.md",
+        "research/composites/ticker_comparison_component/adapter.py",
+        "research/composites/ticker_comparison_component/comparison.schema.json",
+        "research/composites/ticker_comparison_component/component.json",
+        "research/composites/ticker_comparison_component/request.schema.json",
+        "research/composites/ticker_comparison_component/test_adapter.py"
+      ]
+    },
+    {
+      "number": 218,
+      "files": [
+        "research/composites/market_context/ticker_comparison/README.md",
+        "research/composites/market_context/ticker_comparison/compare.py",
+        "research/composites/market_context/ticker_comparison/result-2026-11-09.json",
+        "research/composites/market_context/ticker_comparison/sources-2026-11-10.json",
+        "research/composites/market_context/ticker_comparison/test_compare.py"
+      ]
+    },
+    {
+      "number": 209,
+      "files": [
+        "AGENTS.md",
+        "architecture/version-manifest.json",
+        "orchestration/PROJECT_INSTRUCTIONS.md",
+        "orchestration/WORKER_PROTOCOL.md",
+        "orchestration/planner/worker-scopes.json",
+        "orchestration/sparks.json",
+        "orchestration/tests/test_catalog_routing.py",
+        "orchestration/tests/test_project_instructions.py"
+      ]
+    },
+    {
+      "number": 206,
+      "files": [
+        "CHANGELOG.md",
+        "README.md",
+        "orchestration/prompts/live-tape/LIVE_TAPE_PROMPT.md",
+        "orchestration/prompts/live-tape/README.md",
+        "orchestration/tests/test_operator_prompts.py"
+      ]
+    },
+    {
+      "number": 197,
+      "files": [
+        "runtime/crwv_history_acceptance/README.md",
+        "runtime/crwv_history_acceptance/audit.py",
+        "runtime/crwv_history_acceptance/evidence.json",
+        "runtime/crwv_history_acceptance/test_audit.py"
+      ]
+    },
+    {
+      "number": 194,
+      "files": [
+        "research/narrative/CRUS/maturation/FINDINGS-v2.md",
+        "research/narrative/CRUS/maturation/HANDOFF.md",
+        "research/narrative/CRUS/maturation/PLAN.md",
+        "research/narrative/CRUS/maturation/README.md",
+        "research/narrative/CRUS/maturation/VALIDATION.md",
+        "research/narrative/CRUS/maturation/audit-result-2026-11-04-v2.json",
+        "research/narrative/CRUS/maturation/audit-result-2026-11-04.json",
+        "research/narrative/CRUS/maturation/audit.py",
+        "research/narrative/CRUS/maturation/earnings-evidence-2026-11-04-v2.json",
+        "research/narrative/CRUS/maturation/snapshot-2026-11-04-v2.json",
+        "research/narrative/CRUS/maturation/snapshot-2026-11-04.json",
+        "research/narrative/CRUS/maturation/test_audit.py"
+      ]
+    },
+    {
+      "number": 191,
+      "files": [
+        "research/models/mrvl_lite/MATURATION_PLAN.md",
+        "research/models/mrvl_lite/calendar2027_sensitivity_2026-11-05.json",
+        "research/models/mrvl_lite/case.json",
+        "research/models/mrvl_lite/combined_equivalent_2026-11-05.json",
+        "research/models/mrvl_lite/forward_earnings_comparison_2026-11-05.json",
+        "research/models/mrvl_lite/model.py",
+        "research/models/mrvl_lite/snapshot_2026-11-05.json",
+        "research/models/mrvl_lite/test_model.py"
+      ]
+    },
+    {
+      "number": 187,
+      "files": [
+        "research/NVDA/data-recovery/2026-11-04/BATTLE_RANGE_RUNBOOK.md",
+        "research/NVDA/data-recovery/2026-11-04/LIVE_TAPE_PROMPT.md",
+        "research/NVDA/data-recovery/2026-11-04/MATURATION.md",
+        "research/NVDA/data-recovery/2026-11-04/QUALITY_POLICY.md",
+        "research/NVDA/data-recovery/2026-11-04/README.md",
+        "research/NVDA/data-recovery/2026-11-04/audit-results.json",
+        "research/NVDA/data-recovery/2026-11-04/audit.py",
+        "research/NVDA/data-recovery/2026-11-04/manifest.json",
+        "research/NVDA/data-recovery/2026-11-04/maturation.json",
+        "research/NVDA/data-recovery/2026-11-04/tape_matrix.py",
+        "research/NVDA/data-recovery/2026-11-04/test_audit.py"
+      ]
+    },
+    {
+      "number": 182,
+      "files": [
+        "engines/traversal/market_watch_gate/README.md",
+        "engines/traversal/market_watch_gate/gate.py",
+        "engines/traversal/market_watch_gate/test_gate.py",
+        "research/traversal/market_flow_watch_review/BROAD_MATURATION_PLAN.md",
+        "research/traversal/market_flow_watch_review/CODEX_ORCHESTRATOR_PROMPT.md",
+        "research/traversal/market_flow_watch_review/MARKET_TRACKER_WORKER.md",
+        "research/traversal/market_flow_watch_review/TICKER_EVALUATOR_HANDOFF.md"
+      ]
+    },
+    {
+      "number": 181,
+      "files": [
+        "orchestration/mrie_watch/README.md",
+        "orchestration/mrie_watch/fixtures/replay-evidence.json",
+        "orchestration/mrie_watch/fixtures/source-excerpts.json",
+        "orchestration/mrie_watch/replay.py",
+        "orchestration/mrie_watch/watch.py",
+        "orchestration/tests/test_mrie_watch.py",
+        "tests/integration/test_mrie_watch_acceptance.py"
+      ]
+    },
+    {
+      "number": 179,
+      "files": [
+        "orchestration/conversation_closeout/versions/EXTERNAL_AGENTS.md",
+        "orchestration/conversation_closeout/versions/EXTERNAL_AGENTS.request.json",
+        "orchestration/conversation_closeout/versions/HANDOFF_PROMPT.v2-source.md",
+        "orchestration/conversation_closeout/versions/HANDOFF_PROMPT.v3-candidate.md",
+        "orchestration/conversation_closeout/versions/QC_HANDOFF.md",
+        "orchestration/conversation_closeout/versions/QC_QUEUE.json",
+        "orchestration/conversation_closeout/versions/QC_WORKER.md",
+        "orchestration/conversation_closeout/versions/README.md",
+        "orchestration/conversation_closeout/versions/VALIDATION.md",
+        "orchestration/conversation_closeout/versions/acceptance_cases.json",
+        "orchestration/conversation_closeout/versions/qc_archive/4341c2e000c9336d7b7f1eeac5eff7c7dc50acc48cc14d24e3408e57f5443266.json",
+        "orchestration/conversation_closeout/versions/qc_archive/de1836eb14f1a727226825556520667a936aca5cb3ff31bae9bf0cd165d7002d.json",
+        "orchestration/conversation_closeout/versions/qc_intake.py",
+        "orchestration/conversation_closeout/versions/qc_submit.py",
+        "orchestration/conversation_closeout/versions/test_acceptance.py",
+        "orchestration/conversation_closeout/versions/test_qc_intake.py",
+        "orchestration/conversation_closeout/versions/test_qc_submit.py",
+        "orchestration/tests/test_closeout_versions.py"
+      ]
+    },
+    {
+      "number": 177,
+      "files": [
+        "research/traversal/handoffs/108-consolidated/ORCHESTRATOR_PROMPT.md",
+        "research/traversal/handoffs/108-consolidated/PROMPT_EVALUATION.md"
+      ]
+    },
+    {
+      "number": 174,
+      "files": [
+        "orchestration/credit/INTEROPERABILITY.md",
+        "orchestration/credit/README.md",
+        "orchestration/credit/RESOURCES.md",
+        "orchestration/credit/coverage-2026-11-04.json",
+        "orchestration/credit/coverage.py",
+        "orchestration/credit/repository-audit.json",
+        "orchestration/credit/test_coverage.py"
+      ]
+    },
+    {
+      "number": 172,
+      "files": [
+        "orchestration/audits/2026-11-04-final-reconciliation.json"
+      ]
+    },
+    {
+      "number": 171,
+      "files": [
+        "architecture/BLOCK_ENGINEERING_METHOD.md",
+        "orchestration/worker_bridge/CONVERSATION_CONTINUITY.md",
+        "orchestration/worker_bridge/CONVERSATION_EXTRACTION.md",
+        "orchestration/worker_bridge/CONVERSATION_INTEGRATION.md"
+      ]
+    },
+    {
+      "number": 170,
+      "files": [
+        "orchestration/README.md",
+        "orchestration/agentic/README.md",
+        "orchestration/agentic/cli.py",
+        "orchestration/conversation_closeout/HANDOFF_PROMPT.md",
+        "orchestration/conversation_closeout/README.md",
+        "orchestration/conversation_closeout/__init__.py",
+        "orchestration/conversation_closeout/__main__.py",
+        "orchestration/conversation_closeout/pilot.json",
+        "orchestration/conversation_closeout/test_cli.py",
+        "orchestration/conversation_closeout/test_closeout.py",
+        "orchestration/tests/test_closeout_cli.py",
+        "orchestration/tests/test_conversation_closeout.py"
+      ]
+    },
+    {
+      "number": 168,
+      "files": [
+        "research/traversal/ah_mri/ACCEPTANCE.md",
+        "research/traversal/ah_mri/CONTRACT.json",
+        "research/traversal/ah_mri/MATURATION_PLAN.md",
+        "research/traversal/ah_mri/README.md",
+        "research/traversal/ah_mri/RUNBOOK.md",
+        "research/traversal/ah_mri/core.py",
+        "research/traversal/ah_mri/readiness.py",
+        "research/traversal/ah_mri/run.py",
+        "research/traversal/ah_mri/test_core.py",
+        "research/traversal/ah_mri/test_readiness.py"
+      ]
+    },
+    {
+      "number": 167,
+      "files": [
+        "orchestration/audits/source_gate/README.md",
+        "orchestration/audits/source_gate/check.py",
+        "orchestration/audits/source_gate/historical-component.json",
+        "orchestration/audits/source_gate/test_check.py"
+      ]
+    },
+    {
+      "number": 165,
+      "files": [
+        "research/composites/premarket_liquidity/RESEARCH_CONTRACT.md"
+      ]
+    },
+    {
+      "number": 164,
+      "files": [
+        ".github/workflows/openai-research.yml",
+        "tests/integration/OPENAI_WORKER.md",
+        "tests/integration/openai_gate.py",
+        "tests/integration/test_openai_gate.py"
+      ]
+    },
+    {
+      "number": 160,
+      "files": [
+        "research/traversal/self_relative_state/IMPROVEMENT_ROADMAP.md",
+        "research/traversal/self_relative_state/MATURATION_SCORECARD_AND_SEQUENCE.md",
+        "research/traversal/self_relative_state/NVDA_DESCRIPTIVE_PILOT_2026-11-04.md",
+        "research/traversal/self_relative_state/ORCHESTRATOR_HANDOFF.md",
+        "research/traversal/self_relative_state/PAIRED_REPLAY.md",
+        "research/traversal/self_relative_state/README.md",
+        "research/traversal/self_relative_state/RESEARCH_CONTRACT.md",
+        "research/traversal/self_relative_state/STRESS_TEST_AND_REVISED_INSTRUCTIONS.md",
+        "research/traversal/self_relative_state/VALIDATION_AND_HANDOFF.md",
+        "research/traversal/self_relative_state/reference_state.py",
+        "research/traversal/self_relative_state/test_reference_state.py"
+      ]
+    },
+    {
+      "number": 159,
+      "files": [
+        "research/composites/macro_delta_handoff/HANDOFF.md",
+        "research/composites/macro_delta_handoff/conversation_review.v1.json",
+        "research/composites/macro_delta_handoff/proposal.v1.json"
+      ]
+    },
+    {
+      "number": 153,
+      "files": [
+        "runtime/fetch/ARCHITECTURE.md",
+        "runtime/fetch/FEATURE_SCOPE_continuous_fetch.md",
+        "runtime/fetch/massive/RUNBOOK.md"
+      ]
+    },
+    {
+      "number": 150,
+      "files": [
+        "engines/traversal/market_geometry/core.py",
+        "engines/traversal/market_geometry/test_core.py"
+      ]
+    },
+    {
+      "number": 147,
+      "files": [
+        "_TICKERS/688825.SS/scope.json",
+        "_TICKERS/AAOI/scope.json",
+        "_TICKERS/AAON/scope.json",
+        "_TICKERS/AAPL/scope.json",
+        "_TICKERS/ABBNY/scope.json",
+        "_TICKERS/ACN/scope.json",
+        "_TICKERS/ADBE/scope.json",
+        "_TICKERS/ADI/scope.json",
+        "_TICKERS/ADSK/scope.json",
+        "_TICKERS/AIQ/scope.json",
+        "_TICKERS/AKAM/scope.json",
+        "_TICKERS/ALAB/scope.json",
+        "_TICKERS/AMAT/scope.json",
+        "_TICKERS/AMBA/scope.json",
+        "_TICKERS/AMD/scope.json",
+        "_TICKERS/AMZN/scope.json",
+        "_TICKERS/ANET/scope.json",
+        "_TICKERS/APH/scope.json",
+        "_TICKERS/APLD/scope.json",
+        "_TICKERS/APO/scope.json",
+        "_TICKERS/ARKG/scope.json",
+        "_TICKERS/ARKK/scope.json",
+        "_TICKERS/ARKQ/scope.json",
+        "_TICKERS/ARKVX/scope.json",
+        "_TICKERS/ARKW/scope.json",
+        "_TICKERS/ARKX/scope.json",
+        "_TICKERS/ARM/scope.json",
+        "_TICKERS/ASML/scope.json",
+        "_TICKERS/ATEYY/scope.json",
+        "_TICKERS/AVGO/scope.json",
+        "_TICKERS/BE/scope.json",
+        "_TICKERS/BLK/scope.json",
+        "_TICKERS/BN/scope.json",
+        "_TICKERS/BNO/scope.json",
+        "_TICKERS/BWXT/scope.json",
+        "_TICKERS/BX/scope.json",
+        "_TICKERS/BZ_EQ_F/scope.json",
+        "_TICKERS/CACI/scope.json",
+        "_TICKERS/CARR/scope.json",
+        "_TICKERS/CAT/scope.json",
+        "_TICKERS/CBRS/scope.json",
+        "_TICKERS/CCC/scope.json",
+        "_TICKERS/CCI/scope.json",
+        "_TICKERS/CCJ/scope.json",
+        "_TICKERS/CDNS/scope.json",
+        "_TICKERS/CEG/scope.json",
+        "_TICKERS/CGNX/scope.json",
+        "_TICKERS/CHKP/scope.json",
+        "_TICKERS/CHTR/scope.json",
+        "_TICKERS/CIBR/scope.json",
+        "_TICKERS/CIEN/scope.json",
+        "_TICKERS/CIFR/scope.json",
+        "_TICKERS/CINT/scope.json",
+        "_TICKERS/CL_EQ_F/scope.json",
+        "_TICKERS/CMI/scope.json",
+        "_TICKERS/COHR/scope.json",
+        "_TICKERS/COHU/scope.json",
+        "_TICKERS/COR1M/scope.json",
+        "_TICKERS/COR3M/scope.json",
+        "_TICKERS/CORZ/scope.json",
+        "_TICKERS/CRAK/scope.json",
+        "_TICKERS/CRDO/scope.json",
+        "_TICKERS/CRWD/scope.json",
+        "_TICKERS/CRWV/scope.json",
+        "_TICKERS/CSCO/scope.json",
+        "_TICKERS/CSGP/scope.json",
+        "_TICKERS/CTSH/scope.json",
+        "_TICKERS/DASTY/scope.json",
+        "_TICKERS/DAVA/scope.json",
+        "_TICKERS/DDOG/scope.json",
+        "_TICKERS/DE/scope.json",
+        "_TICKERS/DELL/scope.json",
+        "_TICKERS/DLR/scope.json",
+        "_TICKERS/DNA/scope.json",
+        "_TICKERS/DOT_INX/scope.json",
+        "_TICKERS/DOT_IXIC/scope.json",
+        "_TICKERS/DSPX/scope.json",
+        "_TICKERS/DTEGY/scope.json",
+        "_TICKERS/DWCF/scope.json",
+        "_TICKERS/DXC/scope.json",
+        "_TICKERS/EMB/scope.json",
+        "_TICKERS/EME/scope.json",
+        "_TICKERS/EPAM/scope.json",
+        "_TICKERS/EQIX/scope.json",
+        "_TICKERS/ERIC/scope.json",
+        "_TICKERS/ESTC/scope.json",
+        "_TICKERS/ETN/scope.json",
+        "_TICKERS/EXLS/scope.json",
+        "_TICKERS/FANUY/scope.json",
+        "_TICKERS/FAST/scope.json",
+        "_TICKERS/FFIV/scope.json",
+        "_TICKERS/FIX/scope.json",
+        "_TICKERS/FJTSY/scope.json",
+        "_TICKERS/FN/scope.json",
+        "_TICKERS/FNTN/scope.json",
+        "_TICKERS/FORM/scope.json",
+        "_TICKERS/FTNT/scope.json",
+        "_TICKERS/G/scope.json",
+        "_TICKERS/GDX/scope.json",
+        "_TICKERS/GDYN/scope.json",
+        "_TICKERS/GE/scope.json",
+        "_TICKERS/GEV/scope.json",
+        "_TICKERS/GFS/scope.json",
+        "_TICKERS/GIB/scope.json",
+        "_TICKERS/GLD/scope.json",
+        "_TICKERS/GLOB/scope.json",
+        "_TICKERS/GLW/scope.json",
+        "_TICKERS/GOOG/scope.json",
+        "_TICKERS/GOOGL/scope.json",
+        "_TICKERS/GRID/scope.json",
+        "_TICKERS/GS/scope.json",
+        "_TICKERS/GTCRX/scope.json",
+        "_TICKERS/GWRE/scope.json",
+        "_TICKERS/HACK/scope.json",
+        "_TICKERS/HON/scope.json",
+        "_TICKERS/HOOD/scope.json",
+        "_TICKERS/HO_EQ_F/scope.json",
+        "_TICKERS/HP/scope.json",
+        "_TICKERS/HPE/scope.json",
+        "_TICKERS/HUBB/scope.json",
+        "_TICKERS/HUT/scope.json",
+        "_TICKERS/HYG/scope.json",
+        "_TICKERS/IBM/scope.json",
+        "_TICKERS/IEF/scope.json",
+        "_TICKERS/IGV/scope.json",
+        "_TICKERS/INTC/scope.json",
+        "_TICKERS/IONQ/scope.json",
+        "_TICKERS/IREN/scope.json",
+        "_TICKERS/ISRG/scope.json",
+        "_TICKERS/IT/scope.json",
+        "_TICKERS/IWB/scope.json",
+        "_TICKERS/IWD/scope.json",
+        "_TICKERS/IWL/scope.json",
+        "_TICKERS/IWM/scope.json",
+        "_TICKERS/IWN/scope.json",
+        "_TICKERS/IWV/scope.json",
+        "_TICKERS/IWY/scope.json",
+        "_TICKERS/IYW/scope.json",
+        "_TICKERS/JCI/scope.json",
+        "_TICKERS/JNJ/scope.json",
+        "_TICKERS/JNK/scope.json",
+        "_TICKERS/KDDIY/scope.json",
+        "_TICKERS/KEYS/scope.json",
+        "_TICKERS/KKR/scope.json",
+        "_TICKERS/KLAC/scope.json",
+        "_TICKERS/KLIC/scope.json",
+        "_TICKERS/KMI/scope.json",
+        "_TICKERS/KYCCF/scope.json",
+        "_TICKERS/LEU/scope.json",
+        "_TICKERS/LIN/scope.json",
+        "_TICKERS/LITE/scope.json",
+        "_TICKERS/LQD/scope.json",
+        "_TICKERS/LRCX/scope.json",
+        "_TICKERS/LSCC/scope.json",
+        "_TICKERS/LUMN/scope.json",
+        "_TICKERS/MAGS/scope.json",
+        "_TICKERS/MANH/scope.json",
+        "_TICKERS/MCHP/scope.json",
+        "_TICKERS/MDB/scope.json",
+        "_TICKERS/MDT/scope.json",
+        "_TICKERS/MDY/scope.json",
+        "_TICKERS/META/scope.json",
+        "_TICKERS/MIGRATION_HANDOFF.md",
+        "_TICKERS/MKSI/scope.json",
+        "_TICKERS/MOD/scope.json",
+        "_TICKERS/MOVE/scope.json",
+        "_TICKERS/MPWR/scope.json",
+        "_TICKERS/MRNA/scope.json",
+        "_TICKERS/MRVL/scope.json",
+        "_TICKERS/MSFT/scope.json",
+        "_TICKERS/MTSI/scope.json",
+        "_TICKERS/MU/scope.json",
+        "_TICKERS/NBIS/scope.json",
+        "_TICKERS/NDAQ/scope.json",
+        "_TICKERS/NDX/scope.json",
+        "_TICKERS/NOK/scope.json",
+        "_TICKERS/NOW/scope.json",
+        "_TICKERS/NRG/scope.json",
+        "_TICKERS/NTAP/scope.json",
+        "_TICKERS/NVD/scope.json",
+        "_TICKERS/NVDA/scope.json",
+        "_TICKERS/NXPI/scope.json",
+        "_TICKERS/NYA/scope.json",
+        "_TICKERS/OIH/scope.json",
+        "_TICKERS/OKLO/scope.json",
+        "_TICKERS/OKTA/scope.json",
+        "_TICKERS/OLED/scope.json",
+        "_TICKERS/OMRNY/scope.json",
+        "_TICKERS/ON/scope.json",
+        "_TICKERS/ONTO/scope.json",
+        "_TICKERS/ORCL/scope.json",
+        "_TICKERS/PANW/scope.json",
+        "_TICKERS/PATH/scope.json",
+        "_TICKERS/PAVE/scope.json",
+        "_TICKERS/PENG/scope.json",
+        "_TICKERS/PI/scope.json",
+        "_TICKERS/PLTR/scope.json",
+        "_TICKERS/PSQ/scope.json",
+        "_TICKERS/PWR/scope.json",
+        "_TICKERS/QBTS/scope.json",
+        "_TICKERS/QNT/scope.json",
+        "_TICKERS/QQQ/scope.json",
+        "_TICKERS/QQQD/scope.json",
+        "_TICKERS/QQQM/scope.json",
+        "_TICKERS/README.md",
+        "_TICKERS/RGTI/scope.json",
+        "_TICKERS/RMBS/scope.json",
+        "_TICKERS/ROK/scope.json",
+        "_TICKERS/RSP/scope.json",
+        "_TICKERS/RUA/scope.json",
+        "_TICKERS/RUI/scope.json",
+        "_TICKERS/RUT/scope.json",
+        "_TICKERS/RXRX/scope.json",
+        "_TICKERS/SAP/scope.json",
+        "_TICKERS/SFTBY/scope.json",
+        "_TICKERS/SHOP/scope.json",
+        "_TICKERS/SHY/scope.json",
+        "_TICKERS/SIEGY/scope.json",
+        "_TICKERS/SIXB/scope.json",
+        "_TICKERS/SIXC/scope.json",
+        "_TICKERS/SIXE/scope.json",
+        "_TICKERS/SIXI/scope.json",
+        "_TICKERS/SIXM/scope.json",
+        "_TICKERS/SIXR/scope.json",
+        "_TICKERS/SIXRE/scope.json",
+        "_TICKERS/SIXT/scope.json",
+        "_TICKERS/SIXU/scope.json",
+        "_TICKERS/SIXV/scope.json",
+        "_TICKERS/SKEW/scope.json",
+        "_TICKERS/SKHY/scope.json",
+        "_TICKERS/SLAB/scope.json",
+        "_TICKERS/SLV/scope.json",
+        "_TICKERS/SMCI/scope.json",
+        "_TICKERS/SMH/scope.json",
+        "_TICKERS/SMR/scope.json",
+        "_TICKERS/SMTC/scope.json",
+        "_TICKERS/SNDK/scope.json",
+        "_TICKERS/SNOW/scope.json",
+        "_TICKERS/SNPS/scope.json",
+        "_TICKERS/SPY/scope.json",
+        "_TICKERS/STM/scope.json",
+        "_TICKERS/STRL/scope.json",
+        "_TICKERS/STX/scope.json",
+        "_TICKERS/SWKS/scope.json",
+        "_TICKERS/SYK/scope.json",
+        "_TICKERS/SYM/scope.json",
+        "_TICKERS/TCS/scope.json",
+        "_TICKERS/TDG/scope.json",
+        "_TICKERS/TEL/scope.json",
+        "_TICKERS/TEM/scope.json",
+        "_TICKERS/TER/scope.json",
+        "_TICKERS/TIIAY/scope.json",
+        "_TICKERS/TLN/scope.json",
+        "_TICKERS/TLT/scope.json",
+        "_TICKERS/TMUS/scope.json",
+        "_TICKERS/TNX/scope.json",
+        "_TICKERS/TRI/scope.json",
+        "_TICKERS/TRMB/scope.json",
+        "_TICKERS/TSM/scope.json",
+        "_TICKERS/TYL/scope.json",
+        "_TICKERS/TYX/scope.json",
+        "_TICKERS/UMC/scope.json",
+        "_TICKERS/URA/scope.json",
+        "_TICKERS/USDJPY/scope.json",
+        "_TICKERS/USO/scope.json",
+        "_TICKERS/UUP/scope.json",
+        "_TICKERS/VICR/scope.json",
+        "_TICKERS/VIX/scope.json",
+        "_TICKERS/VIX3M/scope.json",
+        "_TICKERS/VIX6M/scope.json",
+        "_TICKERS/VIX9D/scope.json",
+        "_TICKERS/VRT/scope.json",
+        "_TICKERS/VST/scope.json",
+        "_TICKERS/VVIX/scope.json",
+        "_TICKERS/WCC/scope.json",
+        "_TICKERS/WDC/scope.json",
+        "_TICKERS/WMB/scope.json",
+        "_TICKERS/WULF/scope.json",
+        "_TICKERS/XBI/scope.json",
+        "_TICKERS/XLB/scope.json",
+        "_TICKERS/XLC/scope.json",
+        "_TICKERS/XLE/scope.json",
+        "_TICKERS/XLF/scope.json",
+        "_TICKERS/XLI/scope.json",
+        "_TICKERS/XLK/scope.json",
+        "_TICKERS/XLP/scope.json",
+        "_TICKERS/XLRE/scope.json",
+        "_TICKERS/XLU/scope.json",
+        "_TICKERS/XLV/scope.json",
+        "_TICKERS/XLY/scope.json",
+        "_TICKERS/YASKY/scope.json",
+        "_TICKERS/ZBRA/scope.json",
+        "_TICKERS/ZS/scope.json",
+        "_TICKERS/manifest.json"
+      ]
+    },
+    {
+      "number": 145,
+      "files": [
+        "research/traversal/october_2026_compression_stress/ACCEPTANCE_CASES.md",
+        "research/traversal/october_2026_compression_stress/BATTLE_RANGE_CONTRACT.md",
+        "research/traversal/october_2026_compression_stress/CANONICAL_TICKER_DATA_DEPENDENCY.md",
+        "research/traversal/october_2026_compression_stress/EXPANDED_BASKET_NOV03.md",
+        "research/traversal/october_2026_compression_stress/NOV02_TO_NOV03_CHECKPOINT.md",
+        "research/traversal/october_2026_compression_stress/NOV03_OPENING_0932_ET.md",
+        "research/traversal/october_2026_compression_stress/NOV03_RTH_20M_CROSS_SECTION.md",
+        "research/traversal/october_2026_compression_stress/ORCHESTRATOR_RECEIVER_PROMPT.md",
+        "research/traversal/october_2026_compression_stress/PRIOR_ART_SIGNAL_MODEL.md",
+        "research/traversal/october_2026_compression_stress/README.md"
+      ]
+    },
+    {
+      "number": 142,
+      "files": [
+        "engines/composites/macro_backdrop/tests/test_macros_register.py",
+        "research/composites/macro_backdrop/macros.v1.json"
+      ]
+    },
+    {
+      "number": 135,
+      "files": [
+        "architecture/version-manifest.json",
+        "copier.yml",
+        "orchestration/bootstrap/.gitignore",
+        "orchestration/bootstrap/README.md",
+        "orchestration/bootstrap/TEST_RESULTS.txt",
+        "orchestration/bootstrap/adoption/.copier-answers.yml",
+        "orchestration/bootstrap/adoption/.editorconfig",
+        "orchestration/bootstrap/adoption/.pre-commit-config.yaml",
+        "orchestration/bootstrap/adoption/README.md",
+        "orchestration/bootstrap/adoption/pyproject.toml",
+        "orchestration/bootstrap/basket.yml",
+        "orchestration/bootstrap/render-evidence.json",
+        "orchestration/bootstrap/requirements.txt",
+        "orchestration/bootstrap/template/.editorconfig",
+        "orchestration/bootstrap/template/.pre-commit-config.yaml",
+        "orchestration/bootstrap/template/README.md.jinja",
+        "orchestration/bootstrap/template/pyproject.toml.jinja",
+        "orchestration/bootstrap/template/{% if include_component %}clone_me{% endif %}/HANDOFF.md.jinja",
+        "orchestration/bootstrap/template/{% if include_component %}clone_me{% endif %}/__init__.py",
+        "orchestration/bootstrap/template/{% if include_component %}clone_me{% endif %}/component.py",
+        "orchestration/bootstrap/template/{% if include_component %}clone_me{% endif %}/request.json",
+        "orchestration/bootstrap/template/{% if include_component %}clone_me{% endif %}/request.schema.json",
+        "orchestration/bootstrap/template/{% if include_component %}clone_me{% endif %}/result.schema.json",
+        "orchestration/bootstrap/template/{% if include_component %}clone_me{% endif %}/test_component.py",
+        "orchestration/bootstrap/template/{{ _copier_conf.answers_file }}.jinja",
+        "orchestration/bootstrap/tests/test_clone_me.py",
+        "orchestration/bootstrap/tests/test_copier.py",
+        "orchestration/planner/worker-scopes.json",
+        "orchestration/project_sync/ORDERING-2026-11-10.md",
+        "orchestration/project_sync/ORDERING_TEST_RESULTS-2026-11-10.txt",
+        "orchestration/project_sync/README.md",
+        "orchestration/project_sync/RECONCILIATION-2026-11-10.md",
+        "orchestration/project_sync/TEST_RESULTS-2026-11-10.txt",
+        "orchestration/project_sync/TEST_RESULTS.txt",
+        "orchestration/project_sync/api.py",
+        "orchestration/project_sync/audit-2026-10-31.json",
+        "orchestration/project_sync/control.py",
+        "orchestration/project_sync/task.json",
+        "orchestration/project_sync/test_order_only.py",
+        "orchestration/project_sync/test_ordering.py",
+        "orchestration/project_sync/test_selection.py",
+        "orchestration/project_sync/test_sync.py",
+        "orchestration/project_sync/views.json",
+        "orchestration/project_sync/workflow.yml.example",
+        "orchestration/sparks.json"
+      ]
+    },
+    {
+      "number": 133,
+      "files": [
+        "orchestration/project_control_plane/CONSOLIDATION_HANDOFF.md",
+        "orchestration/project_control_plane/README.md",
+        "orchestration/project_control_plane/reconcile.py",
+        "orchestration/project_control_plane/test_reconcile.py"
+      ]
+    },
+    {
+      "number": 127,
+      "files": [
+        "engines/valuation/etf_forward/MATURATION_ROADMAP.md",
+        "engines/valuation/etf_forward/OPTIMIZATION_PLAN.md",
+        "engines/valuation/etf_forward/README.md",
+        "engines/valuation/etf_forward/engine.py",
+        "engines/valuation/etf_forward/holdings_audit.py",
+        "engines/valuation/etf_forward/lookthrough.py",
+        "engines/valuation/etf_forward/portfolio.py",
+        "engines/valuation/etf_forward/return_bridge.py",
+        "engines/valuation/etf_forward/risk_frontier.py",
+        "engines/valuation/etf_forward/test_engine.py",
+        "engines/valuation/etf_forward/test_holdings_audit.py",
+        "engines/valuation/etf_forward/test_lookthrough.py",
+        "engines/valuation/etf_forward/test_portfolio.py",
+        "engines/valuation/etf_forward/test_return_bridge.py",
+        "engines/valuation/etf_forward/test_risk_frontier.py",
+        "engines/valuation/etf_forward/test_upside.py",
+        "engines/valuation/etf_forward/upside.py"
+      ]
+    },
+    {
+      "number": 125,
+      "files": [
+        "runtime/spotgamma_hiro/README.md",
+        "runtime/spotgamma_hiro/examples/user_snapshots.jsonl",
+        "runtime/spotgamma_hiro/hiro.py",
+        "runtime/spotgamma_hiro/test_hiro.py",
+        "runtime/spotgamma_hiro/test_watcher.py",
+        "runtime/spotgamma_hiro/watcher.py"
+      ]
+    },
+    {
+      "number": 123,
+      "files": [
+        ".github/copilot-instructions.md",
+        "CLAUDE.md",
+        "README.md",
+        "architecture/OPERATING_ARCHITECTURE.md",
+        "orchestration/AGENT_INSTRUCTIONS.md",
+        "orchestration/AGENT_ROUTING.md",
+        "orchestration/MODULE_STANDARD.md",
+        "orchestration/PROJECT_BOARD.md",
+        "orchestration/planner/PROGRESS.md",
+        "orchestration/planner/agent-routing.json",
+        "orchestration/spark_claims.py",
+        "orchestration/tests/test_agent_routing.py",
+        "orchestration/validate_agent_entrypoints.py",
+        "orchestration/validate_agent_routing.py",
+        "orchestration/validate_module_structure.py"
+      ]
+    },
+    {
+      "number": 122,
+      "files": [
+        "research/CRWV/market-research-2026-10-29/DAILY_STAGING.md",
+        "research/CRWV/market-research-2026-10-29/backfill_minutes.py",
+        "research/CRWV/market-research-2026-10-29/capture-revisions-2026-10-30.json",
+        "research/CRWV/market-research-2026-10-29/daily-capture-validation.json",
+        "research/CRWV/market-research-2026-10-29/daily-shard-preparation.json",
+        "research/CRWV/market-research-2026-10-29/earnings-price-bridge-2026-11-10.json",
+        "research/CRWV/market-research-2026-10-29/findings.json",
+        "research/CRWV/market-research-2026-10-29/prepare_daily_shards.py",
+        "research/CRWV/market-research-2026-10-29/recent-history-2026-10-30.json",
+        "research/CRWV/market-research-2026-10-29/test_daily_capture.py",
+        "research/CRWV/market-research-2026-10-29/test_prepare_daily_shards.py",
+        "research/CRWV/market-research-2026-10-29/trading-update-2026-11-04.json",
+        "tickers/CRWV/intraday/2026-10.1m.jsonl",
+        "tickers/CRWV/intraday/2026-10.1m.meta.json",
+        "tickers/CRWV/intraday/2026-11-02.1m.jsonl",
+        "tickers/CRWV/intraday/2026-11-02.1m.meta.json",
+        "tickers/CRWV/intraday/2026-11-03.1m.jsonl",
+        "tickers/CRWV/intraday/2026-11-03.1m.meta.json",
+        "tickers/CRWV/intraday/2026-11-04.1m.jsonl",
+        "tickers/CRWV/intraday/2026-11-04.1m.meta.json",
+        "tickers/CRWV/intraday/README.md"
+      ]
+    },
+    {
+      "number": 120,
+      "files": [
+        "engines/composites/test_virtual_etf_policy.py",
+        "engines/composites/virtual_etf_policy.py",
+        "research/composites/skilled_ai_deployment/PROFILE_VALIDATION_2026-10-30.md",
+        "research/composites/skilled_ai_deployment/README.md",
+        "research/composites/skilled_ai_deployment/VIRTUAL_ETF_EXECUTION_PLAN_2026-11-03.md",
+        "research/composites/skilled_ai_deployment/basket.json",
+        "research/composites/skilled_ai_deployment/company_profiles_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/customer_distribution_partner_moat_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/customer_labor_quality_outcomes_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/elite_talent_growth_screen_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/eps_multiple_scenarios_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/forward_value_rankings_2026_10_31.json",
+        "research/composites/skilled_ai_deployment/full_universe_deep_dive_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/gdyn_competitive_benchmark_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/insurance_agentic_workflow_competitors_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/integration_bottleneck_profitability_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/issuers/ACN/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/CINT/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/CTSH/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/DAVA/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/EPAM/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/EXLS/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/G/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/GDYN/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/GIB/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/GLOB/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/IBM/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/INFY/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/KD/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/PLTR/profile.json",
+        "research/composites/skilled_ai_deployment/issuers/WIT/profile.json",
+        "research/composites/skilled_ai_deployment/moats_talent_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/profiles/ACN.json",
+        "research/composites/skilled_ai_deployment/profiles/CACI.json",
+        "research/composites/skilled_ai_deployment/profiles/CINT.json",
+        "research/composites/skilled_ai_deployment/profiles/CSCO.json",
+        "research/composites/skilled_ai_deployment/profiles/CTSH.json",
+        "research/composites/skilled_ai_deployment/profiles/DAVA.json",
+        "research/composites/skilled_ai_deployment/profiles/DBRG.json",
+        "research/composites/skilled_ai_deployment/profiles/DELL.json",
+        "research/composites/skilled_ai_deployment/profiles/DXC.json",
+        "research/composites/skilled_ai_deployment/profiles/EPAM.json",
+        "research/composites/skilled_ai_deployment/profiles/EXLS.json",
+        "research/composites/skilled_ai_deployment/profiles/G.json",
+        "research/composites/skilled_ai_deployment/profiles/GDYN.json",
+        "research/composites/skilled_ai_deployment/profiles/GIB.json",
+        "research/composites/skilled_ai_deployment/profiles/GLOB.json",
+        "research/composites/skilled_ai_deployment/profiles/HPE.json",
+        "research/composites/skilled_ai_deployment/profiles/IBM.json",
+        "research/composites/skilled_ai_deployment/profiles/INFY.json",
+        "research/composites/skilled_ai_deployment/profiles/INOD.json",
+        "research/composites/skilled_ai_deployment/profiles/KD.json",
+        "research/composites/skilled_ai_deployment/profiles/PATH.json",
+        "research/composites/skilled_ai_deployment/profiles/PLTR.json",
+        "research/composites/skilled_ai_deployment/profiles/QCOM.json",
+        "research/composites/skilled_ai_deployment/profiles/WIT.json",
+        "research/composites/skilled_ai_deployment/suite_market_labor_savings_2026-10-30.json",
+        "research/composites/skilled_ai_deployment/us_tradable_options.json",
+        "research/composites/skilled_ai_deployment/virtual_etf_prior_art_2026-11-03.json",
+        "research/composites/skilled_ai_deployment/virtual_etf_strategy_and_expansion_2026-11-03.json",
+        "research/composites/skilled_ai_deployment/workforce_productivity_screen_2026-10-30.json"
+      ]
+    },
+    {
+      "number": 117,
+      "files": [
+        "research/GDYN/2026-10-29-earnings-margins.md",
+        "research/GDYN/2026-10-29-forward-eps-2027-2028.md",
+        "research/GDYN/2026-10-29-nvidia-direction.md",
+        "research/GDYN/2026-10-29-scarce-deployment-skills.md",
+        "research/GDYN/2026-10-29-tam-workforce-redeployment.md",
+        "research/GDYN/README.md"
+      ]
+    },
+    {
+      "number": 114,
+      "files": [
+        "research/CRWV/assessments/2026-10-29-evidence-and-peers.md"
+      ]
+    },
+    {
+      "number": 111,
+      "files": [
+        "tickers/AAOI/history.jsonl",
+        "tickers/AAOI/history.meta.json",
+        "tickers/CRWV/history.jsonl",
+        "tickers/CRWV/history.meta.json",
+        "tickers/SFTBY/history.jsonl",
+        "tickers/SFTBY/history.meta.json"
+      ]
+    },
+    {
+      "number": 99,
+      "files": [
+        "research/CRWV/trading-tool/.gitignore",
+        "research/CRWV/trading-tool/HANDOFF.md",
+        "research/CRWV/trading-tool/README.md",
+        "research/CRWV/trading-tool/VALIDATION.md",
+        "research/CRWV/trading-tool/component.json",
+        "research/CRWV/trading-tool/corpus.py",
+        "research/CRWV/trading-tool/examples/historical-matrix.json",
+        "research/CRWV/trading-tool/patterns.py",
+        "research/CRWV/trading-tool/poller.py",
+        "research/CRWV/trading-tool/run.py",
+        "research/CRWV/trading-tool/store.py",
+        "research/CRWV/trading-tool/tests/test_patterns.py"
+      ]
+    },
+    {
+      "number": 90,
+      "files": [
+        ".github/workflows/crwv-tool-acceptance.yml"
+      ]
+    },
+    {
+      "number": 87,
+      "files": [
+        "research/CRWV/tool/README.md",
+        "research/CRWV/tool/VALIDATION.md",
+        "research/CRWV/tool/contracts/README.md",
+        "research/CRWV/tool/contracts/result.v1.json",
+        "research/CRWV/tool/contracts/snapshot.v1.json",
+        "research/CRWV/tool/demo.py",
+        "research/CRWV/tool/examples/base.txt",
+        "research/CRWV/tool/examples/revision-bridge.json",
+        "research/CRWV/tool/examples/sensitivities.json",
+        "research/CRWV/tool/examples/summary.json",
+        "research/CRWV/tool/examples/unfunded.txt",
+        "research/CRWV/tool/fixtures/base.json",
+        "research/CRWV/tool/fixtures/build.py",
+        "research/CRWV/tool/fixtures/bull.json",
+        "research/CRWV/tool/fixtures/slow.json",
+        "research/CRWV/tool/fixtures/snapshot.json",
+        "research/CRWV/tool/fixtures/unfunded-snapshot.json",
+        "research/CRWV/tool/fixtures/unfunded.json",
+        "research/CRWV/tool/history.py",
+        "research/CRWV/tool/market.py",
+        "research/CRWV/tool/model.py",
+        "research/CRWV/tool/run.py",
+        "research/CRWV/tool/source-manifest.json",
+        "research/CRWV/tool/tests/test_model.py"
+      ]
+    },
+    {
+      "number": 85,
+      "files": [
+        "research/ORCL/Orchestration/LAUNCH_PACKETS.md",
+        "research/ORCL/Orchestration/README.md",
+        "research/ORCL/Orchestration/assignments/ORCL-FM.assignment.json",
+        "research/ORCL/Orchestration/assignments/ORCL-RT.assignment.json",
+        "research/ORCL/Orchestration/spark-proposal.json",
+        "research/ORCL/Orchestration/status.py",
+        "research/ORCL/Orchestration/test_status.py",
+        "research/ORCL/Orchestration/vectors.json"
+      ]
+    },
+    {
+      "number": 84,
+      "files": [
+        "research/ORCL/Range_Traversal/10D.md",
+        "research/ORCL/Range_Traversal/72H.md",
+        "research/ORCL/Range_Traversal/BAND_METHOD.md",
+        "research/ORCL/Range_Traversal/CROSS_WINDOW.md",
+        "research/ORCL/Range_Traversal/DIVERGENCE_OVERLAY.md",
+        "research/ORCL/Range_Traversal/README.md",
+        "research/ORCL/Range_Traversal/REVISIONS.md",
+        "research/ORCL/Range_Traversal/TODAY.md"
+      ]
+    },
+    {
+      "number": 83,
+      "files": [
+        "research/ORCL/Forward_Multiple/01_PEER_SET.md",
+        "research/ORCL/Forward_Multiple/02_WEIGHTED_MULTIPLE.md",
+        "research/ORCL/Forward_Multiple/03_UPSIDE_SCORE.md",
+        "research/ORCL/Forward_Multiple/04_REVERSE_CHECK.md",
+        "research/ORCL/Forward_Multiple/05_FACTOR_CHECKLIST.md",
+        "research/ORCL/Forward_Multiple/06_THESIS_AND_LADDER.md",
+        "research/ORCL/Forward_Multiple/README.md",
+        "research/ORCL/Forward_Multiple/REVISIONS.md"
+      ]
+    },
+    {
+      "number": 79,
+      "files": [
+        "orchestration/agent_adapters/QUALIFICATION.md",
+        "orchestration/agent_adapters/README.md",
+        "orchestration/agent_adapters/qualification/production-cli-replay.json"
+      ]
+    },
+    {
+      "number": 77,
+      "files": [
+        "engines/valuation/orcl_bridge/README.md",
+        "engines/valuation/orcl_bridge/engine.py",
+        "engines/valuation/orcl_bridge/example.py",
+        "engines/valuation/orcl_bridge/test_engine.py",
+        "orchestration/ticker_trackers/README.md",
+        "orchestration/ticker_trackers/orcl.json",
+        "orchestration/ticker_trackers/publish_valuation.py",
+        "orchestration/ticker_trackers/test_tracker.py",
+        "orchestration/ticker_trackers/test_valuation.py",
+        "orchestration/ticker_trackers/tracker.py"
+      ]
+    },
+    {
+      "number": 74,
+      "files": [
+        "research/CRWV/73-replacement-cost-rates/README.md",
+        "research/CRWV/73-replacement-cost-rates/findings.json",
+        "research/CRWV/73-replacement-cost-rates/verify.py"
+      ]
+    },
+    {
+      "number": 72,
+      "files": [
+        "research/CRWV/operations-vs-buildout/2026-10-23/README.md",
+        "research/CRWV/operations-vs-buildout/2026-10-23/findings.json",
+        "research/CRWV/operations-vs-buildout/2026-10-23/verify.py"
+      ]
+    },
+    {
+      "number": 69,
+      "files": [
+        "research/CRWV/debt/2026-10-22/README.md",
+        "research/CRWV/debt/2026-10-22/battle-matrix-contract.md",
+        "research/CRWV/debt/2026-10-22/battle-matrix-history.jsonl",
+        "research/CRWV/debt/2026-10-22/battle_matrix.py",
+        "research/CRWV/debt/2026-10-22/capacity-conversion.json",
+        "research/CRWV/debt/2026-10-22/capacity-conversion.md",
+        "research/CRWV/debt/2026-10-22/capacity-scenarios.json",
+        "research/CRWV/debt/2026-10-22/capacity-scenarios.py",
+        "research/CRWV/debt/2026-10-22/capacity-weighted-valuation.md",
+        "research/CRWV/debt/2026-10-22/debt-repricing-2026-10-23.json",
+        "research/CRWV/debt/2026-10-22/debt-stack.json",
+        "research/CRWV/debt/2026-10-22/directional-turnover-2026-10-28.json",
+        "research/CRWV/debt/2026-10-22/discount-demand-and-oi-2026-10-28.json",
+        "research/CRWV/debt/2026-10-22/divergence-and-repricing-2026-10-23.md",
+        "research/CRWV/debt/2026-10-22/earnings-lifespan-services.md",
+        "research/CRWV/debt/2026-10-22/factor-attribution-2026-10-22.json",
+        "research/CRWV/debt/2026-10-22/factor-attribution-2026-10-23.json",
+        "research/CRWV/debt/2026-10-22/factor-closes-2026-10-22.csv",
+        "research/CRWV/debt/2026-10-22/factor-closes-2026-10-23.csv",
+        "research/CRWV/debt/2026-10-22/factor_tracker.py",
+        "research/CRWV/debt/2026-10-22/flow-2026-10-28T1357Z.json",
+        "research/CRWV/debt/2026-10-22/forward-valuation.json",
+        "research/CRWV/debt/2026-10-22/forward-valuation.md",
+        "research/CRWV/debt/2026-10-22/functional-tool-blueprint.md",
+        "research/CRWV/debt/2026-10-22/gray-contracted-power-overlay.md",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV-daily-bars.csv",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV-minute-bars.csv",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV.range-patterns.jsonl",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/README.md",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/manifest.json",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/pattern-index.json",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/range_replay.py",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/summary.json",
+        "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/test_range_replay.py",
+        "research/CRWV/debt/2026-10-22/integrated-assessment.md",
+        "research/CRWV/debt/2026-10-22/matrix-input-2026-10-28.json",
+        "research/CRWV/debt/2026-10-22/matrix-output-2026-10-28T1416Z-v1.1.0.json",
+        "research/CRWV/debt/2026-10-22/matrix-output-2026-10-28T1416Z.json",
+        "research/CRWV/debt/2026-10-22/next-conversation-prompt.md",
+        "research/CRWV/debt/2026-10-22/october-turnover-velocity.json",
+        "research/CRWV/debt/2026-10-22/repricing-assessment.md",
+        "research/CRWV/debt/2026-10-22/test_battle_matrix.py",
+        "research/CRWV/debt/2026-10-22/trajectory-2026-10-28.json",
+        "research/CRWV/debt/2026-10-22/trajectory-2026-10-28.md",
+        "research/CRWV/debt/2026-10-22/traversal-compression-2026-10-23.json",
+        "research/CRWV/debt/2026-10-22/traversal-prior-art-review.md"
+      ]
+    },
+    {
+      "number": 60,
+      "files": [
+        "orchestration/retirement_intake/2026-10-18-b00-baseline.json",
+        "orchestration/retirement_intake/2026-10-18-b08-snapshot.json",
+        "orchestration/retirement_intake/2026-10-18-b19-audit-reconciliation.json",
+        "orchestration/retirement_intake/2026-10-18-capture-dispatch.json",
+        "orchestration/retirement_intake/2026-10-18-ci-flood.json",
+        "orchestration/retirement_intake/2026-10-29-capability-inventory.json",
+        "orchestration/retirement_intake/2026-10-29-startup-evidence.json",
+        "orchestration/retirement_intake/2026-10-29-startup-report.md",
+        "orchestration/retirement_intake/CONVERSATION_REVIEW.md",
+        "orchestration/retirement_intake/HANDOFF.md",
+        "orchestration/retirement_intake/WORKER_CONTRACT.md",
+        "orchestration/retirement_intake/inventory.py",
+        "orchestration/retirement_intake/test_inventory.py"
+      ]
+    },
+    {
+      "number": 58,
+      "files": [
+        "engines/traversal/alert_gates.py",
+        "engines/traversal/test_alert_gates.py",
+        "research/traversal/2026-10-16-ai-infrastructure-stress.json",
+        "research/traversal/B06-WORKER-CONTRACT.md"
+      ]
+    },
+    {
+      "number": 55,
+      "files": [
+        "deployment/mrie_snapshot/README.md",
+        "services/mrie_snapshot/app.py",
+        "services/mrie_snapshot/test_app.py"
+      ]
+    },
+    {
+      "number": 49,
+      "files": [
+        "orchestration/capture_dispatch/README.md",
+        "orchestration/capture_dispatch/plan.py",
+        "orchestration/capture_dispatch/test_plan.py"
+      ]
+    },
+    {
+      "number": 43,
+      "files": [
+        "architecture/TICKER_FIRST_RESEARCH_ARCHITECTURE.md"
+      ]
+    },
+    {
+      "number": 38,
+      "files": [
+        "research/narrative/cross-support/exol-network-thesis-2026-10-17.md"
+      ]
+    },
+    {
+      "number": 31,
+      "files": [
+        "research/OPENAI/README.md",
+        "research/OPENAI/RESOURCE_STRATEGY.md",
+        "research/OPENAI/WORKER_CONTRACT.md",
+        "research/OPENAI/assumption-register.json",
+        "research/OPENAI/check.py",
+        "research/OPENAI/evidence_fingerprint.py",
+        "research/OPENAI/ipo2027-news.json",
+        "research/OPENAI/ipo2027-policy.json",
+        "research/OPENAI/ipo2027.py",
+        "research/OPENAI/resource-registry.json",
+        "research/OPENAI/resource_audit.py",
+        "research/OPENAI/sftby-interface.json",
+        "research/OPENAI/test_evidence_fingerprint.py",
+        "research/OPENAI/test_ipo2027.py",
+        "research/OPENAI/test_resource_audit.py",
+        "research/OPENAI/valuation-register.json",
+        "tickers/OPENAI/entity.json"
+      ]
+    },
+    {
+      "number": 25,
+      "files": [
+        "orchestration/execution_loop.py",
+        "orchestration/planner/README.md",
+        "orchestration/planner/goals.json",
+        "orchestration/planner/queue.json",
+        "orchestration/planner/worker-scopes.json",
+        "orchestration/tests/test_execution_loop.py",
+        "orchestration/tests/test_planner.py"
+      ]
+    },
+    {
+      "number": 23,
+      "files": [
+        "research/themes/supply-chain/coverage/WORKER_RUNBOOK.md",
+        "research/themes/supply-chain/coverage/check_coverage.py",
+        "research/themes/supply-chain/coverage/check_whole_map.py",
+        "research/themes/supply-chain/coverage/maturation_audit.py",
+        "research/themes/supply-chain/coverage/test_check_coverage.py",
+        "research/themes/supply-chain/coverage/test_check_whole_map.py",
+        "research/themes/supply-chain/coverage/test_maturation_audit.py",
+        "research/themes/supply-chain/coverage/underrepresented-2026-10-17.json",
+        "research/themes/supply-chain/coverage/whole-basket-role-map-2026-11-03.json"
+      ]
+    },
+    {
+      "number": 22,
+      "files": [
+        "architecture/ECONOMIC_FLOW_GRAPH.md"
+      ]
+    },
+    {
+      "number": 18,
+      "files": [
+        "research/themes/supply-chain/README.md",
+        "research/themes/supply-chain/WORKER_CONTRACT.md",
+        "research/themes/supply-chain/coverage/missing.json",
+        "research/themes/supply-chain/earnings/quarterly-intake.json",
+        "research/themes/supply-chain/reconciliation/check_research.py",
+        "research/themes/supply-chain/reconciliation/rules.json",
+        "research/themes/supply-chain/reconciliation/test_check_research.py",
+        "research/themes/supply-chain/registry/pools.json",
+        "research/themes/supply-chain/registry/tickers.json",
+        "research/themes/supply-chain/relationships/gateway-model.json"
+      ]
+    },
+    {
+      "number": 15,
+      "files": [
+        "runtime/observations.py",
+        "runtime/test_observations.py",
+        "tests/test_ttd.py"
+      ]
+    },
+    {
+      "number": 14,
+      "files": [
+        "research/events/README.md",
+        "research/events/SFTBY/2026-10-16-initial-ledger.json",
+        "research/events/validate.py",
+        "tickers/SFTBY/events.json"
+      ]
+    }
+  ]
+}
