@@ -29,7 +29,7 @@ def main():
         'cases': [dict(id=c['id'], expectation=c['expected'], actual=q.observe(c['exchange']))
                   for c in q.CORPUS['cases']],
         'acceptance': 'bounded_supported_exchange_cases_only',
-        'unsupported': ['Dependency version ranges are not resolved/enforced by check_exchange.'],
+        'unsupported': ['General range syntax and transitive resolution are deliberately unsupported; inventory truth is caller responsibility.'],
         'hosted_focused_coverage': False,
         'independent_acceptance': 'pending owner #105',
     }

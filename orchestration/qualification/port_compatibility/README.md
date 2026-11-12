@@ -1,83 +1,64 @@
-# Portable port qualification
+# Portable port and dependency qualification
 
-Issue #247, spark B00. This is a synthetic qualification corpus for the existing
-`orchestration.component_conformance.check_exchange` helper, pinned to main
-`74d913e8913d630d85451344689e093aeea07efc`. It is not a compatibility engine,
-component implementation, dependency registry or domain acceptance.
-
-Run from the repository root (Python 3.12 with jsonschema available):
+Issue #247 / PR254, B00 bounded continuation under #103. Existing validator
+`orchestration.component_conformance.check_exchange` now performs offline direct
+dependency preflight in addition to the original named-port checks. Approved
+additional paths are the validator, its existing component test file and
+`architecture/BLACK_BOX_COMPONENT_CONTRACT.md`; no schema or CI changes.
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v
 PYTHONDONTWRITEBYTECODE=1 python orchestration/qualification/port_compatibility/run.py
 PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s orchestration/tests -p 'test_component*.py' -v
 ```
 
-`run.py` prints a JSON receipt to stdout and unittest diagnostics to stderr. It
-performs no writes or network access. Checked-in `evidence.json` records the actual
-local run, not current CI state. Python 3.12.14 / jsonschema 4.26.0 were tested;
-shared hosted CI pins jsonschema 4.23.0. This new folder is **not discovered by
-shared CI**. No discovery bridge or shared workflow was changed.
+The runner prints reproducible JSON to stdout and test diagnostics to stderr.
+`evidence.json` records actual results. `corpus.json` contains 22 self-contained
+synthetic exchanges, with exact UTF-8 artifact strings. No provider data or
+private text is used; outputs are constructed, not domain execution.
 
-## Corpus and exact mapping
+## Contract mapping
 
-`corpus.json` contains 15 self-contained exchange specimens. Each contains the
-manifest, call, result, independent input fingerprint and exact UTF-8 artifact
-strings. No downloaded/provider data or private conversation text is included.
-Artifact names use `fixture://`; the helper receives their bytes explicitly and
-never resolves them externally. Synthetic schemas are fixture-local, unregistered
-contracts. The output is constructed, not produced by a domain computation.
-
-| Cases | Existing contract enforcement |
+| Cases | Actual enforcement |
 | --- | --- |
-| Valid exchange | `qualified_refs_v1`; manifest/call/result schema validation |
-| Missing required input/output | `_bindings`: required set minus supplied bindings |
-| Wrong named input/output | `_bindings`: supplied bindings minus declared set |
-| Schema identity mismatch | `_bindings`: exact `schema_ref`, even with identical bytes |
-| Schema version mismatch | `_bindings`: exact `schema_sha256`; fixture changes `$id` v1 to v2 and recomputes the binding hash |
-| Component version mismatch | `check_exchange`: exact `contract_version == manifest.version` |
-| Unexpected input/output payload | `_validate`: resolved schema `additionalProperties: false`; payload hash is recomputed to isolate the shape violation |
-| Stale pinned input/output source | `_bytes`: supplied source bytes differ from the declared SHA-256 |
-| Unresolved dependency declaration | **Unsupported**: helper accepts a declaration without checking availability or version range |
+| Valid exchange | Existing qualified_refs_v1 schema and exchange checks |
+| Missing/wrong named input and output | `_bindings` required and declared sets |
+| Schema identity/version mismatch | Exact schema_ref and schema_sha256 pins; no schema-version inference |
+| Component version mismatch | Exact contract_version against manifest |
+| Unexpected payload | Resolved local schema additionalProperties=false with recomputed payload hash |
+| Stale source | Actual source bytes against declared SHA-256; not temporal freshness |
+| Missing dependency inventory / unavailable dependency | `_dependency_preflight` explicit dict and direct identity lookup |
+| Compatible/incompatible version | Numeric major/minor/patch exact equality or single >= lower bound |
+| Unsupported/malformed constraint and inventory | Strict fail-closed syntax and inventory validation |
 
-Schema version here is a changed schema identity/content pin, not a generic
-semantic-version policy. Stale source here means changed bytes under an old pin,
-not time-to-die or point-in-time eligibility. Input hashing is explicitly sorted,
-compact JSON of the original input bindings. Negative variants retain the
-independently supplied original fingerprint, so they isolate the named contract
-checks without imposing a new universal hashing policy.
+Call with `dependency_inventory={"synthetic.unavailable": "2.1.0"}` for a declared
+`>=2.0.0` dependency. Supported forms are `M.m.p`, `=M.m.p`, `>=M.m.p` using ASCII
+nonnegative integer parts without leading zeros. >= deliberately permits higher
+major versions; it does not assert semantic compatibility. No whitespace, ranges,
+unions, wildcards, prerelease/build metadata or general semver dialect. Every
+supplied entry is validated when dependencies exist. Dependency-free exchanges
+preserve previous behavior. Inventory availability/version facts are caller
+assertions, not independently attested implementation or authorization evidence.
+No discovery, recursive resolution, fetching or execution occurs.
 
-## Observed results and known gap
+## Results, history and limits
 
-19 tests: **18 passed, 1 expected failure, 0 unexpected failures/errors/skips**.
-The 15 corpus cases comprise one valid accepted exchange, 13 required rejections,
-and one unsupported rejection. Four additional checks cover pins, repeat/mutation,
-corpus coverage and independently computed input serialization. The existing
-component suites separately passed **47 tests, 0 failures/errors/skips**.
+Focused suite: **26 passed**, zero expected failures, failures, errors or skips.
+Existing component suites: **58 passed**, including 11 named preflight regressions.
+Full orchestration results are separately recorded in attempts.json after execution.
+Repeated exchange observations and complete corpus inputs remain identical; current
+validator/contract/schema bytes match source-pins.json before and after execution.
+Canonical schema remains unchanged. The fixture fingerprint uses sorted compact
+JSON of original inputs; negative cases retain that independent fingerprint.
 
-`test_declared_dependency_without_resolution` requires rejection of a manifest
-that declares `synthetic.unavailable >=2.0.0` without an available dependency.
-The actual helper accepts it. The contract document's semantic gates 1 and 4
-require dependency compatibility, but this helper has no dependency inventory
-argument or range resolver. The expected failure preserves the unmet gate; it
-is not a pass. `evidence.json` separately records `actual.outcome: accept` and
-`expectation: unsupported_rejection`. No replacement resolver is introduced.
+Historical source `65c9782ff2a6fa9b8fd0b4fe3d40dfb3a89c913c` had 18 passes and one
+expected failure because unresolved dependencies were accepted. This is preserved
+in historical-evidence.json and historical-source-pins.json, and the original Git
+revision. The same reproducer is now an ordinary required rejection. No historical
+failure is erased or retroactively relabelled as passing.
 
-`source-pins.json` fingerprints the validator, canonical schema and contract
-text. Tests compare current bytes to those pins, rerun every specimen, compare
-outcomes, compare the entire in-memory corpus, and verify unchanged source hashes.
-The source pin test intentionally fails if a future checkout changes those files;
-requalification must then deliberately update the pins and review behavior.
-
-## Acceptance boundary and next owner
-
-Bounded supported exchange qualification is tested locally. Independent acceptance
-remains with #105; shared contract decisions remain #103. #226's virtual traces
-and #230's design remain read-only context, not implemented execution or evidence
-for these results. Semver dependency resolution, cross-component composition,
-units, entitlement, temporal availability, payload truth and operational behavior
-are not accepted by this corpus. No archived runtime is a prerequisite.
-
-Next action: #103/#105 owners review the unresolved-dependency specimen and decide
-whether a separate approved dependency preflight is required. Preserve this gap
-until exact-source owner implementation and independent acceptance exist.
+Shared hosted CI discovers the 11 new regressions in the existing component suite,
+but does **not** discover this portable focused folder. Environment versions are in
+evidence.json; shared CI pins jsonschema 4.23.0. Independent #105 acceptance remains
+separate. Temporal/unit/entitlement, transitive dependencies, inventory truth,
+composition and domain/operational acceptance remain outside the demonstrated scope.
+Next: #105 reviews exact-head preflight evidence under #103 authority.

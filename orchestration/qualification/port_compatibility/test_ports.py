@@ -24,7 +24,8 @@ def source_hashes():
 def invoke(exchange):
     cc.check_exchange(exchange['manifest'], exchange['call'], exchange['result'],
                       {k: v.encode('utf-8') for k, v in exchange['artifacts_utf8'].items()},
-                      expected_input_sha256=exchange['expected_input_sha256'])
+                      expected_input_sha256=exchange['expected_input_sha256'],
+                      dependency_inventory=exchange.get('dependency_inventory'))
 
 
 def observe(exchange):
@@ -54,8 +55,8 @@ class PortQualification(unittest.TestCase):
     def test_corpus_identifiers_and_declared_coverage(self):
         ids = [c['id'] for c in CORPUS['cases']]
         self.assertEqual(len(ids), len(set(ids)))
-        self.assertEqual(len(ids), 15)
-        self.assertEqual(sum(c['expected'] == 'unsupported_rejection' for c in CORPUS['cases']), 1)
+        self.assertEqual(len(ids), 22)
+        self.assertEqual(sum(c['expected'] == 'unsupported_rejection' for c in CORPUS['cases']), 0)
         self.assertTrue(all(c['contract_mapping'] for c in CORPUS['cases']))
 
     def test_valid_exchange_has_independent_input_fingerprint(self):

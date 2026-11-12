@@ -130,40 +130,101 @@
     },
     {
       "actual": {
+        "error_type": "ConformanceError",
+        "message": "Declared dependencies require an explicit inventory",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "declared_dependency_without_resolution"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Dependency unavailable: synthetic.unavailable",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "dependency_unavailable"
+    },
+    {
+      "actual": {
         "error_type": null,
         "message": null,
         "outcome": "accept"
       },
-      "expectation": "unsupported_rejection",
-      "id": "declared_dependency_without_resolution"
+      "expectation": "accept",
+      "id": "dependency_compatible"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Incompatible dependency version: synthetic.unavailable",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "dependency_incompatible"
+    },
+    {
+      "actual": {
+        "error_type": null,
+        "message": null,
+        "outcome": "accept"
+      },
+      "expectation": "accept",
+      "id": "dependency_exact"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Unsupported dependency constraint: ^2.0.0",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "dependency_unsupported_syntax"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Unsupported dependency constraint: broken",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "dependency_malformed_constraint"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Unsupported dependency version: '2.0'",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "dependency_malformed_inventory"
     }
   ],
-  "corpus_sha256": "8c84aa0098b36a9d1eca6e4cc1b6a392a86b1fc27c175478e3f4d89ea6e4eb93",
+  "corpus_sha256": "597f862954efc55f9d07f50b3d3ebf157945b8d26b97b0d5793627315751e489",
   "errors": 0,
-  "expected_failures": [
-    "test_ports.PortQualification.test_declared_dependency_without_resolution"
-  ],
+  "expected_failures": [],
   "failures": 0,
   "hosted_focused_coverage": false,
   "independent_acceptance": "pending owner #105",
   "jsonschema": "4.26.0",
-  "passes": 18,
+  "passes": 26,
   "python": "3.12.14",
   "scope": "synthetic portable exchange qualification; no domain execution",
   "skips": 0,
   "source_hashes_after": {
-    "architecture/BLACK_BOX_COMPONENT_CONTRACT.md": "3bc783880f8006a7cf8e517aff6dee228083ca012481ee906f453ad04e7d119f",
-    "orchestration/component_conformance.py": "f59c44061a6f45c0f659a09b0941dc499a737ea2bef856635321db283677022e",
+    "architecture/BLACK_BOX_COMPONENT_CONTRACT.md": "0cf9205c27d67821d8fb7fa607e8475aa500d57c0f0f067037a863b504d50567",
+    "orchestration/component_conformance.py": "10dd943064b6cb7d4f70c88c8a9c5204b29b06e4ade1e14b419f5eb2f77d0ca6",
     "schemas/component-blackbox.v1.json": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc"
   },
   "source_hashes_before": {
-    "architecture/BLACK_BOX_COMPONENT_CONTRACT.md": "3bc783880f8006a7cf8e517aff6dee228083ca012481ee906f453ad04e7d119f",
-    "orchestration/component_conformance.py": "f59c44061a6f45c0f659a09b0941dc499a737ea2bef856635321db283677022e",
+    "architecture/BLACK_BOX_COMPONENT_CONTRACT.md": "0cf9205c27d67821d8fb7fa607e8475aa500d57c0f0f067037a863b504d50567",
+    "orchestration/component_conformance.py": "10dd943064b6cb7d4f70c88c8a9c5204b29b06e4ade1e14b419f5eb2f77d0ca6",
     "schemas/component-blackbox.v1.json": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc"
   },
-  "tests_run": 19,
+  "tests_run": 26,
   "unexpected_successes": [],
   "unsupported": [
-    "Dependency version ranges are not resolved/enforced by check_exchange."
+    "General range syntax and transitive resolution are deliberately unsupported; inventory truth is caller responsibility."
   ]
 }
