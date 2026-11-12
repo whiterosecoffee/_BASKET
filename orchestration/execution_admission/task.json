@@ -8,7 +8,7 @@
   "branch": "work/local-20261112-execution-admission-portable",
   "base": "74d913e8913d630d85451344689e093aeea07efc",
   "worktree": "admission-isolated-worktree",
-  "state": "portable_candidate_prepared_for_publication",
+  "state": "portable_component_review_pending_integration",
   "write_paths": [
     "orchestration/execution_admission/**"
   ],
@@ -40,7 +40,7 @@
     "Offline parking only; deterministic repeat and negative tests",
     "Durable purpose/scope/authority README and explicit integration boundary"
   ],
-  "next_action": "Dot/B00 binds reviewed implementation 3395a0a to the existing launch-path owner for bounded observation/lease integration; retain denied-publication gate",
+  "next_action": "Controller assigns the existing observation/launch-path owner one bounded real probe using this candidate; preserve scheduler and denied-public-issue gates",
   "integration": {
     "canonical_queue": "https://github.com/whiterosecoffee/_BASKET/issues/136",
     "independent_recheck_reported_at": "2026-11-12T21:35:42.428363+00:00",
@@ -48,7 +48,7 @@
     "evidence_class": "retrieved_controller_report_plus_local_exact_head_tests",
     "local_component_status": "independently_rechecked_as_reported_by_controller",
     "system_integration_status": "not_enforced_in_session_launch",
-    "publication_status": "portable_branch_prepared_issue_creation_still_denied",
+    "publication_status": "baseline_52466d0_published_followup_subject_to_remote_verification",
     "plan_steps_supported": [
       1,
       2,
@@ -69,5 +69,51 @@
       "Resolve the separate denied-publication gate before any public issue creation",
       "Reconcile template/policy adoption through existing owners; preserve _FETCH/_MAP/_TICKER responsibilities"
     ]
+  },
+  "methodology_handoff": {
+    "source": "https://github.com/whiterosecoffee/_BASKET/blob/de49f7b71334830648d94a211696a2d9cb2325ff/orchestration/handoff_loop/methodology-gaps.json",
+    "source_revision": "de49f7b71334830648d94a211696a2d9cb2325ff",
+    "source_blob": "931b785fd83945167750d723267bd5e3f3549fc1",
+    "source_status": "proposed_owner_handoff_not_accepted",
+    "authority": "Existing delegated admission-folder scope only; proposals do not expand authority",
+    "dispositions": [
+      {
+        "id": "launch-enforcement",
+        "status": "existing_pure_checks_integration_open",
+        "observation": "Host/OS pins and offline parking validated; no actual environment collector or launcher enforcement",
+        "receiver": "existing executor/launch-path owner",
+        "acceptance_pending": "Wrong-host and offline real launch probes denied before execution"
+      },
+      {
+        "id": "atomic-ownership",
+        "status": "existing_pure_checks_integration_open",
+        "observation": "Scope/observed isolation/lease checks implemented; no atomic lock or dependency dispatcher",
+        "receiver": "existing controller and launcher owners",
+        "acceptance_pending": "Concurrent launches cannot create two writers; dirty work and ancestry survive; out-of-scope dependencies routed"
+      },
+      {
+        "id": "privacy-boundary",
+        "status": "portable_baseline_observed_no_runtime_enforcement",
+        "observation": "Baseline 52466d0 remote verified; sanitized history and targeted scan; no permanent automated publication enforcement",
+        "receiver": "existing publication owner",
+        "acceptance_pending": "Exact candidate diff/history scan before each publication; private registries never included"
+      },
+      {
+        "id": "durable-resume",
+        "status": "bounded_transfer_acknowledgement_implemented_other_gates_open",
+        "observation": "Replacement owner and positive acknowledgement must match exact request hash; no checkpoint or scheduler implementation",
+        "receiver": "existing controller/scheduler/launch-path owners",
+        "acceptance_pending": "Restart rereads checkpoint; exact persistent schedule target; duplicate wakes coalesce; stale writer fenced; real retirement and replacement acknowledgement"
+      },
+      {
+        "id": "trusted-observation-adapter",
+        "status": "adapter_not_implemented",
+        "observation": "Pure evaluator does not authenticate observations, even when structurally valid",
+        "receiver": "existing trusted-observation adapter owner via controller",
+        "acceptance_pending": "Forged or stale observations and session-start-only acceptance fail real integration probe"
+      }
+    ],
+    "end_to_end_acceptance": "not_claimed",
+    "next_action": "Controller assigns the existing observation/launch-path owner one bounded real probe using this candidate; preserve scheduler and denied-public-issue gates"
   }
 }

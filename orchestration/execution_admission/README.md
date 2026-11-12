@@ -93,6 +93,10 @@ acquire a lease. A stopped session needs separately reconciled restart/transfer
 authority, not an implicit continuation. Lifecycle evidence is exclusive:
 new uses neither continuation nor transfer, continuation forbids transfer, and
 transfer forbids any continuation evidence, even an otherwise matching record.
+Transfer also requires the observed replacement owner to acknowledge the exact
+request hash. Missing acknowledgement, a different replacement owner, or an
+acknowledgement for an older/different request rejects. The trusted collector
+must verify this acknowledgement; a supplied boolean is not proof of delivery.
 
 Unknown effects reject; already-completed effects require reconciliation without
 reapplying them. Idempotency keys bind retries, but this function owns no durable
@@ -158,7 +162,9 @@ of the repaired local validator: 46 admission tests, 10 protocol tests and the
 original negative probes passed. This is a retrieved controller report, not a
 new independent run by this worker. The implementation revision is
 `3395a0a41371c80282114b748f44e5673cb1a322`. Publication and session-launch
-enforcement remain outstanding; local qualification is not system integration.
+enforcement were outstanding at that report. Portable baseline `52466d0` was
+subsequently published; session-launch enforcement remains outstanding. Local
+qualification is not system integration.
 
 | Existing system-plan step | This component's contribution | Remaining owner action |
 | --- | --- | --- |
@@ -194,3 +200,30 @@ review evidence and need not be reachable from this portable branch. No raw data
 credentials, absolute workstation paths or conversation excerpts are included.
 The current portable bytes require their own test run; historical independent
 review is not automatically independent acceptance of this new commit.
+
+## Handoff methodology disposition
+
+Inspected the [five proposed gaps at pinned source de49f7b](https://github.com/whiterosecoffee/_BASKET/blob/de49f7b71334830648d94a211696a2d9cb2325ff/orchestration/handoff_loop/methodology-gaps.json)
+once. Its requirements and acceptance cases are owner-handoff proposals, not
+authority to modify launchers, schedulers, shared protocol or another owner's
+files. The machine-readable disposition is in `task.json.methodology_handoff`.
+
+| Gap | Admission disposition | Remaining acceptance |
+| --- | --- | --- |
+| Actual host / environment | Host and OS pins and offline parking already evaluated; no actual host collection or launch binding | Existing executor owner binds environment identity and observes wrong-host/offline launches denied before execution |
+| Atomic ownership / worktree / dependency routing | Scope containment, observed isolation, inventory completeness, prerequisite confirmation and continuation lease checks exist | Launcher must atomically prevent concurrent writers and preserve dirty work/ancestry; controller routes out-of-scope dependencies to existing owners |
+| Publication privacy | Portable baseline excluded internal routing/private identifiers and was tested and published; scoped diff scan repeated for this increment | Exact publication history/diff scanning remains a publishing-owner obligation, not a property this pure evaluator proves |
+| Durable resume / schedule / transfer | Added replacement-owner acknowledgement bound to exact request; old-writer retirement, active-writer rejection and uncertain-effect checks retained | Checkpoint reread, persistent schedule target, duplicate-wake coalescing and stale-writer fencing require existing controller/scheduler integration |
+| Trusted observation adapter | Collector/request pins and timestamp rejection exist; receipts explicitly deny evidence-truth verification | Independent adapter must establish authentic host, owner, activity and criterion-bound receipts; forged evidence and session-start-only acceptance must fail a real integration probe |
+
+The new acknowledgement contract tightens the draft-v1 transfer
+observation shape: callers must supply `replacement_owner`,
+`replacement_acknowledged` and `acknowledged_request_sha256`. This is structural
+and consistency validation, not a signed acknowledgement service. No caller
+integration is claimed. Remaining handoffs stay with existing owners; no new
+worker, scheduler, runtime registry or canonical-schema change is introduced.
+
+Next: the controller routes the pinned candidate to the existing observation and
+launch-path owner for a bounded real integration probe, retaining separate
+checkpoint/scheduler and publication-approval gates. This disposition is not
+acceptance of any of the five end-to-end methodology cases.

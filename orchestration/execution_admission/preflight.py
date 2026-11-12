@@ -200,6 +200,10 @@ def evaluate(request, observation, trusted, *, now):
                 transfer['ref'] != r['lifecycle']['transfer_ref'] or
                 transfer['previous_owner'] == t['identity']['owner']):
                 reject('transfer_not_confirmed_stopped')
+            if (transfer is None or not transfer['replacement_acknowledged'] or
+                transfer['replacement_owner'] != t['identity']['owner'] or
+                transfer['acknowledged_request_sha256'] != hashes[0]):
+                reject('replacement_acknowledgement_mismatch')
         if mode != 'transfer' and (r['lifecycle']['previous_owner'] is not None or
                                    r['lifecycle']['transfer_ref'] is not None):
             reject('unexpected_transfer_declaration')

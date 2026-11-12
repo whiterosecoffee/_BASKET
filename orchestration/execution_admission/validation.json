@@ -117,6 +117,24 @@
       "failures": 0,
       "skips": 0,
       "detail": "Sanitized eight-file export from current main; 46 focused and 10 existing worker-protocol tests passed. Targeted scan found no private paths, internal conversation identifiers, original host/user names or credential patterns. Original local history is not a parent of the portable branch."
+    },
+    {
+      "id": "methodology-ack-1",
+      "result": "failed",
+      "tests": 47,
+      "passed": 46,
+      "failures": 1,
+      "detail": "Pinned handoff reviewed once; new negative demonstrated missing replacement acknowledgement was eligible before correction"
+    },
+    {
+      "id": "methodology-ack-2",
+      "retry_of": "methodology-ack-1",
+      "result": "pass",
+      "tests": 48,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "detail": "Required replacement owner, positive acknowledgement and exact acknowledged request hash; missing/false/wrong-owner/wrong-hash cases reject. All 48 admission and 10 worker-protocol tests pass; no real launcher probe claimed"
     }
   ],
   "commands": [
@@ -130,5 +148,5 @@
     "Public issue creation remains denied and was not retried; portable branch publication is a separately user-authorized review-gated action",
     "No merge, deployment, runtime or market-data edits"
   ],
-  "next_action": "Controller verifies portable remote head and routes independent review and actual launch integration; public issue creation remains separately blocked"
+  "next_action": "Existing observation/launch-path owner performs real integration probe; independent review of tightened transfer shape remains pending"
 }

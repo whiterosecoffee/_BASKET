@@ -705,7 +705,10 @@
                 "previous_owner",
                 "ref",
                 "stopped",
-                "confirmed"
+                "confirmed",
+                "replacement_owner",
+                "replacement_acknowledged",
+                "acknowledged_request_sha256"
               ],
               "properties": {
                 "previous_owner": {
@@ -723,6 +726,18 @@
                 },
                 "confirmed": {
                   "type": "boolean"
+                },
+                "replacement_owner": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\S"
+                },
+                "replacement_acknowledged": {
+                  "type": "boolean"
+                },
+                "acknowledged_request_sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
                 }
               }
             }

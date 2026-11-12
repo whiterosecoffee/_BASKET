@@ -223,7 +223,7 @@ class AdmissionTests(unittest.TestCase):
     def test_transfer_rejects_conflicting_continuation(self):
         values = specimen()
         values[0]['lifecycle'] = dict(mode='transfer',previous_owner='old-owner',transfer_ref='fixture-transfer')
-        values[1]['transfer'] = dict(previous_owner='old-owner',ref='fixture-transfer',stopped=True,confirmed=True)
+        values[1]['transfer'] = dict(previous_owner='old-owner',ref='fixture-transfer',stopped=True,confirmed=True, replacement_owner=values[0]['identity']['owner'], replacement_acknowledged=True, acknowledged_request_sha256=fingerprint(values[0]))
         values[1]['continuation'] = continuation_proof(values[0]['identity'])
         values[1]['continuation']['identity']['owner'] = 'conflicting-owner'
         values[2]['request_sha256'] = fingerprint(values[0])
@@ -249,13 +249,35 @@ class AdmissionTests(unittest.TestCase):
     def test_transfer_requires_record_and_stopped_writer(self):
         values = specimen()
         values[0]['lifecycle'] = dict(mode='transfer',previous_owner='old-owner',transfer_ref='fixture-transfer')
-        values[1]['transfer'] = dict(previous_owner='old-owner',ref='fixture-transfer',stopped=True,confirmed=True)
+        values[1]['transfer'] = dict(previous_owner='old-owner',ref='fixture-transfer',stopped=True,confirmed=True, replacement_owner=values[0]['identity']['owner'], replacement_acknowledged=True, acknowledged_request_sha256=fingerprint(values[0]))
         values[2]['request_sha256'] = fingerprint(values[0])
         self.assertEqual(self.run_case(values)['decision'], 'eligible')
         for key in ['stopped','confirmed']:
             bad = copy.deepcopy(values)
             bad[1]['transfer'][key] = False
             self.assertRejected(bad, 'transfer_not_confirmed_stopped')
+
+    def test_transfer_missing_replacement_acknowledgement_rejects(self):
+        values = specimen()
+        values[0]['lifecycle'] = dict(mode='transfer',previous_owner='old-owner',transfer_ref='fixture-transfer')
+        values[1]['transfer'] = dict(previous_owner='old-owner',ref='fixture-transfer',stopped=True,confirmed=True, replacement_owner=values[0]['identity']['owner'], replacement_acknowledged=True, acknowledged_request_sha256=fingerprint(values[0]))
+        values[2]['request_sha256'] = fingerprint(values[0])
+        del values[1]['transfer']['replacement_acknowledged']
+        self.assertRejected(values, 'schema:observation')
+
+    def test_transfer_acknowledgement_binds_owner_and_exact_request(self):
+        for key, value in [('replacement_acknowledged',False),
+                           ('replacement_owner','different-owner'),
+                           ('acknowledged_request_sha256','0'*64)]:
+            with self.subTest(key=key):
+                values = specimen()
+                values[0]['lifecycle'] = dict(mode='transfer',previous_owner='old-owner',transfer_ref='fixture-transfer')
+                values[1]['transfer'] = dict(previous_owner='old-owner',ref='fixture-transfer',stopped=True,confirmed=True,
+                    replacement_owner=values[0]['identity']['owner'],replacement_acknowledged=True,
+                    acknowledged_request_sha256=fingerprint(values[0]))
+                values[2]['request_sha256'] = fingerprint(values[0])
+                values[1]['transfer'][key] = value
+                self.assertRejected(values, 'replacement_acknowledgement_mismatch')
 
     def test_offline_only_parks_even_with_invalid_evidence(self):
         values = specimen()
@@ -322,7 +344,7 @@ class AdmissionTests(unittest.TestCase):
 
     def test_new_task_cannot_smuggle_transfer_evidence(self):
         values = specimen()
-        values[1]['transfer'] = dict(previous_owner='old',ref='record',stopped=True,confirmed=True)
+        values[1]['transfer'] = dict(previous_owner='old',ref='record',stopped=True,confirmed=True, replacement_owner=values[0]['identity']['owner'], replacement_acknowledged=True, acknowledged_request_sha256=fingerprint(values[0]))
         self.assertRejected(values, 'unexpected_lifecycle_evidence')
 
     def test_real_workstation_and_data_continuation_remain_blocked(self):
@@ -395,7 +417,7 @@ class AdmissionTests(unittest.TestCase):
     def test_transfer_rejects_matching_continuation_too(self):
         values = specimen()
         values[0]['lifecycle'] = dict(mode='transfer',previous_owner='old-owner',transfer_ref='fixture-transfer')
-        values[1]['transfer'] = dict(previous_owner='old-owner',ref='fixture-transfer',stopped=True,confirmed=True)
+        values[1]['transfer'] = dict(previous_owner='old-owner',ref='fixture-transfer',stopped=True,confirmed=True, replacement_owner=values[0]['identity']['owner'], replacement_acknowledged=True, acknowledged_request_sha256=fingerprint(values[0]))
         values[1]['continuation'] = continuation_proof(values[0]['identity'])
         values[2]['request_sha256'] = fingerprint(values[0])
         self.assertRejected(values, 'unexpected_lifecycle_evidence')
@@ -405,7 +427,7 @@ class AdmissionTests(unittest.TestCase):
         values[0]['lifecycle'] = dict(mode='transfer',previous_owner='old-owner',transfer_ref='fixture-transfer')
         values[1]['continuation'] = None
         values[2]['continuation_binding'] = None
-        values[1]['transfer'] = dict(previous_owner='old-owner',ref='fixture-transfer',stopped=True,confirmed=True)
+        values[1]['transfer'] = dict(previous_owner='old-owner',ref='fixture-transfer',stopped=True,confirmed=True, replacement_owner=values[0]['identity']['owner'], replacement_acknowledged=True, acknowledged_request_sha256=fingerprint(values[0]))
         values[2]['request_sha256'] = fingerprint(values[0])
         self.assertRejected(values, 'competing_writer')
 
