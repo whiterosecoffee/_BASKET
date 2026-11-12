@@ -1,0 +1,180 @@
+{
+  "classification": "actual_local_helper_tests_on_synthetic_inputs_not_operational",
+  "base_commit": "74d913e8913d630d85451344689e093aeea07efc",
+  "python": "3.12.14",
+  "runs": [
+    {
+      "attempt": "initial",
+      "suite": "recovery",
+      "tests": 19,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "cause": "New stale-head test mutated first PR, not report PR; corrected selection by number."
+    },
+    {
+      "attempt": "corrective_retry",
+      "retry_of": "initial",
+      "suite": "recovery",
+      "tests": 19,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "attempt": "existing_regression",
+      "suite": "worker_v2_contract",
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "input_sha256": "24cdda82d241f862b9809b5acf4b0d4c62810b7933ae97b8f8f54f4fc95ac871",
+  "observations": [
+    {
+      "id": "success",
+      "observed": {
+        "attempts": 1,
+        "failures": 0,
+        "pending": [],
+        "last_attempt": "ATT-synthetic-1",
+        "last_result": "attempt_passed",
+        "retry_required": false
+      },
+      "gap": null
+    },
+    {
+      "id": "interrupted_execution",
+      "observed": {
+        "attempts": 1,
+        "failures": 0,
+        "pending": [
+          "ATT-synthetic-1"
+        ],
+        "last_attempt": "ATT-synthetic-1",
+        "last_result": null,
+        "retry_required": false
+      },
+      "gap": "Helper records unresolved execution; it does not observe runner termination or external side effects."
+    },
+    {
+      "id": "uncertain_write_retry_blocked",
+      "observed": {
+        "error": "retry must name earlier failed attempt"
+      },
+      "gap": "Unresolved attempt blocks retry, but no external-target reconciliation proof is represented."
+    },
+    {
+      "id": "acknowledged_dispatch_not_completion",
+      "observed": {
+        "attempts": 1,
+        "failures": 0,
+        "pending": [
+          "ATT-synthetic-1"
+        ],
+        "last_attempt": "ATT-synthetic-1",
+        "last_result": null,
+        "retry_required": false
+      },
+      "gap": "attempt_started is a bounded proxy for acknowledgement; transport acknowledgement is not modeled here."
+    },
+    {
+      "id": "completed_cannot_restart_same_attempt",
+      "observed": {
+        "error": "attempt started twice"
+      },
+      "gap": null
+    },
+    {
+      "id": "completed_cannot_retry",
+      "observed": {
+        "error": "retry must name earlier failed attempt"
+      },
+      "gap": null
+    },
+    {
+      "id": "repeated_wake_duplicate_event",
+      "observed": {
+        "error": "duplicated journal ID"
+      },
+      "gap": "Duplicate IDs reject; different wake IDs have no general semantic deduplication key."
+    },
+    {
+      "id": "retry_ancestry_preserved",
+      "observed": {
+        "attempts": 2,
+        "failures": 1,
+        "pending": [],
+        "last_attempt": "ATT-synthetic-2",
+        "last_result": "attempt_passed",
+        "retry_required": false
+      },
+      "gap": null
+    },
+    {
+      "id": "retry_wrong_step",
+      "observed": {
+        "error": "retry cannot change step identity"
+      },
+      "gap": null
+    },
+    {
+      "id": "retry_missing_parent",
+      "observed": {
+        "error": "retry must name earlier failed attempt"
+      },
+      "gap": null
+    },
+    {
+      "id": "newer_user_steering",
+      "observed": {
+        "error": "unknown journal event"
+      },
+      "gap": "No steering revision or supersession event is supported; owner #32/#78 must bind current instructions before dispatch. Rejection is not implemented steering recovery."
+    },
+    {
+      "id": "uncertain_write_mislabeled_failure",
+      "observed": {
+        "attempts": 2,
+        "failures": 1,
+        "pending": [
+          "ATT-synthetic-2"
+        ],
+        "last_attempt": "ATT-synthetic-2",
+        "last_result": null,
+        "retry_required": false
+      },
+      "gap": "Concrete gap: an attempt_failed record with any nonempty result URL permits retry ancestry without verifying external-write reconciliation. Do not translate unknown outcome into failure."
+    },
+    {
+      "id": "stale_snapshot",
+      "observed": {
+        "error": "GitHub snapshot expired or future dated"
+      },
+      "gap": null
+    },
+    {
+      "id": "historical_snapshot",
+      "observed": {
+        "error": "historical fixture cannot authorize operations"
+      },
+      "gap": null
+    },
+    {
+      "id": "expired_lease",
+      "observed": {
+        "active": {},
+        "expired": [
+          "synthetic-recovery"
+        ],
+        "trusted": false
+      },
+      "gap": null
+    }
+  ],
+  "acceptance": "bounded_qualification_only_operational_recovery_not_accepted",
+  "independent_review": "not_run",
+  "hosted_focused_suite": "not_run",
+  "effort_seconds": null
+}
