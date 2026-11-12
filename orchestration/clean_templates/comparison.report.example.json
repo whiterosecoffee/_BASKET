@@ -1,0 +1,28 @@
+{
+  "schema": "basket.clean_seed_comparison@1",
+  "evidence_class": "offline_integrity_checked_declarations",
+  "execution_authorized": false,
+  "limitation": "Integrity-checked declarations only; readiness and caller metadata are not authenticated computation or execution authority.",
+  "candidates": [
+    {
+      "candidate_id": "basic-intake",
+      "request_sha256": "130a9822ce65149ecf4fd3d140bf56bef6cf2a30091ba0c2784fb6e76268a69c",
+      "declared_readiness": {
+        "errors": [],
+        "missing_capabilities": [],
+        "state": "ready_for_local_probe"
+      }
+    },
+    {
+      "candidate_id": "review-required",
+      "request_sha256": "6a2b0e641982e0ebd193b6ad89eb4f8c1d662346046f81f2b41438f5ebcbcbb6",
+      "declared_readiness": {
+        "errors": [],
+        "missing_capabilities": [
+          "capability:worker.review"
+        ],
+        "state": "blocked"
+      }
+    }
+  ]
+}
