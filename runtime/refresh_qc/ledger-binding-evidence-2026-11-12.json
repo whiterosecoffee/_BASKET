@@ -1,0 +1,34 @@
+{
+  "artifact_sha256": {
+    "apply_ledger": "5b6a1cd11ceb19a38ec0481fa0058ee559a9b12d5a1333a032f3529cff66465c",
+    "capture": "656a6bad72cff3e6483663a7b117b5e708de5e80c700a12448af753ad2b40131",
+    "done": "1f73ea29a716f2f93ba8ca5c11a9c5d8c324e80cb2455e747d61892975a951d2",
+    "fetch_plan.py": "972c5fc76b27a727b7b6c02d234c645863b4440f5ecb196547e2a29d85af5d26",
+    "fetch_run.py": "7176dc79bcc4c5d68482fb0cfb8e6294f440836eb5281b918bf1e425cb155005",
+    "output": "51ed6a7b5373d55169fbbbba980549881ce518f67582a772112e04183ba9dd3c",
+    "plan": "900ca5629701cb72783ae9805c0e0286db538ab572ba6c0d12b8f89462ffb9bb",
+    "request_ledger": "8f3fbd4292287e8698e7e69aa3a6f8540a7af6ebc2fc574bceaad3bc20e56a67",
+    "ticker_jsonl_tool.py": "fac51e2c43a05bfb556f547037984d5d5a856743a5cd86b823c4be31a978a8dc",
+    "verify_apply.py": "eeb5f325db1c3085e2e50ade5fb034b6f4cdf4360e0ef36dd736b344a482f8a9"
+  },
+  "binder_sha256": "9a4359704d4b12fb389ed06a693a041d665c0da97085475293401b84f9c8795f",
+  "canonical_eligible": false,
+  "current_output_matches_recorded_post_apply_hash": true,
+  "fractional_volume_rows": 5670,
+  "historical_capture_hash_bound": false,
+  "historical_executed_code_bound": false,
+  "historical_first_available_verified": false,
+  "limitations": [
+    "No provider authenticity or historical execution proof",
+    "No OHLC quality, calendar completeness, entitlement or canonical promotion assessment",
+    "Pins identify currently inspected bytes, not historical code",
+    "Ledger range/count correlation does not authenticate capture bytes"
+  ],
+  "observed_capture_rows": 5673,
+  "observed_session_count": 6,
+  "receipt_version": 1,
+  "request_logged_at": "2026-10-09T19:32:38+00:00",
+  "round": "raw_r3",
+  "status": "correlated_legacy_evidence",
+  "ticker": "NVDA"
+}
