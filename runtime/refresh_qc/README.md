@@ -33,3 +33,13 @@ A separate in-memory test of the extracted legacy sanitizer reproduced represent
 7. Keep _MAP availability meaning distinct from PR242's local materialization cutoff. Historical PIT requires original external revision availability; a conservative current observation only supports access after observation. Resolve through the existing contract owner, not a field rename.
 
 These are acceptance requirements, not an implemented writer or approval to activate one. Current safe next step is the existing-owner contract/seed qualification of this mapping and recovery of prior QC artifacts. Original NVDA modification, production FETCH changes, canonical activation, publishing, merging and scheduling are not performed by this increment.
+
+## Exact-volume pre-publication guard
+
+`volume_guard.verify_volume_preservation(source_jsonl, candidate_jsonl, source_unit="shares", candidate_unit="shares")` accepts JSONL bytes and compares volume by unique ticker/minute identity using Decimal before any float conversion. It does not sanitize or rewrite either side. Equivalent numeric strings, numbers and exponent forms compare exactly; any value change, duplicate identity, wrong grain, missing key, invalid volume or unit mismatch rejects. Reordering alone is allowed and both byte hashes remain distinct in the receipt.
+
+This is an additive #207 guard, not a replacement FETCH stage or proof that the existing sanitizer preserves volume. Current raw input must be retained before a candidate transform; never convert Decimal to float before applying this check. The caller's unit declarations are not independently verified. Trade counts, OHLC, complete-session validation and source authenticity are intentionally outside this function. Success always leaves canonical_eligible=false.
+
+Twelve synthetic guard tests cover high-precision decimals, equivalent encodings, repeat stability, rounding detection, invalid/negative/nonfinite values, resource bounds, duplicate keys/identities, mismatched identity/unit, wrong grain and reordered records. Together with ledger tests, 33 tests pass. These tests do not write original NVDA or invoke legacy FETCH.
+
+A future authorized generation adapter can call this guard before atomic publication and retain source/candidate pins with the immutable transform bundle. No such adapter or canonical store is activated here. The next implementation gate is a separately qualified immutable-generation/read contract, including expected-head, historical reader selection and crash/lock semantics already listed above.
