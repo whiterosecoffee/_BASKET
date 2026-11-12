@@ -1,0 +1,592 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "run_id",
+    "checked_at",
+    "subject_revision",
+    "sources",
+    "new_deltas",
+    "outcome_state",
+    "owner",
+    "evidence",
+    "test_evidence",
+    "acceptance_evidence",
+    "next_action",
+    "blocker",
+    "recheck_condition"
+  ],
+  "properties": {
+    "schema": {
+      "const": "run_receipt.qualification@1"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "checked_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "subject_revision": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "checked_at",
+          "revision",
+          "watermark"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "checked_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "revision": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "watermark": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "anyOf": [
+          {
+            "properties": {
+              "revision": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              }
+            }
+          },
+          {
+            "properties": {
+              "watermark": {
+                "type": "string",
+                "pattern": "\\S"
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 1
+    },
+    "new_deltas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "description"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "description": {
+            "type": "string",
+            "pattern": "\\S"
+          }
+        }
+      }
+    },
+    "outcome_state": {
+      "enum": [
+        "monitoring_only",
+        "ready",
+        "working",
+        "awaiting_evidence",
+        "awaiting_approval",
+        "blocked",
+        "tested",
+        "accepted"
+      ]
+    },
+    "owner": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "tier",
+          "execution",
+          "result",
+          "revision",
+          "artifact"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "kind": {
+            "enum": [
+              "test",
+              "acceptance",
+              "observation",
+              "dispatch",
+              "schedule"
+            ]
+          },
+          "tier": {
+            "enum": [
+              "local",
+              "published",
+              "CI-verified"
+            ]
+          },
+          "execution": {
+            "enum": [
+              "local",
+              "ci",
+              "manual_review",
+              "not_executed"
+            ]
+          },
+          "result": {
+            "enum": [
+              "pass",
+              "fail",
+              "skipped",
+              "not_run"
+            ]
+          },
+          "revision": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "artifact": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "command": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "tests_run": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "failures": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "errors": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "skipped": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "criterion": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "reviewer": {
+            "type": "string",
+            "pattern": "\\S"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "tier": {
+                  "enum": [
+                    "published",
+                    "CI-verified"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "revision": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{40}$"
+                },
+                "artifact": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "tier": {
+                  "const": "CI-verified"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "kind": {
+                  "const": "test"
+                },
+                "execution": {
+                  "const": "ci"
+                },
+                "result": {
+                  "const": "pass"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "dispatch",
+                    "schedule"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "execution": {
+                  "const": "not_executed"
+                },
+                "result": {
+                  "const": "not_run"
+                },
+                "tier": {
+                  "enum": [
+                    "local",
+                    "published"
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "test"
+                },
+                "result": {
+                  "const": "pass"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "command",
+                "tests_run",
+                "failures",
+                "errors",
+                "skipped"
+              ],
+              "properties": {
+                "revision": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{40}$"
+                },
+                "execution": {
+                  "enum": [
+                    "local",
+                    "ci"
+                  ]
+                },
+                "failures": {
+                  "const": 0
+                },
+                "errors": {
+                  "const": 0
+                },
+                "skipped": {
+                  "const": 0
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "acceptance"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "criterion",
+                "reviewer"
+              ],
+              "properties": {
+                "revision": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{40}$"
+                },
+                "execution": {
+                  "const": "manual_review"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "test_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "acceptance_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "\\S"
+      },
+      "uniqueItems": true
+    },
+    "next_action": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "blocker": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "reason",
+            "action",
+            "unblock_condition"
+          ],
+          "properties": {
+            "reason": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "action": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "unblock_condition": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "approval_authority": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "recheck_condition": {
+      "type": "string",
+      "pattern": "\\S"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Offline run-receipt qualification specimen (not a canonical runtime contract)",
+  "description": "Structural and cross-field qualification only; evidence assertions are not verified by validation.",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "outcome_state": {
+            "const": "monitoring_only"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "new_deltas": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome_state": {
+            "const": "tested"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "test_evidence": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome_state": {
+            "const": "accepted"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "acceptance_evidence": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome_state": {
+            "const": "blocked"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "blocker": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "reason",
+              "action",
+              "unblock_condition"
+            ],
+            "properties": {
+              "reason": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "action": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "unblock_condition": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "approval_authority": {
+                "type": "string",
+                "pattern": "\\S"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome_state": {
+            "const": "awaiting_approval"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "blocker": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "reason",
+              "action",
+              "unblock_condition",
+              "approval_authority"
+            ],
+            "properties": {
+              "reason": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "action": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "unblock_condition": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "approval_authority": {
+                "type": "string",
+                "pattern": "\\S"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "subject_revision": {
+            "type": "null"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "outcome_state": {
+            "const": "monitoring_only"
+          }
+        }
+      }
+    }
+  ]
+}
