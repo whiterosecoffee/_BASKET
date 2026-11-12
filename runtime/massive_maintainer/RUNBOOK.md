@@ -145,15 +145,16 @@ The resolver now validates the index schema/source, query identity/date/grain an
 adjustment, then reads the partition once and validates that checksum-verified byte
 snapshot. Every row must match the canonical schema and requested ticker/date;
 count, chronological uniqueness and first/last bounds must match the manifest.
-Integrity rejection raises ValueError before a current/historical qualification or
-freshness request. Additional tests cover checksum-valid row metadata corruption,
+The tested partition-integrity failures raise ValueError before a current/historical
+qualification or freshness request; malformed pointer roots have the error-type
+limitation recorded below. Additional tests cover checksum-valid row metadata corruption,
 manifest bounds, boolean row counts and query mismatch.
 
 After repair, `python -B -m unittest runtime.massive_maintainer.test_maintain -v`
 passed all 17 tests. The earlier four failures are intentional reproduction evidence,
 not hidden failed attempts. Tests use temporary synthetic data; no vendor requests
 or production-data writes occurred. This supersedes the 11-test checkpoint count.
-Independent review of the new revision remains required. Hash/semantic consistency
+Independent partition controls were subsequently retested as recorded below. Hash/semantic consistency
 is not cryptographic proof of provider provenance, complete coverage, consumer
 adoption or freshness. Returned paths still require consumers to pin/check revisions
 when reading later; this change does not provide a filesystem transaction spanning
@@ -167,6 +168,35 @@ fix. The resolver now requires a dictionary pointer with schema
 `basket.massive.minute@1` before accessing its root or index. Regression controls
 reject incompatible, omitted and malformed pointer schemas and retain a valid
 pointer success case. All 18 offline tests pass after repair; no production data
-or vendor requests were involved. Independent retesting of this follow-up remains
-pending. Pointer schema validation does not authenticate who supplied the pointer
+or vendor requests were involved. Independent retesting of this follow-up is recorded below. Pointer schema validation does not authenticate who supplied the pointer
 or establish dataset completeness or current freshness.
+
+
+### Independent artifact acceptance receipt
+
+The parent supplied an independent retest for code revision
+`6c24e70117996bfff4bc0917e1fb3e991f10d8c7`, matching maintain.py SHA-256
+`f27d9271366d73d021dc97a0f139680e58f5a618e8255cf2050e966da41292f8`.
+The owner reread the clean checkout and matched that source hash before recording
+this receipt. This is reported reviewer evidence, not a new owner-executed retest.
+The reviewer timestamp was not provided.
+
+Accepted bounded controls:
+- Valid NVDA partition resolves successfully.
+- Incompatible or missing pointer schema, and missing/list/string pointer, reject.
+- Wrong ticker, exchange date, index schema and row count remain rejected.
+- Missing or malformed pointer root also fails closed, but currently raises
+  KeyError/TypeError rather than a stable contract error. This remains unresolved;
+  do not promise a uniform ValueError interface for all invalid configurations.
+
+The reviewer reported no writes or network. Remote provenance, the complete test
+suite, current data qualification and consumer integration were outside this
+independent recheck. The prior owner-run 18-test suite is a separate evidence item.
+This receipt accepts only the listed artifact controls; it does not mark the
+workstream integrated, data fresh, migration approved, or refresh operational.
+No implementation changed while reconciling this receipt. No new test run is claimed.
+
+Next independent acceptance remains the actual NVDA consumer and qualified input
+contract once its existing data/discovery dependencies are met. Preserve the
+no-repull restriction and unresolved migration handoff; do not launch a second
+writer or infer permission to move data from this artifact review.
