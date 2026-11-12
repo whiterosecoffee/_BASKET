@@ -1,0 +1,162 @@
+{
+  "decision_id": "B00-249-schema-standards",
+  "status": "proposed_not_adopted",
+  "base_commit": "74d913e8913d630d85451344689e093aeea07efc",
+  "gap": "Prevent silent dialect feature loss when reusing externally authored schemas; make missing dialect admission explicit.",
+  "inventory_scope": "Direct schemas/*.json on pinned main only",
+  "inventory": [
+    {
+      "path": "schemas/architecture.schema.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/architecture.schema.json",
+      "sha256": "cc919f349e981dcb3da2a78af9b4434a204ccf0a2a594af672c59480b43dc07b",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": null
+    },
+    {
+      "path": "schemas/component-blackbox.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/component-blackbox.v1.json",
+      "sha256": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": "https://github.com/whiterosecoffee/_BASKET/blob/main/schemas/component-blackbox.v1.json"
+    },
+    {
+      "path": "schemas/entity.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/entity.v1.json",
+      "sha256": "d6d081d7d75a8dbf5333d02663ab7eb432eaa259a7eeadc777b0a7c0394e232b",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": null
+    },
+    {
+      "path": "schemas/events.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/events.v1.json",
+      "sha256": "e806567094afd42753381da973a86301c60f60fb7f9e229b5ba5604b2f93792b",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": null
+    },
+    {
+      "path": "schemas/freshness.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/freshness.v1.json",
+      "sha256": "2790109582aede988f5c57384b9684d973e417de66a99d1f160d1639409b7214",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": null
+    },
+    {
+      "path": "schemas/progress-report.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/progress-report.v1.json",
+      "sha256": "e424818a23c4c8dfbd83ad5c50759324c79e6ed63f63f5ed43f4317878e6cb58",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": null
+    },
+    {
+      "path": "schemas/project-goals.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/project-goals.v1.json",
+      "sha256": "7c7fbbeb8915c620e0a5063bf3c2ebfeb5f4d8fee9b05373d6d98908c39d6c34",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": null
+    },
+    {
+      "path": "schemas/relationships.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/relationships.v1.json",
+      "sha256": "69134e939b162f54c905015002172f94cfb81ff2dc2e92daa1ed305077ac588a",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": null
+    },
+    {
+      "path": "schemas/task-queue.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/task-queue.v1.json",
+      "sha256": "5f3372ede191abc257a061fd86a6a4e78dc8f25b10620d9ac66f910c37ef65e0",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": null
+    },
+    {
+      "path": "schemas/ticker-data.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/ticker-data.v1.json",
+      "sha256": "23ba9cd97cf418cd65e5c173836b818fc505c6d0103d394b5325b2e69efaf639",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": null
+    },
+    {
+      "path": "schemas/worker-attempts.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-attempts.v1.json",
+      "sha256": "416444f313c7228524e04e53b93d4dcdf5dee980068a0296f610845795c228f6",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": null
+    },
+    {
+      "path": "schemas/worker-evidence.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-evidence.v1.json",
+      "sha256": "c7333111c28b1c2271e481ccd60a0d4397305931fc8a7d00b363cd7260949efb",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": "https://github.com/whiterosecoffee/_BASKET/blob/main/schemas/worker-evidence.v1.json"
+    },
+    {
+      "path": "schemas/worker-library.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-library.v1.json",
+      "sha256": "d3d5bec4e49afb680b490a14a43d753d12ca9bc6e3b809e0b958bf1fcf33ba16",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": null
+    },
+    {
+      "path": "schemas/worker-resolution.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-resolution.v1.json",
+      "sha256": "a28307ac6abd3151d6a689aaa0ec6ccb78da902f361f357fd118418ec2325445",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": "https://github.com/whiterosecoffee/_BASKET/blob/main/schemas/worker-resolution.v1.json"
+    },
+    {
+      "path": "schemas/worker-task.v1.json",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/schemas/worker-task.v1.json",
+      "sha256": "fd89076d70986d5cb078b45d6de34c332433916249ba3254cfbaa7394a9b7429",
+      "dialect": "https://json-schema.org/draft/2020-12/schema",
+      "id": "https://github.com/whiterosecoffee/_BASKET/blob/main/schemas/worker-task.v1.json"
+    }
+  ],
+  "options": [
+    {
+      "family": "JSON Schema Draft 2020-12",
+      "disposition": "adopt_existing_adapt_admission",
+      "rationale": "All 15 canonical definitions use it; existing helper and installed validators execute required cases. Require explicit dialect for new artifacts, subject to owner decision."
+    },
+    {
+      "family": "JSON Schema Draft 7",
+      "disposition": "reject_automatic_substitution",
+      "rationale": "Paired cases accept data that 2020-12 rejects; any migration needs explicit transformed schema and equivalent-behavior evidence."
+    }
+  ],
+  "conventions": {
+    "schema_identity": "$id is an identifier, not an immutable artifact pin",
+    "artifact_identity": "Keep approved supplied bytes and schema_sha256; do not fetch blob/main IDs",
+    "version_axes": [
+      "JSON Schema dialect",
+      "schema major (.vN.json / basket.*@N)",
+      "component contract_version",
+      "repository commit"
+    ],
+    "references": "Existing helper allows fragment-only $ref and $dynamicRef; empty Registry, no retrieval"
+  },
+  "unsupported_or_unqualified": [
+    "External resource resolution rejected by profile",
+    "Explicit non-2020-12 dialects rejected by profile",
+    "Missing declaration accepted implicitly: proposal only to strengthen admission",
+    "Cross-resource dynamic scope unqualified",
+    "Custom required vocabularies and unknown-keyword admission unqualified",
+    "Cross-dialect embedded resources unqualified",
+    "Other implementation parity and full official Test Suite unqualified"
+  ],
+  "primary_sources": [
+    "https://json-schema.org/draft/2020-12/json-schema-core",
+    "https://json-schema.org/draft/2020-12/release-notes",
+    "https://json-schema.org/draft-07/draft-handrews-json-schema-01",
+    "https://python-jsonschema.readthedocs.io/en/v4.23.0/referencing/",
+    "https://python-jsonschema.readthedocs.io/en/stable/validate/"
+  ],
+  "owner_dependencies": [
+    103,
+    156,
+    224,
+    230,
+    105,
+    136
+  ],
+  "next_action": "Existing #103/#156 owners review explicit-dialect admission; #105 independently reruns pinned corpus before adoption."
+}
