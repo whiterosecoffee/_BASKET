@@ -1,0 +1,3822 @@
+{
+  "format": "port-qualification-corpus-v1",
+  "data_class": "synthetic",
+  "serialization": "Artifact strings are exact UTF-8 bytes; fingerprint uses sorted compact JSON of original input bindings. Negative cases retain independently supplied fingerprint.",
+  "cases": [
+    {
+      "id": "valid_exchange",
+      "contract_mapping": "qualified_refs_v1 and check_exchange",
+      "expected": "accept",
+      "error_type": null,
+      "error_contains": null,
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "missing_required_input",
+      "contract_mapping": "_bindings required set",
+      "expected": "reject",
+      "error_type": "ConformanceError",
+      "error_contains": "Missing required or undeclared port",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "wrong_named_input",
+      "contract_mapping": "_bindings declared set",
+      "expected": "reject",
+      "error_type": "ConformanceError",
+      "error_contains": "Missing required or undeclared port",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "wrong_name": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "incompatible_schema_identity_input",
+      "contract_mapping": "_bindings schema_ref equality; identical bytes do not authorize an alias",
+      "expected": "reject",
+      "error_type": "ConformanceError",
+      "error_contains": "Port schema pin mismatch",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://different-identity.schema.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}",
+          "fixture://different-identity.schema.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "incompatible_schema_version_input",
+      "contract_mapping": "_bindings schema_sha256 exact equality; no semantic schema-version negotiation",
+      "expected": "reject",
+      "error_type": "ConformanceError",
+      "error_contains": "Port schema pin mismatch",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "f119af7c94baa69f53cb543f56e2e76465387072b8fdcd677cd9e29388faf129",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v2\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "unexpected_payload_input",
+      "contract_mapping": "_validate resolved schema additionalProperties=false, payload rehashed",
+      "expected": "reject",
+      "error_type": "ValidationError",
+      "error_contains": "Additional properties are not allowed",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "e931ede3f37a6fe82286d6ec68b063218498250f0b7899803c81503a960fbdbf"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"unexpected\":true,\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "stale_pinned_source_input",
+      "contract_mapping": "_bytes source artifact exact hash; not temporal freshness",
+      "expected": "reject",
+      "error_type": "ConformanceError",
+      "error_contains": "Reference bytes/hash mismatch",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":2,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "missing_required_output",
+      "contract_mapping": "_bindings required set",
+      "expected": "reject",
+      "error_type": "ConformanceError",
+      "error_contains": "Missing required or undeclared port",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "wrong_named_output",
+      "contract_mapping": "_bindings declared set",
+      "expected": "reject",
+      "error_type": "ConformanceError",
+      "error_contains": "Missing required or undeclared port",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "wrong_name": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "incompatible_schema_identity_output",
+      "contract_mapping": "_bindings schema_ref equality; identical bytes do not authorize an alias",
+      "expected": "reject",
+      "error_type": "ConformanceError",
+      "error_contains": "Port schema pin mismatch",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://different-identity.schema.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}",
+          "fixture://different-identity.schema.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "incompatible_schema_version_output",
+      "contract_mapping": "_bindings schema_sha256 exact equality; no semantic schema-version negotiation",
+      "expected": "reject",
+      "error_type": "ConformanceError",
+      "error_contains": "Port schema pin mismatch",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "65b55c983baf47bc451c4a5276680f5fdb863e9186a59be92a86c2ff1aa341aa",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v2\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "unexpected_payload_output",
+      "contract_mapping": "_validate resolved schema additionalProperties=false, payload rehashed",
+      "expected": "reject",
+      "error_type": "ValidationError",
+      "error_contains": "Additional properties are not allowed",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "e931ede3f37a6fe82286d6ec68b063218498250f0b7899803c81503a960fbdbf"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"unexpected\":true,\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "stale_pinned_source_output",
+      "contract_mapping": "_bytes source artifact exact hash; not temporal freshness",
+      "expected": "reject",
+      "error_type": "ConformanceError",
+      "error_contains": "Reference bytes/hash mismatch",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":2,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "component_version_mismatch",
+      "contract_mapping": "check_exchange manifest version equality",
+      "expected": "reject",
+      "error_type": "ConformanceError",
+      "error_contains": "Component identity/version mismatch",
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "2.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    },
+    {
+      "id": "declared_dependency_without_resolution",
+      "contract_mapping": "BLACK_BOX_COMPONENT_CONTRACT.md semantic gates 1/4; helper has no dependency inventory/version resolver, so accepts unresolved declaration",
+      "expected": "unsupported_rejection",
+      "error_type": "ConformanceError",
+      "error_contains": null,
+      "exchange": {
+        "manifest": {
+          "schema": "basket.component_contract@1",
+          "component_id": "synthetic.port_exchange",
+          "owner_spark": "B00",
+          "version": "1.0.0",
+          "determinism": "pure",
+          "boundary_profile": "qualified_refs_v1",
+          "assumptions": [
+            "Synthetic serialization only; no component execution"
+          ],
+          "guarantees": [
+            "No domain acceptance"
+          ],
+          "effects": [],
+          "inputs": [
+            {
+              "name": "request",
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "context",
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "answer",
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            },
+            {
+              "name": "receipt",
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "required": true,
+              "freshness_policy": "immutable",
+              "source_class": "scenario"
+            }
+          ],
+          "errors": [
+            {
+              "code": "invalid_input",
+              "retryable": false
+            }
+          ],
+          "dependencies": [
+            {
+              "component_id": "synthetic.unavailable",
+              "version_range": ">=2.0.0"
+            }
+          ],
+          "acceptance": {
+            "test_command": "python -m unittest discover -s orchestration/qualification/port_compatibility -p test_ports.py -v",
+            "minimum_tests": 1,
+            "fixtures": [
+              "corpus.json"
+            ],
+            "ci_owner": "B01"
+          }
+        },
+        "call": {
+          "contract": "basket.component_call@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "inputs": {
+            "request": {
+              "schema_ref": "fixture://request.schema.v1.json",
+              "schema_sha256": "704c3f6da4f71b5d2704c1f717eaf339a1c096a5b39190fe27c38bbe106ea35c",
+              "artifact": {
+                "ref": "fixture://request.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "request",
+                  "artifact": {
+                    "ref": "fixture://request.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "context": {
+              "schema_ref": "fixture://context.schema.v1.json",
+              "schema_sha256": "daa08c38c459a4ccc2b94a86129e3d2e9d5837a32176b45388698df082eda233",
+              "artifact": {
+                "ref": "fixture://context.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "context",
+                  "artifact": {
+                    "ref": "fixture://context.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "method": {
+            "ref": "fixture://method.json",
+            "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+          },
+          "options": {
+            "offline": true,
+            "seed": null
+          }
+        },
+        "result": {
+          "contract": "basket.component_result@1",
+          "component_id": "synthetic.port_exchange",
+          "contract_version": "1.0.0",
+          "run_id": "synthetic-001",
+          "as_of": "2026-11-12T00:00:00Z",
+          "status": "ok",
+          "outputs": {
+            "answer": {
+              "schema_ref": "fixture://answer.schema.v1.json",
+              "schema_sha256": "948577d3392333c0d13b035ebab32164762a91a7c98d533400e3d09b3d4b28f1",
+              "artifact": {
+                "ref": "fixture://answer.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "answer",
+                  "artifact": {
+                    "ref": "fixture://answer.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            },
+            "receipt": {
+              "schema_ref": "fixture://receipt.schema.v1.json",
+              "schema_sha256": "34d43c6c454d46e41575bed701b668eaa73773329d15e0f97dba0ed8ba38d3e0",
+              "artifact": {
+                "ref": "fixture://receipt.json",
+                "sha256": "9d709bba0358da8fdf5600bb3692fa32d0aa2a19a08152cf4307e0b4240e71ac"
+              },
+              "sources": [
+                {
+                  "source_id": "receipt",
+                  "artifact": {
+                    "ref": "fixture://receipt.source.json",
+                    "sha256": "20ffc91b79534418c2a2d9e1fc64767b3381df83a187497d892a50cb4a4f4b63"
+                  },
+                  "record_type": "other",
+                  "subject_id": "synthetic-port-fixture",
+                  "observed_at": null,
+                  "available_at": null,
+                  "ingested_at": null,
+                  "effective_at": null,
+                  "published_at": null,
+                  "period": null,
+                  "session": "not_applicable",
+                  "unit": "synthetic_count",
+                  "currency": null,
+                  "freshness": "not_applicable",
+                  "entitlement": "not_required",
+                  "supersedes": null
+                }
+              ]
+            }
+          },
+          "provenance": {
+            "input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905",
+            "method": {
+              "ref": "fixture://method.json",
+              "sha256": "c029e82eb9e61c3afe31aa128627a3deeed5b746f663b5301fae98890faf177b"
+            },
+            "code_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "generated_at": "2026-11-12T00:00:00Z"
+          },
+          "quality": {
+            "freshness": "not_applicable",
+            "missing_inputs": [],
+            "conflicts": [],
+            "warnings": []
+          },
+          "error": null
+        },
+        "artifacts_utf8": {
+          "fixture://request.schema.v1.json": "{\"$id\":\"urn:synthetic:request:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://request.json": "{\"value\":7}",
+          "fixture://request.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://context.schema.v1.json": "{\"$id\":\"urn:synthetic:context:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://context.json": "{\"value\":7}",
+          "fixture://context.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://answer.schema.v1.json": "{\"$id\":\"urn:synthetic:answer:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://answer.json": "{\"value\":7}",
+          "fixture://answer.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://receipt.schema.v1.json": "{\"$id\":\"urn:synthetic:receipt:v1\",\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"additionalProperties\":false,\"properties\":{\"value\":{\"type\":\"integer\"}},\"required\":[\"value\"],\"type\":\"object\"}",
+          "fixture://receipt.json": "{\"value\":7}",
+          "fixture://receipt.source.json": "{\"revision\":1,\"synthetic\":true}",
+          "fixture://method.json": "{\"executes\":false,\"kind\":\"synthetic-fixture-only\"}"
+        },
+        "expected_input_sha256": "7c77ee493bea7640ea4b7efaec7300787c5bc7043d4e3ee8c18bbfec38236905"
+      }
+    }
+  ]
+}
