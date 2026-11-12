@@ -1,0 +1,430 @@
+{
+  "purpose": "Synthetic dialect qualification, not a canonical payload contract",
+  "base_commit": "74d913e8913d630d85451344689e093aeea07efc",
+  "dialects": {
+    "2020-12": "https://json-schema.org/draft/2020-12/schema",
+    "draft7": "http://json-schema.org/draft-07/schema#"
+  },
+  "source_sha256": {
+    "orchestration/component_conformance.py": "f59c44061a6f45c0f659a09b0941dc499a737ea2bef856635321db283677022e",
+    "schemas/component-blackbox.v1.json": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc",
+    "architecture/VERSIONING.md": "7560b63fc10fdceafcad4517e7832965f9a4cc64adf793bb004429e301fc561f"
+  },
+  "cases": [
+    {
+      "id": "local_ref_positive",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$defs": {
+          "n": {
+            "type": "integer"
+          }
+        },
+        "type": "object",
+        "properties": {
+          "n": {
+            "$ref": "#/$defs/n"
+          }
+        },
+        "required": [
+          "n"
+        ],
+        "additionalProperties": false
+      },
+      "instance": {
+        "n": 2
+      },
+      "expected": "valid",
+      "note": ""
+    },
+    {
+      "id": "string_no_coercion",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$defs": {
+          "n": {
+            "type": "integer"
+          }
+        },
+        "type": "object",
+        "properties": {
+          "n": {
+            "$ref": "#/$defs/n"
+          }
+        },
+        "required": [
+          "n"
+        ],
+        "additionalProperties": false
+      },
+      "instance": {
+        "n": "2"
+      },
+      "expected": "instance_rejected",
+      "note": ""
+    },
+    {
+      "id": "boolean_not_integer",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$defs": {
+          "n": {
+            "type": "integer"
+          }
+        },
+        "type": "object",
+        "properties": {
+          "n": {
+            "$ref": "#/$defs/n"
+          }
+        },
+        "required": [
+          "n"
+        ],
+        "additionalProperties": false
+      },
+      "instance": {
+        "n": true
+      },
+      "expected": "instance_rejected",
+      "note": ""
+    },
+    {
+      "id": "extra_property",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$defs": {
+          "n": {
+            "type": "integer"
+          }
+        },
+        "type": "object",
+        "properties": {
+          "n": {
+            "$ref": "#/$defs/n"
+          }
+        },
+        "required": [
+          "n"
+        ],
+        "additionalProperties": false
+      },
+      "instance": {
+        "n": 2,
+        "extra": 1
+      },
+      "expected": "instance_rejected",
+      "note": ""
+    },
+    {
+      "id": "missing_required",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$defs": {
+          "n": {
+            "type": "integer"
+          }
+        },
+        "type": "object",
+        "properties": {
+          "n": {
+            "$ref": "#/$defs/n"
+          }
+        },
+        "required": [
+          "n"
+        ],
+        "additionalProperties": false
+      },
+      "instance": {},
+      "expected": "instance_rejected",
+      "note": ""
+    },
+    {
+      "id": "missing_local_target",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$ref": "#/$defs/absent"
+      },
+      "instance": 1,
+      "expected": "unresolved_reference",
+      "note": ""
+    },
+    {
+      "id": "external_ref_profile",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$ref": "https://example.invalid/x"
+      },
+      "instance": 1,
+      "expected": "profile_rejected",
+      "note": ""
+    },
+    {
+      "id": "external_ref_empty_registry",
+      "mode": "draft2020",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$ref": "https://example.invalid/x"
+      },
+      "instance": 1,
+      "expected": "unresolved_reference",
+      "note": ""
+    },
+    {
+      "id": "explicit_draft7_profile",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "integer"
+      },
+      "instance": 1,
+      "expected": "profile_rejected",
+      "note": ""
+    },
+    {
+      "id": "unknown_dialect_profile",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://example.invalid/dialect",
+        "type": "integer"
+      },
+      "instance": 1,
+      "expected": "profile_rejected",
+      "note": ""
+    },
+    {
+      "id": "missing_dialect_observed_gap",
+      "mode": "existing_profile",
+      "schema": {
+        "type": "integer"
+      },
+      "instance": 1,
+      "expected": "valid",
+      "note": "Existing helper implicitly assumes 2020-12; recommendation is explicit declaration for new artifacts, not a claimed existing gate."
+    },
+    {
+      "id": "format_default_annotation",
+      "mode": "draft2020",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "string",
+        "format": "date-time"
+      },
+      "instance": "not-a-date",
+      "expected": "valid",
+      "note": ""
+    },
+    {
+      "id": "format_existing_assertion",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "string",
+        "format": "date-time"
+      },
+      "instance": "not-a-date",
+      "expected": "instance_rejected",
+      "note": ""
+    },
+    {
+      "id": "ref_sibling_draft7",
+      "mode": "draft7",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "definitions": {
+          "n": {
+            "type": "integer"
+          }
+        },
+        "$ref": "#/definitions/n",
+        "minimum": 10
+      },
+      "instance": 3,
+      "expected": "valid",
+      "note": "Draft 7 ignores siblings of $ref; 2020-12 applies minimum."
+    },
+    {
+      "id": "ref_sibling_draft2020",
+      "mode": "draft2020",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$defs": {
+          "n": {
+            "type": "integer"
+          }
+        },
+        "$ref": "#/$defs/n",
+        "minimum": 10
+      },
+      "instance": 3,
+      "expected": "instance_rejected",
+      "note": "Draft 7 ignores siblings of $ref; 2020-12 applies minimum."
+    },
+    {
+      "id": "unevaluated_draft7",
+      "mode": "draft7",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "allOf": [
+          {
+            "properties": {
+              "n": {
+                "type": "integer"
+              }
+            }
+          }
+        ],
+        "unevaluatedProperties": false
+      },
+      "instance": {
+        "n": 1,
+        "extra": 1
+      },
+      "expected": "valid",
+      "note": "Unknown keyword is not rejected by Draft 7 metaschema; same instance exposes semantic loss."
+    },
+    {
+      "id": "unevaluated_draft2020",
+      "mode": "draft2020",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "allOf": [
+          {
+            "properties": {
+              "n": {
+                "type": "integer"
+              }
+            }
+          }
+        ],
+        "unevaluatedProperties": false
+      },
+      "instance": {
+        "n": 1,
+        "extra": 1
+      },
+      "expected": "instance_rejected",
+      "note": "Unknown keyword is not rejected by Draft 7 metaschema; same instance exposes semantic loss."
+    },
+    {
+      "id": "tuple_positive",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "integer"
+          }
+        ],
+        "items": false
+      },
+      "instance": [
+        1
+      ],
+      "expected": "valid",
+      "note": ""
+    },
+    {
+      "id": "tuple_extra",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "integer"
+          }
+        ],
+        "items": false
+      },
+      "instance": [
+        1,
+        2
+      ],
+      "expected": "instance_rejected",
+      "note": ""
+    },
+    {
+      "id": "old_tuple_syntax",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "array",
+        "items": [
+          {
+            "type": "integer"
+          }
+        ]
+      },
+      "instance": [
+        1
+      ],
+      "expected": "schema_rejected",
+      "note": ""
+    },
+    {
+      "id": "dynamic_local_positive",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$dynamicAnchor": "node",
+        "type": "object",
+        "properties": {
+          "child": {
+            "$dynamicRef": "#node"
+          }
+        },
+        "additionalProperties": false
+      },
+      "instance": {
+        "child": {}
+      },
+      "expected": "valid",
+      "note": ""
+    },
+    {
+      "id": "dynamic_local_negative",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$dynamicAnchor": "node",
+        "type": "object",
+        "properties": {
+          "child": {
+            "$dynamicRef": "#node"
+          }
+        },
+        "additionalProperties": false
+      },
+      "instance": {
+        "child": {
+          "extra": 1
+        }
+      },
+      "expected": "instance_rejected",
+      "note": ""
+    },
+    {
+      "id": "dynamic_external_profile",
+      "mode": "existing_profile",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$dynamicRef": "https://example.invalid/node#node"
+      },
+      "instance": {},
+      "expected": "profile_rejected",
+      "note": ""
+    }
+  ]
+}
