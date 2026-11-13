@@ -160,3 +160,6 @@ Tests cover both boolean strings, numbers, null, containers and other Python API
 inputs; real True/False behavior remains covered. Persistence rejects invalid
 boolean observations before invoking the update callback and preserves file bytes.
 All earlier acceptance/dependency retention, receipt and wake protections remain.
+
+The next bounded increment is the [synthetic observation/receipt adapter](SYNTHETIC_ADAPTER.md).
+It reuses this evaluator and its hashes without claiming real source authenticity.
