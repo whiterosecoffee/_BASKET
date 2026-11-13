@@ -1,0 +1,487 @@
+{
+  "evaluation_time": "2030-01-01T00:00:00Z",
+  "examples": {
+    "low-risk-historical": {
+      "synthetic": true,
+      "temporal": {
+        "synthetic": true,
+        "request": {
+          "request_id": "temporal-history-1",
+          "idempotency_key": "temporal-history-1",
+          "input_revision": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269",
+          "source_revision": "47bd018671f8f56165d0815570595707b85b03d0",
+          "purpose": "historical_as_of",
+          "session": "regular",
+          "adjustment_basis": "unadjusted",
+          "current": null,
+          "historical": {
+            "start": "2020-01-02T15:00:00Z",
+            "end": "2020-01-02T16:00:00Z",
+            "as_of": "2020-01-04T00:00:00Z",
+            "pinned_generation": "history-g1",
+            "revision_policy": "as_of_visible"
+          }
+        },
+        "generation": {
+          "content": {
+            "generation_id": "history-g1",
+            "revision_id": "revision-1",
+            "available_at": "2020-01-03T00:00:00Z",
+            "session": "regular",
+            "adjustment_basis": "unadjusted",
+            "event_watermark": "2020-01-02T15:59:00Z",
+            "provenance": {
+              "ref": "fixture://source-revision-1",
+              "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+            },
+            "coverage": [
+              {
+                "start": "2020-01-02T15:00:00Z",
+                "end": "2020-01-02T16:00:00Z",
+                "status": "observed",
+                "evidence": {
+                  "ref": "fixture://coverage-1",
+                  "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+                }
+              }
+            ]
+          },
+          "artifact": {
+            "ref": "fixture://generation",
+            "sha256": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269"
+          }
+        },
+        "observation": {
+          "retrieved_at": "2029-12-31T00:00:00Z",
+          "source_observed_at": "2029-12-31T00:00:00Z",
+          "last_successful_generation": "history-g1"
+        },
+        "cache_policy": {
+          "stored_at": "2029-12-31T00:00:00Z",
+          "max_age_seconds": 3600
+        },
+        "entitlement": {
+          "granted": true,
+          "evidence": {
+            "ref": "fixture://entitlement",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "allowed_purposes": [
+            "historical_as_of",
+            "current"
+          ]
+        },
+        "corrections": [],
+        "refresh_attempts_used": 0,
+        "acceptance": {
+          "request_sha256": "e45c12cc5dc4de283c9e3057a125409d26dd0a0b1beb1743259164fd7410998e",
+          "generation_sha256": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269",
+          "revision_view_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      },
+      "policy": {
+        "intended_consumer": "synthetic-ticker-consumer",
+        "intended_use": "illustrative quality review",
+        "risk": "low",
+        "failure_consequence": "incorrect analytical conclusion",
+        "requires_private": true,
+        "required_domain_checks": [
+          "semantic_validity"
+        ]
+      },
+      "dispatch": "sent",
+      "producer_result": "pass",
+      "placement": {
+        "destination_visibility": "private",
+        "requires_private": true,
+        "artifact_present": true
+      },
+      "claims": [
+        {
+          "id": "claim-user",
+          "text": "User asserts the local folder contains complete current data.",
+          "origin": "user_assertion",
+          "status": "asserted",
+          "evidence": {
+            "ref": "fixture://user-assertion",
+            "sha256": "09009f06d92da324a5ba7aef3698ce3363dc75825dc2addbaa475a24a479c0b9"
+          }
+        },
+        {
+          "id": "claim-producer",
+          "text": "Producer reports artifact bytes persisted.",
+          "origin": "producer_observation",
+          "status": "observed",
+          "evidence": {
+            "ref": "fixture://producer-observation",
+            "sha256": "12096731f3f4e6c692bb4acd1e5b969d6ecc827b6120c98649c489265f9ee59e"
+          }
+        },
+        {
+          "id": "claim-review",
+          "text": "Synthetic independent evidence record; identity not authenticated here.",
+          "origin": "independently_verified_evidence",
+          "status": "verified",
+          "evidence": {
+            "ref": "fixture://independent-claim",
+            "sha256": "326c22619187c54532a7d44869550c81cc6ef76c0e16d5f0445f453a53297291"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "id": "integrity",
+          "result": "pass",
+          "origin": "producer_observation",
+          "evidence": {
+            "ref": "fixture://check-integrity",
+            "sha256": "cfda90c1c83f833ef8d43ee340434945034c4c3805e4dfb08dea3d157439e68f"
+          },
+          "request_sha256": "e45c12cc5dc4de283c9e3057a125409d26dd0a0b1beb1743259164fd7410998e",
+          "artifact_sha256": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269",
+          "policy_sha256": "61475702c6c46400f6b62b48171dfc13e93cf6c96d4c7e3ec88db38881b75951"
+        },
+        {
+          "id": "privacy",
+          "result": "pass",
+          "origin": "producer_observation",
+          "evidence": {
+            "ref": "fixture://check-privacy",
+            "sha256": "3496dcf9b5f3bda0ef805bc174c2f71bd90880a6ea584192323c044244e31b87"
+          },
+          "request_sha256": "e45c12cc5dc4de283c9e3057a125409d26dd0a0b1beb1743259164fd7410998e",
+          "artifact_sha256": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269",
+          "policy_sha256": "61475702c6c46400f6b62b48171dfc13e93cf6c96d4c7e3ec88db38881b75951"
+        },
+        {
+          "id": "provenance",
+          "result": "pass",
+          "origin": "producer_observation",
+          "evidence": {
+            "ref": "fixture://check-provenance",
+            "sha256": "c71276cd56fa84dd12d1b901cf4b2bb9f930e85eea2c3135f153dfc1a7525c56"
+          },
+          "request_sha256": "e45c12cc5dc4de283c9e3057a125409d26dd0a0b1beb1743259164fd7410998e",
+          "artifact_sha256": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269",
+          "policy_sha256": "61475702c6c46400f6b62b48171dfc13e93cf6c96d4c7e3ec88db38881b75951"
+        },
+        {
+          "id": "semantic_validity",
+          "result": "pass",
+          "origin": "producer_observation",
+          "evidence": {
+            "ref": "fixture://check-semantic_validity",
+            "sha256": "43157055bcdf25f61a64d9dfe6996ae2e035a5ef07d1a6da0dc59cf5115056ca"
+          },
+          "request_sha256": "e45c12cc5dc4de283c9e3057a125409d26dd0a0b1beb1743259164fd7410998e",
+          "artifact_sha256": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269",
+          "policy_sha256": "61475702c6c46400f6b62b48171dfc13e93cf6c96d4c7e3ec88db38881b75951"
+        }
+      ],
+      "receiver": {
+        "request_sha256": "e45c12cc5dc4de283c9e3057a125409d26dd0a0b1beb1743259164fd7410998e",
+        "artifact_sha256": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269",
+        "policy_sha256": "61475702c6c46400f6b62b48171dfc13e93cf6c96d4c7e3ec88db38881b75951",
+        "consumer": "synthetic-ticker-consumer",
+        "purpose": "historical_as_of",
+        "evidence": {
+          "ref": "fixture://receiver-readback",
+          "sha256": "71038355caf3fa5bb6743ddeb492d967efdf7ca809d67f42a5fd1a7d22c25fd7"
+        },
+        "readback_result": "pass",
+        "readback_content": {
+          "generation_id": "history-g1",
+          "revision_id": "revision-1",
+          "available_at": "2020-01-03T00:00:00Z",
+          "session": "regular",
+          "adjustment_basis": "unadjusted",
+          "event_watermark": "2020-01-02T15:59:00Z",
+          "provenance": {
+            "ref": "fixture://source-revision-1",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "coverage": [
+            {
+              "start": "2020-01-02T15:00:00Z",
+              "end": "2020-01-02T16:00:00Z",
+              "status": "observed",
+              "evidence": {
+                "ref": "fixture://coverage-1",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            }
+          ]
+        },
+        "acceptance": "accepted"
+      }
+    },
+    "high-risk-current": {
+      "synthetic": true,
+      "temporal": {
+        "synthetic": true,
+        "request": {
+          "request_id": "temporal-history-1",
+          "idempotency_key": "temporal-history-1",
+          "input_revision": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+          "source_revision": "47bd018671f8f56165d0815570595707b85b03d0",
+          "purpose": "current",
+          "session": "regular",
+          "adjustment_basis": "unadjusted",
+          "current": {
+            "max_watermark_age_seconds": 120,
+            "max_observation_age_seconds": 120,
+            "refresh": {
+              "owner": "_FETCH",
+              "max_attempts": 1,
+              "deadline": "2030-01-01T00:10:00Z"
+            }
+          },
+          "historical": null
+        },
+        "generation": {
+          "content": {
+            "generation_id": "current-g1",
+            "revision_id": "latest-1",
+            "available_at": "2030-01-01T00:00:00Z",
+            "session": "regular",
+            "adjustment_basis": "unadjusted",
+            "event_watermark": "2029-12-31T23:59:00Z",
+            "provenance": {
+              "ref": "fixture://source-revision-1",
+              "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+            },
+            "coverage": [
+              {
+                "start": "2029-12-31T23:59:00Z",
+                "end": "2030-01-01T00:00:00Z",
+                "status": "observed",
+                "evidence": {
+                  "ref": "fixture://latest-coverage",
+                  "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+                }
+              }
+            ]
+          },
+          "artifact": {
+            "ref": "fixture://generation",
+            "sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474"
+          }
+        },
+        "observation": {
+          "retrieved_at": "2030-01-01T00:00:00Z",
+          "source_observed_at": "2030-01-01T00:00:00Z",
+          "last_successful_generation": "current-g1"
+        },
+        "cache_policy": {
+          "stored_at": "2029-12-31T00:00:00Z",
+          "max_age_seconds": 3600
+        },
+        "entitlement": {
+          "granted": true,
+          "evidence": {
+            "ref": "fixture://entitlement",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "allowed_purposes": [
+            "historical_as_of",
+            "current"
+          ]
+        },
+        "corrections": [],
+        "refresh_attempts_used": 0,
+        "acceptance": {
+          "request_sha256": "f25868f1e484ce31410c215cc51933ea339b397071ddbf6e4cbc6aa2fcc27fc9",
+          "generation_sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+          "revision_view_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      },
+      "policy": {
+        "intended_consumer": "synthetic-ticker-consumer",
+        "intended_use": "high-consequence analytical use requiring domain review",
+        "risk": "high",
+        "failure_consequence": "material downstream decision error",
+        "requires_private": true,
+        "required_domain_checks": [
+          "conflict_resolution",
+          "coverage",
+          "independent_review",
+          "semantic_validity",
+          "units"
+        ]
+      },
+      "dispatch": "sent",
+      "producer_result": "pass",
+      "placement": {
+        "destination_visibility": "private",
+        "requires_private": true,
+        "artifact_present": true
+      },
+      "claims": [
+        {
+          "id": "claim-user",
+          "text": "User asserts the local folder contains complete current data.",
+          "origin": "user_assertion",
+          "status": "asserted",
+          "evidence": {
+            "ref": "fixture://user-assertion",
+            "sha256": "09009f06d92da324a5ba7aef3698ce3363dc75825dc2addbaa475a24a479c0b9"
+          }
+        },
+        {
+          "id": "claim-producer",
+          "text": "Producer reports artifact bytes persisted.",
+          "origin": "producer_observation",
+          "status": "observed",
+          "evidence": {
+            "ref": "fixture://producer-observation",
+            "sha256": "12096731f3f4e6c692bb4acd1e5b969d6ecc827b6120c98649c489265f9ee59e"
+          }
+        },
+        {
+          "id": "claim-review",
+          "text": "Synthetic independent evidence record; identity not authenticated here.",
+          "origin": "independently_verified_evidence",
+          "status": "verified",
+          "evidence": {
+            "ref": "fixture://independent-claim",
+            "sha256": "326c22619187c54532a7d44869550c81cc6ef76c0e16d5f0445f453a53297291"
+          }
+        }
+      ],
+      "checks": [
+        {
+          "id": "conflict_resolution",
+          "result": "pass",
+          "origin": "producer_observation",
+          "evidence": {
+            "ref": "fixture://check-conflict_resolution",
+            "sha256": "d53ddabd402481001b38065589dd6fb9d2278e7ec85d067fa0027e031472311d"
+          },
+          "request_sha256": "f25868f1e484ce31410c215cc51933ea339b397071ddbf6e4cbc6aa2fcc27fc9",
+          "artifact_sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+          "policy_sha256": "ae02a68d5f6aa23faa938acc0f36b6f01aee59c997865e17c3513391e56e6438"
+        },
+        {
+          "id": "coverage",
+          "result": "pass",
+          "origin": "producer_observation",
+          "evidence": {
+            "ref": "fixture://check-coverage",
+            "sha256": "5e4e01aacda12bb80d24524c90d0419d251380a3f7cc0f18cb6f9039a874361f"
+          },
+          "request_sha256": "f25868f1e484ce31410c215cc51933ea339b397071ddbf6e4cbc6aa2fcc27fc9",
+          "artifact_sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+          "policy_sha256": "ae02a68d5f6aa23faa938acc0f36b6f01aee59c997865e17c3513391e56e6438"
+        },
+        {
+          "id": "independent_review",
+          "result": "pass",
+          "origin": "independently_verified_evidence",
+          "evidence": {
+            "ref": "fixture://check-independent_review",
+            "sha256": "0d939e31269abc98c561305f28056c5d56894a2681f146da8274963a3b229810"
+          },
+          "request_sha256": "f25868f1e484ce31410c215cc51933ea339b397071ddbf6e4cbc6aa2fcc27fc9",
+          "artifact_sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+          "policy_sha256": "ae02a68d5f6aa23faa938acc0f36b6f01aee59c997865e17c3513391e56e6438"
+        },
+        {
+          "id": "integrity",
+          "result": "pass",
+          "origin": "producer_observation",
+          "evidence": {
+            "ref": "fixture://check-integrity",
+            "sha256": "cfda90c1c83f833ef8d43ee340434945034c4c3805e4dfb08dea3d157439e68f"
+          },
+          "request_sha256": "f25868f1e484ce31410c215cc51933ea339b397071ddbf6e4cbc6aa2fcc27fc9",
+          "artifact_sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+          "policy_sha256": "ae02a68d5f6aa23faa938acc0f36b6f01aee59c997865e17c3513391e56e6438"
+        },
+        {
+          "id": "privacy",
+          "result": "pass",
+          "origin": "producer_observation",
+          "evidence": {
+            "ref": "fixture://check-privacy",
+            "sha256": "3496dcf9b5f3bda0ef805bc174c2f71bd90880a6ea584192323c044244e31b87"
+          },
+          "request_sha256": "f25868f1e484ce31410c215cc51933ea339b397071ddbf6e4cbc6aa2fcc27fc9",
+          "artifact_sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+          "policy_sha256": "ae02a68d5f6aa23faa938acc0f36b6f01aee59c997865e17c3513391e56e6438"
+        },
+        {
+          "id": "provenance",
+          "result": "pass",
+          "origin": "producer_observation",
+          "evidence": {
+            "ref": "fixture://check-provenance",
+            "sha256": "c71276cd56fa84dd12d1b901cf4b2bb9f930e85eea2c3135f153dfc1a7525c56"
+          },
+          "request_sha256": "f25868f1e484ce31410c215cc51933ea339b397071ddbf6e4cbc6aa2fcc27fc9",
+          "artifact_sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+          "policy_sha256": "ae02a68d5f6aa23faa938acc0f36b6f01aee59c997865e17c3513391e56e6438"
+        },
+        {
+          "id": "semantic_validity",
+          "result": "pass",
+          "origin": "producer_observation",
+          "evidence": {
+            "ref": "fixture://check-semantic_validity",
+            "sha256": "43157055bcdf25f61a64d9dfe6996ae2e035a5ef07d1a6da0dc59cf5115056ca"
+          },
+          "request_sha256": "f25868f1e484ce31410c215cc51933ea339b397071ddbf6e4cbc6aa2fcc27fc9",
+          "artifact_sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+          "policy_sha256": "ae02a68d5f6aa23faa938acc0f36b6f01aee59c997865e17c3513391e56e6438"
+        },
+        {
+          "id": "units",
+          "result": "pass",
+          "origin": "producer_observation",
+          "evidence": {
+            "ref": "fixture://check-units",
+            "sha256": "8c1a42565bc59e4aaa91780d7ce235187eaf56b4c87733972fd1bf67fb9a09d6"
+          },
+          "request_sha256": "f25868f1e484ce31410c215cc51933ea339b397071ddbf6e4cbc6aa2fcc27fc9",
+          "artifact_sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+          "policy_sha256": "ae02a68d5f6aa23faa938acc0f36b6f01aee59c997865e17c3513391e56e6438"
+        }
+      ],
+      "receiver": {
+        "request_sha256": "f25868f1e484ce31410c215cc51933ea339b397071ddbf6e4cbc6aa2fcc27fc9",
+        "artifact_sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+        "policy_sha256": "ae02a68d5f6aa23faa938acc0f36b6f01aee59c997865e17c3513391e56e6438",
+        "consumer": "synthetic-ticker-consumer",
+        "purpose": "current",
+        "evidence": {
+          "ref": "fixture://receiver-readback",
+          "sha256": "71038355caf3fa5bb6743ddeb492d967efdf7ca809d67f42a5fd1a7d22c25fd7"
+        },
+        "readback_result": "pass",
+        "readback_content": {
+          "generation_id": "current-g1",
+          "revision_id": "latest-1",
+          "available_at": "2030-01-01T00:00:00Z",
+          "session": "regular",
+          "adjustment_basis": "unadjusted",
+          "event_watermark": "2029-12-31T23:59:00Z",
+          "provenance": {
+            "ref": "fixture://source-revision-1",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "coverage": [
+            {
+              "start": "2029-12-31T23:59:00Z",
+              "end": "2030-01-01T00:00:00Z",
+              "status": "observed",
+              "evidence": {
+                "ref": "fixture://latest-coverage",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            }
+          ]
+        },
+        "acceptance": "accepted"
+      }
+    }
+  }
+}

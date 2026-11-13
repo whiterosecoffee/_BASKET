@@ -1,0 +1,51 @@
+{
+  "schema": "basket.local_template_validation@0.1-draft",
+  "task_id": "B00-243",
+  "evaluated_input_revision": "5b9b359204e920d7907e541b131e3501e9935c35",
+  "environment": "MELISSA Windows existing Python; existing task-3 worktree and sole #243 branch checkout",
+  "checks": [
+    {
+      "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_receiver.py -v",
+      "result": "pass",
+      "tests": 26,
+      "skipped": 0
+    },
+    {
+      "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
+      "result": "pass",
+      "tests": 155,
+      "skipped": 0
+    }
+  ],
+  "source_sha256": {
+    "receiver.py": "55af4784be77641230be367bc3730ff370b1a012d76858e4cf363664d549a531",
+    "receiver.examples.json": "9138bf32306acaa0c5e580c90ce6584195844df6bf63bb5bc42d1b0867090d18",
+    "RECEIVER.md": "f9419a52f9a969a641390467dee18246bde47b7aa4ad581046e0c9395e21e536",
+    "tests/test_receiver.py": "c1b4d15236ef8ce7d35b43194b82fbde1de88bdbaf417938782cbd882b039f99",
+    "semantic.adoption.json": "8a627dd84354f8d91510e560fa56e52ab24fe50d9762ea8236f481ac324c79b6"
+  },
+  "reference_sha256": {
+    "architecture/BLOCK_ENGINEERING_METHOD.md": "7dcf77c6182be0f8db2c7b513d79277fa0a08a142dd0e96a483e6b381d67328a"
+  },
+  "evidence_sha256": {
+    "receiver-focused.log": "b147d5556d49b92ca2ae8f3d96d713d0a946038fbae10ca7c69fe76f95109428",
+    "receiver-discovery.log": "7d7cf700479f9adf9c8a8fc6ca22c555b5283fcd2cf2e15db12aa71b4384fbb2"
+  },
+  "execution_authorized": false,
+  "evidence_authenticated": false,
+  "publication": "local_only_no_attempt",
+  "governing_adoption": {
+    "verified": 0,
+    "existing_matrix_rows": 8
+  },
+  "independent_acceptance": "pending_for_receiver_sanitizer_increment",
+  "disposition": "producer_tested_not_integrated",
+  "limits": [
+    "Receiver readback content is supplied synthetic JSON; no actual receiver filesystem or signed identity authenticated.",
+    "Sanitizer check evidence is declaration-consistent only; real domain sanitization and independent check execution remain owner gates.",
+    "Expected request/policy/claim records must be independently retained; fabricated consistent packets remain possible.",
+    "No FETCH/runtime/governing-owner implementation edits, dispatch, publication retry, merge or deployment.",
+    "Prior lifecycle/semantic/temporal evidence retained; no hosted/full-platform pass claimed."
+  ],
+  "next_action": "Existing independent acceptance reviewer reruns exact local revision, mutates receipt/hash/purpose/consumer bindings, evidence provenance and risk-based failure/unknown gates, then returns findings to the same #243 writer."
+}

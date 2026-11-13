@@ -127,5 +127,27 @@
       "existing_matrix_rows": 8
     },
     "provider_boundary": "_FETCH provider-neutral master; Massive adapter metadata; ticker consumers read-only."
+  },
+  "receiver_sanitizer": {
+    "status": "local_proposal_pending_independent_review",
+    "artifact": "RECEIVER.md",
+    "receiver_gate": "Exact request/artifact/policy/consumer/purpose binding and passing readback; dispatch/producer result is insufficient.",
+    "sanitizer_gate": "Mandatory integrity/provenance/privacy plus explicit risk-scaled domain checks, unknowns and quarantine; no aggregate score overrides a failed mandatory gate.",
+    "provenance": "Retain user assertion, producer observation and independent-evidence origin; placement does not verify quality.",
+    "owners": [
+      "#103 canonical contracts",
+      "#105 independent semantic review",
+      "#134 Copier adoption",
+      "#201 instructions",
+      "#230 map registration",
+      "existing _FETCH/runtime and intended consumer owners through parent"
+    ],
+    "implementation_boundary": "Synthetic consistency only; authentic receiver IO, domain sanitizer execution and live acquisition remain existing owner work.",
+    "execution_authorized": false,
+    "evidence_authenticated": false,
+    "governing_adoption": {
+      "verified": 0,
+      "existing_matrix_rows": 8
+    }
   }
 }
