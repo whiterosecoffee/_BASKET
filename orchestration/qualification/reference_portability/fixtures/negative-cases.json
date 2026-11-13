@@ -1,0 +1,172 @@
+[
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "missing.json"
+        }
+      ]
+    },
+    "expected": "missing_reference",
+    "name": "missing-required"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "../outside.json"
+        }
+      ]
+    },
+    "expected": "outside_root",
+    "name": "traversal"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "/tmp/outside.json"
+        }
+      ]
+    },
+    "expected": "unsupported_absolute_path",
+    "name": "posix-absolute"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "C:/outside.json"
+        }
+      ]
+    },
+    "expected": "unsupported_absolute_path",
+    "name": "windows-drive"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "C:outside.json"
+        }
+      ]
+    },
+    "expected": "unsupported_absolute_path",
+    "name": "windows-relative-drive"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "\\\\host\\share\\outside.json"
+        }
+      ]
+    },
+    "expected": "unsupported_absolute_path",
+    "name": "unc"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "shared\\payload.json"
+        }
+      ]
+    },
+    "expected": "unsupported_path_syntax",
+    "name": "backslash"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "https://example.invalid/payload.json"
+        }
+      ]
+    },
+    "expected": "unsupported_uri",
+    "name": "network"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "shared/payload.json#/value"
+        }
+      ]
+    },
+    "expected": "unsupported_path_syntax",
+    "name": "fragment"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "%2e%2e/outside.json"
+        }
+      ]
+    },
+    "expected": "unsupported_path_syntax",
+    "name": "percent"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "shared/payload.json",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    "expected": "hash_mismatch",
+    "name": "wrong-hash"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "shared/payload.json",
+          "sha256": "oops"
+        }
+      ]
+    },
+    "expected": "invalid_declaration",
+    "name": "bad-hash"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "missing.json",
+          "use": "optional"
+        }
+      ]
+    },
+    "expected": "invalid_declaration",
+    "name": "unknown-use"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "../outside.json",
+          "use": "archive"
+        }
+      ]
+    },
+    "expected": "outside_root",
+    "name": "archive-traversal"
+  },
+  {
+    "document": {
+      "references": [
+        {
+          "ref": "shared/payload.json",
+          "required": false
+        }
+      ]
+    },
+    "expected": "invalid_declaration",
+    "name": "unknown-key"
+  }
+]

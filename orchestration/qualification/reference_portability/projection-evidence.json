@@ -1,0 +1,125 @@
+{
+  "counts": {
+    "errors": 0,
+    "failures": 0,
+    "focused_tests": 49,
+    "real_source_document_projections": 2,
+    "skips": 0,
+    "standalone_tests": 49
+  },
+  "deterministic_repeat": true,
+  "implementation_sha256": {
+    "audit.py": "51d9e3fbec139c845f01aec040556817a7bbab2901654efe07c0f02540cd465a",
+    "project_references.py": "60adf1f66257502b70a32dc22de5a2ca124f4b3075cfc5fba4eb2ebb6287b7e7",
+    "test_projection.py": "50a3fb4bfff2cf84921ea2e85e2942de04575624b20b1ef2611af180889ae3dd"
+  },
+  "input_bytes_unchanged": true,
+  "kind": "producer_executed_projection_composition",
+  "limits": [
+    "Producer evidence, not independent acceptance",
+    "Only one explicitly selected real _MAP source, not full model coverage",
+    "Seed reference notes only; requires not evaluated; no readiness or execution authority",
+    "No commit authenticity check by projection; byte pin verified by audit",
+    "Static isolated Linux root; Windows acceptance remains #261/#263 owner work"
+  ],
+  "reports": {
+    "map": {
+      "audit": {
+        "files": [
+          {
+            "path": "map-projection.json",
+            "sha256": "423cb2738d719011fb6e6bc8a4855fa09a3761dceddd83856d49ffd277ec4f7e"
+          },
+          {
+            "path": "schemas/component-blackbox.v1.json",
+            "sha256": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc"
+          }
+        ],
+        "findings": [],
+        "ok": true,
+        "references": [
+          {
+            "expected_sha256": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc",
+            "pointer": "/references/0",
+            "ref": "schemas/component-blackbox.v1.json",
+            "sha256": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc",
+            "source": "map-projection.json",
+            "status": "resolved",
+            "target": "schemas/component-blackbox.v1.json",
+            "use": "required"
+          }
+        ]
+      },
+      "projection": {
+        "projection": {
+          "commit_verification": "not_performed",
+          "entry_location": "bundle_root",
+          "profile": "map_selected_sources",
+          "selected_source_provenance": [
+            {
+              "commit": "74d913e8913d630d85451344689e093aeea07efc",
+              "source_key": "schemas/component-blackbox.v1.json"
+            }
+          ],
+          "source_model_validation": "not_performed",
+          "unselected_sources": "not_audited"
+        },
+        "references": [
+          {
+            "ref": "schemas/component-blackbox.v1.json",
+            "sha256": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc",
+            "use": "required"
+          }
+        ]
+      }
+    },
+    "seed": {
+      "audit": {
+        "files": [
+          {
+            "path": "seed-projection.json",
+            "sha256": "b077a1a3dbe819e064ed0265bcd5ab821a0be6f6234d099a2ea4e243736c10cb"
+          }
+        ],
+        "findings": [],
+        "ok": true,
+        "references": []
+      },
+      "projection": {
+        "projection": {
+          "audit_scope": "informational_only",
+          "capability_evaluation": "not_performed",
+          "profile": "clean_seed_reference_notes",
+          "reference_notes": [
+            {
+              "locator": "https://github.com/whiterosecoffee/_BASKET/issues/226",
+              "use": "reference_only"
+            },
+            {
+              "locator": "https://github.com/whiterosecoffee/_BASKET/issues/103",
+              "use": "reference_only"
+            }
+          ],
+          "required_capabilities": [],
+          "source_model_validation": "not_performed"
+        },
+        "references": []
+      }
+    }
+  },
+  "setup_recovery": "Previous isolated checkout absent; cloned verified existing branch to a fresh isolated directory; no shared checkout switched.",
+  "source_documents": [
+    {
+      "commit": "1a9fdb7952676d026e92d001f88f62de67f103e0",
+      "kind": "map",
+      "path": "_MAP/system.json",
+      "sha256": "59c37e6c28ccd946e5f683dbfab5948947be83d46010cefc70a9d7ceeb46474b"
+    },
+    {
+      "commit": "6f5e39cd8590a6431bec56cd62af086bb28d6326",
+      "kind": "seed",
+      "path": "orchestration/clean_templates/seed.json",
+      "sha256": "b53c479577c05e7e27f8555515977302b8153b795d7682efcebc1a43eb7b871e"
+    }
+  ]
+}
