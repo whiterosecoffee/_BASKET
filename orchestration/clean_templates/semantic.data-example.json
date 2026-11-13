@@ -52,7 +52,15 @@
       "request_target": "_FETCH",
       "consume": "qualified_local_data",
       "access": "read_only",
-      "maintenance_owner": "_FETCH"
+      "maintenance_owner": "_FETCH",
+      "authorized_store": {
+        "destination": "requesting_component_local_repository_store",
+        "accountable_owner": "fixture-owner-ticker-a",
+        "private": true,
+        "persistence_writer": "_FETCH",
+        "authorization": "explicit_requester_scoped_destination_authorization_required",
+        "publication": "none"
+      }
     },
     {
       "synthetic": true,
@@ -88,8 +96,34 @@
       "request_target": "_FETCH",
       "consume": "qualified_local_data",
       "access": "read_only",
-      "maintenance_owner": "_FETCH"
+      "maintenance_owner": "_FETCH",
+      "authorized_store": {
+        "destination": "requesting_component_local_repository_store",
+        "accountable_owner": "fixture-owner-ticker-b",
+        "private": true,
+        "persistence_writer": "_FETCH",
+        "authorization": "explicit_requester_scoped_destination_authorization_required",
+        "publication": "none"
+      }
     }
   ],
-  "integration_owner": "Existing _FETCH owner for maintenance; #230/_MAP and governing owners through parent for registration."
+  "integration_owner": "Existing _FETCH owner for maintenance; #230/_MAP and governing owners through parent for registration.",
+  "intended_capabilities": [
+    "ongoing_live_source_acquisition",
+    "standardization",
+    "sanitization",
+    "persistence_to_requester_authorized_local_repository_store"
+  ],
+  "verified_maturity": {
+    "evidence_scope": "local_synthetic_template_checks_only",
+    "live_operation_verified": false,
+    "governing_adoption_verified": 0,
+    "note": "Bounded offline describes evidence in this lane, not the _FETCH product requirement or maturity of separately owned implementations."
+  },
+  "data_policy": {
+    "provenance": "retain source, acquisition, observation, revision and correction lineage",
+    "conflicts": "quarantine unresolved conflicts before qualified consumer use",
+    "temporal_policy": "explicit current freshness or historical as-of coverage/correction policy; historical event age alone does not expire truth",
+    "consumer_use": "separate later read-only use of qualified persisted data"
+  }
 }

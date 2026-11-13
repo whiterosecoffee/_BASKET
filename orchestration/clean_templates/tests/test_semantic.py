@@ -190,3 +190,32 @@ class SemanticTemplateTests(unittest.TestCase):
         request = lc.read('lifecycle.examples.json')['examples']['market-readonly']['request']
         self.assertNotIn('Massive', json.dumps(request))
         self.assertEqual(request['operation'], 'consume')
+
+    def test_fetch_product_capabilities_are_separate_from_verified_maturity(self):
+        data = lc.read('semantic.data-example.json')
+        self.assertEqual(set(data['intended_capabilities']), {
+            'ongoing_live_source_acquisition', 'standardization', 'sanitization',
+            'persistence_to_requester_authorized_local_repository_store'})
+        maturity = data['verified_maturity']
+        self.assertEqual(maturity['evidence_scope'], 'local_synthetic_template_checks_only')
+        self.assertFalse(maturity['live_operation_verified'])
+        self.assertEqual(maturity['governing_adoption_verified'], 0)
+        self.assertFalse(data['execution_authorized'])
+        adoption = lc.read('semantic.adoption.json')['data_architecture']
+        self.assertEqual(adoption['verified_maturity']['live_operation_verified'], False)
+        self.assertIn('Ongoing live source acquisition', adoption['intended_scope'])
+
+    def test_requester_private_store_and_conflict_policy_remain_explicit(self):
+        data = lc.read('semantic.data-example.json')
+        for consumer in data['consumers']:
+            store = consumer['authorized_store']
+            self.assertEqual(store['accountable_owner'], consumer['accountable_owner'])
+            self.assertEqual(store['destination'], 'requesting_component_local_repository_store')
+            self.assertTrue(store['private'])
+            self.assertEqual(store['persistence_writer'], '_FETCH')
+            self.assertEqual(store['authorization'], 'explicit_requester_scoped_destination_authorization_required')
+            self.assertEqual(store['publication'], 'none')
+            self.assertEqual(consumer['access'], 'read_only')
+        self.assertIn('quarantine', data['data_policy']['conflicts'])
+        self.assertIn('lineage', data['data_policy']['provenance'])
+        self.assertIn('separate later read-only', data['data_policy']['consumer_use'])

@@ -96,3 +96,25 @@ Generic request/outcome contracts contain no Massive-specific fields. Adapter
 capabilities are illustrative metadata, not verified entitlement or execution.
 The parent coordinates #230 and governing owners; this example edits no live
 _FETCH implementation or adapter and performs no fetch.
+
+
+### Intended product scope versus verified maturity
+
+_FETCH is the master for **ongoing live source acquisition, standardization,
+sanitization and persistence to the requesting component's authorized local
+repository store**. Later component use is a separate read-only step against
+qualified persisted data. Massive remains one adapter; generic contracts remain
+provider-neutral. Offline evidence is not an offline-only product requirement.
+
+The fixture separates `intended_capabilities` from `verified_maturity`. This lane
+has tested local synthetic declarations; it has not verified live acquisition or
+operation. Each fictional requester retains its accountable owner, scoped branch
+and private local destination. _FETCH persistence requires explicit authorization
+for that destination; a public source branch is not the private data store.
+Provenance and revision/correction lineage must survive the pipeline; unresolved
+conflicts are quarantined before qualified consumer use. Explicit current versus
+historical temporal policy remains required, without arbitrary expiry of old facts.
+
+The adoption packet asks existing _FETCH/runtime and governing owners, through the
+parent, to demonstrate that pipeline. This fixture creates no store, entitlement,
+source connection or runtime and grants no execution or publication authority.

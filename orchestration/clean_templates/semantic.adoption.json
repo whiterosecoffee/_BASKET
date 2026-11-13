@@ -76,7 +76,14 @@
     "adapter_location": "dependency metadata, not generic request/response contracts",
     "ticker_role": "request data and consume qualified local data; dedicated scoped branch and accountable owner",
     "example": "semantic.data-example.json",
-    "adoption": "pending existing #230 and governing owners through parent"
+    "adoption": "pending existing #230 and governing owners through parent",
+    "intended_scope": "Ongoing live source acquisition, standardization, sanitization and persistence to each requesting component authorized private local repository store; later component consumption is separate.",
+    "verified_maturity": {
+      "evidence_scope": "local_synthetic_template_checks_only",
+      "live_operation_verified": false,
+      "governing_adoption_verified": 0
+    },
+    "integration_gate": "Existing _FETCH/runtime owners demonstrate authorized acquisition-to-private-store pipeline with provenance and conflict quarantine; parent coordinates #230/#103/#105 and governing owners. This lane does not implement or certify live operation."
   },
   "temporal_options": {
     "status": "local_proposal_pending_independent_review",

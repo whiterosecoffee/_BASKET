@@ -1,0 +1,47 @@
+{
+  "schema": "basket.local_template_validation@0.1-draft",
+  "task_id": "B00-243",
+  "evaluated_input_revision": "b5494f91c8bc79f5d18103e55c008e30cfa4eb8e",
+  "environment": "MELISSA Windows existing Python",
+  "change": "Documentation/fixture correction: intended live _FETCH pipeline separate from verified offline template evidence; no validator/runtime changes.",
+  "checks": [
+    {
+      "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_semantic.py -v",
+      "result": "pass",
+      "tests": 22,
+      "skipped": 0
+    },
+    {
+      "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
+      "result": "pass",
+      "tests": 129,
+      "skipped": 0
+    }
+  ],
+  "source_sha256": {
+    "SEMANTIC.md": "b9cfe554b915d97f17d5e541eb46131ebd0202f3aa07b6394770d1187cfbce37",
+    "semantic.data-example.json": "00bb7590e32db897036dd7913c18dbee14481d24b12f47d3b26c3410c9863ca0",
+    "semantic.adoption.json": "be4fb5d8aa69c19306d7b085e85f6a3d5ad7978105ecb58ba963c5499d2b735b",
+    "tests/test_semantic.py": "1a1aa05611aaf8cf55beb6b8c0096a79e1814a262dc404cf6f19c84c94320410"
+  },
+  "evidence_sha256": {
+    "fetch-scope-focused.log": "5f43cf8a3d7b0d068306b85417231848141c1691fc2182221b3504b9fb041380",
+    "fetch-scope-discovery.log": "b34a4bb360bc56b97f0f16165a1dd91966d28c31314f6a6263e20922a00b3523"
+  },
+  "execution_authorized": false,
+  "publication": "local_only_no_attempt",
+  "governing_adoption": {
+    "verified": 0,
+    "existing_matrix_rows": 8
+  },
+  "live_operation_verified_by_this_lane": false,
+  "independent_acceptance": "not_run_for_this_documentation_fixture_delta",
+  "preserved": [
+    "Prior source and review receipts remain historical",
+    "Temporal/current/as-of and lifecycle/semantic validators unchanged",
+    "Massive remains source adapter; generic contracts remain provider-neutral",
+    "Private requester-owned destination requires scoped authorization; source/provenance/conflicts remain owner gates",
+    "No FETCH/runtime/governing-owner changes or publication retries"
+  ],
+  "next_action": "Parent routes intended-scope clarification through existing governing owners; independent review may inspect the exact local fixture revision."
+}
