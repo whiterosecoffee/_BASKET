@@ -512,3 +512,23 @@ files contain2,642 returned bars in prior manifests; consumer route adoption and
 complete interval/current metadata are absent. No new scans, provider calls or
 baseline tests were run for this documentation change. The exact accepted source
 hash is unchanged. Private owner receipt records paths, counts and evidence hashes.
+
+### Executed top-level archive placement - 2026-11-13
+
+The renewed direct relocation instruction was admitted and the single existing
+writer completed placement of all 356 archives (16,314,962,695 bytes) into
+`_TICKERS/<TICKER>/<TICKER>.jsonl`. Original, staging and final SHA-256 matched
+for every file; no hash checks remain pending and no collision was overwritten.
+All original sources remain. The 356 verified staging archives were retired;
+two prior partials and the three distinct smaller histories remain unchanged.
+Final verification resolved all 356 paths, freshly hashed four priority lookups,
+checked private Git exclusions for all data/manifest paths and confirmed lock exit.
+No vendor acquisition occurred. Private completion/journal artifacts contain exact
+paths and hashes; raw data and operational manifests are excluded from this commit.
+
+Six isolated placement tests passed, including collision refusal, restart after
+copy-before-retirement and competing-writer refusal. Existing accepted maintainer
+code is unchanged; its previous independent acceptance does not extend to this new
+placement utility or qualify the historical corpus. Placement is complete; shared
+_MAP route adoption, qualified coverage and ticker-consumer acceptance remain open.
+The old metadata-only staging status above is superseded only for placement.
