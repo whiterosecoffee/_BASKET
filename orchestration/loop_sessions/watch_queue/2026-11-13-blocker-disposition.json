@@ -1,0 +1,66 @@
+{
+  "kind": "watch_queue_blocker_disposition",
+  "version": 1,
+  "owner": "B00-235",
+  "issue": 235,
+  "branch": "work/235-watch-basket-queue",
+  "scope": "orchestration/loop_sessions/watch_queue/**",
+  "classification": "dated_observer_evidence_not_canonical_live_worker_registry",
+  "objective": "Trustworthy local source data resolvable by its intended consumer",
+  "resolved_clarifications": [
+    "Offline component validation limits the evidence claim; it does not define FETCH product scope. FETCH acquires, standardizes, sanitizes and delivers source data to component-local stores.",
+    "Storage placement and data qualification are separate gates. Unknown adjustment/provenance requires explicit unqualified labeling; it is not by itself proof that preserved source bytes cannot be placed.",
+    "Shared CI does not establish focused independent acceptance or real consumer access.",
+    "Existing owner remains responsible; a public branch or this receipt does not transfer ownership."
+  ],
+  "blockers": [
+    {
+      "id": "consumer-data-path",
+      "owner": "existing B02/FETCH and controller",
+      "state": "awaiting_evidence",
+      "next_action": "Resolve the actual permitted canonical target and current writer state, preserve collisions and original bytes, verify source/destination hashes and resolver readback. Reconcile uncertain prior effects before any retry.",
+      "acceptance": "Actual NVDA consumer resolves its intended data; source/destination identities and explicit quality limits recorded. Placement completion must not claim full coverage/freshness.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/issues/207"
+    },
+    {
+      "id": "report-admission",
+      "owner": "B17-265",
+      "state": "awaiting_evidence",
+      "next_action": "Repair existing PR266 helper within its owned subtree using predetermined review cases; no replacement writer.",
+      "acceptance": "Exact-head executed tests reject stale/future and late-revised data, conflicts and nonfinite values; deterministic strict JSON replay; independent verdict.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/pull/266#issuecomment-6854564395"
+    },
+    {
+      "id": "adoption",
+      "owner": "existing #230/#243/#105 owners",
+      "state": "awaiting_evidence",
+      "next_action": "Return adopted/revised/deferred disposition and owned artifact/test evidence for the existing conformity requests.",
+      "acceptance": "Source-pinned projection plus independent acceptance; request publication alone cannot close.",
+      "source": "https://github.com/whiterosecoffee/_BASKET/pull/258#issuecomment-6855696196"
+    },
+    {
+      "id": "observer-execution-access",
+      "owner": "controller/environment owner",
+      "state": "blocked",
+      "reason": "exec_command returned No usable execution environment is available; no callable existing-session messaging tool was found.",
+      "next_action": "Provide the existing workstation owner with the current task through its authorized controller or restore an execution environment. Do not create another writer.",
+      "acceptance": "Verified access to existing owner/executor; no claim of dispatch made here."
+    }
+  ],
+  "continuity": {
+    "historical_receipts": "WQ-001 through WQ-085 remain conversation history; not reconstructed here",
+    "canonical_objectives_status_location": null,
+    "receipt_policy": "Check deltas and changed acceptance decisions; compact no-change records; never equate schedule dispatch with execution",
+    "external_checkpoint_before_this_write": false
+  },
+  "public_source_heads": {
+    "pr266": "4938f0fbcfd5b89bbeaf938a1b2b946d2f8d8367",
+    "fetch": "b733012404ecb08528a3c356087853b796574f3b"
+  },
+  "limits": [
+    "No code tests executed by this observer",
+    "No private paths, source rows or conversation transcripts included",
+    "No migration, acquisition, implementation, merge or scheduler change performed",
+    "This document is evidence and next-action guidance, not another live task authority"
+  ]
+}
