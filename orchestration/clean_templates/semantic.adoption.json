@@ -1,0 +1,81 @@
+{
+  "scope": "orchestration/clean_templates/**",
+  "status": "local_proposal_not_dispatched",
+  "execution_authorized": false,
+  "governing_adoption": {
+    "verified": 0,
+    "existing_matrix_rows": 8
+  },
+  "source_references": {
+    "worker": "orchestration/WORKER_PROTOCOL.md",
+    "task": "schemas/worker-task.v1.json",
+    "resolution": "schemas/worker-resolution.v1.json",
+    "lifecycle": "orchestration/clean_templates/lifecycle.py",
+    "graph": "https://github.com/whiterosecoffee/_BASKET/blob/1a9fdb7952676d026e92d001f88f62de67f103e0/_MAP/system.json",
+    "conformity": "https://github.com/whiterosecoffee/_BASKET/pull/244#issuecomment-6855726360"
+  },
+  "graph_mapping": {
+    "active_task": "existing worker-task declaration, not a new graph node authority",
+    "planned_child": "proposed containment relation and intended owner; #230 defines canonical projection",
+    "correction": "append-only evidence references; not a graph-store write",
+    "adoption": "no claim of wire compatibility or registration"
+  },
+  "owners": [
+    {
+      "issue": 230,
+      "owner": "_MAP",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/issues/230",
+      "integration_gate": "Register reference-only containment and routing pointers; no second registry or implied ghost allocation.",
+      "state": "pending_existing_controller_coordination"
+    },
+    {
+      "issue": 134,
+      "owner": "Copier/bootstrap",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/issues/134",
+      "integration_gate": "Generate a consumer with one scoped objective, unallocated planned children and caller-retained evidence.",
+      "state": "pending_existing_controller_coordination"
+    },
+    {
+      "issue": 201,
+      "owner": "Project instructions",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/issues/201",
+      "integration_gate": "Adopt explicit question/idea/commitment and correction-preservation rules through canonical instruction ownership.",
+      "state": "pending_existing_controller_coordination"
+    },
+    {
+      "issue": 103,
+      "owner": "Shared contract",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/issues/103",
+      "integration_gate": "Reconcile this private wrapper with canonical worker and artifact contracts; choose canonical promotion/lineage rules.",
+      "state": "pending_existing_controller_coordination"
+    },
+    {
+      "issue": 105,
+      "owner": "Independent semantic acceptance",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/issues/105",
+      "integration_gate": "Review the new exact local revision and test semantic mutations; previous repair acceptance does not qualify this increment.",
+      "state": "pending_existing_controller_coordination"
+    },
+    {
+      "issue": 136,
+      "owner": "Existing admission/controller/runtime owner",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "integration_gate": "Resolve current owner; authenticate expected HEAD, approval, prior journal and effects; demonstrate atomic duplicate coalescing and uncertain-write recovery.",
+      "state": "pending_existing_controller_coordination"
+    }
+  ],
+  "boundaries": [
+    "No dispatches or governing-owner edits",
+    "No publication retry, merge or deployment",
+    "No actual journal, lease, fetch, schedule or execution",
+    "Prior lifecycle.method.json retains eight-row governing matrix; six rows here are a compact handoff, not a replacement"
+  ],
+  "data_architecture": {
+    "master_class": "_FETCH",
+    "source_adapter_example": "Massive",
+    "adapter_location": "dependency metadata, not generic request/response contracts",
+    "ticker_role": "request data and consume qualified local data; dedicated scoped branch and accountable owner",
+    "example": "semantic.data-example.json",
+    "adoption": "pending existing #230 and governing owners through parent"
+  }
+}

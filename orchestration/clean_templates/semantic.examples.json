@@ -1,0 +1,1322 @@
+{
+  "evaluation_time": "2030-01-01T00:00:00Z",
+  "expected_revision": "0279d14b1aa222299871fc38ba4af4daed8a94e1",
+  "prior": {
+    "profile": "clean-template-semantic-example-v1",
+    "synthetic": true,
+    "lifecycle": {
+      "schema": "basket.lifecycle_snapshot@0.1-draft",
+      "synthetic": true,
+      "role": "clean_consumer",
+      "task": {
+        "schema": "basket.worker_task@1",
+        "task_id": "B00-243",
+        "spark_id": "B00",
+        "issue": {
+          "number": 243,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/243"
+        },
+        "branch": {
+          "name": "work/243-clean-template-boundary",
+          "base": "main"
+        },
+        "objective": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+        "write_paths": [
+          "orchestration/clean_templates/**"
+        ],
+        "acceptance": [
+          {
+            "id": "A1",
+            "criterion": "Synthetic lifecycle declarations are consistent",
+            "evidence_class": "test"
+          }
+        ],
+        "dependencies": [],
+        "claimed_at": null,
+        "state": "review"
+      },
+      "request": {
+        "request_id": "synthetic-clean-comparison",
+        "idempotency_key": "synthetic-clean-comparison-once",
+        "deadline": "2030-01-02T00:00:00Z",
+        "input_revision": "130a9822ce65149ecf4fd3d140bf56bef6cf2a30091ba0c2784fb6e76268a69c",
+        "branch": "work/243-clean-template-boundary",
+        "source_revision": "0279d14b1aa222299871fc38ba4af4daed8a94e1",
+        "operation": "consume",
+        "planned_writes": [],
+        "demand": {
+          "logical_demand_id": "fixture-demand-clean-comparison",
+          "attempt_id": "fixture-attempt-clean-comparison-2",
+          "persisted_generation_id": "fixture-generation-clean-comparison-1",
+          "requested_at": "2030-01-01T00:00:00Z",
+          "prior_fulfillment": {
+            "attempt_id": "fixture-attempt-clean-comparison-1",
+            "persisted_generation_id": "fixture-generation-clean-comparison-1",
+            "completed_at": "2029-12-31T00:00:00Z"
+          }
+        }
+      },
+      "session": {
+        "discovery": "resume_existing",
+        "session_id": "fixture-session-clean-comparison",
+        "conversation_id": "fixture-conversation-clean-comparison",
+        "conversation_open": true,
+        "nathan_can_communicate": true,
+        "dot_can_communicate": true,
+        "expected_host": "MELISSA",
+        "observed_host": "MELISSA",
+        "executor_verified": true,
+        "verification_receipt": {
+          "ref": "fixture://clean-comparison/executor-observation",
+          "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+        },
+        "worktree_isolated": true,
+        "connected": true
+      },
+      "ownership": {
+        "inventory_verified": true,
+        "active_writers": [
+          "fixture-session-clean-comparison"
+        ]
+      },
+      "input": {
+        "artifact": {
+          "ref": "fixture://clean-comparison/qualified-input",
+          "sha256": "130a9822ce65149ecf4fd3d140bf56bef6cf2a30091ba0c2784fb6e76268a69c"
+        },
+        "qualification": "qualified",
+        "qualified_until": "2030-01-02T00:00:00Z",
+        "local": true,
+        "access": "read_only",
+        "provider_owner": "clean_templates",
+        "acquisition_owner": "_FETCH",
+        "persistence_owner": "_FETCH",
+        "repair_owner": "_FETCH",
+        "refresh_owner": "_FETCH",
+        "freshness_readback": {
+          "checked_at": "2030-01-01T00:00:00Z",
+          "persisted_generation_id": "fixture-generation-clean-comparison-1"
+        }
+      },
+      "acknowledgment": {
+        "artifact": {
+          "ref": "fixture://clean-comparison/ack",
+          "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+        },
+        "request_sha256": "22aee9527c2b22a59e5487719e6e460c7be298f18ffa9595583e6c8f7ce93952",
+        "session_id": "fixture-session-clean-comparison"
+      },
+      "outcome": {
+        "state": "completed",
+        "run_observed": true,
+        "receipt": {
+          "artifact": {
+            "ref": "fixture://clean-comparison/result",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "request_sha256": "22aee9527c2b22a59e5487719e6e460c7be298f18ffa9595583e6c8f7ce93952"
+        },
+        "effect_state": "none",
+        "consumer_acceptance": "pending",
+        "acceptance_receipt": null,
+        "invoked": true,
+        "independent_acceptance": "pending",
+        "independent_receipt": null,
+        "consumer_usable": false
+      },
+      "recovery": {
+        "prior_failures": [],
+        "checkpoint": {
+          "ref": "fixture://clean-comparison/checkpoint",
+          "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+        },
+        "uncertain_write_policy": "inspect_effect_and_readback_before_retry",
+        "next_action": "review_existing_receipt",
+        "replay_policy": "same_key_reconcile_no_reapply"
+      },
+      "schedule": {
+        "configured": true,
+        "configuration_is_run": false
+      },
+      "privacy": {
+        "input_class": "synthetic",
+        "publish_input": false,
+        "publication_scope": "sanitized_code_tests_docs_only",
+        "private_paths_in_public_receipt": false,
+        "requires_private_destination": false,
+        "destination_visibility": "local_only"
+      }
+    },
+    "resolution": {
+      "schema": "basket.worker_resolution@1",
+      "task_id": "B00-243",
+      "spark_id": "B00",
+      "issue": {
+        "number": 243,
+        "url": "https://github.com/whiterosecoffee/_BASKET/issues/243"
+      },
+      "branch": {
+        "name": "work/243-clean-template-boundary",
+        "base": "main"
+      },
+      "pr": null,
+      "reported_at": null,
+      "disposition": "in_progress",
+      "changed_paths": [],
+      "checks": [],
+      "acceptance": [
+        {
+          "id": "A1",
+          "result": "not_verified",
+          "evidence_urls": []
+        }
+      ],
+      "blockers": [],
+      "handoffs": [],
+      "unknowns": [
+        "Synthetic declaration; no execution or independently authenticated observations."
+      ],
+      "next_action": "Existing acceptance owner reviews local semantic profile."
+    },
+    "active_objectives": [
+      {
+        "task_id": "B00-243",
+        "owner_session": "fixture-session-clean-comparison",
+        "purpose": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+        "outcomes": [
+          "A1"
+        ],
+        "non_goals": [
+          "No runtime, data fetch, publication or canonical-owner integration."
+        ],
+        "intake_id": "commitment-1"
+      }
+    ],
+    "planned_children": [
+      {
+        "id": "desired-report",
+        "parent_task_id": "B00-243",
+        "purpose": "Desired clean comparison report, still unallocated.",
+        "intended_owner": "existing clean consumer owner; controller to resolve",
+        "acceptance": [
+          {
+            "id": "A1",
+            "criterion": "Synthetic lifecycle declarations are consistent",
+            "evidence_class": "test"
+          }
+        ],
+        "branch": null,
+        "running_worker": null
+      }
+    ],
+    "intake": [
+      {
+        "id": "question-1",
+        "kind": "question",
+        "text": "Could the report include confidence explanations?",
+        "source": {
+          "ref": "fixture://question",
+          "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+        },
+        "supersedes": null,
+        "approval": null
+      },
+      {
+        "id": "idea-1",
+        "kind": "idea",
+        "text": "Explore optional comparison formatting.",
+        "source": {
+          "ref": "fixture://idea",
+          "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+        },
+        "supersedes": null,
+        "approval": null
+      },
+      {
+        "id": "commitment-1",
+        "kind": "commitment",
+        "text": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+        "source": {
+          "ref": "fixture://delegation",
+          "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+        },
+        "supersedes": null,
+        "approval": {
+          "ref": "fixture://scoped-approval",
+          "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+        }
+      }
+    ],
+    "wake": {
+      "id": "wake-1",
+      "idempotency_key": "synthetic-clean-comparison-once",
+      "uncertain_effect": false
+    },
+    "known_effects": [
+      {
+        "id": "prior-observation",
+        "evidence": {
+          "ref": "fixture://existing-observation",
+          "sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+        }
+      }
+    ]
+  },
+  "examples": {
+    "planned-child": {
+      "profile": "clean-template-semantic-example-v1",
+      "synthetic": true,
+      "lifecycle": {
+        "schema": "basket.lifecycle_snapshot@0.1-draft",
+        "synthetic": true,
+        "role": "clean_consumer",
+        "task": {
+          "schema": "basket.worker_task@1",
+          "task_id": "B00-243",
+          "spark_id": "B00",
+          "issue": {
+            "number": 243,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/243"
+          },
+          "branch": {
+            "name": "work/243-clean-template-boundary",
+            "base": "main"
+          },
+          "objective": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+          "write_paths": [
+            "orchestration/clean_templates/**"
+          ],
+          "acceptance": [
+            {
+              "id": "A1",
+              "criterion": "Synthetic lifecycle declarations are consistent",
+              "evidence_class": "test"
+            }
+          ],
+          "dependencies": [],
+          "claimed_at": null,
+          "state": "review"
+        },
+        "request": {
+          "request_id": "synthetic-clean-comparison",
+          "idempotency_key": "synthetic-clean-comparison-once",
+          "deadline": "2030-01-02T00:00:00Z",
+          "input_revision": "130a9822ce65149ecf4fd3d140bf56bef6cf2a30091ba0c2784fb6e76268a69c",
+          "branch": "work/243-clean-template-boundary",
+          "source_revision": "0279d14b1aa222299871fc38ba4af4daed8a94e1",
+          "operation": "consume",
+          "planned_writes": [],
+          "demand": {
+            "logical_demand_id": "fixture-demand-clean-comparison",
+            "attempt_id": "fixture-attempt-clean-comparison-2",
+            "persisted_generation_id": "fixture-generation-clean-comparison-1",
+            "requested_at": "2030-01-01T00:00:00Z",
+            "prior_fulfillment": {
+              "attempt_id": "fixture-attempt-clean-comparison-1",
+              "persisted_generation_id": "fixture-generation-clean-comparison-1",
+              "completed_at": "2029-12-31T00:00:00Z"
+            }
+          }
+        },
+        "session": {
+          "discovery": "resume_existing",
+          "session_id": "fixture-session-clean-comparison",
+          "conversation_id": "fixture-conversation-clean-comparison",
+          "conversation_open": true,
+          "nathan_can_communicate": true,
+          "dot_can_communicate": true,
+          "expected_host": "MELISSA",
+          "observed_host": "MELISSA",
+          "executor_verified": true,
+          "verification_receipt": {
+            "ref": "fixture://clean-comparison/executor-observation",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "worktree_isolated": true,
+          "connected": true
+        },
+        "ownership": {
+          "inventory_verified": true,
+          "active_writers": [
+            "fixture-session-clean-comparison"
+          ]
+        },
+        "input": {
+          "artifact": {
+            "ref": "fixture://clean-comparison/qualified-input",
+            "sha256": "130a9822ce65149ecf4fd3d140bf56bef6cf2a30091ba0c2784fb6e76268a69c"
+          },
+          "qualification": "qualified",
+          "qualified_until": "2030-01-02T00:00:00Z",
+          "local": true,
+          "access": "read_only",
+          "provider_owner": "clean_templates",
+          "acquisition_owner": "_FETCH",
+          "persistence_owner": "_FETCH",
+          "repair_owner": "_FETCH",
+          "refresh_owner": "_FETCH",
+          "freshness_readback": {
+            "checked_at": "2030-01-01T00:00:00Z",
+            "persisted_generation_id": "fixture-generation-clean-comparison-1"
+          }
+        },
+        "acknowledgment": {
+          "artifact": {
+            "ref": "fixture://clean-comparison/ack",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "request_sha256": "22aee9527c2b22a59e5487719e6e460c7be298f18ffa9595583e6c8f7ce93952",
+          "session_id": "fixture-session-clean-comparison"
+        },
+        "outcome": {
+          "state": "completed",
+          "run_observed": true,
+          "receipt": {
+            "artifact": {
+              "ref": "fixture://clean-comparison/result",
+              "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+            },
+            "request_sha256": "22aee9527c2b22a59e5487719e6e460c7be298f18ffa9595583e6c8f7ce93952"
+          },
+          "effect_state": "none",
+          "consumer_acceptance": "pending",
+          "acceptance_receipt": null,
+          "invoked": true,
+          "independent_acceptance": "pending",
+          "independent_receipt": null,
+          "consumer_usable": false
+        },
+        "recovery": {
+          "prior_failures": [],
+          "checkpoint": {
+            "ref": "fixture://clean-comparison/checkpoint",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "uncertain_write_policy": "inspect_effect_and_readback_before_retry",
+          "next_action": "review_existing_receipt",
+          "replay_policy": "same_key_reconcile_no_reapply"
+        },
+        "schedule": {
+          "configured": true,
+          "configuration_is_run": false
+        },
+        "privacy": {
+          "input_class": "synthetic",
+          "publish_input": false,
+          "publication_scope": "sanitized_code_tests_docs_only",
+          "private_paths_in_public_receipt": false,
+          "requires_private_destination": false,
+          "destination_visibility": "local_only"
+        }
+      },
+      "resolution": {
+        "schema": "basket.worker_resolution@1",
+        "task_id": "B00-243",
+        "spark_id": "B00",
+        "issue": {
+          "number": 243,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/243"
+        },
+        "branch": {
+          "name": "work/243-clean-template-boundary",
+          "base": "main"
+        },
+        "pr": null,
+        "reported_at": null,
+        "disposition": "in_progress",
+        "changed_paths": [],
+        "checks": [],
+        "acceptance": [
+          {
+            "id": "A1",
+            "result": "not_verified",
+            "evidence_urls": []
+          }
+        ],
+        "blockers": [],
+        "handoffs": [],
+        "unknowns": [
+          "Synthetic declaration; no execution or independently authenticated observations."
+        ],
+        "next_action": "Existing acceptance owner reviews local semantic profile."
+      },
+      "active_objectives": [
+        {
+          "task_id": "B00-243",
+          "owner_session": "fixture-session-clean-comparison",
+          "purpose": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+          "outcomes": [
+            "A1"
+          ],
+          "non_goals": [
+            "No runtime, data fetch, publication or canonical-owner integration."
+          ],
+          "intake_id": "commitment-1"
+        }
+      ],
+      "planned_children": [
+        {
+          "id": "desired-report",
+          "parent_task_id": "B00-243",
+          "purpose": "Desired clean comparison report, still unallocated.",
+          "intended_owner": "existing clean consumer owner; controller to resolve",
+          "acceptance": [
+            {
+              "id": "A1",
+              "criterion": "Synthetic lifecycle declarations are consistent",
+              "evidence_class": "test"
+            }
+          ],
+          "branch": null,
+          "running_worker": null
+        }
+      ],
+      "intake": [
+        {
+          "id": "question-1",
+          "kind": "question",
+          "text": "Could the report include confidence explanations?",
+          "source": {
+            "ref": "fixture://question",
+            "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "supersedes": null,
+          "approval": null
+        },
+        {
+          "id": "idea-1",
+          "kind": "idea",
+          "text": "Explore optional comparison formatting.",
+          "source": {
+            "ref": "fixture://idea",
+            "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "supersedes": null,
+          "approval": null
+        },
+        {
+          "id": "commitment-1",
+          "kind": "commitment",
+          "text": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+          "source": {
+            "ref": "fixture://delegation",
+            "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "supersedes": null,
+          "approval": {
+            "ref": "fixture://scoped-approval",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          }
+        }
+      ],
+      "wake": {
+        "id": "wake-1",
+        "idempotency_key": "synthetic-clean-comparison-once",
+        "uncertain_effect": false
+      },
+      "known_effects": [
+        {
+          "id": "prior-observation",
+          "evidence": {
+            "ref": "fixture://existing-observation",
+            "sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+          }
+        }
+      ]
+    },
+    "duplicate-wake": {
+      "profile": "clean-template-semantic-example-v1",
+      "synthetic": true,
+      "lifecycle": {
+        "schema": "basket.lifecycle_snapshot@0.1-draft",
+        "synthetic": true,
+        "role": "clean_consumer",
+        "task": {
+          "schema": "basket.worker_task@1",
+          "task_id": "B00-243",
+          "spark_id": "B00",
+          "issue": {
+            "number": 243,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/243"
+          },
+          "branch": {
+            "name": "work/243-clean-template-boundary",
+            "base": "main"
+          },
+          "objective": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+          "write_paths": [
+            "orchestration/clean_templates/**"
+          ],
+          "acceptance": [
+            {
+              "id": "A1",
+              "criterion": "Synthetic lifecycle declarations are consistent",
+              "evidence_class": "test"
+            }
+          ],
+          "dependencies": [],
+          "claimed_at": null,
+          "state": "review"
+        },
+        "request": {
+          "request_id": "synthetic-clean-comparison",
+          "idempotency_key": "synthetic-clean-comparison-once",
+          "deadline": "2030-01-02T00:00:00Z",
+          "input_revision": "130a9822ce65149ecf4fd3d140bf56bef6cf2a30091ba0c2784fb6e76268a69c",
+          "branch": "work/243-clean-template-boundary",
+          "source_revision": "0279d14b1aa222299871fc38ba4af4daed8a94e1",
+          "operation": "consume",
+          "planned_writes": [],
+          "demand": {
+            "logical_demand_id": "fixture-demand-clean-comparison",
+            "attempt_id": "fixture-attempt-clean-comparison-2",
+            "persisted_generation_id": "fixture-generation-clean-comparison-1",
+            "requested_at": "2030-01-01T00:00:00Z",
+            "prior_fulfillment": {
+              "attempt_id": "fixture-attempt-clean-comparison-1",
+              "persisted_generation_id": "fixture-generation-clean-comparison-1",
+              "completed_at": "2029-12-31T00:00:00Z"
+            }
+          }
+        },
+        "session": {
+          "discovery": "resume_existing",
+          "session_id": "fixture-session-clean-comparison",
+          "conversation_id": "fixture-conversation-clean-comparison",
+          "conversation_open": true,
+          "nathan_can_communicate": true,
+          "dot_can_communicate": true,
+          "expected_host": "MELISSA",
+          "observed_host": "MELISSA",
+          "executor_verified": true,
+          "verification_receipt": {
+            "ref": "fixture://clean-comparison/executor-observation",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "worktree_isolated": true,
+          "connected": true
+        },
+        "ownership": {
+          "inventory_verified": true,
+          "active_writers": [
+            "fixture-session-clean-comparison"
+          ]
+        },
+        "input": {
+          "artifact": {
+            "ref": "fixture://clean-comparison/qualified-input",
+            "sha256": "130a9822ce65149ecf4fd3d140bf56bef6cf2a30091ba0c2784fb6e76268a69c"
+          },
+          "qualification": "qualified",
+          "qualified_until": "2030-01-02T00:00:00Z",
+          "local": true,
+          "access": "read_only",
+          "provider_owner": "clean_templates",
+          "acquisition_owner": "_FETCH",
+          "persistence_owner": "_FETCH",
+          "repair_owner": "_FETCH",
+          "refresh_owner": "_FETCH",
+          "freshness_readback": {
+            "checked_at": "2030-01-01T00:00:00Z",
+            "persisted_generation_id": "fixture-generation-clean-comparison-1"
+          }
+        },
+        "acknowledgment": {
+          "artifact": {
+            "ref": "fixture://clean-comparison/ack",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "request_sha256": "22aee9527c2b22a59e5487719e6e460c7be298f18ffa9595583e6c8f7ce93952",
+          "session_id": "fixture-session-clean-comparison"
+        },
+        "outcome": {
+          "state": "completed",
+          "run_observed": true,
+          "receipt": {
+            "artifact": {
+              "ref": "fixture://clean-comparison/result",
+              "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+            },
+            "request_sha256": "22aee9527c2b22a59e5487719e6e460c7be298f18ffa9595583e6c8f7ce93952"
+          },
+          "effect_state": "none",
+          "consumer_acceptance": "pending",
+          "acceptance_receipt": null,
+          "invoked": true,
+          "independent_acceptance": "pending",
+          "independent_receipt": null,
+          "consumer_usable": false
+        },
+        "recovery": {
+          "prior_failures": [],
+          "checkpoint": {
+            "ref": "fixture://clean-comparison/checkpoint",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "uncertain_write_policy": "inspect_effect_and_readback_before_retry",
+          "next_action": "review_existing_receipt",
+          "replay_policy": "same_key_reconcile_no_reapply"
+        },
+        "schedule": {
+          "configured": true,
+          "configuration_is_run": false
+        },
+        "privacy": {
+          "input_class": "synthetic",
+          "publish_input": false,
+          "publication_scope": "sanitized_code_tests_docs_only",
+          "private_paths_in_public_receipt": false,
+          "requires_private_destination": false,
+          "destination_visibility": "local_only"
+        }
+      },
+      "resolution": {
+        "schema": "basket.worker_resolution@1",
+        "task_id": "B00-243",
+        "spark_id": "B00",
+        "issue": {
+          "number": 243,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/243"
+        },
+        "branch": {
+          "name": "work/243-clean-template-boundary",
+          "base": "main"
+        },
+        "pr": null,
+        "reported_at": null,
+        "disposition": "in_progress",
+        "changed_paths": [],
+        "checks": [],
+        "acceptance": [
+          {
+            "id": "A1",
+            "result": "not_verified",
+            "evidence_urls": []
+          }
+        ],
+        "blockers": [],
+        "handoffs": [],
+        "unknowns": [
+          "Synthetic declaration; no execution or independently authenticated observations."
+        ],
+        "next_action": "Existing acceptance owner reviews local semantic profile."
+      },
+      "active_objectives": [
+        {
+          "task_id": "B00-243",
+          "owner_session": "fixture-session-clean-comparison",
+          "purpose": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+          "outcomes": [
+            "A1"
+          ],
+          "non_goals": [
+            "No runtime, data fetch, publication or canonical-owner integration."
+          ],
+          "intake_id": "commitment-1"
+        }
+      ],
+      "planned_children": [
+        {
+          "id": "desired-report",
+          "parent_task_id": "B00-243",
+          "purpose": "Desired clean comparison report, still unallocated.",
+          "intended_owner": "existing clean consumer owner; controller to resolve",
+          "acceptance": [
+            {
+              "id": "A1",
+              "criterion": "Synthetic lifecycle declarations are consistent",
+              "evidence_class": "test"
+            }
+          ],
+          "branch": null,
+          "running_worker": null
+        }
+      ],
+      "intake": [
+        {
+          "id": "question-1",
+          "kind": "question",
+          "text": "Could the report include confidence explanations?",
+          "source": {
+            "ref": "fixture://question",
+            "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "supersedes": null,
+          "approval": null
+        },
+        {
+          "id": "idea-1",
+          "kind": "idea",
+          "text": "Explore optional comparison formatting.",
+          "source": {
+            "ref": "fixture://idea",
+            "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "supersedes": null,
+          "approval": null
+        },
+        {
+          "id": "commitment-1",
+          "kind": "commitment",
+          "text": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+          "source": {
+            "ref": "fixture://delegation",
+            "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "supersedes": null,
+          "approval": {
+            "ref": "fixture://scoped-approval",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          }
+        }
+      ],
+      "wake": {
+        "id": "wake-2",
+        "idempotency_key": "synthetic-clean-comparison-once",
+        "uncertain_effect": false
+      },
+      "known_effects": [
+        {
+          "id": "prior-observation",
+          "evidence": {
+            "ref": "fixture://existing-observation",
+            "sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+          }
+        }
+      ]
+    },
+    "uncertain-replay": {
+      "profile": "clean-template-semantic-example-v1",
+      "synthetic": true,
+      "lifecycle": {
+        "schema": "basket.lifecycle_snapshot@0.1-draft",
+        "synthetic": true,
+        "role": "clean_consumer",
+        "task": {
+          "schema": "basket.worker_task@1",
+          "task_id": "B00-243",
+          "spark_id": "B00",
+          "issue": {
+            "number": 243,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/243"
+          },
+          "branch": {
+            "name": "work/243-clean-template-boundary",
+            "base": "main"
+          },
+          "objective": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+          "write_paths": [
+            "orchestration/clean_templates/**"
+          ],
+          "acceptance": [
+            {
+              "id": "A1",
+              "criterion": "Synthetic lifecycle declarations are consistent",
+              "evidence_class": "test"
+            }
+          ],
+          "dependencies": [],
+          "claimed_at": null,
+          "state": "review"
+        },
+        "request": {
+          "request_id": "synthetic-clean-comparison",
+          "idempotency_key": "synthetic-clean-comparison-once",
+          "deadline": "2030-01-02T00:00:00Z",
+          "input_revision": "130a9822ce65149ecf4fd3d140bf56bef6cf2a30091ba0c2784fb6e76268a69c",
+          "branch": "work/243-clean-template-boundary",
+          "source_revision": "0279d14b1aa222299871fc38ba4af4daed8a94e1",
+          "operation": "consume",
+          "planned_writes": [],
+          "demand": {
+            "logical_demand_id": "fixture-demand-clean-comparison",
+            "attempt_id": "fixture-attempt-clean-comparison-2",
+            "persisted_generation_id": "fixture-generation-clean-comparison-1",
+            "requested_at": "2030-01-01T00:00:00Z",
+            "prior_fulfillment": {
+              "attempt_id": "fixture-attempt-clean-comparison-1",
+              "persisted_generation_id": "fixture-generation-clean-comparison-1",
+              "completed_at": "2029-12-31T00:00:00Z"
+            }
+          }
+        },
+        "session": {
+          "discovery": "resume_existing",
+          "session_id": "fixture-session-clean-comparison",
+          "conversation_id": "fixture-conversation-clean-comparison",
+          "conversation_open": true,
+          "nathan_can_communicate": true,
+          "dot_can_communicate": true,
+          "expected_host": "MELISSA",
+          "observed_host": "MELISSA",
+          "executor_verified": true,
+          "verification_receipt": {
+            "ref": "fixture://clean-comparison/executor-observation",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "worktree_isolated": true,
+          "connected": true
+        },
+        "ownership": {
+          "inventory_verified": true,
+          "active_writers": [
+            "fixture-session-clean-comparison"
+          ]
+        },
+        "input": {
+          "artifact": {
+            "ref": "fixture://clean-comparison/qualified-input",
+            "sha256": "130a9822ce65149ecf4fd3d140bf56bef6cf2a30091ba0c2784fb6e76268a69c"
+          },
+          "qualification": "qualified",
+          "qualified_until": "2030-01-02T00:00:00Z",
+          "local": true,
+          "access": "read_only",
+          "provider_owner": "clean_templates",
+          "acquisition_owner": "_FETCH",
+          "persistence_owner": "_FETCH",
+          "repair_owner": "_FETCH",
+          "refresh_owner": "_FETCH",
+          "freshness_readback": {
+            "checked_at": "2030-01-01T00:00:00Z",
+            "persisted_generation_id": "fixture-generation-clean-comparison-1"
+          }
+        },
+        "acknowledgment": {
+          "artifact": {
+            "ref": "fixture://clean-comparison/ack",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "request_sha256": "22aee9527c2b22a59e5487719e6e460c7be298f18ffa9595583e6c8f7ce93952",
+          "session_id": "fixture-session-clean-comparison"
+        },
+        "outcome": {
+          "state": "completed",
+          "run_observed": true,
+          "receipt": {
+            "artifact": {
+              "ref": "fixture://clean-comparison/result",
+              "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+            },
+            "request_sha256": "22aee9527c2b22a59e5487719e6e460c7be298f18ffa9595583e6c8f7ce93952"
+          },
+          "effect_state": "none",
+          "consumer_acceptance": "pending",
+          "acceptance_receipt": null,
+          "invoked": true,
+          "independent_acceptance": "pending",
+          "independent_receipt": null,
+          "consumer_usable": false
+        },
+        "recovery": {
+          "prior_failures": [],
+          "checkpoint": {
+            "ref": "fixture://clean-comparison/checkpoint",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "uncertain_write_policy": "inspect_effect_and_readback_before_retry",
+          "next_action": "review_existing_receipt",
+          "replay_policy": "same_key_reconcile_no_reapply"
+        },
+        "schedule": {
+          "configured": true,
+          "configuration_is_run": false
+        },
+        "privacy": {
+          "input_class": "synthetic",
+          "publish_input": false,
+          "publication_scope": "sanitized_code_tests_docs_only",
+          "private_paths_in_public_receipt": false,
+          "requires_private_destination": false,
+          "destination_visibility": "local_only"
+        }
+      },
+      "resolution": {
+        "schema": "basket.worker_resolution@1",
+        "task_id": "B00-243",
+        "spark_id": "B00",
+        "issue": {
+          "number": 243,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/243"
+        },
+        "branch": {
+          "name": "work/243-clean-template-boundary",
+          "base": "main"
+        },
+        "pr": null,
+        "reported_at": null,
+        "disposition": "in_progress",
+        "changed_paths": [],
+        "checks": [],
+        "acceptance": [
+          {
+            "id": "A1",
+            "result": "not_verified",
+            "evidence_urls": []
+          }
+        ],
+        "blockers": [],
+        "handoffs": [],
+        "unknowns": [
+          "Synthetic declaration; no execution or independently authenticated observations."
+        ],
+        "next_action": "Existing acceptance owner reviews local semantic profile."
+      },
+      "active_objectives": [
+        {
+          "task_id": "B00-243",
+          "owner_session": "fixture-session-clean-comparison",
+          "purpose": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+          "outcomes": [
+            "A1"
+          ],
+          "non_goals": [
+            "No runtime, data fetch, publication or canonical-owner integration."
+          ],
+          "intake_id": "commitment-1"
+        }
+      ],
+      "planned_children": [
+        {
+          "id": "desired-report",
+          "parent_task_id": "B00-243",
+          "purpose": "Desired clean comparison report, still unallocated.",
+          "intended_owner": "existing clean consumer owner; controller to resolve",
+          "acceptance": [
+            {
+              "id": "A1",
+              "criterion": "Synthetic lifecycle declarations are consistent",
+              "evidence_class": "test"
+            }
+          ],
+          "branch": null,
+          "running_worker": null
+        }
+      ],
+      "intake": [
+        {
+          "id": "question-1",
+          "kind": "question",
+          "text": "Could the report include confidence explanations?",
+          "source": {
+            "ref": "fixture://question",
+            "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "supersedes": null,
+          "approval": null
+        },
+        {
+          "id": "idea-1",
+          "kind": "idea",
+          "text": "Explore optional comparison formatting.",
+          "source": {
+            "ref": "fixture://idea",
+            "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "supersedes": null,
+          "approval": null
+        },
+        {
+          "id": "commitment-1",
+          "kind": "commitment",
+          "text": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+          "source": {
+            "ref": "fixture://delegation",
+            "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "supersedes": null,
+          "approval": {
+            "ref": "fixture://scoped-approval",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          }
+        }
+      ],
+      "wake": {
+        "id": "wake-3",
+        "idempotency_key": "synthetic-clean-comparison-once",
+        "uncertain_effect": true
+      },
+      "known_effects": [
+        {
+          "id": "prior-observation",
+          "evidence": {
+            "ref": "fixture://existing-observation",
+            "sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+          }
+        }
+      ]
+    },
+    "retained-correction": {
+      "profile": "clean-template-semantic-example-v1",
+      "synthetic": true,
+      "lifecycle": {
+        "schema": "basket.lifecycle_snapshot@0.1-draft",
+        "synthetic": true,
+        "role": "clean_consumer",
+        "task": {
+          "schema": "basket.worker_task@1",
+          "task_id": "B00-243",
+          "spark_id": "B00",
+          "issue": {
+            "number": 243,
+            "url": "https://github.com/whiterosecoffee/_BASKET/issues/243"
+          },
+          "branch": {
+            "name": "work/243-clean-template-boundary",
+            "base": "main"
+          },
+          "objective": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+          "write_paths": [
+            "orchestration/clean_templates/**"
+          ],
+          "acceptance": [
+            {
+              "id": "A1",
+              "criterion": "Synthetic lifecycle declarations are consistent",
+              "evidence_class": "test"
+            }
+          ],
+          "dependencies": [],
+          "claimed_at": null,
+          "state": "review"
+        },
+        "request": {
+          "request_id": "synthetic-clean-comparison",
+          "idempotency_key": "synthetic-clean-comparison-once",
+          "deadline": "2030-01-02T00:00:00Z",
+          "input_revision": "130a9822ce65149ecf4fd3d140bf56bef6cf2a30091ba0c2784fb6e76268a69c",
+          "branch": "work/243-clean-template-boundary",
+          "source_revision": "0279d14b1aa222299871fc38ba4af4daed8a94e1",
+          "operation": "consume",
+          "planned_writes": [],
+          "demand": {
+            "logical_demand_id": "fixture-demand-clean-comparison",
+            "attempt_id": "fixture-attempt-clean-comparison-2",
+            "persisted_generation_id": "fixture-generation-clean-comparison-1",
+            "requested_at": "2030-01-01T00:00:00Z",
+            "prior_fulfillment": {
+              "attempt_id": "fixture-attempt-clean-comparison-1",
+              "persisted_generation_id": "fixture-generation-clean-comparison-1",
+              "completed_at": "2029-12-31T00:00:00Z"
+            }
+          }
+        },
+        "session": {
+          "discovery": "resume_existing",
+          "session_id": "fixture-session-clean-comparison",
+          "conversation_id": "fixture-conversation-clean-comparison",
+          "conversation_open": true,
+          "nathan_can_communicate": true,
+          "dot_can_communicate": true,
+          "expected_host": "MELISSA",
+          "observed_host": "MELISSA",
+          "executor_verified": true,
+          "verification_receipt": {
+            "ref": "fixture://clean-comparison/executor-observation",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "worktree_isolated": true,
+          "connected": true
+        },
+        "ownership": {
+          "inventory_verified": true,
+          "active_writers": [
+            "fixture-session-clean-comparison"
+          ]
+        },
+        "input": {
+          "artifact": {
+            "ref": "fixture://clean-comparison/qualified-input",
+            "sha256": "130a9822ce65149ecf4fd3d140bf56bef6cf2a30091ba0c2784fb6e76268a69c"
+          },
+          "qualification": "qualified",
+          "qualified_until": "2030-01-02T00:00:00Z",
+          "local": true,
+          "access": "read_only",
+          "provider_owner": "clean_templates",
+          "acquisition_owner": "_FETCH",
+          "persistence_owner": "_FETCH",
+          "repair_owner": "_FETCH",
+          "refresh_owner": "_FETCH",
+          "freshness_readback": {
+            "checked_at": "2030-01-01T00:00:00Z",
+            "persisted_generation_id": "fixture-generation-clean-comparison-1"
+          }
+        },
+        "acknowledgment": {
+          "artifact": {
+            "ref": "fixture://clean-comparison/ack",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "request_sha256": "22aee9527c2b22a59e5487719e6e460c7be298f18ffa9595583e6c8f7ce93952",
+          "session_id": "fixture-session-clean-comparison"
+        },
+        "outcome": {
+          "state": "completed",
+          "run_observed": true,
+          "receipt": {
+            "artifact": {
+              "ref": "fixture://clean-comparison/result",
+              "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+            },
+            "request_sha256": "22aee9527c2b22a59e5487719e6e460c7be298f18ffa9595583e6c8f7ce93952"
+          },
+          "effect_state": "none",
+          "consumer_acceptance": "pending",
+          "acceptance_receipt": null,
+          "invoked": true,
+          "independent_acceptance": "pending",
+          "independent_receipt": null,
+          "consumer_usable": false
+        },
+        "recovery": {
+          "prior_failures": [],
+          "checkpoint": {
+            "ref": "fixture://clean-comparison/checkpoint",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "uncertain_write_policy": "inspect_effect_and_readback_before_retry",
+          "next_action": "review_existing_receipt",
+          "replay_policy": "same_key_reconcile_no_reapply"
+        },
+        "schedule": {
+          "configured": true,
+          "configuration_is_run": false
+        },
+        "privacy": {
+          "input_class": "synthetic",
+          "publish_input": false,
+          "publication_scope": "sanitized_code_tests_docs_only",
+          "private_paths_in_public_receipt": false,
+          "requires_private_destination": false,
+          "destination_visibility": "local_only"
+        }
+      },
+      "resolution": {
+        "schema": "basket.worker_resolution@1",
+        "task_id": "B00-243",
+        "spark_id": "B00",
+        "issue": {
+          "number": 243,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/243"
+        },
+        "branch": {
+          "name": "work/243-clean-template-boundary",
+          "base": "main"
+        },
+        "pr": null,
+        "reported_at": null,
+        "disposition": "in_progress",
+        "changed_paths": [],
+        "checks": [],
+        "acceptance": [
+          {
+            "id": "A1",
+            "result": "not_verified",
+            "evidence_urls": []
+          }
+        ],
+        "blockers": [],
+        "handoffs": [],
+        "unknowns": [
+          "Synthetic declaration; no execution or independently authenticated observations."
+        ],
+        "next_action": "Existing acceptance owner reviews local semantic profile."
+      },
+      "active_objectives": [
+        {
+          "task_id": "B00-243",
+          "owner_session": "fixture-session-clean-comparison",
+          "purpose": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+          "outcomes": [
+            "A1"
+          ],
+          "non_goals": [
+            "No runtime, data fetch, publication or canonical-owner integration."
+          ],
+          "intake_id": "commitment-1"
+        }
+      ],
+      "planned_children": [
+        {
+          "id": "desired-report",
+          "parent_task_id": "B00-243",
+          "purpose": "Desired clean comparison report, still unallocated.",
+          "intended_owner": "existing clean consumer owner; controller to resolve",
+          "acceptance": [
+            {
+              "id": "A1",
+              "criterion": "Synthetic lifecycle declarations are consistent",
+              "evidence_class": "test"
+            }
+          ],
+          "branch": null,
+          "running_worker": null
+        }
+      ],
+      "intake": [
+        {
+          "id": "question-1",
+          "kind": "question",
+          "text": "Could the report include confidence explanations?",
+          "source": {
+            "ref": "fixture://question",
+            "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "supersedes": null,
+          "approval": null
+        },
+        {
+          "id": "idea-1",
+          "kind": "idea",
+          "text": "Explore optional comparison formatting.",
+          "source": {
+            "ref": "fixture://idea",
+            "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "supersedes": null,
+          "approval": null
+        },
+        {
+          "id": "commitment-1",
+          "kind": "commitment",
+          "text": "Synthetic lifecycle template evaluation only; no domain ownership grant.",
+          "source": {
+            "ref": "fixture://delegation",
+            "sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "supersedes": null,
+          "approval": {
+            "ref": "fixture://scoped-approval",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          }
+        },
+        {
+          "id": "question-2",
+          "kind": "question",
+          "text": "Correction: explore explanatory labels, not confidence claims.",
+          "source": {
+            "ref": "fixture://correction",
+            "sha256": "7777777777777777777777777777777777777777777777777777777777777777"
+          },
+          "supersedes": "question-1",
+          "approval": null
+        }
+      ],
+      "wake": {
+        "id": "wake-1",
+        "idempotency_key": "synthetic-clean-comparison-once",
+        "uncertain_effect": false
+      },
+      "known_effects": [
+        {
+          "id": "prior-observation",
+          "evidence": {
+            "ref": "fixture://existing-observation",
+            "sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+          }
+        }
+      ]
+    }
+  }
+}

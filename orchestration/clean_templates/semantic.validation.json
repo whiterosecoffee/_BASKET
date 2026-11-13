@@ -1,0 +1,56 @@
+{
+  "schema": "basket.local_template_validation@0.1-draft",
+  "task_id": "B00-243",
+  "evaluated_input_revision": "0279d14b1aa222299871fc38ba4af4daed8a94e1",
+  "environment": "MELISSA Windows existing Python",
+  "checks": [
+    {
+      "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_semantic.py -v",
+      "result": "pass",
+      "tests": 20,
+      "skipped": 0
+    },
+    {
+      "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
+      "result": "pass",
+      "tests": 99,
+      "skipped": 0
+    }
+  ],
+  "source_sha256": {
+    "semantic.py": "8e9f1134390bd5578520dc29e4138e51f5548d7da80d59e2464ffcf61fbdf42e",
+    "semantic.examples.json": "0fdb9f1f3e92b5f74fa1f3db1e8c5a7ed10d4c2bff55eca7c81675b455b48f7b",
+    "semantic.adoption.json": "0edb577fb69afbfc356c4a314f93b983544948d605a470879da50b7b4c1ce94c",
+    "SEMANTIC.md": "3206e12c7b3062a0be6047078662646f67c44559f7d06d20af7e2ff4bb8c55f0",
+    "tests/test_semantic.py": "10ccb082859e4c16b5bc263e0e7c33e6e95ea93569b6831eb9711f2bb07f6ee3",
+    "semantic.data-example.json": "e08d83194791f705688900e2c29657365a63cda22cfc672edf8ba9e113e3c888"
+  },
+  "evidence_sha256": {
+    "semantic-focused.log": "d30a0289553d3cdfb2893bab5c8a94b2d1caa2616101d73a627fe7b9c92a8687",
+    "semantic-discovery.log": "2c7be631b22f81219170cc6083865fe36e7d39366642b37f62fb25d6827e4da7"
+  },
+  "predecessor_review": {
+    "revision": "0279d14b1aa222299871fc38ba4af4daed8a94e1",
+    "decision": "F1-F4 accepted for bounded local consistency only",
+    "source_sha256": {
+      "DECISION.md": "8a4474ef1750344593ed8f3a261632987e534cea508e4c7c655d4987a4856bdd",
+      "CONFORMITY.md": "deab7f8e23edd0905491bba1c8556ac6a482278415538b0d31a865e75b3ffad7"
+    },
+    "new_increment_acceptance": "pending_independent_exact_revision_review"
+  },
+  "execution_authorized": false,
+  "governing_adoption": {
+    "verified": 0,
+    "proposed_rows": 8
+  },
+  "publication": "local_only_no_attempt",
+  "disposition": "producer_tested_not_integrated",
+  "limits": [
+    "No durable execution or authenticated observations",
+    "No canonical owner edits or dispatches",
+    "No hosted/full-platform pass claimed",
+    "Prior denied publication and WinError 1314 limitations retained"
+  ],
+  "next_action": "Existing independent reviewer checks the exact new local revision and returns semantic findings to this same writer.",
+  "data_architecture": "_FETCH master class; Massive adapter dependency; two synthetic ticker tasks have distinct branches/scopes and accountable owners; provider-neutral requests."
+}

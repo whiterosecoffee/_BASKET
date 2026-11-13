@@ -1,0 +1,95 @@
+{
+  "synthetic": true,
+  "execution_authorized": false,
+  "allocation": "fictional_examples_not_live_issue_or_branch_claims",
+  "master_class": "_FETCH",
+  "generic_contracts": "Provider-neutral request/outcome and artifact references; no source-adapter identity in consumer requests.",
+  "dependency_metadata": {
+    "adapters": [
+      {
+        "id": "Massive",
+        "kind": "source_adapter",
+        "parent": "_FETCH",
+        "capabilities": [
+          "historical_market_data_candidate"
+        ],
+        "qualification": "illustrative_declared_not_verified_entitlement_or_execution"
+      }
+    ]
+  },
+  "consumers": [
+    {
+      "synthetic": true,
+      "accountable_owner": "fixture-owner-ticker-a",
+      "task": {
+        "schema": "basket.worker_task@1",
+        "task_id": "B00-9001",
+        "spark_id": "B00",
+        "issue": {
+          "number": 9001,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/9001"
+        },
+        "branch": {
+          "name": "work/9001-synthetic-ticker-a-consumer",
+          "base": "main"
+        },
+        "objective": "Synthetic ticker-a requests qualified data from _FETCH and consumes it read-only.",
+        "write_paths": [
+          "synthetic/ticker-a/**"
+        ],
+        "acceptance": [
+          {
+            "id": "A1",
+            "criterion": "Synthetic lifecycle declarations are consistent",
+            "evidence_class": "test"
+          }
+        ],
+        "dependencies": [],
+        "claimed_at": null,
+        "state": "review"
+      },
+      "request_contract": "orchestration/clean_templates/lifecycle.examples.json#examples/market-readonly/request",
+      "request_target": "_FETCH",
+      "consume": "qualified_local_data",
+      "access": "read_only",
+      "maintenance_owner": "_FETCH"
+    },
+    {
+      "synthetic": true,
+      "accountable_owner": "fixture-owner-ticker-b",
+      "task": {
+        "schema": "basket.worker_task@1",
+        "task_id": "B00-9002",
+        "spark_id": "B00",
+        "issue": {
+          "number": 9002,
+          "url": "https://github.com/whiterosecoffee/_BASKET/issues/9002"
+        },
+        "branch": {
+          "name": "work/9002-synthetic-ticker-b-consumer",
+          "base": "main"
+        },
+        "objective": "Synthetic ticker-b requests qualified data from _FETCH and consumes it read-only.",
+        "write_paths": [
+          "synthetic/ticker-b/**"
+        ],
+        "acceptance": [
+          {
+            "id": "A1",
+            "criterion": "Synthetic lifecycle declarations are consistent",
+            "evidence_class": "test"
+          }
+        ],
+        "dependencies": [],
+        "claimed_at": null,
+        "state": "review"
+      },
+      "request_contract": "orchestration/clean_templates/lifecycle.examples.json#examples/market-readonly/request",
+      "request_target": "_FETCH",
+      "consume": "qualified_local_data",
+      "access": "read_only",
+      "maintenance_owner": "_FETCH"
+    }
+  ],
+  "integration_owner": "Existing _FETCH owner for maintenance; #230/_MAP and governing owners through parent for registration."
+}
