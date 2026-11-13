@@ -1,0 +1,51 @@
+{
+  "kind": "redacted_observation_projection",
+  "recorded_date": "2026-11-12",
+  "host": "WORKSTATION-A",
+  "os": "Windows (version redacted)",
+  "description": "Negative-case shapes derived from local observations. Host, OS detail and private data-worker branch/head identities are replaced with explicit fixture aliases; no live admission evidence.",
+  "sources": [
+    "Local exec hostname, OS, cwd, branch and worktree inventory",
+    "https://github.com/whiterosecoffee/_BASKET/issues/134",
+    "https://github.com/whiterosecoffee/_BASKET/pull/135",
+    "https://github.com/whiterosecoffee/_BASKET/issues/136",
+    "https://github.com/whiterosecoffee/_BASKET/issues/207"
+  ],
+  "readable_input_hashes": {
+    "AGENTS.md": "d9922eaee4e64c418ecf4b696ad95e47dc4a50d0cf0d95acf5679c7213fa2ae3",
+    "orchestration/WORKER_PROTOCOL.md": "94328a40154b8bed51b0139d90e132cc3fe5996a180286468bbbc5fdcb35a73ea"
+  },
+  "unknowns": [
+    "No complete cross-executor writer inventory or exclusive lease exists",
+    "No new public issue identity: creation rejected by automatic approval review; no retry",
+    "Data continuation prerequisite and prior-effect disposition not independently established"
+  ],
+  "cases": [
+    {
+      "name": "redacted_workstation_local_parking_lane",
+      "mode": "new",
+      "task_registered": false,
+      "identity": {
+        "task_id": "local-20261112-execution-admission",
+        "owner": "admission-worker",
+        "spark": "B00",
+        "branch": "work/local-20261112-execution-admission",
+        "head": "74d913e8913d630d85451344689e093aeea07efc",
+        "worktree": "admission-isolated-worktree"
+      }
+    },
+    {
+      "name": "existing_data_worker_continuation_identity_only",
+      "mode": "continuation",
+      "task_registered": true,
+      "identity": {
+        "task_id": "B02-207",
+        "owner": "existing-data-worker-unverified",
+        "spark": "B02",
+        "branch": "work/207-data-continuation-fixture",
+        "head": "0000000000000000000000000000000000000000",
+        "worktree": "existing-data-worker-worktree"
+      }
+    }
+  ]
+}

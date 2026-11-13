@@ -1,0 +1,152 @@
+{
+  "kind": "local_execution_evidence",
+  "date": "2026-11-12",
+  "executor": {
+    "host": "WORKSTATION-A",
+    "os": "Windows (version redacted)",
+    "python": "3.12.10",
+    "jsonschema": "4.26.0"
+  },
+  "attempts": [
+    {
+      "id": "setup-1",
+      "result": "blocked",
+      "detail": "Original supplied checkout main status failed: operation must be run in a work tree. It was left unchanged; a separate main-based repository and isolated task worktree were created."
+    },
+    {
+      "id": "github-read-1",
+      "result": "failed",
+      "detail": "Sandboxed gh could not connect. Authorized read with escalation succeeded; 77 open PR path inventories and open issue claims inspected."
+    },
+    {
+      "id": "publication-1",
+      "result": "denied",
+      "detail": "Automatic approval review rejected creation of the new B00 bounded execution-admission task issue: public external commitment and insufficient explicit authorization for exact contents. No retry or alternative publication. No issue or PR was created."
+    },
+    {
+      "id": "writer-read-1",
+      "result": "blocked",
+      "detail": "Sandboxed CIM and existing data worktree read were unavailable. Escalated read-only checks succeeded. Process listing contained no python/git entries at observation time; this does not prove global writer cessation or an exclusive lease."
+    },
+    {
+      "id": "tests-1",
+      "result": "failed",
+      "tests": 26,
+      "passed": 25,
+      "errors": 1,
+      "detail": "Timezone-less timestamp reached datetime parsing because the optional jsonschema date-time checker was absent."
+    },
+    {
+      "id": "tests-2",
+      "retry_of": "tests-1",
+      "result": "pass",
+      "tests": 26,
+      "errors": 0,
+      "detail": "Explicit RFC3339 checker fixes the failure independently of optional dependencies."
+    },
+    {
+      "id": "tests-3",
+      "result": "pass",
+      "tests": 34,
+      "errors": 0,
+      "detail": "Additional collector, authority, duplicate-ID, lifecycle and manifest negatives."
+    },
+    {
+      "id": "tests-4",
+      "result": "pass",
+      "tests": 35,
+      "errors": 0,
+      "detail": "Controller-approved request hash prevents omitted requirements. Existing worker-protocol suite: 10 passed."
+    },
+    {
+      "id": "tests-5",
+      "result": "failed",
+      "tests": 36,
+      "passed": 35,
+      "failures": 1,
+      "detail": "A missing bracket in the local schema-generation helper prevented updating the receipt schema; the new contradiction test failed. The first local commit 098e70b recorded an incorrect pass because a batched command did not stop on the earlier nonzero exit. That record is corrected here; no external publication occurred."
+    },
+    {
+      "id": "tests-6",
+      "retry_of": "tests-5",
+      "result": "pass",
+      "tests": 36,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "detail": "Fixed helper syntax, regenerated the receipt consistency constraints, and ran suites with explicit exit-code guards. All 36 admission and 10 existing worker-protocol tests pass; git diff --check passes."
+    },
+    {
+      "id": "review-regressions-1",
+      "result": "failed",
+      "revision": "ce013f62d6f8b33c8f81f23067410e393e3cede5",
+      "tests": 38,
+      "passed": 36,
+      "failures": 2,
+      "detail": "Reproduced independent review findings before repair: identical active writer admitted for new launch; transfer admitted with conflicting non-null continuation evidence."
+    },
+    {
+      "id": "review-regressions-2",
+      "retry_of": "review-regressions-1",
+      "result": "pass",
+      "tests": 44,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "detail": "New/transfer reject all active writers; continuation requires exactly one active session with controller-pinned session/lease, positive confirmation and unexpired lease; transfer rejects any continuation evidence. Worker-protocol suite: 10 passed."
+    },
+    {
+      "id": "review-regressions-3",
+      "result": "pass",
+      "tests": 46,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "detail": "Added missing lease-field and unexpected new-launch binding negatives. All 46 admission and 10 worker-protocol tests pass; diff check passes."
+    },
+    {
+      "id": "worktree-review-1",
+      "result": "pass",
+      "detail": "Before edits git status showed clean work/local-20261112-execution-admission at the reviewed head. Normal status, git -C status and explicit git-dir/work-tree status succeeded. During repair both forms reported exactly the intended owned edits. core.bare=false, no core.worktree override, only GIT_PAGER environment variable. Reviewer configuration error not reproduced; no Git configuration changed."
+    },
+    {
+      "id": "portable-export-1",
+      "result": "pass",
+      "tests": 46,
+      "errors": 0,
+      "failures": 0,
+      "skips": 0,
+      "detail": "Sanitized eight-file export from current main; 46 focused and 10 existing worker-protocol tests passed. Targeted scan found no private paths, internal conversation identifiers, original host/user names or credential patterns. Original local history is not a parent of the portable branch."
+    },
+    {
+      "id": "methodology-ack-1",
+      "result": "failed",
+      "tests": 47,
+      "passed": 46,
+      "failures": 1,
+      "detail": "Pinned handoff reviewed once; new negative demonstrated missing replacement acknowledgement was eligible before correction"
+    },
+    {
+      "id": "methodology-ack-2",
+      "retry_of": "methodology-ack-1",
+      "result": "pass",
+      "tests": 48,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "detail": "Required replacement owner, positive acknowledgement and exact acknowledged request hash; missing/false/wrong-owner/wrong-hash cases reject. All 48 admission and 10 worker-protocol tests pass; no real launcher probe claimed"
+    }
+  ],
+  "commands": [
+    "python -m unittest discover -s orchestration/execution_admission -p 'test_*.py'",
+    "python -m unittest discover -s orchestration/tests -p 'test_worker_protocol.py'"
+  ],
+  "limits": [
+    "Controller reports independent review of the updated acknowledgement logic passed 48+10 tests and negative probes; no hosted focused run or live launcher acceptance is claimed",
+    "Synthetic eligibility cases; real workstation/data-worker projections intentionally reject",
+    "No collector, lock acquisition, launch, effects or operational acceptance implemented",
+    "Public issue creation remains denied and was not retried; portable branch publication is a separately user-authorized review-gated action",
+    "No merge, deployment, runtime or market-data edits"
+  ],
+  "next_action": "Repository review of exact source; existing controller provides missing authentic lease and run binding"
+}
