@@ -433,3 +433,41 @@ identity, permit, lifecycle isolation and deferral fixture changes remain record
 No live vendor calls or production writes. Next step: existing independent reviewer
 acceptance at the exact committed revision. Its receiver/session reference is not
 known to this owner; parent coordinates without creating another worker.
+
+
+### B01 F1 repair: bounded freshness contract - 2026-11-13
+
+Independent B01 review of ef226745 independently passed the existing74 regressions
+and22 stress cases, but rejected current-consumer acceptance after reproducing an
+infinite freshness budget qualifying day-old observations. Strings/None also
+produced unintended errors. Those passing suites did not establish this boundary.
+
+One validator now runs at resolve entry before pointer/data access or request
+creation, at direct current_ineligibility, request validation, and fulfilled-request
+entry. Only built-in int/float values in (0,1200] are accepted;1200 seconds retains
+the existing20-minute default as the upper bound of this lane's current-data policy.
+Consumers may tighten it, not expand it to reinterpret old observations as current.
+Zero is deliberately rejected, consistent with the prior positive request contract.
+Bool, NaN, infinities, strings, None, negative/zero/oversized values and other numeric
+types reject without coercion. Huge integers reject before float conversion.
+
+The stable FreshnessContractError subclasses ValueError and exposes code
+invalid_freshness_budget and field max_age_seconds. Invalid queued requests retain
+that code in durable quarantine dispositions. Historical-only access still omits
+required_through and is not subject to observation-age expiry; a supplied malformed
+budget is nevertheless invalid API input and rejects consistently.
+
+Four new boundary tests initially exposed25 failing assertions/subcases, including
+the independent infinity scenario. After repair82 offline tests pass, including
+four additional request-flow tests using real admission checks and fake transport.
+An explicit absent-range attestation completes request -> admission -> raw/partition
+-> qualified local read. Missing admission and existing-date refresh make zero
+transport calls; invalid freshness requests quarantine without transport. Permit
+references remain synthetic caller assertions, not authenticated authority.
+
+All22 stress cases pass without assertion changes this increment. Case13 remains
+labeled admission-mocked lifecycle evidence; the new flow tests do not fabricate
+existing-date refresh authority or qualify the legacy archive gap. Historical
+provenance, migration and production-operation gates remain unchanged. No live
+vendor calls, production writes or publication were performed. Same independent
+B01 reviewer should requalify this bounded delta at the new commit through parent.

@@ -7,6 +7,7 @@ import argparse
 import contextlib
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -27,6 +28,23 @@ SCHEMA = 'basket.massive.minute@1'
 OWNER = 'work/local-20261112-massive-maintainer'
 _WRITER_CONTEXT = threading.local()
 _EXPECTED_UNSET = object()
+MAX_CURRENT_AGE_SECONDS = 1200
+
+class FreshnessContractError(ValueError):
+    code='invalid_freshness_budget'
+    field='max_age_seconds'
+
+    def __init__(self):
+        super().__init__('max_age_seconds must be a finite int or float in (0, 1200]')
+
+
+def validate_freshness(value):
+    # Check the bounded range before isfinite: huge integers must not overflow
+    # during implicit conversion. Booleans and numeric subclasses are excluded.
+    if type(value) not in (int,float) or not 0<value<=MAX_CURRENT_AGE_SECONDS or not math.isfinite(value):
+        raise FreshnessContractError()
+    return value
+
 
 def now():
     return datetime.now(UTC).isoformat()
@@ -500,6 +518,7 @@ def current_ineligibility(root, entry, day, required, max_age, coverage):
     Unknown/no-trade/closed-session evidence cannot be inferred from empty minutes.
     Historical returned bars remain available without this current-data contract.
     """
+    validate_freshness(max_age)
     if not isinstance(coverage,dict): return 'coverage_unknown'
     try:
         start,end=coverage['start_t'],coverage['end_t']
@@ -530,6 +549,7 @@ def current_ineligibility(root, entry, day, required, max_age, coverage):
 
 def resolve(pointer, ticker, day, required_through=None, max_age_seconds=1200, *, coverage=None):
     """Local-only resolution. The consumer cannot fetch or pretend missing data is fresh."""
+    validate_freshness(max_age_seconds)
     symbol(ticker)
     cfg=read(Path(pointer))
     if not isinstance(cfg,dict) or cfg.get('schema')!=SCHEMA:
@@ -569,6 +589,7 @@ def fulfilled_request_is_current(root, request):
     Invalid indexed bytes fail closed; they do not authorize acquisition.
     Legacy requests retain the resolver's original 1200-second age default.
     """
+    validate_freshness(request.get('max_age_seconds',1200))
     index=read(root/'index.json')
     if index is None:
         return False
@@ -583,8 +604,7 @@ def fulfilled_request_is_current(root, request):
     if required is None:
         return True
     max_age=request.get('max_age_seconds',1200)
-    if type(max_age) not in (int,float) or not 0 < max_age < float('inf'):
-        raise ValueError('invalid request max_age_seconds')
+    validate_freshness(max_age)
     return current_ineligibility(root,entry,day,required,max_age,request.get('coverage')) is None
 
 
@@ -599,8 +619,7 @@ def validate_request(request):
     if required is not None and (type(required) is not int or date_of(required)!=day):
         raise ValueError('invalid required_through')
     age=request.get('max_age_seconds',1200)
-    if type(age) not in (int,float) or not 0<age<float('inf'):
-        raise ValueError('invalid request max_age_seconds')
+    validate_freshness(age)
 
 
 def require_admission(args, root, records, ticker, day):
@@ -680,7 +699,7 @@ def run(args):
                 raw=path.read_bytes()
                 disposition={'status':'quarantined','request_sha256':digest(raw),
                              'request_file':path.name,'reason':'invalid_request_or_snapshot',
-                             'error_type':type(exc).__name__}
+                             'error_type':type(exc).__name__,'contract_error':getattr(exc,'code',None)}
                 immutable(root/'quarantine'/('request-'+digest(raw)+'.json'),encode(disposition))
                 results.append(disposition)
                 continue
