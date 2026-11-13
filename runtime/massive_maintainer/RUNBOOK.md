@@ -398,3 +398,38 @@ No source acquisition, production changes, migration, schedule activation or
 independent acceptance occurred. Shared templates remain a B00 handoff. Local
 commit is explicitly authorized; publication is not retried. Next bounded code
 change is expected-head publication with stale-writer rejection and replay controls.
+
+
+### Expected-head publication - 2026-11-13
+
+Follow-up to scoped commit38aa202. promote requires expected_head explicitly:
+null means observed absence; otherwise supply the current partition SHA-256.
+Omitted/malformed/stale expectations reject before staging. Direct callers acquire
+the same local WRITER.lock; run reuses its existing thread-local writer authority.
+No new lock namespace or competing writer is introduced. fetch_day captures the
+observed head before acquisition, then supplies it to publication; it cannot adopt
+a newer head after fetching simply to bypass a conflict.
+
+Under the writer lock, publication snapshots and validates the index, stages and
+reads back immutable bytes and a prepared receipt, then rereads the authoritative
+index immediately before atomic replacement. Any partition-head or full-index
+change rejects. Prepared receipts are not proof of publication; the committed index
+is the visibility boundary. Conflicting raw evidence and old generations remain.
+
+No-op semantics are strict: identical bytes plus the current expected head succeed.
+A stale expectation rejects even if candidate bytes match. After an uncertain
+post-commit outcome, resolve the actual current head before retrying. Controlled
+exceptions before index replacement leave the prior index intact and release the
+lock; a hard process death still needs existing stale-lock recovery. This is a
+single-workstation cooperative lock, not a distributed compare-and-swap service.
+
+Owner-run tests:74 offline regressions passed; all22 retained-fixture stress cases
+passed with zero harness errors. Six new publication controls cover explicit first
+publication, replacement/no-op, malformed/missing/stale expectations, concurrent
+lock refusal, a simulated index change after staging, and crash/restart replay.
+Valid fixture helpers now pass explicit observed heads; stress19 invokes promote
+without that argument and retains its rejection assertion. Earlier scope/clock,
+identity, permit, lifecycle isolation and deferral fixture changes remain recorded.
+No live vendor calls or production writes. Next step: existing independent reviewer
+acceptance at the exact committed revision. Its receiver/session reference is not
+known to this owner; parent coordinates without creating another worker.

@@ -70,4 +70,5 @@ submits an unmet requirement, the existing writer acknowledges it, and the ticke
 reads a qualified local result with network disabled. Verify routing acknowledgments
 and runner receipts; a scheduled supervisor or open conversation is not a live
 refresh process. No cross-owner registry/template edits or publication are part of
-this local commit. Expected-head publication remains the next code gate.
+this local commit. Expected-head publication is implemented in this lane; independent acceptance and
+shared-contract adoption remain separate gates.

@@ -11,7 +11,7 @@ class EligibilityTests(unittest.TestCase):
         return {'session':'RTH','start_t':self.t,'end_t':self.t+120000,
                 'completion':'all_minutes_present','timezone':'America/New_York','adjustment':'split_adjusted'}
     def publish(self,status='OK',rows=None):
-        return m.promote(self.root,'NVDA',self.day,rows or [dict(self.row,t=self.t+i*60000) for i in range(3)],self.ev,{},source_status=status,pagination_complete=True)
+        return m.promote(self.root,'NVDA',self.day,rows or [dict(self.row,t=self.t+i*60000) for i in range(3)],self.ev,{},source_status=status,pagination_complete=True,expected_head=m.partition_head(self.root,'NVDA',self.day))
     def resolve(self,coverage=True):
         return m.resolve(self.pointer,'NVDA',self.day,self.t+120000,coverage=self.coverage() if coverage else None)
     def test_complete_declared_scope_positive(self):

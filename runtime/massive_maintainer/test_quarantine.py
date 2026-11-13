@@ -10,7 +10,7 @@ class QuarantineTests(unittest.TestCase):
     setUp=fixtures.MaintenanceTests.setUp
     def publish(self):
         identity={'cik':'synthetic-cik','composite_figi':None,'share_class_figi':None,'primary_exchange':None,'type':None}
-        return m.promote(self.root,'NVDA',self.day,[self.row],self.ev,{'instrument_identity':identity})
+        return m.promote(self.root,'NVDA',self.day,[self.row],self.ev,{'instrument_identity':identity},expected_head=m.partition_head(self.root,'NVDA',self.day))
     def transport(self,items):
         queue=iter(items)
         def send(*args,**kw):

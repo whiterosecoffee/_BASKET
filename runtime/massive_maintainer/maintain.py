@@ -12,6 +12,7 @@ from pathlib import Path
 import re
 import shutil
 import time
+import threading
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -24,6 +25,8 @@ UTC = timezone.utc
 ET = ZoneInfo('America/New_York')
 SCHEMA = 'basket.massive.minute@1'
 OWNER = 'work/local-20261112-massive-maintainer'
+_WRITER_CONTEXT = threading.local()
+_EXPECTED_UNSET = object()
 
 def now():
     return datetime.now(UTC).isoformat()
@@ -63,7 +66,12 @@ def writer(root):
     try:
         os.write(fd, encode({'pid': os.getpid(), 'started': now(), 'owner': OWNER}))
         os.close(fd)
-        yield
+        previous=getattr(_WRITER_CONTEXT,'root',None)
+        _WRITER_CONTEXT.root=root.resolve()
+        try:
+            yield
+        finally:
+            _WRITER_CONTEXT.root=previous
     finally:
         lock.unlink()
 
@@ -331,7 +339,37 @@ def audit(root, record):
     atomic(root/'audits'/(p.stem+'.json'),encode(result))
     return result
 
-def promote(root, ticker, day, bars, evidence, metadata, *, source_status="unknown", pagination_complete=False):
+def partition_snapshot(root, ticker, day):
+    path=root/'index.json'
+    raw=path.read_bytes() if path.exists() else None
+    index=json.loads(raw) if raw is not None else {'schema':SCHEMA,'source':'Massive','owner':OWNER,'partitions':{}}
+    if not isinstance(index,dict) or index.get('schema')!=SCHEMA or index.get('source')!='Massive' or not isinstance(index.get('partitions'),dict):
+        raise ValueError('invalid publication index')
+    entry=index['partitions'].get(ticker+'/'+day)
+    if entry is None: return raw,index,None
+    if not isinstance(entry,dict) or not isinstance(entry.get('sha256'),str) or not re.fullmatch(r'[0-9a-f]{64}',entry['sha256']):
+        raise ValueError('invalid current partition head')
+    return raw,index,entry['sha256']
+
+
+def partition_head(root, ticker, day):
+    return partition_snapshot(root,ticker,day)[2]
+
+
+def promote(root, ticker, day, bars, evidence, metadata, *, expected_head=_EXPECTED_UNSET, source_status="unknown", pagination_complete=False):
+    if expected_head is _EXPECTED_UNSET or (expected_head is not None and (not isinstance(expected_head,str) or not re.fullmatch(r'[0-9a-f]{64}',expected_head))):
+        raise ValueError('explicit expected head required: null absence or SHA-256')
+    # Reuse only this thread's existing writer authority; direct callers acquire
+    # the same lock, never a second independent publication lock.
+    guard=contextlib.nullcontext() if getattr(_WRITER_CONTEXT,'root',None)==root.resolve() else writer(root)
+    with guard:
+        return _promote_owned(root,ticker,day,bars,evidence,metadata,expected_head=expected_head,
+                              source_status=source_status,pagination_complete=pagination_complete)
+
+
+def _promote_owned(root, ticker, day, bars, evidence, metadata, *, expected_head, source_status, pagination_complete):
+    index_bytes,index,current=partition_snapshot(root,ticker,day)
+    if current!=expected_head: raise ValueError('expected head mismatch')
     by_t = {}
     for bar in bars:
         row = normalize(bar,ticker,day)
@@ -349,7 +387,6 @@ def promote(root, ticker, day, bars, evidence, metadata, *, source_status="unkno
     back = [json.loads(line) for line in (root/rel).read_bytes().splitlines()]
     if back != rows or digest((root/rel).read_bytes())!=sha:
         raise ValueError('canonical readback failed')
-    index = read(root/'index.json',{'schema':SCHEMA,'source':'Massive','owner':OWNER,'partitions':{}})
     key = ticker+'/'+day
     old = index['partitions'].get(key)
     gaps = [{'after_t':a['t'],'before_t':b['t'],'status':'vendor_absence_unclassified'}
@@ -364,15 +401,20 @@ def promote(root, ticker, day, bars, evidence, metadata, *, source_status="unkno
              'supersedes':old['sha256'] if old and old['sha256']!=sha else (old or {}).get('supersedes')}
     # Retain every observation/revision receipt, then atomically expose complete index.
     receipt = dict(entry, ticker=ticker,day=day,outcome='unchanged' if old and old['sha256']==sha else 'published')
-    immutable(root/'receipts'/(digest(encode(receipt))+'.json'),encode(receipt))
-    index['partitions'][key]=entry
-    atomic(root/'index.json',encode(index))
+    prepared=dict(receipt,outcome='prepared',expected_head=expected_head)
+    immutable(root/'receipts'/(digest(encode(prepared))+'.json'),encode(prepared))
+    latest_bytes,latest,current=partition_snapshot(root,ticker,day)
+    if current!=expected_head or latest_bytes!=index_bytes:
+        raise ValueError('publication index changed after staging')
+    latest['partitions'][key]=entry
+    atomic(root/'index.json',encode(latest))
     return receipt
 
 def fetch_day(client, ticker, day):
     symbol(ticker)
     datetime.fromisoformat(day)
     retained=[]
+    expected_head=partition_head(client.root,ticker,day)
     stage='reference_request_incomplete'
     try:
         reference, ref_evidence = client.get('/v3/reference/tickers/'+urllib.parse.quote(ticker,safe='')+'?date='+day)
@@ -412,7 +454,7 @@ def fetch_day(client, ticker, day):
             if path is not None and not isinstance(path,str):
                 raise ValueError('invalid pagination schema')
         stage='partition_validation_or_publication_failed'
-        return promote(client.root,ticker,day,bars,evidence,ref_evidence,source_status="OK" if all(x=="OK" for x in statuses) else "DELAYED",pagination_complete=True)
+        return promote(client.root,ticker,day,bars,evidence,ref_evidence,expected_head=expected_head,source_status="OK" if all(x=="OK" for x in statuses) else "DELAYED",pagination_complete=True)
     except (ValueError,KeyError,TypeError,AttributeError,ArithmeticError,RuntimeError,OSError) as exc:
         # A page may have persisted but failed parsing before get() returned.
         retained.append(getattr(client,'last_evidence',None))

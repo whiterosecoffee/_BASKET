@@ -17,7 +17,7 @@ class RequestLifecycleTests(unittest.TestCase):
         self.ev=[{'fetched_at':self.clock,'sha256':'fixture'}]
         self.coverage={'start_t':self.t,'end_t':self.t,'session':'RTH','completion':'all_minutes_present','timezone':'America/New_York','adjustment':'split_adjusted'}
     def publish(self):
-        return m.promote(self.root,'NVDA',self.day,[self.row],self.ev,{},source_status='OK',pagination_complete=True)
+        return m.promote(self.root,'NVDA',self.day,[self.row],self.ev,{},source_status='OK',pagination_complete=True,expected_head=m.partition_head(self.root,'NVDA',self.day))
     rewrite_index=fixtures.MaintenanceTests.rewrite_index
     def run_requests(self):
         legacy=self.root/'empty-legacy'; legacy.mkdir(exist_ok=True)

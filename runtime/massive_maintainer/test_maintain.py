@@ -20,7 +20,7 @@ class MaintenanceTests(unittest.TestCase):
         m.atomic(self.pointer,m.encode({'root':str(self.root),'schema':m.SCHEMA}))
 
     def publish(self,rows=None):
-        return m.promote(self.root,'NVDA',self.day,rows or [self.row],self.ev,{})
+        return m.promote(self.root,'NVDA',self.day,rows or [self.row],self.ev,{},expected_head=m.partition_head(self.root,'NVDA',self.day))
 
     def test_decimal_and_repeat(self):
         a=self.publish(); b=self.publish()
@@ -73,7 +73,7 @@ class MaintenanceTests(unittest.TestCase):
 
     def test_float_and_empty_rejected(self):
         with self.assertRaises(ValueError): m.normalize(dict(self.row,c=1.1),'NVDA',self.day)
-        with self.assertRaises(ValueError): m.promote(self.root,'NVDA',self.day,[],self.ev,{})
+        with self.assertRaises(ValueError): m.promote(self.root,'NVDA',self.day,[],self.ev,{},expected_head=m.partition_head(self.root,'NVDA',self.day))
 
     def test_no_credential_to_foreign_host(self):
         c=m.Massive(self.root,self.root/'nonexistent-key')

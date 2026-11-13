@@ -32,7 +32,7 @@ class IdentityTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'identity unavailable'):self.fetch(self.ref(cik=None))
         self.assertFalse((self.root/'index.json').exists())
     def test_existing_unknown_identity_blocks(self):
-        m.promote(self.root,'NVDA',self.day,[self.row],self.ev,{})
+        m.promote(self.root,'NVDA',self.day,[self.row],self.ev,{},expected_head=m.partition_head(self.root,'NVDA',self.day))
         before=(self.root/'index.json').read_bytes()
         with self.assertRaisesRegex(ValueError,'identity continuity'):self.fetch(self.ref())
         self.assertEqual((self.root/'index.json').read_bytes(),before)
