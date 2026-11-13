@@ -3,6 +3,21 @@
 Status: scoped design contract plus the existing Massive implementation; not a new
 provider-neutral engine, shared schema release, or operational deployment.
 
+## Intended product capability and verified state
+
+_FETCH is an ongoing source-to-component data service. It acquires source data,
+standardizes decimal/time/identity/basis representation, validates and quarantines
+unsafe input, publishes qualified local component stores, and services refresh
+feedback. Massive is one live-source adapter; ticker components depend on usable
+local data integrated through the repo-store/discovery contract. The product is not
+restricted to offline use. Bounded calls/batches/retries are execution controls for
+that ongoing service, not a limitation on its intended capability.
+
+Offline cooperative acceptance describes the tests completed so far. It does not
+prove a deployed runner, authenticated authority, qualified legacy corpus, resolved
+store migration, or actual ticker consumption. Those are separately evidenced
+states. Preserve that distinction in master-class/template adoption and reporting.
+
 ## Authority
 
 The generic `_FETCH` master class owns acquisition orchestration: admission,
@@ -78,3 +93,28 @@ Purpose-specific option set: PURPOSES.json and PURPOSES.md. Historical observati
 have no wall-clock TTL. Only latest_complete applies finite recency. The existing
 B00 template owner and verified generic-master owner must adopt the shared options
 in their own scopes; this source branch makes no claim of master-branch integration.
+
+
+## Practical source-to-component continuation
+
+Continue existing B02/fetch.massive owner and this branch. A ticker declares purpose,
+identity/basis and interval; the local resolver inventories available files first.
+For NVDA, existing legacy copies and three indexed dates are inputs, not permission
+to re-pull history. The NVDA and _MAP owners must acknowledge the exact read route
+and component-local target. Consumer filenames are unresolved expectations, not
+placement authority; do not silently use another staging path as the canonical store.
+
+After existing-data reuse is resolved, the FETCH owner must demonstrate the specific
+unavailable range and obtain a valid scoped admission for the exact private target.
+Then the intended execution chain is Massive request -> immutable raw/provenance ->
+normalization/validation/quarantine -> expected-head publication -> local resolver
+read by the requesting ticker -> receipt and subsequent refresh feedback. Source
+credentials and raw datasets remain outside public Git; code/contracts may be
+versioned. No component-side vendor calls or competing writers are introduced.
+
+Ready now: acknowledged read-only routing and returned-bar consumer acceptance on
+existing indexed files, once the existing owners adopt the route. Blocked separately:
+canonical migration/target authorization, authoritative missing-range evidence,
+authenticated admission and an existing-date refresh contract, dataset-specific
+qualification, consumer integration and verified runner execution. This document
+neither retries denied actions nor grants itself these missing authorizations.

@@ -14,5 +14,7 @@
   "shared_contract_owner": "B00",
   "shared_discovery_owner": "existing _MAP/resolver owner",
   "generic_master_implementation": "not extracted in this increment",
-  "publication": "not authorized by this record"
+  "publication": "not authorized by this record",
+  "intended_capability": "ongoing source acquisition, standardization/validation, qualified component-local publication and refresh feedback",
+  "verified_evidence_state": "independently accepted offline cooperative code contract; operational/data/consumer gates separate"
 }

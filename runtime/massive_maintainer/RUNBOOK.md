@@ -495,3 +495,20 @@ PURPOSES.json is versioned portable input to the existing shared template owner;
 PURPOSES.md contains the exact handoff. No generic master branch or cross-owner edit
 is implied. Same B01 reviewer must requalify the combined F1/purpose delta. No vendor
 calls, production writes, migration, schedule activation or push occurred.
+
+
+### Product capability versus acceptance evidence - 2026-11-13
+
+User clarification: FETCH is the ongoing live acquisition/standardization/validation
+and component-store writer, not an offline-only product. Independent B01 acceptance
+of9f378a3 is the verified evidence state so far, not the service's intended ceiling.
+AUTHORITY.md now states the practical source-to-component chain and exact owner
+dependencies. No code, runtime capability or operational authorization changed.
+
+Current metadata-only reconciliation confirmed356 preserved sources and356 staged
+legacy copies, matching sizes totaling16,314,962,695 bytes per side. These are
+staging copies, not canonical migration or qualified corpus. Three indexed NVDA
+files contain2,642 returned bars in prior manifests; consumer route adoption and
+complete interval/current metadata are absent. No new scans, provider calls or
+baseline tests were run for this documentation change. The exact accepted source
+hash is unchanged. Private owner receipt records paths, counts and evidence hashes.
