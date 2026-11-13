@@ -116,14 +116,24 @@ def evaluate(state, observation, receipts, *, now, max_age=300):
         return {'action': action, 'reason': reason, 'dispatch': 'not_attempted',
                 'execution': 'not_attempted', 'publication': 'unknown',
                 'acceptance': 'not_established', 'delivery': 'not_established'}
-    if not o.get('online', False):
+    flags = ('online', 'single_writer', 'active', 'approval_pending', 'handoff_requested', 'checkpoint_due')
+    if not isinstance(o, dict) or any(type(o.get(k)) is not bool for k in flags):
+        return result('blocked', 'invalid boolean observation')
+    if 'transfer' in o:
+        transfer = o['transfer']
+        if not isinstance(transfer, dict):
+            return result('blocked', 'invalid boolean observation')
+        ack = transfer.get('replacement_ack', {})
+        if not isinstance(ack, dict) or ('old_writer_retired' in transfer and type(transfer['old_writer_retired']) is not bool) or ('data_access' in ack and type(ack['data_access']) is not bool):
+            return result('blocked', 'invalid boolean observation')
+    if o['online'] is False:
         return result('blocked', 'workstation offline; park')
     claim = state['claim']
     if not (0 <= now - o.get('verified_at', -1e20) <= max_age):
         return result('blocked', 'stale or unknown observation')
     if any(not claim.get(k) or o.get(k) != claim[k] for k in ('environment_id', 'host', 'owner', 'session', 'branch', 'worktree', 'scope')) or o.get('single_writer') is not True:
         return result('blocked', 'host/ownership not verified')
-    if not o.get('wake_id') or any(type(o.get(k)) is not bool for k in ('active', 'approval_pending', 'handoff_requested', 'checkpoint_due')):
+    if not o.get('wake_id'):
         return result('blocked', 'activity observation incomplete')
     if o['wake_id'] in state['processed_wakes']:
         return result('no-change', 'duplicate wake')
@@ -166,7 +176,7 @@ def persist(path, expected_digest, update, receipts, observation, *, now):
         current = json.loads(path.read_text(encoding='utf-8'))
         require(digest(current) == expected_digest, 'checkpoint CAS conflict')
         decision = evaluate(current, observation, receipts, now=now)
-        require(decision['reason'] not in {'host/ownership not verified', 'stale or unknown observation', 'workstation offline; park', 'activity observation incomplete'}, 'write admission rejected')
+        require(decision['reason'] not in {'host/ownership not verified', 'stale or unknown observation', 'workstation offline; park', 'activity observation incomplete', 'invalid boolean observation'}, 'write admission rejected')
         if decision['reason'] == 'duplicate wake':
             return current
         updated = update(deepcopy(current))

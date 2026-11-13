@@ -144,3 +144,19 @@ Accepting the original dependency with valid receipts still permits the dependen
 objective's acceptance. Criterion retention/text binding, atomic wake consumption
 and typed receipt gates remain in force. Private checkpoint migration and real
 routing remain blocked pending independent exact-head acceptance.
+
+## Strict boolean observation boundary
+
+Independent review of `a26af7860bb4f02b0518b603532d326523ee41cb`
+reproduced `online="false"` incorrectly permitting continuation. The evaluator
+now requires actual bool values for online, single_writer, active,
+approval_pending, handoff_requested and checkpoint_due before making decisions.
+Missing or malformed flags return blocked/invalid boolean observation. Supplied
+old_writer_retired and replacement data_access also require actual booleans;
+numeric 1 cannot stand in for True. Malformed observation/transfer containers
+fail closed. Missing transfer acknowledgements still require a checkpoint.
+
+Tests cover both boolean strings, numbers, null, containers and other Python API
+inputs; real True/False behavior remains covered. Persistence rejects invalid
+boolean observations before invoking the update callback and preserves file bytes.
+All earlier acceptance/dependency retention, receipt and wake protections remain.

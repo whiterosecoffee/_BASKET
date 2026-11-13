@@ -14,6 +14,51 @@ class ReviewRegressionTests(unittest.TestCase):
                       single_writer=True, wake_id='review-wake', active=False,
                       approval_pending=False, handoff_requested=False, checkpoint_due=False)
 
+    def test_string_false_online_cannot_continue(self):
+        result = evaluate(self.s, dict(self.o, online='false'), {}, now=100)
+        self.assertEqual(result['action'], 'blocked')
+
+    def test_all_boolean_fields_reject_malformed_values(self):
+        malformed = ['false', 'true', '', 0, 1, -1, 0.0, 1.0, None, [], [False], {}, {'value':True}, (), b'true', object()]
+        for field in ('online', 'single_writer', 'active', 'approval_pending', 'handoff_requested', 'checkpoint_due'):
+            for value in malformed:
+                with self.subTest(field=field, value=value):
+                    result = evaluate(self.s, dict(self.o, **{field:value}), {}, now=100)
+                    self.assertEqual(result['action'], 'blocked')
+                    self.assertEqual(result['reason'], 'invalid boolean observation')
+            missing = dict(self.o)
+            del missing[field]
+            self.assertEqual(evaluate(self.s, missing, {}, now=100)['action'], 'blocked')
+        for value in malformed:
+            if not isinstance(value, dict):
+                self.assertEqual(evaluate(self.s, value, {}, now=100)['action'], 'blocked')
+
+    def test_nested_transfer_boolean_fields_are_strict(self):
+        ack = dict(owner='replacement', branch=self.s['claim']['branch'], scope=self.s['claim']['scope'],
+                   data_access=True, outstanding_task=self.s['next_action'])
+        for field in ('old_writer_retired', 'data_access'):
+            for value in ('false', 'true', 0, 1, 0.0, 1.0, None, [], [True], {}, {'value':True}):
+                with self.subTest(field=field, value=value):
+                    transfer = dict(old_writer_retired=True, replacement_ack=dict(ack))
+                    (transfer if field == 'old_writer_retired' else transfer['replacement_ack'])[field] = value
+                    result = evaluate(self.s, dict(self.o, handoff_requested=True, transfer=transfer), {}, now=100)
+                    self.assertEqual(result['action'], 'blocked')
+        for retired, access, expected in ((True,True,'handoff-ready'), (False,True,'request checkpoint'), (True,False,'request checkpoint')):
+            transfer = dict(old_writer_retired=retired, replacement_ack=dict(ack, data_access=access))
+            self.assertEqual(evaluate(self.s, dict(self.o, handoff_requested=True, transfer=transfer), {}, now=100)['action'], expected)
+
+    def test_invalid_online_cannot_write_and_real_booleans_work(self):
+        self.assertEqual(evaluate(self.s, self.o, {}, now=100)['action'], 'continue')
+        self.assertEqual(evaluate(self.s, dict(self.o, online=False), {}, now=100)['action'], 'blocked')
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)/'status.json'
+            path.write_text(json.dumps(self.s))
+            original = path.read_bytes()
+            with self.assertRaisesRegex(ValueError, 'write admission rejected'):
+                persist(path, digest(self.s), lambda s: self.fail('invalid input called update'), {}, dict(self.o,online='false'), now=100)
+            self.assertEqual(path.read_bytes(), original)
+            self.assertFalse(path.with_suffix('.json.lock').exists())
+
     def test_callback_omits_wake_record(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory)/'status.json'
