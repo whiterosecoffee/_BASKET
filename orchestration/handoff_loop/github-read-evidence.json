@@ -1,0 +1,76 @@
+{
+  "schema": "basket.handoff_github_read_evidence@0.1-draft",
+  "purpose": "Bounded actual metadata read; no operational acceptance",
+  "collector_file_sha256": "d8cf169a09329f379e940a7278a1ddf5fe70ff6c7b8924867798e200727604e4",
+  "actual_response_checks": {
+    "actual_response_normalization_deterministic": true,
+    "actual_response_replay_no_change": true,
+    "actual_response_inputs_unchanged": true
+  },
+  "observation": {
+    "schema": "basket.handoff_github_observation@0.1-draft",
+    "availability": "available",
+    "subject": {
+      "repository": "whiterosecoffee/_BASKET",
+      "pr": 264,
+      "revision": "776ca14af91edffcf6416b8f4069c649ad08e4c8"
+    },
+    "observation_id": "ac616a80b376adaa4ad834586af66a2a9449de138ea2e7f7b07f3301d9e29168",
+    "disposition": "observed",
+    "sources": {
+      "pr": {
+        "source_id": "https://api.github.com/repos/whiterosecoffee/_BASKET/pulls/264",
+        "observed_at": 1794535113.237562,
+        "raw_response_sha256": "1149621480b0d08e08b3b6ebf0c9ccd0af6d73bd290cfc133a290a7edf3f5c86",
+        "resource_id": 5286230434,
+        "subject_revision": "776ca14af91edffcf6416b8f4069c649ad08e4c8",
+        "source_times": {
+          "created_at": "2026-11-12T22:24:42Z",
+          "updated_at": "2026-11-13T01:49:16Z"
+        }
+      },
+      "ci": {
+        "source_id": "https://api.github.com/repos/whiterosecoffee/_BASKET/actions/runs?head_sha=776ca14af91edffcf6416b8f4069c649ad08e4c8&per_page=100",
+        "observed_at": 1794535113.9103186,
+        "raw_response_sha256": "ae269b4a79ad2b5c38f702b370fb46d80e814a93e53595c26beee26784069a5e",
+        "subject_revision": "776ca14af91edffcf6416b8f4069c649ad08e4c8"
+      }
+    },
+    "pr": {
+      "url": "https://github.com/whiterosecoffee/_BASKET/pull/264",
+      "state": "open",
+      "draft": true
+    },
+    "ci": {
+      "availability": "available",
+      "complete": true,
+      "reason": null,
+      "runs": [
+        {
+          "id": 43347712509,
+          "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/43347712509",
+          "name": "Validate BASKET data",
+          "head_sha": "776ca14af91edffcf6416b8f4069c649ad08e4c8",
+          "status": "completed",
+          "conclusion": "success",
+          "source_times": {
+            "created_at": "2026-11-13T01:49:23Z",
+            "updated_at": "2026-11-13T01:49:54Z"
+          }
+        }
+      ]
+    },
+    "retrieval": {
+      "method": "local_gh_api_https_get",
+      "requested_origin": "https://api.github.com",
+      "verified_local_retrieval": true,
+      "verification": "allowlisted GET + returned resource identity + SHA256 of raw UTF-8 JSON"
+    },
+    "source_claims_verified": false,
+    "component_tests_verified": false,
+    "reviewer_acceptance": false,
+    "execution_authorized": false,
+    "evaluator_observation": null,
+    "acceptance_receipts": []
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "schema": "basket.handoff_objectives@0.2-draft",
+  "revision": 0,
+  "canonical_record": "https://github.com/whiterosecoffee/_BASKET/issues/169",
+  "claim": {
+    "environment_id": "example-workstation",
+    "host": "EXAMPLE",
+    "owner": "example-owner",
+    "session": "example-session",
+    "branch": "work/169-example",
+    "worktree": "example-worktree",
+    "scope": [
+      "orchestration/handoff_loop/**"
+    ]
+  },
+  "source_coverage": {
+    "verified_read_watermark": null,
+    "persisted_ranges": [],
+    "unknown_ranges": [
+      "All conversation ranges outside supplied evidence"
+    ]
+  },
+  "objectives": [
+    {
+      "id": "handoff",
+      "parent": null,
+      "depends_on": [],
+      "owner": "B00",
+      "scope": [
+        "orchestration/handoff_loop/**"
+      ],
+      "status": "pending",
+      "evidence": [],
+      "artifact_revisions": [],
+      "acceptance": [
+        {
+          "id": "A1",
+          "condition": "Independent tests and review at the artifact revision",
+          "evidence": []
+        }
+      ],
+      "blockers": [],
+      "next_action": "Review scoped component"
+    },
+    {
+      "id": "handoff.evaluator",
+      "parent": "handoff",
+      "depends_on": [],
+      "owner": "B00",
+      "scope": [
+        "orchestration/handoff_loop/**"
+      ],
+      "status": "pending",
+      "evidence": [],
+      "artifact_revisions": [],
+      "acceptance": [
+        {
+          "id": "A1",
+          "condition": "Independent tests and review at the artifact revision",
+          "evidence": []
+        }
+      ],
+      "blockers": [],
+      "next_action": "Review scoped component"
+    }
+  ],
+  "processed_wakes": [],
+  "blocker_fingerprint": null,
+  "next_action": "Review scoped component",
+  "dimensions": {
+    "scheduling": {
+      "status": "not_established",
+      "evidence": []
+    },
+    "dispatch": {
+      "status": "not_established",
+      "evidence": []
+    },
+    "execution": {
+      "status": "not_established",
+      "evidence": []
+    },
+    "publication": {
+      "status": "not_established",
+      "evidence": []
+    },
+    "acceptance": {
+      "status": "not_established",
+      "evidence": []
+    },
+    "delivery": {
+      "status": "not_established",
+      "evidence": []
+    }
+  }
+}
