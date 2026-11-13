@@ -1,0 +1,57 @@
+{
+  "schema": "basket.scoped_maturity@0.1-proposed",
+  "owner": "B00-235",
+  "objective": "Observe source changes and return evidence-backed next actions to DOT",
+  "scope": "orchestration/loop_sessions/watch_queue/**",
+  "branch": "work/235-watch-basket-queue",
+  "issue": "https://github.com/whiterosecoffee/_BASKET/issues/235",
+  "updated_at": "2026-11-13T16:36:04Z",
+  "outcome_state": "awaiting_evidence",
+  "dimensions": {
+    "implementation": "Observer workflow exercised; completion protocol documented",
+    "verification": "GitHub source observations and artifact readbacks verified; no runtime enforcement tests",
+    "publication": "Scoped artifacts published; this object requires commit readback before reporting success",
+    "adoption": "Pointer-first completion adopted in this session; shared template adoption unverified",
+    "integration": "Not integrated into main or shared controller",
+    "operation": "Conversation observer only; no authenticated autonomous execution claim"
+  },
+  "delta": "Replace verbose completion envelopes with a scoped maturity.json pointer and short delta; use commit history for progression.",
+  "evidence": [
+    {
+      "kind": "published_document",
+      "revision": "8163ee208505bc544b54a28aec9b8a86b38fc204",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/8163ee208505bc544b54a28aec9b8a86b38fc204/orchestration/loop_sessions/watch_queue/DOT_COMPLETION_SOP.md",
+      "limit": "Prior protocol; revised by current pointer-first decision"
+    },
+    {
+      "kind": "published_owner_report",
+      "revision": "8cf8897689cc69f41fe9b68a8125e6592d84d653",
+      "url": "https://github.com/whiterosecoffee/_BASKET/commit/8cf8897689cc69f41fe9b68a8125e6592d84d653",
+      "limit": "Placement report, not independently inspected filesystem"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "shared-adoption",
+      "owner": "existing B00 protocol/template owners",
+      "unblock": "Reconcile pointer-first convention into existing worker protocol and templates"
+    },
+    {
+      "id": "consumer-acceptance",
+      "owner": "existing FETCH/map/consumer owners",
+      "unblock": "Actual NVDA resolver readback and explicit coverage/basis evidence"
+    }
+  ],
+  "next_action": {
+    "owner": "DOT / existing consumer owner",
+    "action": "Obtain NVDA canonical resolver readback without repeating completed placement",
+    "acceptance": "Exact file identity, observed access and quality limits"
+  },
+  "unknowns": [
+    "Private placement journals and consumer execution not inspected",
+    "Shared core adoption and runtime delivery unverified"
+  ],
+  "authority": "Owner-scoped assessment; DOT verifies claims before promotion. Not a replacement for canonical queue or live worker leases.",
+  "history": "Git commits retain prior states and rationale; no embedded unbounded receipt history.",
+  "revision_binding": "The containing Git commit binds this object; no self-referential commit SHA is embedded."
+}
