@@ -136,6 +136,69 @@ class LifecycleTemplateTests(unittest.TestCase):
             self.assertTrue(rule["governing_owner"])
             self.assertTrue(rule["reference"].startswith("https://github.com/whiterosecoffee/_BASKET/"))
 
+    def test_prior_fulfillment_does_not_satisfy_new_stale_demand(self):
+        packet = lc.read("lifecycle.stale-demand.example.json")
+        self.assertEqual(packet["evidence_status"], "source_inspected_risk_not_executed_FETCH_failure")
+        result = lc.validate(packet["snapshot"], now=packet["evaluation_time"])
+        self.assertFalse(result["valid"])
+        self.assertEqual(result["errors"], packet["expected_errors"])
+
+    def test_current_readback_can_reuse_generation_without_new_effect(self):
+        demand = self.value["request"]["demand"]
+        self.assertEqual(demand["persisted_generation_id"], demand["prior_fulfillment"]["persisted_generation_id"])
+        self.assertNotEqual(demand["attempt_id"], demand["prior_fulfillment"]["attempt_id"])
+        before = copy.deepcopy(self.value)
+        self.assertTrue(self.check()["valid"])
+        self.assertEqual(self.value, before)
+        self.assertEqual(self.value["outcome"]["effect_state"], "none")
+
+    def test_new_demand_cannot_reuse_prior_attempt_identity(self):
+        demand = self.value["request"]["demand"]
+        demand["attempt_id"] = demand["prior_fulfillment"]["attempt_id"]
+        self.rebind()
+        self.assertIn("NEW_DEMAND_MUST_NOT_REUSE_PRIOR_ATTEMPT", self.check()["errors"])
+
+    def test_readback_must_match_generation_and_current_demand(self):
+        readback = self.value["input"]["freshness_readback"]
+        saved = readback["persisted_generation_id"]
+        readback["persisted_generation_id"] = "another-generation"
+        self.assertIn("GENERATION_READBACK_MISMATCH", self.check()["errors"])
+        readback["persisted_generation_id"] = saved
+        for stamp in ("2029-12-31T00:00:00Z", "2030-01-01T01:00:00Z"):
+            readback["checked_at"] = stamp
+            self.assertIn("CURRENT_DEMAND_NEEDS_FRESHNESS_READBACK", self.check()["errors"])
+
+    def test_invocation_completion_independent_acceptance_and_usability_are_distinct(self):
+        outcome = self.value["outcome"]
+        outcome["invoked"] = False
+        self.reject()
+        outcome.update(invoked=True, consumer_usable=True)
+        self.reject()
+        outcome["independent_acceptance"] = "accepted"
+        self.assertIn("INDEPENDENT_ACCEPTANCE_NEEDS_RECEIPT", self.check()["errors"])
+        outcome["independent_receipt"] = copy.deepcopy(outcome["receipt"]["artifact"])
+        self.reject()  # Independent acceptance is not consumer acceptance.
+        outcome["consumer_acceptance"] = "accepted"
+        outcome["acceptance_receipt"] = copy.deepcopy(outcome["receipt"]["artifact"])
+        self.assertTrue(self.check()["valid"])
+        self.assertFalse(self.check()["execution_authorized"])
+
+    def test_public_branch_cannot_satisfy_private_destination(self):
+        privacy = self.value["privacy"]
+        privacy.update(input_class="private", publish_input=False,
+                       requires_private_destination=True, destination_visibility="public")
+        self.assertIn("PUBLIC_BRANCH_IS_NOT_PRIVATE_DESTINATION", self.check()["errors"])
+        privacy["destination_visibility"] = "private"
+        self.assertTrue(self.check()["valid"])
+
+    def test_schedule_only_checkpoint_is_parked_not_consumer_usable(self):
+        outcome = self.value["outcome"]
+        outcome.update(state="parked", invoked=False, run_observed=False, consumer_usable=False)
+        self.value["recovery"]["next_action"] = "park_and_route_to_owner"
+        self.assertTrue(self.check()["valid"])
+        outcome["consumer_usable"] = True
+        self.reject()
+
     def test_private_inputs_cannot_be_published(self):
         self.value["privacy"].update(input_class="private", publish_input=True)
         self.reject()

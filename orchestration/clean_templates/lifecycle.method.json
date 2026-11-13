@@ -3,27 +3,133 @@
   "status": "local_proposal_not_enforced",
   "owner": "B00-243",
   "input_revision": "bca24f865f3b988efb0372fc064d94989a884b9b",
-  "scope": ["orchestration/clean_templates/**"],
+  "scope": [
+    "orchestration/clean_templates/**"
+  ],
   "execution_authorized": false,
   "stages": [
-    {"id": "discover", "action": "Find the existing scoped session and open conversation; verify Nathan and Dot can communicate with it.", "failure": "Park if attachment or conversation access is absent; do not duplicate the writer."},
-    {"id": "reconcile", "action": "Read actual executor, branch, HEAD, isolated worktree, owned paths, current writer inventory and prior checkpoint.", "failure": "Park on wrong host, overlapping writer, stale ownership or uncertain prior effects."},
-    {"id": "request", "action": "Bind request identity, idempotency key, deadline, input revision and explicit output/effect scope.", "failure": "Changed requirements need a new reconciled request; never reuse an older acknowledgment."},
-    {"id": "acknowledge", "action": "Existing owner acknowledges exact request hash and continuation session.", "failure": "Missing acknowledgment is pending, not started or accepted."},
-    {"id": "admit", "action": "Existing admission/collector/launcher checks authentic observations and acquires the exclusive lease before effects.", "failure": "Template validity cannot admit or launch; unavailable inputs route to their existing owner."},
-    {"id": "execute", "action": "Execute only bounded work; consumers read qualified local data and route acquisition/persistence/repair/refresh to _FETCH.", "failure": "Record failed or parked outcome and evidence; never create an independent analyst fetcher."},
-    {"id": "reconcile_effect", "action": "For uncertain writes inspect destination and receipt/readback first; reconcile same idempotency key without reapplying effects.", "failure": "Unresolved uncertainty blocks retry and completion."},
-    {"id": "receipt", "action": "Record exact request-bound outcome, source revision, actual execution evidence and remaining gates.", "failure": "Schedule configuration and session start are not run completion; missing receipt blocks handoff."},
-    {"id": "accept", "action": "Separate consumer/independent acceptance from producer completion; resume from the existing checkpoint.", "failure": "No acceptance or integration without the appropriate owner's evidence."}
+    {
+      "id": "discover",
+      "action": "Find the existing scoped session and open conversation; verify Nathan and Dot can communicate with it.",
+      "failure": "Park if attachment or conversation access is absent; do not duplicate the writer."
+    },
+    {
+      "id": "reconcile",
+      "action": "Read actual executor, branch, HEAD, isolated worktree, owned paths, current writer inventory and prior checkpoint.",
+      "failure": "Park on wrong host, overlapping writer, stale ownership or uncertain prior effects."
+    },
+    {
+      "id": "request",
+      "action": "Bind request identity, idempotency key, deadline, input revision and explicit output/effect scope.",
+      "failure": "Changed requirements need a new reconciled request; never reuse an older acknowledgment."
+    },
+    {
+      "id": "acknowledge",
+      "action": "Existing owner acknowledges exact request hash and continuation session.",
+      "failure": "Missing acknowledgment is pending, not started or accepted."
+    },
+    {
+      "id": "admit",
+      "action": "Existing admission/collector/launcher checks authentic observations and acquires the exclusive lease before effects.",
+      "failure": "Template validity cannot admit or launch; unavailable inputs route to their existing owner."
+    },
+    {
+      "id": "execute",
+      "action": "Execute only bounded work; consumers read qualified local data and route acquisition/persistence/repair/refresh to _FETCH.",
+      "failure": "Record failed or parked outcome and evidence; never create an independent analyst fetcher."
+    },
+    {
+      "id": "reconcile_effect",
+      "action": "For uncertain writes inspect destination and receipt/readback first; reconcile same idempotency key without reapplying effects.",
+      "failure": "Unresolved uncertainty blocks retry and completion."
+    },
+    {
+      "id": "receipt",
+      "action": "Record exact request-bound outcome, source revision, actual execution evidence and remaining gates.",
+      "failure": "Schedule configuration and session start are not run completion; missing receipt blocks handoff."
+    },
+    {
+      "id": "accept",
+      "action": "Separate consumer/independent acceptance from producer completion; resume from the existing checkpoint.",
+      "failure": "No acceptance or integration without the appropriate owner's evidence."
+    }
   ],
   "adoption_matrix": [
-    {"rule": "persistent conversation discovery and resume defaults", "governing_owner": "B00 bootstrap #134/PR135", "reference": "https://github.com/whiterosecoffee/_BASKET/pull/135", "integration": "Reconcile Copier/bootstrap defaults in the existing owner branch.", "state": "proposed_not_integrated"},
-    {"rule": "default methodology and private/public boundaries", "governing_owner": "B00 project instructions #201", "reference": "https://github.com/whiterosecoffee/_BASKET/issues/201", "integration": "Adopt scoped instructions through the existing policy owner; preserve publication gates.", "state": "proposed_not_integrated"},
-    {"rule": "component relationships and data-owner routing", "governing_owner": "B00 _MAP #230", "reference": "https://github.com/whiterosecoffee/_BASKET/issues/230", "integration": "Register reference pointers and unresolved dependencies without a second queue.", "state": "proposed_not_integrated"},
-    {"rule": "host, request identity, ownership and uncertainty", "governing_owner": "existing execution-admission and launcher owners", "reference": "https://github.com/whiterosecoffee/_BASKET/blob/work/local-20261112-execution-admission-portable/orchestration/execution_admission/README.md", "integration": "Use existing preflight.evaluate; bind authentic collector observations and atomically enforce lease/path/effect checks in the real launcher.", "state": "proposed_not_integrated"},
-    {"rule": "request/outcome reference contract", "governing_owner": "B00 #103", "reference": "https://github.com/whiterosecoffee/_BASKET/issues/103", "integration": "Retain shared component call/result and artifact reference definitions; resolve actual evidence through existing conformance components.", "state": "reused_definition_not_runtime_integration"},
-    {"rule": "independent consumer acceptance", "governing_owner": "B01 #105", "reference": "https://github.com/whiterosecoffee/_BASKET/issues/105", "integration": "Review exact new revision and real consumer semantics; synthetic shape checks are insufficient.", "state": "pending_independent_review"},
-    {"rule": "qualified local data and maintenance", "governing_owner": "existing _FETCH/B02 data owner", "reference": "https://github.com/whiterosecoffee/_BASKET/issues/207", "integration": "Resolve current _FETCH owner and qualified root; serve read-only consumers and own acquisition/persistence/repair/refresh. Historical #207 does not grant ownership of a newer maintainer.", "state": "reference_only_no_data_writes"},
-    {"rule": "durable idempotency, recurring runs and checkpoint recovery", "governing_owner": "existing B00 controller and scheduler/runtime owners", "reference": "https://github.com/whiterosecoffee/_BASKET/issues/136", "integration": "Enforce duplicate-wake coalescing and actual effect reconciliation through existing protocol/ledger; schedule configuration is not execution evidence.", "state": "proposed_not_integrated"}
-  ]
+    {
+      "rule": "persistent conversation discovery and resume defaults",
+      "governing_owner": "B00 bootstrap #134/PR135",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/pull/135",
+      "integration": "Reconcile Copier/bootstrap defaults in the existing owner branch.",
+      "state": "proposed_not_integrated"
+    },
+    {
+      "rule": "default methodology and private/public boundaries",
+      "governing_owner": "B00 project instructions #201",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/issues/201",
+      "integration": "Adopt scoped instructions through the existing policy owner; preserve publication gates.",
+      "state": "proposed_not_integrated"
+    },
+    {
+      "rule": "component relationships and data-owner routing",
+      "governing_owner": "B00 _MAP #230",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/issues/230",
+      "integration": "Register reference pointers and unresolved dependencies without a second queue.",
+      "state": "proposed_not_integrated"
+    },
+    {
+      "rule": "host, request identity, ownership and uncertainty",
+      "governing_owner": "existing execution-admission and launcher owners",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/blob/work/local-20261112-execution-admission-portable/orchestration/execution_admission/README.md",
+      "integration": "Use existing preflight.evaluate; bind authentic collector observations and atomically enforce lease/path/effect checks in the real launcher.",
+      "state": "proposed_not_integrated"
+    },
+    {
+      "rule": "request/outcome reference contract",
+      "governing_owner": "B00 #103",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/issues/103",
+      "integration": "Retain shared component call/result and artifact reference definitions; resolve actual evidence through existing conformance components.",
+      "state": "reused_definition_not_runtime_integration"
+    },
+    {
+      "rule": "independent consumer acceptance",
+      "governing_owner": "B01 #105",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/issues/105",
+      "integration": "Review exact new revision and real consumer semantics; synthetic shape checks are insufficient.",
+      "state": "pending_independent_review"
+    },
+    {
+      "rule": "qualified local data and maintenance",
+      "governing_owner": "existing _FETCH/B02 data owner",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/issues/207",
+      "integration": "Resolve current _FETCH owner and qualified root; serve read-only consumers and own acquisition/persistence/repair/refresh. Historical #207 does not grant ownership of a newer maintainer.",
+      "state": "reference_only_no_data_writes"
+    },
+    {
+      "rule": "durable idempotency, recurring runs and checkpoint recovery",
+      "governing_owner": "existing B00 controller and scheduler/runtime owners",
+      "reference": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+      "integration": "Enforce duplicate-wake coalescing and actual effect reconciliation through existing protocol/ledger; schedule configuration is not execution evidence.",
+      "state": "proposed_not_integrated"
+    }
+  ],
+  "refinement": {
+    "source": "FETCH owner review at b733012",
+    "evidence_class": "source_inspected_risk_under_owner_testing",
+    "not_claimed": "Executed FETCH failure or repair",
+    "identity_layers": [
+      "logical_demand_id",
+      "request occurrence / idempotency_key",
+      "attempt_id",
+      "persisted_generation_id"
+    ],
+    "reuse_rule": "Prior fulfillment never replaces current generation-matched freshness readback for a new demand.",
+    "evidence_states": [
+      "schedule_configured",
+      "attempt_invoked",
+      "outcome_completed",
+      "independently_accepted",
+      "consumer_usable"
+    ],
+    "privacy_rule": "A branch in a public repository does not satisfy a private-data destination requirement."
+  }
 }

@@ -44,7 +44,8 @@
         "branch",
         "source_revision",
         "operation",
-        "planned_writes"
+        "planned_writes",
+        "demand"
       ],
       "properties": {
         "request_id": {
@@ -83,6 +84,65 @@
           "items": {
             "type": "string",
             "minLength": 1
+          }
+        },
+        "demand": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "logical_demand_id",
+            "attempt_id",
+            "persisted_generation_id",
+            "requested_at",
+            "prior_fulfillment"
+          ],
+          "properties": {
+            "logical_demand_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "attempt_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "persisted_generation_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "requested_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "prior_fulfillment": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "attempt_id",
+                    "persisted_generation_id",
+                    "completed_at"
+                  ],
+                  "properties": {
+                    "attempt_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "persisted_generation_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "completed_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
           }
         }
       }
@@ -181,7 +241,8 @@
         "acquisition_owner",
         "persistence_owner",
         "repair_owner",
-        "refresh_owner"
+        "refresh_owner",
+        "freshness_readback"
       ],
       "properties": {
         "artifact": {
@@ -218,6 +279,24 @@
         },
         "refresh_owner": {
           "const": "_FETCH"
+        },
+        "freshness_readback": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "checked_at",
+            "persisted_generation_id"
+          ],
+          "properties": {
+            "checked_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "persisted_generation_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
         }
       }
     },
@@ -252,7 +331,11 @@
         "receipt",
         "effect_state",
         "consumer_acceptance",
-        "acceptance_receipt"
+        "acceptance_receipt",
+        "invoked",
+        "independent_acceptance",
+        "independent_receipt",
+        "consumer_usable"
       ],
       "properties": {
         "state": {
@@ -304,6 +387,29 @@
               "type": "null"
             }
           ]
+        },
+        "invoked": {
+          "type": "boolean"
+        },
+        "independent_acceptance": {
+          "enum": [
+            "pending",
+            "rejected",
+            "accepted"
+          ]
+        },
+        "independent_receipt": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/artifact_ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "consumer_usable": {
+          "type": "boolean"
         }
       }
     },
@@ -366,7 +472,9 @@
         "input_class",
         "publish_input",
         "publication_scope",
-        "private_paths_in_public_receipt"
+        "private_paths_in_public_receipt",
+        "requires_private_destination",
+        "destination_visibility"
       ],
       "properties": {
         "input_class": {
@@ -383,6 +491,16 @@
         },
         "private_paths_in_public_receipt": {
           "const": false
+        },
+        "requires_private_destination": {
+          "type": "boolean"
+        },
+        "destination_visibility": {
+          "enum": [
+            "local_only",
+            "private",
+            "public"
+          ]
         }
       }
     }

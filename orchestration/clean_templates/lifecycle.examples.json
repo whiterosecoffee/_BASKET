@@ -40,7 +40,18 @@
         "branch": "work/243-clean-template-boundary",
         "source_revision": "bca24f865f3b988efb0372fc064d94989a884b9b",
         "operation": "refresh",
-        "planned_writes": []
+        "planned_writes": [],
+        "demand": {
+          "logical_demand_id": "fixture-demand-fetch-refresh",
+          "attempt_id": "fixture-attempt-fetch-refresh-2",
+          "persisted_generation_id": "fixture-generation-fetch-refresh-1",
+          "requested_at": "2030-01-01T00:00:00Z",
+          "prior_fulfillment": {
+            "attempt_id": "fixture-attempt-fetch-refresh-1",
+            "persisted_generation_id": "fixture-generation-fetch-refresh-1",
+            "completed_at": "2029-12-31T00:00:00Z"
+          }
+        }
       },
       "session": {
         "discovery": "resume_existing",
@@ -78,14 +89,18 @@
         "acquisition_owner": "_FETCH",
         "persistence_owner": "_FETCH",
         "repair_owner": "_FETCH",
-        "refresh_owner": "_FETCH"
+        "refresh_owner": "_FETCH",
+        "freshness_readback": {
+          "checked_at": "2030-01-01T00:00:00Z",
+          "persisted_generation_id": "fixture-generation-fetch-refresh-1"
+        }
       },
       "acknowledgment": {
         "artifact": {
           "ref": "fixture://fetch-refresh/ack",
           "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
         },
-        "request_sha256": "cf7271141c1312fd0afccf7a1186957868c9a783cf23c9b8e08dabea3e4f5a38",
+        "request_sha256": "1eb31a584b991754d5597bcd181d010fc779a25b5fd2c0aefa1fae7f262aaffd",
         "session_id": "fixture-session-fetch-refresh"
       },
       "outcome": {
@@ -96,11 +111,15 @@
             "ref": "fixture://fetch-refresh/result",
             "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
           },
-          "request_sha256": "cf7271141c1312fd0afccf7a1186957868c9a783cf23c9b8e08dabea3e4f5a38"
+          "request_sha256": "1eb31a584b991754d5597bcd181d010fc779a25b5fd2c0aefa1fae7f262aaffd"
         },
         "effect_state": "none",
         "consumer_acceptance": "pending",
-        "acceptance_receipt": null
+        "acceptance_receipt": null,
+        "invoked": true,
+        "independent_acceptance": "pending",
+        "independent_receipt": null,
+        "consumer_usable": false
       },
       "recovery": {
         "prior_failures": [],
@@ -120,7 +139,9 @@
         "input_class": "synthetic",
         "publish_input": false,
         "publication_scope": "sanitized_code_tests_docs_only",
-        "private_paths_in_public_receipt": false
+        "private_paths_in_public_receipt": false,
+        "requires_private_destination": false,
+        "destination_visibility": "local_only"
       }
     },
     "market-readonly": {
@@ -162,7 +183,18 @@
         "branch": "work/243-clean-template-boundary",
         "source_revision": "bca24f865f3b988efb0372fc064d94989a884b9b",
         "operation": "consume",
-        "planned_writes": []
+        "planned_writes": [],
+        "demand": {
+          "logical_demand_id": "fixture-demand-market-readonly",
+          "attempt_id": "fixture-attempt-market-readonly-2",
+          "persisted_generation_id": "fixture-generation-market-readonly-1",
+          "requested_at": "2030-01-01T00:00:00Z",
+          "prior_fulfillment": {
+            "attempt_id": "fixture-attempt-market-readonly-1",
+            "persisted_generation_id": "fixture-generation-market-readonly-1",
+            "completed_at": "2029-12-31T00:00:00Z"
+          }
+        }
       },
       "session": {
         "discovery": "resume_existing",
@@ -200,14 +232,18 @@
         "acquisition_owner": "_FETCH",
         "persistence_owner": "_FETCH",
         "repair_owner": "_FETCH",
-        "refresh_owner": "_FETCH"
+        "refresh_owner": "_FETCH",
+        "freshness_readback": {
+          "checked_at": "2030-01-01T00:00:00Z",
+          "persisted_generation_id": "fixture-generation-market-readonly-1"
+        }
       },
       "acknowledgment": {
         "artifact": {
           "ref": "fixture://market-readonly/ack",
           "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
         },
-        "request_sha256": "7a763d9903d4715a45199ab2984bebff3f5dc0484daa4d43c80411f66f408d25",
+        "request_sha256": "ed538b8b2f197abd45fd0b9120e142202baf04c56c83b177508fe95847b4007f",
         "session_id": "fixture-session-market-readonly"
       },
       "outcome": {
@@ -218,11 +254,15 @@
             "ref": "fixture://market-readonly/result",
             "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
           },
-          "request_sha256": "7a763d9903d4715a45199ab2984bebff3f5dc0484daa4d43c80411f66f408d25"
+          "request_sha256": "ed538b8b2f197abd45fd0b9120e142202baf04c56c83b177508fe95847b4007f"
         },
         "effect_state": "none",
         "consumer_acceptance": "pending",
-        "acceptance_receipt": null
+        "acceptance_receipt": null,
+        "invoked": true,
+        "independent_acceptance": "pending",
+        "independent_receipt": null,
+        "consumer_usable": false
       },
       "recovery": {
         "prior_failures": [],
@@ -242,7 +282,9 @@
         "input_class": "synthetic",
         "publish_input": false,
         "publication_scope": "sanitized_code_tests_docs_only",
-        "private_paths_in_public_receipt": false
+        "private_paths_in_public_receipt": false,
+        "requires_private_destination": false,
+        "destination_visibility": "local_only"
       }
     },
     "clean-comparison": {
@@ -284,7 +326,18 @@
         "branch": "work/243-clean-template-boundary",
         "source_revision": "bca24f865f3b988efb0372fc064d94989a884b9b",
         "operation": "consume",
-        "planned_writes": []
+        "planned_writes": [],
+        "demand": {
+          "logical_demand_id": "fixture-demand-clean-comparison",
+          "attempt_id": "fixture-attempt-clean-comparison-2",
+          "persisted_generation_id": "fixture-generation-clean-comparison-1",
+          "requested_at": "2030-01-01T00:00:00Z",
+          "prior_fulfillment": {
+            "attempt_id": "fixture-attempt-clean-comparison-1",
+            "persisted_generation_id": "fixture-generation-clean-comparison-1",
+            "completed_at": "2029-12-31T00:00:00Z"
+          }
+        }
       },
       "session": {
         "discovery": "resume_existing",
@@ -322,14 +375,18 @@
         "acquisition_owner": "_FETCH",
         "persistence_owner": "_FETCH",
         "repair_owner": "_FETCH",
-        "refresh_owner": "_FETCH"
+        "refresh_owner": "_FETCH",
+        "freshness_readback": {
+          "checked_at": "2030-01-01T00:00:00Z",
+          "persisted_generation_id": "fixture-generation-clean-comparison-1"
+        }
       },
       "acknowledgment": {
         "artifact": {
           "ref": "fixture://clean-comparison/ack",
           "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
         },
-        "request_sha256": "1d9759a4c9c5e2b3b8d07af4f2d606c9adada6f1b2d57f8215fc7d2ee5394cc3",
+        "request_sha256": "6ccd80ab53082c1ed3c59f5b613ac859f3e9e738d9c69da3a08065417f5e1e74",
         "session_id": "fixture-session-clean-comparison"
       },
       "outcome": {
@@ -340,11 +397,15 @@
             "ref": "fixture://clean-comparison/result",
             "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
           },
-          "request_sha256": "1d9759a4c9c5e2b3b8d07af4f2d606c9adada6f1b2d57f8215fc7d2ee5394cc3"
+          "request_sha256": "6ccd80ab53082c1ed3c59f5b613ac859f3e9e738d9c69da3a08065417f5e1e74"
         },
         "effect_state": "none",
         "consumer_acceptance": "pending",
-        "acceptance_receipt": null
+        "acceptance_receipt": null,
+        "invoked": true,
+        "independent_acceptance": "pending",
+        "independent_receipt": null,
+        "consumer_usable": false
       },
       "recovery": {
         "prior_failures": [],
@@ -364,7 +425,9 @@
         "input_class": "synthetic",
         "publish_input": false,
         "publication_scope": "sanitized_code_tests_docs_only",
-        "private_paths_in_public_receipt": false
+        "private_paths_in_public_receipt": false,
+        "requires_private_destination": false,
+        "destination_visibility": "local_only"
       }
     }
   }

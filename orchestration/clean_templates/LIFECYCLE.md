@@ -74,3 +74,50 @@ admission and launcher owners must bind authentic observations and atomic leases
 data lifecycle. Existing controller/scheduler owners retain recurring execution.
 Actual integration, enforcing host/ownership, live qualification and scheduling
 exceed this lane's scope and are intentionally not implemented.
+
+## Fresh demand versus prior fulfillment
+
+The FETCH-owner review at `b733012` identified a **source-inspected risk under
+owner testing**, not an executed FETCH failure: a fulfilled content-addressed
+request might suppress a later identical demand after freshness expires.
+`lifecycle.stale-demand.example.json` is a reusable synthetic negative for that
+risk. Running this template test does not execute or establish a defect in FETCH.
+
+The logical demand identifies what is needed. A new occurrence carries its own
+request/idempotency identity and attempt ID. A persisted generation identifies
+the retained artifact and may remain unchanged. Prior fulfillment is historical:
+new demand requires a generation-matched freshness readback at or after its
+request time, no later than evaluation time, and qualification still valid at
+evaluation. Old or expired readback rejects even if request content is identical.
+A fresh readback may reuse an unchanged generation without inventing a write.
+Retries within the same occurrence retain the existing idempotency policy; the
+prior-fulfillment record here describes a completed earlier occurrence.
+
+Configured schedule, invoked attempt, completed outcome, independent acceptance
+and consumer usability are separate fields and gates. A configured schedule can
+be parked without invocation; it cannot claim completed or consumer-usable work.
+Independent and consumer acceptance each require their own evidence reference.
+These remain supplied declarations requiring authentic evidence from the owners.
+
+A branch in a public repository is a public destination regardless of its name
+or scope. A private-data destination requirement rejects `public`; retain data
+locally or use an already authorized private destination. The template neither
+changes repository visibility nor authorizes publication.
+
+## Coverage and adoption scorecard
+
+Artifact coverage: **8/10** under this explicit local rubric: 3 points for the
+structured contrasting examples/contracts, 3 for required negative behavior,
+2 for deterministic no-effect replay, and 0/2 for independent acceptance of this
+increment (pending). Evidence: 24 lifecycle tests and 68 shared-discovery tests
+pass with no skips. This is a bounded checklist score, not code-coverage percent
+or proof that all possible failures are tested.
+
+Verified adoption: **0/8 governing-owner integration rows** in this increment's
+matrix. References and local tests are present; no new launcher, bootstrap,
+policy, scheduler or data-consumer enforcement has been integrated or observed.
+Existing components' prior adoption is not being rescored as zero. Next improvement:
+have the existing admission/launcher owner qualify one real blocked stale-demand
+case and one fresh reuse case against authentic readback, then have the existing
+bootstrap/policy owners adopt the reviewed rule. Those are owner actions, not
+authorization supplied by this template.

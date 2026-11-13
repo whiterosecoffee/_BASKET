@@ -1,40 +1,35 @@
 {
   "schema": "basket.local_template_validation@0.1-draft",
   "task_id": "B00-243",
-  "evaluated_input_revision": "bca24f865f3b988efb0372fc064d94989a884b9b",
+  "evaluated_input_revision": "ad54ca0cee22351fbc1c073c06ef3eb2ac03b4c4",
   "environment": "MELISSA Windows existing Python; no dependency or privilege changes",
   "checks": [
     {
       "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_lifecycle.py -v",
       "result": "pass",
-      "tests": 16,
-      "note": "Initial version before path-hardening and adoption-matrix test"
+      "tests": 24,
+      "skipped": 0
     },
     {
       "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
       "result": "pass",
-      "tests": 61,
-      "lifecycle_tests": 17,
-      "skipped": 0,
-      "note": "Final implementation including lexical path guard and adoption matrix"
-    },
-    {
-      "command": "python -B -m orchestration.clean_templates.lifecycle",
-      "result": "pass",
-      "examples": 3,
-      "note": "All valid; all execution_authorized false"
+      "tests": 68,
+      "lifecycle_tests": 24,
+      "skipped": 0
     }
   ],
   "source_sha256": {
-    "lifecycle.py": "d2dc59398e2cdc97b852792709ad2b7ec714ad002d798a6025766a34c26663af",
-    "lifecycle.schema.json": "f9cdf602fffce6087d5b42d9b8552dd12a4b70da0c70f8d645d22198c0e46678",
-    "lifecycle.examples.json": "5ca71bac58f96eeb0db39f58b1dd4a7b802a92ed85b9fa939abf55f2a3eef0a4",
-    "lifecycle.method.json": "6a7dc75e65f61fbdac78ff844792307db6bfc5ad6cf4c8776af86dd11754703c",
-    "LIFECYCLE.md": "d0d89849fc59af4a3d644413e272ce325c498fa7ab8564cfa626c81feb8a7c3c",
-    "tests/test_lifecycle.py": "4e691fa67c1361722d1d3d6ffbc5f1bfce0744863224b9fe933b15fdcd718e33"
+    "lifecycle.py": "b0f73a4d3ca41e49f7edd609f9860e0392b28c523b03c66f6a3dd9bafc885496",
+    "lifecycle.schema.json": "ea0c7f7881cc545caa8365a39bee2a7d96bc4e7f84dc44e14c55a8caf29f5606",
+    "lifecycle.examples.json": "05cc022718fe0debcd89f7326c9d7810f17cab7f77a47aff40a6b145480d7e89",
+    "lifecycle.method.json": "48ea833eb00b10f056c723820909b0daf13496f00d05ed3a217a6fb3f1675904",
+    "lifecycle.stale-demand.example.json": "a511d72a29f7c713f123f11df6887628f59eced722bb8af754309f07d9e9281d",
+    "LIFECYCLE.md": "68fe0f6e7583f9956c49e3795a04bc5950712964cbccce73f2800155cc04e406",
+    "tests/test_lifecycle.py": "e8da92e95be3bce0813b6f050fd5e243587c7acfae9b0e5ec58f0e9d84f57ac5"
   },
   "evidence_sha256": {
-    "lifecycle-discovery.log": "d5f1e7184b855a9a536b24697434ca61fc1ee64807b7ee3def278274a49d361c"
+    "lifecycle-refinement-focused-final.log": "c306e4f8d5ce61ce821e673de01b1263f9ccaa3bc07f031f1801741921a286eb",
+    "lifecycle-refinement-discovery.log": "a762e2f01c9b0a7e5f2004aa45294dd68772b00e521effe0f0627aec0cae6e8a"
   },
   "disposition": "local_template_tested_not_integrated",
   "publication": "local_only_no_attempt",
@@ -45,5 +40,62 @@
     "WinError 1314 remains historical full-Windows limitation; no broad suite rerun",
     "No actual admission, scheduler, data fetch, effect, authentication or global policy enforcement"
   ],
-  "next_action": "Existing governing owners review the adoption matrix and independently qualify the exact local template increment before any integration."
+  "next_action": "Existing admission/launcher owner independently qualifies real stale-demand rejection and current-readback reuse; bootstrap/policy owners consider the reviewed rule.",
+  "history": [
+    {
+      "evaluated_input_revision": "bca24f865f3b988efb0372fc064d94989a884b9b",
+      "checks": [
+        {
+          "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_lifecycle.py -v",
+          "result": "pass",
+          "tests": 16,
+          "note": "Initial version before path-hardening and adoption-matrix test"
+        },
+        {
+          "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
+          "result": "pass",
+          "tests": 61,
+          "lifecycle_tests": 17,
+          "skipped": 0,
+          "note": "Final implementation including lexical path guard and adoption matrix"
+        },
+        {
+          "command": "python -B -m orchestration.clean_templates.lifecycle",
+          "result": "pass",
+          "examples": 3,
+          "note": "All valid; all execution_authorized false"
+        }
+      ],
+      "source_sha256": {
+        "lifecycle.py": "d2dc59398e2cdc97b852792709ad2b7ec714ad002d798a6025766a34c26663af",
+        "lifecycle.schema.json": "f9cdf602fffce6087d5b42d9b8552dd12a4b70da0c70f8d645d22198c0e46678",
+        "lifecycle.examples.json": "5ca71bac58f96eeb0db39f58b1dd4a7b802a92ed85b9fa939abf55f2a3eef0a4",
+        "lifecycle.method.json": "6a7dc75e65f61fbdac78ff844792307db6bfc5ad6cf4c8776af86dd11754703c",
+        "LIFECYCLE.md": "d0d89849fc59af4a3d644413e272ce325c498fa7ab8564cfa626c81feb8a7c3c",
+        "tests/test_lifecycle.py": "4e691fa67c1361722d1d3d6ffbc5f1bfce0744863224b9fe933b15fdcd718e33"
+      },
+      "evidence_sha256": {
+        "lifecycle-discovery.log": "d5f1e7184b855a9a536b24697434ca61fc1ee64807b7ee3def278274a49d361c"
+      }
+    }
+  ],
+  "risk_classification": "FETCH b733012 source-inspected risk under owner testing; only synthetic template checks executed here, not a FETCH failure or repair.",
+  "scores": {
+    "artifact_coverage": {
+      "points": 8,
+      "possible": 10,
+      "rubric": {
+        "contrasting_structure": 3,
+        "negative_behavior": 3,
+        "deterministic_no_effect_replay": 2,
+        "independent_acceptance": 0
+      },
+      "limit": "Bounded checklist, not measured code coverage"
+    },
+    "verified_new_adoption": {
+      "integrated_rows": 0,
+      "proposed_rows": 8,
+      "limit": "No governing-owner integration or operational enforcement claimed"
+    }
+  }
 }
