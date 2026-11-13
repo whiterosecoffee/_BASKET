@@ -1,0 +1,49 @@
+{
+  "schema": "basket.local_template_validation@0.1-draft",
+  "task_id": "B00-243",
+  "evaluated_input_revision": "bca24f865f3b988efb0372fc064d94989a884b9b",
+  "environment": "MELISSA Windows existing Python; no dependency or privilege changes",
+  "checks": [
+    {
+      "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_lifecycle.py -v",
+      "result": "pass",
+      "tests": 16,
+      "note": "Initial version before path-hardening and adoption-matrix test"
+    },
+    {
+      "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
+      "result": "pass",
+      "tests": 61,
+      "lifecycle_tests": 17,
+      "skipped": 0,
+      "note": "Final implementation including lexical path guard and adoption matrix"
+    },
+    {
+      "command": "python -B -m orchestration.clean_templates.lifecycle",
+      "result": "pass",
+      "examples": 3,
+      "note": "All valid; all execution_authorized false"
+    }
+  ],
+  "source_sha256": {
+    "lifecycle.py": "d2dc59398e2cdc97b852792709ad2b7ec714ad002d798a6025766a34c26663af",
+    "lifecycle.schema.json": "f9cdf602fffce6087d5b42d9b8552dd12a4b70da0c70f8d645d22198c0e46678",
+    "lifecycle.examples.json": "5ca71bac58f96eeb0db39f58b1dd4a7b802a92ed85b9fa939abf55f2a3eef0a4",
+    "lifecycle.method.json": "6a7dc75e65f61fbdac78ff844792307db6bfc5ad6cf4c8776af86dd11754703c",
+    "LIFECYCLE.md": "d0d89849fc59af4a3d644413e272ce325c498fa7ab8564cfa626c81feb8a7c3c",
+    "tests/test_lifecycle.py": "4e691fa67c1361722d1d3d6ffbc5f1bfce0744863224b9fe933b15fdcd718e33"
+  },
+  "evidence_sha256": {
+    "lifecycle-discovery.log": "d5f1e7184b855a9a536b24697434ca61fc1ee64807b7ee3def278274a49d361c"
+  },
+  "disposition": "local_template_tested_not_integrated",
+  "publication": "local_only_no_attempt",
+  "independent_acceptance": "not_run_for_this_increment",
+  "retained_boundaries": [
+    "bca24f8 push remains denied; no retry",
+    "Prior PR acceptance-status edit remains unresolved; no retry",
+    "WinError 1314 remains historical full-Windows limitation; no broad suite rerun",
+    "No actual admission, scheduler, data fetch, effect, authentication or global policy enforcement"
+  ],
+  "next_action": "Existing governing owners review the adoption matrix and independently qualify the exact local template increment before any integration."
+}
