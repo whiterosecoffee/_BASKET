@@ -77,5 +77,48 @@
     "ticker_role": "request data and consume qualified local data; dedicated scoped branch and accountable owner",
     "example": "semantic.data-example.json",
     "adoption": "pending existing #230 and governing owners through parent"
+  },
+  "temporal_options": {
+    "status": "local_proposal_pending_independent_review",
+    "artifact": "TEMPORAL.md",
+    "current": "Explicit watermark and source-observation budgets, last successful generation, bounded owner refresh proposal.",
+    "historical": "Explicit interval/session/basis, provenance, known coverage vs unknown/no-trade, fixed as-of, pinned generation and correction policy; no event-age expiry.",
+    "separate_policies": [
+      "cache age",
+      "source observation age",
+      "point-in-time cutoff"
+    ],
+    "owners": [
+      {
+        "issue": 230,
+        "gate": "Register purpose/policy relationships without changing live graph here."
+      },
+      {
+        "issue": 134,
+        "gate": "Offer explicit current and historical template options after acceptance."
+      },
+      {
+        "issue": 201,
+        "gate": "State historical timestamps do not expire; current use requires explicit freshness policy."
+      },
+      {
+        "issue": 103,
+        "gate": "Reconcile temporal request option into canonical contracts; no competing shared schema."
+      },
+      {
+        "issue": 105,
+        "gate": "Independently test exact new revision, corrections and no look-ahead."
+      },
+      {
+        "issue": 136,
+        "gate": "Existing runtime and _FETCH owners authenticate coverage/revision/entitlement evidence and bound real refresh; parent resolves existing owner."
+      }
+    ],
+    "execution_authorized": false,
+    "governing_adoption": {
+      "verified": 0,
+      "existing_matrix_rows": 8
+    },
+    "provider_boundary": "_FETCH provider-neutral master; Massive adapter metadata; ticker consumers read-only."
   }
 }

@@ -1,0 +1,51 @@
+{
+  "schema": "basket.local_template_validation@0.1-draft",
+  "task_id": "B00-243",
+  "evaluated_input_revision": "47bd018671f8f56165d0815570595707b85b03d0",
+  "environment": "MELISSA Windows existing Python",
+  "checks": [
+    {
+      "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_temporal.py -v",
+      "result": "pass",
+      "tests": 26,
+      "skipped": 0
+    },
+    {
+      "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
+      "result": "pass",
+      "tests": 125,
+      "skipped": 0
+    }
+  ],
+  "source_sha256": {
+    "temporal.py": "33da207cd4f7decf5630baac43af313b086020edc18fd32acd434679b39b9a68",
+    "temporal.examples.json": "aa5edf5adc8c8a79746c2557daab16863d3a6c602af62d05cfd16796c31d0902",
+    "TEMPORAL.md": "5263ae949943f6a993d65e889ed30b79cfe5eb9ea3e46986af992ab6ef5d2bbb",
+    "tests/test_temporal.py": "f8061f7444348fe3bdb85ba6a5d7caffecd0571f6270b10d5c3ee744535c82ff",
+    "semantic.adoption.json": "de15d7af4efb3405734857d3c68ab389afc16ddfd641a676a5dbf5ca2d481f58"
+  },
+  "evidence_sha256": {
+    "temporal-focused.log": "2c78558ea14c722b9122cd3580874ea0e7c22c07a5dc7980414e4625731159eb",
+    "temporal-discovery.log": "d9c41bb511c4787534ed1593f4d4afde5fbad56b8c5aa62ef785fb71124e2f38"
+  },
+  "predecessor_acceptance": {
+    "revision": "47bd018671f8f56165d0815570595707b85b03d0",
+    "decision": "accepted bounded local semantic consistency, not integration",
+    "decision_sha256": "8b3f92f8f29ebbe4af20926c110987ff064804630ce766e5d77f8e767940c63e"
+  },
+  "independent_acceptance": "pending_for_temporal_increment",
+  "execution_authorized": false,
+  "publication": "local_only_no_attempt",
+  "governing_adoption": {
+    "verified": 0,
+    "existing_matrix_rows": 8
+  },
+  "disposition": "producer_tested_not_integrated",
+  "limits": [
+    "Clock advancement does not expire historical event truth; explicit policies still reject coverage/provenance/integrity/correction/cutoff/session/basis/entitlement defects.",
+    "Source metadata, entitlements and correction completeness remain declarations, not authenticated authority.",
+    "No _FETCH implementation, scheduler, archive import, actual refresh or governing-owner edit.",
+    "No hosted/full Windows claim; historical WinError 1314 and denied publication boundaries retained."
+  ],
+  "next_action": "Existing independent reviewer checks this exact new local temporal revision; parent coordinates governing owners."
+}

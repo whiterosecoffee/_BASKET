@@ -1,0 +1,311 @@
+{
+  "evaluation_time": "2030-01-01T00:00:00Z",
+  "examples": {
+    "historical-as-of": {
+      "synthetic": true,
+      "request": {
+        "request_id": "temporal-history-1",
+        "idempotency_key": "temporal-history-1",
+        "input_revision": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269",
+        "source_revision": "47bd018671f8f56165d0815570595707b85b03d0",
+        "purpose": "historical_as_of",
+        "session": "regular",
+        "adjustment_basis": "unadjusted",
+        "current": null,
+        "historical": {
+          "start": "2020-01-02T15:00:00Z",
+          "end": "2020-01-02T16:00:00Z",
+          "as_of": "2020-01-04T00:00:00Z",
+          "pinned_generation": "history-g1",
+          "revision_policy": "as_of_visible"
+        }
+      },
+      "generation": {
+        "content": {
+          "generation_id": "history-g1",
+          "revision_id": "revision-1",
+          "available_at": "2020-01-03T00:00:00Z",
+          "session": "regular",
+          "adjustment_basis": "unadjusted",
+          "event_watermark": "2020-01-02T15:59:00Z",
+          "provenance": {
+            "ref": "fixture://source-revision-1",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "coverage": [
+            {
+              "start": "2020-01-02T15:00:00Z",
+              "end": "2020-01-02T16:00:00Z",
+              "status": "observed",
+              "evidence": {
+                "ref": "fixture://coverage-1",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            }
+          ]
+        },
+        "artifact": {
+          "ref": "fixture://generation",
+          "sha256": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269"
+        }
+      },
+      "observation": {
+        "retrieved_at": "2029-12-31T00:00:00Z",
+        "source_observed_at": "2029-12-31T00:00:00Z",
+        "last_successful_generation": "history-g1"
+      },
+      "cache_policy": {
+        "stored_at": "2029-12-31T00:00:00Z",
+        "max_age_seconds": 3600
+      },
+      "entitlement": {
+        "granted": true,
+        "evidence": {
+          "ref": "fixture://entitlement",
+          "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+        },
+        "allowed_purposes": [
+          "historical_as_of",
+          "current"
+        ]
+      },
+      "corrections": [],
+      "refresh_attempts_used": 0,
+      "acceptance": {
+        "request_sha256": "e45c12cc5dc4de283c9e3057a125409d26dd0a0b1beb1743259164fd7410998e",
+        "generation_sha256": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269",
+        "revision_view_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "historical-strict-correction": {
+      "synthetic": true,
+      "request": {
+        "request_id": "temporal-history-1",
+        "idempotency_key": "temporal-history-1",
+        "input_revision": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269",
+        "source_revision": "47bd018671f8f56165d0815570595707b85b03d0",
+        "purpose": "historical_as_of",
+        "session": "regular",
+        "adjustment_basis": "unadjusted",
+        "current": null,
+        "historical": {
+          "start": "2020-01-02T15:00:00Z",
+          "end": "2020-01-02T16:00:00Z",
+          "as_of": "2020-01-04T00:00:00Z",
+          "pinned_generation": "history-g1",
+          "revision_policy": "invalidate_on_known_correction"
+        }
+      },
+      "generation": {
+        "content": {
+          "generation_id": "history-g1",
+          "revision_id": "revision-1",
+          "available_at": "2020-01-03T00:00:00Z",
+          "session": "regular",
+          "adjustment_basis": "unadjusted",
+          "event_watermark": "2020-01-02T15:59:00Z",
+          "provenance": {
+            "ref": "fixture://source-revision-1",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "coverage": [
+            {
+              "start": "2020-01-02T15:00:00Z",
+              "end": "2020-01-02T16:00:00Z",
+              "status": "observed",
+              "evidence": {
+                "ref": "fixture://coverage-1",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            }
+          ]
+        },
+        "artifact": {
+          "ref": "fixture://generation",
+          "sha256": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269"
+        }
+      },
+      "observation": {
+        "retrieved_at": "2029-12-31T00:00:00Z",
+        "source_observed_at": "2029-12-31T00:00:00Z",
+        "last_successful_generation": "history-g1"
+      },
+      "cache_policy": {
+        "stored_at": "2029-12-31T00:00:00Z",
+        "max_age_seconds": 3600
+      },
+      "entitlement": {
+        "granted": true,
+        "evidence": {
+          "ref": "fixture://entitlement",
+          "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+        },
+        "allowed_purposes": [
+          "historical_as_of",
+          "current"
+        ]
+      },
+      "corrections": [],
+      "refresh_attempts_used": 0,
+      "acceptance": {
+        "request_sha256": "bcb464cce200fa67b059c902533169b95c082125998343c3f25e5404ea40b4f2",
+        "generation_sha256": "3319db1de8662910ade4dc9c352f7406c47c911ee870c7d301b59a6ff06f4269",
+        "revision_view_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "historical-no-trade": {
+      "synthetic": true,
+      "request": {
+        "request_id": "temporal-history-1",
+        "idempotency_key": "temporal-history-1",
+        "input_revision": "298e948b77d0cf67b23a1795b4396ccc13f98d696ec14a9473f1d827592d9fd5",
+        "source_revision": "47bd018671f8f56165d0815570595707b85b03d0",
+        "purpose": "historical_as_of",
+        "session": "regular",
+        "adjustment_basis": "unadjusted",
+        "current": null,
+        "historical": {
+          "start": "2020-01-02T15:00:00Z",
+          "end": "2020-01-02T16:00:00Z",
+          "as_of": "2020-01-04T00:00:00Z",
+          "pinned_generation": "history-g1",
+          "revision_policy": "as_of_visible"
+        }
+      },
+      "generation": {
+        "content": {
+          "generation_id": "history-g1",
+          "revision_id": "revision-1",
+          "available_at": "2020-01-03T00:00:00Z",
+          "session": "regular",
+          "adjustment_basis": "unadjusted",
+          "event_watermark": "2020-01-02T15:59:00Z",
+          "provenance": {
+            "ref": "fixture://source-revision-1",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "coverage": [
+            {
+              "start": "2020-01-02T15:00:00Z",
+              "end": "2020-01-02T16:00:00Z",
+              "status": "no_trade",
+              "evidence": {
+                "ref": "fixture://coverage-1",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            }
+          ]
+        },
+        "artifact": {
+          "ref": "fixture://generation",
+          "sha256": "298e948b77d0cf67b23a1795b4396ccc13f98d696ec14a9473f1d827592d9fd5"
+        }
+      },
+      "observation": {
+        "retrieved_at": "2029-12-31T00:00:00Z",
+        "source_observed_at": "2029-12-31T00:00:00Z",
+        "last_successful_generation": "history-g1"
+      },
+      "cache_policy": {
+        "stored_at": "2029-12-31T00:00:00Z",
+        "max_age_seconds": 3600
+      },
+      "entitlement": {
+        "granted": true,
+        "evidence": {
+          "ref": "fixture://entitlement",
+          "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+        },
+        "allowed_purposes": [
+          "historical_as_of",
+          "current"
+        ]
+      },
+      "corrections": [],
+      "refresh_attempts_used": 0,
+      "acceptance": {
+        "request_sha256": "a2fa4f82cb1b59264dc5eb5bed05cc3771d1e8493753556e867edacd14728e1e",
+        "generation_sha256": "298e948b77d0cf67b23a1795b4396ccc13f98d696ec14a9473f1d827592d9fd5",
+        "revision_view_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "current": {
+      "synthetic": true,
+      "request": {
+        "request_id": "temporal-history-1",
+        "idempotency_key": "temporal-history-1",
+        "input_revision": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+        "source_revision": "47bd018671f8f56165d0815570595707b85b03d0",
+        "purpose": "current",
+        "session": "regular",
+        "adjustment_basis": "unadjusted",
+        "current": {
+          "max_watermark_age_seconds": 120,
+          "max_observation_age_seconds": 120,
+          "refresh": {
+            "owner": "_FETCH",
+            "max_attempts": 1,
+            "deadline": "2030-01-01T00:10:00Z"
+          }
+        },
+        "historical": null
+      },
+      "generation": {
+        "content": {
+          "generation_id": "current-g1",
+          "revision_id": "latest-1",
+          "available_at": "2030-01-01T00:00:00Z",
+          "session": "regular",
+          "adjustment_basis": "unadjusted",
+          "event_watermark": "2029-12-31T23:59:00Z",
+          "provenance": {
+            "ref": "fixture://source-revision-1",
+            "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "coverage": [
+            {
+              "start": "2029-12-31T23:59:00Z",
+              "end": "2030-01-01T00:00:00Z",
+              "status": "observed",
+              "evidence": {
+                "ref": "fixture://latest-coverage",
+                "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+              }
+            }
+          ]
+        },
+        "artifact": {
+          "ref": "fixture://generation",
+          "sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474"
+        }
+      },
+      "observation": {
+        "retrieved_at": "2030-01-01T00:00:00Z",
+        "source_observed_at": "2030-01-01T00:00:00Z",
+        "last_successful_generation": "current-g1"
+      },
+      "cache_policy": {
+        "stored_at": "2029-12-31T00:00:00Z",
+        "max_age_seconds": 3600
+      },
+      "entitlement": {
+        "granted": true,
+        "evidence": {
+          "ref": "fixture://entitlement",
+          "sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+        },
+        "allowed_purposes": [
+          "historical_as_of",
+          "current"
+        ]
+      },
+      "corrections": [],
+      "refresh_attempts_used": 0,
+      "acceptance": {
+        "request_sha256": "f25868f1e484ce31410c215cc51933ea339b397071ddbf6e4cbc6aa2fcc27fc9",
+        "generation_sha256": "3e1b4cd923e9144c79afb98fa4c5e604568cc2e0ba4bcf452dd1e3a9b3603474",
+        "revision_view_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    }
+  }
+}
