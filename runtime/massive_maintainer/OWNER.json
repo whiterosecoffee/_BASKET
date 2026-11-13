@@ -1,0 +1,18 @@
+{
+  "schema": "fetch.scoped_authority@1",
+  "status": "local_scope_declaration_not_runtime_lease",
+  "master_role": "_FETCH",
+  "owner_spark": "B02",
+  "lane": "fetch.massive",
+  "provider_adapter": "Massive",
+  "branch": "work/local-20261112-massive-maintainer",
+  "write_paths": [
+    "runtime/massive_maintainer/**"
+  ],
+  "consumers": "ticker components through local discovery/resolver and owner-routed requests",
+  "routing": "private existing controller record; do not duplicate owner",
+  "shared_contract_owner": "B00",
+  "shared_discovery_owner": "existing _MAP/resolver owner",
+  "generic_master_implementation": "not extracted in this increment",
+  "publication": "not authorized by this record"
+}
