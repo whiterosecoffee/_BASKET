@@ -227,3 +227,40 @@ Next: the controller routes the pinned candidate to the existing observation and
 launch-path owner for a bounded real integration probe, retaining separate
 checkpoint/scheduler and publication-approval gates. This disposition is not
 acceptance of any of the five end-to-end methodology cases.
+
+## Current blockers and next integration step — 2026-11-13
+
+Branch publication is resolved: the remote was verified at `baba85f`. The
+controller also reports the updated acknowledgement logic passed 48 admission
+tests, 10 protocol tests and independent negative probes. Earlier descriptions
+of these two items as pending are historical. These reports do not establish
+hosted focused CI or live execution acceptance.
+
+The controller's current interface does not expose the authentic exclusive worker
+lease and scheduler-run-to-session binding required for strict live admission.
+This is a capability gap, not a failing unit test and not permission to replace
+missing observations with positive declarations. Existing #32 owns controller
+code under `orchestration/agentic/**`; #78 owns adapter contracts under
+`orchestration/agent_adapters/**`; B08 retains runtime/deployment boundaries
+identified by #34. These references establish domains, not a claim that a live
+receiving worker has accepted this handoff. Current allocation stays with Dot/B00.
+
+The immediate code-review increment can proceed independently. At the exact
+candidate revision, the reviewer runs the two documented suites and verifies that
+wrong hosts, offline status, missing/competing leases, mixed lifecycle evidence,
+uncertain effects and missing/wrong replacement acknowledgements cannot authorize
+execution. Shared green CI does not substitute for these focused suites.
+
+The next runtime increment must be owned by the existing controller/adapter
+owners: supply authentic observations and a lease/run binding to `evaluate`,
+then verify rejection before effects using an actual bounded launch seam. Until
+those interfaces exist, only an explicitly labelled controller-invoked disposable
+dry-run is eligible for demonstration; it does not establish live dispatch,
+scheduled acceptance or data-worker readiness. This worker has not run such a
+demonstration and does not allocate another runtime or scheduler.
+
+The previous public-issue creation denial remains a separate registration gate.
+It was not retried, and a draft source-review PR does not resolve or replace task
+registration. No merge, deployment or change to global policy is authorized by
+this reconciliation. `task.json.blocker_reconciliation` gives concrete exit
+criteria and owner domains for each remaining gate.

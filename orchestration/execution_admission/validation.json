@@ -142,11 +142,11 @@
     "python -m unittest discover -s orchestration/tests -p 'test_worker_protocol.py'"
   ],
   "limits": [
-    "Current repair has owner-executed tests; independent review of initial ce013f6 found two defects, repaired revision awaits independent rerun; no hosted focused run",
+    "Controller reports independent review of the updated acknowledgement logic passed 48+10 tests and negative probes; no hosted focused run or live launcher acceptance is claimed",
     "Synthetic eligibility cases; real workstation/data-worker projections intentionally reject",
     "No collector, lock acquisition, launch, effects or operational acceptance implemented",
     "Public issue creation remains denied and was not retried; portable branch publication is a separately user-authorized review-gated action",
     "No merge, deployment, runtime or market-data edits"
   ],
-  "next_action": "Existing observation/launch-path owner performs real integration probe; independent review of tightened transfer shape remains pending"
+  "next_action": "Repository review of exact source; existing controller provides missing authentic lease and run binding"
 }
