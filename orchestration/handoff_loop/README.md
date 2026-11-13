@@ -169,3 +169,6 @@ source port. It produces observations only, with no evaluator or acceptance auth
 
 The [disposable dry-run harness](DRY_RUN.md) records simulated delivery decisions
 and durable replay receipts without installing a schedule or dispatching work.
+
+The [trigger admission boundary](TRIGGER_BRIDGE.md) remains fail-closed for live
+events; original-run/owner/lease binding is currently tested only with simulations.
