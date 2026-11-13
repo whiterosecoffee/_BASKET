@@ -126,3 +126,21 @@ criterion text remains bound, and satisfying both retained gates still succeeds.
 Wake consumption and typed dimension receipts remain unchanged. Draft format stays
 0.2; this tightens transition validation without migrating any private checkpoint.
 Independent requalification of the repaired head remains required before routing.
+
+## Dependency-edge retention repair
+
+Independent review of `1b96bc33eccfccb770252d3b8f6319b503627645`
+found that persistence could remove a pending dependency and accept the dependent
+objective using its own valid acceptance receipts. The regression reproduced
+removal and replacement with an already accepted alternative, both when accepting
+immediately and when staging the relaxed requirements in a pending objective.
+
+Persistence now requires the old dependency set to be a subset of the new one.
+Existing edges cannot disappear or be substituted, even before acceptance. Adding
+requirements remains possible subject to existing reference/cycle validation.
+There is no authorized-supersession mechanism in this draft; relaxation fails
+closed. Rejected writes preserve exact bytes and leave the original edge intact.
+Accepting the original dependency with valid receipts still permits the dependent
+objective's acceptance. Criterion retention/text binding, atomic wake consumption
+and typed receipt gates remain in force. Private checkpoint migration and real
+routing remain blocked pending independent exact-head acceptance.

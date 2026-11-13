@@ -182,6 +182,7 @@ def persist(path, expected_digest, update, receipts, observation, *, now):
         require(set(old_nodes).issubset(new_nodes), 'objective IDs cannot disappear')
         require(all(old_nodes[k][field] == new_nodes[k][field] for k in old_nodes for field in ('parent', 'owner', 'scope')), 'objective identity cannot change')
         for key, row in old_nodes.items():
+            require(set(row['depends_on']).issubset(new_nodes[key]['depends_on']), 'existing dependencies cannot disappear')
             old_gates = {g['id']: g for g in row['acceptance']}
             new_gate_ids = {g['id'] for g in new_nodes[key]['acceptance']}
             require(set(old_gates).issubset(new_gate_ids), 'acceptance criterion IDs cannot disappear')

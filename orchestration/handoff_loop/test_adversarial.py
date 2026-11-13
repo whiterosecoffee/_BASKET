@@ -1,5 +1,6 @@
 """Regression cases supplied by independent review of the first increment."""
 import json
+from copy import deepcopy
 from pathlib import Path
 import tempfile
 import unittest
@@ -163,3 +164,63 @@ class ReviewRegressionTests(unittest.TestCase):
             self.assertEqual(saved['objectives'][0]['status'], 'accepted')
             self.assertEqual([g['id'] for g in saved['objectives'][0]['acceptance']], ['A1', 'A2'])
             self.assertEqual(json.loads(path.read_text()), saved)
+
+    def dependency_fixture(self):
+        target, required = self.s['objectives']
+        required['parent'] = None
+        alternative = deepcopy(required)
+        alternative.update(id='alternative', status='accepted')
+        self.s['objectives'].append(alternative)
+        target['depends_on'] = [required['id']]
+        receipts = {}
+        for row in self.s['objectives']:
+            ref = 'receipt-' + row['id']
+            row.update(evidence=[ref], artifact_revisions=['v1'])
+            gate = row['acceptance'][0]
+            gate['evidence'] = [ref]
+            receipts[ref] = dict(kind='acceptance', source='independent-review', revision='v1',
+                                 objective=row['id'], criterion=gate['id'],
+                                 criterion_digest=digest({'id':gate['id'], 'condition':gate['condition']}))
+        return receipts
+
+    def test_dependency_removal_or_substitution_preserves_bytes(self):
+        receipts = self.dependency_fixture()
+        validate(self.s, receipts)
+        for replacement in ([], ['alternative']):
+            for status in ('accepted', 'pending'):
+                with self.subTest(replacement=replacement, status=status), tempfile.TemporaryDirectory() as directory:
+                    path = Path(directory)/'status.json'
+                    path.write_text(json.dumps(self.s))
+                    original = path.read_bytes()
+                    def relax(s):
+                        s['revision'] += 1
+                        s['objectives'][0].update(depends_on=replacement, status=status)
+                        return s
+                    with self.assertRaisesRegex(ValueError, 'existing dependencies cannot disappear'):
+                        persist(path, digest(self.s), relax, receipts, self.o, now=100)
+                    self.assertEqual(path.read_bytes(), original)
+                    self.assertEqual(json.loads(path.read_text())['objectives'][0]['depends_on'], ['handoff.evaluator'])
+                    self.assertFalse(path.with_suffix('.json.lock').exists())
+
+    def test_required_dependency_completion_permits_acceptance(self):
+        receipts = self.dependency_fixture()
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)/'status.json'
+            path.write_text(json.dumps(self.s))
+            original = path.read_bytes()
+            def accept_target(s):
+                s['revision'] += 1
+                s['objectives'][0]['status'] = 'accepted'
+                return s
+            with self.assertRaisesRegex(ValueError, 'parent/dependency acceptance gate'):
+                persist(path, digest(self.s), accept_target, receipts, self.o, now=100)
+            self.assertEqual(path.read_bytes(), original)
+            def complete(s):
+                s = accept_target(s)
+                s['objectives'][1]['status'] = 'accepted'
+                return s
+            saved = persist(path, digest(self.s), complete, receipts, self.o, now=100)
+            self.assertEqual(saved['objectives'][0]['depends_on'], ['handoff.evaluator'])
+            self.assertEqual(saved['objectives'][0]['status'], 'accepted')
+            self.assertEqual(json.loads(path.read_text()), saved)
+            self.assertEqual(evaluate(saved, self.o, receipts, now=100)['action'], 'no-change')
