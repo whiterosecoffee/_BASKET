@@ -512,13 +512,28 @@ def validate_partition(root, entry, ticker, day):
     return path
 
 
-def current_ineligibility(root, entry, day, required, max_age, coverage):
-    """Qualify only a consumer-declared interval with every minute observed.
 
-    Unknown/no-trade/closed-session evidence cannot be inferred from empty minutes.
-    Historical returned bars remain available without this current-data contract.
-    """
-    validate_freshness(max_age)
+PURPOSES=('historical','historical_interval','as_of','latest_complete')
+
+
+def purpose_contract(purpose, required, as_of=None):
+    purpose=('historical' if required is None else 'latest_complete') if purpose is None else purpose
+    if not isinstance(purpose,str) or purpose not in PURPOSES:
+        raise ValueError('invalid data purpose')
+    if (purpose=='historical')!=(required is None):
+        raise ValueError('purpose requires matching interval contract')
+    if purpose=='as_of':
+        if not isinstance(as_of,str): raise ValueError('as_of requires an aware ISO timestamp')
+        try: cutoff=datetime.fromisoformat(as_of)
+        except ValueError: raise ValueError('as_of requires an aware ISO timestamp') from None
+        if cutoff.tzinfo is None: raise ValueError('as_of requires an aware ISO timestamp')
+    elif as_of is not None:
+        raise ValueError('as_of cutoff requires as_of purpose')
+    return purpose
+
+
+def coverage_ineligibility(root, entry, day, required, coverage, *, latest=False):
+    """Coverage and basis checks have no wall-clock expiration."""
     if not isinstance(coverage,dict): return 'coverage_unknown'
     try:
         start,end=coverage['start_t'],coverage['end_t']
@@ -533,11 +548,20 @@ def current_ineligibility(root, entry, day, required, max_age, coverage):
             if not low<=local.hour*60+local.minute<high: return 'coverage_unknown'
     except (ValueError,KeyError,TypeError,OverflowError):
         return 'coverage_unknown'
-    if entry.get('source_status')=='DELAYED': return 'source_delayed'
-    if entry.get('source_status')!='OK' or entry.get('pagination_complete') is not True: return 'source_status_unknown'
+    if latest and entry.get('source_status')=='DELAYED': return 'source_delayed'
+    if entry.get('source_status') not in ('OK','DELAYED') or entry.get('pagination_complete') is not True: return 'source_status_unknown'
     rows=[json.loads(line) for line in (root/entry['path']).read_bytes().splitlines()]
     stamps=[r['t'] for r in rows if start<=r['t']<=end]
     if stamps!=list(range(start,end+60000,60000)): return 'coverage_unresolved'
+    return None
+
+
+def current_ineligibility(root, entry, day, required, max_age, coverage):
+    """Recency is a policy for latest use, not the lifetime of historical truth."""
+    validate_freshness(max_age)
+    reason=coverage_ineligibility(root,entry,day,required,coverage,latest=True)
+    if reason: return reason
+    end=coverage['end_t']
     clock=datetime.fromisoformat(now())
     observation_age=clock.timestamp()-(end+60000)/1000
     if observation_age<0: return 'observation_not_complete'
@@ -547,9 +571,36 @@ def current_ineligibility(root, entry, day, required, max_age, coverage):
     return None
 
 
-def resolve(pointer, ticker, day, required_through=None, max_age_seconds=1200, *, coverage=None):
+def purpose_ineligibility(root, entry, day, required, max_age, coverage, purpose, as_of=None):
+    purpose=purpose_contract(purpose,required,as_of)
+    if purpose=='historical': return None
+    if purpose=='latest_complete':
+        return current_ineligibility(root,entry,day,required,max_age,coverage)
+    reason=coverage_ineligibility(root,entry,day,required,coverage)
+    if reason or purpose=='historical_interval': return reason
+    cutoff=datetime.fromisoformat(as_of)
+    # The returned file exposes the entire partition: reject any later event,
+    # not only later events inside the requested subinterval.
+    if datetime.fromtimestamp((entry['last_t']+60000)/1000,UTC)>cutoff:
+        return 'event_after_as_of'
+    try:
+        evidence=entry['raw']
+        if not isinstance(evidence,list) or not evidence: return 'vintage_availability_unknown'
+        values=[entry['fetched_at']]+[ev['fetched_at'] for ev in evidence]
+        reference=entry.get('reference')
+        if isinstance(reference,dict) and 'fetched_at' in reference: values.append(reference['fetched_at'])
+        observed=[datetime.fromisoformat(value) for value in values]
+        if any(value.tzinfo is None for value in observed): return 'vintage_availability_unknown'
+    except (KeyError,ValueError,TypeError):
+        return 'vintage_availability_unknown'
+    if max(observed)>cutoff: return 'vintage_after_as_of'
+    return None
+
+
+def resolve(pointer, ticker, day, required_through=None, max_age_seconds=1200, *, coverage=None, purpose=None, as_of=None):
     """Local-only resolution. The consumer cannot fetch or pretend missing data is fresh."""
-    validate_freshness(max_age_seconds)
+    purpose=purpose_contract(purpose,required_through,as_of)
+    if purpose=='latest_complete': validate_freshness(max_age_seconds)
     symbol(ticker)
     cfg=read(Path(pointer))
     if not isinstance(cfg,dict) or cfg.get('schema')!=SCHEMA:
@@ -567,10 +618,9 @@ def resolve(pointer, ticker, day, required_through=None, max_age_seconds=1200, *
     elif entry['conflicts'] or entry['qualification']!='source_confirmed_returned_bars': reason='unqualified'
     else:
         path=validate_partition(root,entry,ticker,day)
-        if required_through is not None:
-            reason=current_ineligibility(root,entry,day,required_through,max_age_seconds,coverage)
+        reason=purpose_ineligibility(root,entry,day,required_through,max_age_seconds,coverage,purpose,as_of)
     if reason:
-        request={'ticker':ticker,'date':day,'reason':reason,'required_through':required_through,'max_age_seconds':max_age_seconds,'coverage':coverage,'owner':OWNER}
+        request={'ticker':ticker,'date':day,'reason':reason,'required_through':required_through,'max_age_seconds':max_age_seconds if purpose=='latest_complete' else None,'coverage':coverage,'purpose':purpose,'as_of':as_of,'owner':OWNER}
         payload=encode(request)
         # Content-addressed requests avoid overwriting another consumer's request.
         target=root/'requests'/(digest(payload)+'.json')
@@ -578,8 +628,9 @@ def resolve(pointer, ticker, day, required_through=None, max_age_seconds=1200, *
         try:
             with target.open('xb') as f: f.write(payload)
         except FileExistsError: pass
-        return {'status':'refresh_required','request':str(target),'reason':reason}
-    return dict(entry,status='qualified_historical' if required_through is None else 'qualified_current',path=str(path))
+        return {'status':'refresh_required' if purpose=='latest_complete' else 'reconciliation_required','request':str(target),'reason':reason,'purpose':purpose}
+    status='qualified_current' if purpose=='latest_complete' else 'qualified_as_of' if purpose=='as_of' else 'qualified_historical'
+    return dict(entry,status=status,path=str(path),purpose=purpose,qualified_scope=coverage,as_of=as_of)
 
 
 def fulfilled_request_is_current(root, request):
@@ -589,7 +640,8 @@ def fulfilled_request_is_current(root, request):
     Invalid indexed bytes fail closed; they do not authorize acquisition.
     Legacy requests retain the resolver's original 1200-second age default.
     """
-    validate_freshness(request.get('max_age_seconds',1200))
+    purpose=purpose_contract(request.get('purpose'),request.get('required_through'),request.get('as_of'))
+    if purpose=='latest_complete': validate_freshness(request.get('max_age_seconds',1200))
     index=read(root/'index.json')
     if index is None:
         return False
@@ -601,11 +653,8 @@ def fulfilled_request_is_current(root, request):
         return False
     validate_partition(root,entry,ticker,day)
     required=request.get('required_through')
-    if required is None:
-        return True
     max_age=request.get('max_age_seconds',1200)
-    validate_freshness(max_age)
-    return current_ineligibility(root,entry,day,required,max_age,request.get('coverage')) is None
+    return purpose_ineligibility(root,entry,day,required,max_age,request.get('coverage'),purpose,request.get('as_of')) is None
 
 
 
@@ -618,8 +667,8 @@ def validate_request(request):
     required=request.get('required_through')
     if required is not None and (type(required) is not int or date_of(required)!=day):
         raise ValueError('invalid required_through')
-    age=request.get('max_age_seconds',1200)
-    validate_freshness(age)
+    purpose=purpose_contract(request.get('purpose'),required,request.get('as_of'))
+    if purpose=='latest_complete': validate_freshness(request.get('max_age_seconds',1200))
 
 
 def require_admission(args, root, records, ticker, day):

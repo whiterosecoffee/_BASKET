@@ -454,8 +454,8 @@ types reject without coercion. Huge integers reject before float conversion.
 The stable FreshnessContractError subclasses ValueError and exposes code
 invalid_freshness_budget and field max_age_seconds. Invalid queued requests retain
 that code in durable quarantine dispositions. Historical-only access still omits
-required_through and is not subject to observation-age expiry; a supplied malformed
-budget is nevertheless invalid API input and rejects consistently.
+required_through and is not subject to observation-age expiry; the later purpose contract below supersedes validation of that unused historical
+budget: historical purposes ignore it; latest budgets remain strictly validated.
 
 Four new boundary tests initially exposed25 failing assertions/subcases, including
 the independent infinity scenario. After repair82 offline tests pass, including
@@ -471,3 +471,27 @@ existing-date refresh authority or qualify the legacy archive gap. Historical
 provenance, migration and production-operation gates remain unchanged. No live
 vendor calls, production writes or publication were performed. Same independent
 B01 reviewer should requalify this bounded delta at the new commit through parent.
+
+
+### Purpose-specific timestamp semantics - 2026-11-13
+
+Follow-up to f5945c1, implementing the user's correction: observations do not expire
+as historical facts. The v1 purpose options are historical, historical_interval,
+as_of and latest_complete. Recency validation/age checks apply only to latest;
+historical coverage, basis and as-of vintage checks do not depend on today's clock.
+Historical requests normalize the unused budget to null and return reconciliation
+rather than current-refresh status. No historical request is generated just for age.
+
+Owner-run evidence:91 offline regressions pass (nine new purpose controls), all22
+stress cases pass unchanged. Tests advance the clock years, preserve historical
+fulfilment, reject post-cutoff corrections/events and unknown vintage availability,
+retain delayed history while refusing latest, reject sparse intervals, and verify
+UTC minute -> exchange date and ticker mapping. Tests use synthetic producer
+metadata/fake transport; they do not authenticate archives or qualify production.
+The as_of path evaluates only the selected indexed vintage and fails closed rather
+than guessing a superseded one. Current infinity/type rejection from B01 F1 remains.
+
+PURPOSES.json is versioned portable input to the existing shared template owner;
+PURPOSES.md contains the exact handoff. No generic master branch or cross-owner edit
+is implied. Same B01 reviewer must requalify the combined F1/purpose delta. No vendor
+calls, production writes, migration, schedule activation or push occurred.

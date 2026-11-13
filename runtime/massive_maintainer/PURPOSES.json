@@ -1,0 +1,83 @@
+{
+  "schema": "fetch.data-purpose-options@1",
+  "status": "scoped_contract_for_shared_owner_adoption",
+  "generic_authority": "_FETCH",
+  "adapter": "Massive",
+  "owner": "B02/fetch.massive",
+  "options": {
+    "historical": {
+      "meaning": "validated returned bars; no completeness claim",
+      "required_through": false,
+      "coverage": false,
+      "wall_clock_ttl": false,
+      "success": "qualified_historical"
+    },
+    "historical_interval": {
+      "meaning": "complete declared historical interval in matching basis",
+      "required_through": true,
+      "coverage": true,
+      "wall_clock_ttl": false,
+      "success": "qualified_historical"
+    },
+    "as_of": {
+      "meaning": "selected local vintage and every exposed event known no later than cutoff",
+      "required_through": true,
+      "coverage": true,
+      "as_of": "aware ISO timestamp",
+      "wall_clock_ttl": false,
+      "success": "qualified_as_of"
+    },
+    "latest_complete": {
+      "meaning": "completed observed interval satisfying explicit recency",
+      "required_through": true,
+      "coverage": true,
+      "max_age_seconds": {
+        "types": [
+          "int",
+          "float"
+        ],
+        "exclusive_minimum": 0,
+        "maximum": 1200,
+        "finite": true,
+        "default": 1200
+      },
+      "success": "qualified_current"
+    }
+  },
+  "coverage": {
+    "completion": "all_minutes_present",
+    "start_t": "inclusive epoch milliseconds",
+    "end_t": "inclusive epoch milliseconds; equals required_through",
+    "session": [
+      "PRE",
+      "RTH",
+      "AH"
+    ],
+    "timezone": "America/New_York",
+    "adjustment": "split_adjusted"
+  },
+  "massive_timestamp_mapping": {
+    "t": "UTC epoch milliseconds, start of minute",
+    "period_end": "t + 60000 milliseconds",
+    "exchange_date": "America/New_York date, not UTC date",
+    "fetched_at": "local retrieval evidence; not event time or guaranteed first availability",
+    "as_of_vintage_bound": "maximum known retrieval timestamp across selected entry and raw evidence; reference included when recorded"
+  },
+  "failure": {
+    "latest_complete": "refresh_required",
+    "historical_purposes": "reconciliation_required",
+    "invalid_latest_budget": "FreshnessContractError/invalid_freshness_budget"
+  },
+  "default_compatibility": {
+    "required_through_omitted": "historical",
+    "required_through_present": "latest_complete"
+  },
+  "limits": [
+    "no inferred no-trade minutes or closures",
+    "no automatic selection of superseded vintage",
+    "no authenticated authority from permit strings",
+    "no implicit fetch from reconciliation request",
+    "no historical expiry or repull solely for age",
+    "no master branch or shared template edit in this lane"
+  ]
+}

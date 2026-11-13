@@ -72,3 +72,9 @@ and runner receipts; a scheduled supervisor or open conversation is not a live
 refresh process. No cross-owner registry/template edits or publication are part of
 this local commit. Expected-head publication is implemented in this lane; independent acceptance and
 shared-contract adoption remain separate gates.
+
+
+Purpose-specific option set: PURPOSES.json and PURPOSES.md. Historical observations
+have no wall-clock TTL. Only latest_complete applies finite recency. The existing
+B00 template owner and verified generic-master owner must adopt the shared options
+in their own scopes; this source branch makes no claim of master-branch integration.
