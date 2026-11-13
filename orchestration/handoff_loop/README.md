@@ -166,3 +166,6 @@ It reuses this evaluator and its hashes without claiming real source authenticit
 
 [Bounded GitHub metadata retrieval](GITHUB_READONLY.md) is a separate read-only
 source port. It produces observations only, with no evaluator or acceptance authority.
+
+The [disposable dry-run harness](DRY_RUN.md) records simulated delivery decisions
+and durable replay receipts without installing a schedule or dispatching work.

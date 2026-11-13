@@ -113,16 +113,12 @@ def normalize_supplied(responses, *, head, now, seen_observations=(), max_age=30
                 evaluator_observation=None, acceptance_receipts=[])
 
 
-def collect(*, head, seen_observations=()):
-    """Two allowlisted GETs with existing gh access. No retry or credential changes.
-
-    This process trusts the installed CLI, local runtime, HTTPS transport and
-    clock. Its retrieval label is not a signature or independently portable proof.
-    """
+def _read_responses(head):
+    """Internal raw-response port for local callers; never persist these bodies."""
     paths = endpoints(head)
     executable = shutil.which('gh')
     if not executable:
-        return unavailable(head, 'GitHub CLI unavailable')
+        return None, unavailable(head, 'GitHub CLI unavailable')
     responses = {}
     for name, path in paths.items():
         try:
@@ -130,15 +126,27 @@ def collect(*, head, seen_observations=()):
                                      '-H', 'Accept: application/vnd.github+json', '-H', 'X-GitHub-Api-Version: 2022-11-28', path],
                                     capture_output=True, timeout=30, check=False)
         except (OSError, subprocess.TimeoutExpired):
-            return unavailable(head, 'read unavailable or timed out')
+            return None, unavailable(head, 'read unavailable or timed out')
         if result.returncode != 0:
-            return unavailable(head, 'GitHub metadata GET failed')
+            return None, unavailable(head, 'GitHub metadata GET failed')
         try:
             raw = result.stdout.decode('utf-8')
         except UnicodeDecodeError:
-            return unavailable(head, 'invalid response encoding')
+            return None, unavailable(head, 'invalid response encoding')
         responses[name] = dict(source_url=API+path, observed_at=time.time(), raw_json=raw,
                                raw_sha256=hashlib.sha256(result.stdout).hexdigest())
+    return responses, None
+
+
+def collect(*, head, seen_observations=()):
+    """Two allowlisted GETs with existing gh access. No retry or credential changes.
+
+    This process trusts the installed CLI, local runtime, HTTPS transport and
+    clock. Its retrieval label is not a signature or independently portable proof.
+    """
+    responses, failure = _read_responses(head)
+    if failure is not None:
+        return failure
     packet = normalize_supplied(responses,head=head,now=time.time(),seen_observations=seen_observations)
     packet['retrieval'] = dict(method='local_gh_api_https_get', requested_origin=API,
                                verified_local_retrieval=True, verification='allowlisted GET + returned resource identity + SHA256 of raw UTF-8 JSON')
