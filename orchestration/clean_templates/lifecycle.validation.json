@@ -1,46 +1,48 @@
 {
   "schema": "basket.local_template_validation@0.1-draft",
   "task_id": "B00-243",
-  "evaluated_input_revision": "ad54ca0cee22351fbc1c073c06ef3eb2ac03b4c4",
+  "evaluated_input_revision": "8b9c88b3e51be354790c0c3ae4e85d19b949f614",
   "environment": "MELISSA Windows existing Python; no dependency or privilege changes",
   "checks": [
     {
-      "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_lifecycle.py -v",
+      "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p 'test_lifecycle*.py' -v",
       "result": "pass",
-      "tests": 24,
+      "tests": 35,
       "skipped": 0
     },
     {
       "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
       "result": "pass",
-      "tests": 68,
-      "lifecycle_tests": 24,
+      "tests": 79,
+      "lifecycle_tests": 35,
       "skipped": 0
     }
   ],
   "source_sha256": {
-    "lifecycle.py": "b0f73a4d3ca41e49f7edd609f9860e0392b28c523b03c66f6a3dd9bafc885496",
-    "lifecycle.schema.json": "ea0c7f7881cc545caa8365a39bee2a7d96bc4e7f84dc44e14c55a8caf29f5606",
+    "lifecycle.py": "026c30a2e95a7dedfc7c65663375b581f729a07b813343a8d213a7bc292a5bd9",
+    "lifecycle.schema.json": "e6286914e20f71e3e82ff7ff881f2c57d1fc6df6de761ade874b340a7d27a93a",
     "lifecycle.examples.json": "05cc022718fe0debcd89f7326c9d7810f17cab7f77a47aff40a6b145480d7e89",
     "lifecycle.method.json": "48ea833eb00b10f056c723820909b0daf13496f00d05ed3a217a6fb3f1675904",
     "lifecycle.stale-demand.example.json": "a511d72a29f7c713f123f11df6887628f59eced722bb8af754309f07d9e9281d",
-    "LIFECYCLE.md": "68fe0f6e7583f9956c49e3795a04bc5950712964cbccce73f2800155cc04e406",
-    "tests/test_lifecycle.py": "e8da92e95be3bce0813b6f050fd5e243587c7acfae9b0e5ec58f0e9d84f57ac5"
+    "LIFECYCLE.md": "7e9e0a1ff493cebda5eafacd04aeb4db3dd8170bfb3afb6015f8790eae141903",
+    "tests/test_lifecycle.py": "f09f0112295b4ffd77daf84ca467a89186a8f8168b922116fae1369bc88ba6fc",
+    "tests/test_lifecycle_review.py": "4acacf10fa09fcb22cd3ce16bf216d63c45c6104fa7f73893caf5696cc12995a"
   },
   "evidence_sha256": {
-    "lifecycle-refinement-focused-final.log": "c306e4f8d5ce61ce821e673de01b1263f9ccaa3bc07f031f1801741921a286eb",
-    "lifecycle-refinement-discovery.log": "a762e2f01c9b0a7e5f2004aa45294dd68772b00e521effe0f0627aec0cae6e8a"
+    "lifecycle-review-red.log": "65cedb03d8d4141855ce3fc6cd1ac81c25744cb3383693126f293ba376bb5dd9",
+    "lifecycle-review-green.log": "db5911058286126cd35d32e92d0b6ce29e9bbd4fb3a78967fa5fc58b248c2473",
+    "lifecycle-review-discovery.log": "4bbd0df8fdc99a8f9b0a712199cfe7117f12faf5473088bc8361e5c37599e06c"
   },
   "disposition": "local_template_tested_not_integrated",
   "publication": "local_only_no_attempt",
-  "independent_acceptance": "not_run_for_this_increment",
+  "independent_acceptance": "changes_required_on_input_revision_repair_awaiting_recheck",
   "retained_boundaries": [
     "bca24f8 push remains denied; no retry",
     "Prior PR acceptance-status edit remains unresolved; no retry",
     "WinError 1314 remains historical full-Windows limitation; no broad suite rerun",
     "No actual admission, scheduler, data fetch, effect, authentication or global policy enforcement"
   ],
-  "next_action": "Existing admission/launcher owner independently qualifies real stale-demand rejection and current-readback reuse; bootstrap/policy owners consider the reviewed rule.",
+  "next_action": "Existing independent acceptance session rechecks the exact new local revision for F1-F4; governing adoption remains 0/8.",
   "history": [
     {
       "evaluated_input_revision": "bca24f865f3b988efb0372fc064d94989a884b9b",
@@ -77,6 +79,37 @@
       "evidence_sha256": {
         "lifecycle-discovery.log": "d5f1e7184b855a9a536b24697434ca61fc1ee64807b7ee3def278274a49d361c"
       }
+    },
+    {
+      "evaluated_input_revision": "ad54ca0cee22351fbc1c073c06ef3eb2ac03b4c4",
+      "checks": [
+        {
+          "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_lifecycle.py -v",
+          "result": "pass",
+          "tests": 24,
+          "skipped": 0
+        },
+        {
+          "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
+          "result": "pass",
+          "tests": 68,
+          "lifecycle_tests": 24,
+          "skipped": 0
+        }
+      ],
+      "source_sha256": {
+        "lifecycle.py": "b0f73a4d3ca41e49f7edd609f9860e0392b28c523b03c66f6a3dd9bafc885496",
+        "lifecycle.schema.json": "ea0c7f7881cc545caa8365a39bee2a7d96bc4e7f84dc44e14c55a8caf29f5606",
+        "lifecycle.examples.json": "05cc022718fe0debcd89f7326c9d7810f17cab7f77a47aff40a6b145480d7e89",
+        "lifecycle.method.json": "48ea833eb00b10f056c723820909b0daf13496f00d05ed3a217a6fb3f1675904",
+        "lifecycle.stale-demand.example.json": "a511d72a29f7c713f123f11df6887628f59eced722bb8af754309f07d9e9281d",
+        "LIFECYCLE.md": "68fe0f6e7583f9956c49e3795a04bc5950712964cbccce73f2800155cc04e406",
+        "tests/test_lifecycle.py": "e8da92e95be3bce0813b6f050fd5e243587c7acfae9b0e5ec58f0e9d84f57ac5"
+      },
+      "evidence_sha256": {
+        "lifecycle-refinement-focused-final.log": "c306e4f8d5ce61ce821e673de01b1263f9ccaa3bc07f031f1801741921a286eb",
+        "lifecycle-refinement-discovery.log": "a762e2f01c9b0a7e5f2004aa45294dd68772b00e521effe0f0627aec0cae6e8a"
+      }
     }
   ],
   "risk_classification": "FETCH b733012 source-inspected risk under owner testing; only synthetic template checks executed here, not a FETCH failure or repair.",
@@ -97,5 +130,26 @@
       "proposed_rows": 8,
       "limit": "No governing-owner integration or operational enforcement claimed"
     }
+  },
+  "independent_review": {
+    "reviewed_revision": "8b9c88b3e51be354790c0c3ae4e85d19b949f614",
+    "decision": "changes_required",
+    "findings": [
+      "F1",
+      "F2",
+      "F3",
+      "F4"
+    ],
+    "source_sha256": {
+      "ACCEPTANCE.md": "81e984d25b9a8d1d819b91bae7294bf406ee1ab52c0243c8723a7495447b68ec",
+      "summary.json": "8ce6a70af8321cfb09b024acf4ebe292902eef6de6783cd19ec950cabf82089c"
+    },
+    "before_repair": {
+      "tests": 5,
+      "failures": 3,
+      "errors": 4,
+      "note": "errors include malformed-task subtests"
+    },
+    "repair": "local_only_awaiting_independent_recheck"
   }
 }

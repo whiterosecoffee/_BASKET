@@ -109,7 +109,7 @@ changes repository visibility nor authorizes publication.
 Artifact coverage: **8/10** under this explicit local rubric: 3 points for the
 structured contrasting examples/contracts, 3 for required negative behavior,
 2 for deterministic no-effect replay, and 0/2 for independent acceptance of this
-increment (pending). Evidence: 24 lifecycle tests and 68 shared-discovery tests
+increment (changes required at 8b9c88b; repair awaiting recheck). Historical evidence: 24 lifecycle tests and 68 shared-discovery tests
 pass with no skips. This is a bounded checklist score, not code-coverage percent
 or proof that all possible failures are tested.
 
@@ -121,3 +121,30 @@ have the existing admission/launcher owner qualify one real blocked stale-demand
 case and one fresh reuse case against authentic readback, then have the existing
 bootstrap/policy owners adopt the reviewed rule. Those are owner actions, not
 authorization supplied by this template.
+
+
+## Independent review repair (F1-F4)
+
+Review of local `8b9c88b` required changes; its passing producer suite did not
+establish acceptance. Before repair, five regression tests reproduced three
+assertion failures and four errors (including malformed-task subtests).
+
+Malformed nested worker tasks now return structured rejection before semantic
+access. Timestamp parsing normalizes lowercase t/z consistently with the shared
+format checker, including the explicit evaluation clock.
+
+Acceptance means acceptance of a successful completed result. Failed or parked
+outcomes retain their producer failure receipts, but cannot carry accepted
+labels. Pending/rejected statuses cannot retain acceptance receipts. Each accepted
+receipt is an envelope with `role` (`independent` or `consumer`), `artifact`,
+`request_sha256`, `attempt_id`, `persisted_generation_id`, and `producer_artifact`.
+Bindings must match the current request and producer result. Acceptance artifacts
+must differ from producer evidence and each other by both reference and digest.
+This is local declaration consistency, not authenticated reviewer independence,
+artifact retrieval, or execution authority; `execution_authorized` remains false.
+
+The repair adds bound-positive, rebinding, role, attempt, generation, artifact
+alias, failure-state and deterministic nonmutation checks. See
+`lifecycle.validation.json` for executed counts and source/log hashes. Independent
+recheck of the repaired revision remains required. Adoption stays 0/8; no owner
+integration, FETCH execution, hosted run, publication, merge or deployment occurs.

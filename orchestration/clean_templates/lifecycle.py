@@ -31,11 +31,13 @@ def validate(snapshot, *, now):
     if errors:
         return {"valid": False, "errors": errors, "execution_authorized": False}
     errors.extend(worker_protocol.validate_schema(snapshot["task"], "task"))
+    if errors:
+        return {"valid": False, "errors": sorted(errors), "execution_authorized": False}
     request, session = snapshot["request"], snapshot["session"]
     outcome, data = snapshot["outcome"], snapshot["input"]
-    instant = datetime.fromisoformat(now.replace("Z", "+00:00"))
     def time(value):
-        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+        return datetime.fromisoformat(value.upper().replace("Z", "+00:00"))
+    instant = time(now)
     if time(request["deadline"]) <= instant:
         errors.append("DEADLINE_EXPIRED")
     if time(data["qualified_until"]) <= instant:
@@ -84,6 +86,26 @@ def validate(snapshot, *, now):
         errors.append("INDEPENDENT_ACCEPTANCE_NEEDS_RECEIPT")
     if outcome["consumer_acceptance"] == "accepted" and outcome["acceptance_receipt"] is None:
         errors.append("ACCEPTANCE_REQUIRES_SEPARATE_RECEIPT")
+    evidence = [outcome["receipt"]["artifact"]]
+    for status, slot in (("independent_acceptance", "independent_receipt"),
+                         ("consumer_acceptance", "acceptance_receipt")):
+        receipt = outcome[slot]
+        if outcome[status] == "accepted" and outcome["state"] != "completed":
+            errors.append("ACCEPTANCE_REQUIRES_SUCCESSFUL_RESULT")
+        if receipt is None:
+            continue
+        if outcome[status] != "accepted":
+            errors.append("ACCEPTANCE_RECEIPT_REQUIRES_ACCEPTED_STATUS")
+        if (receipt["request_sha256"] != fingerprint or
+                receipt["attempt_id"] != demand["attempt_id"] or
+                receipt["persisted_generation_id"] != demand["persisted_generation_id"] or
+                receipt["producer_artifact"] != outcome["receipt"]["artifact"]):
+            errors.append("ACCEPTANCE_BINDING_MISMATCH")
+        artifact = receipt["artifact"]
+        if any(artifact["ref"] == prior["ref"] or artifact["sha256"] == prior["sha256"]
+               for prior in evidence):
+            errors.append("ACCEPTANCE_EVIDENCE_MUST_BE_DISTINCT")
+        evidence.append(artifact)
     if snapshot["privacy"]["input_class"] == "private" and snapshot["privacy"]["publish_input"]:
         errors.append("PRIVATE_INPUT_MUST_NOT_BE_PUBLISHED")
     if (snapshot["privacy"]["requires_private_destination"] or

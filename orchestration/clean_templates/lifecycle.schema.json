@@ -381,10 +381,42 @@
         "acceptance_receipt": {
           "anyOf": [
             {
-              "$ref": "#/$defs/artifact_ref"
+              "type": "null"
             },
             {
-              "type": "null"
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "role",
+                "artifact",
+                "request_sha256",
+                "attempt_id",
+                "persisted_generation_id",
+                "producer_artifact"
+              ],
+              "properties": {
+                "role": {
+                  "const": "consumer"
+                },
+                "artifact": {
+                  "$ref": "#/$defs/artifact_ref"
+                },
+                "request_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "attempt_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "persisted_generation_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "producer_artifact": {
+                  "$ref": "#/$defs/artifact_ref"
+                }
+              }
             }
           ]
         },
@@ -401,10 +433,42 @@
         "independent_receipt": {
           "anyOf": [
             {
-              "$ref": "#/$defs/artifact_ref"
+              "type": "null"
             },
             {
-              "type": "null"
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "role",
+                "artifact",
+                "request_sha256",
+                "attempt_id",
+                "persisted_generation_id",
+                "producer_artifact"
+              ],
+              "properties": {
+                "role": {
+                  "const": "independent"
+                },
+                "artifact": {
+                  "$ref": "#/$defs/artifact_ref"
+                },
+                "request_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "attempt_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "persisted_generation_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "producer_artifact": {
+                  "$ref": "#/$defs/artifact_ref"
+                }
+              }
             }
           ]
         },

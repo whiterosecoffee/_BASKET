@@ -176,12 +176,19 @@ class LifecycleTemplateTests(unittest.TestCase):
         self.reject()
         outcome["independent_acceptance"] = "accepted"
         self.assertIn("INDEPENDENT_ACCEPTANCE_NEEDS_RECEIPT", self.check()["errors"])
-        outcome["independent_receipt"] = copy.deepcopy(outcome["receipt"]["artifact"])
+        outcome["independent_receipt"] = self.acceptance("independent", "2")
         self.reject()  # Independent acceptance is not consumer acceptance.
         outcome["consumer_acceptance"] = "accepted"
-        outcome["acceptance_receipt"] = copy.deepcopy(outcome["receipt"]["artifact"])
+        outcome["acceptance_receipt"] = self.acceptance("consumer", "3")
         self.assertTrue(self.check()["valid"])
         self.assertFalse(self.check()["execution_authorized"])
+
+    def acceptance(self, role, digest):
+        return {"role": role, "artifact": {"ref": "fixture://" + role, "sha256": digest * 64},
+                "request_sha256": cc.digest(cc.canonical(self.value["request"])),
+                "attempt_id": self.value["request"]["demand"]["attempt_id"],
+                "persisted_generation_id": self.value["request"]["demand"]["persisted_generation_id"],
+                "producer_artifact": copy.deepcopy(self.value["outcome"]["receipt"]["artifact"])}
 
     def test_public_branch_cannot_satisfy_private_destination(self):
         privacy = self.value["privacy"]
