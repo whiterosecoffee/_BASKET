@@ -63,7 +63,12 @@ def evaluate(packet, *, expected_request, now):
     result = {'valid': False, 'errors': [], 'execution_authorized': False,
               'acceptance_current': False, 'cache_refresh_due': False,
               'owner_refresh_request': None}
-    if not isinstance(now, str) or not cc.valid_datetime(now):
+    try:
+        valid_now = isinstance(now, str) and cc.valid_datetime(now)
+        instant = stamp(now) if valid_now else None
+    except (ValueError, OverflowError):
+        valid_now = False
+    if not valid_now:
         result['errors'] = ['INVALID_NOW']
         return result
     packet_schema, request_schema = profile()
@@ -77,7 +82,6 @@ def evaluate(packet, *, expected_request, now):
         return result
     request, generation = packet['request'], packet['generation']
     content, observation = generation['content'], packet['observation']
-    instant = stamp(now)
     if request != expected_request:
         errors.append('REQUEST_OR_AS_OF_CHANGED')
     if digest(content) != generation['artifact']['sha256'] or request['input_revision'] != digest(content):

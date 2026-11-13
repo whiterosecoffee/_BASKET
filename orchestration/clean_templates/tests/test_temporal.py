@@ -213,3 +213,19 @@ class TemporalTemplateTests(unittest.TestCase):
         self.value['generation']['content']['coverage'][0]['start'] = '2029-12-31T23:59:30Z'
         self.rebind()
         self.reject('LATEST_WATERMARK_NOT_COVERED')
+
+    def test_impossible_clock_dates_return_structured_invalid_now(self):
+        for clock in ('2030-02-30T00:00:00Z', '2030-12-31T23:59:60Z',
+                      '0000-01-01T00:00:00Z', '10000-01-01T00:00:00Z'):
+            with self.subTest(clock=clock):
+                self.now = clock
+                result = self.reject('INVALID_NOW')
+                self.assertIsNone(result['owner_refresh_request'])
+
+    def test_valid_leap_day_and_offset_clock_controls(self):
+        for clock in ('2032-02-29T00:00:00Z', '2030-01-01T05:30:00+05:30'):
+            with self.subTest(clock=clock):
+                self.now = clock
+                result = self.check()
+                self.assertTrue(result['valid'], result['errors'])
+                self.assertTrue(result['acceptance_current'])

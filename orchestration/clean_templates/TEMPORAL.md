@@ -88,3 +88,17 @@ The appended `temporal_options` in `semantic.adoption.json` routes #230 map,
 #134 Copier, #201 instructions, #103 shared contracts, #105 semantic acceptance,
 and existing runtime/_FETCH owner gates through the parent. No duplicate dispatch,
 other-owner edit, publication retry, hosted claim, merge or deployment occurs.
+
+## T1 evaluation-clock repair
+
+Independent review of `ca549fac6434fffea95fde7037d74ecfecca3e37` found an
+impossible calendar date escaping the shared date-time helper as ValueError.
+Before repair, the clock-filtered regression run executed five tests and
+reproduced three subtest errors (impossible day, leap second and year zero).
+The five-digit year already rejected. Valid leap-day and offset controls passed.
+
+The temporal boundary now catches calendar parsing ValueError/OverflowError and
+returns structured `INVALID_NOW`, no acceptance and no refresh proposal, with
+`execution_authorized=false`. The shared helper, prior lifecycle/semantic code,
+and temporal policies are unchanged. The repaired revision requires the same
+independent recheck; prior review evidence and governing adoption 0/8 remain.

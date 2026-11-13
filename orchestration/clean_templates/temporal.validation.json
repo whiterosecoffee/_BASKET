@@ -1,39 +1,40 @@
 {
   "schema": "basket.local_template_validation@0.1-draft",
   "task_id": "B00-243",
-  "evaluated_input_revision": "47bd018671f8f56165d0815570595707b85b03d0",
+  "evaluated_input_revision": "ca549fac6434fffea95fde7037d74ecfecca3e37",
   "environment": "MELISSA Windows existing Python",
   "checks": [
     {
       "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_temporal.py -v",
       "result": "pass",
-      "tests": 26,
+      "tests": 28,
       "skipped": 0
     },
     {
       "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
       "result": "pass",
-      "tests": 125,
+      "tests": 127,
       "skipped": 0
     }
   ],
   "source_sha256": {
-    "temporal.py": "33da207cd4f7decf5630baac43af313b086020edc18fd32acd434679b39b9a68",
+    "temporal.py": "a281145e5d632f6f5e49ef23d611bd79bb3584c92327b339484c251e3fb230ef",
     "temporal.examples.json": "aa5edf5adc8c8a79746c2557daab16863d3a6c602af62d05cfd16796c31d0902",
-    "TEMPORAL.md": "5263ae949943f6a993d65e889ed30b79cfe5eb9ea3e46986af992ab6ef5d2bbb",
-    "tests/test_temporal.py": "f8061f7444348fe3bdb85ba6a5d7caffecd0571f6270b10d5c3ee744535c82ff",
+    "TEMPORAL.md": "da700f04e4d533867cce68427cb450bc3b8b21e748dbfdd33bb8c1d934c4b552",
+    "tests/test_temporal.py": "325befb087b1b657f3de9d064175cc9328c31430ed9df8080833d755c1b44f76",
     "semantic.adoption.json": "de15d7af4efb3405734857d3c68ab389afc16ddfd641a676a5dbf5ca2d481f58"
   },
   "evidence_sha256": {
-    "temporal-focused.log": "2c78558ea14c722b9122cd3580874ea0e7c22c07a5dc7980414e4625731159eb",
-    "temporal-discovery.log": "d9c41bb511c4787534ed1593f4d4afde5fbad56b8c5aa62ef785fb71124e2f38"
+    "temporal-clock-red.log": "28c6d6fadef4072f09892078fc92cf56e21900e3fecbdd3059c385af35f1528d",
+    "temporal-clock-green.log": "bc6317583af2900048d720a88b53e1620d4d57d785008dc46b5d00e98fe67457",
+    "temporal-clock-discovery.log": "0eca65a0dc4fb2ec499ff11e669511bbdfdf5f6305e44c37efae8b30b065f29b"
   },
   "predecessor_acceptance": {
     "revision": "47bd018671f8f56165d0815570595707b85b03d0",
     "decision": "accepted bounded local semantic consistency, not integration",
     "decision_sha256": "8b3f92f8f29ebbe4af20926c110987ff064804630ce766e5d77f8e767940c63e"
   },
-  "independent_acceptance": "pending_for_temporal_increment",
+  "independent_acceptance": "T1 changes required on input revision; repaired revision awaits independent recheck",
   "execution_authorized": false,
   "publication": "local_only_no_attempt",
   "governing_adoption": {
@@ -47,5 +48,47 @@
     "No _FETCH implementation, scheduler, archive import, actual refresh or governing-owner edit.",
     "No hosted/full Windows claim; historical WinError 1314 and denied publication boundaries retained."
   ],
-  "next_action": "Existing independent reviewer checks this exact new local temporal revision; parent coordinates governing owners."
+  "next_action": "Existing independent reviewer rechecks T1 at the exact new local revision; adoption remains 0/8.",
+  "history": [
+    {
+      "evaluated_input_revision": "47bd018671f8f56165d0815570595707b85b03d0",
+      "checks": [
+        {
+          "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_temporal.py -v",
+          "result": "pass",
+          "tests": 28,
+          "skipped": 0
+        },
+        {
+          "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
+          "result": "pass",
+          "tests": 127,
+          "skipped": 0
+        }
+      ],
+      "source_sha256": {
+        "temporal.py": "33da207cd4f7decf5630baac43af313b086020edc18fd32acd434679b39b9a68",
+        "temporal.examples.json": "aa5edf5adc8c8a79746c2557daab16863d3a6c602af62d05cfd16796c31d0902",
+        "TEMPORAL.md": "5263ae949943f6a993d65e889ed30b79cfe5eb9ea3e46986af992ab6ef5d2bbb",
+        "tests/test_temporal.py": "f8061f7444348fe3bdb85ba6a5d7caffecd0571f6270b10d5c3ee744535c82ff",
+        "semantic.adoption.json": "de15d7af4efb3405734857d3c68ab389afc16ddfd641a676a5dbf5ca2d481f58"
+      },
+      "evidence_sha256": {
+        "temporal-focused.log": "2c78558ea14c722b9122cd3580874ea0e7c22c07a5dc7980414e4625731159eb",
+        "temporal-discovery.log": "d9c41bb511c4787534ed1593f4d4afde5fbad56b8c5aa62ef785fb71124e2f38"
+      },
+      "independent_acceptance": "pending_for_temporal_increment"
+    }
+  ],
+  "clock_repair": {
+    "finding": "T1 malformed evaluation calendar date",
+    "review_decision_sha256": "5a2d79a5acd8d25678fba5123e4a1647323d12dce5562a427cca8d81459dbc53",
+    "red": {
+      "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_temporal.py -k clock -v",
+      "tests": 5,
+      "errors": 3,
+      "failures": 0
+    },
+    "scope": "Catch date parsing failures only at temporal evaluation boundary; shared helper unchanged."
+  }
 }
