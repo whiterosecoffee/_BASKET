@@ -183,6 +183,8 @@ def persist(path, expected_digest, update, receipts, observation, *, now):
         require(all(old_nodes[k][field] == new_nodes[k][field] for k in old_nodes for field in ('parent', 'owner', 'scope')), 'objective identity cannot change')
         for key, row in old_nodes.items():
             old_gates = {g['id']: g for g in row['acceptance']}
+            new_gate_ids = {g['id'] for g in new_nodes[key]['acceptance']}
+            require(set(old_gates).issubset(new_gate_ids), 'acceptance criterion IDs cannot disappear')
             for gate in new_nodes[key]['acceptance']:
                 require(gate['id'] not in old_gates or criterion_digest(gate) == criterion_digest(old_gates[gate['id']]), 'changed condition requires a new criterion ID')
         require({digest(x) for x in current['source_coverage']['persisted_ranges']}.issubset({digest(x) for x in updated['source_coverage']['persisted_ranges']}), 'persisted coverage cannot regress')

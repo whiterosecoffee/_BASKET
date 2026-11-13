@@ -99,3 +99,67 @@ class ReviewRegressionTests(unittest.TestCase):
     def test_old_schema_is_rejected(self):
         self.s['schema'] = 'basket.handoff_objectives@0.1-draft'
         with self.assertRaisesRegex(ValueError, 'unknown schema'): validate(self.s, {})
+
+    def two_gate_fixture(self):
+        row = self.s['objectives'][0]
+        self.s['objectives'] = [row]
+        row.update(evidence=['a1'], artifact_revisions=['v1'])
+        row['acceptance'][0]['evidence'] = ['a1']
+        row['acceptance'].append(dict(id='A2', condition='Independent second gate', evidence=[]))
+        gate = row['acceptance'][0]
+        return {'a1':dict(kind='acceptance', source='independent-review', revision='v1',
+                          objective=row['id'], criterion=gate['id'],
+                          criterion_digest=digest({'id':gate['id'], 'condition':gate['condition']}))}
+
+    def test_unmet_gate_deletion_cannot_enable_acceptance(self):
+        receipts = self.two_gate_fixture()
+        validate(self.s, receipts)
+        for status in ('accepted', 'pending'):
+            with self.subTest(status=status), tempfile.TemporaryDirectory() as directory:
+                path = Path(directory)/'status.json'
+                path.write_text(json.dumps(self.s))
+                original = path.read_bytes()
+                def remove_gate(s):
+                    s['revision'] += 1
+                    s['objectives'][0]['acceptance'].pop()
+                    s['objectives'][0]['status'] = status
+                    return s
+                with self.assertRaisesRegex(ValueError, 'acceptance criterion IDs cannot disappear'):
+                    persist(path, digest(self.s), remove_gate, receipts, self.o, now=100)
+                self.assertEqual(path.read_bytes(), original)
+                self.assertFalse(path.with_suffix('.json.lock').exists())
+
+    def test_retained_gate_text_binding_preserves_bytes(self):
+        receipts = self.two_gate_fixture()
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)/'status.json'
+            path.write_text(json.dumps(self.s))
+            original = path.read_bytes()
+            def change_gate(s):
+                s['revision'] += 1
+                s['objectives'][0]['acceptance'][0]['condition'] = 'Weaker condition'
+                return s
+            with self.assertRaisesRegex(ValueError, 'changed condition requires a new criterion ID'):
+                persist(path, digest(self.s), change_gate, receipts, self.o, now=100)
+            self.assertEqual(path.read_bytes(), original)
+
+    def test_all_retained_gates_can_be_satisfied(self):
+        receipts = self.two_gate_fixture()
+        gate = self.s['objectives'][0]['acceptance'][1]
+        receipts['a2'] = dict(kind='acceptance', source='independent-review', revision='v1',
+                              objective='handoff', criterion='A2',
+                              criterion_digest=digest({'id':gate['id'], 'condition':gate['condition']}))
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)/'status.json'
+            path.write_text(json.dumps(self.s))
+            def satisfy(s):
+                s['revision'] += 1
+                row = s['objectives'][0]
+                row['evidence'].append('a2')
+                row['acceptance'][1]['evidence'] = ['a2']
+                row['status'] = 'accepted'
+                return s
+            saved = persist(path, digest(self.s), satisfy, receipts, self.o, now=100)
+            self.assertEqual(saved['objectives'][0]['status'], 'accepted')
+            self.assertEqual([g['id'] for g in saved['objectives'][0]['acceptance']], ['A1', 'A2'])
+            self.assertEqual(json.loads(path.read_text()), saved)

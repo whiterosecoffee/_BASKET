@@ -109,3 +109,20 @@ the same lock/CAS/atomic-readback discipline after owner review. Free-text notes
 outside dimensions; unsupported successes become `not_established`, never inferred
 receipts. Existing acceptance receipts need independent criterion-hash verification.
 No real routing or operational status is authorized by these synthetic tests.
+
+## Acceptance-gate retention repair
+
+Independent review of `4d19e598816080f9df7506f16f8f31aad1adcdbb`
+found that a callback could delete unmet A2 and accept an objective using only
+satisfied A1. The new regression reproduced both direct acceptance and deletion
+while pending (which could otherwise enable acceptance in a later write).
+Persistence now requires every existing acceptance criterion ID to remain present,
+in addition to preserving its condition digest. Adding a new criterion never
+authorizes removing an old one. This draft has no authorized-supersession protocol:
+all gate deletions fail closed until one is explicitly designed and reviewed.
+
+Regression coverage verifies rejection leaves persisted bytes unchanged, surviving
+criterion text remains bound, and satisfying both retained gates still succeeds.
+Wake consumption and typed dimension receipts remain unchanged. Draft format stays
+0.2; this tightens transition validation without migrating any private checkpoint.
+Independent requalification of the repaired head remains required before routing.
