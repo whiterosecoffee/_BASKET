@@ -163,3 +163,6 @@ All earlier acceptance/dependency retention, receipt and wake protections remain
 
 The next bounded increment is the [synthetic observation/receipt adapter](SYNTHETIC_ADAPTER.md).
 It reuses this evaluator and its hashes without claiming real source authenticity.
+
+[Bounded GitHub metadata retrieval](GITHUB_READONLY.md) is a separate read-only
+source port. It produces observations only, with no evaluator or acceptance authority.
