@@ -90,6 +90,47 @@ is synthetic; there is no production/provider or operational qualification.
   has a separate parsing/declaration error. Always inspect top-level `ok` and
   `findings`, not an individual edge status.
 - Shared CI does not discover this nested suite. Hosted shared green alone is
-  not evidence that these 37 tests ran. Independent review and explicit hosted
+  not evidence that the focused tests ran. Independent review and explicit hosted
   discovery belong to a later owner-approved gate; no shared CI/bridge edits are
   included in this scope. No merge, deployment, or operational acceptance.
+
+
+## Explicit integration projections (B00 #245 continuation)
+
+`project_references.py` translates two existing source shapes into this audit's
+profile. It is an opt-in producer-side adapter; #230/#243 adoption is not assumed.
+It does not fetch sources, validate their full models, or change their files.
+
+- `map_sources(document, selected)` requires explicit distinct source keys.
+  Each selected `sources[key]` must have matching `path`, lowercase SHA-256 and
+  a full commit ID. Paths/hashes become required local references. Place the
+  resulting entry JSON at the isolated bundle root. Unselected sources are not
+  audited. Commit IDs are retained as provenance, not independently verified.
+- `seed_references(document)` accepts `basket.clean_seed@1` reference-only
+  locators as informational `projection.reference_notes`. They never enter the
+  file-reference traversal, so external archive URLs cannot become prerequisites.
+  `requires` remains `required_capabilities`, with `capability_evaluation` set to
+  `not_performed`. An OK file audit is **not seed readiness**. Unknown/required
+  reference uses reject instead of being silently weakened.
+
+Both are also available as a CLI, writing JSON to stdout:
+
+```sh
+python -B orchestration/qualification/reference_portability/project_references.py --profile map --document /explicit/source/system.json --select schemas/component-blackbox.v1.json
+python -B orchestration/qualification/reference_portability/project_references.py --profile seed --document /explicit/source/seed.json
+```
+
+The caller explicitly supplies source documents and stages selected local bytes;
+this module never clones, copies, downloads or writes an input bundle. Feed the
+returned JSON to the existing audit as a bundle-root entry. Projection failures
+produce JSON error output and exit1; success exits0. Source locators are preserved
+as metadata and may be private; review before sharing reports.
+
+Current focused suite: **49 tests** (original37 plus12 projection tests), also
+passing with only this subtree copied outside the repository. Historical
+`evidence.json` remains unchanged. `projection-evidence.json` records actual
+producer composition against pinned _MAP and clean-seed source documents:
+one selected canonical schema resolves with its exact hash; both seed reference
+URLs remain notes and are never fetched. No real provider/market data is used.
+This closes the missing runnable format translation, not independent acceptance,
+owner adoption, full-model coverage or hosted focused-suite discovery.
