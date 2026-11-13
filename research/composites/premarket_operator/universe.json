@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "commands": ["Update", "Deltas"],
+  "session_timezone": "America/New_York",
+  "bar_minutes": 15,
+  "engine_policy": "engines/composites/market_context/policy.v1.json",
+  "roles": {
+    "benchmarks": ["QQQ", "SPY", "RSP", "IWM", "MAGS", "SMH", "SOXX"],
+    "mega_cap_leaders": ["NVDA", "AAPL", "MSFT", "AMZN", "GOOG", "META", "TSLA", "AVGO"],
+    "chips_equipment": ["NVDA", "AMD", "AVGO", "ARM", "TSM", "ASML", "AMAT", "LRCX", "KLAC"],
+    "memory": ["MU", "SNDK"],
+    "network_optics": ["ANET", "MRVL", "ALAB", "CRDO", "COHR", "LITE", "AAOI", "FN", "GLW"],
+    "server_cloud": ["DELL", "HPE", "SMCI", "CRWV", "IREN", "ORCL"],
+    "power": ["VRT", "ETN", "PWR", "CEG", "VST"],
+    "macro_proxies": ["HYG", "IEF", "TLT", "USO", "UUP", "GLD", "I:VIX"]
+  },
+  "core_bar_display": ["NVDA", "QQQ", "SPY", "SMH", "IWM", "MAGS", "AAPL", "MSFT", "AMZN", "GOOG", "META", "AVGO", "AMD", "MU", "TSM", "ANET", "MRVL", "COHR", "LITE", "CRWV", "VRT"],
+  "storage": {
+    "root": null,
+    "resolve_from": "active task configuration and inspected existing journals",
+    "ticker_overrides": {"NVDA": "NVDA.jsonl"},
+    "missing_root_action": "stage with provenance and report blocked"
+  }
+}
