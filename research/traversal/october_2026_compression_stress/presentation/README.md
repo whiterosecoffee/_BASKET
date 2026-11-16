@@ -27,7 +27,7 @@ The selected EMA seeds with the first span closes, then applies alpha=2/(span+1)
 
 Only observations through the selected backdrop end are used, including prior available warmup bars outside its left edge. Earlier/Later paging never consumes future bars. A single fine-scale turn does not establish a broad trend turn: switch granularity to inspect that relationship. Spans count supplied bars, not certified elapsed minutes or exchange sessions. Clipped offscreen EMA portions do not alter the actual-price domain. The swing helper supplies the separate Swing Structure view; it is not overlaid on the price path. Smoothing defaults are presentation choices, not optimized thresholds. Canonical event recognition and calibration remain separate gates.
 
-See [MATRIX_DESIGN.md](MATRIX_DESIGN.md) for the proposed zone, nested-context and turn-episode matrices, their information value, denominators and acceptance sequence. These numeric matrices are not implemented yet.
+See [MATRIX_DESIGN.md](MATRIX_DESIGN.md) for the proposed zone, nested-context and turn-episode matrices, their information value, denominators and acceptance sequence. Zone Participation is implemented as an offline research projection; Nested Context and Turn Episodes remain design proposals.
 
 ## Interpretation and review refinements
 
@@ -40,6 +40,16 @@ The detail label states its actual operation: EMA smoothing span; Range lookback
 Reversal vocabulary is separated: EMA slope switch, completed-block direction switch, and confirmed swing high/low structure. None alone establishes a durable reversal. Source completion-bar labels are not exact ingestion/availability timestamps. The EMA latest-turn readout flags turns before the visible backdrop rather than presenting them as visible events.
 
 Remaining review work: fixed reference zones and absolute density scales for cross-backdrop comparison; sampled gross-path travel alongside net movement; genuine zone dwell time; real elapsed-time velocity with gap/session qualification; turn evidence cards and independent browser acceptance. Current volume-at-price remains whole-bar VWAP allocation, not exact traded-at-price volume or participant intentions. No calibrated probability added.
+
+## Zone Participation matrix
+
+The selected backdrop now also supplies a fixed zero-origin USD grid (width $0.50/$1/$2/$5/$10). Bounds are [low, high); changing backdrop does not recenter them. The matrix shows occupied zones only, with total shares, percentage of ALL window shares, assigned samples/percentage of ALL observed samples, sampled episodes and 2/4/8 nonoverlapping observation-count blocks labeled by their actual ET spans. Cells select shares, percentage of block shares, or samples/percentage of block samples. Unallocated rows and totals retain invalid/missing VWAP; zero share denominators stay unknown. All arithmetic is independent of viewport. Unequal elapsed durations remain explicit; these are not equal-clock blocks.
+
+Select a zone row to highlight its price interval in any existing chart, including the upper Movement price panel. The reference is clipped to the visible price frame and never changes its domain. Selection persists through backdrop changes; zones with no qualified samples or outside the visible axis say so. Selecting the row again clears it; changing width or input resets it. Chart density bins are still independent of this fixed reference grid, not falsely relabeled as the same bins.
+
+Minute episodes reset on unexpected timestamp spacing and invalid VWAP. Daily continuity is unknown; daily episodes mean consecutive supplied samples, not certified exchange-session visits. Coverage is not certified; no exact dwell time, source availability, signed flow, investor intent or predictive probability is inferred. More than 200 occupied zones fails with a request for wider bands. Input continues to come only from the existing local file import; no market bars are committed.
+
+Additional validation: `node --check zones.js` and `node zones.test.cjs` (10 synthetic projection/DOM checks). Checks cover fractional-volume conservation including unallocated blocks, fixed boundaries, binary boundary precision, gaps/invalid episodes, zero denominators, uneven partitions, input/config rejection, determinism, row selection and clipped highlights. Combined with the existing 45 presentation checks: 55 checks. Playwright could not launch its default browser (executable absent); a second attempt with installed /usr/bin/chromium failed because process sockets were not permitted. Actual browser/control acceptance remains pending, not passed.
 
 ## Open and load
 
@@ -71,7 +81,9 @@ Run from this folder:
 ```sh
 node --check density.js
 node --check controller.js
+node --check zones.js
 node presentation.test.cjs
+node zones.test.cjs
 ```
 
 The suite uses synthetic values only. It tests input rejection, immutable inputs, paging, pivot confirmation timing, prefix replay, ambiguous candles, allocation conservation and construction of all eight SVG models at 320/736 px across five backdrop sizes. DOM construction is **not a browser layout test**. Browser launch in the author container failed because Chromium process sockets were not permitted; no screenshot or browser-interaction pass is claimed. Independent exact-head browser/domain CI remains pending with B01; generic repository CI is not evidence of this suite unless its logs execute it.

@@ -5,8 +5,9 @@
 <style>
 :root{color-scheme:light dark;--green:light-dark(#22764c,#7bce9d);--red:light-dark(#b53a3a,#ef9999);--background:light-dark(#fff,#15171a);--foreground:light-dark(#17202a,#eef2f6);--muted:light-dark(#eff2f5,#242b34);--border:light-dark(#d3dbe3,#414b58);--viz-series-1:light-dark(#1269b0,#7cbdf6);--viz-series-2:light-dark(#a45b13,#eab674);--viz-series-3:light-dark(#22764c,#7bce9d);--viz-series-4:light-dark(#8553a0,#c4a1e1);--muted-foreground:light-dark(#566472,#bac4ce)}
 *{box-sizing:border-box}body{margin:0;padding:20px;font:16px system-ui,sans-serif;background:var(--background);color:var(--foreground)}main{max-width:1000px;margin:auto}h1{font-size:1.3rem;font-weight:500}h2{font-size:1.05rem;font-weight:500}label{display:flex;flex-direction:column;gap:5px}button,select,input{font:inherit;color:inherit}button,select{padding:8px;background:var(--muted);border:1px solid var(--border);border-radius:5px}button:disabled{opacity:.45}.controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:18px 0}.check{flex-direction:row;align-items:center;padding:8px 0}input[type=file]{max-width:100%;width:100%}.secondary{color:var(--muted-foreground);font-size:.85rem;margin:10px 0;line-height:1.5}.chart{display:block;width:100%;height:340px}svg text{fill:var(--foreground);font-size:12px}.tabular{font-variant-numeric:tabular-nums}#error{color:var(--foreground);font-weight:500}a{color:var(--viz-series-1)}
+.matrix-scroll{overflow-x:auto;max-width:100%}.matrix-scroll table{border-collapse:collapse;width:100%;font-size:.85rem}.matrix-scroll th,.matrix-scroll td{padding:8px;text-align:right;border-bottom:1px solid var(--border);min-width:95px}.matrix-scroll th:first-child{text-align:left}.matrix-scroll caption{text-align:left;margin:8px 0}.matrix-scroll button{white-space:nowrap}.matrix-scroll button[aria-pressed="true"]{background:var(--foreground);color:var(--background)}
 @media(max-width:450px){body{padding:12px}.controls{gap:8px}.chart{height:320px}}
-</style><script src="density.js" defer></script><script src="controller.js" defer></script></head>
+</style><script src="density.js" defer></script><script src="zones.js" defer></script><script src="controller.js" defer></script></head>
 <body><main id="battle-presentation" class="tabular">
 <h1>Battle zones · density and nested relativity</h1>
 <p class="secondary">Offline presentation research · source data remains local · no live feed</p>
@@ -25,6 +26,19 @@
 <svg id="plot" class="chart" role="img" aria-label="No observations loaded"></svg>
 <div id="detail" class="secondary" aria-live="polite"></div>
 <div id="method" class="secondary"></div><div id="trend-state" class="secondary" aria-live="polite"></div>
+<section aria-labelledby="zone-title">
+<h2 id="zone-title">Zone Participation</h2>
+<div class="controls">
+<label>Fixed zone width · USD<select id="zone-width"><option value="0.5">$0.50</option><option value="1">$1</option><option value="2" selected>$2</option><option value="5">$5</option><option value="10">$10</option></select></label>
+<label>Time blocks<select id="zone-blocks"><option value="2">2</option><option value="4" selected>4</option><option value="8">8</option></select></label>
+<label>Block cells<select id="zone-mode"><option value="shares">Shares</option><option value="share">% of block shares</option><option value="samples">Samples · % of block</option></select></label>
+</div>
+<p class="secondary">Fixed zero-origin USD bands stay constant across backdrops at the selected width. Columns divide supplied observations into nonoverlapping groups; their actual ET spans are shown. Percentages include unallocated observations. Select a zone to highlight its price interval; chart density bins retain their own definitions.</p>
+<div id="zone-summary" class="secondary" aria-live="polite">Load qualified data to calculate participation.</div>
+<div id="zone-matrix" class="matrix-scroll" role="region" aria-label="Zone participation matrix" tabindex="0"></div>
+<div id="zone-selection" class="secondary" aria-live="polite"></div>
+<p class="secondary">Samples are bar-VWAP assignments, not minutes spent at a price. Episodes count consecutive same-zone samples and reset at invalid VWAP or known minute gaps. Daily gap continuity is unverified. Coverage, exact dwell and signed buying are not inferred.</p>
+</section>
 <p class="secondary">Density assigns whole-bar volume at qualified bar VWAP. It is not exact volume at price or signed buying. One selectable past-only smoothed trend is displayed. Adjust 3–90 bars to reveal fine or broad turns. Green rises; red falls. EMA diamonds mark slope switches; movement diamonds mark completed-block direction switches. Swing structure uses confirmed high/low circles. These are distinct observations, not interchangeable confirmations. The readout identifies the latest slope turn, including when it predates the visible window. Flat pauses alone do not count as a reversal. These are slope reversals, not guaranteed durable price reversals. Offscreen portions are clipped. Windows count supplied observations; calendars, missing-session coverage and canonical data qualification remain caller responsibilities.</p>
 <p class="secondary">Source boundaries: <a href="README.md">README and input contract</a>. Preserve unmodified authoritative source data outside this presentation directory.</p>
 </main></body></html>

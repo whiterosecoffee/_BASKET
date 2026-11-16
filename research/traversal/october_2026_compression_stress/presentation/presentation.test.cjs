@@ -88,5 +88,5 @@ test('EMA readout explicitly marks turns before visible backdrop',()=>{
  assert(!trendStateText(state,500).includes('[before visible window]'));
  assert(trendStateText(state,500).includes('EMA slope'));
 });
-test('no network or embedded source history',()=>{for(const file of ['density.js','controller.js','index.html']){const s=fs.readFileSync(__dirname+'/'+file,'utf8');assert(!/fetch\s*\(|XMLHttpRequest|WebSocket|https?:\/\//.test(s.replace(/http:\/\/www\.w3\.org\/2000\/svg/g,'')));}assert(!/<script[^>]+type=["']application\/json/.test(fs.readFileSync(__dirname+'/index.html','utf8')));});
+test('no network or embedded source history',()=>{for(const file of ['density.js','zones.js','controller.js','index.html']){const s=fs.readFileSync(__dirname+'/'+file,'utf8');assert(!/fetch\s*\(|XMLHttpRequest|WebSocket|https?:\/\//.test(s.replace(/http:\/\/www\.w3\.org\/2000\/svg/g,'')));}assert(!/<script[^>]+type=["']application\/json/.test(fs.readFileSync(__dirname+'/index.html','utf8')));});
 console.log(`${count} synthetic checks passed; 80 construction-matrix calls plus slice-comparison renders. No browser layout, real-market, canonical-integration or independent-CI acceptance implied.`);
