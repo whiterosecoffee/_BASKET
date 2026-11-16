@@ -12,11 +12,15 @@ Keep the familiar time × USD price path. Overlay participation while retaining 
 4. **Time–Price Heatmap:** time-slice × price-band cells; intensity encodes allocated shares relative to the largest selected-window cell. Cell colors across different backdrops are not an absolute common volume scale.
 5. **Nested Profiles:** full-window, last 60/15 supplied minute bars or last 21/5 supplied daily bars. Each profile is normalized to its own peak to compare distribution shape; widths do not compare absolute volume. Short histories may make profiles identical; labels deliberately say bars, not elapsed minutes/sessions.
 
-## Trend overlay
+## Nested trend overlay
 
-One shared toggle draws separate connected swing-high and swing-low lines, replacing letter labels and pivot dots. The underlying higher-high/lower-high/higher-low/lower-low classification is retained for candidate-break logic. A pivot requires a strict extreme with two neighboring observations on each side; confirmation occurs two bars later. Line vertices are drawn at the **confirmation timestamp**, with the latest pivot and confirmation times in the tooltip. The lines interpolate confirmed observations; they are not continuously observed support or resistance. A candle qualifying as both a high and low is ambiguous; no intrabar ordering is invented. Unconfirmed last bars are not labeled pivots.
+One shared toggle now draws fine (5-bar), middle (15-bar) and broad (45-bar) past-only EMA trend lines. Rising slope is green, falling slope red and flat neutral. Width distinguishes scale; broad is thick and dashed. Small perpendicular ticks mark a sign change at its first knowable bar. Arrows beside the chart retain simultaneous state: fine up with middle/broad down is a local countertrend rise, not a broad reversal.
 
-After confirmed LH+LL structure, a later close above the last confirmed swing high is an **upturn candidate**; HH+HL followed by a close below the last confirmed swing low is a **downturn candidate**. Dashed break lines show at most the last two candidates. These are exploratory descriptive rules, not accepted battle events, statistical reversal probabilities or forecasts. Detector calibration and canonical integration remain separate. Show the original price path regardless of VWAP allocation quality.
+Each EMA seeds with the first span closes, then applies alpha=2/(span+1). It is unavailable before that seed. Direction is the difference between consecutive EMA observations, with a 1e-10 flat tolerance. This is descriptive smoothed price direction, not signed flow, a calibrated momentum signal or a validated reversal detector. The original close path and density remain visible.
+
+The calculation uses only source observations through the selected backdrop end, including prior available warmup bars outside its left edge. Earlier/Later paging never consumes later bars. Spans count supplied bars, not elapsed time or certified sessions. No label-only peak/valley backdating or future swing confirmation is used in this displayed model. Old experimental pivot-classification helpers remain for research/test compatibility but are not the overlay.
+
+These fixed 5/15/45 defaults are illustrative presentation settings, not optimized thresholds. Child turns do not promote parent direction. EMA values can lie outside the visible price domain; those portions are clipped without changing the actual-price domain. Arrow state may therefore remain available when part of a line is offscreen. Canonical event recognition, calibration and independent source acceptance are separate gates.
 
 ## Open and load
 
