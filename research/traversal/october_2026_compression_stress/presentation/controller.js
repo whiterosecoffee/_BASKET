@@ -64,11 +64,12 @@ function drawSwingOverlay(svg,rows,state,scale){
  const top=+frame.getAttribute('y'),bottom=top+(+frame.getAttribute('height'));
  const append=(tag,attrs,text)=>{const e=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,String(v)));if(text)e.textContent=text;svg.appendChild(e);};
  const fmt=t=>new Date(t).toLocaleString('en-US',{timeZone:'America/New_York'});
- // Last six confirmed pivots avoid dense unreadable labels on long backdrops.
- for(const p of state.pivots.slice(-6)){const xx=xs[p.knownIndex],yy=Math.max(top+12,Math.min(bottom-12,Y(p.price))),labelY=Math.max(top+12,Math.min(bottom-4,yy+(p.kind==='high'?-9:17)));
-  append('circle',{cx:xx,cy:yy,r:4,fill:'var(--viz-series-4)','data-tooltip':`${p.label} $${p.price.toFixed(2)}; pivot ${fmt(p.pivotAt)}; confirmed ${fmt(p.knownAt)} ET`});append('text',{x:xx,y:labelY,'text-anchor':p.knownIndex>rows.length*.85?'end':'middle',fill:'var(--foreground)','font-size':12},p.label);
+ // Separate ceiling/floor lines replace letter labels and pivot dots.
+ for(const [kind,color,label] of [['high','var(--viz-series-4)','Confirmed swing highs'],['low','var(--viz-series-3)','Confirmed swing lows']]){
+  const points=state.pivots.filter(p=>p.kind===kind);if(points.length<2)continue;
+  append('polyline',{points:points.map(p=>`${xs[p.knownIndex]},${Math.max(top+2,Math.min(bottom-2,Y(p.price)))}`).join(' '),fill:'none',stroke:color,'stroke-width':1.8,'stroke-linejoin':'round','data-swing-line':kind,'data-tooltip':`${label}; connected at two-bar confirmation times. Latest pivot ${fmt(points.at(-1).pivotAt)}; confirmed ${fmt(points.at(-1).knownAt)} ET. Lines interpolate confirmed observations, not continuous support/resistance.`});
  }
- for(const b of state.breaks.slice(-2)){const xx=xs[b.knownIndex],yy=Y(b.price);append('circle',{cx:xx,cy:yy,r:7,fill:'none',stroke:'var(--viz-series-3)','stroke-width':2,'data-tooltip':`${b.label} at ${fmt(b.knownAt)} ET; close crossed $${b.reference.toFixed(2)}. Not a forecast.`});}
+ for(const b of state.breaks.slice(-2)){const xx=xs[b.knownIndex];append('line',{x1:xx,x2:xx,y1:Math.max(top+2,Math.min(bottom-2,Y(b.reference))),y2:Math.max(top+2,Math.min(bottom-2,Y(b.price))),stroke:'var(--foreground)','stroke-width':2,'stroke-dasharray':'3 3','data-tooltip':`${b.label} at ${fmt(b.knownAt)} ET; close crossed $${b.reference.toFixed(2)}. Not a forecast.`});}
 }
-if(typeof module!=='undefined')module.exports={qualifyDensityDataset,selectDensityWindow,densitySwingStructure};
+if(typeof module!=='undefined')module.exports={qualifyDensityDataset,selectDensityWindow,densitySwingStructure,drawSwingOverlay};
 if(typeof document!=='undefined')initializeDensityPresentation();
