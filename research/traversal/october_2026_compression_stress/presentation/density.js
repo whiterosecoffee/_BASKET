@@ -1,3 +1,8 @@
+// Analytical aggregation is explicit and independent of viewport geometry.
+function densitySliceCount(requested=8, rowCount){
+ if(!Number.isInteger(requested)||requested<3||requested>20)throw Error('Slice count must be an integer from 3 to 20.');
+ return Math.min(requested,rowCount);
+}
 /* Volume Rails: native-SVG presentation of bar-allocated volume by price.
  * Each source bar is {t,o,h,l,c,v,vw}; t is UTC milliseconds.
  * Call again after changing the selected time window. No network or storage.
@@ -114,7 +119,7 @@ function drawVolumeRails(svg, data, width, height, options = {}) {
 }
 
 /* Rolling Ribbons presentation. No retrieval or persistence side effects. */
-function drawRollingRibbons(svg, data, width, height) {
+function drawRollingRibbons(svg, data, width, height, options = {}) {
   const ns = 'http://www.w3.org/2000/svg';
   const doc = svg.ownerDocument;
   while (svg.firstChild) svg.removeChild(svg.firstChild);
@@ -146,7 +151,7 @@ function drawRollingRibbons(svg, data, width, height) {
   const X=t=>pad.left+(t-minT)/(maxT-minT)*plotW;
   const Y=p=>pad.top+(high-p)/(high-low)*plotH;
   const label = (x,y,text,anchor='start',other={}) => make('text',{x,y,'text-anchor':anchor,fill:'var(--foreground)','font-size':12,...other},text);
-  const count=Math.min(12,Math.max(3,Math.floor(plotW/46)),rows.length);
+  const count=densitySliceCount(options.sliceCount,rows.length);
   const slices=[];
   const quantile=(bucket,q)=>{
     const list=bucket.filter(r=>Number.isFinite(r.vw)&&r.vw>=r.l&&r.vw<=r.h&&r.v>0).sort((a,b)=>a.vw-b.vw);
@@ -283,14 +288,14 @@ function densityPlotBase(svg, data, width, height, name, options={}) {
  const span=Math.max(.01,high-low),raw=span/14,mag=10**Math.floor(Math.log10(raw)),step=([1,2,5,10].find(n=>n>=raw/mag)||10)*mag;
  return {e,x,y,rows,m,pw,ph,t0,t1,lo,hi,low,high,step,valid,path};
 }
-function drawDensityHeatmap(svg,data,width,height){
+function drawDensityHeatmap(svg,data,width,height,options={}){
  const b=densityPlotBase(svg,data,width,height,'Time–price heatmap: darker cells represent more allocated shares');if(!b)return{};
- const {e,x,y,rows,t0,t1,step,valid,path}=b,cols=Math.max(3,Math.min(20,Math.floor((width-82)/24))),cells=new Map();
+ const {e,x,y,rows,t0,t1,step,valid,path}=b,cols=densitySliceCount(options.sliceCount,rows.length),cells=new Map();
  let unallocated=0,allocated=0;
  for(const d of rows){if(!valid(d)){unallocated+=d.v;continue;}allocated+=d.v;const col=Math.min(cols-1,Math.floor((d.t-t0)/(t1-t0)*cols)),bin=Math.floor(d.vw/step),key=col+':'+bin;if(!cells.has(key))cells.set(key,{col,bin,v:0,n:0});const c=cells.get(key);c.v+=d.v;c.n++;}
  const max=Math.max(1,...[...cells.values()].map(c=>c.v));
  for(const c of cells.values()){const from=t0+c.col/cols*(t1-t0),to=t0+(c.col+1)/cols*(t1-t0),lower=Math.max(b.lo,c.bin*step),upper=Math.min(b.hi,(c.bin+1)*step);if(upper<=lower)continue;e('rect',{x:x(from),y:y(upper),width:Math.max(1,x(to)-x(from)-1),height:Math.max(1,y(lower)-y(upper)-1),fill:'var(--viz-series-2)','fill-opacity':.12+.65*Math.sqrt(c.v/max),'data-tooltip':`$${lower.toFixed(2)}–$${upper.toFixed(2)} · ${(c.v/1e6).toFixed(2)}M shares · ${c.n} bar samples`});}
- path();return{scale:{x,y},allocated,unallocated,cells:[...cells.values()],bandSize:step};
+ path();return{scale:{x,y},allocated,unallocated,cells:[...cells.values()],sliceCount:cols,bandSize:step};
 }
 function drawNestedProfiles(svg,data,width,height){
  const b=densityPlotBase(svg,data,width,height,'Nested profiles: full-window and recent volume distributions');if(!b)return{};
@@ -354,17 +359,17 @@ function densityMovementBlocks(rows,span=15){
 }
 function drawMovementPerShares(svg,data,width,height,options={}){
  const ns='http://www.w3.org/2000/svg';svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${width} ${height}`);svg.setAttribute('role','img');
- const e=(tag,a={},text)=>{const n=document.createElementNS(ns,tag);Object.entries(a).forEach(([k,v])=>n.setAttribute(k,String(v)));if(text!==undefined)n.textContent=text;svg.appendChild(n);return n;};e('title',{},'Reversals, acceleration and signed net movement per million shares');
+ const e=(tag,a={},text)=>{const n=document.createElementNS(ns,tag);Object.entries(a).forEach(([k,v])=>n.setAttribute(k,String(v)));if(text!==undefined)n.textContent=text;svg.appendChild(n);return n;};e('title',{},'Completed-block turns, speed changes and signed net movement per million shares');
  const span=options.span||15,history=(options.history||data).filter(r=>r.t<=data.at(-1).t),blocks=densityMovementBlocks(history,span).filter(b=>b.t>=data[0].t),left=64,right=18,plotW=width-left-right,t0=data[0].t,t1=Math.max(t0+60000,data.at(-1).t),X=t=>left+8+(t-t0)/(t1-t0)*(plotW-16);
  const low=Math.min(...data.map(d=>d.l)),high=Math.max(...data.map(d=>d.h)),pad=Math.max(.02,(high-low)*.08),top=26,topH=Math.round(height*.40),bottom=top+topH+46,bottomH=height-bottom-48,Y=p=>top+8+(high+pad-p)/(high-low+2*pad)*(topH-16);
  const values=blocks.map(b=>b.movePerMillion).filter(Number.isFinite),extent=Math.max(.01,...values.map(Math.abs))*1.1,Z=v=>bottom+bottomH/2-v/extent*(bottomH/2-8);
  for(const [y,h] of [[top,topH],[bottom,bottomH]])e('rect',{x:left,y,width:plotW,height:h,fill:'none',stroke:'var(--border)','data-movement-frame':''});
- e('text',{x:left,y:top-8},'Price · reversal ◆ / faster ○');e('text',{x:left,y:bottom-9},'Net movement per 1M shares');
+ e('text',{x:left,y:top-8},'Block turn ◆ / faster ○');e('text',{x:left,y:bottom-9},'Net movement per 1M shares');
  for(let i=0;i<3;i++){const p=low+(high-low)*i/2;e('text',{x:left-8,y:Y(p)+4,'text-anchor':'end'},'$'+p.toFixed(2));}
  for(const v of [-extent,0,extent]){const z=Z(v);e('line',{x1:left,x2:width-right,y1:z,y2:z,stroke:'var(--border)','stroke-width':1});e('text',{x:left-8,y:z+4,'text-anchor':'end'},v.toFixed(2));}
  e('text',{x:14,y:top+topH/2,transform:`rotate(-90 14 ${top+topH/2})`,'text-anchor':'middle','class':'axis-title','data-axis':'y'},'Price · USD');e('text',{x:14,y:bottom+bottomH/2,transform:`rotate(-90 14 ${bottom+bottomH/2})`,'text-anchor':'middle','class':'axis-title','data-axis':'y'},'USD / 1M shares');
  e('path',{d:data.map((r,i)=>(i?'L':'M')+X(r.t)+','+Y(r.c)).join(' '),fill:'none',stroke:'var(--muted-foreground)','stroke-width':1.4});
- const tooltip=b=>`${span}-bar ${b.phase} ${b.direction}; Δ$${b.delta.toFixed(3)} / ${(b.shares/1e6).toFixed(3)}M shares = ${b.movePerMillion===null?'unknown':b.movePerMillion.toFixed(3)} USD/1M; velocity ${b.velocity.toFixed(4)} USD/bar; acceleration ${b.acceleration===null?'unknown':b.acceleration.toFixed(5)} USD/bar²; first known ${new Date(b.knownAt).toLocaleString('en-US',{timeZone:'America/New_York'})} ET. Not causal price impact.`;
+ const tooltip=b=>`${span}-bar ${b.reversal?'block-direction switch':b.phase} ${b.direction}; Δ$${b.delta.toFixed(3)} / ${(b.shares/1e6).toFixed(3)}M shares = ${b.movePerMillion===null?'unknown':b.movePerMillion.toFixed(3)} USD/1M; velocity ${b.velocity.toFixed(4)} USD/bar; acceleration ${b.acceleration===null?'unknown':b.acceleration.toFixed(5)} USD/bar²; completion-bar label ${new Date(b.knownAt).toLocaleString('en-US',{timeZone:'America/New_York'})} ET. Not causal price impact.`;
  let previous=null;
  for(const b of blocks){const color=b.direction==='up'?'var(--green)':b.direction==='down'?'var(--red)':'var(--foreground)';
   if(b.movePerMillion!==null){if(previous)e('line',{x1:X(previous.t),y1:Z(previous.movePerMillion),x2:X(b.t),y2:Z(b.movePerMillion),stroke:color,'stroke-width':1.8});e('circle',{cx:X(b.t),cy:Z(b.movePerMillion),r:3,fill:color,'data-tooltip':tooltip(b)});previous=b;}else previous=null;

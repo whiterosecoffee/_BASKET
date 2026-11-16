@@ -50,5 +50,43 @@ test('separate swing structure draws no trading price path',()=>{const svg=new E
 const names=['drawVolumeRails','drawRollingRibbons','drawRevisitThreads','drawDensityHeatmap','drawNestedProfiles','drawCompressionExpansion','drawSwingStructure','drawMovementPerShares'];
 test('eight renderers construct at two widths and five windows',()=>{for(const width of [320,736])for(const data of [minute,daily.slice(-5),daily.slice(-21),daily.slice(-63),daily.slice(-252)])for(const name of names){const svg=new Element(),r=context[name](svg,data,width,320);assert(r.scale&&typeof r.scale.x==='function'&&typeof r.scale.y==='function');assert(svg.children.length>0);}});
 test('three explicit allocation models conserve volume',()=>{const data=[bar(0),{...bar(1),vw:99},bar(2)];for(const name of ['drawVolumeRails','drawRevisitThreads','drawDensityHeatmap']){const r=context[name](new Element(),data,320,320);const good=r.allocatedVolume??r.allocated,bad=r.unallocatedVolume??r.unallocated;assert.equal(good,202);assert.equal(bad,101);}});
+test('ribbon calculations independent of screen width at every selectable slice count',()=>{
+ for(let n=3;n<=20;n++){
+  const a=context.drawRollingRibbons(new Element(),minute,320,320,{sliceCount:n});
+  const b=context.drawRollingRibbons(new Element(),minute,736,340,{sliceCount:n});
+  assert.equal(JSON.stringify(a.slices),JSON.stringify(b.slices));assert.equal(a.slices.length,n);
+ }
+});
+test('heatmap memberships and volume independent of screen width',()=>{
+ for(let n=3;n<=20;n++){
+  const a=context.drawDensityHeatmap(new Element(),minute,320,320,{sliceCount:n});
+  const b=context.drawDensityHeatmap(new Element(),minute,736,340,{sliceCount:n});
+  assert.equal(JSON.stringify(a.cells),JSON.stringify(b.cells));assert.equal(a.sliceCount,n);
+  assert.equal(a.allocated+b.unallocated,minute.reduce((s,r)=>s+r.v,0));
+ }
+});
+test('slice controls reject invalid settings and cap to available samples',()=>{
+ for(const n of [0,2,21,2.5,'8',null])assert.throws(()=>context.densitySliceCount(n,80));
+ assert.equal(context.densitySliceCount(20,2),2);
+});
+test('changing slice count changes temporal aggregation intentionally',()=>{
+ const a=context.drawRollingRibbons(new Element(),minute,320,320,{sliceCount:4});
+ const b=context.drawRollingRibbons(new Element(),minute,320,320,{sliceCount:8});
+ assert.equal(a.slices.length,4);assert.equal(b.slices.length,8);assert.notEqual(a.slices[0].to,b.slices[0].to);
+});
+test('detail labels distinguish computation and delay',()=>{
+ const {densityDetailControl}=require('./controller.js');
+ assert.equal(densityDetailControl('swings',false).label,'Pivot neighbors on EACH side');
+ assert.equal(densityDetailControl('movement',false).label,'Completed movement block');
+ assert.equal(densityDetailControl('compression',false).label,'Range lookback');
+ assert.equal(densityDetailControl('rails',false).enabled,false);
+ assert.equal(densityDetailControl('heatmap',true).label,'EMA smoothing span');
+});
+test('EMA readout explicitly marks turns before visible backdrop',()=>{
+ const {trendStateText}=require('./controller.js'),state={models:[{span:3,latest:'up',points:[{turn:'down_to_up',direction:'up',t:1000}]}]};
+ assert(trendStateText(state,2000).includes('[before visible window]'));
+ assert(!trendStateText(state,500).includes('[before visible window]'));
+ assert(trendStateText(state,500).includes('EMA slope'));
+});
 test('no network or embedded source history',()=>{for(const file of ['density.js','controller.js','index.html']){const s=fs.readFileSync(__dirname+'/'+file,'utf8');assert(!/fetch\s*\(|XMLHttpRequest|WebSocket|https?:\/\//.test(s.replace(/http:\/\/www\.w3\.org\/2000\/svg/g,'')));}assert(!/<script[^>]+type=["']application\/json/.test(fs.readFileSync(__dirname+'/index.html','utf8')));});
-console.log(`${count} synthetic checks passed; 80 renderer calls. No browser layout, real-market, canonical-integration or independent-CI acceptance implied.`);
+console.log(`${count} synthetic checks passed; 80 construction-matrix calls plus slice-comparison renders. No browser layout, real-market, canonical-integration or independent-CI acceptance implied.`);
