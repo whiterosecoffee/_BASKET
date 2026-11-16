@@ -1,6 +1,6 @@
 # Traversal matrices: questions, evidence and display contract
 
-Status: Zone Participation has an offline research implementation; Nested Context and Turn Episodes remain presentation designs. This is not a canonical schema. Owner B06 #144 / draft PR145. Source charts remain descriptive; no forecasts or composite reversal score. This document records the next presentation contract within the existing research scope.
+Status: Zone Participation and Nested Context have offline research implementations; Turn Episodes remains a presentation design. This is not a canonical schema. Owner B06 #144 / draft PR145. Source charts remain descriptive; no forecasts or composite reversal score. This document records the next presentation contract within the existing research scope.
 
 ## Display composition
 
@@ -12,7 +12,7 @@ Three matrices answer different questions:
 2. **Nested context**: horizons as rows, the same descriptive quantities as columns. Position, signed change, speed, turnover, movement per turnover, range-width change and confirmed structure remain distinct. Selected child and parent windows share an as-of. Overlapping horizons are comparisons, not additive totals.
 3. **Turn episodes**: candidate/recognized changes as rows; before/after measurements as columns. Event definition, recognition label, preceding block, completed following evidence and unresolved future outcome are explicit. EMA slope switches, block-return sign switches and structural changes have different event types. Do not label an unresolved turn successful.
 
-Zone Participation is now implemented with fixed USD bands and bar-VWAP allocation estimates. Exact dwell and an event ledger remain absent. Nested Context and Turn Episodes are still proposed.
+Zone Participation is now implemented with fixed USD bands and bar-VWAP allocation estimates. Exact dwell and an event ledger remain absent. Nested Context now compares common-price position, signed distances, own-window movement/turnover, range change and confirmed structure, with partial/lagged rows explicit. Turn Episodes is still proposed.
 
 ## What each dimension exposes
 
@@ -69,4 +69,4 @@ Zone Participation is now implemented with fixed USD bands and bar-VWAP allocati
 4. Turn episode comparison separates event types and first recognition from later outcomes; deterministic prefix replay and right-censoring required. No hindsight boundary changes or automatic probability.
 5. B01 independent exact-head real browser/control checks; B02 source/clock/quality and B06 canonical adoption gates remain separate. Synthetic arithmetic tests do not certify market inference.
 
-Next action: independently validate Zone Participation at exact head, then implement Nested Context against fixed reference identities; preserve canonical producer and ingestion ownership.
+Next action: independently validate both implemented matrices at exact head, then implement Turn Episodes with distinct recognition and outcome clocks. Canonical input identities and source-clock acceptance remain upstream gates; preserve producer and ingestion ownership.

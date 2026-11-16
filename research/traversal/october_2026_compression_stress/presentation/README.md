@@ -27,7 +27,7 @@ The selected EMA seeds with the first span closes, then applies alpha=2/(span+1)
 
 Only observations through the selected backdrop end are used, including prior available warmup bars outside its left edge. Earlier/Later paging never consumes future bars. A single fine-scale turn does not establish a broad trend turn: switch granularity to inspect that relationship. Spans count supplied bars, not certified elapsed minutes or exchange sessions. Clipped offscreen EMA portions do not alter the actual-price domain. The swing helper supplies the separate Swing Structure view; it is not overlaid on the price path. Smoothing defaults are presentation choices, not optimized thresholds. Canonical event recognition and calibration remain separate gates.
 
-See [MATRIX_DESIGN.md](MATRIX_DESIGN.md) for the proposed zone, nested-context and turn-episode matrices, their information value, denominators and acceptance sequence. Zone Participation is implemented as an offline research projection; Nested Context and Turn Episodes remain design proposals.
+See [MATRIX_DESIGN.md](MATRIX_DESIGN.md) for the proposed zone, nested-context and turn-episode matrices, their information value, denominators and acceptance sequence. Zone Participation is implemented as an offline research projection; Nested Context is also implemented; Turn Episodes remains a design proposal.
 
 ## Interpretation and review refinements
 
@@ -50,6 +50,14 @@ Select a zone row to highlight its price interval in any existing chart, includi
 Minute episodes reset on unexpected timestamp spacing and invalid VWAP. Daily continuity is unknown; daily episodes mean consecutive supplied samples, not certified exchange-session visits. Coverage is not certified; no exact dwell time, source availability, signed flow, investor intent or predictive probability is inferred. More than 200 occupied zones fails with a request for wider bands. Input continues to come only from the existing local file import; no market bars are committed.
 
 Additional validation: `node --check zones.js` and `node zones.test.cjs` (10 synthetic projection/DOM checks). Checks cover fractional-volume conservation including unallocated blocks, fixed boundaries, binary boundary precision, gaps/invalid episodes, zero denominators, uneven partitions, input/config rejection, determinism, row selection and clipped highlights. Combined with the existing 45 presentation checks: 55 checks. Playwright could not launch its default browser (executable absent); a second attempt with installed /usr/bin/chromium failed because process sockets were not permitted. Actual browser/control acceptance remains pending, not passed.
+
+## Nested Context matrix
+
+Choose Zone Participation or Nested Context in the analysis-matrix selector; only one matrix is visible. Nested Context compares the same selected-end price against the selected range, 15/60 supplied minute bars for premarket, and 5/21/63/252 supplied daily bars. Duplicate selected horizons appear once. Each row shows its source end, low/high, unbounded position percentage, signed distances from high and low (USD and %), own-window net return, net USD per supplied minute/daily bar, total shares, net USD per 1M shares, normalized width and width change against the prior disjoint equal-count window, plus confirmed high/low labels. Structure neighbors are selected independently of chart smoothing. Speed units differ by grain; overlapping totals are not additive.
+
+Daily context in premarket is conservative: BOTH the UTC and ET dates of its source label must precede the selected minute ET date. This prevents a same-day daily label at UTC midnight from slipping through an ET-only filter. It is not proof of first availability or bar completion. All rows end at or before the selected label cutoff, and earlier context is marked; daily history is not described as contemporaneous minute trading. Minute gaps, daily unknown continuity, partial/missing counts and unknown zero denominators remain explicit. Rows use timestamp/count reference labels, not immutable canonical source IDs; inputManifestHash remains null. Range bounds are computed for each displayed source window, not claimed frozen discovery-time ranges across later snapshots. No calibration or predictive score is added.
+
+`node context.test.cjs` passes 13 synthetic checks, bringing the presentation suites to 68 checks (45 + 10 + 13). Coverage includes common-price outside-range positions, signed negatives, conservative premarket exclusion, earlier-cutoff replay, partial/missing histories, disjoint width comparison, null denominators, source immutability, gaps, pivot confirmation, duplicate horizons, ET/DST labeling and table construction. These do not establish actual browser behavior, canonical historical source acceptance or calibrated inference. Browser/domain acceptance remains pending in #98; no new browser pass is claimed.
 
 ## Open and load
 
@@ -82,8 +90,10 @@ Run from this folder:
 node --check density.js
 node --check controller.js
 node --check zones.js
+node --check context.js
 node presentation.test.cjs
 node zones.test.cjs
+node context.test.cjs
 ```
 
 The suite uses synthetic values only. It tests input rejection, immutable inputs, paging, pivot confirmation timing, prefix replay, ambiguous candles, allocation conservation and construction of all eight SVG models at 320/736 px across five backdrop sizes. DOM construction is **not a browser layout test**. Browser launch in the author container failed because Chromium process sockets were not permitted; no screenshot or browser-interaction pass is claimed. Independent exact-head browser/domain CI remains pending with B01; generic repository CI is not evidence of this suite unless its logs execute it.
