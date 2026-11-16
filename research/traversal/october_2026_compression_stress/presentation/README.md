@@ -27,6 +27,8 @@ The selected EMA seeds with the first span closes, then applies alpha=2/(span+1)
 
 Only observations through the selected backdrop end are used, including prior available warmup bars outside its left edge. Earlier/Later paging never consumes future bars. A single fine-scale turn does not establish a broad trend turn: switch granularity to inspect that relationship. Spans count supplied bars, not certified elapsed minutes or exchange sessions. Clipped offscreen EMA portions do not alter the actual-price domain. The swing helper supplies the separate Swing Structure view; it is not overlaid on the price path. Smoothing defaults are presentation choices, not optimized thresholds. Canonical event recognition and calibration remain separate gates.
 
+See [MATRIX_DESIGN.md](MATRIX_DESIGN.md) for the proposed zone, nested-context and turn-episode matrices, their information value, denominators and acceptance sequence. These numeric matrices are not implemented yet.
+
 ## Interpretation and review refinements
 
 Movement / Shares & Turns opens by default. Its question is net displacement per turnover and completed-block direction/speed change. Heatmap supplies where/when participation context; Compression / Expansion supplies range conditions; separate Swing Structure supplies delayed high/low progression. Rails summarize location, Ribbons show concentration migration, Threads distinguish sampled returns, and Nested Profiles compare recent vs broader shape. These alternatives are not simultaneous layers or eight independent confirmations.
