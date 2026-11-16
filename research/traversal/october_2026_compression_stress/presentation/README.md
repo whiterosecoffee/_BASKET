@@ -4,13 +4,15 @@ B06 presentation research on existing issue #144, branch `work/144-october-compr
 
 ## Purpose and models
 
-Keep the familiar time × USD price path. Overlay participation while retaining dated revisits, recency and nested relativity. Five alternatives share local source data, backdrop selection and Earlier/Later paging:
+Keep the familiar time × USD price path. Overlay participation while retaining dated revisits, recency and nested relativity. Six alternatives share local source data, backdrop selection and Earlier/Later paging:
 
 1. **Volume Rails:** selected-window allocated-volume profile rendered as horizontal lines; thickness/opacity encode relative concentration. The complete-window profile is retrospective and must not be interpreted as already known at the left edge.
 2. **Rolling Ribbons:** equal observation-count slices, volume-weighted 20–80% and 40–60% VWAP envelopes. These are descriptive distributions, not confidence/prediction intervals. A short window can have collapsed envelopes.
 3. **Revisit Threads:** consecutive same-band VWAP assignments become sampled visit episodes. Circle size grows with visit volume; dotted connectors are returns, not intervening occupancy or exact boundary crossings. Only the busiest bands are drawn for legibility.
 4. **Time–Price Heatmap:** time-slice × price-band cells; intensity encodes allocated shares relative to the largest selected-window cell. Cell colors across different backdrops are not an absolute common volume scale.
 5. **Nested Profiles:** full-window, last 60/15 supplied minute bars or last 21/5 supplied daily bars. Each profile is normalized to its own peak to compare distribution shape; widths do not compare absolute volume. Short histories may make profiles identical; labels deliberately say bars, not elapsed minutes/sessions.
+
+6. **Compression / Expansion:** a trailing high/low envelope over the price path. Narrowing and widening refer to normalized range width, independently of whether price rises or falls. The same detail slider selects N bars. Each width is 100×(high−low)/midpoint; compare with the preceding disjoint N-bar window. A warmup of N bars is needed for the envelope, 2N for comparison. The tooltip and readout show signed percentage width change and volume ratio against that prior window. Zero-width/zero-volume denominators are unknown rather than infinite. Both zero widths are unchanged. Source history through the selected end supplies warmup outside the visible left edge; plotted domain includes the visible envelope. This is not a volatility forecast or a fitted breakout signal. A dropped old extreme can narrow the rolling envelope without fresh buying or selling, and changing midpoint can affect normalized width even when USD width is stable. Volume ratios are equal supplied-bar comparisons, not same-clock seasonal RVOL.
 
 ## Selectable trend reversals
 
@@ -53,7 +55,7 @@ node --check controller.js
 node presentation.test.cjs
 ```
 
-The suite uses synthetic values only. It tests input rejection, immutable inputs, paging, pivot confirmation timing, prefix replay, ambiguous candles, allocation conservation and construction of all five SVG models at 320/736 px across five backdrop sizes. DOM construction is **not a browser layout test**. Browser launch in the author container failed because Chromium process sockets were not permitted; no screenshot or browser-interaction pass is claimed. Independent exact-head browser/domain CI remains pending with B01; generic repository CI is not evidence of this suite unless its logs execute it.
+The suite uses synthetic values only. It tests input rejection, immutable inputs, paging, pivot confirmation timing, prefix replay, ambiguous candles, allocation conservation and construction of all six SVG models at 320/736 px across five backdrop sizes. DOM construction is **not a browser layout test**. Browser launch in the author container failed because Chromium process sockets were not permitted; no screenshot or browser-interaction pass is claimed. Independent exact-head browser/domain CI remains pending with B01; generic repository CI is not evidence of this suite unless its logs execute it.
 
 ## Retained scope and handoff
 
