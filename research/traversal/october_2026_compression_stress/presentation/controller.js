@@ -60,19 +60,20 @@ function densityMultiTrends(rows,spans=[5,15,45]){
 function initializeDensityPresentation(){
  const root=document.getElementById('battle-presentation');if(!root)return;let dataset=null,offset=0;
  const file=root.querySelector('#data-file'),model=root.querySelector('#model'),win=root.querySelector('#window'),back=root.querySelector('#earlier'),next=root.querySelector('#later'),svg=root.querySelector('#plot'),structure=root.querySelector('#structure'),granularity=root.querySelector('#granularity');
- const functions={rails:drawVolumeRails,ribbons:drawRollingRibbons,threads:drawRevisitThreads,heatmap:drawDensityHeatmap,nested:drawNestedProfiles};
- const descriptions={rails:'Full-window profile; rail thickness and opacity encode allocated shares.',ribbons:'Central 60% / 20% weighted price bands in equal observation-count slices. Retrospective distribution, not a confidence interval.',threads:'Sampled visit nodes; node area grows with volume. Dotted connectors mark returns, not intervening occupancy.',heatmap:'Time-by-price cells; intensity compares allocated shares within the selected backdrop.',nested:'Full / recent / shortest profile shapes; each width normalized to its own largest band, not comparable absolute volume.'};
+ const functions={rails:drawVolumeRails,ribbons:drawRollingRibbons,threads:drawRevisitThreads,heatmap:drawDensityHeatmap,nested:drawNestedProfiles,compression:drawCompressionExpansion};
+ const descriptions={rails:'Full-window profile; rail thickness and opacity encode allocated shares.',ribbons:'Central 60% / 20% weighted price bands in equal observation-count slices. Retrospective distribution, not a confidence interval.',threads:'Sampled visit nodes; node area grows with volume. Dotted connectors mark returns, not intervening occupancy.',heatmap:'Time-by-price cells; intensity compares allocated shares within the selected backdrop.',nested:'Full / recent / shortest profile shapes; each width normalized to its own largest band, not comparable absolute volume.',compression:'Envelope width measures range compression/expansion, separate from price direction. Compare the selected bar span with the preceding disjoint equal-span window. No breakout forecast.'};
  const fmt=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'});
  function draw(){if(!dataset)return;const data=selectDensityWindow(dataset,win.value,offset);if(!data.length){root.querySelector('#detail').textContent='No observations for this backdrop.';svg.replaceChildren();back.disabled=next.disabled=true;return;}
   const pm=win.value==='pm',end=dataset.daily.length-offset,count=Number(win.value);back.disabled=pm||end<=count;next.disabled=pm||offset===0;
-  const width=Math.max(280,root.getBoundingClientRect().width),height=width<450?320:340;const result=functions[model.value](svg,data,width,height);
+  const width=Math.max(280,root.getBoundingClientRect().width),height=width<450?320:340;const history=pm?dataset.minute:dataset.daily.slice(0,end);const result=functions[model.value](svg,data,width,height,{span:Number(granularity.value),history});
   root.querySelector('#model-title').textContent=dataset.ticker+' · '+model.options[model.selectedIndex].text;
   root.querySelector('#dates').textContent=fmt.format(data[0].t)+' – '+fmt.format(data.at(-1).t)+' ET · '+data.length+' supplied '+(pm?'minute':'daily')+' bars';
   const total=data.reduce((s,d)=>s+d.v,0),bad=data.filter(d=>!Number.isFinite(d.vw)||d.vw<d.l||d.vw>d.h).reduce((s,d)=>s+d.v,0);
   root.querySelector('#detail').textContent=(total/1e6).toFixed(2)+'M shares · '+(bad/1e6).toFixed(2)+'M unallocated · source: '+dataset.source;
   root.querySelector('#method').textContent=descriptions[model.value];
+  if(model.value==='compression'){const p=result.latest;root.querySelector('#method').textContent+=p?` Latest ${p.phase}: width $${p.width.toFixed(2)} (${p.widthPct.toFixed(2)}% of midpoint); change ${p.widthChangePct===null?'unavailable':(p.widthChangePct>=0?'+':'')+p.widthChangePct.toFixed(1)+'%'}; shares ${p.volumeRatio===null?'unavailable':p.volumeRatio.toFixed(2)+'×'} prior window.`:' Insufficient warmup for this range span.';}
   const trends=densityMultiTrends(pm?dataset.minute:dataset.daily.slice(0,end),[Number(granularity.value)]);
-  granularity.disabled=!structure.checked;root.querySelector('#granularity-value').textContent=granularity.value+' bars';
+  granularity.disabled=!structure.checked&&model.value!=='compression';root.querySelector('#granularity-value').textContent=granularity.value+' bars';
   root.querySelector('#trend-state').textContent=structure.checked?trendStateText(trends):'';
   if(structure.checked)drawSwingOverlay(svg,data,trends,result.scale);
  }
