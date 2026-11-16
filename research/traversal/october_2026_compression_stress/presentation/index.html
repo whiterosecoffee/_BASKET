@@ -16,13 +16,13 @@
  <label>Presentation<select id="model"><option value="rails">Volume Rails</option><option value="ribbons">Rolling Ribbons</option><option value="threads">Revisit Threads</option><option value="heatmap">Time–Price Heatmap</option><option value="nested">Nested Profiles</option></select></label>
  <label>Backdrop<select id="window"><option value="pm">Premarket</option><option value="5">5 sessions</option><option value="21" selected>21 sessions</option><option value="63">63 sessions</option><option value="252">252 sessions</option></select></label>
  <button id="earlier" type="button" disabled>Earlier</button><button id="later" type="button" disabled>Later</button>
- <label class="check"><input id="structure" type="checkbox" checked>Trend structure</label>
+ <label class="check"><input id="structure" type="checkbox" checked>Swing lines</label>
 </div>
 <h2 id="model-title">Load data to inspect the five views</h2>
 <div id="dates" class="secondary" aria-live="polite"></div>
 <svg id="plot" class="chart" role="img" aria-label="No observations loaded"></svg>
 <div id="detail" class="secondary" aria-live="polite"></div>
 <div id="method" class="secondary"></div>
-<p class="secondary">Density assigns whole-bar volume at qualified bar VWAP. It is not exact volume at price or signed buying. Price structure uses two bars on either side of a swing; markers are placed at confirmation time, with the original pivot time in their tooltip. Reversal breaks are candidates, not forecasts. Windows count supplied observations; calendars, missing-session coverage and canonical data qualification remain caller responsibilities.</p>
+<p class="secondary">Density assigns whole-bar volume at qualified bar VWAP. It is not exact volume at price or signed buying. Price structure uses two bars on either side of a swing; lines connect confirmed highs and lows at confirmation time. Dashed break lines are reversal candidates, not forecasts. Windows count supplied observations; calendars, missing-session coverage and canonical data qualification remain caller responsibilities.</p>
 <p class="secondary">Source boundaries: <a href="README.md">README and input contract</a>. Preserve unmodified authoritative source data outside this presentation directory.</p>
 </main></body></html>
