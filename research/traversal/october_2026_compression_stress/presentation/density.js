@@ -327,3 +327,49 @@ function drawCompressionExpansion(svg,data,width,height,options={}){
  path();
  return{scale:{x,y},series,latest:series.at(-1)??null,method:'Trailing high-low width as percent of midpoint; compared with the prior disjoint equal-bar window, not price direction.'};
 }
+function drawSwingStructure(svg,data,width,height,options={}){
+ const history=(options.history||data).filter(r=>r.t<=data.at(-1).t),k=options.span||3;
+ const structure=options.structure||(typeof densitySwingStructure==='function'?densitySwingStructure(history,k):{pivots:[],breaks:[]});
+ const pivots=structure.pivots.filter(p=>p.knownAt>=data[0].t&&p.knownAt<=data.at(-1).t&&p.kind!=='ambiguous');
+ const b=densityPlotBase(svg,data,width,height,'Separate swing structure: highs and lows without a trading-price line',{extraPrices:pivots.map(p=>p.price)});if(!b)return{};
+ const {e,x,y}=b;
+ for(const [kind,color] of [['high','var(--viz-series-4)'],['low','var(--viz-series-3)']]){
+  const ps=pivots.filter(p=>p.kind===kind);if(ps.length>1)e('polyline',{points:ps.map(p=>`${x(p.knownAt)},${y(p.price)}`).join(' '),fill:'none',stroke:color,'stroke-width':2,'data-structure-line':kind});
+  for(const p of ps)e('circle',{cx:x(p.knownAt),cy:y(p.price),r:3.5,fill:color,'data-tooltip':`${p.label} $${p.price.toFixed(2)} · swing ${new Date(p.pivotAt).toLocaleString('en-US',{timeZone:'America/New_York'})} · confirmed ${new Date(p.knownAt).toLocaleString('en-US',{timeZone:'America/New_York'})} ET · ${k} confirming bars each side`});
+ }
+ return{scale:{x,y},pivots,k,separate:true,latest:pivots.at(-1)??null};
+}
+function densityMovementBlocks(rows,span=15){
+ if(!Number.isInteger(span)||span<2)throw Error('Invalid movement span.');
+ const out=[];let lastNonflat=null;
+ for(let start=0;start+span<=rows.length;start+=span){
+  const block=rows.slice(start,start+span),first=block[0],last=block.at(-1),shares=block.reduce((s,r)=>s+r.v,0),delta=last.c-first.o,velocity=delta/span,direction=Math.abs(delta)<1e-10?'flat':delta>0?'up':'down',previous=out.at(-1);
+  const reversal=direction!=='flat'&&lastNonflat!==null&&direction!==lastNonflat;
+  const acceleration=previous?(velocity-previous.velocity)/span:null;
+  const phase=reversal?'reversal':direction==='flat'?'flat':previous&&previous.direction===direction?(Math.abs(velocity)>Math.abs(previous.velocity)+1e-10?'accelerating':Math.abs(velocity)<Math.abs(previous.velocity)-1e-10?'decelerating':'steady'):'moving';
+  out.push({start:first.t,t:last.t,knownAt:last.t,span,close:last.c,shares,delta,direction,reversal,velocity,acceleration,phase,movePerMillion:shares>0?delta/(shares/1e6):null});
+  if(direction!=='flat')lastNonflat=direction;
+ }
+ return out;
+}
+function drawMovementPerShares(svg,data,width,height,options={}){
+ const ns='http://www.w3.org/2000/svg';svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${width} ${height}`);svg.setAttribute('role','img');
+ const e=(tag,a={},text)=>{const n=document.createElementNS(ns,tag);Object.entries(a).forEach(([k,v])=>n.setAttribute(k,String(v)));if(text!==undefined)n.textContent=text;svg.appendChild(n);return n;};e('title',{},'Reversals, acceleration and signed net movement per million shares');
+ const span=options.span||15,history=(options.history||data).filter(r=>r.t<=data.at(-1).t),blocks=densityMovementBlocks(history,span).filter(b=>b.t>=data[0].t),left=64,right=18,plotW=width-left-right,t0=data[0].t,t1=Math.max(t0+60000,data.at(-1).t),X=t=>left+8+(t-t0)/(t1-t0)*(plotW-16);
+ const low=Math.min(...data.map(d=>d.l)),high=Math.max(...data.map(d=>d.h)),pad=Math.max(.02,(high-low)*.08),top=26,topH=Math.round(height*.40),bottom=top+topH+46,bottomH=height-bottom-48,Y=p=>top+8+(high+pad-p)/(high-low+2*pad)*(topH-16);
+ const values=blocks.map(b=>b.movePerMillion).filter(Number.isFinite),extent=Math.max(.01,...values.map(Math.abs))*1.1,Z=v=>bottom+bottomH/2-v/extent*(bottomH/2-8);
+ for(const [y,h] of [[top,topH],[bottom,bottomH]])e('rect',{x:left,y,width:plotW,height:h,fill:'none',stroke:'var(--border)','data-movement-frame':''});
+ e('text',{x:left,y:top-8},'Price · reversal ◆ / faster ○');e('text',{x:left,y:bottom-9},'Net movement per 1M shares');
+ for(let i=0;i<3;i++){const p=low+(high-low)*i/2;e('text',{x:left-8,y:Y(p)+4,'text-anchor':'end'},'$'+p.toFixed(2));}
+ for(const v of [-extent,0,extent]){const z=Z(v);e('line',{x1:left,x2:width-right,y1:z,y2:z,stroke:'var(--border)','stroke-width':1});e('text',{x:left-8,y:z+4,'text-anchor':'end'},v.toFixed(2));}
+ e('text',{x:14,y:top+topH/2,transform:`rotate(-90 14 ${top+topH/2})`,'text-anchor':'middle','class':'axis-title','data-axis':'y'},'Price · USD');e('text',{x:14,y:bottom+bottomH/2,transform:`rotate(-90 14 ${bottom+bottomH/2})`,'text-anchor':'middle','class':'axis-title','data-axis':'y'},'USD / 1M shares');
+ e('path',{d:data.map((r,i)=>(i?'L':'M')+X(r.t)+','+Y(r.c)).join(' '),fill:'none',stroke:'var(--muted-foreground)','stroke-width':1.4});
+ const tooltip=b=>`${span}-bar ${b.phase} ${b.direction}; Δ$${b.delta.toFixed(3)} / ${(b.shares/1e6).toFixed(3)}M shares = ${b.movePerMillion===null?'unknown':b.movePerMillion.toFixed(3)} USD/1M; velocity ${b.velocity.toFixed(4)} USD/bar; acceleration ${b.acceleration===null?'unknown':b.acceleration.toFixed(5)} USD/bar²; first known ${new Date(b.knownAt).toLocaleString('en-US',{timeZone:'America/New_York'})} ET. Not causal price impact.`;
+ let previous=null;
+ for(const b of blocks){const color=b.direction==='up'?'var(--green)':b.direction==='down'?'var(--red)':'var(--foreground)';
+  if(b.movePerMillion!==null){if(previous)e('line',{x1:X(previous.t),y1:Z(previous.movePerMillion),x2:X(b.t),y2:Z(b.movePerMillion),stroke:color,'stroke-width':1.8});e('circle',{cx:X(b.t),cy:Z(b.movePerMillion),r:3,fill:color,'data-tooltip':tooltip(b)});previous=b;}else previous=null;
+ }
+ for(const b of blocks.filter(b=>b.reversal||b.phase==='accelerating').slice(-8)){const x=X(b.t),y=Y(b.close),color=b.direction==='up'?'var(--green)':'var(--red)';if(b.reversal)e('polygon',{points:`${x},${y-6} ${x+5},${y} ${x},${y+6} ${x-5},${y}`,fill:color,'data-tooltip':tooltip(b)});else e('circle',{cx:x,cy:y,r:5,fill:'none',stroke:color,'stroke-width':1.8,'data-tooltip':tooltip(b)});}
+ const intra=t1-t0<36*3600000,fmt=new Intl.DateTimeFormat('en-US',intra?{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'}:{timeZone:'America/New_York',month:'short',day:'numeric'});for(let i=0;i<3;i++){const t=t0+(t1-t0)*i/2;e('text',{x:X(t),y:height-25,'text-anchor':i===0?'start':i===2?'end':'middle'},fmt.format(t));}e('text',{x:left+plotW/2,y:height-5,'text-anchor':'middle','class':'axis-title','data-axis':'x'},'Time · ET');
+ return{scale:{x:X,y:Y},blocks,latest:blocks.at(-1)??null,separate:true,unclosedBars:history.length%span};
+}
