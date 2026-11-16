@@ -14,9 +14,9 @@ Keep the familiar time × USD price path. Overlay participation while retaining 
 
 ## Trend overlay
 
-One shared toggle adds higher highs (HH), lower highs (LH), higher lows (HL) and lower lows (LL). An initial pivot is H/L. A pivot requires a strict extreme with two neighboring observations on each side; confirmation occurs two bars later. Markers are drawn at the **confirmation timestamp**, with pivot timestamp/price in the tooltip. At most six pivot labels are drawn. A candle qualifying as both a high and low is ambiguous; no intrabar ordering is invented. Unconfirmed last bars are not labeled pivots.
+One shared toggle draws separate connected swing-high and swing-low lines, replacing letter labels and pivot dots. The underlying higher-high/lower-high/higher-low/lower-low classification is retained for candidate-break logic. A pivot requires a strict extreme with two neighboring observations on each side; confirmation occurs two bars later. Line vertices are drawn at the **confirmation timestamp**, with the latest pivot and confirmation times in the tooltip. The lines interpolate confirmed observations; they are not continuously observed support or resistance. A candle qualifying as both a high and low is ambiguous; no intrabar ordering is invented. Unconfirmed last bars are not labeled pivots.
 
-After confirmed LH+LL structure, a later close above the last confirmed swing high is an **upturn candidate**; HH+HL followed by a close below the last confirmed swing low is a **downturn candidate**. Ring markers show at most the last two candidates. These are exploratory descriptive rules, not accepted battle events, statistical reversal probabilities or forecasts. Detector calibration and canonical integration remain separate. Show the original price path regardless of VWAP allocation quality.
+After confirmed LH+LL structure, a later close above the last confirmed swing high is an **upturn candidate**; HH+HL followed by a close below the last confirmed swing low is a **downturn candidate**. Dashed break lines show at most the last two candidates. These are exploratory descriptive rules, not accepted battle events, statistical reversal probabilities or forecasts. Detector calibration and canonical integration remain separate. Show the original price path regardless of VWAP allocation quality.
 
 ## Open and load
 
