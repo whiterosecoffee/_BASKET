@@ -42,13 +42,16 @@ function densitySwingStructure(rows,k=2){
 function densityMultiTrends(rows,spans=[5,15,45]){
  const models=spans.map(span=>{
   if(!Number.isInteger(span)||span<2)throw Error('Invalid trend span.');
-  const points=[];let seed=0,ema=null;
+  const points=[];let seed=0,ema=null,lastDirection=null;
   for(let i=0;i<rows.length;i++){
    const r=rows[i];seed+=r.c;
    if(i<span-1)continue;
    const previous=ema;ema=ema===null?seed/span:ema+(2/(span+1))*(r.c-ema);
    const delta=previous===null?null:ema-previous;
-   points.push({t:r.t,index:i,value:ema,direction:delta===null?'unknown':Math.abs(delta)<1e-10?'flat':delta>0?'up':'down',change:delta,knownAt:r.t});
+   const direction=delta===null?'unknown':Math.abs(delta)<1e-10?'flat':delta>0?'up':'down';
+   const turn=(direction==='up'||direction==='down')&&lastDirection&&direction!==lastDirection?lastDirection+'_to_'+direction:null;
+   points.push({t:r.t,index:i,value:ema,direction,change:delta,knownAt:r.t,turn});
+   if(direction==='up'||direction==='down')lastDirection=direction;
   }
   return{span,points,latest:points.at(-1)?.direction??'insufficient'};
  });
@@ -56,7 +59,7 @@ function densityMultiTrends(rows,spans=[5,15,45]){
 }
 function initializeDensityPresentation(){
  const root=document.getElementById('battle-presentation');if(!root)return;let dataset=null,offset=0;
- const file=root.querySelector('#data-file'),model=root.querySelector('#model'),win=root.querySelector('#window'),back=root.querySelector('#earlier'),next=root.querySelector('#later'),svg=root.querySelector('#plot'),structure=root.querySelector('#structure');
+ const file=root.querySelector('#data-file'),model=root.querySelector('#model'),win=root.querySelector('#window'),back=root.querySelector('#earlier'),next=root.querySelector('#later'),svg=root.querySelector('#plot'),structure=root.querySelector('#structure'),granularity=root.querySelector('#granularity');
  const functions={rails:drawVolumeRails,ribbons:drawRollingRibbons,threads:drawRevisitThreads,heatmap:drawDensityHeatmap,nested:drawNestedProfiles};
  const descriptions={rails:'Full-window profile; rail thickness and opacity encode allocated shares.',ribbons:'Central 60% / 20% weighted price bands in equal observation-count slices. Retrospective distribution, not a confidence interval.',threads:'Sampled visit nodes; node area grows with volume. Dotted connectors mark returns, not intervening occupancy.',heatmap:'Time-by-price cells; intensity compares allocated shares within the selected backdrop.',nested:'Full / recent / shortest profile shapes; each width normalized to its own largest band, not comparable absolute volume.'};
  const fmt=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit'});
@@ -68,16 +71,17 @@ function initializeDensityPresentation(){
   const total=data.reduce((s,d)=>s+d.v,0),bad=data.filter(d=>!Number.isFinite(d.vw)||d.vw<d.l||d.vw>d.h).reduce((s,d)=>s+d.v,0);
   root.querySelector('#detail').textContent=(total/1e6).toFixed(2)+'M shares · '+(bad/1e6).toFixed(2)+'M unallocated · source: '+dataset.source;
   root.querySelector('#method').textContent=descriptions[model.value];
-  const trends=densityMultiTrends(pm?dataset.minute:dataset.daily.slice(0,end));
+  const trends=densityMultiTrends(pm?dataset.minute:dataset.daily.slice(0,end),[Number(granularity.value)]);
+  granularity.disabled=!structure.checked;root.querySelector('#granularity-value').textContent=granularity.value+' bars';
   root.querySelector('#trend-state').textContent=structure.checked?trendStateText(trends):'';
   if(structure.checked)drawSwingOverlay(svg,data,trends,result.scale);
  }
  file.addEventListener('change',async()=>{const chosen=file.files[0];if(!chosen)return;try{if(chosen.size>5000000)throw Error('Input exceeds 5 MB.');const candidate=qualifyDensityDataset(JSON.parse(await chosen.text()));dataset=candidate;offset=0;win.querySelector('[value="pm"]').disabled=!dataset.minute.length;if(!dataset.daily.length)win.value='pm';else if(win.value==='pm'&&!dataset.minute.length)win.value='21';root.querySelector('#error').textContent='';draw();}catch(e){dataset=null;svg.replaceChildren();back.disabled=next.disabled=true;root.querySelector('#model-title').textContent='No qualified data loaded';root.querySelector('#dates').textContent='';root.querySelector('#detail').textContent='';root.querySelector('#method').textContent='';root.querySelector('#error').textContent=e.message;}});
- model.addEventListener('change',draw);structure.addEventListener('change',draw);win.addEventListener('change',()=>{offset=0;draw();});back.addEventListener('click',()=>{offset+=Number(win.value);draw();});next.addEventListener('click',()=>{offset=Math.max(0,offset-Number(win.value));draw();});new ResizeObserver(draw).observe(root);
+ model.addEventListener('change',draw);structure.addEventListener('change',draw);granularity.addEventListener('input',()=>{root.querySelector('#granularity-value').textContent=granularity.value+' bars';draw();});win.addEventListener('change',()=>{offset=0;draw();});back.addEventListener('click',()=>{offset+=Number(win.value);draw();});next.addEventListener('click',()=>{offset=Math.max(0,offset-Number(win.value));draw();});new ResizeObserver(draw).observe(root);
 }
 function trendStateText(state){
  const symbols={up:'↑',down:'↓',flat:'→',unknown:'warming',insufficient:'insufficient'};
- return state.models.map((m,i)=>`${['Fine','Middle','Broad'][i]??'Scale'} ${m.span} bars ${symbols[m.latest]}`).join(' · ')+' · rising / falling colors; broader line is thicker and dashed';
+ return state.models.map(m=>{const turn=m.points.filter(p=>p.turn).at(-1);return `${m.span}-bar trend ${symbols[m.latest]}`+(turn?` · latest turn ${turn.direction==='up'?'↑':'↓'} ${new Date(turn.t).toLocaleString('en-US',{timeZone:'America/New_York'})} ET`:' · no direction reversal observed');}).join(' · ');
 }
 function drawSwingOverlay(svg,rows,state,scale){
  const ns='http://www.w3.org/2000/svg',frame=svg.querySelector('[data-chart-frame]');if(!frame)return;
@@ -86,14 +90,14 @@ function drawSwingOverlay(svg,rows,state,scale){
  const clipId=(svg.id||'density')+'-trend-clip',defs=make('defs',{}),clip=make('clipPath',{id:clipId},defs);
  make('rect',{x:frame.getAttribute('x'),y:frame.getAttribute('y'),width:frame.getAttribute('width'),height:frame.getAttribute('height')},clip);
  const group=make('g',{'clip-path':`url(#${clipId})`,'data-trend-overlay':''});
- // Broader trends first; fine-scale lines stay visible above them.
- state.models.map((m,i)=>({...m,level:i})).reverse().forEach(m=>{
-  const points=m.points.filter(p=>p.t>=rows[0].t&&p.t<=rows.at(-1).t),width=[1.5,2.6,4][m.level]??2;
+ // Exactly one selected granularity is displayed; reversals are the emphasis.
+ state.models.slice(0,1).forEach(m=>{
+  const points=m.points.filter(p=>p.t>=rows[0].t&&p.t<=rows.at(-1).t),width=2.6;
   for(let i=1;i<points.length;i++){
    const a=points[i-1],b=points[i],color=b.direction==='up'?'var(--green)':b.direction==='down'?'var(--red)':'var(--foreground)';
-   make('line',{x1:scale.x(a.t),y1:scale.y(a.value),x2:scale.x(b.t),y2:scale.y(b.value),stroke:color,'stroke-width':width,'stroke-opacity':m.level===2?.6:.9,'stroke-dasharray':m.level===2?'7 4':b.direction==='flat'?'2 3':'none','data-trend-scale':m.span,'data-direction':b.direction,'data-tooltip':`${m.span}-bar smoothed trend ${b.direction}; $${b.value.toFixed(2)} at ${new Date(b.t).toLocaleString('en-US',{timeZone:'America/New_York'})} ET. Descriptive slope, not a forecast.`},group);
-   if(a.direction!=='unknown'&&a.direction!==b.direction&&b.direction!=='flat')make('line',{x1:scale.x(b.t),x2:scale.x(b.t),y1:scale.y(b.value)-5,y2:scale.y(b.value)+5,stroke:color,'stroke-width':1.5,'data-trend-turn':m.span},group);
+   make('line',{x1:scale.x(a.t),y1:scale.y(a.value),x2:scale.x(b.t),y2:scale.y(b.value),stroke:color,'stroke-width':width,'stroke-opacity':.95,'stroke-dasharray':b.direction==='flat'?'2 3':'none','data-trend-scale':m.span,'data-direction':b.direction,'data-tooltip':`${m.span}-bar smoothed trend ${b.direction}; $${b.value.toFixed(2)} at ${new Date(b.t).toLocaleString('en-US',{timeZone:'America/New_York'})} ET. Descriptive slope, not a forecast.`},group);
   }
+  for(const b of points.filter(p=>p.turn).slice(-6)){const x=scale.x(b.t),y=scale.y(b.value),color=b.direction==='up'?'var(--green)':'var(--red)';make('polygon',{points:`${x},${y-6} ${x+5},${y} ${x},${y+6} ${x-5},${y}`,fill:color,'data-trend-turn':m.span,'data-tooltip':`${b.turn.replaceAll('_',' ')} · ${m.span}-bar trend · first known ${new Date(b.t).toLocaleString('en-US',{timeZone:'America/New_York'})} ET · smoothed value $${b.value.toFixed(2)}. A slope reversal, not a guaranteed price reversal.`},group);}
  });
 }
 if(typeof module!=='undefined')module.exports={qualifyDensityDataset,selectDensityWindow,densitySwingStructure,densityMultiTrends,trendStateText,drawSwingOverlay};
