@@ -266,12 +266,12 @@ function drawRevisitThreads(svg, data, width, height, config = {}) {
 }
 
 /* Two additional presentation-only models over supplied bars. */
-function densityPlotBase(svg, data, width, height, name) {
+function densityPlotBase(svg, data, width, height, name, options={}) {
  const ns='http://www.w3.org/2000/svg';svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${width} ${height}`);svg.setAttribute('role','img');
  const e=(tag,attrs={},text)=>{const n=document.createElementNS(ns,tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,String(v)));if(text!==undefined)n.textContent=text;svg.appendChild(n);return n;};
  e('title',{},name);const rows=data.slice(),m={l:64,r:18,t:20,b:52},pw=width-m.l-m.r,ph=height-m.t-m.b;
  if(!rows.length)return null;
- const low=Math.min(...rows.map(d=>d.l)),high=Math.max(...rows.map(d=>d.h)),pad=Math.max((high-low)*.08,.02),lo=low-pad,hi=high+pad,t0=rows[0].t,t1=Math.max(t0+60000,rows.at(-1).t);
+ const extra=(options.extraPrices||[]).filter(Number.isFinite),low=Math.min(...rows.map(d=>d.l),...extra),high=Math.max(...rows.map(d=>d.h),...extra),pad=Math.max((high-low)*.08,.02),lo=low-pad,hi=high+pad,t0=rows[0].t,t1=Math.max(t0+60000,rows.at(-1).t);
  const x=t=>m.l+8+(t-t0)/(t1-t0)*(pw-16),y=p=>m.t+8+(hi-p)/(hi-lo)*(ph-16);
  e('rect',{x:m.l,y:m.t,width:pw,height:ph,fill:'none',stroke:'var(--border)','data-chart-frame':''});
  for(let i=0;i<4;i++){const p=low+(high-low)*i/3;e('line',{x1:m.l,x2:width-m.r,y1:y(p),y2:y(p),stroke:'var(--border)','stroke-width':1});e('text',{x:m.l-8,y:y(p)+4,'text-anchor':'end'},'$'+p.toFixed(2));}
@@ -302,4 +302,28 @@ function drawNestedProfiles(svg,data,width,height){
  counts.forEach((n,i)=>{const subset=rows.slice(-n),bins=new Map();let allocated=0,unallocated=0;for(const d of subset){if(!valid(d)){unallocated+=d.v;continue;}allocated+=d.v;const k=Math.floor(d.vw/step);bins.set(k,(bins.get(k)||0)+d.v);}profiles.push({label:labels[i],allocated,unallocated,bins:[...bins]});const max=Math.max(1,...bins.values()),maxWidth=b.pw*.42,right=x(b.t1);
  for(const [k,v] of bins){const lower=Math.max(b.lo,k*step),upper=Math.min(b.hi,(k+1)*step);if(upper<=lower)continue;const yy=y((lower+upper)/2)+(i-1)*3;e('line',{x1:right-maxWidth*v/max,x2:right,y1:yy,y2:yy,stroke:colors[i],'stroke-width':i===0?8:i===1?4:2,'stroke-opacity':i===0?.18:.65,'data-tooltip':`${labels[i]} · $${(k*step).toFixed(2)}–$${((k+1)*step).toFixed(2)} · ${(v/1e6).toFixed(2)}M shares · ${allocated?(100*v/allocated).toFixed(1):0}% of qualified window`});}});
  path();return{scale:{x,y},profiles,bandSize:step,normalization:'Each profile normalized to its own largest band; widths compare shape, not absolute volume.'};
+}
+function densityRangeDynamics(rows,span=15){
+ if(!Number.isInteger(span)||span<2)throw Error('Invalid range span.');
+ const out=[];
+ function windowStats(from,to){const a=rows.slice(from,to),low=Math.min(...a.map(r=>r.l)),high=Math.max(...a.map(r=>r.h)),mid=(low+high)/2;return{low,high,width:high-low,widthPct:100*(high-low)/mid,shares:a.reduce((s,r)=>s+r.v,0)};}
+ for(let i=span-1;i<rows.length;i++){
+  const current=windowStats(i-span+1,i+1),prior=i>=2*span-1?windowStats(i-2*span+1,i-span+1):null;
+  const widthChangePct=prior&&prior.widthPct>0?100*(current.widthPct/prior.widthPct-1):null;
+  const phase=widthChangePct===null?(prior&&prior.widthPct===0&&current.widthPct===0?'unchanged':'no baseline'):Math.abs(widthChangePct)<1e-10?'unchanged':widthChangePct>0?'expansion':'compression';
+  out.push({t:rows[i].t,knownAt:rows[i].t,span,...current,prior,widthChangePct,phase,volumeRatio:prior&&prior.shares>0?current.shares/prior.shares:null});
+ }
+ return out;
+}
+function drawCompressionExpansion(svg,data,width,height,options={}){
+ const span=options.span||15,history=(options.history||data).filter(r=>r.t<=data.at(-1).t);
+ const series=densityRangeDynamics(history,span).filter(p=>p.t>=data[0].t),b=densityPlotBase(svg,data,width,height,'Compression and expansion: trailing range envelope through time',{extraPrices:series.flatMap(p=>[p.low,p.high])});if(!b)return{};
+ const {e,x,y,path}=b;
+ for(let i=1;i<series.length;i++){
+  const a=series[i-1],c=series[i],color=c.phase==='compression'?'var(--viz-series-2)':c.phase==='expansion'?'var(--viz-series-4)':'var(--muted-foreground)';
+  e('polygon',{points:`${x(a.t)},${y(a.high)} ${x(c.t)},${y(c.high)} ${x(c.t)},${y(c.low)} ${x(a.t)},${y(a.low)}`,fill:color,'fill-opacity':.14,'data-tooltip':`${span}-bar ${c.phase}; range $${c.low.toFixed(2)}–$${c.high.toFixed(2)}; width ${c.widthPct.toFixed(2)}% of midpoint; vs prior disjoint window ${c.widthChangePct===null?'unavailable':(c.widthChangePct>=0?'+':'')+c.widthChangePct.toFixed(1)+'%'}; volume ${c.volumeRatio===null?'unavailable':c.volumeRatio.toFixed(2)+'×'} prior window`});
+ }
+ for(const key of ['high','low'])if(series.length>1)e('polyline',{points:series.map(p=>`${x(p.t)},${y(p[key])}`).join(' '),fill:'none',stroke:'var(--viz-series-2)','stroke-width':1.3});
+ path();
+ return{scale:{x,y},series,latest:series.at(-1)??null,method:'Trailing high-low width as percent of midpoint; compared with the prior disjoint equal-bar window, not price direction.'};
 }
