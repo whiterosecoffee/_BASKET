@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; img-src 'none'; connect-src 'none'; base-uri 'none'">
+<title>Battle-zone presentation research</title>
+<style>
+:root{color-scheme:light dark;--background:light-dark(#fff,#15171a);--foreground:light-dark(#17202a,#eef2f6);--muted:light-dark(#eff2f5,#242b34);--border:light-dark(#d3dbe3,#414b58);--viz-series-1:light-dark(#1269b0,#7cbdf6);--viz-series-2:light-dark(#a45b13,#eab674);--viz-series-3:light-dark(#22764c,#7bce9d);--viz-series-4:light-dark(#8553a0,#c4a1e1);--muted-foreground:light-dark(#566472,#bac4ce)}
+*{box-sizing:border-box}body{margin:0;padding:20px;font:16px system-ui,sans-serif;background:var(--background);color:var(--foreground)}main{max-width:1000px;margin:auto}h1{font-size:1.3rem;font-weight:500}h2{font-size:1.05rem;font-weight:500}label{display:flex;flex-direction:column;gap:5px}button,select,input{font:inherit;color:inherit}button,select{padding:8px;background:var(--muted);border:1px solid var(--border);border-radius:5px}button:disabled{opacity:.45}.controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:18px 0}.check{flex-direction:row;align-items:center;padding:8px 0}input[type=file]{max-width:100%;width:100%}.secondary{color:var(--muted-foreground);font-size:.85rem;margin:10px 0;line-height:1.5}.chart{display:block;width:100%;height:340px}svg text{fill:var(--foreground);font-size:12px}.tabular{font-variant-numeric:tabular-nums}#error{color:var(--foreground);font-weight:500}a{color:var(--viz-series-1)}
+@media(max-width:450px){body{padding:12px}.controls{gap:8px}.chart{height:320px}}
+</style><script src="density.js" defer></script><script src="controller.js" defer></script></head>
+<body><main id="battle-presentation" class="tabular">
+<h1>Battle zones · density and nested relativity</h1>
+<p class="secondary">Offline presentation research · source data remains local · no live feed</p>
+<label>Load supplied observation JSON<input id="data-file" type="file" accept=".json,application/json"></label>
+<p id="error" role="alert"></p>
+<div class="controls">
+ <label>Presentation<select id="model"><option value="rails">Volume Rails</option><option value="ribbons">Rolling Ribbons</option><option value="threads">Revisit Threads</option><option value="heatmap">Time–Price Heatmap</option><option value="nested">Nested Profiles</option></select></label>
+ <label>Backdrop<select id="window"><option value="pm">Premarket</option><option value="5">5 sessions</option><option value="21" selected>21 sessions</option><option value="63">63 sessions</option><option value="252">252 sessions</option></select></label>
+ <button id="earlier" type="button" disabled>Earlier</button><button id="later" type="button" disabled>Later</button>
+ <label class="check"><input id="structure" type="checkbox" checked>Trend structure</label>
+</div>
+<h2 id="model-title">Load data to inspect the five views</h2>
+<div id="dates" class="secondary" aria-live="polite"></div>
+<svg id="plot" class="chart" role="img" aria-label="No observations loaded"></svg>
+<div id="detail" class="secondary" aria-live="polite"></div>
+<div id="method" class="secondary"></div>
+<p class="secondary">Density assigns whole-bar volume at qualified bar VWAP. It is not exact volume at price or signed buying. Price structure uses two bars on either side of a swing; markers are placed at confirmation time, with the original pivot time in their tooltip. Reversal breaks are candidates, not forecasts. Windows count supplied observations; calendars, missing-session coverage and canonical data qualification remain caller responsibilities.</p>
+<p class="secondary">Source boundaries: <a href="README.md">README and input contract</a>. Preserve unmodified authoritative source data outside this presentation directory.</p>
+</main></body></html>
