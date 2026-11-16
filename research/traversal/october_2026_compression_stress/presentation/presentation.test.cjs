@@ -1,7 +1,7 @@
 'use strict';
 // Synthetic offline checks; no recorded ticker history or browser claim.
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const {qualifyDensityDataset,selectDensityWindow,densitySwingStructure}=require('./controller.js');
+const {qualifyDensityDataset,selectDensityWindow,densitySwingStructure,densityMultiTrends}=require('./controller.js');
 let count=0;function test(name,fn){fn();count++;console.log('PASS '+name);}
 const bar=(i,c=10)=>({t:Date.UTC(2026,0,2,14,30)+i*60000,o:c,h:c+.25,l:c-.25,c,v:100+i,vw:c});
 const minute=Array.from({length:80},(_,i)=>bar(i,10+Math.sin(i/3)));
@@ -24,6 +24,10 @@ test('earlier events identical under prefix replay',()=>{const full=densitySwing
 test('lower structure followed by upward break is a candidate',()=>assert(densitySwingStructure(swingBars,1).breaks.some(b=>b.direction==='up')));
 test('flat ties do not fabricate pivots',()=>assert.equal(densitySwingStructure([0,1,2,3,4].map(i=>bar(i)),1).pivots.length,0));
 test('dual high-low outside candle is ambiguous',()=>{const b=[bar(0),{...bar(1),h:12,l:8},bar(2)];assert.equal(densitySwingStructure(b,1).pivots[0].kind,'ambiguous');});
+test('nested trend warmups are explicit',()=>{const s=densityMultiTrends(minute.slice(0,10));assert.equal(s.models[0].points.length,6);assert.equal(s.models[1].latest,'insufficient');assert.equal(s.models[2].latest,'insufficient');});
+test('nested trends never rewrite earlier points',()=>{const full=densityMultiTrends(minute);for(const n of [5,15,45,60,80]){const prefix=densityMultiTrends(minute.slice(0,n));prefix.models.forEach((m,i)=>assert.deepEqual(m.points,full.models[i].points.filter(p=>p.index<n)));}});
+test('monotone and flat nested directions',()=>{assert(densityMultiTrends(Array.from({length:80},(_,i)=>bar(i,10+i/10))).models.every(m=>m.latest==='up'));assert(densityMultiTrends(Array.from({length:80},(_,i)=>bar(i,20-i/10))).models.every(m=>m.latest==='down'));assert(densityMultiTrends(Array.from({length:80},(_,i)=>bar(i,10))).models.every(m=>m.latest==='flat'));});
+test('fine trend turns before broad trend after a peak',()=>{const data=Array.from({length:100},(_,i)=>bar(i,i<75?10+i*.1:17.4-(i-74)*.1)),s=densityMultiTrends(data);const turn=s.models.map(m=>m.points.find(p=>p.index>74&&p.direction==='down')?.index);assert(turn.every(Number.isInteger));assert(turn[0]<turn[1]&&turn[1]<turn[2]);});
 // Native-SVG construction smoke checks at phone and desktop widths.
 let doc;class Element{constructor(){this.children=[];this.namespaceURI='http://www.w3.org/2000/svg';this.ownerDocument=doc;this.attrs={};}setAttribute(k,v){this.attrs[k]=String(v);}appendChild(e){this.children.push(e);return e;}append(...e){this.children.push(...e);}replaceChildren(){this.children=[];}get firstChild(){return this.children[0];}removeChild(e){this.children.splice(this.children.indexOf(e),1);}}
 doc={createElementNS:()=>new Element()};const context={document:doc,Intl,Math,Number,Map,Date};vm.createContext(context);vm.runInContext(fs.readFileSync(__dirname+'/density.js','utf8'),context);
