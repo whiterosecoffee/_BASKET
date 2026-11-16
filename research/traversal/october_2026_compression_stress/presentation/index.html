@@ -13,13 +13,13 @@
 <label>Load supplied observation JSON<input id="data-file" type="file" accept=".json,application/json"></label>
 <p id="error" role="alert"></p>
 <div class="controls">
- <label>Presentation<select id="model"><option value="rails">Volume Rails</option><option value="ribbons">Rolling Ribbons</option><option value="threads">Revisit Threads</option><option value="heatmap">Time–Price Heatmap</option><option value="nested">Nested Profiles</option></select></label>
+ <label>Presentation<select id="model"><option value="rails">Volume Rails</option><option value="ribbons">Rolling Ribbons</option><option value="threads">Revisit Threads</option><option value="heatmap">Time–Price Heatmap</option><option value="nested">Nested Profiles</option><option value="compression">Compression / Expansion</option></select></label>
  <label>Backdrop<select id="window"><option value="pm">Premarket</option><option value="5">5 sessions</option><option value="21" selected>21 sessions</option><option value="63">63 sessions</option><option value="252">252 sessions</option></select></label>
  <button id="earlier" type="button" disabled>Earlier</button><button id="later" type="button" disabled>Later</button>
  <label class="check"><input id="structure" type="checkbox" checked>Trend turns</label>
- <label>Trend detail · <output id="granularity-value">15 bars</output><input id="granularity" type="range" min="3" max="90" step="1" value="15" aria-label="Trend smoothing bars, fewer is finer"><span class="secondary">Finer ← → Broader</span></label>
+ <label>Detail / range window · <output id="granularity-value">15 bars</output><input id="granularity" type="range" min="3" max="90" step="1" value="15" aria-label="Trend smoothing bars, fewer is finer"><span class="secondary">Finer ← → Broader</span></label>
 </div>
-<h2 id="model-title">Load data to inspect the five views</h2>
+<h2 id="model-title">Load data to inspect the six views</h2>
 <div id="dates" class="secondary" aria-live="polite"></div>
 <svg id="plot" class="chart" role="img" aria-label="No observations loaded"></svg>
 <div id="detail" class="secondary" aria-live="polite"></div>
