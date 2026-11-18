@@ -2,6 +2,8 @@
 
 Status: **skeleton, issue #151.** No code, no registered worker, no live feed. See `../ARCHITECTURE.md` for the fixed/option split and measured evidence.
 
+> Update 2026-11-18: step 5's append-only manifest, the 8-field row form and the commit-to-GitHub pilot conflict with the one-date-per-JSONL requirement (#183) and B00 ruling R1 (#207). See "Later requirements and rulings" in `../ARCHITECTURE.md`. This skeleton is not current-conformant and must not be executed against an existing `_FETCH` maintainer without an owner decision.
+
 ## Fixed procedure (do not vary)
 1. Read the manifest watermark; list missing *settled* sessions (dry run by default). Weekdays only; a holiday returns 0 results and is recorded `no_bars`.
 2. For each session: one call per ticker-day, `adjusted=false`, `sort=asc`, `limit=50000`, follow `next_url`. Key only from `MASSIVE_API_KEY`.

@@ -2,6 +2,8 @@
 
 Spark B02 | worker issue #151 | handoff #152 (request R6) | status: **proposal for B00 queue review**. This is a scope document, not an implementation, schedule or live feed. B00 owns `orchestration/planner/queue.json`; nothing here edits it.
 
+> Update 2026-11-18: B00 has since directed that an existing local `_FETCH` maintainer owns acquisition and that no second fetcher, scheduler or canonical archive be built (#207). This proposal's P1 to P4 phases are therefore **on hold pending an owner decision**; the continuous-operation need itself may be met by `_FETCH`'s existing cadence, which is unverified here. See `ARCHITECTURE.md`, "Later requirements and rulings".
+
 ## 1. Intent
 The project owner wants a Massive fetch worker whose instructions are trained once and whose JSONL minute blocks are kept up to date for local functions, evolving over time. Owner direction: place it as a feature request, built **once the NVDA spark is online**.
 

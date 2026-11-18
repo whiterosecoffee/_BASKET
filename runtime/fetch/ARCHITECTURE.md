@@ -9,6 +9,17 @@ Spark B02 | issue #151 | status: **design record, no code**. Nothing here is a r
 - Staged flow: **intake -> verify -> promote**. Intake lives git-tracked under `runtime/fetch/intake/<T>/`; promotion into `tickers/<T>/intraday/` is a separate draft PR the owner authorizes.
 - Continuous operation is a feature request, not part of this work (depends on the NVDA spark being online).
 
+## Later requirements and rulings that conflict with the decisions above (checked 2026-11-18; main 74d913e)
+Recorded, not resolved here. The decisions above are as given at task start; where a row below conflicts, the block of text elsewhere in this record that still says "8-field rows" or `manifest.1m.jsonl` is **not current-conformant**.
+| Source | What it says | Conflict with this record |
+|---|---|---|
+| #183 user requirement (2026-11-04); notice on #151 (comment 6643937768) | Exactly one exchange session date per physical JSONL; multi-day manifests only as non-JSONL metadata | `manifest.1m.jsonl` is a multi-date JSONL and violates this. Per-session block files already comply. |
+| B00 ruling R1, #207 comment 6700016254 (2026-11-06, "on the operator's go-ahead") | Path `<root>/tickers/<T>/intraday/<YYYY-MM-DD>.1m.jsonl`; rows are TickerStore named-field records with `id` and `supersedes`, positional `[t,o,h,l,c,v,vw,n]` only a derived export; manifest non-JSONL or per date; durable root outside GitHub by default; ORCL public-commit pilot only a labelled exception pending a provider-terms check; interim one root per exchange date | Path matches. Row format, manifest form and the public-commit decision differ from the task-start decisions. Not enforced until B02 code and B01 CI exist (per the ruling). |
+| #207 comments 6769551838, 6835830005 (B00 allocation, user routing) | An existing local `_FETCH` Massive maintainer (plan, fetch, verify-apply stages and ledgers) owns acquisition; "do not build a second fetcher, scheduler, ticker database or canonical archive"; B02's `runtime/refresh_qc/**` is a separate task | Building a stager under `runtime/fetch/` would be a second fetcher unless the owner says otherwise. `_FETCH` is not in main and was not inspected. |
+| #207 comment 6810093014 (B00 #241 / PR #242) | Reference runner: connector projection to transient one-day JSONL, sanitation, verification, separate consumer; 960 NVDA bars; isolated test packaging, not a proposed replacement | Partial evidence on R7: a connector-to-JSONL route was demonstrated there. Not independently verified here. |
+| #207 comment 6700016254 | Project memory says monthly shards approved; the 2026-11-03 decision log says daily files; B00 treats monthly as superseded by the Nov 4 requirement | Granularity records conflict across sources. |
+Net effect: this record is best read as a **specification and gap analysis for the existing `_FETCH` maintainer and the R1 writer**, not as a justification for a new fetcher. Whether any code is built under `runtime/fetch/` is an open owner decision.
+
 ## Fixed procedure vs runtime option sets
 Rule: **specify what protects truth, ownership or irreversibility; offer options for what only affects efficiency or order.** Every run records the option it chose and the criteria values it saw.
 
