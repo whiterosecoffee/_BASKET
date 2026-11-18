@@ -13,4 +13,4 @@ Python 3.12 and system time-zone data were used for the offline verification.
 
 Run `python3 -B inspect_roster.py --root /path/to/_TICKERS --required-through 2026-11-16T19:59:00-05:00` with the actual cutoff and placed archive root. The roster comes from the existing placement manifest. Endpoint observations do not establish continuous coverage. Review stale or unavailable endpoints with the canonical owner.
 
-Use a fresh relative `RAW_DIR` for each trusted plan because the legacy resume marker is ticker-scoped. Keep key files, histories, plans and operational receipts out of source control.
+The fetcher and verifier share a staging directory keyed by SHA-256 of the exact trusted plan bytes. Existing unbound staging is preserved and is unavailable to plan-scoped resume. Keep key files, histories, plans and operational receipts out of source control.

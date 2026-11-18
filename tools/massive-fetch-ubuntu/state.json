@@ -35,13 +35,32 @@
     ],
     "next_steps": [
       {
-        "action": "Exercise the existing plan-to-verifier path with a small synthetic offline fixture.",
-        "acceptance": "A completed, incomplete and unavailable staging case each yields the expected report without credentials or archive writes."
-      },
-      {
-        "action": "Compare an owner-approved source-only revision of the incumbent maintainer.",
-        "acceptance": "Record which transport and staging behavior should be retained or aligned, including plan-scoped resume."
+        "action": "Compare exact incumbent source when B02 provides a source-only snapshot."
       }
-    ]
+    ],
+    "published_state_readback": "Verified state.json and AGENTS.md on the development branch.",
+    "offline_plan_verifier_check": {
+      "status": "passed",
+      "synthetic_case_statuses": {
+        "FAILED": "staging_failed",
+        "UNAVAILABLE": "staging_unavailable_or_incomplete",
+        "COMPLETE": "ready"
+      },
+      "credentials_used": false,
+      "archive_writes": false
+    },
+    "maintainer_comparison": {
+      "status": "archived_revision_compared_exact_revision_unavailable",
+      "owner_reported_revision": "2ed1e9d0215da1e0aa8c88afbe71950882fa341f",
+      "comparison_revision": "8cf8897689cc69f41fe9b68a8125e6592d84d653",
+      "finding": "The archived owner implementation binds admission to inventory and index digests, and checks fulfillment against the qualified published partition. The standalone fetcher and verifier rely on ticker-only marker existence within a manually chosen staging directory.",
+      "decision": "Use the SHA-256 of the exact trusted plan bytes to scope the standalone staging directory in both entry points. Keep legacy directories intact and treat their unbound markers as unverified for new plans. Preserve owner admission and publication responsibilities.",
+      "validation": "Use an offline fixture with two different plans for the same ticker, plus a repeat of the same plan. Only the identical plan may reuse its completion marker. Confirm the verifier cannot treat old unbound markers as completed for the new plan."
+    },
+    "plan_scoped_staging": {
+      "status": "implemented_and_verified_locally",
+      "evidence": "Identical-plan resume, different-plan isolation and preservation of legacy markers passed offline.",
+      "publication": "source_only_development_checkpoint"
+    }
   }
 }

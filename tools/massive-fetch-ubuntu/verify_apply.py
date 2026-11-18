@@ -23,6 +23,7 @@ from zoneinfo import ZoneInfo
 from concurrent.futures import ProcessPoolExecutor, as_completed
 HERE = os.path.dirname(os.path.abspath(__file__))
 import ticker_jsonl_tool as T
+from fetch_run import load_plan
 RAW = os.path.join(HERE, "staging", os.environ.get("RAW_DIR", "raw"))
 DATA_ROOT = Path(os.environ.get("TICKER_DATA_ROOT") or Path.home() / "OneDrive/_BASKET/_TICKERS")
 ET = ZoneInfo("America/New_York")
@@ -115,7 +116,8 @@ def process(tk, p):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); ap.add_argument("--only", default="")
     a = ap.parse_args()
-    plan = json.load(open(os.path.join(HERE, os.environ.get("PLAN_FILE", "plan.json"))))["plan"]
+    plan, plan_sha256 = load_plan()
+    RAW = os.path.join(RAW, plan_sha256)
     only = [x for x in a.only.split(",") if x]
     tks = [t for t in plan if not only or t in only]
     print("mode dry-run tickers", len(tks), flush=True)

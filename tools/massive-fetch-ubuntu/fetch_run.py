@@ -1,11 +1,12 @@
 """Execute plan.json: pull vendor minute bars into staging/raw/<TICKER>.jsonl (vendor values,
 untouched except for mapping into the row shape). Never touches the data folder.
 
-Resumable: a ticker with staging/raw/<TICKER>.done is skipped. Every request outcome is
+Resumable: a ticker with a .done marker under staging/raw/<plan-sha256>/ is skipped. Every request outcome is
 appended to staging/ledger.jsonl. Create a file named STOP here to halt cleanly.
 Env: FETCH_WORKERS (default 8), FETCH_ONLY (comma list of tickers).
 """
-import json, os, sys, time, threading
+import hashlib, json, os, sys, time, threading
+from pathlib import Path
 from datetime import datetime, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -14,6 +15,13 @@ import massive_client as m
 RAW = os.path.join(HERE, "staging", os.environ.get("RAW_DIR", "raw")); LEDGER = os.path.join(HERE, "staging", "ledger.jsonl")
 SRC = "massive-aggs-v2-1min-refetch"
 _lock = threading.Lock()
+
+
+def load_plan():
+    """Use the same plan bytes for parsing and selection of its staging directory."""
+    path = Path(HERE) / os.environ.get("PLAN_FILE", "plan.json")
+    data = path.read_bytes()
+    return json.loads(data)["plan"], hashlib.sha256(data).hexdigest()
 
 def log(rec):
     rec["at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -51,7 +59,8 @@ def do_ticker(tk, p):
     return tk, ("ok" if ok else "errors:%s" % sorted(set(map(str, status_all)))), len(rows)
 
 if __name__ == "__main__":
-    plan = json.load(open(os.path.join(HERE, os.environ.get("PLAN_FILE", "plan.json"))))["plan"]
+    plan, plan_sha256 = load_plan()
+    RAW = os.path.join(RAW, plan_sha256)
     only = [x for x in os.environ.get("FETCH_ONLY", "").split(",") if x]
     tks = [t for t in plan if (not only or t in only)]
     w = int(os.environ.get("FETCH_WORKERS", "8")); t0 = time.time(); done = 0; tot = 0
