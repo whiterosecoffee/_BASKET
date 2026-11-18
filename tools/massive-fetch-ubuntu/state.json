@@ -1,0 +1,47 @@
+{
+  "component": "massive-fetch-ubuntu",
+  "purpose": "Reuse the existing Massive fetcher as a standalone Ubuntu tool for the existing ticker archive.",
+  "objective": "Complete and publish the source-only development checkpoint, then let Spark own planning for subsequent development.",
+  "status": "development",
+  "instructions": "AGENTS.md",
+  "source_inventory": "SOURCE-SHA256.txt",
+  "entry_points": {
+    "planning": "fetch_plan.py",
+    "staging": "fetch_run.py",
+    "verification": "verify_apply.py",
+    "archive_inspection": "inspect_roster.py"
+  },
+  "ownership": {
+    "development_planning": "Spark",
+    "canonical_ingestion": "_FETCH/B02"
+  },
+  "publication": {
+    "branch": "work/massive-fetch-ubuntu-port",
+    "status": "source_only_development_checkpoint",
+    "repository": "whiterosecoffee/_BASKET",
+    "path": "tools/massive-fetch-ubuntu"
+  },
+  "spark_review": {
+    "status": "reviewed",
+    "environment": "Ubuntu 24.04, Python 3.12",
+    "evidence": [
+      "All six Python modules compiled and imported with HTTP blocked.",
+      "The existing verifier is read-only and the roster check reports physical endpoints without qualifying continuous coverage."
+    ],
+    "findings": [
+      "The legacy source is pinned and the code is ready for a development checkpoint.",
+      "Exact parity with the incumbent maintainer revision is unverified.",
+      "The legacy ticker-level resume marker is not bound to a specific plan."
+    ],
+    "next_steps": [
+      {
+        "action": "Exercise the existing plan-to-verifier path with a small synthetic offline fixture.",
+        "acceptance": "A completed, incomplete and unavailable staging case each yields the expected report without credentials or archive writes."
+      },
+      {
+        "action": "Compare an owner-approved source-only revision of the incumbent maintainer.",
+        "acceptance": "Record which transport and staging behavior should be retained or aligned, including plan-scoped resume."
+      }
+    ]
+  }
+}
