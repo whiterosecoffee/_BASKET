@@ -1,0 +1,158 @@
+{
+  "record_type": "virtual_design_traces",
+  "model_ref": {
+    "ref": "model.json",
+    "sha256": "cdbf13aaff28dc5ca3169f2e62f81b0f62ed816fbf9157ad8cc14efc60c84250"
+  },
+  "scenarios_ref": {
+    "ref": "scenarios.json",
+    "sha256": "2f8186d53d039a30ad7014e4f7568064e470899e5933c9917e79705042dffb04"
+  },
+  "traces": [
+    {
+      "scenario_id": "success",
+      "interpreter": "assistant",
+      "interpreter_version": null,
+      "evidence_class": "assistant_simulated",
+      "steps": [
+        {
+          "sequence": 1,
+          "rule_id": "R4",
+          "actor_instance": "intake-1",
+          "from": "received",
+          "to": "admitted",
+          "output_ports": [
+            "accepted_task"
+          ],
+          "evidence_class": "assistant_simulated",
+          "reason": "Apply declared rule to the fixed synthetic fixture; no actual worker invoked."
+        },
+        {
+          "sequence": 2,
+          "rule_id": "R5",
+          "actor_instance": "prepare-1",
+          "from": "admitted",
+          "to": "drafted",
+          "output_ports": [
+            "draft"
+          ],
+          "evidence_class": "assistant_simulated",
+          "reason": "Apply declared rule to the fixed synthetic fixture; no actual worker invoked."
+        },
+        {
+          "sequence": 3,
+          "rule_id": "R6",
+          "actor_instance": "review-1",
+          "from": "drafted",
+          "to": "virtually_accepted",
+          "output_ports": [
+            "verdict"
+          ],
+          "evidence_class": "assistant_simulated",
+          "reason": "Apply declared rule to the fixed synthetic fixture; no actual worker invoked."
+        }
+      ],
+      "terminal_state": "virtually_accepted",
+      "error_code": null,
+      "draft": {
+        "ref": "synthetic-draft.json",
+        "sha256": "2dfd7acacbbd6c0de0cac0cb231c3cdcba4daa230da2dc00141412c473c7e2d7"
+      },
+      "verdict": {
+        "status": "virtually_accepted",
+        "reason": "C1-C4 hold for synthetic identities and fixture bytes only.",
+        "evidence_class": "assistant_simulated"
+      },
+      "diagnostics": [],
+      "actual_external_effects": [],
+      "actual_worker_execution": false,
+      "actual_independent_review": false
+    },
+    {
+      "scenario_id": "missing",
+      "interpreter": "assistant",
+      "interpreter_version": null,
+      "evidence_class": "assistant_simulated",
+      "steps": [
+        {
+          "sequence": 1,
+          "rule_id": "R1",
+          "actor_instance": "intake-1",
+          "from": "received",
+          "to": "blocked",
+          "output_ports": [],
+          "evidence_class": "assistant_simulated",
+          "reason": "missing_task"
+        }
+      ],
+      "terminal_state": "blocked",
+      "error_code": "missing_task",
+      "draft": null,
+      "verdict": null,
+      "diagnostics": [],
+      "actual_external_effects": [],
+      "actual_worker_execution": false,
+      "actual_independent_review": false
+    },
+    {
+      "scenario_id": "invalid",
+      "interpreter": "assistant",
+      "interpreter_version": null,
+      "evidence_class": "assistant_simulated",
+      "steps": [
+        {
+          "sequence": 1,
+          "rule_id": "R2",
+          "actor_instance": "intake-1",
+          "from": "received",
+          "to": "rejected",
+          "output_ports": [],
+          "evidence_class": "assistant_simulated",
+          "reason": "invalid_task"
+        }
+      ],
+      "terminal_state": "rejected",
+      "error_code": "invalid_task",
+      "draft": null,
+      "verdict": null,
+      "diagnostics": [
+        {
+          "code": "invalid_task",
+          "instance_path": "/write_paths",
+          "schema_path": "/properties/write_paths/type",
+          "message": "Expected array; supplied string."
+        }
+      ],
+      "actual_external_effects": [],
+      "actual_worker_execution": false,
+      "actual_independent_review": false
+    },
+    {
+      "scenario_id": "denied",
+      "interpreter": "assistant",
+      "interpreter_version": null,
+      "evidence_class": "assistant_simulated",
+      "steps": [
+        {
+          "sequence": 1,
+          "rule_id": "R3",
+          "actor_instance": "intake-1",
+          "from": "received",
+          "to": "blocked",
+          "output_ports": [],
+          "evidence_class": "assistant_simulated",
+          "reason": "authorization_not_granted"
+        }
+      ],
+      "terminal_state": "blocked",
+      "error_code": "authorization_not_granted",
+      "draft": null,
+      "verdict": null,
+      "diagnostics": [],
+      "actual_external_effects": [],
+      "actual_worker_execution": false,
+      "actual_independent_review": false
+    }
+  ],
+  "interpretation": "Manually constructed assistant walkthroughs, not recorded executions. Actual structural validation is reported separately in the issue."
+}
