@@ -1,0 +1,298 @@
+{
+  "classification": "actual_offline_characterization_not_operational_acceptance",
+  "map_revision": "1a9fdb7952676d026e92d001f88f62de67f103e0",
+  "helper_revision": "74d913e8913d630d85451344689e093aeea07efc",
+  "source_sha256": {
+    "contract.json": "12617b91744f25eaa2f0b774f7a0b08d588b61843217cd8544033ddac57cd457",
+    "cases.json": "ca840ba15b2bb6aeb69f433488b617763973b3edf25e40d4e532714ff51d9d9d",
+    "run.py": "07973f0f6ce108ad4021dab3523a15cf7026d7d5785154a49c3653e524239949"
+  },
+  "baseline_cases": [
+    {
+      "id": "normal",
+      "outcome": "next_proposal"
+    },
+    {
+      "id": "stale_claim",
+      "outcome": "stale_fence"
+    },
+    {
+      "id": "expired_claim",
+      "outcome": "lease_expired"
+    },
+    {
+      "id": "duplicate_result",
+      "outcome": "duplicate_result_rejected"
+    },
+    {
+      "id": "wrong_head_acceptance",
+      "outcome": "acceptance_blocked"
+    },
+    {
+      "id": "missing_acceptance",
+      "outcome": "acceptance_blocked"
+    },
+    {
+      "id": "failed_ci",
+      "outcome": "acceptance_blocked"
+    },
+    {
+      "id": "uncertain_matching",
+      "outcome": "next_proposal"
+    },
+    {
+      "id": "uncertain_absent",
+      "outcome": "retry_requires_fresh_authority_and_state"
+    },
+    {
+      "id": "uncertain_unknown",
+      "outcome": "inspect_before_retry"
+    },
+    {
+      "id": "uncertain_mismatch",
+      "outcome": "write_conflict"
+    },
+    {
+      "id": "uncertain_changed_payload",
+      "outcome": "write_conflict"
+    }
+  ],
+  "probes": [
+    {
+      "id": "untrusted_provenance",
+      "base_case": "uncertain_matching",
+      "extra_contract_inputs": {
+        "observation_provenance": {
+          "verified": false,
+          "origin": "caller_claim"
+        }
+      },
+      "mutation": null,
+      "observed": {
+        "id": "uncertain_matching",
+        "outcome": "next_proposal",
+        "next_proposal": true,
+        "external_effects": 0,
+        "result_count": 1,
+        "trace": [
+          {
+            "stage": "claim",
+            "result": "valid"
+          },
+          {
+            "stage": "readback",
+            "result": "matching",
+            "implementation": "new_offline_model"
+          },
+          {
+            "stage": "result",
+            "result": "one_observed_result"
+          },
+          {
+            "stage": "acceptance",
+            "result": {
+              "required": 1,
+              "verified": 1,
+              "missing": [],
+              "head_ci": true,
+              "component_verified": true,
+              "integrated": false
+            }
+          },
+          {
+            "stage": "next",
+            "result": "eligible_proposal_only"
+          }
+        ]
+      },
+      "finding": "Provenance not consumed; digest equality is not target authentication."
+    },
+    {
+      "id": "revoked_authority",
+      "base_case": "uncertain_matching",
+      "extra_contract_inputs": {
+        "current_authorization": "revoked"
+      },
+      "mutation": null,
+      "observed": {
+        "id": "uncertain_matching",
+        "outcome": "next_proposal",
+        "next_proposal": true,
+        "external_effects": 0,
+        "result_count": 1,
+        "trace": [
+          {
+            "stage": "claim",
+            "result": "valid"
+          },
+          {
+            "stage": "readback",
+            "result": "matching",
+            "implementation": "new_offline_model"
+          },
+          {
+            "stage": "result",
+            "result": "one_observed_result"
+          },
+          {
+            "stage": "acceptance",
+            "result": {
+              "required": 1,
+              "verified": 1,
+              "missing": [],
+              "head_ci": true,
+              "component_verified": true,
+              "integrated": false
+            }
+          },
+          {
+            "stage": "next",
+            "result": "eligible_proposal_only"
+          }
+        ]
+      },
+      "finding": "Post-readback authorization not consumed."
+    },
+    {
+      "id": "newer_steering",
+      "base_case": "uncertain_matching",
+      "extra_contract_inputs": {
+        "steering": {
+          "dispatch_revision": "r1",
+          "current_revision": "r2",
+          "conflicts": true
+        }
+      },
+      "mutation": null,
+      "observed": {
+        "id": "uncertain_matching",
+        "outcome": "next_proposal",
+        "next_proposal": true,
+        "external_effects": 0,
+        "result_count": 1,
+        "trace": [
+          {
+            "stage": "claim",
+            "result": "valid"
+          },
+          {
+            "stage": "readback",
+            "result": "matching",
+            "implementation": "new_offline_model"
+          },
+          {
+            "stage": "result",
+            "result": "one_observed_result"
+          },
+          {
+            "stage": "acceptance",
+            "result": {
+              "required": 1,
+              "verified": 1,
+              "missing": [],
+              "head_ci": true,
+              "component_verified": true,
+              "integrated": false
+            }
+          },
+          {
+            "stage": "next",
+            "result": "eligible_proposal_only"
+          }
+        ]
+      },
+      "finding": "Current steering revision not consumed."
+    },
+    {
+      "id": "absent_in_flight",
+      "base_case": "uncertain_absent",
+      "extra_contract_inputs": {
+        "original_request": {
+          "state": "in_flight",
+          "fenced": false
+        }
+      },
+      "mutation": null,
+      "observed": {
+        "id": "uncertain_absent",
+        "outcome": "retry_requires_fresh_authority_and_state",
+        "next_proposal": false,
+        "external_effects": 0,
+        "result_count": 0,
+        "trace": [
+          {
+            "stage": "claim",
+            "result": "valid"
+          },
+          {
+            "stage": "readback",
+            "result": "absent",
+            "implementation": "new_offline_model"
+          }
+        ]
+      },
+      "finding": "No next proposal/effect; in-flight distinction not represented."
+    },
+    {
+      "id": "absent_terminal",
+      "base_case": "uncertain_absent",
+      "extra_contract_inputs": {
+        "original_request": {
+          "state": "terminal_no_effect",
+          "fenced": true
+        }
+      },
+      "mutation": null,
+      "observed": {
+        "id": "uncertain_absent",
+        "outcome": "retry_requires_fresh_authority_and_state",
+        "next_proposal": false,
+        "external_effects": 0,
+        "result_count": 0,
+        "trace": [
+          {
+            "stage": "claim",
+            "result": "valid"
+          },
+          {
+            "stage": "readback",
+            "result": "absent",
+            "implementation": "new_offline_model"
+          }
+        ]
+      },
+      "finding": "Same conservative result; terminal proof does not grant execution."
+    },
+    {
+      "id": "wrong_target",
+      "base_case": "uncertain_matching",
+      "extra_contract_inputs": {},
+      "mutation": "target_scope changed and digest recomputed",
+      "observed": {
+        "id": "uncertain_matching",
+        "outcome": "write_conflict",
+        "next_proposal": false,
+        "external_effects": 0,
+        "result_count": 0,
+        "trace": [
+          {
+            "stage": "claim",
+            "result": "valid"
+          },
+          {
+            "stage": "readback",
+            "result": "mismatch",
+            "implementation": "new_offline_model"
+          }
+        ]
+      },
+      "finding": "Existing envelope comparison rejects a different target even with recomputed digest."
+    }
+  ],
+  "case_count": 18,
+  "failures": 0,
+  "external_effects": 0,
+  "unchanged_replay": true,
+  "interpretation": "Unsupported extra fields are ignored by this bounded model. This demonstrates a qualification boundary, not a claimed violation of its existing declared contract. No real authorization or target trust was verified.",
+  "next_owner_action": "#230 adopt/defer provenance, in-flight and post-readback authority inputs before #32/#78 implementation allocation."
+}

@@ -1,0 +1,644 @@
+{
+  "record_type": "recovery_qualification_specimen",
+  "classification": "synthetic_only_not_operational",
+  "base_commit": "74d913e8913d630d85451344689e093aeea07efc",
+  "sources": [
+    {
+      "path": "orchestration/agentic/manager.py",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "ef6807803d9dca7fc58a596d8c613bcf8dbeae578c74a4a41d45ec3551689487"
+    },
+    {
+      "path": "orchestration/planner.py",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "409828e9b3ea8042a943d84611b8e4883b35d361b132dedcb6ec654dfaf8c6dc"
+    },
+    {
+      "path": "orchestration/worker_protocol.py",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "694accc7a8cc1e38cca9aeff41222651b5318e1fb5c3f14f8dc6910114bce191"
+    },
+    {
+      "path": "orchestration/worker_contracts/worker-v2.md",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "ff9f37e3759ee7ec6e88350db969e78c34b6c2ad25ad5f9af89f729eb308fd5f"
+    },
+    {
+      "path": "orchestration/WORKER_PROTOCOL.md",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "667887a1dd8bb04f44219567367d34208968329d915399145ba15724ac77baf7"
+    },
+    {
+      "path": "orchestration/planner/WORKER_JOBS.md",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "806029ad6c85e447710843219aa6bf555873a8f724f7923699527a1767d078b4"
+    }
+  ],
+  "design_reference": {
+    "issue": 226,
+    "commit": "10be98031aa5dbd9b5841cc8f88bab5b834790e2",
+    "path": "architecture/virtual_design/intake_worker_review/scenarios.json",
+    "reuse": "Separate simulated transitions from executed helper observations; do not replicate intake/worker/review design."
+  },
+  "transition_note": "Descriptive recovery expectations, not new canonical states or an executable controller. Uncertain write always requires external reconciliation before retry.",
+  "now": "2026-01-01T00:01:00Z",
+  "scenarios": [
+    {
+      "id": "success",
+      "classification": "simulated_scenario",
+      "helper": "attempts",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-2",
+          "type": "attempt_passed",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:02Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step",
+          "result_url": "https://example.invalid/synthetic-result"
+        }
+      ],
+      "expected_helper": {
+        "last_result": "attempt_passed",
+        "pending": []
+      },
+      "expected_transition": [
+        "attempt_started",
+        "attempt_passed",
+        "independent_acceptance_required"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "attempts",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": null
+    },
+    {
+      "id": "interrupted_execution",
+      "classification": "simulated_scenario",
+      "helper": "attempts",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step"
+        }
+      ],
+      "expected_helper": {
+        "last_result": null,
+        "pending": [
+          "ATT-synthetic-1"
+        ]
+      },
+      "expected_transition": [
+        "attempt_started",
+        "interrupted",
+        "reconcile_checkpoint_before_recovery"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "attempts",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": "Helper records unresolved execution; it does not observe runner termination or external side effects."
+    },
+    {
+      "id": "uncertain_write_retry_blocked",
+      "classification": "simulated_scenario",
+      "helper": "attempts",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-3",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:03Z",
+          "attempt_id": "ATT-synthetic-2",
+          "step_id": "synthetic-step",
+          "retry_of": "ATT-synthetic-1"
+        }
+      ],
+      "expected_helper": {
+        "error": "retry must name earlier failed attempt"
+      },
+      "expected_transition": [
+        "write_outcome_unknown",
+        "reconcile_external_target",
+        "only_then_consider_retry"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "attempts",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": "Unresolved attempt blocks retry, but no external-target reconciliation proof is represented."
+    },
+    {
+      "id": "acknowledged_dispatch_not_completion",
+      "classification": "simulated_scenario",
+      "helper": "attempts",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step"
+        }
+      ],
+      "expected_helper": {
+        "last_result": null,
+        "pending": [
+          "ATT-synthetic-1"
+        ]
+      },
+      "expected_transition": [
+        "dispatch_acknowledged",
+        "attempt_pending",
+        "completion_requires_result_evidence"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "attempts",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": "attempt_started is a bounded proxy for acknowledgement; transport acknowledgement is not modeled here."
+    },
+    {
+      "id": "completed_cannot_restart_same_attempt",
+      "classification": "simulated_scenario",
+      "helper": "attempts",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-2",
+          "type": "attempt_passed",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:02Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step",
+          "result_url": "https://example.invalid/synthetic-result"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-3",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:03Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step"
+        }
+      ],
+      "expected_helper": {
+        "error": "attempt started twice"
+      },
+      "expected_transition": [
+        "attempt_passed",
+        "late_duplicate_dispatch",
+        "reject_without_regression"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "attempts",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": null
+    },
+    {
+      "id": "completed_cannot_retry",
+      "classification": "simulated_scenario",
+      "helper": "attempts",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-2",
+          "type": "attempt_passed",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:02Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step",
+          "result_url": "https://example.invalid/synthetic-result"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-3",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:03Z",
+          "attempt_id": "ATT-synthetic-2",
+          "step_id": "synthetic-step",
+          "retry_of": "ATT-synthetic-1"
+        }
+      ],
+      "expected_helper": {
+        "error": "retry must name earlier failed attempt"
+      },
+      "expected_transition": [
+        "attempt_passed",
+        "late_retry",
+        "reject_without_regression"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "attempts",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": null
+    },
+    {
+      "id": "repeated_wake_duplicate_event",
+      "classification": "simulated_scenario",
+      "helper": "event_check",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step"
+        }
+      ],
+      "expected_helper": {
+        "error": "duplicated journal ID"
+      },
+      "expected_transition": [
+        "same_wake",
+        "same_event_id",
+        "reject_duplicate_append"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "event_check",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": "Duplicate IDs reject; different wake IDs have no general semantic deduplication key."
+    },
+    {
+      "id": "retry_ancestry_preserved",
+      "classification": "simulated_scenario",
+      "helper": "attempts",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-2",
+          "type": "attempt_failed",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:02Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step",
+          "result_url": "https://example.invalid/synthetic-failure"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-3",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:03Z",
+          "attempt_id": "ATT-synthetic-2",
+          "step_id": "synthetic-step",
+          "retry_of": "ATT-synthetic-1"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-4",
+          "type": "attempt_passed",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:04Z",
+          "attempt_id": "ATT-synthetic-2",
+          "step_id": "synthetic-step",
+          "result_url": "https://example.invalid/synthetic-retry"
+        }
+      ],
+      "expected_helper": {
+        "attempts": 2,
+        "failures": 1,
+        "last_result": "attempt_passed",
+        "pending": []
+      },
+      "expected_transition": [
+        "failed_attempt_retained",
+        "retry_links_prior_failed_step",
+        "retry_passed"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "attempts",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": null
+    },
+    {
+      "id": "retry_wrong_step",
+      "classification": "simulated_scenario",
+      "helper": "attempts",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-2",
+          "type": "attempt_failed",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:02Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step",
+          "result_url": "https://example.invalid/synthetic-failure"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-3",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:03Z",
+          "attempt_id": "ATT-synthetic-2",
+          "step_id": "other-step",
+          "retry_of": "ATT-synthetic-1"
+        }
+      ],
+      "expected_helper": {
+        "error": "retry cannot change step identity"
+      },
+      "expected_transition": [
+        "failed",
+        "retry_changes_step",
+        "reject"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "attempts",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": null
+    },
+    {
+      "id": "retry_missing_parent",
+      "classification": "simulated_scenario",
+      "helper": "attempts",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step",
+          "retry_of": "ATT-absent"
+        }
+      ],
+      "expected_helper": {
+        "error": "retry must name earlier failed attempt"
+      },
+      "expected_transition": [
+        "missing_parent",
+        "reject"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "attempts",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": null
+    },
+    {
+      "id": "newer_user_steering",
+      "classification": "simulated_scenario",
+      "helper": "event_check",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "user_steering",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step",
+          "revision": "synthetic-r2"
+        }
+      ],
+      "expected_helper": {
+        "error": "unknown journal event"
+      },
+      "expected_transition": [
+        "newer_user_steering",
+        "invalidate_old_authorization",
+        "reread_scope_before_action"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "event_check",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": "No steering revision or supersession event is supported; owner #32/#78 must bind current instructions before dispatch. Rejection is not implemented steering recovery."
+    },
+    {
+      "id": "uncertain_write_mislabeled_failure",
+      "classification": "simulated_scenario",
+      "helper": "attempts",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-1",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:01Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-2",
+          "type": "attempt_failed",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:02Z",
+          "attempt_id": "ATT-synthetic-1",
+          "step_id": "synthetic-step",
+          "result_url": "https://example.invalid/synthetic-failure"
+        },
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-3",
+          "type": "attempt_started",
+          "task_id": "synthetic-recovery",
+          "at": "2026-01-01T00:00:03Z",
+          "attempt_id": "ATT-synthetic-2",
+          "step_id": "synthetic-step",
+          "retry_of": "ATT-synthetic-1"
+        }
+      ],
+      "expected_helper": {
+        "attempts": 2,
+        "failures": 1,
+        "pending": [
+          "ATT-synthetic-2"
+        ]
+      },
+      "expected_transition": [
+        "uncertain_external_write",
+        "reconciliation_required",
+        "retry_forbidden_until_confirmed"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "attempts",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": "Concrete gap: an attempt_failed record with any nonempty result URL permits retry ancestry without verifying external-write reconciliation. Do not translate unknown outcome into failure."
+    },
+    {
+      "id": "stale_snapshot",
+      "classification": "simulated_scenario",
+      "helper": "evidence_check",
+      "inputs": {
+        "schema": "basket.github_evidence@1",
+        "repository": "whiterosecoffee/_BASKET",
+        "capture_mode": "live_connector",
+        "observed_at": "2025-12-31T00:00:00Z"
+      },
+      "expected_helper": {
+        "error": "GitHub snapshot expired or future dated"
+      },
+      "expected_transition": [
+        "stale_snapshot",
+        "reject",
+        "fetch_new_evidence"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "evidence_check",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": null
+    },
+    {
+      "id": "historical_snapshot",
+      "classification": "simulated_scenario",
+      "helper": "evidence_check",
+      "inputs": {
+        "schema": "basket.github_evidence@1",
+        "repository": "whiterosecoffee/_BASKET",
+        "capture_mode": "historical_fixture",
+        "observed_at": "2026-01-01T00:00:00Z"
+      },
+      "expected_helper": {
+        "error": "historical fixture cannot authorize operations"
+      },
+      "expected_transition": [
+        "fixture_evidence",
+        "reject_operation_authorization"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "evidence_check",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": null
+    },
+    {
+      "id": "expired_lease",
+      "classification": "simulated_scenario",
+      "helper": "lease_state",
+      "inputs": [
+        {
+          "schema": "basket.agentic_event@1",
+          "event_id": "synthetic-lease",
+          "type": "lease_granted",
+          "task_id": "synthetic-recovery",
+          "issue": 999999,
+          "branch": "work/999999-synthetic",
+          "at": "2026-01-01T00:00:00Z",
+          "expires_at": "2026-01-01T00:00:30Z"
+        }
+      ],
+      "expected_helper": {
+        "active": {},
+        "expired": [
+          "synthetic-recovery"
+        ],
+        "trusted": false
+      },
+      "expected_transition": [
+        "lease_elapsed",
+        "activity_unknown",
+        "verify_owner_checkpoint_before_retry"
+      ],
+      "source": {
+        "path": "orchestration/agentic/manager.py",
+        "symbol": "lease_state",
+        "commit": "74d913e8913d630d85451344689e093aeea07efc"
+      },
+      "implementation_gap": null
+    }
+  ]
+}
