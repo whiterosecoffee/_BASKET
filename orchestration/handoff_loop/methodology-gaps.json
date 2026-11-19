@@ -1,0 +1,16 @@
+{
+  "schema": "basket.handoff_methodology_gaps@0.1-draft",
+  "status": "proposed_owner_handoff_not_accepted",
+  "receiver": "existing execution-admission owner via controller private routing",
+  "source_branch": "work/local-20261112-execution-admission-portable",
+  "source_revision": "52466d030af6141d0d19285e1e776ee15707a43e",
+  "source_qualification": "provided by controller; not independently executed in this component",
+  "gaps": [
+    {"id":"launch-enforcement","requirement":"Bind explicit environment ID and actual-host verification to launch; reject unavailable workstation instead of cloud fallback.","acceptance":"Wrong-host and offline real launch probes are denied before execution."},
+    {"id":"atomic-ownership","requirement":"Unique worktree/branch, exclusive owner, scope README, dependency routing and current lease enforced at launch.","acceptance":"Concurrent launch attempt cannot create two writers; existing dirty work and ancestry survive."},
+    {"id":"privacy-boundary","requirement":"Keep runtime registries, personal paths and internal routing private; scan exact publication diff/history.","acceptance":"Portable code publishes without private runtime or transcript material."},
+    {"id":"durable-resume","requirement":"Bind checkpoint, exact persistent schedule target, failure recovery and acknowledged transfer to launch contract.","acceptance":"Restart rereads checkpoint; duplicate wake coalesces; stale writer cannot write; transfer waits for retirement and replacement acknowledgement."},
+    {"id":"trusted-observation-adapter","requirement":"Produce independently verified host, owner, activity and criterion-bound receipts for this evaluator.","acceptance":"Forged/stale observations and session-start-only acceptance fail the integration probe."}
+  ],
+  "next_action":"Controller routes this consolidated gap handoff once to the existing execution-admission owner; do not edit that owner's paths or create duplicate workers."
+}

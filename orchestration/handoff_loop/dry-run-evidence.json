@@ -1,0 +1,104 @@
+{
+  "schema": "basket.handoff_dry_run_evidence@0.1-draft",
+  "schedule_delivery": "simulated manual harness; no installed schedule",
+  "source_retrieval": "actual allowlisted read-only GitHub GETs",
+  "actual_scheduled_execution": false,
+  "dispatch_authorized": false,
+  "initial_checkpoint_sha256": "f55e543d7223d1f7fe68c45dd2e0908756f66fc8d0fb99584c0de61be3e658bc",
+  "committed_checkpoint_sha256": "f0bdb1545c1d875a85d17e143093914ba1a5f20b519d8c7bca07ae30613ca97e",
+  "checkpoint_revision": 1,
+  "receipt_count": 1,
+  "repeat_preserved_bytes": true,
+  "restart_preserved_bytes": true,
+  "restart_result": {
+    "delivery": "replayed",
+    "effective_decisions": 0,
+    "receipt_id": "1e5da2c0a5c6b73c3764ad26886d5def76af67ebda99b8aaf541d80b1dec1a42",
+    "dispatch_authorized": false
+  },
+  "receipt": {
+    "sequence": 1,
+    "wake": {
+      "id": "simulated-hour-1",
+      "head": "61de575453c327a9eb8ee348c4391ce9b9f7571b",
+      "scheduled_for": 1794535745.889109
+    },
+    "wake_digest": "aa277fa0eeabd696564697d29c24d2789891760c8c33a5739d2090e05b84db99",
+    "previous_receipt": null,
+    "input_checkpoint_digest": "3ad07d76d6dec3f7af422b881065ca528a2ca9b280324367e990abdefd6b1333",
+    "implementation": {
+      "dry_run.py": "6be23c13ee383b090af88c336ed6b4bdd092d6fe837d235ad817bf30cd616c39",
+      "github_readonly.py": "681b902de42fe2826b6e402cd834d98df73d9d7c7e804a45b3535f2618833dc3"
+    },
+    "source_mode": "actual-readonly-gh",
+    "observation": {
+      "schema": "basket.handoff_github_observation@0.1-draft",
+      "availability": "available",
+      "subject": {
+        "repository": "whiterosecoffee/_BASKET",
+        "pr": 264,
+        "revision": "61de575453c327a9eb8ee348c4391ce9b9f7571b"
+      },
+      "observation_id": "d92ccd78b2da28f473bc7b1bf77362ee6a33c155d0bd692287057e826fb9e06a",
+      "disposition": "observed",
+      "sources": {
+        "pr": {
+          "source_id": "https://api.github.com/repos/whiterosecoffee/_BASKET/pulls/264",
+          "observed_at": 1794535746.769536,
+          "raw_response_sha256": "562e60cbcfd8a1dae8f161fbb62c35de90dc0e769c8c42169844423bfd2db76d",
+          "resource_id": 5286230434,
+          "subject_revision": "61de575453c327a9eb8ee348c4391ce9b9f7571b",
+          "source_times": {
+            "created_at": "2026-11-12T22:24:42Z",
+            "updated_at": "2026-11-13T01:59:29Z"
+          }
+        },
+        "ci": {
+          "source_id": "https://api.github.com/repos/whiterosecoffee/_BASKET/actions/runs?head_sha=61de575453c327a9eb8ee348c4391ce9b9f7571b&per_page=100",
+          "observed_at": 1794535747.4284604,
+          "raw_response_sha256": "cb15763357ea173abb8c1a0b596dd1913c4c9f104ef0101dbed7a7e7d825074d",
+          "subject_revision": "61de575453c327a9eb8ee348c4391ce9b9f7571b"
+        }
+      },
+      "pr": {
+        "url": "https://github.com/whiterosecoffee/_BASKET/pull/264",
+        "state": "open",
+        "draft": true
+      },
+      "ci": {
+        "availability": "available",
+        "complete": true,
+        "reason": null,
+        "runs": [
+          {
+            "id": 43348895203,
+            "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/43348895203",
+            "name": "Validate BASKET data",
+            "head_sha": "61de575453c327a9eb8ee348c4391ce9b9f7571b",
+            "status": "completed",
+            "conclusion": "success",
+            "source_times": {
+              "created_at": "2026-11-13T01:59:33Z",
+              "updated_at": "2026-11-13T02:00:00Z"
+            }
+          }
+        ]
+      },
+      "retrieval": {
+        "method": "supplied_payload",
+        "verified_local_retrieval": false
+      },
+      "source_claims_verified": false,
+      "component_tests_verified": false,
+      "reviewer_acceptance": false,
+      "execution_authorized": false,
+      "evaluator_observation": null,
+      "acceptance_receipts": []
+    },
+    "decision": "dry-run-review-next-step",
+    "dispatch_authorized": false,
+    "actual_scheduled_execution": false,
+    "recorded_at": 1794535747.4284604,
+    "receipt_id": "1e5da2c0a5c6b73c3764ad26886d5def76af67ebda99b8aaf541d80b1dec1a42"
+  }
+}
