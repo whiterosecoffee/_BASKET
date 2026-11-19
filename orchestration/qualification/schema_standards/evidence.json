@@ -1,0 +1,90 @@
+{
+  "base_commit": "74d913e8913d630d85451344689e093aeea07efc",
+  "evidence_class": "executed_local_synthetic",
+  "python": "3.12.14",
+  "runs": [
+    {
+      "environment": "cloud_default",
+      "jsonschema": "4.26.0",
+      "referencing": "0.37.0",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s orchestration/qualification/schema_standards -p 'test_*.py' -v",
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "environment": "already_installed_4.23_interpreter",
+      "jsonschema": "4.23.0",
+      "referencing": "0.37.0",
+      "command": "PYTHONDONTWRITEBYTECODE=1 <existing-4.23-python> -m unittest discover -s orchestration/qualification/schema_standards -p 'test_*.py' -v",
+      "tests": 25,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "environment": "cloud_default",
+      "jsonschema": "4.26.0",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s orchestration/tests -p 'test_component*.py' -v",
+      "tests": 47,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "default_packages": {
+    "jsonschema": {
+      "version": "4.26.0",
+      "license_expression": "MIT"
+    },
+    "referencing": {
+      "version": "0.37.0",
+      "license_expression": "MIT"
+    },
+    "attrs": {
+      "version": "26.1.0",
+      "license_expression": "MIT"
+    },
+    "rpds-py": {
+      "version": "2026.6.3",
+      "license_expression": "MIT"
+    },
+    "jsonschema-specifications": {
+      "version": "2025.9.1",
+      "license_expression": "MIT"
+    }
+  },
+  "files_sha256": {
+    "corpus.json": "655892d1da5e524fec6a2fe9a83cef77799f3270330f5d3f7fc9e3b35666c41a",
+    "test_interoperability.py": "26b8067a5fe35ff25c4c9027e3076eb8da238f41596f6b9cf1faa26986b5a46b",
+    "decision.json": "6fcdf9b59fa9de4e4d69a4f5649f9ba86b68ddc1672d77c9fc9f96ae398d8b77",
+    "README.md": "90a02274eb190fe9025516d3bd1d7ff81e6f09d16c453deec90750719d71183b"
+  },
+  "corpus_cases": 23,
+  "network": "Socket construction forbidden during every corpus case; Registry has no retrieval callback",
+  "mutation": "All corpus schemas/instances compared unchanged",
+  "ci": "Shared workflow does not discover this subtree; hosted state reported separately at PR head",
+  "limitations": [
+    "Not independent review",
+    "No full official conformance suite",
+    "No domain or operational acceptance"
+  ],
+  "attempts": [
+    {
+      "step": "Inspect root requirements.txt",
+      "result": "failed_file_absent",
+      "resolution": "Read workflow pins and installed metadata; no install"
+    },
+    {
+      "step": "Read main via gh",
+      "result": "failed_no_auth",
+      "resolution": "Used authorized GitHub connector; no credentials accessed"
+    },
+    {
+      "step": "Corpus execution on both installed versions",
+      "result": "pass",
+      "tests_each": 25
+    }
+  ]
+}
