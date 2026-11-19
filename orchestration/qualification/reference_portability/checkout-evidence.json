@@ -1,0 +1,37 @@
+{
+  "archive_bytes_match_git_blobs": true,
+  "attribute_result": "orchestration/qualification/reference_portability/fixtures/shared/payload.json: text: unset",
+  "checkout_bytes_match_git_blobs": true,
+  "environment": "Linux; real Git checkout/archive with core.autocrlf=true",
+  "files_compared": 14,
+  "kind": "producer_git_checkout_conversion_reproduction",
+  "limits": [
+    "No Windows execution claimed",
+    "Four Windows symlink-creation errors remain #261 environment gate",
+    "No user/system Git config or privileges changed",
+    "This synthetic repository reproduces conversion settings; independent exact-head Windows retest still required"
+  ],
+  "parent_source": "6a7678d381479f7add67e2fb3cdbb1928d9f84bc",
+  "source_hashes": {
+    "orchestration/qualification/reference_portability/.gitattributes": "d3850b99049bf51d8bca95a308db7574d120494d88577a3dbae783411baca104",
+    "orchestration/qualification/reference_portability/.gitignore": "6feaded4e28ea86e001a6751b4e3d960e8b7c31b9616ff9936b79297086e809b",
+    "orchestration/qualification/reference_portability/README.md": "43f2518dea40cb9f746876e8595f33b1c6f824140673687d08a09f84ce56f368",
+    "orchestration/qualification/reference_portability/audit.py": "51d9e3fbec139c845f01aec040556817a7bbab2901654efe07c0f02540cd465a",
+    "orchestration/qualification/reference_portability/evidence.json": "c1d3802fdfe5f57ad1bed6238c29460439aa754ba612f52beda9de1f21ec4186",
+    "orchestration/qualification/reference_portability/fixtures/negative-cases.json": "2edb7d2776e5bd1d31bd49ac09cddfcb4d0e7e1b62024ac6aac7d6df07464ce5",
+    "orchestration/qualification/reference_portability/fixtures/nested-case.json": "b2ef18f9cbbd2a5d7b665d278144ca811c30aee248e85c4cf9c8cf07a5028e66",
+    "orchestration/qualification/reference_portability/fixtures/nested/worker.json": "f6397642567ca7842abe70d08c9a6ed62d97b1dbc9735d3b80a5cdadaa8c3b52",
+    "orchestration/qualification/reference_portability/fixtures/reuse-case.json": "90d1c3688ce2af8449ff3887a32214865d4c703ad27a8a73519cd19e2a7d2cfa",
+    "orchestration/qualification/reference_portability/fixtures/shared/payload.json": "5b08b4b682503392545241f9b7340db08825aaf6cbe02f458aec0463010f9b7c",
+    "orchestration/qualification/reference_portability/project_references.py": "60adf1f66257502b70a32dc22de5a2ca124f4b3075cfc5fba4eb2ebb6287b7e7",
+    "orchestration/qualification/reference_portability/projection-evidence.json": "9a334b5005256c22150d0c1c06c6102d5edaac57cb692bcb2bb5e577bb9fbcca",
+    "orchestration/qualification/reference_portability/test_audit.py": "c31cf681cb25bebb100fd7770e19fddb10c3d2ef21232c47b2905086b52f0df8",
+    "orchestration/qualification/reference_portability/test_projection.py": "50a3fb4bfff2cf84921ea2e85e2942de04575624b20b1ef2611af180889ae3dd"
+  },
+  "tests": {
+    "errors": 0,
+    "executed": 49,
+    "failures": 0,
+    "skips": 0
+  }
+}
