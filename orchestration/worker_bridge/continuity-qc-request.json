@@ -1,0 +1,120 @@
+{
+  "task": {
+    "schema": "basket.worker_task@1",
+    "task_id": "B00-136",
+    "spark_id": "B00",
+    "issue": {
+      "number": 136,
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/136"
+    },
+    "branch": {
+      "name": "work/136-conversation-continuity",
+      "base": "main"
+    },
+    "objective": "Preserve independent conversation contracts and MRIE continuity, and submit source-pinned semantic review through existing QC intake.",
+    "write_paths": [
+      "architecture/BLOCK_ENGINEERING_METHOD.md",
+      "orchestration/worker_bridge/CONVERSATION_EXTRACTION.md",
+      "orchestration/worker_bridge/CONVERSATION_INTEGRATION.md",
+      "orchestration/worker_bridge/CONVERSATION_CONTINUITY.md",
+      "orchestration/worker_bridge/continuity-qc-request.json"
+    ],
+    "acceptance": [
+      {
+        "id": "A1",
+        "criterion": "Separate independently reusable extraction and integration prompts retain user authority boundaries",
+        "evidence_class": "documentation",
+        "mandatory": true
+      },
+      {
+        "id": "A2",
+        "criterion": "D1-D7, K1-K14, R1-R8 and source gaps have durable owner dispositions",
+        "evidence_class": "code_review",
+        "mandatory": true
+      },
+      {
+        "id": "A3",
+        "criterion": "Pinned review request validates actual bytes and inventory through existing QC intake",
+        "evidence_class": "test",
+        "mandatory": true
+      },
+      {
+        "id": "A4",
+        "criterion": "Independent semantic review and authorized main integration are verified before archive certification",
+        "evidence_class": "ci",
+        "mandatory": true
+      }
+    ],
+    "dependencies": [
+      {
+        "issue_number": 178,
+        "kind": "review",
+        "blocks_completion": false,
+        "reason": "Reuse existing QC intake; draft helper is a pinned read-only dependency"
+      },
+      {
+        "issue_number": 65,
+        "kind": "review",
+        "blocks_completion": true,
+        "reason": "Independent acceptance requested; no reviewer execution inferred"
+      }
+    ],
+    "claimed_at": null,
+    "state": "building",
+    "note": "Same user-authorized issue/branch continuation. PR137 history preserved. This bounded claim supersedes the informal continuity allocation only; original bridge acceptance is not overwritten."
+  },
+  "source_pr": 171,
+  "review_kind": "closeout_semantic",
+  "artifacts": [
+    {
+      "path": "orchestration/worker_bridge/CONVERSATION_EXTRACTION.md",
+      "revision": "d29880d36dc15ed0668e2a0d40d17eaa2ece4594",
+      "sha256": "018c420e68e32fbc77cf4817d02f6593e13f89a9849874b0a6a5af2a4c3a45c5",
+      "role": "primary"
+    },
+    {
+      "path": "orchestration/worker_bridge/CONVERSATION_INTEGRATION.md",
+      "revision": "d29880d36dc15ed0668e2a0d40d17eaa2ece4594",
+      "sha256": "4159f6a9460aa4558386a5dbf6d5df9120602ec6d74f529d451ed64a91cb1586",
+      "role": "primary"
+    },
+    {
+      "path": "orchestration/worker_bridge/CONVERSATION_CONTINUITY.md",
+      "revision": "d29880d36dc15ed0668e2a0d40d17eaa2ece4594",
+      "sha256": "0197da98bc82da53c01f705805a14e72536fe72354adc229ebdf1dc0aa87c2e5",
+      "role": "handoff"
+    }
+  ],
+  "item_ids": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+    "D7",
+    "K1",
+    "K2",
+    "K3",
+    "K4",
+    "K5",
+    "K6",
+    "K7",
+    "K8",
+    "K9",
+    "K10",
+    "K11",
+    "K12",
+    "K13",
+    "K14",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8"
+  ],
+  "request_id": "347802b4a1fa6b4f012aa87b0798dc9c7ae1dc5b4526292666caa32f7576fc07"
+}
