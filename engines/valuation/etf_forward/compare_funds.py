@@ -82,3 +82,23 @@ def compare_funds(request):
         'data_kind': funds[0]['data_kind'], 'funds': ['SMH', 'SOXX'], 'years': years,
         'disclosure': 'A lower forward multiple is not a risk-adjusted preference; no ETF EPS/share, fees, distribution forecasts, or statistically validated upside is implied. Issuer provenance is asserted by upstream adapter, not verified here.',
     }
+
+
+def main():
+    import argparse
+    from pathlib import Path
+    from peer_report import render_peer_markdown
+    parser = argparse.ArgumentParser(description='Offline SMH/SOXX CY2027/2028 earnings comparison')
+    parser.add_argument('input', type=Path)
+    parser.add_argument('--format', choices=('json','markdown'), default='json')
+    parser.add_argument('--output', type=Path)
+    args = parser.parse_args()
+    outcome = compare_funds(json.loads(args.input.read_text(encoding='utf-8')))
+    text = json.dumps(outcome, indent=2, sort_keys=True) if args.format == 'json' else render_peer_markdown(outcome)
+    if args.output:
+        args.output.write_text(text+'\n' if not text.endswith('\n') else text, encoding='utf-8')
+    else:
+        print(text)
+
+if __name__ == '__main__':
+    main()
