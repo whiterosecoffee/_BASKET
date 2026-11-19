@@ -1,0 +1,88 @@
+{
+  "schema": "crwv.acceptance_state@1",
+  "version": "1.1.0",
+  "purpose": "Qualify existing CRWV historical daily partitions without publishing another history or pretending staging is canonical ingestion.",
+  "tiered_objectives": {
+    "now": "Refresh exact-source audit and prove compatibility with the existing main minute consumer.",
+    "next": "B00 assigns one canonical target and writer; B01 independently checks final candidate.",
+    "later": "Owner-qualified adoption, revision/restart and operational integration."
+  },
+  "status": "locally_verified_integration_blocked",
+  "owner": {
+    "spark": "B02",
+    "issue": 196,
+    "branch": "work/196-crwv-history-acceptance",
+    "pr": 197,
+    "write_paths": [
+      "runtime/crwv_history_acceptance/**"
+    ]
+  },
+  "parents": [
+    {
+      "path": "../../AGENTS.md",
+      "kind": "standing_guidance"
+    },
+    {
+      "path": "../../architecture/COMPONENT_QUICKSTART.md",
+      "ref": "74d913e8913d630d85451344689e093aeea07efc",
+      "kind": "reusable_method"
+    }
+  ],
+  "feature_designs": [
+    "feature-design.md"
+  ],
+  "sources": {
+    "candidate_pr": 122,
+    "candidate_head": "c575f0f987d773bb70fca6c0fdc5f439078f9426",
+    "previous_candidate_head": "827dd1ee9e9239c5761013c05f320b30e795c84c",
+    "main_head": "74d913e8913d630d85451344689e093aeea07efc"
+  },
+  "children": [
+    {
+      "id": "minute_consumer_probe",
+      "status": "locally_verified",
+      "input": "Hash-verified one-date CRWV eight-field arrays plus exact main metrics.py",
+      "output": "Per-date descriptive consumer acceptance, gaps and rejection check; no new source data store"
+    }
+  ],
+  "dependencies": [
+    {
+      "issue": 148,
+      "owner": "B00",
+      "status": "requested",
+      "output": "One canonical target and authorized path transition"
+    },
+    {
+      "issue": 186,
+      "owner": "B02/B01",
+      "status": "partial_integrity_acceptance",
+      "output": "Final adopted source and independent domain validation"
+    }
+  ],
+  "evidence": [
+    "evidence.json",
+    "evidence-current.json",
+    "consumer-evidence.json",
+    "review.md"
+  ],
+  "next_actions": [
+    {
+      "owner": "B00 #148",
+      "action": "Assign one canonical CRWV target and authorize existing PR122 path-update owner; preserve originals."
+    },
+    {
+      "owner": "B01 #214",
+      "action": "Review and extend existing named domain-source acceptance gate for PR122 plus PR197 exact-source audit/consumer probe."
+    }
+  ],
+  "limitations": [
+    "State is a dated record, not an executable controller or proof of receiver activity.",
+    "Private source data must not be newly published.",
+    "No independent B01 acceptance or canonical adoption."
+  ],
+  "review": "review.md",
+  "independent_ci": "not_run",
+  "integrated": false,
+  "operational": false,
+  "source_delta": "One added earnings report; original20source files unchanged."
+}

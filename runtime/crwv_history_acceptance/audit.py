@@ -4,6 +4,7 @@ import hashlib
 import importlib.util
 import json
 import math
+import re
 from pathlib import Path
 import subprocess
 import tempfile
@@ -62,10 +63,12 @@ def verify_meta(meta, info, day=None):
         raise ValueError('regular-session count mismatch')
 
 
-def run(root):
+def run(root, expected_source=SOURCE_SHA):
     root = Path(root).resolve()
+    if not re.fullmatch(r'[0-9a-f]{40}', expected_source):
+        raise ValueError('expected source must be a full immutable commit SHA')
     head = subprocess.check_output(['git', '-C', str(root), 'rev-parse', 'HEAD'], text=True).strip()
-    if head != SOURCE_SHA:
+    if head != expected_source:
         raise ValueError('source head differs; review and repin before acceptance')
     # Confirm working bytes match the pinned commit, not merely its HEAD label.
     paths = sorted((root / RESEARCH).glob('*')) + sorted((root / 'tickers/CRWV/intraday').glob('*'))
@@ -142,5 +145,7 @@ def run(root):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source-root', required=True)
+    parser.add_argument('--expected-source', default=SOURCE_SHA,
+                        help='Explicit reviewed commit; default retains the original frozen audit')
     args = parser.parse_args()
-    print(json.dumps(run(args.source_root), indent=2))
+    print(json.dumps(run(args.source_root, args.expected_source), indent=2))

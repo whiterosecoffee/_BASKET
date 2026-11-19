@@ -1,3 +1,18 @@
+# Current entry point
+
+Read [state.json](state.json), [local guidance](AGENTS.md), and [review](review.md).
+Current source c575f0f is verified by evidence-current.json; prior evidence.json
+is preserved. Main74d913e now supports explicit1m input through metrics.py; the
+older consumer table below is historical. See consumer-evidence.json for25date
+checks. Canonical discovery and B01 acceptance are still unresolved.
+
+```sh
+python runtime/crwv_history_acceptance/audit.py --source-root /path/to/source --expected-source c575f0f987d773bb70fca6c0fdc5f439078f9426
+python runtime/crwv_history_acceptance/consumer_probe.py --source-root /path/to/source --expected-source c575f0f987d773bb70fca6c0fdc5f439078f9426 --consumer-root /path/to/main-74d913e
+```
+
+---
+
 # CRWV daily-history acceptance review
 
 B02 #196 reviews existing #186 / PR122. This directory is an offline acceptance

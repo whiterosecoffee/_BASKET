@@ -1,7 +1,8 @@
 import json
 import unittest
 from datetime import datetime
-from audit import inspect, verify_meta
+from audit import inspect, verify_meta, run
+from unittest.mock import patch
 
 
 def payload(*rows):
@@ -13,6 +14,16 @@ def row(instant):
 
 
 class AuditTests(unittest.TestCase):
+    def test_source_revision_requires_full_sha(self):
+        for revision in ('main', 'c575f0f', '', 'g' * 40):
+            with self.assertRaisesRegex(ValueError, 'full immutable'):
+                run('.', revision)
+
+    def test_explicit_source_still_rejects_wrong_checkout(self):
+        with patch('audit.subprocess.check_output', return_value='a' * 40 + '\n'):
+            with self.assertRaisesRegex(ValueError, 'source head differs'):
+                run('.', 'b' * 40)
+
     def test_dst_fold_preserves_distinct_minutes_and_anomalies(self):
         a = row('2026-11-01T01:30:00-04:00')
         b = row('2026-11-01T01:30:00-05:00')
