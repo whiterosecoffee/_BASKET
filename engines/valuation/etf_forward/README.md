@@ -58,6 +58,16 @@ New read-only `compare_funds.compare_funds(request)` composes the existing `look
 
 `peer_report.render_peer_markdown(result)` produces a date-labeled, synthetic-explicit comparison report. A lower P/E is not a risk-adjusted winner. This component does not claim real ETF EPS, estimate currency conversion, synchronized true source market caps, external provider entitlement, issuer NAV reconciliation or current 2027/2028 valuations.
 
-Run tests via `cd engines/valuation/etf_forward && python -m unittest discover -p 'test_*.py' -v`. New modules `test_compare_funds.py` (12 cases) and `test_peer_report.py` (3 cases) were locally executed against a manually reconstructed lookthrough dependency; **15/15 pass**, but the exact GitHub-head suite requires B01 #129 acceptance. See `feature-design-peer-comparison.md` and `state.json`. Existing 66 tests were previously run independently at the *previous* head; those results must not be attributed to new code.
+Run tests via `cd engines/valuation/etf_forward && python -m unittest discover -p 'test_*.py' -v`. New modules `test_compare_funds.py` (12 cases), `test_peer_report.py` (3 cases), and `test_peer_cli.py` (2 cases) were locally executed against a reconstructed lookthrough dependency; **17/17 pass**, but the exact GitHub-head suite requires B01 #129 acceptance. See `feature-design-peer-comparison.md` and `state.json`. Existing 66 tests were previously run independently at the *previous* head; those results must not be attributed to new code.
 
 Follow #128 for authoritative issuer/consensus data ownership and #136 for B00 orchestrator routing. No cross-domain writes or merges from B04.
+
+### Reproducible CLI demonstration (synthetic, not live)
+
+```bash
+cd engines/valuation/etf_forward
+python compare_funds.py smh_soxx.synthetic.json --format json --output /tmp/smh_soxx_demo.json
+python compare_funds.py smh_soxx.synthetic.json --format markdown --output /tmp/smh_soxx_demo.md
+```
+
+The pinned `smh_soxx.synthetic.json` contains **toy values** that are not actual issuer holdings, EPS, market capitalizations or observed consensus. Do not distribute its P/E results as real ETF valuation. The Markdown output explicitly labels synthetic data and states no risk-adjusted winner. Independent B01 CI must execute all existing tests plus the 17 new peer/CLI cases on the current PR head.
