@@ -1,0 +1,59 @@
+{
+  "as_of": "2026-11-19T14:12:48.431Z",
+  "status": "quarantined_not_for_ranking",
+  "reason": "Unresolved accounting basis and snapshot vintage; CGI currency/calendar ambiguity and conflicting cached values",
+  "observations": [
+    {
+      "ticker": "GDYN",
+      "source_url": "https://www.qddresearch.com/us/gdyn/",
+      "displayed_2027": 0.61,
+      "displayed_2028": 0.71,
+      "classification": "secondary_claim",
+      "basis": "unreconciled",
+      "estimate_timestamp": null,
+      "analyst_count": null,
+      "currency": "USD_claim_unreconciled"
+    },
+    {
+      "ticker": "EXLS",
+      "source_url": "https://www.qddresearch.com/us/exls/",
+      "displayed_2027": 2.66,
+      "displayed_2028": 3.04,
+      "classification": "secondary_claim",
+      "basis": "unreconciled",
+      "estimate_timestamp": null,
+      "analyst_count": null,
+      "currency": "USD_claim_unreconciled"
+    },
+    {
+      "ticker": "G",
+      "source_url": "https://www.qddresearch.com/int/g/",
+      "displayed_2027": 4.53,
+      "displayed_2028": 5.11,
+      "classification": "secondary_claim",
+      "basis": "unreconciled",
+      "estimate_timestamp": null,
+      "analyst_count": null,
+      "currency": "USD_claim_unreconciled"
+    },
+    {
+      "ticker": "GIB",
+      "source_url": "https://www.trefis.com/data/companies/gib",
+      "displayed_pairs": [
+        [
+          9.78,
+          10.62
+        ],
+        [
+          9.99,
+          10.78
+        ]
+      ],
+      "classification": "conflicting_secondary_snapshots",
+      "currency": null,
+      "period_basis": "unresolved",
+      "usable_values": null
+    }
+  ],
+  "next_action": "Retrieve dated, basis-consistent estimates; no revision calculation from cached copies"
+}

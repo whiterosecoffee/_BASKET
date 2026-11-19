@@ -1,0 +1,77 @@
+{
+  "schema": "research.group_monitoring.state@0.1",
+  "owner": "B17-274",
+  "issue": "https://github.com/whiterosecoffee/_BASKET/issues/274",
+  "branch": "work/274-ai-integrator-group-profile",
+  "recorded_at": "2026-11-19T14:12:48.431Z",
+  "purpose": "Cumulative source-verified comparative group research",
+  "tiered_objectives": {
+    "now": "Four-member baseline, replay, explicit missing values",
+    "next": "Real source update and independent review",
+    "later": "Second segment acceptance before generalization"
+  },
+  "status": "research_pilot_review_pending",
+  "base_main": "433d3574033a35f24910dc1ffee21ecbf27702dc",
+  "parent_guidance": "../../../AGENTS.md",
+  "guidance": "AGENTS.md",
+  "feature_design": "feature-design.md",
+  "review": "review.md",
+  "children": [
+    "ai_services/state.json"
+  ],
+  "planned_nodes": [
+    {
+      "id": "optical-interconnects-pilot",
+      "status": "planned_only",
+      "input": "Verified membership, segment definitions and public disclosures",
+      "output": "Comparative ledger and held-out source update",
+      "start_gate": "First-pilot independent review and assigned owner; no automatic new schedule"
+    }
+  ],
+  "references": [
+    {
+      "role": "prior B17 cohort; read-only",
+      "issue": 118,
+      "pr": 120,
+      "sha": "dece5a5b95908761c9188ac52ca206fbcdba5d99",
+      "path": "research/composites/skilled_ai_deployment/"
+    },
+    {
+      "role": "B19 relationship composition; read-only",
+      "issue": 17,
+      "pr": 18,
+      "sha": "6eab180632d251147d13a073c967dbd3031dfe92",
+      "path": "research/themes/supply-chain/"
+    },
+    {
+      "role": "pending generic basket contract",
+      "issue": 119
+    },
+    {
+      "role": "pending issuer profile ownership",
+      "issue": 130
+    },
+    {
+      "role": "candidate component index",
+      "issue": 224,
+      "pr": 225,
+      "sha": "6900bf0b0c4ba518c9fde48180588471a3846164"
+    }
+  ],
+  "evidence": [
+    "ai_services/observations.jsonl",
+    "ai_services/profile.json",
+    "test_profile.py"
+  ],
+  "unknowns": [
+    "DOT receipt",
+    "Spark runtime and before-05:30 schedule",
+    "Independent second-segment validation",
+    "Comparable 2027/2028 consensus"
+  ],
+  "next_actions": [
+    "Publish and independently review draft PR",
+    "Normalize consensus and matched headcounts",
+    "Route operational ingestion/Spark work through existing owners"
+  ]
+}

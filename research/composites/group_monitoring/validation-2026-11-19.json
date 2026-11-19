@@ -1,0 +1,11 @@
+{
+  "classification": "local_self_report",
+  "date": "2026-11-19",
+  "command": "python3 -m unittest discover -s research/composites/group_monitoring -p 'test_*.py' -v",
+  "result": "pass",
+  "tests_run": 6,
+  "coverage": ["persisted baseline replay", "duplicate no-op", "correction history and knowledge cutoff", "ID collision and correction fork rejection", "period/basis/currency/unit comparison guards", "missing and nonpositive denominator handling"],
+  "source_review": "Four issuer earnings releases, four relationship examples and official Bank of Canada FX manually reviewed",
+  "not_verified": ["independent review", "real successive scheduled update", "interrupted publication recovery", "second-segment acceptance", "DOT receipt", "Spark runtime", "canonical ticker file updates"],
+  "ci": "Inspect live PR checks at the exact head; this file is not CI evidence"
+}

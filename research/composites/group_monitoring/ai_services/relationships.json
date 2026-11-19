@@ -1,0 +1,55 @@
+{
+  "schema": "research.relationship_evidence@0.1",
+  "as_of": "2026-11-19T14:12:48.431Z",
+  "records": [
+    {
+      "id": "EXLS-Aimpoint-20261105",
+      "security": "NASDAQ:EXLS",
+      "status": "announced_acquisition",
+      "source_url": "https://exlserviceholdingsinc.gcs-web.com/news-releases/news-release-details/exl-acquires-data-and-ai-consulting-market-leader-aimpoint",
+      "publication_date": "2026-11-05",
+      "claim": "EXL announced acquisition of Aimpoint Digital, approximately 250 AI specialists.",
+      "missing_reason": "Consideration/EPS contribution unverified",
+      "observed_at": "2026-11-19T14:12:48.431Z",
+      "classification": "issuer_statement",
+      "economic_terms": null
+    },
+    {
+      "id": "G-Mars-20261112",
+      "security": "NYSE:G",
+      "status": "expanded_operating_presence",
+      "source_url": "https://media.genpact.com/2026-11-12-Mars-Expands-its-Presence-in-India-and-Opens-Global-Capability-Center-in-Collaboration-with-Genpact",
+      "publication_date": "2026-11-12",
+      "claim": "Mars inaugurated Hyderabad capability center with Genpact; relationship dates to 2018.",
+      "missing_reason": "Contract value/incremental EPS not verified",
+      "observed_at": "2026-11-19T14:12:48.431Z",
+      "classification": "issuer_statement",
+      "economic_terms": null
+    },
+    {
+      "id": "EXLS-NVIDIA-page",
+      "security": "NASDAQ:EXLS",
+      "status": "ecosystem_participation",
+      "source_url": "https://www.exlservice.com/about/partnerships/nvidia",
+      "publication_date": null,
+      "claim": "EXL describes NVIDIA AI Enterprise/NeMo capability and a center of excellence.",
+      "missing_reason": "Partner-specific realized revenue unverified",
+      "observed_at": "2026-11-19T14:12:48.431Z",
+      "classification": "issuer_statement",
+      "economic_terms": null
+    },
+    {
+      "id": "EXLS-Microsoft-page",
+      "security": "NASDAQ:EXLS",
+      "status": "ecosystem_participation",
+      "source_url": "https://www.exlservice.com/about/partnerships/microsoft",
+      "publication_date": null,
+      "claim": "EXL describes Azure Data & AI solutions partner capability.",
+      "missing_reason": "Partner-specific realized revenue unverified",
+      "observed_at": "2026-11-19T14:12:48.431Z",
+      "classification": "issuer_statement",
+      "economic_terms": null
+    }
+  ],
+  "coverage": "Selected verified examples; not exhaustive news coverage or canonical B05/B19 writes"
+}
