@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "task_id": "B00-234",
+  "issue": "https://github.com/whiterosecoffee/_BASKET/issues/234",
+  "branch": "work/234-improve-loops-session",
+  "purpose": "Prevent stale next-action replay in this session's process review",
+  "prompt": "PROMPT.md",
+  "prompt_version": "1.0.0",
+  "status": "authored",
+  "adoption": {
+    "scope": "branch-local instruction artifact",
+    "scheduler_installed": false,
+    "runtime_enforcement": "unverified"
+  },
+  "validation": {
+    "kind": "manual_instruction_review",
+    "cases": 6,
+    "executed_tests": 0,
+    "operational_effect": "unmeasured"
+  },
+  "next_action": "Use the prompt on the next naturally occurring authorized continuation and retain exact evidence of its effect; do not induce a replay or launch another worker."
+}
