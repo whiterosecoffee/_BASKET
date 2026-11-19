@@ -1,0 +1,169 @@
+{
+  "acceptance": "bounded_supported_exchange_cases_only",
+  "base_commit": "74d913e8913d630d85451344689e093aeea07efc",
+  "cases": [
+    {
+      "actual": {
+        "error_type": null,
+        "message": null,
+        "outcome": "accept"
+      },
+      "expectation": "accept",
+      "id": "valid_exchange"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Missing required or undeclared port",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "missing_required_input"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Missing required or undeclared port",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "wrong_named_input"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Port schema pin mismatch: request",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "incompatible_schema_identity_input"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Port schema pin mismatch: request",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "incompatible_schema_version_input"
+    },
+    {
+      "actual": {
+        "error_type": "ValidationError",
+        "message": "Additional properties are not allowed ('unexpected' was unexpected)",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "unexpected_payload_input"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Reference bytes/hash mismatch: fixture://request.source.json",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "stale_pinned_source_input"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Missing required or undeclared port",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "missing_required_output"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Missing required or undeclared port",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "wrong_named_output"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Port schema pin mismatch: answer",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "incompatible_schema_identity_output"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Port schema pin mismatch: answer",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "incompatible_schema_version_output"
+    },
+    {
+      "actual": {
+        "error_type": "ValidationError",
+        "message": "Additional properties are not allowed ('unexpected' was unexpected)",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "unexpected_payload_output"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Reference bytes/hash mismatch: fixture://answer.source.json",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "stale_pinned_source_output"
+    },
+    {
+      "actual": {
+        "error_type": "ConformanceError",
+        "message": "Component identity/version mismatch",
+        "outcome": "reject"
+      },
+      "expectation": "reject",
+      "id": "component_version_mismatch"
+    },
+    {
+      "actual": {
+        "error_type": null,
+        "message": null,
+        "outcome": "accept"
+      },
+      "expectation": "unsupported_rejection",
+      "id": "declared_dependency_without_resolution"
+    }
+  ],
+  "corpus_sha256": "8c84aa0098b36a9d1eca6e4cc1b6a392a86b1fc27c175478e3f4d89ea6e4eb93",
+  "errors": 0,
+  "expected_failures": [
+    "test_ports.PortQualification.test_declared_dependency_without_resolution"
+  ],
+  "failures": 0,
+  "hosted_focused_coverage": false,
+  "independent_acceptance": "pending owner #105",
+  "jsonschema": "4.26.0",
+  "passes": 18,
+  "python": "3.12.14",
+  "scope": "synthetic portable exchange qualification; no domain execution",
+  "skips": 0,
+  "source_hashes_after": {
+    "architecture/BLACK_BOX_COMPONENT_CONTRACT.md": "3bc783880f8006a7cf8e517aff6dee228083ca012481ee906f453ad04e7d119f",
+    "orchestration/component_conformance.py": "f59c44061a6f45c0f659a09b0941dc499a737ea2bef856635321db283677022e",
+    "schemas/component-blackbox.v1.json": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc"
+  },
+  "source_hashes_before": {
+    "architecture/BLACK_BOX_COMPONENT_CONTRACT.md": "3bc783880f8006a7cf8e517aff6dee228083ca012481ee906f453ad04e7d119f",
+    "orchestration/component_conformance.py": "f59c44061a6f45c0f659a09b0941dc499a737ea2bef856635321db283677022e",
+    "schemas/component-blackbox.v1.json": "cd1fd657c428d053f87937530addf97ad22447ffa51ba337fdb36b196bf72cfc"
+  },
+  "tests_run": 19,
+  "unexpected_successes": [],
+  "unsupported": [
+    "Dependency version ranges are not resolved/enforced by check_exchange."
+  ]
+}
