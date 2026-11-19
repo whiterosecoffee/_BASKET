@@ -1,0 +1,9 @@
+{
+  "source_head": "316dbea500591806e8f68fd8f1f66e17484772c9",
+  "gate_head": "8b2f7404bcfd13934674c080d4f668501718449d",
+  "run_head": "8b2f7404bcfd13934674c080d4f668501718449d",
+  "executed_source": "316dbea500591806e8f68fd8f1f66e17484772c9",
+  "conclusion": "success",
+  "source_binding": "immutable_dependency",
+  "run_url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39094901748"
+}
