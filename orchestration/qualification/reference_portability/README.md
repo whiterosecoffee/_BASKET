@@ -134,3 +134,27 @@ one selected canonical schema resolves with its exact hash; both seed reference
 URLs remain notes and are never fetched. No real provider/market data is used.
 This closes the missing runnable format translation, not independent acceptance,
 owner adoption, full-model coverage or hosted focused-suite discovery.
+
+
+## Exact-byte checkout on Windows and other hosts
+
+This subtree's `.gitattributes` declares `* -text` because fixtures and evidence
+pin byte content, not normalized text. It prevents Git from translating LF to
+CRLF under `core.autocrlf=true`, for checkout and archive, without altering any
+user/system configuration or files outside this subtree. Existing JSON and code
+bytes and pins are unchanged. Do not normalize source bytes in the auditor to
+hide a mismatch. Editors must also preserve the pinned bytes.
+
+The original Melissa rerun at `6a7678d` reported three hash assertion failures
+and four symlink-creation errors. A byte-preserving export removed the three
+assertion failures and yielded45 passes/four errors. This change addresses Git
+conversion only. Windows `WinError1314` symlink privilege errors remain an
+explicit environment gate for #261; no skip, privilege change or blanket Windows
+pass is introduced. Linux reproduction with `core.autocrlf=true` is evidence of
+Git conversion behavior, not execution on Windows. See `checkout-evidence.json`.
+
+Reviewer recipe: obtain the new exact head in a fresh isolated checkout, verify
+`git check-attr text -- orchestration/qualification/reference_portability/fixtures/shared/payload.json`
+reports `unset`, and compare qualification files with their `git cat-file blob`
+bytes before rerunning all49 cases. Use the same exact revision for conclusions;
+older45/49 Windows results remain historical.
