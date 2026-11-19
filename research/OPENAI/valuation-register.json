@@ -1,0 +1,360 @@
+{
+  "schema": "basket.preipo_valuation_research@1",
+  "entity_id": "OPENAI",
+  "as_of_date": "2026-10-17",
+  "reporting_currency": "USD",
+  "research_state": "historical_observations_only_no_live_valuation",
+  "ingested_at_utc": null,
+  "ingestion_note": "Reconstructed as dated research in GitHub; exact independent ingestion timestamp not available. Do not fabricate sub-day availability.",
+  "identity": {
+    "legal_name": "OpenAI Group PBC",
+    "legal_form": "public_benefit_corporation",
+    "listing_state": "private_pre_ipo",
+    "internal_entity_id": "OPENAI",
+    "exchange_ticker": null,
+    "tradable_equity": false,
+    "public_ohlcv_eligible": false,
+    "control_entity": "OpenAI Foundation",
+    "primary_security_types": [
+      "preferred_funding_shares",
+      "common_equity_unquantified"
+    ],
+    "foundation_warrant_effect": "contingent_dilution_unknown"
+  },
+  "sources": {
+    "openai-structure-2025": {
+      "name": "OpenAI Our Structure (2025 recapitalization)",
+      "classification": "issuer_primary",
+      "url": "https://openai.com/our-structure/",
+      "published_on": "2025-10-28"
+    },
+    "openai-feb-2026": {
+      "name": "OpenAI Scaling AI for everyone",
+      "classification": "issuer_primary",
+      "url": "https://openai.com/index/scaling-ai-for-everyone/",
+      "published_on": "2026-02-27"
+    },
+    "openai-mar-2026": {
+      "name": "OpenAI Accelerating the next phase of AI",
+      "classification": "issuer_primary",
+      "url": "https://openai.com/index/accelerating-the-next-phase-ai/",
+      "published_on": "2026-03-31"
+    },
+    "sbg-feb-2026": {
+      "name": "SoftBank February follow-on announcement",
+      "classification": "investor_primary",
+      "url": "https://group.softbank/en/news/press/20260227",
+      "published_on": "2026-02-27"
+    },
+    "sbg-oct-2026": {
+      "name": "SoftBank completed third tranche",
+      "classification": "investor_primary",
+      "url": "https://group.softbank/en/news/press/20261001",
+      "published_on": "2026-10-01"
+    },
+    "sbg-nav-jun-2026": {
+      "name": "SoftBank NAV as of 2026-06-30",
+      "classification": "investor_primary",
+      "url": "https://group.softbank/en/ir/stock/sotp",
+      "period_end": "2026-06-30",
+      "retrieved_on": "2026-10-17"
+    },
+    "reuters-oct-2026": {
+      "name": "Reuters September annualized OpenAI revenue",
+      "classification": "reporting_secondary",
+      "url": "https://www.reuters.com/business/openais-annualized-revenue-20-billion-less-than-previously-signaled-ft-reports-2026-10-08/",
+      "published_on": "2026-10-08",
+      "updated_on": "2026-10-09"
+    },
+    "cnbc-oct-2026": {
+      "name": "CNBC Oliver Renick, via reproduced article",
+      "classification": "market_commentary_secondary",
+      "url": "https://tradeinzone.in/heres-how-the-coreweave-sell-off-is-affecting-openai-vs-anthropic-valuations/",
+      "published_on": "2026-10-16"
+    },
+    "hyperliquid-hip3": {
+      "name": "Hyperliquid HIP-3 perpetual markets contract reference",
+      "classification": "market_specification_primary",
+      "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/hyperliquid-improvement-proposals-hips/hip-3-builder-deployed-perpetuals",
+      "retrieved_on": "2026-10-17"
+    }
+  },
+  "observations": [
+    {
+      "id": "OPENAI-2025-10-28-FOUNDATION-26PCT",
+      "measurement": "foundation_equity_fraction",
+      "value": 0.26,
+      "unit": "fraction",
+      "approximate": false,
+      "observation_on": "2025-10-28",
+      "available_on": "2025-10-28",
+      "source_ids": [
+        "openai-structure-2025"
+      ],
+      "source_class": "issuer_statement",
+      "basis": "historic_2025_recapitalization",
+      "status": "historical_verified_company_disclosure",
+      "notes": "Foundation controlled PBC and held 26% plus contingent warrants as of closing; NOT necessarily fraction after 2026 financings."
+    },
+    {
+      "id": "OPENAI-2025-10-28-FOUNDATION-130B",
+      "measurement": "historical_foundation_share_value",
+      "value": 130,
+      "unit": "USD_billion",
+      "approximate": true,
+      "observation_on": "2025-10-28",
+      "available_on": "2025-10-28",
+      "source_ids": [
+        "openai-structure-2025"
+      ],
+      "source_class": "issuer_statement",
+      "basis": "foundation_26pct_share_value_at_2025_recapitalization",
+      "status": "historical_issuer_estimate_not_2026_mark",
+      "notes": "OpenAI says 26% Foundation stake was worth about $130B at recap; implies roughly $500B company equity at that 2025 basis before rights/dilution; not a 2026 valuation or transaction price."
+    },
+    {
+      "id": "OPENAI-2026-02-27-ROUND-ANNOUNCED",
+      "measurement": "announced_round_amount",
+      "value": 110,
+      "unit": "USD_billion",
+      "approximate": false,
+      "observation_on": "2026-02-27",
+      "available_on": "2026-02-27",
+      "source_ids": [
+        "openai-feb-2026"
+      ],
+      "source_class": "issuer_statement",
+      "basis": "planned_primary_round_at_announcement",
+      "status": "announced_not_same_as_cash_received",
+      "notes": "OpenAI named $30B SoftBank, $30B NVIDIA, $50B Amazon as investment commitments; do NOT add to later $122B round total."
+    },
+    {
+      "id": "OPENAI-2026-02-27-PRE-MONEY",
+      "measurement": "fundraising_round_pre_money_equity_value",
+      "value": 730,
+      "unit": "USD_billion",
+      "approximate": false,
+      "observation_on": "2026-02-27",
+      "available_on": "2026-02-27",
+      "source_ids": [
+        "openai-feb-2026",
+        "sbg-feb-2026"
+      ],
+      "source_class": "issuer_and_investor_statement",
+      "basis": "primary_financing_agreed_terms",
+      "status": "agreed_term_not_continuous_mark",
+      "notes": "Pre-money equity funding benchmark; includes transaction preferences, not a market quote or EV."
+    },
+    {
+      "id": "OPENAI-2026-03-31-COMMITTED",
+      "measurement": "financing_round_committed_capital",
+      "value": 122,
+      "unit": "USD_billion",
+      "approximate": false,
+      "observation_on": "2026-03-31",
+      "available_on": "2026-03-31",
+      "source_ids": [
+        "openai-mar-2026"
+      ],
+      "source_class": "issuer_statement",
+      "basis": "announced_closing_with_committed_capital",
+      "status": "issuer_reported_committed_not_all_cash_verified",
+      "notes": "Round completed in financing-announcement terms; no evidence all $122B was unrestricted cash at one date. Same financing event family as $730B pre-money."
+    },
+    {
+      "id": "OPENAI-2026-03-31-POST-MONEY",
+      "measurement": "fundraising_round_post_money_equity_value",
+      "value": 852,
+      "unit": "USD_billion",
+      "approximate": false,
+      "observation_on": "2026-03-31",
+      "available_on": "2026-03-31",
+      "source_ids": [
+        "openai-mar-2026"
+      ],
+      "source_class": "issuer_statement",
+      "basis": "primary_financing_equity_post_money",
+      "status": "historic_issuer_round_mark_not_current_fair_value",
+      "notes": "Mathematically 730+122=852; values refer to the same funding round, not independent price observations; distinguish equity value from enterprise value."
+    },
+    {
+      "id": "SFTBY-2026-10-01-CUMULATIVE-OAI-FUNDING",
+      "measurement": "softbank_cumulative_investment",
+      "value": 64.6,
+      "unit": "USD_billion",
+      "approximate": false,
+      "observation_on": "2026-10-01",
+      "available_on": "2026-10-01",
+      "source_ids": [
+        "sbg-oct-2026"
+      ],
+      "source_class": "investor_statement",
+      "basis": "aggregate_invested_capital_via_SVF2",
+      "status": "completed_historical_capital",
+      "notes": "Includes the completed three $10B 2026 tranches; capital spent is NOT current gross asset value or SFTBY parent NAV."
+    },
+    {
+      "id": "SFTBY-2026-10-01-OPENAI-STAKE",
+      "measurement": "softbank_approx_openai_ownership",
+      "value": 0.13,
+      "unit": "fraction",
+      "approximate": true,
+      "observation_on": "2026-10-01",
+      "available_on": "2026-10-01",
+      "source_ids": [
+        "sbg-oct-2026"
+      ],
+      "source_class": "investor_statement",
+      "basis": "aggregate_disclosed_ownership_through_SVF2",
+      "status": "historical_reported_approximate",
+      "notes": "Ownership is approximate. Not necessarily fully diluted, net SBG entitlement or all common shares; preferred share conversion terms relevant."
+    },
+    {
+      "id": "OPENAI-2026-09-REVENUE-RUN-RATE",
+      "measurement": "reported_annualized_revenue_run_rate",
+      "value": 50,
+      "unit": "USD_billion_per_year",
+      "approximate": true,
+      "observation_on": "2026-09-30",
+      "available_on": "2026-10-08",
+      "source_ids": [
+        "reuters-oct-2026"
+      ],
+      "source_class": "attributed_anonymous_reporting",
+      "basis": "reported_one_month_run_rate_not_audited_year",
+      "status": "provisional_reported",
+      "notes": "Almost $50B per Reuters, excludes cloud-partner revenue on reported basis; not GAAP full-year revenue, ARR, EBITDA or forecast."
+    },
+    {
+      "id": "OPENAI-2026-10-16-PERP-PROXY",
+      "measurement": "reported_perp_implied_private_equity_proxy",
+      "value": 1500,
+      "unit": "USD_billion",
+      "approximate": true,
+      "observation_on": "2026-10-16",
+      "available_on": "2026-10-16",
+      "source_ids": [
+        "cnbc-oct-2026"
+      ],
+      "source_class": "commentary_about_derivative",
+      "basis": "hyperliquid_hip3_unverified_valuation_conversion",
+      "status": "reported_only_not_transacted_equity",
+      "notes": "Article said briefly below $1.5T; stored 1500 as an approximate anchor, NOT an exact last price, IPO value or real equity mark. Oracle scaling, tick timestamp, liquidity, contract need primary checks."
+    }
+  ],
+  "valuation_ladder": [
+    {
+      "priority": 1,
+      "kind": "completed_primary_equity_financing",
+      "status": "preferred_historical_reference",
+      "requires": [
+        "closed_terms",
+        "security_class",
+        "cash_funded_status",
+        "cap_table",
+        "deal_date"
+      ],
+      "cash_equivalent_possible": false
+    },
+    {
+      "priority": 2,
+      "kind": "verified_secondary_share_transaction",
+      "status": "no_eligible_transaction_in_registry",
+      "requires": [
+        "actual_settlement",
+        "common_equivalence",
+        "transfer_restrictions",
+        "block_size",
+        "share_class"
+      ]
+    },
+    {
+      "priority": 3,
+      "kind": "fundamental_model",
+      "status": "blocked_missing_disclosures",
+      "requires": [
+        "normalized_quarterly_revenue",
+        "gross_margin",
+        "CFO",
+        "capex",
+        "compute_contracts",
+        "net_debt",
+        "share_count",
+        "dilution"
+      ]
+    },
+    {
+      "priority": 4,
+      "kind": "market_perpetual_implied_proxy",
+      "status": "sentiment_only",
+      "requires": [
+        "deployer",
+        "oracle_spec",
+        "mark",
+        "funding",
+        "depth",
+        "OI",
+        "basis",
+        "timestamp",
+        "redenomination"
+      ]
+    },
+    {
+      "priority": 5,
+      "kind": "article_explanation",
+      "status": "hypothesis_only",
+      "requires": [
+        "reproducible_source_data",
+        "competitive_hypotheses",
+        "timestamp_alignment"
+      ]
+    }
+  ],
+  "forbidden_substitutions": [
+    "funding_round_committed_capital_as_balance_sheet_cash",
+    "funding_round_post_money_as_intrinsic_fair_value",
+    "pre_money_730_plus_post_money_852_as_independent_valuations",
+    "reported_annualized_month_as_audited_full_year_revenue",
+    "perp_proxy_as_actual_equity_ownership",
+    "gross_13pct_security_interest_as_net_parent_NAV",
+    "public_OHLCV_bars_for_unlisted_OPENAI",
+    "CRWV_backlog_as_OpenAI_revenue_or_current_cash_debt"
+  ],
+  "open_gaps": [
+    {
+      "id": "CAP1",
+      "description": "2026-10-17 fully diluted 2026 capitalization by share class, conversion, grants, Foundation warrant and preferences",
+      "state": "unknown"
+    },
+    {
+      "id": "FIN1",
+      "description": "Confirmed funded versus committed cash schedule for full $122B round, restricted collateral and balance sheet",
+      "state": "unknown"
+    },
+    {
+      "id": "REV1",
+      "description": "Same-quarter revenue by direct vs reseller channel, gross/net normalized under actual accounting policies",
+      "state": "unknown"
+    },
+    {
+      "id": "FCF1",
+      "description": "Net debt, cash, operating cash flow, model training vs inference costs, useful-life capex and contractual purchase obligations",
+      "state": "unknown"
+    },
+    {
+      "id": "DER1",
+      "description": "Entropy IO exchange oracle, hypothetical total capitalization basis, contract metadata, mark/funding/depth at minute resolution",
+      "state": "unknown"
+    },
+    {
+      "id": "VAL1",
+      "description": "OpenAI vs Anthropic consistent enterprise/equity security rights and GAAP quarterly financials",
+      "state": "unknown"
+    },
+    {
+      "id": "SFTBY1",
+      "description": "SFTBY SVF2 embedded OpenAI fair value, net parent fraction, carry/fees, valuation date, FX and debt financing adjustments",
+      "state": "unknown"
+    }
+  ]
+}
