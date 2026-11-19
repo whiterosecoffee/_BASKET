@@ -1,0 +1,20 @@
+======================================================================
+FAIL: test_supporting_warnings_do_not_leak_into_earlier_replay (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_supporting_warnings_do_not_leak_into_earlier_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/basket-nvda-pilot/tests/integration/test_nvda_pilot_acceptance.py", line 316, in test_supporting_warnings_do_not_leak_into_earlier_replay
+    self.assertEqual(self.pilot.report(EARLY)['source_reconciliation_warnings'], [])
+AssertionError: Lists differ: [{'code': 'SYNTHETIC_LATER_FINDING', 'deta[46 chars]e.'}] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+{'code': 'SYNTHETIC_LATER_FINDING', 'detail': 'Known only at the later verification time.'}
+
++ []
+- [{'code': 'SYNTHETIC_LATER_FINDING',
+-   'detail': 'Known only at the later verification time.'}]
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.645s
+
+FAILED (failures=1)

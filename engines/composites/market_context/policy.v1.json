@@ -1,0 +1,533 @@
+{
+  "version": "1.0.0",
+  "pillars": [
+    {
+      "id": "trend",
+      "label": "Price trend and leadership",
+      "weight": 20
+    },
+    {
+      "id": "breadth",
+      "label": "Breadth and participation",
+      "weight": 15
+    },
+    {
+      "id": "credit",
+      "label": "Credit and funding",
+      "weight": 20
+    },
+    {
+      "id": "rates",
+      "label": "Rates, inflation and dollar",
+      "weight": 15
+    },
+    {
+      "id": "liquidity",
+      "label": "Liquidity and funding access",
+      "weight": 10
+    },
+    {
+      "id": "energy",
+      "label": "Energy and growth sensitivity",
+      "weight": 10
+    },
+    {
+      "id": "sentiment",
+      "label": "Volatility and positioning",
+      "weight": 10
+    }
+  ],
+  "scoring_matrix": [
+    {
+      "id": "qqq_above_50d",
+      "pillar": "trend",
+      "within_pillar_weight": 0.4,
+      "formula": "QQQ close / SMA50 - 1",
+      "unit": "percent",
+      "thresholds": [
+        -4,
+        -1,
+        1,
+        4
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "interpretation": "Captures AI/growth-sensitive benchmark; use split-adjusted close.",
+      "cadence": "daily_close_with_optional_separate_intraday_estimate"
+    },
+    {
+      "id": "spy_above_200d",
+      "pillar": "trend",
+      "within_pillar_weight": 0.25,
+      "formula": "SPY close / SMA200 - 1",
+      "unit": "percent",
+      "thresholds": [
+        -8,
+        -2,
+        2,
+        8
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "interpretation": "Long-term broad-market context.",
+      "cadence": "daily_close_with_optional_separate_intraday_estimate"
+    },
+    {
+      "id": "qqq_return_5d",
+      "pillar": "trend",
+      "within_pillar_weight": 0.2,
+      "formula": "QQQ close / close 5 completed sessions earlier - 1",
+      "unit": "percent",
+      "thresholds": [
+        -4,
+        -1,
+        1,
+        4
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "interpretation": "Short-term direction, not forecast.",
+      "cadence": "daily_close_with_optional_separate_intraday_estimate"
+    },
+    {
+      "id": "rsp_spy_relative_21d",
+      "pillar": "trend",
+      "within_pillar_weight": 0.15,
+      "formula": "RSP 21-session price return minus SPY 21-session price return",
+      "unit": "percentage_points",
+      "thresholds": [
+        -3,
+        -1,
+        1,
+        3
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "interpretation": "Equal-weight relative leadership; separately inspect absolute breadth.",
+      "cadence": "daily_close_with_optional_separate_intraday_estimate"
+    },
+    {
+      "id": "above_50d_pct",
+      "pillar": "breadth",
+      "within_pillar_weight": 0.45,
+      "formula": "Percent of point-in-time S&P 500 constituents above own SMA50",
+      "unit": "percent",
+      "thresholds": [
+        25,
+        40,
+        60,
+        75
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "interpretation": "Constituent count and coverage must accompany value.",
+      "cadence": "daily_publication"
+    },
+    {
+      "id": "above_200d_pct",
+      "pillar": "breadth",
+      "within_pillar_weight": 0.35,
+      "formula": "Percent of point-in-time S&P 500 constituents above own SMA200",
+      "unit": "percent",
+      "thresholds": [
+        25,
+        40,
+        60,
+        75
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "interpretation": "Use same membership basis for historical comparisons.",
+      "cadence": "daily_publication"
+    },
+    {
+      "id": "net_highs_5d_pct",
+      "pillar": "breadth",
+      "within_pillar_weight": 0.2,
+      "formula": "100 * sum(new 52-week highs - lows over 5 sessions) / sum(eligible listings over same sessions)",
+      "unit": "percent",
+      "thresholds": [
+        -3,
+        -1,
+        1,
+        3
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "interpretation": "Common-stock-only NYSE+Nasdaq universe; exclude funds, preferreds and duplicate listings.",
+      "cadence": "daily_publication"
+    },
+    {
+      "id": "hy_oas",
+      "pillar": "credit",
+      "within_pillar_weight": 0.5,
+      "formula": "Broad USD high-yield option-adjusted spread",
+      "unit": "basis_points",
+      "thresholds": [
+        250,
+        350,
+        450,
+        600
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        2,
+        1,
+        0,
+        -1,
+        -2
+      ],
+      "interpretation": "Actual spread series preferred; HYG price is not a spread.",
+      "cadence": "daily_publication"
+    },
+    {
+      "id": "hy_oas_delta_5d",
+      "pillar": "credit",
+      "within_pillar_weight": 0.3,
+      "formula": "HY OAS latest minus 5 publication observations earlier",
+      "unit": "basis_points",
+      "thresholds": [
+        -30,
+        -10,
+        10,
+        30
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        2,
+        1,
+        0,
+        -1,
+        -2
+      ],
+      "interpretation": "Store reference-date lag; never label daily OAS intraday.",
+      "cadence": "daily_publication"
+    },
+    {
+      "id": "ig_oas_delta_5d",
+      "pillar": "credit",
+      "within_pillar_weight": 0.2,
+      "formula": "Investment-grade OAS latest minus 5 publication observations earlier",
+      "unit": "basis_points",
+      "thresholds": [
+        -10,
+        -3,
+        3,
+        10
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        2,
+        1,
+        0,
+        -1,
+        -2
+      ],
+      "interpretation": "Independent confirmation across credit quality.",
+      "cadence": "daily_publication"
+    },
+    {
+      "id": "real10y_delta_21d",
+      "pillar": "rates",
+      "within_pillar_weight": 0.4,
+      "formula": "10-year TIPS real yield change over 21 observations",
+      "unit": "basis_points",
+      "thresholds": [
+        -30,
+        -10,
+        10,
+        30
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        2,
+        1,
+        0,
+        -1,
+        -2
+      ],
+      "interpretation": "Falling real yields score supportive only absent growth-shock override.",
+      "cadence": "daily_publication"
+    },
+    {
+      "id": "nominal10y_delta_5d",
+      "pillar": "rates",
+      "within_pillar_weight": 0.2,
+      "formula": "10-year Treasury yield change over 5 observations",
+      "unit": "basis_points",
+      "thresholds": [
+        -20,
+        -7,
+        7,
+        20
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        2,
+        1,
+        0,
+        -1,
+        -2
+      ],
+      "interpretation": "Yield direction is conditional; falling yield does not prove risk-on.",
+      "cadence": "daily_publication"
+    },
+    {
+      "id": "breakeven5y_delta_21d",
+      "pillar": "rates",
+      "within_pillar_weight": 0.2,
+      "formula": "5-year breakeven inflation change over 21 observations",
+      "unit": "basis_points",
+      "thresholds": [
+        -20,
+        -7,
+        7,
+        20
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        2,
+        1,
+        0,
+        -1,
+        -2
+      ],
+      "interpretation": "Inflation compensation proxy, not a pure inflation forecast.",
+      "cadence": "daily_publication"
+    },
+    {
+      "id": "dxy_return_5d",
+      "pillar": "rates",
+      "within_pillar_weight": 0.2,
+      "formula": "Dollar index return over 5 sessions",
+      "unit": "percent",
+      "thresholds": [
+        -2,
+        -0.5,
+        0.5,
+        2
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        2,
+        1,
+        0,
+        -1,
+        -2
+      ],
+      "interpretation": "Use one consistent DXY series; do not mix with WSJ dollar index.",
+      "cadence": "daily_close_with_optional_separate_intraday_estimate"
+    },
+    {
+      "id": "funding_spread_z",
+      "pillar": "liquidity",
+      "within_pillar_weight": 0.6,
+      "formula": "Robust z-score of SOFR minus IORB using prior 252 available observations",
+      "unit": "robust_z",
+      "thresholds": [
+        -1,
+        -0.25,
+        0.75,
+        2
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        2,
+        1,
+        0,
+        -1,
+        -2
+      ],
+      "interpretation": "robust_z=(latest - trailing median)/(1.4826*MAD); no zero MAD fallback; missing if undefined. Lag baseline one observation.",
+      "cadence": "daily_publication"
+    },
+    {
+      "id": "reserve_change_4w",
+      "pillar": "liquidity",
+      "within_pillar_weight": 0.4,
+      "formula": "Reserve balances change over 4 weekly observations divided by earlier balance",
+      "unit": "percent",
+      "thresholds": [
+        -8,
+        -3,
+        3,
+        8
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "interpretation": "Keep TGA and ON RRP as explanatory context; avoid counting a net-liquidity identity as independent confirmation.",
+      "cadence": "weekly"
+    },
+    {
+      "id": "wti_return_5d",
+      "pillar": "energy",
+      "within_pillar_weight": 0.6,
+      "formula": "WTI futures return over 5 sessions",
+      "unit": "percent",
+      "thresholds": [
+        -10,
+        -3,
+        3,
+        10
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        2,
+        1,
+        0,
+        -1,
+        -2
+      ],
+      "interpretation": "Use documented roll-adjusted series. Falling oil is not supportive during growth shock.",
+      "cadence": "daily_close_with_optional_separate_intraday_estimate"
+    },
+    {
+      "id": "diesel_return_21d",
+      "pillar": "energy",
+      "within_pillar_weight": 0.4,
+      "formula": "ULSD futures return over 21 sessions",
+      "unit": "percent",
+      "thresholds": [
+        -15,
+        -5,
+        5,
+        15
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        2,
+        1,
+        0,
+        -1,
+        -2
+      ],
+      "interpretation": "Use documented roll-adjusted series; tracks transport cost pressure separately from crude.",
+      "cadence": "daily_publication"
+    },
+    {
+      "id": "vix_level",
+      "pillar": "sentiment",
+      "within_pillar_weight": 0.45,
+      "formula": "VIX close",
+      "unit": "index_points",
+      "thresholds": [
+        14,
+        18,
+        24,
+        32
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        2,
+        1,
+        0,
+        -1,
+        -2
+      ],
+      "interpretation": "Very low VIX earns supportive score but separately flags complacency.",
+      "cadence": "daily_close_with_optional_separate_intraday_estimate"
+    },
+    {
+      "id": "vix_curve",
+      "pillar": "sentiment",
+      "within_pillar_weight": 0.35,
+      "formula": "VIX / VIX3M",
+      "unit": "ratio",
+      "thresholds": [
+        0.85,
+        0.95,
+        1.02,
+        1.12
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        2,
+        1,
+        0,
+        -1,
+        -2
+      ],
+      "interpretation": "Same timestamp for both inputs; backwardation flags stress.",
+      "cadence": "daily_close_with_optional_separate_intraday_estimate"
+    },
+    {
+      "id": "equity_put_call_percentile",
+      "pillar": "sentiment",
+      "within_pillar_weight": 0.2,
+      "formula": "Percentile of 5-day mean equity-only put/call ratio against preceding 252 observations",
+      "unit": "percentile",
+      "thresholds": [
+        10,
+        30,
+        70,
+        90
+      ],
+      "bin_intervals": "(-inf,e0],(e0,e1],(e1,e2],(e2,e3],(e3,+inf)",
+      "scores": [
+        -1,
+        0,
+        1,
+        -1,
+        -2
+      ],
+      "interpretation": "Score by bins [-1,0,1,-1,-2]. Low percentile flags crowding; extreme high percentile flags fear, not automatic buy.",
+      "cadence": "daily_publication"
+    }
+  ],
+  "principles": [
+    "Separate observed conditions, changes, narratives and hypotheses.",
+    "No conversion of scores to rally probabilities or automatic orders.",
+    "Preserve timestamps, source identity, revisions and missing values.",
+    "Measure current level and recent impulse separately.",
+    "Use actual credit spreads; ETF price ratios are context only.",
+    "All thresholds and weights are proposed policy choices requiring point-in-time validation."
+  ]
+}

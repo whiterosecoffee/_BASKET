@@ -1,0 +1,58 @@
+name: NVDA resolver pilot acceptance
+on:
+  pull_request:
+    paths:
+      - 'orchestration/nvda_pilot/**'
+      - 'orchestration/tests/test_nvda_pilot.py'
+      - 'tests/integration/test_nvda_pilot_acceptance.py'
+      - 'runtime/ticker_data.py'
+      - 'runtime/observations.py'
+      - 'schemas/ticker-data.v1.json'
+      - '.github/workflows/nvda-pilot.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'orchestration/nvda_pilot/**'
+      - 'orchestration/tests/test_nvda_pilot.py'
+      - 'tests/integration/test_nvda_pilot_acceptance.py'
+      - 'runtime/ticker_data.py'
+      - 'runtime/observations.py'
+      - 'schemas/ticker-data.v1.json'
+      - '.github/workflows/nvda-pilot.yml'
+permissions:
+  contents: read
+jobs:
+  nvda-pilot-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install jsonschema==4.23.0
+      - name: Verify exact tested source revision
+        env:
+          EXPECTED_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          git rev-parse HEAD
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+      - name: Module and independent B01 adversarial acceptance (nonempty, no skipped success)
+        run: |
+          python - <<'PY'
+          import unittest
+          suites = [
+              ('orchestration/tests', 'test_nvda_pilot.py'),
+              ('tests/integration', 'test_nvda_pilot_acceptance.py'),
+              ('runtime', 'test_ticker_data.py'),
+              ('runtime', 'test_observations.py'),
+          ]
+          for directory, pattern in suites:
+              suite = unittest.defaultTestLoader.discover(directory, pattern=pattern)
+              assert suite.countTestCases() > 0, f'Missing acceptance suite: {directory}/{pattern}'
+              result = unittest.TextTestRunner(verbosity=2).run(suite)
+              if not result.wasSuccessful() or result.skipped:
+                  raise SystemExit(1)
+          PY
