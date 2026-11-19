@@ -1,0 +1,180 @@
+{
+  "as_of": "2026-11-19",
+  "attempt_history": [
+    {
+      "outcome": "error_before_cases",
+      "reason": "Broad schema-file mock intercepted jsonschema dependency loading; fixed with dependency preimport and exact-path substitution.",
+      "stage": "conversation_probe_initialization"
+    },
+    {
+      "outcome": "error_before_cases",
+      "reason": "Pinned published Git objects unavailable locally; fetched exact published revision, no code or pin change.",
+      "stage": "repository_probe_initialization"
+    },
+    {
+      "cases": 9,
+      "failures": 0,
+      "outcome": "pass",
+      "stage": "repository_probe"
+    }
+  ],
+  "baseline_revision": "195093f71ecbffe10fef15c3e4932bee8daafe4d",
+  "case_count": 9,
+  "cases": [
+    {
+      "checks": {
+        "deterministic_repeat": true,
+        "expected_verdict": true,
+        "input_unchanged": true,
+        "no_truth_promotion": true,
+        "structural_only": true
+      },
+      "expected_valid": true,
+      "id": "monitoring",
+      "passed": true
+    },
+    {
+      "checks": {
+        "deterministic_repeat": true,
+        "expected_verdict": true,
+        "input_unchanged": true,
+        "no_truth_promotion": true,
+        "structural_only": true
+      },
+      "expected_valid": false,
+      "id": "tested-without-evidence",
+      "passed": true
+    },
+    {
+      "checks": {
+        "deterministic_repeat": true,
+        "expected_verdict": true,
+        "input_unchanged": true,
+        "no_truth_promotion": true,
+        "structural_only": true
+      },
+      "expected_valid": false,
+      "id": "accepted-without-evidence",
+      "passed": true
+    },
+    {
+      "checks": {
+        "deterministic_repeat": true,
+        "expected_verdict": true,
+        "input_unchanged": true,
+        "no_truth_promotion": true,
+        "structural_only": true
+      },
+      "expected_valid": false,
+      "id": "approval-without-authority",
+      "passed": true
+    },
+    {
+      "checks": {
+        "deterministic_repeat": true,
+        "expected_verdict": true,
+        "input_unchanged": true,
+        "no_truth_promotion": true,
+        "structural_only": true
+      },
+      "expected_valid": true,
+      "id": "explicit-approval-blocker",
+      "passed": true
+    },
+    {
+      "checks": {
+        "deterministic_repeat": true,
+        "expected_verdict": true,
+        "input_unchanged": true,
+        "no_truth_promotion": true,
+        "structural_only": true
+      },
+      "expected_valid": false,
+      "id": "conflicting-duplicate",
+      "passed": true
+    },
+    {
+      "checks": {
+        "deterministic_repeat": true,
+        "expected_verdict": true,
+        "input_unchanged": true,
+        "no_truth_promotion": true,
+        "structural_only": true
+      },
+      "expected_valid": true,
+      "id": "identical-duplicate",
+      "passed": true
+    },
+    {
+      "checks": {
+        "deterministic_repeat": true,
+        "expected_verdict": true,
+        "input_unchanged": true,
+        "no_truth_promotion": true,
+        "structural_only": true
+      },
+      "expected_valid": false,
+      "id": "foreign-revision",
+      "passed": true
+    },
+    {
+      "checks": {
+        "deterministic_repeat": true,
+        "expected_verdict": true,
+        "input_unchanged": true,
+        "no_truth_promotion": true,
+        "structural_only": true
+      },
+      "expected_valid": true,
+      "id": "well-shaped-fiction-remains-unverified",
+      "passed": true
+    }
+  ],
+  "command": "python3 -B orchestration/qualification/ready_dependency_cut/reuse_probe.py --source-repo .",
+  "environment": {
+    "jsonschema": "4.26.0",
+    "python": "3.12.14"
+  },
+  "execution": "local_in_memory_api",
+  "failed": 0,
+  "harness_sha256": "fd72f659feb782f939b556daa71d090c11c70e86150a7073561680b8a0d0c7a1",
+  "independent_acceptance": false,
+  "input_kind": "synthetic",
+  "limits": [
+    "Exact-path schema read supplied in memory; CLI not exercised.",
+    "Structural assertions do not authenticate any receipt.",
+    "No other-owner worktree bytes, unpublished candidate, network, or writes used."
+  ],
+  "operational": false,
+  "owner_issue": 252,
+  "owner_sources": [
+    "https://github.com/whiterosecoffee/_BASKET/issues/252",
+    "https://github.com/whiterosecoffee/_BASKET/issues/246"
+  ],
+  "ownership_check": {
+    "new_assignments": 0,
+    "open_pr_inventories": 83,
+    "overlapping_prs": [
+      259
+    ]
+  },
+  "passed": 9,
+  "regression": {
+    "command": "python3 -B -m unittest discover -s orchestration/qualification/ready_dependency_cut -p 'test_*.py' -v",
+    "errors": 0,
+    "failures": 0,
+    "scope": "existing focused integrity suite rerun with additive harness present",
+    "skips": 0,
+    "tests": 26
+  },
+  "review": {
+    "criterion": "B00-252 A3 bounded synthetic second-use evidence",
+    "next_action": "Existing B00 reviewer evaluates exact published additive evidence and returns accept, corrections, or explicit defer; no operational acceptance implied.",
+    "status": "pending"
+  },
+  "source_revision": "2f395d475abace7fe58afbb9f0c5fa3d596c25e2",
+  "source_sha256": {
+    "receipt.schema.json": "bb47ef1f80e028f503e190c5870d7345e463853f3c34c1c67b81702658f32258",
+    "validate.py": "3af3b3323c2f4f6dfc8503cb370639deb61727ed218356ea254292ca21f847c2"
+  }
+}
