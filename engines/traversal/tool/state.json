@@ -1,0 +1,79 @@
+{
+  "schema": "basket.capability_state@1",
+  "node": "basket-traversal-readout",
+  "owner": "B06",
+  "branch": "work/278-traversal-tool-boundary",
+  "issue": 278,
+  "pr": 282,
+  "as_of": "2026-11-19",
+  "purpose": "Source-gated read-only instrument-parameterized access to merged B06 traversal metrics",
+  "parent": {
+    "issue": 108,
+    "merged_pr": 109,
+    "path": "engines/traversal/metrics.py"
+  },
+  "objectives": [
+    {
+      "tier": "M0",
+      "goal": "Deterministic read-only API and CLI with explicit source/status",
+      "status": "implemented_branch_unverified_exact_head"
+    },
+    {
+      "tier": "M1",
+      "goal": "Actual CRWV and ORCL canonical source-to-range-to-journal-to-output replay",
+      "status": "blocked_upstream",
+      "owner": "B06-108"
+    }
+  ],
+  "status": "draft_pr_not_merged",
+  "readiness": {
+    "local_synthetic_prototype": "seven_tests_passed",
+    "exact_published_source_independent_test": "not_verified",
+    "shared_ci": "check_live_run",
+    "integrated_main": false,
+    "hosted": false,
+    "alerts": false
+  },
+  "owned_paths": [
+    "engines/traversal/tool/**"
+  ],
+  "dependencies": [
+    {
+      "issue": 96,
+      "owner": "B00",
+      "purpose": "registration"
+    },
+    {
+      "issue": 98,
+      "owner": "B01",
+      "purpose": "independent exact-head tests"
+    },
+    {
+      "issue": 148,
+      "owner": "B00/B02",
+      "purpose": "canonical resolver"
+    },
+    {
+      "issue": 152,
+      "owner": "B02",
+      "purpose": "quality/coverage"
+    },
+    {
+      "issue": 95,
+      "owner": "B10",
+      "purpose": "journal/producer"
+    },
+    {
+      "issue": 97,
+      "owner": "B02/B08",
+      "purpose": "deployment"
+    }
+  ],
+  "ghost_nodes": [
+    "canonical-resolver-binding",
+    "journal-event-adapter",
+    "context-adapter",
+    "delivery-adapter"
+  ],
+  "next_action": "B01 #98 execute exact-head tool suite plus real merged-core synthetic CLI and record source/test hashes; no live data claims."
+}
