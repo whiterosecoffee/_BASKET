@@ -51,5 +51,25 @@ class WholeMapChecks(unittest.TestCase):
         a,b,c,ma,po=sample(); a["rows"][0]["pool_ids"]=[]
         with self.assertRaises(check.MapError):check.verify(a,b,c,ma,po)
 
+    def test_git_blob_identity_valid(self):
+        a = b'{"records": []}\n'
+        b = b'{"pools": []}\n'
+        self.assertTrue(check.verify_input_blobs(a, b, check.git_blob_sha(a), check.git_blob_sha(b)))
+
+    def test_git_blob_tamper_fails(self):
+        a = b'{"records": []}\n'
+        b = b'{"pools": []}\n'
+        with self.assertRaises(check.MapError):
+            check.verify_input_blobs(a + b" ", b, check.git_blob_sha(a), check.git_blob_sha(b))
+
+    def test_git_blob_rejects_nonhex(self):
+        with self.assertRaises(check.MapError):
+            check.verify_input_blobs(b"a", b"b", "z" * 40, check.git_blob_sha(b"b"))
+
+    def test_untrusted_revision_nonhex(self):
+        a,b,c,ma,po=sample()
+        with self.assertRaises(check.MapError):
+            check.verify(a,b,c,"z"*40,po)
+
 if __name__=="__main__":
     unittest.main()
