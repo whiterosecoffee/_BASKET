@@ -1,0 +1,373 @@
+{
+  "as_of": "2026-10-23",
+  "source": "Massive split-adjusted aggregates; retrieved 2026-10-23 ET",
+  "returns": {
+    "2026-09-01": {
+      "CRWV": -0.3373854612095296,
+      "QQQ": -0.004578599287773488,
+      "NVDA": -0.02980132450331119,
+      "HYG": -0.025916561314791364,
+      "IEF": -0.01140065146579805,
+      "USO": 0.202340425531915,
+      "SPY": -0.0023760140723042555
+    },
+    "2026-10-07": {
+      "CRWV": -0.38682871678914643,
+      "QQQ": -0.07038127037335207,
+      "NVDA": -0.11163515391417855,
+      "HYG": -0.0016843741902048404,
+      "IEF": 0.021770845023005192,
+      "USO": 0.1780279341254951,
+      "SPY": -0.022194488047142413
+    },
+    "2026-10-09": {
+      "CRWV": -0.3392422027290448,
+      "QQQ": -0.062387690177965305,
+      "NVDA": -0.07990230286113043,
+      "HYG": -0.0023307005049851837,
+      "IEF": 0.01845637583892601,
+      "USO": 0.143927125506073,
+      "SPY": -0.02388995209165523
+    },
+    "2026-10-13": {
+      "CRWV": -0.30298162189949884,
+      "QQQ": -0.052678295251287754,
+      "NVDA": -0.07684228951514094,
+      "HYG": -0.0005188740433260675,
+      "IEF": 0.01686397140942586,
+      "USO": 0.10738781109151474,
+      "SPY": -0.0231873626303003
+    },
+    "2026-10-16": {
+      "CRWV": -0.11654992669815933,
+      "QQQ": -0.0076077768385460764,
+      "NVDA": -0.014804090972773465,
+      "HYG": 0.0024720270621909624,
+      "IEF": 0.006967485069674817,
+      "USO": 0.04803412462908008,
+      "SPY": -0.004297412381264243
+    },
+    "2026-10-22": {
+      "CRWV": -0.024550359712230296,
+      "QQQ": -9.936548043221194e-05,
+      "NVDA": -0.005890391593233124,
+      "HYG": -0.0006485084306095956,
+      "IEF": -0.00164473684210531,
+      "USO": 0.04319734170204925,
+      "SPY": -0.005222786533326418
+    }
+  },
+  "frozen_pre_breakdown": {
+    "trained_through": "2026-10-13",
+    "coefficients": [
+      -0.0014618442322008375,
+      3.584246068162339,
+      0.11346774200751834
+    ],
+    "factor_only_compounded_return": -0.19293011507379554,
+    "with_intercept_compounded_return": -0.20258970346039107,
+    "actual_return": -0.30298162189949873
+  },
+  "regular": {
+    "low": 54.01,
+    "high": 56.11,
+    "volume": 41736776.103328,
+    "dollar_volume": 2287219544.6486464,
+    "vwap": 54.801059357966764,
+    "last_minute_close": 54.23,
+    "daily_aggregate": {
+      "v": 46943098.343577,
+      "vw": 54.8599,
+      "o": 54.92,
+      "c": 54.235,
+      "h": 56.11,
+      "l": 54.01,
+      "t": 1792728000000.0,
+      "n": 391273.0
+    }
+  },
+  "after_hours_last": {
+    "time": "2026-10-23T19:56:00-04:00",
+    "close": 54.0
+  },
+  "vwap_bin_estimate": {
+    "55.00-55.25": {
+      "volume": 5737130.170665999,
+      "dollars": 316185717.0184877,
+      "minutes": 53
+    },
+    "54.75-55.00": {
+      "volume": 10189302.390738992,
+      "dollars": 558969479.0137631,
+      "minutes": 144
+    },
+    "54.50-54.75": {
+      "volume": 9140609.675339002,
+      "dollars": 499305984.9203941,
+      "minutes": 97
+    },
+    "54.25-54.50": {
+      "volume": 7867542.546881,
+      "dollars": 427796426.8764214,
+      "minutes": 56
+    },
+    "54.00-54.25": {
+      "volume": 3096597.3140380005,
+      "dollars": 167840715.6454305,
+      "minutes": 15
+    },
+    "55.25-55.50": {
+      "volume": 2094340.7111079996,
+      "dollars": 115868499.34168714,
+      "minutes": 12
+    },
+    "55.50-55.75": {
+      "volume": 2139715.292018,
+      "dollars": 119025261.58682933,
+      "minutes": 8
+    },
+    "55.75-56.00": {
+      "volume": 1471538.002539,
+      "dollars": 82227460.24563363,
+      "minutes": 5
+    }
+  },
+  "bands": {
+    "54.00-54.15": [
+      {
+        "start": "09:33",
+        "end": "09:34",
+        "touch_bar_shares": 754627.71123
+      },
+      {
+        "start": "10:17",
+        "end": "10:17",
+        "touch_bar_shares": 298181.712124
+      },
+      {
+        "start": "11:13",
+        "end": "11:13",
+        "touch_bar_shares": 323947.925409
+      },
+      {
+        "start": "15:55",
+        "end": "15:56",
+        "touch_bar_shares": 666375.364878
+      }
+    ],
+    "54.25-54.35": [
+      {
+        "start": "09:33",
+        "end": "09:36",
+        "touch_bar_shares": 1311515.182214
+      },
+      {
+        "start": "10:17",
+        "end": "10:19",
+        "touch_bar_shares": 624468.388822
+      },
+      {
+        "start": "10:34",
+        "end": "10:35",
+        "touch_bar_shares": 175661.426283
+      },
+      {
+        "start": "11:09",
+        "end": "11:24",
+        "touch_bar_shares": 1538218.256487
+      },
+      {
+        "start": "11:38",
+        "end": "11:46",
+        "touch_bar_shares": 732638.8231929999
+      },
+      {
+        "start": "15:38",
+        "end": "15:59",
+        "touch_bar_shares": 3827858.523193
+      }
+    ],
+    "54.80-54.90": [
+      {
+        "start": "09:30",
+        "end": "09:39",
+        "touch_bar_shares": 2099394.746899
+      },
+      {
+        "start": "09:57",
+        "end": "10:56",
+        "touch_bar_shares": 3754139.412446
+      },
+      {
+        "start": "11:07",
+        "end": "11:08",
+        "touch_bar_shares": 153958.006142
+      },
+      {
+        "start": "11:50",
+        "end": "11:56",
+        "touch_bar_shares": 666396.271279
+      },
+      {
+        "start": "12:17",
+        "end": "12:19",
+        "touch_bar_shares": 209031.83755
+      },
+      {
+        "start": "12:33",
+        "end": "13:22",
+        "touch_bar_shares": 2236342.190304
+      },
+      {
+        "start": "13:48",
+        "end": "14:48",
+        "touch_bar_shares": 2182221.178426
+      },
+      {
+        "start": "15:04",
+        "end": "15:29",
+        "touch_bar_shares": 1435339.244524
+      }
+    ],
+    "55.25-55.35": [
+      {
+        "start": "09:30",
+        "end": "09:42",
+        "touch_bar_shares": 2277883.790932
+      },
+      {
+        "start": "09:54",
+        "end": "10:04",
+        "touch_bar_shares": 1901850.277275
+      },
+      {
+        "start": "10:41",
+        "end": "10:42",
+        "touch_bar_shares": 279371.231576
+      },
+      {
+        "start": "12:04",
+        "end": "12:07",
+        "touch_bar_shares": 323432.259415
+      },
+      {
+        "start": "14:33",
+        "end": "14:34",
+        "touch_bar_shares": 219417.384679
+      },
+      {
+        "start": "14:52",
+        "end": "14:58",
+        "touch_bar_shares": 603817.775688
+      }
+    ],
+    "55.58-55.62": [
+      {
+        "start": "09:42",
+        "end": "10:01",
+        "touch_bar_shares": 2988514.530108
+      }
+    ],
+    "56.02-56.11": [
+      {
+        "start": "09:45",
+        "end": "09:50",
+        "touch_bar_shares": 1350060.446265
+      }
+    ]
+  },
+  "retrospective_traversals": [
+    {
+      "start": "09:33",
+      "end": "09:39",
+      "outcome": "upper_reached",
+      "minutes": 6.0
+    },
+    {
+      "start": "10:17",
+      "end": "10:41",
+      "outcome": "upper_reached",
+      "minutes": 24.0
+    },
+    {
+      "start": "11:13",
+      "end": "12:04",
+      "outcome": "upper_reached",
+      "minutes": 51.0
+    },
+    {
+      "start": "15:55",
+      "end": "15:56",
+      "outcome": "floor_broken",
+      "minutes": 1.0
+    }
+  ],
+  "latest_factor": {
+    "date": "2026-10-23",
+    "trained_through": "2026-10-22",
+    "actual_return": -0.024550359712230296,
+    "expected_conditional_return": -0.0036009131840544412,
+    "residual": -0.020949446528175854,
+    "residual_training_sigma": -0.42359632818449516,
+    "intercept": -0.003596461908267114,
+    "betas": {
+      "QQQ": 3.882852527643668,
+      "NVDA": -0.06474446138819225
+    },
+    "standardized_effect_per_one_factor_sd": {
+      "QQQ": 0.04594956036979694,
+      "NVDA": -0.0014782221442424383
+    },
+    "contributions": {
+      "QQQ": -0.0003858215068567416,
+      "NVDA": 0.0003813702310694142
+    },
+    "training_r2": 0.4612155994578838,
+    "standardized_design_condition_number": 2.2415408356888937
+  },
+  "methodology": {
+    "session": "09:30 inclusive to 16:00 exclusive America/New_York; closing auction exclusions/eligible trade rules can cause differences from daily aggregates",
+    "volume_profile": "Entire one-minute volume assigned to its VWAP quarter-dollar bin; not true trade-level volume at price",
+    "touch_episodes": "Intersecting minute high/low; merge until more than 10 minutes since last touching bar",
+    "traversals": "Retrospective lower band 54.07-54.15 to upper threshold55.25; earliest subsequent upper hit before low<54.07. Same-bar upper and failure marked ambiguous; no execution or fill claims",
+    "lookahead_warning": "Bands selected using same-session observations. 3/4 is descriptive, not an out-of-sample win probability",
+    "raw_intraday_provenance": "Massive /v2/aggs/ticker/CRWV/range/1/minute/2026-10-23/2026-10-23 adjusted default true, sort asc, limit50000. Raw intraday remains transient; summary retained; not canonical ingestion."
+  },
+  "forward_multiple_observations": [
+    {
+      "date": "2026-06-30",
+      "sp500_forward_pe": 20.4,
+      "source": "https://insight.factset.com/sp-500-earnings-season-preview-q3-2026"
+    },
+    {
+      "date": "2026-10-09",
+      "sp500_forward_pe": 19.1,
+      "source": "https://advantage.factset.com/hubfs/Website/Resources%20Section/Research%20Desk/Earnings%20Insight/EarningsInsight_100926.pdf"
+    },
+    {
+      "date": "2026-10-23",
+      "sp500_forward_pe": 18.7,
+      "source": "https://insight.factset.com/sp-500-earnings-season-update-october-23-2026"
+    }
+  ],
+  "valuation_limitations": [
+    "Report-date PEs may use prior market close; not synchronized to Friday 16:00",
+    "Rolling forward earnings horizon changes; compression is not pure discount-rate repricing",
+    "Direct FactSet Oct23 page fetch failed; indexed primary-source excerpts verified; no exact current QQQ forward PE obtained",
+    "CRWV positive forward EPS consensus not established; its drawdown is not automatically a PE change"
+  ],
+  "frozen_model_window_sensitivity": [
+    {
+      "sessions": 20,
+      "factor_associated_return_pct": -8.0550447466
+    },
+    {
+      "sessions": 60,
+      "factor_associated_return_pct": -19.2930115074
+    },
+    {
+      "sessions": 120,
+      "factor_associated_return_pct": -11.9443334287
+    }
+  ]
+}
