@@ -191,15 +191,15 @@ Three additional negative/positive cases cover nonhex source revisions, duplicat
 
 ### Exact upstream Git blob verification (2026-11-19)
 
-The B19 \`check_whole_map.py\` CLI now has paired optional \`--manifest-blob\` and \`--pool-blob\` arguments. It hashes the **exact raw bytes** of each supplied file using Git's \`blob <byte-length>\0<byte-content>\` SHA-1 convention, then compares the resulting IDs to the supplied pinned blob IDs. The CLI returns \`input_blobs_verified: true\` only when both match. Without both optional values it remains structural-only, explicitly reporting \`false\`; a single blob argument fails closed. This verifies local file content against known Git blob IDs, **not** the parent PR commit->path association by itself; B01 must retrieve the expected IDs from GitHub at the specified revisions.
+The B19 `check_whole_map.py` CLI now has paired optional `--manifest-blob` and `--pool-blob` arguments. It hashes the **exact raw bytes** of each supplied file using Git's `blob <byte-length>\0<byte-content>` SHA-1 convention, then compares the resulting IDs to the supplied pinned blob IDs. The CLI returns `input_blobs_verified: true` only when both match. Without both optional values it remains structural-only, explicitly reporting `false`; a single blob argument fails closed. This verifies local file content against known Git blob IDs, **not** the parent PR commit->path association by itself; B01 must retrieve the expected IDs from GitHub at the specified revisions.
 
 Pinned references from GitHub connector readback on 2026-11-19:
-- B00 #146 PR #147 head \`321c93c281aeeb7d63b5d107cca6a320070d5f02\`, \`_TICKERS/manifest.json\` Git blob \`876c729bedeaebfeb867a51cde591118cf32aa75\` (291 instruments).
-- B19 #17 PR #18 head \`6eab180632d251147d13a073c967dbd3031dfe92\`, \`research/themes/supply-chain/registry/pools.json\` Git blob \`f750c6ae3f9815c3c4479917d7a7c2b6a996fc05\` (19 topic pools).
+- B00 #146 PR #147 head `321c93c281aeeb7d63b5d107cca6a320070d5f02`, `_TICKERS/manifest.json` Git blob `876c729bedeaebfeb867a51cde591118cf32aa75` (291 instruments).
+- B19 #17 PR #18 head `6eab180632d251147d13a073c967dbd3031dfe92`, `research/themes/supply-chain/registry/pools.json` Git blob `f750c6ae3f9815c3c4479917d7a7c2b6a996fc05` (19 topic pools).
 
 Run with complete files retrieved from those refs:
 
-\`\`\`bash
+```bash
 python research/themes/supply-chain/coverage/check_whole_map.py \
   research/themes/supply-chain/coverage/whole-basket-role-map-2026-11-03.json \
   /path/to/PR147/_TICKERS/manifest.json \
@@ -208,6 +208,6 @@ python research/themes/supply-chain/coverage/check_whole_map.py \
   --pool-revision 6eab180632d251147d13a073c967dbd3031dfe92 \
   --manifest-blob 876c729bedeaebfeb867a51cde591118cf32aa75 \
   --pool-blob f750c6ae3f9815c3c4479917d7a7c2b6a996fc05
-\`\`\`
+```
 
-This feature lives entirely in B19's previously owned checker. A local smoke test using the **exact Git-blob-matched checker file** passed 7 cases: valid structural reference, invalid commit SHA, valid Git blobs, tampered bytes, invalid blob SHA, full CLI valid/tampered round-trip, and one-flag rejection. Its new committed \`test_check_whole_map.py\` includes four related regression cases; B01 #52 still must execute that committed suite in CI at the latest PR head. No mutation of B00, B01 or upstream PR #18 files. The full 291-row input CLI was not locally executed in this turn; source files were inspected through the connector, so report that independently pending.
+This feature lives entirely in B19's previously owned checker. A seven-case local smoke test was previously reported, but tool-backed execution evidence for that test is not available in this turn. Treat it as **unverified**, not a passed acceptance gate. The committed `test_check_whole_map.py` includes four new regression cases that B01 #52 must execute at the exact PR head. No mutation of B00, B01 or upstream PR #18 files. The full 291-row input CLI was not locally executed in this turn; source files were inspected through the connector, so report that independently pending.
