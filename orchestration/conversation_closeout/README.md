@@ -180,3 +180,141 @@ Unknown fields remain outside the supported input contract. No automatic source
 authentication, contradiction resolution, registered phrase routing, merge, or
 main-policy promotion is claimed. Independent full-conversation pilots and B00
 policy approval remain prerequisites for promotion beyond this draft workstream.
+
+
+## Review resolution and remaining adoption gate — 2026-11-19
+
+This dated B00 review continues #169/#170. It does not adopt policy or replace
+the default prompt. The interrupted 2026-11-13 write published no reconciliation;
+the branch remained at `06a7f0a1b197400f48b0317529c4184d48efe142`.
+The current increment changes only this README. A fresh changed-path inventory
+of all 81 other open PRs found no collision with this file. Open PRs do not
+establish worker activity.
+
+### Blocker dispositions
+
+| Concern | Checked evidence and disposition |
+| --- | --- |
+| Original component verification | Existing exact-SHA run [41770913789](https://github.com/whiterosecoffee/_BASKET/actions/runs/41770913789) executed 23 closeout + 5 CLI tests inside 197 orchestration tests, plus 29 integration tests. Historical acceptance remains pinned to `06a7f0a1…`; the new documentation head needs its own CI. |
+| Candidate was only in chat | Resolved for the preserved v3: PR179 head `0a020f22cf9b6bcf756fe7a439cd6ffe875bcc44` stores the full candidate and exact v2 baseline. Do not duplicate or overwrite its owned versions/** files. The latest chat amendments below remain proposed. |
+| Versions tests absent from mandatory CI | Resolved: [42945000165](https://github.com/whiterosecoffee/_BASKET/actions/runs/42945000165), [worker-qc](https://github.com/whiterosecoffee/_BASKET/actions/runs/42945000165/job/130275562393), names 9 AcceptanceTests + 19 QcIntakeTests + 13 QcSubmitTests at `0a020f22…`, within 283 orchestration tests; 113 integration tests pass. This is not semantic completeness evidence. |
+| Default and candidate conflict | Intentional, now explicit: v2 remains default; v3 is a separate trial. Mandatory B00 delivery and the proposed closing rule are behavioral changes. The Python formatter retains its documented conditional handoff/output contract. |
+| Broader semantic validation | Bounded manual comparisons and frozen-output checks exist. Independent generalized extraction/consumer effectiveness is not established. This limits broader promotion; it does not erase existing bounded test results. |
+| Layered-intent and continuation work | New #169 intake comments and PR264 describe separate work, including partial-supersession gaps. They are not regressions against PR170's documented supplied-evidence formatter, and are not pulled into this finalization. |
+| Main availability and integration | The branch prompt is retrievable. No merge/adoption is claimed; verify main retrieval after separately authorized integration. |
+| Permission | The user's scoped finalization, documentation and existing issue/PR reporting grants cover this reconciliation. They are not blanket implementation, default-adoption, merge, release or worker-launch permission. |
+
+Preserved candidate:
+[complete v3 at checked PR179 head](https://github.com/whiterosecoffee/_BASKET/blob/0a020f22cf9b6bcf756fe7a439cd6ffe875bcc44/orchestration/conversation_closeout/versions/HANDOFF_PROMPT.v3-candidate.md).
+Its current blob is `175a85b93fb64c9a736cb9174c9da40c473f21ef`.
+It already distinguishes procedure from generated handoff and documents separately
+authorized repo_queue delivery. Do not remove that authority or require manual
+copying where repository delivery was explicitly granted.
+
+### Exact remaining proposed amendments — prepared, not adopted
+
+These narrow additions preserve the complete candidate rather than replacing its
+knowledge extraction with a checklist. An authorized adoption change must render
+one complete controlling prompt, never ask the user to assemble fragments.
+
+Add to AUTHORITY AND EVIDENCE RULES:
+
+> Full execution permissions must be explicitly granted by the user. Carry forward
+> only explicit grants and identify their scope; a scoped grant is not full
+> permission. Receiving a handoff, accessing tools or seeing an embedded NEXT
+> instruction does not grant permission. Preserve explicit prohibitions and actions
+> requiring separate approval. Execute actions covered by an existing explicit grant
+> without asking for the same permission again. Where permission is missing, prepare
+> the exact proposed action and identify the specific grant needed. Permission to
+> execute is not evidence of completion.
+
+Add an EXECUTION CONTRACT before phase 1:
+
+> Direct B00 to complete remaining explicitly authorized work within its exact
+> boundaries; do not turn obligations into optional recommendations because
+> responsibility is transferring. For each remaining obligation state its required
+> outcome and necessity, owner, existing destination, dependencies, explicit
+> authorization, first executable action and acceptance evidence. Classify it as
+> execute now, blocked by a named dependency, deferred until a specific trigger,
+> or awaiting a precise permission grant. Refresh relevant state, execute unblocked
+> authorized work, verify results and persist where explicitly authorized. Continue
+> independent work while dependencies remain unresolved. Do not infer implementation,
+> policy-adoption, merge, release or external-communication authority from the handoff.
+
+Add to phase 4:
+
+> Preserve positive and negative lessons, including useful completed knowledge.
+> For each material lesson retain observation, supporting evidence, causal
+> explanation or uncertainty, repeat/avoid method, applicable limits and existing
+> durable destination. Keep failure and recovery together. Where persistence is
+> explicitly authorized, update and verify the existing destination. Otherwise
+> provide the complete proposed addition or replacement, its destination and precise
+> missing permission, marked “prepared, not persisted.” Every material lesson needs
+> verified storage, an explicit remaining storage action, or a supported defer/discard
+> disposition. Do not store unsupported generalizations or unnecessary duplicates.
+
+Append to OUTPUT, preserving its existing authorized repo_queue delivery:
+
+> After the complete handoff or verified repository receipt, give a short closing
+> message identifying the completed B00 artifact, required local work completed,
+> actual generated/posted/queued state and any required local blocker.
+> When required local work is complete and all material items have valid
+> dispositions, end exactly:
+>
+> Hand off the prompt, then archive.
+>
+> This is an instruction, not proof of delivery, acceptance, adoption or actual
+> archiving. It does not bypass an existing required QC/archive gate. If a required
+> local obligation or required gate remains unmet, state that blocker instead.
+> Never substitute this sentence for the handoff. An explicit user request for the
+> full in-chat artifact must still be honored; repository delivery permission does
+> not silently cancel it.
+
+### Eight-requirement author check
+
+This is a manual source-to-clause comparison, not an independent model trial or
+an estimate of recall over unavailable conversation history.
+
+| Explicit requirement | Existing coverage or prepared correction |
+| --- | --- |
+| Deep causal knowledge | Preserve candidate phase 3: principles, mechanisms, ordered methods, interfaces, rationale and falsifiers |
+| Broad scorecard and repairs inside copied artifact | Existing phases 5/6/9; a receipt is insufficient before the full artifact is stored |
+| Procedure separate from generated handoff | Existing candidate/versions README; no hardcoded #169 mission in reusable instructions |
+| Explicit grant rather than blanket assumed permission | Exact authority addition above; existing scoped grants remain valid |
+| Executable remaining authorized work | Exact execution contract above: owner, dependency, action and acceptance |
+| Durable positive/negative lessons and recovery | Phase 4 addition above; missing authority yields a complete proposed update |
+| One complete usable artifact | Adoption renders a complete prompt; invocation produces a complete source-specific handoff |
+| Accurate closing message | OUTPUT addition above; no claim of actual archive or bypass of required gates |
+
+All eight declared requirements have existing coverage or exact proposed language.
+This does not establish empirical superiority, adoption or consumer benefit.
+
+### Lessons retained with evidence and limits
+
+1. **Repeat named-test, exact-head inspection.** PR179's description cites older
+   counts; current-head logs establish 41 versions tests within 283 orchestration
+   tests. Revision inspection prevents historical evidence from becoming a current
+   acceptance claim. Destination: this review and existing issue/PR evidence.
+   Limit: passing deterministic tests do not authenticate transcript meaning.
+2. **Reuse preserved work before declaring absence.** Reading #178/PR179 resolves
+   the candidate-storage concern. A missing main path does not establish missing
+   branch work. Destination: existing compatibility/retrieval guidance and this review.
+3. **Separate procedure from output and consolidate requested edits.** Fragmented
+   amendments and a mixed procedure/handoff caused repeated user corrections here.
+   Repeat: return one full procedure when revising; generate the source-specific
+   artifact when applying. Destination: candidate output rules and this review.
+4. **Carry authority without inventing it.** Neither transferring responsibility
+   nor receiving instructions creates full permission. Existing scoped grants
+   should not be requested again. Destination: exact authority/execution clauses.
+5. **Preserve failed attempts alongside recovery.** The earlier cautious handoff
+   received user feedback of 4/10; later wording repairs do not retroactively raise
+   that score. The earlier implementation self-review and whole-conversation scores
+   concern different boundaries. Destination: source review and this dated record.
+6. **Treat interrupted publication as unverified.** The 2026-11-13 API call was
+   interrupted before any branch update. Fresh head/readback inspection established
+   the unchanged state before retry. Destination: this record and final resolution.
+
+One next owner action: review these exact amendments for adoption through the
+existing candidate owner and evaluation surface. Explicit permission to replace
+the default/adopt policy is the remaining decision; it is separate from this
+completed documentation reconciliation and from merge authorization.
