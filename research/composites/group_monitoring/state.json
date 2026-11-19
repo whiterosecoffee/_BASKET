@@ -10,7 +10,7 @@
     "next": "Real source update and independent review",
     "later": "Second segment acceptance before generalization"
   },
-  "status": "research_pilot_review_pending",
+  "status": "published_draft_independent_review_pending",
   "base_main": "433d3574033a35f24910dc1ffee21ecbf27702dc",
   "parent_guidance": "../../../AGENTS.md",
   "guidance": "AGENTS.md",
@@ -70,8 +70,16 @@
     "Comparable 2027/2028 consensus"
   ],
   "next_actions": [
-    "Publish and independently review draft PR",
-    "Normalize consensus and matched headcounts",
-    "Route operational ingestion/Spark work through existing owners"
+    "B01 independently verify current PR283 head through handoff284",
+    "Recover comparable EPS and matched headcounts in next research update",
+    "Manually transmit DOT_HANDOFF.md; verify Spark session and scheduler before operational claims"
+  ],
+  "pr": "https://github.com/whiterosecoffee/_BASKET/pull/283",
+  "handoffs": [
+    {
+      "issue": "https://github.com/whiterosecoffee/_BASKET/issues/284",
+      "target": "B01",
+      "status": "requested_not_acknowledged"
+    }
   ]
 }

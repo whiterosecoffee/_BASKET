@@ -29,7 +29,7 @@
     "NYSE:GIB"
   ],
   "scheduled_task_id": "Automation_a483b4a397dc8191a995042fc8260915",
-  "scheduling_note": "Existing Monday research task; this record is not execution proof",
+  "scheduling_note": "Existing Monday prompt updated and response verified 2026-11-19T14:16:15Z; next configured occurrence 2026-11-23 08:00 America/Chicago (07:00 America/Phoenix), flexible timing. No updated-task execution, delivery, or Spark attachment verified.",
   "local_ticker_writer_receipt": null,
   "theses": [
     {
@@ -58,5 +58,8 @@
     "Compare next real source update with original baseline and last commit",
     "Independent review and second-segment pilot"
   ],
-  "input_sha256": "9a652ae029d77d2f904a88f441b83d8664096dc8f2ba2567874d9969dc1d6ddd"
+  "input_sha256": "9a652ae029d77d2f904a88f441b83d8664096dc8f2ba2567874d9969dc1d6ddd",
+  "pr": "https://github.com/whiterosecoffee/_BASKET/pull/283",
+  "first_published_revision": "a263a26ab261d91d20ab8637500caca3d01e1173",
+  "run_id": "B17-274-baseline-2026-11-19"
 }
