@@ -1,0 +1,40 @@
+{
+  "schema": "basket.component_export_review@0.1-draft",
+  "source_revision": "48356290d402f0c47b89f84ddaa728c7e72d951e",
+  "component": "orchestration/handoff_loop",
+  "files": {
+    "orchestration/handoff_loop/.gitignore": "7a60b85e148f80966a550e5ab6a762a907c69ca6",
+    "orchestration/handoff_loop/DRY_RUN.md": "0ad911650abdeb32ba73d5f393afe00e08af4994",
+    "orchestration/handoff_loop/GITHUB_READONLY.md": "f5d95b3fb3c3a1637cb9e583bfc0004ba030c3a4",
+    "orchestration/handoff_loop/README.md": "5ff314fd82e7ba3574fd631dab2ec7204b8be250",
+    "orchestration/handoff_loop/SCHEDULER.md": "367b93e432222d784dd8579de230eef87bd0361d",
+    "orchestration/handoff_loop/SYNTHETIC_ADAPTER.md": "21eb3c15d78927720858cafe295add98358c0f71",
+    "orchestration/handoff_loop/TRIGGER_BRIDGE.md": "c0e93ba99003534f14e37f0c598cd9fde45d85c9",
+    "orchestration/handoff_loop/__init__.py": "373a787fcb8bb2071944399338b067a0091b1619",
+    "orchestration/handoff_loop/core.py": "a5be9b9462dcaabf06bb0286e39e4242be6908af",
+    "orchestration/handoff_loop/dry-run-evidence.json": "ecf6e1ba70b3f3ff1fac65b3b02be61898881f43",
+    "orchestration/handoff_loop/dry_run.py": "800b714e86b4795f62ebcb7b1a2e369f17c8dfc7",
+    "orchestration/handoff_loop/github-read-evidence.json": "564d02ee7466329001e4b1cdf83911434db17c4e",
+    "orchestration/handoff_loop/github_readonly.py": "526631c91f7a97f8baa8e94d38a6662ec9cd9ea3",
+    "orchestration/handoff_loop/methodology-gaps.json": "931b785fd83945167750d723267bd5e3f3549fc1",
+    "orchestration/handoff_loop/objectives-status.example.json": "1fcf54de186dff9c2758f1d8b67088f98919722c",
+    "orchestration/handoff_loop/synthetic_adapter.py": "1d4003a17efd317e1c62bd7e35bb0cfa5945b1c9",
+    "orchestration/handoff_loop/test_adversarial.py": "ec9a0fa87f1b3c19a9e55f9dbbdbb008da6e576e",
+    "orchestration/handoff_loop/test_core.py": "89fb46aea61077747307b9549e811d4a6811411d",
+    "orchestration/handoff_loop/test_dry_run.py": "8acd7e6e2de965e15d528b0800e8fd2a14c0225d",
+    "orchestration/handoff_loop/test_github_readonly.py": "7fdf9466acb6df7e0aff47f83bee8a6e9758c9a5",
+    "orchestration/handoff_loop/test_synthetic_adapter.py": "1de2eb9f25e75d8351c684a1f7bc62c5547882a4",
+    "orchestration/handoff_loop/test_trigger_bridge.py": "9f538ff60f4eda9e0d11c60e7c7fdddbc970dd53",
+    "orchestration/handoff_loop/trigger-boundary-evidence.json": "91b141cc50f3ba3e4e7d9b60387f91434c8faee4",
+    "orchestration/handoff_loop/trigger_bridge.py": "fc195f48e408a8add0f40ae42b1f1f296715b77f"
+  },
+  "modules": [
+    "orchestration.handoff_loop.test_core",
+    "orchestration.handoff_loop.test_adversarial",
+    "orchestration.handoff_loop.test_dry_run",
+    "orchestration.handoff_loop.test_github_readonly",
+    "orchestration.handoff_loop.test_synthetic_adapter",
+    "orchestration.handoff_loop.test_trigger_bridge"
+  ],
+  "minimum": 81
+}
