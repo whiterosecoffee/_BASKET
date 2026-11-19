@@ -1,35 +1,36 @@
 {
   "schema": "basket.local_template_validation@0.1-draft",
   "task_id": "B00-243",
-  "evaluated_input_revision": "5b9b359204e920d7907e541b131e3501e9935c35",
+  "evaluated_input_revision": "97edd0656c74b483b720ce2c1fd0124c00b01815",
   "environment": "MELISSA Windows existing Python; existing task-3 worktree and sole #243 branch checkout",
   "checks": [
     {
       "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_receiver.py -v",
       "result": "pass",
-      "tests": 26,
+      "tests": 43,
       "skipped": 0
     },
     {
       "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
       "result": "pass",
-      "tests": 155,
+      "tests": 172,
       "skipped": 0
     }
   ],
   "source_sha256": {
-    "receiver.py": "55af4784be77641230be367bc3730ff370b1a012d76858e4cf363664d549a531",
-    "receiver.examples.json": "9138bf32306acaa0c5e580c90ce6584195844df6bf63bb5bc42d1b0867090d18",
-    "RECEIVER.md": "f9419a52f9a969a641390467dee18246bde47b7aa4ad581046e0c9395e21e536",
-    "tests/test_receiver.py": "c1b4d15236ef8ce7d35b43194b82fbde1de88bdbaf417938782cbd882b039f99",
-    "semantic.adoption.json": "8a627dd84354f8d91510e560fa56e52ab24fe50d9762ea8236f481ac324c79b6"
+    "receiver.py": "caff06e3e113e56894d2e4e9fd3780042452f3c7b558a9b3f525ef6e15d2eda7",
+    "receiver.examples.json": "d62de011662c4c9b0a1237c5532ffb9370abaa4eff8b4bfcd37dcac94fbbcf56",
+    "RECEIVER.md": "4cfb1a9c4d69e0968a4ae5c6d41b8a6bd7b890009a7adc03e78b33b9827af41b",
+    "tests/test_receiver.py": "d4fcee0c070bff2ab8fdcbb6ced930826de9f4695f4e704a3faa6a2b3c92e532",
+    "semantic.adoption.json": "56ec95bdeae658fd14c512b5d00d34d8fbeebf4a391c2750421cddb1ca8d62f3"
   },
   "reference_sha256": {
     "architecture/BLOCK_ENGINEERING_METHOD.md": "7dcf77c6182be0f8db2c7b513d79277fa0a08a142dd0e96a483e6b381d67328a"
   },
   "evidence_sha256": {
-    "receiver-focused.log": "b147d5556d49b92ca2ae8f3d96d713d0a946038fbae10ca7c69fe76f95109428",
-    "receiver-discovery.log": "7d7cf700479f9adf9c8a8fc6ca22c555b5283fcd2cf2e15db12aa71b4384fbb2"
+    "receiver-qc-red.log": "e7f8bc81ab017be26b8b09aa6244bee19aef9334d7e93ce8b43e9d3fa3be0c56",
+    "receiver-qc-final.log": "2bdb5457930133882214533f3ea39fb255cd70f89f9c22ec0b10d39372234751",
+    "receiver-qc-discovery.log": "8de89b9ea1c76d8b2a61ba79eebd049c21f792de3f6117d0e5b08a518761425e"
   },
   "execution_authorized": false,
   "evidence_authenticated": false,
@@ -38,14 +39,64 @@
     "verified": 0,
     "existing_matrix_rows": 8
   },
-  "independent_acceptance": "pending_for_receiver_sanitizer_increment",
+  "independent_acceptance": "Original 97edd065 bounded gate accepted; expanded QC contract repair awaits exact-head requalification.",
   "disposition": "producer_tested_not_integrated",
   "limits": [
     "Receiver readback content is supplied synthetic JSON; no actual receiver filesystem or signed identity authenticated.",
     "Sanitizer check evidence is declaration-consistent only; real domain sanitization and independent check execution remain owner gates.",
     "Expected request/policy/claim records must be independently retained; fabricated consistent packets remain possible.",
     "No FETCH/runtime/governing-owner implementation edits, dispatch, publication retry, merge or deployment.",
-    "Prior lifecycle/semantic/temporal evidence retained; no hosted/full-platform pass claimed."
+    "Prior lifecycle/semantic/temporal evidence retained; no hosted/full-platform pass claimed.",
+    "Raw UTF-8 bytes are supplied, not read from original storage; before/after evidence is declared, not authenticated preservation.",
+    "No actual sanitizer transformation, independent auditor execution or complete provider semantic confirmation."
   ],
-  "next_action": "Existing independent acceptance reviewer reruns exact local revision, mutates receipt/hash/purpose/consumer bindings, evidence provenance and risk-based failure/unknown gates, then returns findings to the same #243 writer."
+  "next_action": "Existing independent reviewer requalifies the exact new local source against QC-SCOPE-ADDENDUM; #103 and existing _FETCH/storage/consumer owners retain canonical and runtime integration.",
+  "history": [
+    {
+      "evaluated_input_revision": "5b9b359204e920d7907e541b131e3501e9935c35",
+      "checks": [
+        {
+          "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_receiver.py -v",
+          "result": "pass",
+          "tests": 43,
+          "skipped": 0
+        },
+        {
+          "command": "python -B -m unittest orchestration.tests.test_clean_template_seed -v",
+          "result": "pass",
+          "tests": 172,
+          "skipped": 0
+        }
+      ],
+      "source_sha256": {
+        "receiver.py": "55af4784be77641230be367bc3730ff370b1a012d76858e4cf363664d549a531",
+        "receiver.examples.json": "9138bf32306acaa0c5e580c90ce6584195844df6bf63bb5bc42d1b0867090d18",
+        "RECEIVER.md": "f9419a52f9a969a641390467dee18246bde47b7aa4ad581046e0c9395e21e536",
+        "tests/test_receiver.py": "c1b4d15236ef8ce7d35b43194b82fbde1de88bdbaf417938782cbd882b039f99",
+        "semantic.adoption.json": "8a627dd84354f8d91510e560fa56e52ab24fe50d9762ea8236f481ac324c79b6"
+      },
+      "evidence_sha256": {
+        "receiver-focused.log": "b147d5556d49b92ca2ae8f3d96d713d0a946038fbae10ca7c69fe76f95109428",
+        "receiver-discovery.log": "7d7cf700479f9adf9c8a8fc6ca22c555b5283fcd2cf2e15db12aa71b4384fbb2"
+      },
+      "independent_acceptance": "pending_for_receiver_sanitizer_increment"
+    }
+  ],
+  "expanded_qc_review": {
+    "reviewed_revision": "97edd0656c74b483b720ce2c1fd0124c00b01815",
+    "addendum_sha256": "601513486f15a2664d435a9feef0f455aca17282c2224a84e000a7c964032274",
+    "before_repair": {
+      "command": "python -B -m unittest discover -s orchestration/clean_templates/tests -p test_receiver.py -k qc_supplement -v",
+      "tests": 3,
+      "failures": 3,
+      "errors": 0
+    },
+    "repair": [
+      "Exact raw UTF-8 input to normalized artifact hash binding",
+      "Pinned schema/sanitizer/runner/configuration identities and explicit audit scope/results",
+      "Separate standardizer and auditor records with distinct declared identities",
+      "Hash-bound original before/after preservation and separate destinations",
+      "All known check/auditor unknowns retained; explicit optional conditional allowances never grant unconditional usability"
+    ]
+  }
 }

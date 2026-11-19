@@ -17,18 +17,41 @@ def profile():
     text = {'type': 'string', 'minLength': 1, 'pattern': r'\S'}
     ref = cc.SCHEMA['$defs']['artifact_ref']
     sha = lc.read('lifecycle.schema.json')['properties']['request']['properties']['input_revision']
+    versions = {'schema_version': text, 'sanitizer_revision':
+                lc.read('lifecycle.schema.json')['properties']['request']['properties']['source_revision'],
+                'configuration_sha256': sha}
     policy = obj({'intended_consumer': text, 'intended_use': text,
                   'risk': {'enum': ['low', 'high']}, 'failure_consequence': text,
                   'requires_private': {'type': 'boolean'},
-                  'required_domain_checks': array(text, uniqueItems=True)})
-    binding = {'request_sha256': sha, 'artifact_sha256': sha, 'policy_sha256': sha}
+                  'required_domain_checks': array(text, uniqueItems=True),
+                  'allowed_unknowns': array(text, uniqueItems=True),
+                  'processing_contract': obj({**versions, 'standardizer_runner_version': text,
+                                              'auditor_runner_version': text})})
+    binding = {'request_sha256': sha, 'artifact_sha256': sha, 'policy_sha256': sha, 'pipeline_sha256': sha}
+    lineage = {**versions, 'actor': text, 'runner_version': text,
+               'request_sha256': sha, 'policy_sha256': sha,
+               'raw_input_sha256': sha, 'normalized_output_sha256': sha,
+               'scope': obj({'purpose': {'enum': ['current', 'historical_as_of']},
+                             'coverage_sha256': sha, 'stage': {'const': 'normalized_output'}})}
+    transform = obj({**lineage, 'role': {'const': 'standardizer'}})
+    audit = obj({**lineage, 'role': {'const': 'independent_auditor'},
+                 'results': array(obj({'id': text, 'result': {'enum': ['pass', 'fail', 'unknown']}}))})
+    preservation = obj({'original_artifact': ref, 'normalized_artifact': ref,
+                        'before_sha256': sha, 'after_sha256': sha,
+                        'original_destination': text, 'normalized_destination': text,
+                        'mode': {'const': 'separate_output_or_sidecar'}})
+    pipeline = obj({'raw_input': obj({'content': {'type': 'string'}, 'artifact': ref}),
+                    'normalized_output': ref,
+                    'transform': obj({'record': transform, 'artifact': ref}),
+                    'audit': obj({'record': audit, 'artifact': ref}),
+                    'preservation': obj({'record': preservation, 'artifact': ref})})
     claim = obj({'id': text, 'text': text, 'origin': {'enum': ORIGINS},
                  'status': {'enum': ['asserted', 'observed', 'verified']}, 'evidence': ref})
     packet = obj({'synthetic': {'const': True}, 'temporal': {'type': 'object'}, 'policy': policy,
         'dispatch': {'enum': ['not_sent', 'sent']}, 'producer_result': {'enum': ['unknown', 'pass', 'fail']},
         'placement': obj({'destination_visibility': {'enum': ['private', 'public']},
                           'requires_private': {'type': 'boolean'}, 'artifact_present': {'type': 'boolean'}}),
-        'claims': array(claim),
+        'claims': array(claim), 'pipeline': pipeline,
         'checks': array(obj({'id': text, 'result': {'enum': ['pass', 'fail', 'unknown']},
                             'origin': {'enum': ORIGINS}, 'evidence': ref, **binding})),
         'receiver': {'anyOf': [{'type': 'null'}, obj({
@@ -48,7 +71,8 @@ def evaluate(packet, *, expected_request, expected_policy, retained_claims, now)
     result = {'valid': False, 'errors': [], 'unknowns': [], 'execution_authorized': False,
               'evidence_authenticated': False, 'receiver_acknowledged': False,
               'consumer_acceptance': 'pending', 'consumer_usable': False,
-              'quarantine': True, 'state': 'blocked', 'claims': []}
+              'quarantine': True, 'state': 'blocked', 'claims': [],
+              'use_status': 'blocked', 'failures': []}
     packet_schema, policy_schema, claims_schema = profile()
     errors = []
     for label, value, schema in [('packet', packet, packet_schema),
@@ -59,6 +83,10 @@ def evaluate(packet, *, expected_request, expected_policy, retained_claims, now)
         result['errors'] = sorted(set(errors))
         return result
     result['claims'] = copy.deepcopy(packet['claims'])
+    supplied_results = packet['checks'] + packet['pipeline']['audit']['record']['results']
+    result['unknowns'] = sorted({c['id'] for c in supplied_results if c['result'] == 'unknown'})
+    result['failures'] = sorted({c['id'] for c in supplied_results if c['result'] == 'fail'})
+    errors.extend('FAILED_CHECK:' + name for name in result['failures'])
     qualification = tp.evaluate(packet['temporal'], expected_request=expected_request, now=now)
     errors.extend('temporal: ' + e for e in qualification['errors'])
     policy = packet['policy']
@@ -86,8 +114,42 @@ def evaluate(packet, *, expected_request, expected_policy, retained_claims, now)
         return result
     request = packet['temporal']['request']
     artifact = packet['temporal']['generation']['artifact']
+    pipeline = packet['pipeline']
+    raw = pipeline['raw_input']
+    if cc.digest(raw['content'].encode('utf-8')) != raw['artifact']['sha256']:
+        errors.append('RAW_INPUT_INTEGRITY_MISMATCH')
+    if pipeline['normalized_output'] != artifact or raw['artifact']['ref'] == artifact['ref']:
+        errors.append('RAW_NORMALIZED_ARTIFACT_BINDING_MISMATCH')
+    contract = policy['processing_contract']
+    expected_lineage = {k: contract[k] for k in ('schema_version', 'sanitizer_revision', 'configuration_sha256')}
+    expected_lineage.update(request_sha256=tp.digest(request), policy_sha256=tp.digest(policy),
+        raw_input_sha256=raw['artifact']['sha256'], normalized_output_sha256=artifact['sha256'],
+        scope={'purpose': request['purpose'], 'coverage_sha256': tp.digest(packet['temporal']['generation']['content']['coverage']),
+               'stage': 'normalized_output'})
+    for stage, version in (('transform', 'standardizer_runner_version'), ('audit', 'auditor_runner_version')):
+        record = pipeline[stage]['record']
+        if any(record[k] != v for k, v in expected_lineage.items()) or record['runner_version'] != contract[version]:
+            errors.append('TRANSFORM_AUDIT_LINEAGE_OR_VERSION_MISMATCH')
+    for stage in ('transform', 'audit', 'preservation'):
+        if tp.digest(pipeline[stage]['record']) != pipeline[stage]['artifact']['sha256']:
+            errors.append('PIPELINE_RECORD_HASH_MISMATCH')
+    if pipeline['transform']['record']['actor'] == pipeline['audit']['record']['actor']:
+        errors.append('STANDARDIZER_CANNOT_BE_INDEPENDENT_AUDITOR')
+    audit_ref = pipeline['audit']['artifact']
+    for peer in (raw['artifact'], artifact, pipeline['transform']['artifact'], pipeline['preservation']['artifact']):
+        if audit_ref['ref'] == peer['ref'] or audit_ref['sha256'] == peer['sha256']:
+            errors.append('AUDIT_EVIDENCE_MUST_BE_DISTINCT')
+    preservation = pipeline['preservation']['record']
+    if (preservation['original_artifact'] != raw['artifact'] or preservation['normalized_artifact'] != artifact or
+            preservation['before_sha256'] != raw['artifact']['sha256'] or
+            preservation['after_sha256'] != raw['artifact']['sha256'] or
+            preservation['original_destination'] == preservation['normalized_destination']):
+        errors.append('ORIGINALS_PRESERVATION_MISMATCH')
+    observed_results = sorted((c['id'], c['result']) for c in packet['checks'])
+    if sorted((c['id'], c['result']) for c in pipeline['audit']['record']['results']) != observed_results:
+        errors.append('AUDIT_RESULTS_MISMATCH')
     binding = {'request_sha256': tp.digest(request), 'artifact_sha256': artifact['sha256'],
-               'policy_sha256': tp.digest(policy)}
+               'policy_sha256': tp.digest(policy), 'pipeline_sha256': tp.digest(pipeline)}
     checks = {}
     for check in packet['checks']:
         if check['id'] in checks:
@@ -108,11 +170,17 @@ def evaluate(packet, *, expected_request, expected_policy, retained_claims, now)
             if check['result'] == 'unknown':
                 result['unknowns'].append(name)
         elif name == 'independent_review':
+            if check['evidence'] != audit_ref:
+                errors.append('AUDIT_RECORD_REQUIRED')
             if check['origin'] != 'independently_verified_evidence':
                 errors.append('INDEPENDENT_REVIEW_REQUIRED')
             peers = [artifact] + [c['evidence'] for c in checks.values() if c['id'] != name]
             if any(check['evidence']['ref'] == p['ref'] or check['evidence']['sha256'] == p['sha256'] for p in peers):
                 errors.append('INDEPENDENT_EVIDENCE_MUST_BE_DISTINCT')
+    for name in result['unknowns']:
+        if name not in policy['allowed_unknowns'] or name in required:
+            errors.append('UNRESOLVED_UNKNOWN:' + name)
+    result['unknowns'] = sorted(set(result['unknowns']))
     quality_errors = list(errors)
     receiver = packet['receiver']
     receipt_errors = []
@@ -132,12 +200,14 @@ def evaluate(packet, *, expected_request, expected_policy, retained_claims, now)
         errors.extend(receipt_errors)
         result['receiver_acknowledged'] = not receipt_errors
         if not receipt_errors:
-            if not quality_errors:
+            if not quality_errors and not result['unknowns']:
                 result['consumer_acceptance'] = receiver['acceptance']
             if receiver['acceptance'] != 'accepted':
                 errors.append('CONSUMER_ACCEPTANCE_PENDING_OR_REJECTED')
     result.update(valid=not errors, errors=sorted(set(errors)), quarantine=bool(quality_errors or receipt_errors),
-                  consumer_usable=not errors, state='review' if not errors else 'blocked')
+                  consumer_usable=not errors and not result['unknowns'],
+                  use_status='blocked' if errors else ('conditional' if result['unknowns'] else 'qualified'),
+                  state='review' if not errors else 'blocked')
     return result
 
 

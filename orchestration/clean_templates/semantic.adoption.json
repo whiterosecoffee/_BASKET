@@ -148,6 +148,19 @@
     "governing_adoption": {
       "verified": 0,
       "existing_matrix_rows": 8
+    },
+    "expanded_qc": {
+      "status": "local_repair_pending_independent_exact_head_requalification",
+      "contract": "Exact raw UTF-8 byte hash to normalized artifact, pinned schema/sanitizer/runner/config versions, assessed purpose/coverage/stage, separate standardizer/auditor records, originals before/after evidence and distinct destinations.",
+      "unknowns": "Retain all check/auditor unknowns; optional allowances are explicit purpose-bound conditional policy, never unconditional usable/accepted or confirmed.",
+      "canonical_owner": "#103 reconciles definitions; #105 requalifies exact local source.",
+      "runtime_owner": "Existing _FETCH routes standardizer and independent auditor; existing storage/runtime owner proves original immutability, private destination authorization and authenticated execution.",
+      "adoption_owners": "#134 Copier, #201 instructions and #230 map via existing parent coordination.",
+      "not_claimed": [
+        "Actual standardization or independent audit execution",
+        "Authenticated identities or originals preservation",
+        "Live operation, integration or publication"
+      ]
     }
   }
 }
