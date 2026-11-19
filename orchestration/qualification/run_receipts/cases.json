@@ -1,0 +1,1672 @@
+{
+  "synthetic": true,
+  "cases": [
+    {
+      "name": "monitoring-no-change",
+      "expected_valid": true,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "monitoring_only",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "ready",
+      "expected_valid": true,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "ready",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "working",
+      "expected_valid": true,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "working",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "awaiting_evidence",
+      "expected_valid": true,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "awaiting_evidence",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "awaiting_approval",
+      "expected_valid": true,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "awaiting_approval",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": {
+          "reason": "Synthetic publication awaits authorization",
+          "action": "Publish synthetic result artifact",
+          "approval_authority": "synthetic-project-owner",
+          "unblock_condition": "Explicit approval for this artifact and destination is recorded"
+        },
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "tested-local",
+      "expected_valid": true,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "local",
+            "execution": "local",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:test-output",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "accepted",
+      "expected_valid": true,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "accepted",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "review-1",
+            "kind": "acceptance",
+            "tier": "local",
+            "execution": "manual_review",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:review",
+            "criterion": "A1 checked against synthetic evidence",
+            "reviewer": "synthetic-independent-reviewer"
+          }
+        ],
+        "test_evidence": [],
+        "acceptance_evidence": [
+          "review-1"
+        ],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "blocked",
+      "expected_valid": true,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "blocked",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": {
+          "reason": "Synthetic input unavailable",
+          "action": "Supply synthetic input",
+          "unblock_condition": "Input identity verified"
+        },
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "published",
+      "expected_valid": true,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "published",
+            "execution": "local",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "https://example.invalid/synthetic/run/1",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "published-missing-revision",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "published",
+            "execution": "local",
+            "result": "pass",
+            "revision": null,
+            "artifact": "https://example.invalid/synthetic/run/1",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "published-mutable-revision",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "published",
+            "execution": "local",
+            "result": "pass",
+            "revision": "main",
+            "artifact": "https://example.invalid/synthetic/run/1",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "published-wrong-revision",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "published",
+            "execution": "local",
+            "result": "pass",
+            "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "artifact": "https://example.invalid/synthetic/run/1",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "CI-verified",
+      "expected_valid": true,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "CI-verified",
+            "execution": "ci",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "https://example.invalid/synthetic/run/1",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "CI-verified-missing-revision",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "CI-verified",
+            "execution": "ci",
+            "result": "pass",
+            "revision": null,
+            "artifact": "https://example.invalid/synthetic/run/1",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "CI-verified-mutable-revision",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "CI-verified",
+            "execution": "ci",
+            "result": "pass",
+            "revision": "main",
+            "artifact": "https://example.invalid/synthetic/run/1",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "CI-verified-wrong-revision",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "CI-verified",
+            "execution": "ci",
+            "result": "pass",
+            "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "artifact": "https://example.invalid/synthetic/run/1",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "accepted-without-evidence",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "accepted",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "tested-without-evidence",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "blocked-missing-action",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "blocked",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": {
+          "reason": "Synthetic input unavailable",
+          "unblock_condition": "Input identity verified"
+        },
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "blocked-missing-reason",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "blocked",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": {
+          "action": "Supply synthetic input",
+          "unblock_condition": "Input identity verified"
+        },
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "blocked-missing-unblock_condition",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "blocked",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": {
+          "reason": "Synthetic input unavailable",
+          "action": "Supply synthetic input"
+        },
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "blocked-null",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "blocked",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "dispatch-is-not-test",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "dispatch-1",
+            "kind": "dispatch",
+            "tier": "local",
+            "execution": "not_executed",
+            "result": "not_run",
+            "revision": null,
+            "artifact": "synthetic:dispatch"
+          }
+        ],
+        "test_evidence": [
+          "dispatch-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "schedule-is-not-test",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "dispatch-1",
+            "kind": "schedule",
+            "tier": "local",
+            "execution": "not_executed",
+            "result": "not_run",
+            "revision": null,
+            "artifact": "synthetic:dispatch"
+          }
+        ],
+        "test_evidence": [
+          "dispatch-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "test-invalid-tests_run",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "local",
+            "execution": "local",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:test-output",
+            "command": "python synthetic_test.py",
+            "tests_run": 0,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "test-invalid-failures",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "local",
+            "execution": "local",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:test-output",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 1,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "test-invalid-errors",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "local",
+            "execution": "local",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:test-output",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 1,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "test-invalid-skipped",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "local",
+            "execution": "local",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:test-output",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 1
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "test-invalid-execution",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "local",
+            "execution": "not_executed",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:test-output",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "test-invalid-command",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "local",
+            "execution": "local",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:test-output",
+            "command": " ",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "test-invalid-tests_run",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "local",
+            "execution": "local",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:test-output",
+            "command": "python synthetic_test.py",
+            "tests_run": true,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "acceptance-failed",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "accepted",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "review-1",
+            "kind": "acceptance",
+            "tier": "local",
+            "execution": "manual_review",
+            "result": "fail",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:review",
+            "criterion": "A1 checked against synthetic evidence",
+            "reviewer": "synthetic-independent-reviewer"
+          }
+        ],
+        "test_evidence": [],
+        "acceptance_evidence": [
+          "review-1"
+        ],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "acceptance-dangling",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "accepted",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "review-1",
+            "kind": "acceptance",
+            "tier": "local",
+            "execution": "manual_review",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:review",
+            "criterion": "A1 checked against synthetic evidence",
+            "reviewer": "synthetic-independent-reviewer"
+          }
+        ],
+        "test_evidence": [],
+        "acceptance_evidence": [
+          "missing"
+        ],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "evidence-id-duplicate",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "tested",
+        "owner": "synthetic-reviewer",
+        "evidence": [
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "local",
+            "execution": "local",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:test-output",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          {
+            "id": "test-1",
+            "kind": "test",
+            "tier": "local",
+            "execution": "local",
+            "result": "pass",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "artifact": "synthetic:test-output",
+            "command": "python synthetic_test.py",
+            "tests_run": 3,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        ],
+        "test_evidence": [
+          "test-1"
+        ],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "source-without-identity",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": null,
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "monitoring_only",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "watermarked-source",
+      "expected_valid": true,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": null,
+            "watermark": "synthetic-cursor-4"
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "monitoring_only",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "invalid-source-time",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "tomorrow",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "monitoring_only",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "source-check-in-future",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-13T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "monitoring_only",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "invalid-time",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "monitoring_only",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "unknown-state",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "dispatched",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "blank-owner",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [],
+        "outcome_state": "monitoring_only",
+        "owner": " ",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "monitoring-with-delta",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [
+          {
+            "source_id": "synthetic-source",
+            "description": "Changed"
+          }
+        ],
+        "outcome_state": "monitoring_only",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "unchecked-delta",
+      "expected_valid": false,
+      "receipts": {
+        "schema": "run_receipt.qualification@1",
+        "run_id": "synthetic-monitor-001",
+        "checked_at": "2026-11-12T00:00:00Z",
+        "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "sources": [
+          {
+            "source_id": "synthetic-source",
+            "checked_at": "2026-11-12T00:00:00Z",
+            "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "watermark": null
+          }
+        ],
+        "new_deltas": [
+          {
+            "source_id": "unknown",
+            "description": "Changed"
+          }
+        ],
+        "outcome_state": "working",
+        "owner": "synthetic-reviewer",
+        "evidence": [],
+        "test_evidence": [],
+        "acceptance_evidence": [],
+        "next_action": "Recheck synthetic source when its revision changes.",
+        "blocker": null,
+        "recheck_condition": "Synthetic source revision changes."
+      }
+    },
+    {
+      "name": "identical-repeat",
+      "expected_valid": true,
+      "receipts": [
+        {
+          "schema": "run_receipt.qualification@1",
+          "run_id": "synthetic-monitor-001",
+          "checked_at": "2026-11-12T00:00:00Z",
+          "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "sources": [
+            {
+              "source_id": "synthetic-source",
+              "checked_at": "2026-11-12T00:00:00Z",
+              "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "watermark": null
+            }
+          ],
+          "new_deltas": [],
+          "outcome_state": "monitoring_only",
+          "owner": "synthetic-reviewer",
+          "evidence": [],
+          "test_evidence": [],
+          "acceptance_evidence": [],
+          "next_action": "Recheck synthetic source when its revision changes.",
+          "blocker": null,
+          "recheck_condition": "Synthetic source revision changes."
+        },
+        {
+          "schema": "run_receipt.qualification@1",
+          "run_id": "synthetic-monitor-001",
+          "checked_at": "2026-11-12T00:00:00Z",
+          "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "sources": [
+            {
+              "source_id": "synthetic-source",
+              "checked_at": "2026-11-12T00:00:00Z",
+              "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "watermark": null
+            }
+          ],
+          "new_deltas": [],
+          "outcome_state": "monitoring_only",
+          "owner": "synthetic-reviewer",
+          "evidence": [],
+          "test_evidence": [],
+          "acceptance_evidence": [],
+          "next_action": "Recheck synthetic source when its revision changes.",
+          "blocker": null,
+          "recheck_condition": "Synthetic source revision changes."
+        }
+      ]
+    },
+    {
+      "name": "conflicting-run-id",
+      "expected_valid": false,
+      "receipts": [
+        {
+          "schema": "run_receipt.qualification@1",
+          "run_id": "synthetic-monitor-001",
+          "checked_at": "2026-11-12T00:00:00Z",
+          "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "sources": [
+            {
+              "source_id": "synthetic-source",
+              "checked_at": "2026-11-12T00:00:00Z",
+              "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "watermark": null
+            }
+          ],
+          "new_deltas": [],
+          "outcome_state": "monitoring_only",
+          "owner": "synthetic-reviewer",
+          "evidence": [],
+          "test_evidence": [],
+          "acceptance_evidence": [],
+          "next_action": "Recheck synthetic source when its revision changes.",
+          "blocker": null,
+          "recheck_condition": "Synthetic source revision changes."
+        },
+        {
+          "schema": "run_receipt.qualification@1",
+          "run_id": "synthetic-monitor-001",
+          "checked_at": "2026-11-12T00:00:00Z",
+          "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "sources": [
+            {
+              "source_id": "synthetic-source",
+              "checked_at": "2026-11-12T00:00:00Z",
+              "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "watermark": null
+            }
+          ],
+          "new_deltas": [],
+          "outcome_state": "monitoring_only",
+          "owner": "other-owner",
+          "evidence": [],
+          "test_evidence": [],
+          "acceptance_evidence": [],
+          "next_action": "Recheck synthetic source when its revision changes.",
+          "blocker": null,
+          "recheck_condition": "Synthetic source revision changes."
+        }
+      ]
+    },
+    {
+      "name": "empty-batch",
+      "expected_valid": false,
+      "receipts": []
+    }
+  ]
+}

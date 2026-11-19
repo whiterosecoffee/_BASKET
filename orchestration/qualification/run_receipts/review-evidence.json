@@ -1,0 +1,63 @@
+{
+  "classification": "actual_local_review_qualification_on_synthetic_inputs",
+  "reviewed_revision": "f1625fe242f1ac3f90a652ced2320e4e9ce4c764",
+  "recorded_at": null,
+  "ownership": {
+    "open_pr_inventories_checked": 77,
+    "overlapping_prs": [
+      256
+    ],
+    "scope": "orchestration/qualification/run_receipts/**"
+  },
+  "baseline_probes": [
+    {
+      "case": "approval-without-blocker",
+      "valid": true,
+      "disposition": "confirmed resume-information gap; corrected"
+    },
+    {
+      "case": "non-git-monitoring-null-subject",
+      "valid": false,
+      "disposition": "unnecessary commit requirement for no-change monitoring; corrected narrowly"
+    },
+    {
+      "case": "cross-loop-sources",
+      "valid": true,
+      "disposition": "already supported; retain test"
+    },
+    {
+      "case": "independent-subject-batch",
+      "valid": true,
+      "disposition": "already supported; retain per-receipt evidence binding"
+    }
+  ],
+  "checks": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s orchestration/qualification/run_receipts -p 'test_*.py' -v",
+      "result": "pass",
+      "tests": 16,
+      "original_corpus_cases": 46,
+      "review_test_methods": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "tested_file_sha256": {
+    "README.md": "4410cafe289302761bad687d93c37c673139674c909989207fc3e49ac04331ee",
+    "cases.json": "49fade889ed641322e4fe39a6103ef67beadfafda43ac53bf7f8f972e13cffd2",
+    "mapping.json": "852e35abe8ec065298ab91dc7dfb7121492307f32919d641da02a9296f1886d8",
+    "receipt.schema.json": "bb47ef1f80e028f503e190c5870d7345e463853f3c34c1c67b81702658f32258",
+    "specimen.json": "88f454b87e2314e6c7ce31ce1e2ccea5d8aed04c5bfe61f4b955e5b154abfe2b",
+    "test_review.py": "d2d0a477afd5e63f7704666118f9235abf135e6ac461d3b62b0813800345ece6",
+    "test_validate.py": "e4ec0364d6f13a19c5acf6206286632063d54244f5c980d6bcd418facf260c3c",
+    "validate.py": "3af3b3323c2f4f6dfc8503cb370639deb61727ed218356ea254292ca21f847c2",
+    "validation-evidence.json": "b6bf1aaa9d1e858e167124cba441ff3ac000dd22b350d6a7414ccaa0cbabfe9a"
+  },
+  "limits": [
+    "Structure only, no authorization or evidence-truth verification.",
+    "Non-Git tested/accepted subjects and single aggregate evidence across several subjects remain unsupported; typed per-subject bindings need separate review.",
+    "Shared CI does not discover this focused directory.",
+    "Initial validation-evidence.json remains historical; regression tests were not rerun for this isolated schema/fixture change."
+  ]
+}

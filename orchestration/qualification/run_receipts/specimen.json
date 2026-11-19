@@ -1,0 +1,23 @@
+{
+  "schema": "run_receipt.qualification@1",
+  "run_id": "synthetic-monitor-001",
+  "checked_at": "2026-11-12T00:00:00Z",
+  "subject_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "sources": [
+    {
+      "source_id": "synthetic-source",
+      "checked_at": "2026-11-12T00:00:00Z",
+      "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "watermark": null
+    }
+  ],
+  "new_deltas": [],
+  "outcome_state": "monitoring_only",
+  "owner": "synthetic-reviewer",
+  "evidence": [],
+  "test_evidence": [],
+  "acceptance_evidence": [],
+  "next_action": "Recheck synthetic source when its revision changes.",
+  "blocker": null,
+  "recheck_condition": "Synthetic source revision changes."
+}

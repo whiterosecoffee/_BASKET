@@ -1,0 +1,50 @@
+{
+  "classification": "qualification_mapping_not_runtime_adapter",
+  "main_revision": "74d913e8913d630d85451344689e093aeea07efc",
+  "authorities": [
+    {
+      "path": "orchestration/loop_design/checkpoint.schema.json",
+      "revision": "ead198334723bdac5e96d04e5605e15c3787d1b4",
+      "owner_issue": 232,
+      "mapping": {
+        "run_id": "run_id",
+        "owner": "owner",
+        "next_action": "next_action",
+        "source_revision": "sources[].revision (one or more checked identities)",
+        "receipt": "conceptual evidence container; this specimen does not change or instantiate the checkpoint"
+      },
+      "unmapped": [
+        "stage",
+        "task_id",
+        "input_digest",
+        "action_key",
+        "expected_target_revision",
+        "scope",
+        "fence",
+        "attempt"
+      ],
+      "limit": "No automatic mapping from outcome_state to recovery stage; no checkpoint/runtime dependency."
+    },
+    {
+      "path": "schemas/worker-evidence.v1.json",
+      "revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "mapping": {
+        "pull_requests[].head_sha": "subject_revision and published evidence revision",
+        "workflow_runs[].head_sha": "CI-verified evidence revision",
+        "workflow_runs[].conclusion": "evidence.result (pass is a claim requiring external comparison)"
+      },
+      "limit": "No live GitHub evidence collection; exact SHA syntax reused."
+    },
+    {
+      "path": "schemas/worker-resolution.v1.json",
+      "revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "mapping": {
+        "checks": "evidence plus test_evidence references",
+        "acceptance": "acceptance_evidence references to criterion/reviewer records",
+        "blockers": "blocker plus recheck_condition",
+        "next_action": "next_action"
+      },
+      "limit": "Outcome states do not replace worker disposition; structural acceptance never implies component verification or integration."
+    }
+  ]
+}
