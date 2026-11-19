@@ -1,0 +1,67 @@
+{
+  "schema": "basket.traversal.tool_manifest@1",
+  "component_id": "basket-traversal-readout",
+  "version": "0.1.0",
+  "owner": "B06",
+  "parent": {
+    "issue": 108,
+    "merged_pr": 109
+  },
+  "status": "experimental_read_only",
+  "provider_independent": true,
+  "requires_operator_supplied_source_manifest": true,
+  "entrypoint": "python -m engines.traversal.tool.run --input /path/to/request.json --mode historical",
+  "callable": "engines.traversal.tool.run(request, mode='historical')",
+  "input_schema": "basket.traversal.request@1",
+  "output_schema": "basket.traversal.tool@1",
+  "core_dependency": {
+    "path": "engines/traversal/metrics.py",
+    "method": "basket.traversal.metrics@1",
+    "reuse": "direct import; no code duplication"
+  },
+  "readiness": {
+    "historical_descriptive": true,
+    "current_alerts": false,
+    "provider_attestation": false,
+    "hosted": false,
+    "registered_shared_catalog": false,
+    "integrated_on_main": false
+  },
+  "supported_intervals_minutes": [
+    1,
+    5,
+    15
+  ],
+  "live_mode": "blocked_current until independently verified B00/B02 resolver integration",
+  "owned_paths": [
+    "engines/traversal/tool/**"
+  ],
+  "dependencies": [
+    {
+      "issue": 148,
+      "owner": "B00/B02",
+      "gate": "approved point-in-time resolver"
+    },
+    {
+      "issue": 95,
+      "pr": 99,
+      "owner": "B10",
+      "gate": "authoritative journal/persistence adapter"
+    },
+    {
+      "issue": 96,
+      "owner": "B00",
+      "gate": "catalog discovery"
+    },
+    {
+      "issue": 98,
+      "owner": "B01",
+      "gate": "exact-head independent domain tests"
+    },
+    {
+      "issue": 97,
+      "owner": "B02/B08",
+      "gate": "host and entitlement evidence"
+    }
+  ]
+}
