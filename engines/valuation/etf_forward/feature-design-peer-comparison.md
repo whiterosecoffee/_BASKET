@@ -25,7 +25,8 @@ The yield spread is `EY_SMH - EY_SOXX`. For every security, its signed contribut
 
 - `test_compare_funds.py`: 12 synthetic tests cover independent years, correct attribution, stale/mismatched declared date, estimate lookahead, incomplete data, currency, source class, duplicate funds, deterministic hash.
 - `test_peer_report.py`: 3 synthetic tests cover report labeling, missing P/E and incompatible contract.
-- A locally constructed equivalent using the same comparator and a reduced lookthrough stand-in passed **15/15** on 2026-11-19. This is **not** full checked-out branch execution; PR #127 exact-head B01 test gate #129 must rerun all previous 66 tests plus these new 15.
+- `test_peer_cli.py`: 2 executable CLI tests against the pinned synthetic JSON fixture.
+- A locally constructed equivalent using the same comparator and a reduced lookthrough stand-in passed **17/17** on 2026-11-19. This is **not** full checked-out branch execution; PR #127 exact-head B01 test gate #129 must rerun all previous 66 tests plus these new 17.
 
 ### Known limitations and falsifiers
 
@@ -44,3 +45,7 @@ The yield spread is `EY_SMH - EY_SOXX`. For every security, its signed contribut
 5. B07: independently validate walk-forward historical signal and actual downside risk before any risk-adjusted winner.
 
 **Exit gate:** Real issuer-date holdings reconcile, source-instrument effective/available times verified, 2027 and 2028 coverage sufficient, tests accepted, independent risk comparison. No merge or release without user authorization.
+
+### Working entry point
+
+Run `python compare_funds.py smh_soxx.synthetic.json --format markdown` from the owned module directory. The reproducible source fixture is explicitly synthetic; the generated figures are *not* actual SMH/SOXX earnings or valuation. Other consumers may call `compare_funds(request)` and `render_peer_markdown(output)` directly. Do not duplicate inputs or adapter outputs in any other repository location.
