@@ -1,0 +1,40 @@
+{
+  "schema": "basket.agent_assignment@1",
+  "task_id": "ORCL-FM-REV",
+  "source_issue": 80,
+  "spark_id": "B22-proposed",
+  "repository": "whiterosecoffee/_BASKET",
+  "branch": "work/80-orcl-forward-multiple-comparative",
+  "base_commit_sha": null,
+  "exclusive_write_paths": ["research/ORCL/Forward_Multiple/**"],
+  "read_paths": [
+    "AGENTS.md",
+    "orchestration/WORKER_PROTOCOL.md",
+    "research/ORCL/Orchestration/vectors.json",
+    "orchestration/ticker_trackers/orcl.json"
+  ],
+  "dependencies": [],
+  "input_manifest": [
+    "research/ORCL/Forward_Multiple/README.md",
+    "research/ORCL/Forward_Multiple/01_PEER_SET.md",
+    "research/ORCL/Forward_Multiple/02_WEIGHTED_MULTIPLE.md",
+    "research/ORCL/Forward_Multiple/03_UPSIDE_SCORE.md",
+    "research/ORCL/Forward_Multiple/04_REVERSE_CHECK.md",
+    "research/ORCL/Forward_Multiple/05_FACTOR_CHECKLIST.md",
+    "research/ORCL/Forward_Multiple/06_THESIS_AND_LADDER.md"
+  ],
+  "acceptance": [
+    "Revision appended to REVISIONS.md with date, commit, change and source",
+    "No price, consensus or probability asserted without a timestamped source",
+    "Edits stay inside the exclusive write paths"
+  ],
+  "execution": {
+    "mode": "human_started",
+    "provider": null,
+    "lease_id": null,
+    "expires_at": null,
+    "may_commit": true,
+    "may_merge": false
+  },
+  "return_schema": "basket.worker_resolution@1"
+}

@@ -1,0 +1,26 @@
+{
+  "note": "Proposal only. B00 owns orchestration/sparks.json; this file does not edit it. Validated against validate_sparks.py on a temporary copy (see issue #82).",
+  "spark": {
+    "id": "B22",
+    "title": "ORCL Company Research & Vector Orchestration",
+    "priority": "P1",
+    "objective": "Own the ORCL company research folder: forward-multiple comparative vectors, range traversal vectors and their orchestration registry, as reusable reviewed instructions with append-only revisions.",
+    "write_paths": [
+      "tickers/ORCL/entity.json",
+      "research/ORCL/**"
+    ],
+    "read_paths": [
+      "tickers/ORCL/history.jsonl",
+      "tickers/ORCL/events.json",
+      "tickers/ORCL/relationships.json",
+      "research/filings/**",
+      "engines/valuation/**",
+      "engines/traversal/**",
+      "orchestration/ticker_trackers/**"
+    ],
+    "dependencies": ["B02", "B03", "B04", "B06"],
+    "first_task": "Dry-run the Forward_Multiple and Range_Traversal instructions on entitled ORCL data once B02 #61/#62 ingestion exists; record failures and corrections in REVISIONS.md.",
+    "acceptance": "Instructions run end to end on timestamped sources with missing inputs shown as gaps; no unsourced quotes, no forecast probabilities; every revision logged append-only.",
+    "launch_prompt": "Launch _BASKET Spark B22: ORCL Company Research & Vector Orchestration. Read AGENTS.md, orchestration/WORKER_PROTOCOL.md and research/ORCL/Orchestration/README.md from current main. Inspect open issues, active PRs and branches. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: tickers/ORCL/entity.json, research/ORCL/**. Your READ scope: tickers/ORCL/**, research/filings/**, engines/valuation/**, engines/traversal/**, orchestration/ticker_trackers/**. Run research/ORCL/Orchestration/status.py before editing. Commit on your branch, open a draft PR, never auto-merge."
+  }
+}

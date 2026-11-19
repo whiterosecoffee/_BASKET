@@ -1,0 +1,41 @@
+{
+  "schema": "basket.agent_assignment@1",
+  "task_id": "ORCL-RT-REV",
+  "source_issue": 81,
+  "spark_id": "B22-proposed",
+  "repository": "whiterosecoffee/_BASKET",
+  "branch": "work/81-orcl-range-traversal",
+  "base_commit_sha": null,
+  "exclusive_write_paths": ["research/ORCL/Range_Traversal/**"],
+  "read_paths": [
+    "AGENTS.md",
+    "orchestration/WORKER_PROTOCOL.md",
+    "research/ORCL/Orchestration/vectors.json",
+    "orchestration/ticker_trackers/orcl.json",
+    "engines/traversal/range.py"
+  ],
+  "dependencies": [],
+  "input_manifest": [
+    "research/ORCL/Range_Traversal/README.md",
+    "research/ORCL/Range_Traversal/BAND_METHOD.md",
+    "research/ORCL/Range_Traversal/TODAY.md",
+    "research/ORCL/Range_Traversal/72H.md",
+    "research/ORCL/Range_Traversal/10D.md",
+    "research/ORCL/Range_Traversal/CROSS_WINDOW.md",
+    "research/ORCL/Range_Traversal/DIVERGENCE_OVERLAY.md"
+  ],
+  "acceptance": [
+    "Revision appended to REVISIONS.md with date, commit, change and source",
+    "Missing ORCL data reported as a gap; nothing filled",
+    "Edits stay inside the exclusive write paths"
+  ],
+  "execution": {
+    "mode": "human_started",
+    "provider": null,
+    "lease_id": null,
+    "expires_at": null,
+    "may_commit": true,
+    "may_merge": false
+  },
+  "return_schema": "basket.worker_resolution@1"
+}
