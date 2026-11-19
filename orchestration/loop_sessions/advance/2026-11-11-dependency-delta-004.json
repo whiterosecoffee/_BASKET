@@ -1,0 +1,107 @@
+{
+  "record_type": "immutable_prior_intent_reconciliation",
+  "record_id": "B00-236-dependency-delta-004",
+  "previous_revision": "4b9c94bc4afd0b4b271e4bc714bc64de9509d44a",
+  "date": "2026-11-11",
+  "owner": "B00-236",
+  "canonical_item": "L1-02",
+  "sources": [
+    {
+      "path": "orchestration/agentic/dependency_gate.py",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "blob_sha": "3a094bc59f7d921c81e04ad5d18f1b5309ae18c5"
+    },
+    {
+      "path": "orchestration/agentic/tests/test_dependency_gate.py",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "blob_sha": "fe6bf27f686ce5386156ebbdd3edd8700e3a5c48"
+    }
+  ],
+  "verified_delta": {
+    "main": "74d913e8913d630d85451344689e093aeea07efc",
+    "prior_head_ci": {
+      "run": 43113185903,
+      "conclusion": "success"
+    },
+    "preflight_handoff": "6808749146 still latest #230 comment; no owner disposition observed",
+    "independent_pr_reviews": 0
+  },
+  "candidate": {
+    "identity": "dependency_gate.recompute_decision",
+    "owner_issue": 32,
+    "goal": "Propose downstream recomputation from relevant source changes while blocking missing/stale/conflicted required inputs.",
+    "consumer": "Downstream parent that supplies immutable producer snapshots and required dependency identities.",
+    "useful_behavior": [
+      "Availability and ingestion bounded by as_of",
+      "Snapshot revalidation prevents tampered prior/current input",
+      "Required FX references included in freshness/conflict gates",
+      "Nonexecuting intent; no effect authorization"
+    ]
+  },
+  "findings": [
+    {
+      "id": "DD-01",
+      "class": "source_derived_behavior_not_executed",
+      "observation": "changed_ids is calculated over all old/new input keys, without filtering to all_required; any change can yield recompute_required.",
+      "impact": "A parent passing a broad shared snapshot can recompute on unrelated changes. Required IDs scope blocking, not invalidation.",
+      "existing_tests": "test_unrelated_expired_does_not_block covers blocking only, not changes to unrelated records.",
+      "decision": "Specify relevant closure for clean replacement; until qualified, do not assume required_ids restricts invalidation."
+    },
+    {
+      "id": "DD-02",
+      "class": "contract_gap_not_executed",
+      "observation": "Previous argument holds only a dependency snapshot, not prior model/config identity. Model/config contribute to idempotency key but not state selection.",
+      "impact": "Unchanged source snapshot with a new model/config still reaches unchanged; consumers need an explicit computation-identity policy.",
+      "existing_tests": "test_config_change_changes_idempotency_key changes model_version with previous=None and checks only key difference.",
+      "decision": "Keep prior computation identity distinct from source identity in clean contract; do not claim config changes are covered by recomputation tests."
+    },
+    {
+      "id": "DD-03",
+      "class": "design_decision_required",
+      "observation": "Idempotency key includes as_of; unchanged records at later as_of may produce unchanged state with a different key.",
+      "impact": "An effect consumer must not dispatch merely because a key changed. Time-sensitive freshness and time-sensitive calculation semantics need separate rules.",
+      "existing_tests": "test_same_source_does_not_rerun_on_new_poll uses s,s at the identical as_of.",
+      "decision": "Require a later-clock same-record case and declare whether clock advancement is semantically relevant."
+    }
+  ],
+  "proposed_cases": [
+    {
+      "id": "DD-01-case",
+      "input": "Only unrelated non-required record revision changes",
+      "expected": "Owner decides relevant-only invalidation policy; demonstrate actual current result first",
+      "execution": "not_run"
+    },
+    {
+      "id": "DD-02-case",
+      "input": "Unchanged source records; prior model A -> current model B",
+      "expected": "New computation identity requires explicit recompute or documented external responsibility",
+      "execution": "not_run"
+    },
+    {
+      "id": "DD-03-case",
+      "input": "Same records at later as_of, still fresh",
+      "expected": "No unintended dispatch from changed idempotency key; explicit clock relevance",
+      "execution": "not_run"
+    }
+  ],
+  "method_improvement": "Separate source snapshot identity, relevant dependency closure, computation identity and effect idempotency before adopting a delta-processing primitive.",
+  "scope": "Evidence only; no existing controller changes, no imports, no additional worker/issue allocation.",
+  "checks": {
+    "source_and_test_review": "performed",
+    "json_roundtrip": "performed",
+    "runtime": "blocked: python3 --version tool returned No usable execution environment is available",
+    "independent_review": "pending"
+  },
+  "horizon": {
+    "retained_count": 25,
+    "authority": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+    "completion": "No L1 item completed; prior obligations preserved"
+  },
+  "score": {
+    "total": 13,
+    "maximum": 30,
+    "change": 0,
+    "token_use": null
+  },
+  "next_action": "Existing #32 owner evaluates the three pinned delta-policy cases; #236 checks disposition without modifying controller scope."
+}
