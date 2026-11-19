@@ -1,0 +1,117 @@
+{
+  "schema": "basket.virtual_etf_prior_art@0.1-research",
+  "as_of": "2026-11-03",
+  "owner": "B17",
+  "source_issue": 118,
+  "branch": "work/118-skilled-ai-deployment-basket",
+  "design_policy": "Evidence-gated deterministic baseline precedes stochastic optimization. No probability or alpha claim absent walk-forward validation.",
+  "families": [
+    {
+      "name": "Black-Litterman Bayesian views",
+      "source": "https://rpc.cfainstitute.org/research/financial-analysts-journal/1992/faj-v48-n5-28",
+      "where": "view updates and conviction-driven weight tilts",
+      "take": "views have uncertainty and confidence, neutral starting portfolio",
+      "guard": "do not invent posterior returns without calibrated forecast and covariance inputs"
+    },
+    {
+      "name": "Grinold-Kahn active management / information coefficient",
+      "source": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/analysis-active-portfolio-management",
+      "where": "score performance and independently repeated decisions",
+      "take": "evaluate realized correlation of forecast scores and future returns, transfer coefficient, active breadth",
+      "guard": "do not claim genuine alpha from narrative confidence"
+    },
+    {
+      "name": "Risk budgets, mean-variance, robust/CVaR",
+      "source": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/active-equity-investing-portfolio-construction",
+      "where": "risk-aware weights, segment and covariance overlaps, downside stress",
+      "take": "limit marginal exposure, normalize sector/benchmark risk and correlation",
+      "guard": "large-cap AI factor correlation can create false diversification"
+    },
+    {
+      "name": "Point-in-time walk-forward and backtest overfitting",
+      "source": "https://escholarship.org/uc/item/4w1110bb",
+      "where": "historical performance and parameter selection",
+      "take": "available_at and ingested_at timestamps; immutable holdings and forecasts; forward-chaining test splits",
+      "guard": "multiple-testing and survivorship bias"
+    },
+    {
+      "name": "Cost-aware turnover and buffer bands",
+      "source": "https://rpc.cfainstitute.org/research/financial-analysts-journal/2019/0015198x-2019-1567190",
+      "where": "portfolio rebalance",
+      "take": "explicit spread/slippage, turnover thresholds and market capacity; cash if insufficient capacity",
+      "guard": "small-cap liquidity and rebalancing costs can erase signal"
+    },
+    {
+      "name": "Software vertical SaaS cohort economics",
+      "source": "https://web-assets.bcg.com/df/f0/4b67ee3c491791e75bf8b6f34f74/rule-of-40-lessons-from-the-top-performers-in-software-appendix-may-2025.pdf",
+      "where": "forward-multiple tier assignment",
+      "take": "NRR >110 and GRR >93 as empirical premium vertical software reference; track ARR, FCF, ROIC and installed base",
+      "guard": "never award software P/E to employee-hour services based solely on product announcements"
+    },
+    {
+      "name": "Discounted cash flow and reverse valuation",
+      "source": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/free-cash-flow-valuation",
+      "where": "required execution growth to justify current price",
+      "take": "reverse solve EPS or FCF growth embedded by current price; compare scenarios",
+      "guard": "don't fake precision from terminal PE assumptions"
+    },
+    {
+      "name": "Theory of Constraints / throughput accounting",
+      "source": "https://www.toc-goldratt.com/en/product/the-goal",
+      "where": "test whether AI integration is actually scarce relative to customer spending",
+      "take": "measure waiting time, queue of funded deployment projects, lead time to production, cost-per-workflow and throughput per specialist",
+      "guard": "demand growth or a survey readiness gap alone does not prove a supplier has pricing power"
+    },
+    {
+      "name": "Porter value-chain and five forces / bargaining power",
+      "source": "https://www.isc.hbs.edu/strategy/business-strategy/Pages/the-five-forces.aspx",
+      "where": "evaluate who captures deployment rents",
+      "take": "score substitution by hyperscaler-native agents, buyer negotiating power, integrator differentiation and supplier/IP ownership",
+      "guard": "a necessary system component may still earn mediocre margins if easy to replace"
+    },
+    {
+      "name": "Learning curves, reusable IP and unit economics",
+      "source": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/industry-company-analysis",
+      "where": "distinguish project labor from compounding workflow IP",
+      "take": "track incremental gross profit per customer, deployment labor hours, revenue and gross profit per employee, maintenance renewal and cash conversion",
+      "guard": "customer labor savings are not automatically provider revenue"
+    }
+  ],
+  "implementation": {
+    "owned_paths": [
+      "engines/composites/virtual_etf_policy.py",
+      "engines/composites/test_virtual_etf_policy.py",
+      "research/composites/skilled_ai_deployment/**"
+    ],
+    "baseline_algorithm": "point-in-time gate, normalized component scores, proportional allocation, 15% ticker and 35% segment caps, remaining cash",
+    "tests": "8 deterministic local unittest cases passed 2026-11-03; GitHub Actions exact-head pending",
+    "known_gaps": [
+      "No real as-of-forward EPS feed from B04",
+      "No live price/FX/TTD resolution from B02",
+      "No authenticated same-day price snapshot for all tickers",
+      "No risk-covariance estimator or actual investor's holdings",
+      "No cost-aware optimizer or walk-forward backtest"
+    ],
+    "handoffs": [
+      {
+        "owner": "B00",
+        "issue": 119,
+        "need": "ratify basket allocation and provenance interfaces"
+      },
+      {
+        "owner": "B04",
+        "issue": 126,
+        "need": "signed EPS forecasts, scenario valuation, B17 input and output handshake"
+      },
+      {
+        "owner": "B02",
+        "need": "date-matched USD quotes, FX and observation expiry"
+      },
+      {
+        "owner": "B01",
+        "issue": 129,
+        "need": "CI integration cross-domain tests on actual PR head"
+      }
+    ]
+  }
+}

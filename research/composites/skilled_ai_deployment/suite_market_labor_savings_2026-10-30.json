@@ -1,0 +1,236 @@
+{
+  "schema": "basket.segment_labor_savings_map@1-provisional",
+  "as_of": "2026-10-30",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "status": "research_only",
+  "currency": "USD",
+  "comparison_basis": "Market segment, named suite, labor task and measured vs projected outcomes. Do not infer provider ARR from end-customer savings.",
+  "entries": [
+    {
+      "ticker": "G",
+      "suite": "AP/AR/Record-to-Report",
+      "market_segments": [
+        "manufacturing",
+        "mining",
+        "industrial",
+        "cross-industry CFO finance"
+      ],
+      "tasks": [
+        "invoice matching",
+        "collections",
+        "cash applications",
+        "dispute resolution",
+        "close reconciliations"
+      ],
+      "claims": {
+        "ar_collector_productivity_up_to_pct": 40,
+        "close_workload_reduction_up_to_pct": 40
+      },
+      "evidence_status": "projected product benefits; AP in production across clients",
+      "sources": [
+        "https://www.genpact.com/agentic/products",
+        "https://www.genpact.com/agentic/products/accounts-receivable-suite",
+        "https://www.genpact.com/agentic/products/record-to-report-suite",
+        "https://media.genpact.com/2026-09-15-Genpact-Wins-in-the-Inaugural-2026-HFS-Services-as-Software-Awards"
+      ]
+    },
+    {
+      "ticker": "G",
+      "suite": "Procurement Suite / Order Assist",
+      "market_segments": [
+        "manufacturing",
+        "distribution",
+        "services"
+      ],
+      "tasks": [
+        "procurement requests",
+        "supplier operations",
+        "order exceptions"
+      ],
+      "claims": {
+        "estimated_supplier_spend_savings_pct": [
+          2,
+          3
+        ],
+        "estimated_cost_to_serve_reduction_pct": [
+          20,
+          30
+        ]
+      },
+      "evidence_status": "issuer targets not independently verified",
+      "sources": [
+        "https://www.genpact.com/industries/services-sector",
+        "https://www.genpact.com/agentic/products"
+      ]
+    },
+    {
+      "ticker": "EXLS",
+      "suite": "LifePRO Agentic Suite",
+      "market_segments": [
+        "life insurers",
+        "annuity providers"
+      ],
+      "tasks": [
+        "product launch configuration",
+        "policy conversions",
+        "testing",
+        "straight-through processing"
+      ],
+      "claims": {
+        "configuration_testing_reduction_pct": [
+          30,
+          40
+        ]
+      },
+      "evidence_status": "issuer-reported product/client outcomes",
+      "sources": [
+        "https://www.exlservice.com/about/newsroom/exl-transforms-client-workflows-with-the-integration-of-agentic-ai-into-core-insurance-and-healthcare-solutions"
+      ]
+    },
+    {
+      "ticker": "EXLS",
+      "suite": "Payment Integrity",
+      "market_segments": [
+        "health plans",
+        "managed care"
+      ],
+      "tasks": [
+        "clinical auditing",
+        "improper-payment prevention",
+        "medical review"
+      ],
+      "claims": {
+        "clinical_auditor_productivity_gain_pct_approx": 50,
+        "savings_per_member_growth_pct": [
+          15,
+          20
+        ]
+      },
+      "evidence_status": "issuer-reported implementation outcomes",
+      "sources": [
+        "https://ir.exlservice.com/news-releases/news-release-details/exl-transforms-client-workflows-integration-agentic-ai-core"
+      ]
+    },
+    {
+      "ticker": "CTSH",
+      "suite": "TriZetto Workflow Agentic Processing",
+      "market_segments": [
+        "health insurers"
+      ],
+      "tasks": [
+        "routine pended claims",
+        "member service summaries",
+        "prior authorization workflows"
+      ],
+      "claims": {
+        "platform_members_supported_lower_bound": 200000000,
+        "healthcare_spend_processed_usd_b_gt": 500
+      },
+      "evidence_status": "general availability plus early pilot; platform reach not product AI revenue or savings",
+      "sources": [
+        "https://news.cognizant.com/2026-09-28-Cognizant-Brings-Agentic-AI-and-MCP-tool-library-to-Core-Claims-Operations-with-Workflow-Agentic-Processing-for-TriZetto"
+      ]
+    },
+    {
+      "ticker": "GWRE",
+      "suite": "Qusar Agentic Framework",
+      "market_segments": [
+        "property casualty insurers"
+      ],
+      "tasks": [
+        "policy changes",
+        "claims intake",
+        "claims summarization",
+        "underwriting"
+      ],
+      "claims": {
+        "developer_feature_delivery_gain_pct_gt": 40
+      },
+      "evidence_status": "vendor reported software developer productivity, not insurer labor FTE reduction",
+      "sources": [
+        "https://ir.guidewire.com/news-releases/news-release-details/guidewire-introduces-qusar-release-help-insurers-build-and"
+      ]
+    },
+    {
+      "ticker": "G",
+      "suite": "Insurance Policy Suite",
+      "market_segments": [
+        "commercial insurers"
+      ],
+      "tasks": [
+        "submission extraction",
+        "underwriting preparation",
+        "quote bind",
+        "renewals"
+      ],
+      "claims": {
+        "realized_labor_hours_saved": null
+      },
+      "evidence_status": "product workflow coverage confirmed; realized labor ROI pending",
+      "sources": [
+        "https://www.genpact.com/agentic/products/insurance-policy-suite"
+      ]
+    },
+    {
+      "ticker": "GLOB",
+      "suite": "Glob.AI Pods and OS",
+      "market_segments": [
+        "technology",
+        "software-intensive enterprises",
+        "app modernization"
+      ],
+      "tasks": [
+        "software testing",
+        "application modernization",
+        "run operations"
+      ],
+      "claims": {
+        "recurring_labor_savings_usd": null
+      },
+      "evidence_status": "new delivery/commercial framework; customer ROI not yet compared",
+      "sources": [
+        "https://www.globant.com/news/globai-os-enterprise-ai-operating-system"
+      ]
+    },
+    {
+      "ticker": "GIB",
+      "suite": "Healthcare AI engineering and managed solutions",
+      "market_segments": [
+        "healthcare providers",
+        "payers",
+        "government"
+      ],
+      "tasks": [
+        "claims/payment integrity",
+        "prior authorization",
+        "care coordination",
+        "clinical support"
+      ],
+      "claims": {
+        "realized_labor_savings_usd": null
+      },
+      "evidence_status": "service brochure; outcome measurement pending",
+      "sources": [
+        "https://www.cgi.com/sites/default/files/2026-02/cgi-us-health-life-sciences-brochure-2026.pdf"
+      ]
+    }
+  ],
+  "comparison_dimensions": [
+    "addressable_existing_workflow_volume",
+    "current_installed_client_reach",
+    "paid_production_deployments",
+    "baseline_labor_hours_per_transaction",
+    "automated_exception_rate",
+    "post_ai_quality_error_rate",
+    "net_savings_usd_per_customer",
+    "provider_share_of_savings_and_recurring_revenue",
+    "partner_qualified_access",
+    "gross_profit_per_delivery_FTE"
+  ],
+  "caveats": [
+    "Vendor claims vary between target, pilot and observed production",
+    "Platform transaction volume is not company revenue",
+    "Product announcements are not proof of profitability",
+    "No ranked return probabilities or unsupported labor force reductions"
+  ]
+}

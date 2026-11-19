@@ -1,0 +1,219 @@
+{
+  "schema": "basket.eps_multiple_scenarios@1-provisional",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "as_of": "2026-10-30",
+  "currency": "USD",
+  "status": "illustrative_research_scenarios_not_consensus",
+  "definition": "Unweighted reference basket has no aggregate EPS or P/E. All non-guided 2027 EPS and 2028 EPS growth numbers modeled assumptions, not sourced consensus. FY labels respect company fiscal calendars.",
+  "valuation_regimes": [
+    {
+      "type": "mature low growth",
+      "forward_pe_range": [
+        10,
+        16
+      ]
+    },
+    {
+      "type": "established AI enabled",
+      "forward_pe_range": [
+        16,
+        24
+      ]
+    },
+    {
+      "type": "scarce skills proven high growth",
+      "forward_pe_range": [
+        24,
+        35
+      ]
+    }
+  ],
+  "issuer_scenarios": [
+    {
+      "ticker": "GDYN",
+      "earnings_anchor": {
+        "period": "2026-Q3",
+        "adjusted_eps": 0.18,
+        "annualized_quarter_adjusted_eps_proxy": 0.72,
+        "not_fy_guidance": true
+      },
+      "modeled_2027_adjusted_eps": [
+        0.8,
+        1.1
+      ],
+      "modeled_2028_eps_growth_pct": [
+        20,
+        35
+      ],
+      "pe_sensitivity": [
+        15,
+        30
+      ],
+      "quality": "low_to_medium",
+      "primary_risk": "Q4 revenue/EBITDA step-down, client concentration and post-rally valuation",
+      "source": "https://www.nasdaq.com/press-release/grid-dynamics-reports-record-third-quarter-2026-financial-results-2026-10-29"
+    },
+    {
+      "ticker": "EXLS",
+      "earnings_anchor": {
+        "period": "FY2026 issuer guidance",
+        "adjusted_eps": [
+          2.34,
+          2.36
+        ]
+      },
+      "modeled_2027_adjusted_eps": [
+        2.7,
+        3.05
+      ],
+      "modeled_2028_eps_growth_pct": [
+        15,
+        25
+      ],
+      "pe_sensitivity": [
+        15,
+        25
+      ],
+      "quality": "medium",
+      "primary_risk": "AI-led operational transformation becomes pricing pressure; acquisition integration",
+      "source": "https://ir.exlservice.com/news-releases/news-release-details/exl-reports-2026-third-quarter-results"
+    },
+    {
+      "ticker": "EPAM",
+      "earnings_anchor": {
+        "period": "FY2026 August guidance",
+        "adjusted_eps": [
+          13.08,
+          13.24
+        ]
+      },
+      "modeled_2027_adjusted_eps": [
+        13.5,
+        16
+      ],
+      "modeled_2028_eps_growth_pct": [
+        10,
+        20
+      ],
+      "pe_sensitivity": [
+        10,
+        20
+      ],
+      "quality": "low_to_medium",
+      "primary_risk": "Low organic growth despite Microsoft ecosystem scale",
+      "source": "https://www.sec.gov/Archives/edgar/data/1352010/000135201026000043/exhibit99_q2x2026.htm"
+    },
+    {
+      "ticker": "GLOB",
+      "earnings_anchor": {
+        "period": "FY2026 August guidance",
+        "non_ifrs_adjusted_eps": [
+          5.75,
+          6.15
+        ]
+      },
+      "modeled_2027_adjusted_eps": [
+        5.5,
+        7
+      ],
+      "modeled_2028_eps_growth_pct": [
+        5,
+        20
+      ],
+      "pe_sensitivity": [
+        8,
+        18
+      ],
+      "quality": "low",
+      "primary_risk": "Productized AI offering has not reversed weak companywide organic growth and margin compression",
+      "source": "https://investors.globant.com/2026-08-13-Globant-Reports-2026-Second-Quarter-Financial-Results"
+    },
+    {
+      "ticker": "INOD",
+      "earnings_anchor": {
+        "period": "2026-Q2",
+        "gaap_eps": 0.41,
+        "annualized_quarter_gaap_eps_proxy": 1.64,
+        "not_fy_guidance": true
+      },
+      "modeled_2027_gaap_eps": [
+        1.8,
+        2.8
+      ],
+      "modeled_2028_eps_growth_pct": [
+        15,
+        35
+      ],
+      "pe_sensitivity": [
+        15,
+        35
+      ],
+      "quality": "low",
+      "primary_risk": "Model training budget lumpiness, concentration, cost of expert data labor",
+      "source": "https://investor.innodata.com/news/news-details/2026/Innodata-Reports-Record-Second-Quarter-2026-Results/default.aspx"
+    },
+    {
+      "ticker": "CACI",
+      "earnings_anchor": {
+        "period": "FY2027 October 21 issuer guidance",
+        "adjusted_eps": [
+          33.18,
+          34.08
+        ],
+        "gaap_eps": [
+          25.96,
+          26.86
+        ]
+      },
+      "modeled_2027_adjusted_eps": null,
+      "modeled_2028_eps_growth_pct": [
+        8,
+        15
+      ],
+      "pe_sensitivity": [
+        17,
+        25
+      ],
+      "quality": "high_on_2027_guidance_only",
+      "primary_risk": "Federal funding, high contract qualification moat but limited AI-specific earnings attribution",
+      "source": "https://investor.caci.com/2026-10-21-CACI-Reports-Results-for-Its-Fiscal-2027-First-Quarter"
+    }
+  ],
+  "screenshots": {
+    "source": "2026-10-30 user Apple Stocks screenshots",
+    "latest_close_verified": false,
+    "pe_at_screen_price_adjusted_anchor": [
+      {
+        "ticker": "EXLS",
+        "price": 41.43,
+        "fy2026_guidance_midpoint": 2.35,
+        "ratio": 17.63
+      },
+      {
+        "ticker": "EPAM",
+        "price": 140.51,
+        "fy2026_guidance_midpoint": 13.16,
+        "ratio": 10.68
+      },
+      {
+        "ticker": "GLOB",
+        "price": 46.72,
+        "fy2026_guidance_midpoint": 5.95,
+        "ratio": 7.85
+      },
+      {
+        "ticker": "CACI",
+        "price": 675.62,
+        "fy2027_guidance_midpoint": 33.63,
+        "ratio": 20.09
+      }
+    ]
+  },
+  "rules": [
+    "No aggregate basket EPS, P/E or return without weighting / portfolio construction",
+    "No implying FY2026 adjusted multiple is a verified 2027 forward multiple",
+    "No comparing GAAP directly to adjusted without separate series",
+    "Both EPS and multiple compression, dilution, tax, FX and cash conversion must be scenario tested",
+    "Valuation range not a prediction of fair price or likelihood"
+  ]
+}

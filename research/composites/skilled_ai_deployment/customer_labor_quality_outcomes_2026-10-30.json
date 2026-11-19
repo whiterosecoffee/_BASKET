@@ -1,0 +1,168 @@
+{
+  "schema": "basket.customer_realized_outcomes@1-provisional",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "as_of": "2026-10-30",
+  "purpose": "Rank AI services by customer labor saved, quality improvements, and financially material business outcomes, not marketing badge",
+  "source_standard": "issuer_public_case_study_not_independently_audited",
+  "companies": [
+    {
+      "ticker": "G",
+      "type": "service",
+      "cases": [
+        {
+          "industry": "insurance",
+          "labor_cost_reduction_pct_lower_bound": 50,
+          "claims_cycle_time_reduction_pct_range": [
+            80,
+            85
+          ],
+          "claims_accuracy_improvement_percentage_points_range": [
+            2,
+            4
+          ],
+          "source": "https://www.genpact.com/case-studies/ai-powered-transformation-customer-success-stories"
+        },
+        {
+          "industry": "financial_compliance",
+          "manual_work_reduction_pct_up_to": 85,
+          "case_time_reduction_pct_approx": 75,
+          "reported_accuracy_pct_up_to": 99.8,
+          "source": "https://www.genpact.com/case-studies/compliance-gets-a-fresh-start"
+        },
+        {
+          "industry": "accounts_payable",
+          "touchless_rate_from_pct": 7,
+          "touchless_rate_to_pct_up_to": 65,
+          "extraction_accuracy_from_pct": 40,
+          "extraction_accuracy_to_pct": 92,
+          "source": "https://www.genpact.com/case-studies/powering-65-percent-touchless-accounts-payable-with-agentic-ai"
+        }
+      ],
+      "risk": "Some improvements are single-customer extrema, not portfolio averages; economic capture in Genpact fees unverified"
+    },
+    {
+      "ticker": "EXLS",
+      "type": "service",
+      "cases": [
+        {
+          "industry": "health_plan_payment_integrity",
+          "clinical_auditor_productivity_increase_pct_approx": 50,
+          "per_member_savings_growth_pct_range": [
+            15,
+            20
+          ],
+          "scope": "company-cited client outcome, no added headcount",
+          "source": "https://www.exlservice.com/about/newsroom/exl-transforms-client-workflows-with-the-integration-of-agentic-ai-into-core-insurance-and-healthcare-solutions"
+        },
+        {
+          "industry": "life_insurance",
+          "configuration_testing_effort_reduction_pct_range": [
+            30,
+            40
+          ],
+          "source": "https://www.exlservice.com/about/newsroom/exl-transforms-client-workflows-with-the-integration-of-agentic-ai-into-core-insurance-and-healthcare-solutions"
+        }
+      ],
+      "risk": "Outcomes not consistently tied to attributable EXL AI revenue or profit share"
+    },
+    {
+      "ticker": "CTSH",
+      "type": "service_embedded_platform",
+      "cases": [
+        {
+          "industry": "health_claims",
+          "auto_adjudication_from_pct": 40,
+          "auto_adjudication_to_pct_greater_than": 75,
+          "annual_labor_savings_usd_greater_than": 821240,
+          "redeployed_staff_pct": 25,
+          "audit_score_improvement_pct_greater_than": 20,
+          "source": "https://www.cognizant.com/us/en/case-studies/healthcare-managed-services-process-automation"
+        }
+      ],
+      "risk": "Some results from pre-agentic platform automation, not proof new LLM agents produced them"
+    },
+    {
+      "ticker": "GDYN",
+      "type": "service",
+      "cases": [
+        {
+          "industry": "wealth_management_software",
+          "quality_engineering_cycle_from": "two weeks",
+          "quality_engineering_cycle_to": "two hours",
+          "deployment_from": "two days",
+          "deployment_to": "six minutes",
+          "source": "https://www.investing.com/news/company-news/grid-dynamics-q3-2026-slides-record-margins-fuel-stock-surge-93CH-4985529"
+        },
+        {
+          "industry": "food_and_beverage_procurement",
+          "identified_savings_usd_quarter": 18400000,
+          "realized_savings_usd": null,
+          "source": "https://www.investing.com/news/company-news/grid-dynamics-q3-2026-slides-record-margins-fuel-stock-surge-93CH-4985529"
+        }
+      ],
+      "risk": "Identified savings not necessarily realized; no client-wide normalized sample"
+    },
+    {
+      "ticker": "GWRE",
+      "type": "platform_benchmark",
+      "cases": [
+        {
+          "industry": "insurance_development",
+          "developer_feature_delivery_speed_improvement_pct_greater_than": 40,
+          "source": "https://www.guidewire.com/about/press-center/press-releases/20260803/guidewire-introduces-qusar-release-to-help-insurers-build-and-control-ai-agents"
+        }
+      ],
+      "risk": "Developer-assistant benchmark not equal to insurer-level labor cost reduction"
+    },
+    {
+      "ticker": "INOD",
+      "type": "model_quality_services",
+      "cases": [],
+      "risk": "Model evaluation/quality thesis plausible, no comparable customer labor savings evidence in this review"
+    }
+  ],
+  "ranked_buckets": {
+    "best_customer_cost_quality_evidence": [
+      "G",
+      "EXLS",
+      "CTSH"
+    ],
+    "best_engineering_cycle_compression": [
+      "GDYN"
+    ],
+    "best_installed_workflow_platform": [
+      "GWRE",
+      "CTSH"
+    ],
+    "insufficient_direct_customer_outcomes": [
+      "EPAM",
+      "GLOB",
+      "INOD",
+      "CINT",
+      "GIB",
+      "DAVA",
+      "KD",
+      "INFY",
+      "WIT",
+      "ACN",
+      "IBM",
+      "PLTR"
+    ]
+  },
+  "qualification": "Rank measures amount and concreteness of disclosed cases, not expected stock returns or standardized return on investment.",
+  "next_contract_fields": [
+    "client_baseline_labor_hours",
+    "post_deployment_labor_hours",
+    "baseline_quality_error_rate",
+    "post_quality_error_rate",
+    "annualized_client_usd_benefit_realized",
+    "implementation_and_ongoing_client_cost",
+    "net_ROI",
+    "cases_in_production",
+    "reported_vs_independently_audited",
+    "provider_compensation_link_to_savings",
+    "repeated_rollouts_per_client",
+    "fiscal_period",
+    "source_available_at"
+  ]
+}

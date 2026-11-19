@@ -1,0 +1,52 @@
+{
+  "as_of": "2026-10-30",
+  "question": "Are AI systems integrators a high-growth high-profit bottleneck?",
+  "conclusion": "Deployment, data quality, integration and workflow redesign are verified demand bottlenecks; services sector-wide premium margins and rapid earnings growth are not established.",
+  "evidence": [
+    {
+      "finding": "22% of organizations scaled AI across multiple business units",
+      "source": "https://www.gartner.com/en/newsroom/press-releases/gartner-survey-finds-only-22-percent-of-organizations-have-successfully-scaled-ai-across-multiple-business-units"
+    },
+    {
+      "finding": "67% data integration and 61% governance/security obstacles",
+      "source": "https://www.redhat.com/en/engage/cio-cost-and-risk-top-list-analyst-material"
+    },
+    {
+      "finding": "2026 consulting tech sector bifurcation: faster AI-forward subset and broader cohort 0-8% revenue growth",
+      "source": "https://comcapllc.com/research/cmtsflzrk00910ao7x8vifdwh"
+    },
+    {
+      "finding": "Genpact ATS revenue +24.1% but total +7.1% and company net margin 10.8%",
+      "source": "https://media.genpact.com/2026-08-06-Genpact-Reports-Second-Quarter-2026-Results"
+    },
+    {
+      "finding": "CTSH Q3 revenue +4.6% and adjusted operating margin 16.3%",
+      "source": "https://investors.cognizant.com/news-and-events/news/news-details/2026/Cognizant-Reports-Third-Quarter-2026-Results/default.aspx"
+    }
+  ],
+  "ranking_by_potential": [
+    "embedded vertical platforms with recurring managed agents",
+    "repeatable integration accelerators and ongoing managed service",
+    "data/security/governance compliance specialization",
+    "bespoke integration projects",
+    "generic consulting and training"
+  ],
+  "risks": [
+    "agentic coding automates provider's own billable hours",
+    "hyperscaler-native tooling internalizes integration",
+    "clients retain labor efficiency gains",
+    "implementation costs and liability erode margins",
+    "AI bookings not recognized revenue",
+    "premium valuation pricing-in growth"
+  ],
+  "validation_metrics": [
+    "AI production deployments with revenue",
+    "signed ARR not TCV",
+    "gross profit per employee",
+    "operating margin and free cash flow",
+    "customer realized labor saving net of agent cost",
+    "new logos and expansion rates",
+    "partner-sourced bookings"
+  ],
+  "status": "research thesis, not validated investment return forecast"
+}
