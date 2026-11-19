@@ -1,0 +1,43 @@
+{
+  "status": "comparable",
+  "horizon_months": 12,
+  "as_of": "2026-10-27T14:30:00Z",
+  "method": "ordered replacement in listed order; residual captures unallocated changes; no time roll for fixed target",
+  "original_value": 27.9433746204449,
+  "revised_value": 31.157453136317326,
+  "components": [
+    {
+      "factor": "capacity_delivery",
+      "change": 0.0
+    },
+    {
+      "factor": "price_mix",
+      "change": 3.2140785158724263
+    },
+    {
+      "factor": "operating_margin",
+      "change": 0.0
+    },
+    {
+      "factor": "life_residual",
+      "change": 0.0
+    },
+    {
+      "factor": "funding_interest",
+      "change": 0.0
+    },
+    {
+      "factor": "dilution",
+      "change": 0.0
+    },
+    {
+      "factor": "discount_multiple",
+      "change": 0.0
+    },
+    {
+      "factor": "reconciliation_interactions",
+      "change": 0.0
+    }
+  ],
+  "reconciliation_error": 0.0
+}

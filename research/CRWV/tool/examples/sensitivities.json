@@ -1,0 +1,149 @@
+{
+  "accounting_1.5x": {
+    "first_month_eps": 0.26960630795713253,
+    "first_month_ocf": 3352966.666666666,
+    "lifetime_cash_collections": 1944000000.0,
+    "valuation": {
+      "valuation_as_of": "2026-10-27T14:30:00Z",
+      "target_date": "2026-10-27T14:30:00Z",
+      "financial_forecast_period": [
+        "2026-11-01T00:00:00+00:00",
+        "2027-10-01T00:00:00+00:00"
+      ],
+      "horizon_months": 0,
+      "method": "finite_runoff_equity_DCF_retained_cash_terminal_liquidation_after_outstanding_debt",
+      "equity_value": 249494416.25397277,
+      "diluted_shares": 10000000,
+      "terminal_diluted_shares": 11200000.0,
+      "conditional_value_per_share": 24.949441625397277,
+      "forward_12m_eps": 7.265966975922244,
+      "pe_value_per_share": 108.98950463883367,
+      "terminal_equity": 867878800.0000007,
+      "status": "conditional_scenario_not_price_prediction"
+    },
+    "funding": {
+      "earliest_gap_month": null,
+      "status": "funded_under_explicit_inputs",
+      "capacity_consequence": "No gap in modeled window"
+    }
+  },
+  "earning_7y": {
+    "first_month_eps": 0.24767283025154088,
+    "first_month_ocf": 3411300.0,
+    "lifetime_cash_collections": 1512000000.0,
+    "valuation": {
+      "valuation_as_of": "2026-10-27T14:30:00Z",
+      "target_date": "2026-10-27T14:30:00Z",
+      "financial_forecast_period": [
+        "2026-11-01T00:00:00+00:00",
+        "2027-10-01T00:00:00+00:00"
+      ],
+      "horizon_months": 0,
+      "method": "finite_runoff_equity_DCF_retained_cash_terminal_liquidation_after_outstanding_debt",
+      "equity_value": 184071696.89235488,
+      "diluted_shares": 10000000,
+      "terminal_diluted_shares": 11200000.0,
+      "conditional_value_per_share": 18.407169689235488,
+      "forward_12m_eps": 6.786068588469185,
+      "pe_value_per_share": 101.79102882703776,
+      "terminal_equity": 640302599.9999992,
+      "status": "conditional_scenario_not_price_prediction"
+    },
+    "funding": {
+      "earliest_gap_month": null,
+      "status": "funded_under_explicit_inputs",
+      "capacity_consequence": "No gap in modeled window"
+    }
+  },
+  "earning_9y": {
+    "first_month_eps": 0.24767283025154088,
+    "first_month_ocf": 3411300.0,
+    "lifetime_cash_collections": 1944000000.0,
+    "valuation": {
+      "valuation_as_of": "2026-10-27T14:30:00Z",
+      "target_date": "2026-10-27T14:30:00Z",
+      "financial_forecast_period": [
+        "2026-11-01T00:00:00+00:00",
+        "2027-10-01T00:00:00+00:00"
+      ],
+      "horizon_months": 0,
+      "method": "finite_runoff_equity_DCF_retained_cash_terminal_liquidation_after_outstanding_debt",
+      "equity_value": 249494416.25397232,
+      "diluted_shares": 10000000,
+      "terminal_diluted_shares": 11200000.0,
+      "conditional_value_per_share": 24.94944162539723,
+      "forward_12m_eps": 6.786068588469185,
+      "pe_value_per_share": 101.79102882703776,
+      "terminal_equity": 867878799.9999992,
+      "status": "conditional_scenario_not_price_prediction"
+    },
+    "funding": {
+      "earliest_gap_month": null,
+      "status": "funded_under_explicit_inputs",
+      "capacity_consequence": "No gap in modeled window"
+    }
+  },
+  "acceptance_delay_6m": {
+    "first_month_eps": -0.12293853073463268,
+    "first_month_ocf": -1130000.0,
+    "lifetime_cash_collections": 1944000000.0,
+    "valuation": {
+      "valuation_as_of": "2026-10-27T14:30:00Z",
+      "target_date": "2026-10-27T14:30:00Z",
+      "financial_forecast_period": [
+        "2026-11-01T00:00:00+00:00",
+        "2027-10-01T00:00:00+00:00"
+      ],
+      "horizon_months": 0,
+      "method": "finite_runoff_equity_DCF_retained_cash_terminal_liquidation_after_outstanding_debt",
+      "equity_value": 249402553.2649076,
+      "diluted_shares": 10000000,
+      "terminal_diluted_shares": 11200000.0,
+      "conditional_value_per_share": 24.94025532649076,
+      "forward_12m_eps": 1.8890954274353877,
+      "pe_value_per_share": 28.336431411530818,
+      "terminal_equity": 867559249.9999995,
+      "status": "conditional_scenario_not_price_prediction"
+    },
+    "funding": {
+      "earliest_gap_month": null,
+      "status": "funded_under_explicit_inputs",
+      "capacity_consequence": "No gap in modeled window"
+    }
+  },
+  "benchmark_plus_200bp": {
+    "first_month_eps": 0.2468832250541396,
+    "first_month_ocf": 3403400.0,
+    "lifetime_cash_collections": 1944000000.0,
+    "valuation": {
+      "valuation_as_of": "2026-10-27T14:30:00Z",
+      "target_date": "2026-10-27T14:30:00Z",
+      "financial_forecast_period": [
+        "2026-11-01T00:00:00+00:00",
+        "2027-10-01T00:00:00+00:00"
+      ],
+      "horizon_months": 0,
+      "method": "finite_runoff_equity_DCF_retained_cash_terminal_liquidation_after_outstanding_debt",
+      "equity_value": 249117420.09105763,
+      "diluted_shares": 10000000,
+      "terminal_diluted_shares": 11200000.0,
+      "conditional_value_per_share": 24.91174200910576,
+      "forward_12m_eps": 6.7694466534128575,
+      "pe_value_per_share": 101.54169980119286,
+      "terminal_equity": 866567400.0000008,
+      "status": "conditional_scenario_not_price_prediction"
+    },
+    "funding": {
+      "earliest_gap_month": null,
+      "status": "funded_under_explicit_inputs",
+      "capacity_consequence": "No gap in modeled window"
+    }
+  },
+  "tradein_hypothetical": {
+    "keep_npv": 2217042.057215301,
+    "upgrade_npv": 2670962.4890090544,
+    "incremental_upgrade_npv": 453920.4317937535,
+    "credit_class": "hypothetical_not_verified_NVIDIA_guarantee",
+    "old_fleet_earnings_in_upgrade": 0
+  }
+}
