@@ -92,3 +92,18 @@ body. The issue/branch/checkout and qualification tests then succeeded. This is
 not a pending publication approval and is separate from repository path conflicts.
 GitHub CLI authentication is unavailable; repository reads use public Git and
 publication uses the connected GitHub API. No credentials were read or modified.
+
+## Independent reproduction and adoption disposition (2026-11-19)
+
+The [independent review](https://github.com/whiterosecoffee/_BASKET/pull/258#issuecomment-6855696196)
+reproduced 22 tests and all 17 observations at original head 6a2a49f, with zero
+mismatches and unchanged sources. Earlier statements that no independent reviewer
+was available are historical; hosted focused execution remains unverified.
+
+`adoption-disposition.json` maps all seven selected-function gaps to existing
+admission, adapter and _MAP contracts. Those contracts already describe substantial
+coverage; a gap in one tested helper is not a missing system feature. Every row
+remains an owner proposal with concrete real-boundary acceptance, not adopted or
+operational. The review's additional requests are explicitly deferred to their
+existing owners rather than reimplemented here. Pinned documents are read-only
+evidence; no new runtime dependency or controller is added.
