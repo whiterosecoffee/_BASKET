@@ -1,0 +1,86 @@
+{
+  "format_version": 1,
+  "model_version": "aaoi-fy-pe-sensitivity/1",
+  "as_of_date": "2026-11-19",
+  "currency": "USD",
+  "observed_at": null,
+  "ingested_at": null,
+  "timestamp_note": "Date known; exact retrieval times not captured. Source update/first-availability times unknown unless stated. Historical snapshot, refresh before trading.",
+  "period_end": "2027-12-31",
+  "basis": "non-GAAP adjusted fiscal-year EPS; not next-twelve-month EPS",
+  "sources": {
+    "estimates": "https://twelvedata.com/markets/143436/stock/nasdaq/aaoi/analysis",
+    "crosscheck": "https://stockanalysis.com/stocks/aaoi/forecast/",
+    "earnings": "https://www.sec.gov/Archives/edgar/data/1158114/000168316826008351/aaoi_ex9901.htm",
+    "atm": "https://appliedoptoelectronics.gcs-web.com/static-files/4958946a-4178-485f-bc5c-a2aba12e319a"
+  },
+  "price": {
+    "value": 40.79,
+    "effective_at": "2026-11-18T21:00:00Z",
+    "source": "crosscheck",
+    "source_class": "third_party_market_data",
+    "validity": "historical_close_not_live"
+  },
+  "consensus": {
+    "eps": 3.75,
+    "low": 2.8,
+    "high": 5.69,
+    "analysts": 6,
+    "revenue_usd": 2380000000,
+    "source": "estimates",
+    "source_class": "third_party_consensus",
+    "available_at": null,
+    "validity": "retrieved_2026-11-19_revision_time_unknown"
+  },
+  "prior": {
+    "eps": 4.6,
+    "revenue_usd": 2660000000,
+    "price": 46.89,
+    "price_source": "user screenshot in November 5 conversation; no private account information retained",
+    "source": "historical conversation citations; current provider trend corroborates prior EPS"
+  },
+  "computed": {
+    "pe": 10.877333333333333,
+    "low_eps_pe": 14.567857142857143,
+    "high_eps_pe": 7.168717047451669,
+    "eps_revision_pct": -18.47826086956521,
+    "revenue_revision_pct": -10.526315789473696,
+    "price_revision_pct": -13.009170398805715
+  },
+  "dilution_scenario": {
+    "classification": "hypothetical_not_consensus",
+    "gross_raise_usd": 550000000,
+    "sale_price": 40.79,
+    "assumed_baseline_shares": 96000000,
+    "baseline_note": "Q4 guidance share count used only as illustrative proxy; 2027 consensus denominator unknown",
+    "incremental_shares": 13483696.984555038,
+    "eps_after": 3.2881607939379824,
+    "pe_after": 12.405111111111111,
+    "assumptions": [
+      "Entire authorization sold before forecast year",
+      "No issuance already included in EPS baseline",
+      "Unchanged net income; ignores returns on proceeds and issue timing",
+      "Do not apply this dilution on top of consensus without checking for double counting"
+    ]
+  },
+  "multiple_sensitivity": [
+    {
+      "multiple": 10,
+      "implied_price": 37.5
+    },
+    {
+      "multiple": 15,
+      "implied_price": 56.25
+    },
+    {
+      "multiple": 20,
+      "implied_price": 75
+    }
+  ],
+  "unknowns": [
+    "Actual new ATM sales and weighted-average 2027 diluted shares",
+    "Whether current consensus incorporates November 17 authorization",
+    "2027 quarterly capacity, utilization, yield, ASP and margin bridge",
+    "Exact analyst estimate revision timestamps"
+  ]
+}
