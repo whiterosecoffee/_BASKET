@@ -1,0 +1,69 @@
+{
+  "format": "basket.map.residual_disposition@1",
+  "owner": "B00-230",
+  "source": "https://github.com/whiterosecoffee/_BASKET/issues/230#issuecomment-6808749146",
+  "assessed_head": "f42cc68ed6ebce65803c0b0cb562f4ebca707f06",
+  "scope": "Pure synthetic design and qualification; no new controller or runtime effects.",
+  "compatibility": {
+    "change": "Reference request now requires available_at at all nested boundaries.",
+    "existing_consumer_behavior": "Old fixtures without available_at reject rather than assume historical availability. Only this owned reference composition is changed; no shared contract retrofit.",
+    "migration": "Callers must supply verified availability of the exact revision; unknown must not be inferred from observed_at.",
+    "prior_evidence": "Previous seven-case evidence remains immutable in assessed_head."
+  },
+  "dispositions": [
+    {
+      "id": "availability_at_cutoff",
+      "decision": "adopted_offline",
+      "acceptance": [
+        "observed_at <= as_of < available_at rejects with not_available_at_cutoff",
+        "available_at == as_of accepts when other predicates pass",
+        "missing, null and invalid availability reject input"
+      ],
+      "evidence": "evidence.json",
+      "requirement": "R-AVAILABLE",
+      "limits": "Synthetic available_at represents first external publication of the exact revision. Local ingested_at and historical local access are separate requirements, deferred pending consuming owner policy."
+    },
+    {
+      "id": "source_changes_before_effect",
+      "decision": "adopted_requirement_implementation_deferred",
+      "gate": "Before any future effect, compare qualified immutable source revision and canonical payload digest with current source identity. Changed or unknown identity stops the effect and requires new qualification; never substitute latest bytes silently.",
+      "acceptance": [
+        "Qualify revision A; observe revision B immediately before effect; assert no effect and requalification_required",
+        "Unknown current identity must assert no effect",
+        "Unchanged revision and digest is necessary but not sufficient for effect authorization"
+      ],
+      "owners": {
+        "shared_contract": 103,
+        "runtime_scopes": [
+          32,
+          24
+        ],
+        "independent_acceptance": 105
+      },
+      "evidence": null,
+      "reason": "Current harness is pure and has no authoritative readback/effect boundary; adding one here would exceed bounded reference scope."
+    },
+    {
+      "id": "permission_revoked_before_effect",
+      "decision": "adopted_requirement_implementation_deferred",
+      "gate": "Historical qualification conveys no present permission. Revalidate explicit action, target and permission immediately before a future effect; revoked, expired or unknown permission denies effects. Rechecking must be coupled to effect execution by the runtime owner to avoid a check/use race.",
+      "acceptance": [
+        "Qualify while permitted; revoke permission before effect; assert zero effects",
+        "Unknown or expired permission denies effects",
+        "Successful pure qualification alone cannot authorize any effect"
+      ],
+      "owners": {
+        "shared_contract": 103,
+        "runtime_scopes": [
+          32,
+          24
+        ],
+        "independent_acceptance": 105
+      },
+      "evidence": null,
+      "reason": "No permission authority or effect executor exists in this pure reference model."
+    }
+  ],
+  "owner_acceptance": false,
+  "production_qualified": false
+}

@@ -1,0 +1,248 @@
+{
+  "format": "basket.map.prior_art_families@1",
+  "owner": "B00-230",
+  "scope": "Organizational projection, not a new registry or executable workflow. Family choices are design judgments based on linked primary sources.",
+  "families": [
+    {
+      "id": "catalog",
+      "name": "Catalog and entity modeling",
+      "decision": "adapt",
+      "source": {
+        "url": "https://backstage.io/docs/features/software-catalog/descriptor-format/",
+        "title": "Backstage catalog descriptors",
+        "version_scope": "living documentation; retrieved 2026-11-11",
+        "claim": "Typed entities, owner and explicit relations support discovery."
+      },
+      "application": "Use a read-only family projection over existing authoritative IDs; distinguish definition from occurrence using our composition contracts.",
+      "rejected_scope": "Do not adopt a second ownership registry or infer execution from catalog lifecycle.",
+      "map_refs": [
+        "system.json#/domains"
+      ],
+      "benefit": "Find related contracts without assigning another writer.",
+      "adoption_state": "local_design_pattern_not_external_standard_conformance"
+    },
+    {
+      "id": "contracts",
+      "name": "Schema and interface contracts",
+      "decision": "adopt",
+      "source": {
+        "url": "https://json-schema.org/draft/2020-12/json-schema-core",
+        "title": "JSON Schema Core 2020-12",
+        "version_scope": "2020-12 dialect",
+        "claim": "Schemas identify reusable structures and referenced subschemas."
+      },
+      "application": "Continue JSON Schema for shape; retain separate semantic predicates and interface revisions.",
+      "rejected_scope": "Schema validity alone does not establish units, rights, freshness or truth.",
+      "map_refs": [
+        "compositions/admission/schemas.json#/$defs/request"
+      ],
+      "benefit": "Validate typed ports before composition.",
+      "adoption_state": "local_design_pattern_not_external_standard_conformance"
+    },
+    {
+      "id": "composition",
+      "name": "Typed workflow composition",
+      "decision": "adapt",
+      "source": {
+        "url": "https://www.commonwl.org/v1.2/Workflow.html",
+        "title": "CWL Workflow Description",
+        "version_scope": "v1.2.1",
+        "claim": "Workflow steps connect declared inputs and outputs through a directed graph."
+      },
+      "application": "Keep clean definitions separate from nested instances and explicit port edges.",
+      "rejected_scope": "Do not adopt an engine, general expression language or assume CWL conformance from an analogy.",
+      "map_refs": [
+        "compositions/admission/composition.json#/delegation"
+      ],
+      "benefit": "Reuse check_semantics in two scenarios without copying its definition.",
+      "adoption_state": "local_design_pattern_not_external_standard_conformance"
+    },
+    {
+      "id": "provenance",
+      "name": "Entity activity agent provenance",
+      "decision": "adapt",
+      "source": {
+        "url": "https://www.w3.org/TR/prov-o/",
+        "title": "W3C PROV-O",
+        "version_scope": "Recommendation 2013-04-30",
+        "claim": "Entities, activities and agents provide distinct provenance roles."
+      },
+      "application": "Represent artifact revision, test activity and responsible owner separately with evidence links.",
+      "rejected_scope": "Attribution is not permission; derivation is not accuracy or current availability.",
+      "map_refs": [
+        "compositions/admission/evidence.json#/results"
+      ],
+      "benefit": "Trace which bounded run produced a report while preserving archived inputs.",
+      "adoption_state": "local_design_pattern_not_external_standard_conformance"
+    },
+    {
+      "id": "lineage",
+      "name": "Design versus runtime lineage",
+      "decision": "adapt",
+      "source": {
+        "url": "https://openlineage.io/docs/spec/object-model/",
+        "title": "OpenLineage object model",
+        "version_scope": "page labels 1.55.0; retrieved 2026-11-11",
+        "claim": "Job and Dataset metadata are distinct from runtime Run events."
+      },
+      "application": "Separate declared dataflow from observed execution receipts; attach immutable evidence only to actual local runs.",
+      "rejected_scope": "Do not emit events or claim live lineage service adoption. Offline receipts are not production runs.",
+      "map_refs": [
+        "suites.json#/suites"
+      ],
+      "benefit": "Keep a declared workflow and its actual test receipt independently inspectable.",
+      "adoption_state": "local_design_pattern_not_external_standard_conformance"
+    },
+    {
+      "id": "graph_qc",
+      "name": "Graph constraints and validation reports",
+      "decision": "adapt",
+      "source": {
+        "url": "https://www.w3.org/TR/shacl/",
+        "title": "W3C SHACL",
+        "version_scope": "Recommendation; retrieved 2026-11-11",
+        "claim": "Graph constraints are separate from the graph being validated and yield validation results."
+      },
+      "application": "Use JSON-first typed-edge and endpoint checks with explicit negative fixtures; preserve a future RDF export boundary.",
+      "rejected_scope": "Reject mandatory RDF/SHACL engine migration now; these local checks do not claim SHACL conformance.",
+      "map_refs": [
+        "compositions/admission/composition.json#/requirements"
+      ],
+      "benefit": "Reject a dangling endpoint or mistaken definition-as-run relation.",
+      "adoption_state": "local_design_pattern_not_external_standard_conformance"
+    }
+  ],
+  "selection_rule": "Choose by question: catalog for identity/ownership; contracts for shape; composition for port wiring; provenance for derivation; lineage for design/run distinction; graph_qc for relational constraints. These families are complementary, not interchangeable.",
+  "objects": [
+    {
+      "id": "admit_definition",
+      "kind": "definition",
+      "family": "composition",
+      "ref": "compositions/admission/composition.json#/definitions/admit"
+    },
+    {
+      "id": "outer_occurrence",
+      "kind": "instance",
+      "family": "catalog",
+      "ref": "compositions/admission/composition.json#/instances/0",
+      "expected_id": "outer"
+    },
+    {
+      "id": "request_shape",
+      "kind": "contract",
+      "family": "contracts",
+      "ref": "compositions/admission/schemas.json#/$defs/request"
+    },
+    {
+      "id": "admission_evidence",
+      "kind": "evidence",
+      "family": "provenance",
+      "ref": "compositions/admission/evidence.json",
+      "execution_scope": "offline_reference"
+    },
+    {
+      "id": "time_requirement",
+      "kind": "requirement",
+      "family": "graph_qc",
+      "ref": "compositions/admission/composition.json#/requirements/4",
+      "expected_id": "R-AVAILABLE"
+    },
+    {
+      "id": "declared_suite",
+      "kind": "plan",
+      "family": "lineage",
+      "ref": "suites.json#/suites/3",
+      "expected_id": "admission"
+    }
+  ],
+  "relations": [
+    {
+      "kind": "instance_of",
+      "from": "outer_occurrence",
+      "to": "admit_definition"
+    },
+    {
+      "kind": "input_contract",
+      "from": "admit_definition",
+      "to": "request_shape"
+    },
+    {
+      "kind": "has_evidence",
+      "from": "time_requirement",
+      "to": "admission_evidence"
+    },
+    {
+      "kind": "declares",
+      "from": "declared_suite",
+      "to": "admit_definition"
+    }
+  ],
+  "examples": [
+    {
+      "id": "historical_filing",
+      "path": [
+        "outer_occurrence",
+        "admit_definition",
+        "request_shape",
+        "time_requirement",
+        "admission_evidence"
+      ],
+      "question": "Where is the historical cutoff interface, and which bounded evidence supports it?",
+      "limit": "The evidence demonstrates synthetic qualification only; permission and changed-source guards remain deferred."
+    },
+    {
+      "id": "market_reuse",
+      "path": [
+        "declared_suite",
+        "admit_definition",
+        "request_shape",
+        "admission_evidence"
+      ],
+      "question": "Can two scenarios share the same clean definition while keeping runtime evidence separate?",
+      "limit": "Port compatibility requires semantic checks too; these example lists are navigation paths, not executable pipelines."
+    }
+  ],
+  "next_actions": [
+    {
+      "owner_issue": 230,
+      "action": "Extend family annotations only when a new component exposes a concrete discovery or validation need."
+    },
+    {
+      "owner_issue": 103,
+      "action": "Review shared contract implications before any adoption outside the reference map."
+    }
+  ],
+  "field_notes": {
+    "family": "Organizing lens, never write authority.",
+    "ref": "Local _MAP path plus optional JSON Pointer, checked against this checkout. Pin the containing Git commit when consuming externally.",
+    "execution_scope": "Evidence classification; only offline_reference is represented here.",
+    "relations": "Typed navigation; neither ordering nor dispatch authorization.",
+    "decision": "adopt means retain an already-used technique; adapt means borrow a bounded idea. rejected_scope records what was deliberately excluded."
+  },
+  "related_work": [
+    {
+      "issue": 241,
+      "branch": "work/241-json-data-flow-objects",
+      "owned_scope": "orchestration/data_flow_objects/**",
+      "state": "pinned_candidate_reference_not_integrated",
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/d103a99486589aa4aee24d4fa978532f1b288ac1/orchestration/data_flow_objects/objects.json",
+      "candidate_ids": [
+        "source.massive.bars",
+        "fetch.capture",
+        "local.raw",
+        "sanitation.bars",
+        "verification.partition",
+        "access.verified_partition",
+        "consumer.summary"
+      ],
+      "family_mapping": [
+        "contracts",
+        "provenance",
+        "lineage",
+        "graph_qc"
+      ],
+      "limit": "Candidate labels are not resolved _MAP objects or accepted contracts. No write authority transferred.",
+      "map_projection": "data_flow/projection.json"
+    }
+  ]
+}

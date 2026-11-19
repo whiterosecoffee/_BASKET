@@ -1,0 +1,214 @@
+{
+  "cases": [
+    {
+      "id": "market_ok",
+      "use_case": "market_observation",
+      "input": {
+        "source_id": "synthetic-market",
+        "value": 10,
+        "observed_at": "2026-01-01T00:00:00Z",
+        "as_of": "2026-01-01T00:00:30Z",
+        "semantics": {
+          "unit": "USD_per_share",
+          "rights": "synthetic",
+          "time_basis": "observed"
+        },
+        "available_at": "2026-01-01T00:00:00Z"
+      },
+      "expected_reason": null
+    },
+    {
+      "id": "filing_ok",
+      "use_case": "filing_fact",
+      "input": {
+        "source_id": "synthetic-filing",
+        "value": 100,
+        "observed_at": "2025-12-31T00:00:00Z",
+        "as_of": "2026-01-01T00:00:30Z",
+        "semantics": {
+          "unit": "USD",
+          "rights": "public_synthetic",
+          "time_basis": "fiscal_period",
+          "period": "FY2025"
+        },
+        "available_at": "2026-01-01T00:00:00Z"
+      },
+      "expected_reason": null
+    },
+    {
+      "id": "market_wrong_unit",
+      "use_case": "market_observation",
+      "input": {
+        "source_id": "synthetic-market",
+        "value": 10,
+        "observed_at": "2026-01-01T00:00:00Z",
+        "as_of": "2026-01-01T00:00:30Z",
+        "semantics": {
+          "unit": "EUR_per_share",
+          "rights": "synthetic",
+          "time_basis": "observed"
+        },
+        "available_at": "2026-01-01T00:00:00Z"
+      },
+      "expected_reason": "unit_mismatch"
+    },
+    {
+      "id": "filing_missing_period",
+      "use_case": "filing_fact",
+      "input": {
+        "source_id": "synthetic-filing",
+        "value": 100,
+        "observed_at": "2025-12-31T00:00:00Z",
+        "as_of": "2026-01-01T00:00:30Z",
+        "semantics": {
+          "unit": "USD",
+          "rights": "public_synthetic",
+          "time_basis": "fiscal_period"
+        },
+        "available_at": "2026-01-01T00:00:00Z"
+      },
+      "expected_reason": "period_missing"
+    },
+    {
+      "id": "market_expired",
+      "use_case": "market_observation",
+      "input": {
+        "source_id": "synthetic-market",
+        "value": 10,
+        "observed_at": "2026-01-01T00:00:00Z",
+        "as_of": "2026-01-01T00:01:00Z",
+        "semantics": {
+          "unit": "USD_per_share",
+          "rights": "synthetic",
+          "time_basis": "observed"
+        },
+        "available_at": "2026-01-01T00:00:00Z"
+      },
+      "expected_reason": "expired"
+    },
+    {
+      "id": "filing_future",
+      "use_case": "filing_fact",
+      "input": {
+        "source_id": "synthetic-filing",
+        "value": 100,
+        "observed_at": "2026-01-02T00:00:00Z",
+        "as_of": "2026-01-01T00:00:30Z",
+        "semantics": {
+          "unit": "USD",
+          "rights": "public_synthetic",
+          "time_basis": "fiscal_period",
+          "period": "FY2025"
+        },
+        "available_at": "2026-01-01T00:00:00Z"
+      },
+      "expected_reason": "future_observation"
+    },
+    {
+      "id": "malformed_input",
+      "use_case": "market_observation",
+      "input": {
+        "source_id": "synthetic-market",
+        "value": "not-a-number",
+        "observed_at": "2026-01-01T00:00:00Z",
+        "as_of": "2026-01-01T00:00:30Z",
+        "semantics": {
+          "unit": "USD_per_share",
+          "rights": "synthetic",
+          "time_basis": "observed"
+        },
+        "available_at": "2026-01-01T00:00:00Z"
+      },
+      "expected_reason": "invalid_input"
+    },
+    {
+      "id": "filing_unavailable",
+      "use_case": "filing_fact",
+      "input": {
+        "source_id": "synthetic-filing",
+        "value": 100,
+        "observed_at": "2025-12-31T00:00:00Z",
+        "as_of": "2026-01-01T00:00:30Z",
+        "semantics": {
+          "unit": "USD",
+          "rights": "public_synthetic",
+          "time_basis": "fiscal_period",
+          "period": "FY2025"
+        },
+        "available_at": "2026-01-01T00:00:31Z"
+      },
+      "expected_reason": "not_available_at_cutoff"
+    },
+    {
+      "id": "filing_available_boundary",
+      "use_case": "filing_fact",
+      "input": {
+        "source_id": "synthetic-filing",
+        "value": 100,
+        "observed_at": "2025-12-31T00:00:00Z",
+        "as_of": "2026-01-01T00:00:30Z",
+        "semantics": {
+          "unit": "USD",
+          "rights": "public_synthetic",
+          "time_basis": "fiscal_period",
+          "period": "FY2025"
+        },
+        "available_at": "2026-01-01T00:00:30Z"
+      },
+      "expected_reason": null
+    },
+    {
+      "id": "filing_unknown_availability",
+      "use_case": "filing_fact",
+      "input": {
+        "source_id": "synthetic-filing",
+        "value": 100,
+        "observed_at": "2025-12-31T00:00:00Z",
+        "as_of": "2026-01-01T00:00:30Z",
+        "semantics": {
+          "unit": "USD",
+          "rights": "public_synthetic",
+          "time_basis": "fiscal_period",
+          "period": "FY2025"
+        },
+        "available_at": null
+      },
+      "expected_reason": "invalid_input"
+    },
+    {
+      "id": "filing_invalid_availability",
+      "use_case": "filing_fact",
+      "input": {
+        "source_id": "synthetic-filing",
+        "value": 100,
+        "observed_at": "2025-12-31T00:00:00Z",
+        "as_of": "2026-01-01T00:00:30Z",
+        "semantics": {
+          "unit": "USD",
+          "rights": "public_synthetic",
+          "time_basis": "fiscal_period",
+          "period": "FY2025"
+        },
+        "available_at": "invalid"
+      },
+      "expected_reason": "invalid_input"
+    },
+    {
+      "id": "filing_missing_availability",
+      "use_case": "filing_fact",
+      "input": {
+        "source_id": "synthetic-filing",
+        "value": 100,
+        "observed_at": "2025-12-31T00:00:00Z",
+        "as_of": "2026-01-01T00:00:30Z",
+        "semantics": {
+          "unit": "USD",
+          "rights": "public_synthetic",
+          "time_basis": "fiscal_period",
+          "period": "FY2025"
+        }
+      },
+      "expected_reason": "invalid_input"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+# _MAP — structured system planning
+
+Owner: B00, [#230](https://github.com/whiterosecoffee/_BASKET/issues/230), `work/230-map-system-planning`. Write scope `_MAP/**` plus the exact B00 discovery bridge `orchestration/tests/test_map_suite_discovery.py`; bounded coordinator arbitration and collision evidence are in `scope-amendment.json`.
+
+Start with **system.json**: architecture pointers, eight system groups, typed relationships, seven module-review patterns, planning flow, queue read/write contract and explicit coverage gaps. **map.schema.json** describes this local planning document and explains fields; it does not replace shared schemas.
+
+Every new or changed module should check the applicable patterns and report evidence or exceptions in its existing issue/PR. Existing architecture, schema, worker library and domain owners remain authoritative. Shared catalog/AGENTS registration needs additive reconciliation by its existing owner; no shared files are changed here.
+
+The canonical queue remains issue #136. This branch is a dedicated top-level planning lane, not a second task ledger. Read fresh queue state before choosing work; record authorized scoped deltas through the existing controller, preserve unrelated obligations, detect drift and verify readback. The JSON describes this contract; it does **not** implement queue execution.
+
+JSON-first Level 1 remains the priority. PR225, PR227 and PR229 are unmerged candidate references. Existing historical method prose can lag later integration; pinned source presence does not imply present operational acceptance. No seed selected, clone, runtime activation, merge or deployment.
+
+Run `python _MAP/validate.py` for local structure/pointers/coverage checks. For existing boundary regressions: `python -m unittest discover -s orchestration/tests -p 'test_component*.py'`. Checks do not establish full-system semantic completeness. Continue expanding source-backed modules and ports inside this lane, recording gaps and queue receipts rather than claiming universal coverage.
+
+**Rebuild direction:** existing components must be rewritten against a cohesive system. Current source pointers preserve behavior/evidence, not an endorsement of legacy reuse. Define the new contracts and patterns first, then queue scoped replacements and acceptance. Additive top-level design diffs should support new use cases without repeatedly refactoring that new design; they do not exempt old components from rewrite. No source is deleted by this planning increment.
+
+Validation prerequisites: Python with `jsonschema`, Git, and the pinned commits in the local object database. On a fresh checkout, fetch the read-only candidate branches `work/226-json-virtual-workflow` and `work/228-requirements-relationship-selection` before running the validator. It reads their pinned bytes with `git show` and never checks out or executes candidate code. Missing commits stop validation rather than silently trusting remote pointers.
+
+Intent reconciliation is explicit in `instruction_semantics`: resolve scope, chronology and purpose, admit one coherent bounded rule, and route shared instruction edits to #201. `archive_microtests` defines small comparisons against pinned old versions: preserve required behavior, accept justified corrections, retire incidental behavior, or leave the difference unresolved. Old output equality is not the oracle. AM1 now has an executed offline microtest; AM2 also has an executed semantic-boundary experiment; AM3–AM4 remain design cases. Structural tests alone do not imply archived replay or rewritten-component acceptance.
+
+**First behavioral slice:** `python _MAP/microtests/freshness/run.py` stages a two-child validation/current-use qualification boundary using synthetic fixtures. Seven outcomes are checked against pinned archived schema/runtime and a separate small test model, with four malformed-input and three malformed/contradictory-output rejections. The archived schema accepts an expired record labeled fresh, while archived runtime and the intended clean semantics reject current use. This is useful behavior evidence, not production module reuse or a general workflow engine. The original source and inputs remain unchanged.
+
+**Queue handoff slice:** `python _MAP/microtests/queue_handoff/run.py` executes 12 synthetic traces through pinned archived claim/result/acceptance guards and a separate uncertain-write test model. It covers stale/expired claim, duplicate result, missing/wrong-head acceptance, failed CI and matching/absent/unavailable/conflicting readback. Next means an eligible proposal only; all external effects are zero. Historical finite operator proof is retained, not promoted to autonomous execution.
+
+**Semantic-boundary slice:** `python _MAP/microtests/semantic_boundary/run.py` compares 14 synthetic producer/consumer cases. Every payload passes pinned archived shape validation; the new local model separately rejects incompatible basis, grain, units, session, unknown/unapproved rights, time semantics, unknown freshness, fractional-volume loss, unsupported versions and changed bytes. Two positive cases preserve fractional volume or accept integer-only volume without coercion. This is a contract experiment, not source entitlement proof or a production matcher.
+
+## Evolving coverage and composed proof
+
+`compositions/admission/` is the first contract-complete **bounded offline reference composition**, not a complete domain or system. It has an outer admission boundary, nested qualification boundary, and two shared clean primitive definitions. A synthetic market observation and a synthetic fiscal-period filing fact traverse the same validated boundaries with different semantic constraints. Typed links, requirement-to-case references, boundary traces, rejection paths and retained evidence are checked.
+
+Domain mapping is now explicitly `unmapped`, `partial` or `mapped`. B00 has one partial reference binding; the other domains remain unmapped. Full domain mapping requires an independently reviewed full-domain requirement inventory, digest-bound closure evidence and no remaining gaps; clearing a partial binding’s gap list is insufficient. Group/full-system completion requires additional closure evidence; flipping a flag cannot complete the map. This is representation maturity, not domain-owner or production acceptance.
+
+`python _MAP/run_suites.py` executes all suites declared in `suites.json`. Expected case sets come from versioned fixtures rather than frozen counts. The root validator only checks structure and retained evidence; the suite runner performs actual experiments. The new B00 discovery bridge calls the aggregate runner from the existing shared orchestration test step. No B01 workflow was edited. Qualification requires the actual exact-head log to contain MAP_HOSTED_DISCOVERY and all declared suite receipts; green CI from before this bridge does not count. See HOSTED_GATE_HANDOFF.md for the original request and its bounded discovery resolution.
+
+Closure validation checks evidence references, inventory hashes and review-record structure; it cannot authenticate an external reviewer merely from a URL. Actual owner/independent review remains a separate acceptance gate. No full-domain or full-system closure is claimed here.
+
+For shallow CI checkouts, `_MAP/prepare_sources.py` allows only immutable pins from `source_pins.json` and the exact _BASKET origin. The discovery bridge permits source-only fetch when `GITHUB_ACTIONS=true`; ordinary local runs fail on missing pins unless the operator explicitly runs `python _MAP/prepare_sources.py --fetch-missing`. Fetching adds Git objects only, not branch integration or checkout changes. Failures remain failures, not skipped suites.
+
+## Historical availability and future effects
+
+`compositions/admission/residual-disposition.json` records the #230 owner handoff disposition. The pure reference now requires exact-revision `available_at` and tests historical cutoff admission separately from observation age. Source-change and permission-revocation guards are adopted requirements with owner-routed acceptance criteria, not implemented runtime effects. The reference request change is intentionally fail-closed for old callers; previous evidence remains pinned in the disposition.
+
+## Prior-art families
+
+`prior_art/families.json` organizes existing map objects through six complementary lenses: catalog, contracts, composition, provenance, design/runtime lineage and graph QC. Each has primary-source links, adopt/adapt reasoning, rejected scope and checked local pointers. Two navigation examples locate shared admission definitions and bounded evidence without conflating a plan with a run. `prior_art/run.py` executes positive and mutation checks through the existing suite manifest; no external framework or runtime is installed.
+
+## Candidate data-flow projection
+
+`data_flow/projection.json` pins the seven #241 / PR242 reference boundaries, nested composition and sanitized probe report. Projection tests check source hashes, exact definition coverage, effects, composition and partial schema coverage without running the other owner’s code. Local-capture availability is explicitly incompatible with an automatic first-publication alias. Real-source execution remains the source owner’s evidence; this map run checks integrity and relationships only. No raw bars are copied, and production ownership remains unchanged.

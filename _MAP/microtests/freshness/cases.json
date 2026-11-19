@@ -1,0 +1,186 @@
+{
+  "fixture_class": "synthetic_offline",
+  "cases": [
+    {
+      "id": "fresh",
+      "input": {
+        "observation": {
+          "entity_id": "SYNTHETIC",
+          "field": "price",
+          "value": 10,
+          "currency": "USD",
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z",
+          "source": "synthetic-fixture",
+          "ttd_seconds": 60,
+          "freshness_status": "fresh",
+          "evidence_type": "market"
+        },
+        "as_of": "2026-01-01T00:00:59Z"
+      },
+      "expected": {
+        "state": "fresh",
+        "eligible_current": true,
+        "historical_source_preserved": true
+      },
+      "difference_class": "preserve_required_behavior"
+    },
+    {
+      "id": "expiry_boundary",
+      "input": {
+        "observation": {
+          "entity_id": "SYNTHETIC",
+          "field": "price",
+          "value": 10,
+          "currency": "USD",
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z",
+          "source": "synthetic-fixture",
+          "ttd_seconds": 60,
+          "freshness_status": "fresh",
+          "evidence_type": "market"
+        },
+        "as_of": "2026-01-01T00:01:00Z"
+      },
+      "expected": {
+        "state": "stale",
+        "eligible_current": false,
+        "historical_source_preserved": true
+      },
+      "difference_class": "preserve_required_behavior"
+    },
+    {
+      "id": "expired_claims_fresh",
+      "input": {
+        "observation": {
+          "entity_id": "SYNTHETIC",
+          "field": "price",
+          "value": 10,
+          "currency": "USD",
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z",
+          "source": "synthetic-fixture",
+          "ttd_seconds": 60,
+          "freshness_status": "fresh",
+          "evidence_type": "market"
+        },
+        "as_of": "2026-01-01T00:02:00Z"
+      },
+      "expected": {
+        "state": "stale",
+        "eligible_current": false,
+        "historical_source_preserved": true
+      },
+      "difference_class": "intended_correction"
+    },
+    {
+      "id": "future_availability",
+      "input": {
+        "observation": {
+          "entity_id": "SYNTHETIC",
+          "field": "price",
+          "value": 10,
+          "currency": "USD",
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:45Z",
+          "ingested_at": "2026-01-01T00:00:45Z",
+          "source": "synthetic-fixture",
+          "ttd_seconds": 60,
+          "freshness_status": "fresh",
+          "evidence_type": "market"
+        },
+        "as_of": "2026-01-01T00:00:30Z"
+      },
+      "expected": {
+        "state": "unavailable",
+        "eligible_current": false,
+        "historical_source_preserved": true
+      },
+      "difference_class": "preserve_required_behavior"
+    },
+    {
+      "id": "future_observation",
+      "input": {
+        "observation": {
+          "entity_id": "SYNTHETIC",
+          "field": "price",
+          "value": 10,
+          "currency": "USD",
+          "observed_at": "2026-01-01T00:00:40Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z",
+          "source": "synthetic-fixture",
+          "ttd_seconds": 60,
+          "freshness_status": "fresh",
+          "evidence_type": "market"
+        },
+        "as_of": "2026-01-01T00:00:30Z"
+      },
+      "expected": {
+        "state": "conflicted",
+        "eligible_current": false,
+        "historical_source_preserved": true
+      },
+      "difference_class": "preserve_required_behavior"
+    },
+    {
+      "id": "missing_value",
+      "input": {
+        "observation": {
+          "entity_id": "SYNTHETIC",
+          "field": "price",
+          "value": null,
+          "currency": "USD",
+          "observed_at": "2026-01-01T00:00:00Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z",
+          "source": "synthetic-fixture",
+          "ttd_seconds": 60,
+          "freshness_status": "fresh",
+          "evidence_type": "market"
+        },
+        "as_of": "2026-01-01T00:00:30Z"
+      },
+      "expected": {
+        "state": "unavailable",
+        "eligible_current": false,
+        "historical_source_preserved": true
+      },
+      "difference_class": "preserve_required_behavior"
+    },
+    {
+      "id": "future_observation_missing_value",
+      "input": {
+        "observation": {
+          "entity_id": "SYNTHETIC",
+          "field": "price",
+          "value": null,
+          "currency": "USD",
+          "observed_at": "2026-01-01T00:00:40Z",
+          "available_at": "2026-01-01T00:00:00Z",
+          "ingested_at": "2026-01-01T00:00:00Z",
+          "source": "synthetic-fixture",
+          "ttd_seconds": 60,
+          "freshness_status": "fresh",
+          "evidence_type": "market"
+        },
+        "as_of": "2026-01-01T00:00:30Z"
+      },
+      "expected": {
+        "state": "conflicted",
+        "eligible_current": false,
+        "historical_source_preserved": true
+      },
+      "difference_class": "preserve_required_behavior"
+    }
+  ],
+  "negative_cases": [
+    "missing source",
+    "negative ttd_seconds",
+    "naive as_of timestamp",
+    "malformed observation timestamp"
+  ]
+}
