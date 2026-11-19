@@ -1,0 +1,109 @@
+{
+  "authority": "synthetic; never a live lease",
+  "entrypoint": "orchestration.worker_bridge.bridge.run_codex",
+  "failed": 0,
+  "limits": [
+    "Does not establish authentic collector evidence or atomic lease acquisition.",
+    "Does not prove Dot uses this repository bridge.",
+    "No successful model execution or deployment tested.",
+    "Python audit observations are scoped to these pinned Python functions, not a general OS sandbox."
+  ],
+  "negative_cases": [
+    {
+      "effect_attempts": [],
+      "expected_code": "execution_permission",
+      "id": "readonly_write",
+      "inputs_unchanged": true,
+      "observed_code": "execution_permission",
+      "output_absent": true,
+      "passed": true
+    },
+    {
+      "effect_attempts": [],
+      "expected_code": "log_scope",
+      "id": "outside_output",
+      "inputs_unchanged": true,
+      "observed_code": "log_scope",
+      "output_absent": true,
+      "passed": true
+    },
+    {
+      "effect_attempts": [],
+      "expected_code": "stale_fence",
+      "id": "stale_token",
+      "inputs_unchanged": true,
+      "observed_code": "stale_fence",
+      "output_absent": true,
+      "passed": true
+    },
+    {
+      "effect_attempts": [],
+      "expected_code": "lease_expired",
+      "id": "expired_lease",
+      "inputs_unchanged": true,
+      "observed_code": "lease_expired",
+      "output_absent": true,
+      "passed": true
+    },
+    {
+      "effect_attempts": [],
+      "expected_code": "lease_expired",
+      "id": "missing_lease",
+      "inputs_unchanged": true,
+      "observed_code": "lease_expired",
+      "output_absent": true,
+      "passed": true
+    },
+    {
+      "effect_attempts": [],
+      "expected_code": "attempt_unregistered",
+      "id": "missing_attempt",
+      "inputs_unchanged": true,
+      "observed_code": "attempt_unregistered",
+      "output_absent": true,
+      "passed": true
+    },
+    {
+      "effect_attempts": [],
+      "expected_code": "attempt_unregistered",
+      "id": "wrong_attempt",
+      "inputs_unchanged": true,
+      "observed_code": "attempt_unregistered",
+      "output_absent": true,
+      "passed": true
+    },
+    {
+      "effect_attempts": [],
+      "expected_code": "attempt_unregistered",
+      "id": "resolved_attempt",
+      "inputs_unchanged": true,
+      "observed_code": "attempt_unregistered",
+      "output_absent": true,
+      "passed": true
+    }
+  ],
+  "passed": 8,
+  "source_hashes": {
+    "AGENTS.md": "69181a7171a76c9c6af9c6144d56e665c7520d1728dba4cf458e1ee0fa1102e3",
+    "orchestration/WORKER_PROTOCOL.md": "667887a1dd8bb04f44219567367d34208968329d915399145ba15724ac77baf7",
+    "orchestration/agentic/manager.py": "ef6807803d9dca7fc58a596d8c613bcf8dbeae578c74a4a41d45ec3551689487",
+    "orchestration/planner.py": "409828e9b3ea8042a943d84611b8e4883b35d361b132dedcb6ec654dfaf8c6dc",
+    "orchestration/validate_sparks.py": "d968a21a0773161df881c3b6a3c041ea45ad504aee958a04ace1a04e50a6a1a9",
+    "orchestration/worker_bridge/bridge.py": "a7efa85ee82db5a4c7518d9afa39116728ad95e81269c69c011b4fdf1056f81d",
+    "orchestration/worker_contracts/worker-v2.md": "ff9f37e3759ee7ec6e88350db969e78c34b6c2ad25ad5f9af89f729eb308fd5f",
+    "orchestration/worker_protocol.py": "694accc7a8cc1e38cca9aeff41222651b5318e1fb5c3f14f8dc6910114bce191",
+    "schemas/worker-evidence.v1.json": "c7333111c28b1c2271e481ccd60a0d4397305931fc8a7d00b363cd7260949efb",
+    "schemas/worker-resolution.v1.json": "a28307ac6abd3151d6a689aaa0ec6ccb78da902f361f357fd118418ec2325445",
+    "schemas/worker-task.v1.json": "fd89076d70986d5cb078b45d6de34c332433916249ba3254cfbaa7394a9b7429"
+  },
+  "tripwire_control": {
+    "effect_attempts": [
+      "os.mkdir"
+    ],
+    "id": "tripwire_control",
+    "inputs_unchanged": true,
+    "observed_code": "effect_attempt:os.mkdir",
+    "output_absent": true
+  },
+  "unchanged_sources": true
+}
