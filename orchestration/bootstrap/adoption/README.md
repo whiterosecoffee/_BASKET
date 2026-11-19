@@ -1,0 +1,44 @@
+# _BASKET — engineering baseline
+
+Repository: [whiterosecoffee/_BASKET](https://github.com/whiterosecoffee/_BASKET)
+Maintainer: [@whiterosecoffee](https://github.com/whiterosecoffee)
+
+Generated with [Copier](https://copier.readthedocs.io/en/v9.19.1/). Tool configuration
+is shared; application code, ownership and acceptance remain project-specific.
+
+## What this provides
+
+- EditorConfig formatting conventions.
+- Ruff and pytest configuration in `pyproject.toml`.
+- Optional standard pre-commit validation, including merge-conflict checks.
+- Native `.copier-answers.yml` source revision and answers for updates.
+
+No hooks, packages, workflows, deployments or agent executors are installed by
+generation. Configure required checks in the project's reviewed GitHub workflow.
+Keep tasks, dependencies and implementation evidence in GitHub Issues/PRs/Actions.
+Do not infer completion from a generated file or successful template update.
+
+## Existing Python tests
+
+From the project repository root, the existing unittest suite can run without
+switching test frameworks:
+
+```sh
+python -m unittest discover -s orchestration/project_sync -p 'test_*.py' -v
+```
+
+pytest and Ruff are optional consumers of the standard configuration. Project
+maintainers choose and pin their development dependencies separately.
+
+## Updating
+
+In a clean Git checkout of this generated project, use Copier 9.19.1:
+
+```sh
+copier update --defaults --vcs-ref=<reviewed-template-commit>
+```
+
+Review the diff and any conflicts, run project tests, then submit a PR. Use exact
+reviewed source commits until an explicitly authorized template release exists.
+Never edit the Copier answers file by hand. Merge/release permissions remain with
+the repository's governance; Copier does not authorize either action.
