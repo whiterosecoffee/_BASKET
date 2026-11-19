@@ -1,0 +1,251 @@
+[
+  {
+    "name": "routine",
+    "input": {
+      "objective": "Close a routine documentation correction; latest requirement: keep the existing destination and do not manufacture transfer",
+      "local_required_remaining": false,
+      "decision_required": false,
+      "external_required_remaining": false,
+      "handoff": {
+        "owner": "B00",
+        "destination": "Existing Issue #169 / PR #170; work/169-conversation-closeout-cli",
+        "objective": "Review closeout integration",
+        "completed": "Existing evaluator and discovery bridge; do not rebuild",
+        "remaining": "Exact-head tests, retention and retrieval review; no merge",
+        "write_paths": "orchestration/conversation_closeout/**",
+        "prohibited": "B01 workflows, PR #25 queue, other branches",
+        "validation": "Run canonical tests and inspect exact-head worker-qc log",
+        "next_action": "Refresh PR #170 head and compare actual named tests"
+      },
+      "evidence": "Accessible Issue #169 comments only; original pilot JSON/full transcript unavailable. Reconstructed replay, not historical output reproduction.",
+      "claims": [
+        {
+          "id": "C1",
+          "type": "conversation_observation",
+          "text": "Prior 22-test pilot reported; refresh independently",
+          "source_ref": "https://github.com/whiterosecoffee/_BASKET/issues/169#issuecomment-6621962657",
+          "revision": "64d0ce69ab3be4d28e07aef886417c2795553341"
+        }
+      ],
+      "insights": [
+        {
+          "principle": "Preserve causal reasoning",
+          "disposition": "already_incorporated",
+          "priority": 25,
+          "pattern": "Compare named evidence before accepting completion",
+          "methodology": "1. Refresh source; 2. compare assertions; 3. run acceptance; 4. record uncertainty",
+          "application": "routine closeout for existing Issue #169",
+          "evidence": "C1 is historical, not a fresh independent test",
+          "limitations": "Falsifier: green workflow without named tests cannot establish execution",
+          "architecture": "Reviewer JSON -> offline formatter -> receiving B00 owner; no source authentication",
+          "capability_match": "Existing Issue #169 and HANDOFF_PROMPT.md; acceptance is an executable handoff",
+          "rationale": "Choose existing contracts; reject another queue because it duplicates ownership; reconsider only for a demonstrated gap",
+          "claim_ids": [
+            "C1"
+          ],
+          "theory_tags": [
+            "PROV",
+            "FALS"
+          ],
+          "prior_art": [
+            {
+              "family": "Design by Contract",
+              "mechanism": "Explicit input/output acceptance",
+              "applicability": "routine closeout",
+              "boundary": "Structure does not authenticate evidence",
+              "reference": "orchestration/WORKER_PROTOCOL.md"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "research",
+    "input": {
+      "objective": "Preserve a research hypothesis without promoting it to approved policy; latest requirement: keep negative evidence and reconsideration criteria",
+      "local_required_remaining": false,
+      "decision_required": false,
+      "external_required_remaining": true,
+      "handoff": {
+        "owner": "B00",
+        "destination": "Existing Issue #169 / PR #170; work/169-conversation-closeout-cli",
+        "objective": "Review closeout integration",
+        "completed": "Existing evaluator and discovery bridge; do not rebuild",
+        "remaining": "Review source classes and falsifier before accepting the research hypothesis",
+        "write_paths": "orchestration/conversation_closeout/**",
+        "prohibited": "B01 workflows, PR #25 queue, other branches",
+        "validation": "Run canonical tests and inspect exact-head worker-qc log",
+        "next_action": "Refresh PR #170 head and compare actual named tests"
+      },
+      "evidence": "Accessible Issue #169 comments only; original pilot JSON/full transcript unavailable. Reconstructed replay, not historical output reproduction.",
+      "claims": [
+        {
+          "id": "C1",
+          "type": "conversation_observation",
+          "text": "Prior 22-test pilot reported; refresh independently",
+          "source_ref": "https://github.com/whiterosecoffee/_BASKET/issues/169#issuecomment-6621962657",
+          "revision": "64d0ce69ab3be4d28e07aef886417c2795553341"
+        }
+      ],
+      "insights": [
+        {
+          "principle": "Separate hypotheses from authenticated observations",
+          "disposition": "transfer",
+          "priority": 25,
+          "pattern": "Label source class and preserve contradictory observations",
+          "methodology": "1. Refresh source; 2. compare assertions; 3. run acceptance; 4. record uncertainty",
+          "application": "research closeout for existing Issue #169",
+          "evidence": "C1 is historical, not a fresh independent test",
+          "limitations": "Falsifier: contradictory independent source invalidates the hypothesis; no live inference from a historical example",
+          "architecture": "Reviewer JSON -> offline formatter -> receiving B00 owner; no source authentication",
+          "capability_match": "Existing Issue #169 and HANDOFF_PROMPT.md; acceptance is an executable handoff",
+          "rationale": "Choose existing contracts; reject another queue because it duplicates ownership; reconsider only for a demonstrated gap",
+          "claim_ids": [
+            "C1"
+          ],
+          "theory_tags": [
+            "PROV",
+            "FALS"
+          ],
+          "prior_art": [
+            {
+              "family": "Design by Contract",
+              "mechanism": "Explicit input/output acceptance",
+              "applicability": "research closeout",
+              "boundary": "Structure does not authenticate evidence",
+              "reference": "orchestration/WORKER_PROTOCOL.md"
+            }
+          ]
+        },
+        {
+          "principle": "research material lesson 2",
+          "disposition": "transfer",
+          "priority": 23,
+          "pattern": "Preserve mechanism 2",
+          "rationale": "Decision 2: retain for existing owner; deferred does not mean discarded",
+          "capability_match": "Existing Issue #169"
+        },
+        {
+          "principle": "research material lesson 3",
+          "disposition": "transfer",
+          "priority": 22,
+          "pattern": "Preserve mechanism 3",
+          "rationale": "Decision 3: retain for existing owner; deferred does not mean discarded",
+          "capability_match": "Existing Issue #169"
+        },
+        {
+          "principle": "research material lesson 4",
+          "disposition": "defer",
+          "priority": 21,
+          "pattern": "Preserve mechanism 4",
+          "rationale": "Decision 4: retain for existing owner; deferred does not mean discarded",
+          "capability_match": "Existing Issue #169"
+        }
+      ]
+    }
+  },
+  {
+    "name": "repository",
+    "input": {
+      "objective": "Finalize the existing offline closeout tool; later requirements: preserve causal knowledge, compare v1/v2, use apply handoff prompt exactly; no new framework",
+      "local_required_remaining": false,
+      "decision_required": false,
+      "external_required_remaining": true,
+      "handoff": {
+        "owner": "B00",
+        "destination": "Existing Issue #169 / PR #170; work/169-conversation-closeout-cli",
+        "objective": "Review closeout integration",
+        "completed": "Existing evaluator and discovery bridge; do not rebuild",
+        "remaining": "Exact-head tests, retention and retrieval review; no merge",
+        "write_paths": "orchestration/conversation_closeout/**",
+        "prohibited": "B01 workflows, PR #25 queue, other branches",
+        "validation": "Run canonical tests and inspect exact-head worker-qc log",
+        "next_action": "Refresh PR #170 head and compare actual named tests"
+      },
+      "evidence": "Accessible Issue #169 comments only; original pilot JSON/full transcript unavailable. Reconstructed replay, not historical output reproduction.",
+      "claims": [
+        {
+          "id": "C1",
+          "type": "conversation_observation",
+          "text": "Prior 22-test pilot reported; refresh independently",
+          "source_ref": "https://github.com/whiterosecoffee/_BASKET/issues/169#issuecomment-6621962657",
+          "revision": "64d0ce69ab3be4d28e07aef886417c2795553341"
+        }
+      ],
+      "insights": [
+        {
+          "principle": "Independent tests must execute at the actual head",
+          "disposition": "transfer",
+          "priority": 25,
+          "pattern": "Compare named evidence before accepting completion",
+          "methodology": "1. Refresh source; 2. compare assertions; 3. run acceptance; 4. record uncertainty",
+          "application": "repository closeout for existing Issue #169",
+          "evidence": "C1 is historical, not a fresh independent test",
+          "limitations": "Falsifier: green workflow without named tests cannot establish execution",
+          "architecture": "Reviewer JSON -> offline formatter -> receiving B00 owner; no source authentication",
+          "capability_match": "Existing Issue #169 and HANDOFF_PROMPT.md; acceptance is an executable handoff",
+          "rationale": "Choose existing contracts; reject another queue because it duplicates ownership; reconsider only for a demonstrated gap",
+          "claim_ids": [
+            "C1"
+          ],
+          "theory_tags": [
+            "PROV",
+            "FALS"
+          ],
+          "prior_art": [
+            {
+              "family": "Design by Contract",
+              "mechanism": "Explicit input/output acceptance",
+              "applicability": "repository closeout",
+              "boundary": "Structure does not authenticate evidence",
+              "reference": "orchestration/WORKER_PROTOCOL.md"
+            }
+          ]
+        },
+        {
+          "principle": "Versioned black-box ports preserve ownership",
+          "disposition": "transfer",
+          "priority": 23,
+          "pattern": "Preserve mechanism 2",
+          "rationale": "Decision 2: retain for existing owner; deferred does not mean discarded",
+          "capability_match": "Existing Issue #169",
+          "theory_tags": [
+            "DBC",
+            "HEX",
+            "MOD",
+            "EVS",
+            "INFO",
+            "POST"
+          ],
+          "architecture": "Reviewer supplies evidence; offline CLI formats it; B00 reviews; B01 owns shared workflows",
+          "methodology": "Read ownership -> inspect existing contracts -> use existing destination",
+          "application": "Existing closeout evaluator and worker_task/resolution contracts"
+        },
+        {
+          "principle": "Reuse dependency-ordered work rather than another scheduler",
+          "disposition": "transfer",
+          "priority": 22,
+          "pattern": "Preserve mechanism 3",
+          "rationale": "Reject a parallel queue because PR #25 already owns planning; no merge authorization",
+          "capability_match": "Existing Issue #169",
+          "theory_tags": [
+            "IDEM",
+            "DAG",
+            "DEC",
+            "CQRS"
+          ],
+          "methodology": "Verify component tests -> inspect mandatory CI -> review pilot -> request integration review"
+        },
+        {
+          "principle": "Invocation must resolve the durable prompt",
+          "disposition": "transfer",
+          "priority": 21,
+          "pattern": "Read HANDOFF_PROMPT.md from the existing branch before integration, main afterwards",
+          "rationale": "Use apply handoff prompt as natural language; no automatic registration proven",
+          "capability_match": "orchestration/conversation_closeout/HANDOFF_PROMPT.md; B00 integration review"
+        }
+      ]
+    }
+  }
+]
