@@ -125,4 +125,97 @@ class TestMetrics(unittest.TestCase):
         self.assertEqual(json.loads(completed.stdout),
                          m.evaluate("ORCL", source, as_of=900000))
 
+    def test_reject_nonfinite_observation_fields(self):
+        for field in ("o", "h", "l", "c", "v", "vw"):
+            for value in (float("nan"), float("inf"), float("-inf")):
+                for legacy in (False, True):
+                    with self.subTest(field=field, value=value, legacy=legacy):
+                        source = bars(n=5)
+                        source[2][field] = value
+                        if legacy:
+                            source = [[row[k] for k in ("t", "o", "h", "l", "c", "v", "vw")] + [0]
+                                      for row in source]
+                        with self.assertRaises(ValueError):
+                            m.evaluate("CRWV", source)
+
+    def test_reject_boolean_numeric_observations(self):
+        for field in ("v", "vw"):
+            with self.subTest(field=field):
+                source = bars(n=5)
+                source[2][field] = True
+                with self.assertRaises(ValueError):
+                    m.evaluate("ORCL", source)
+
+    def test_reject_noninteger_bar_start_without_coercion(self):
+        for value in (0.5, 0.0, True, "0", float("nan"), float("inf")):
+            for legacy in (False, True):
+                with self.subTest(value=value, legacy=legacy):
+                    source = bars(n=5)
+                    source[0]["t"] = value
+                    if legacy:
+                        source = [[row[k] for k in ("t", "o", "h", "l", "c", "v", "vw")] + [0]
+                                  for row in source]
+                    with self.assertRaises(ValueError):
+                        m.evaluate("ORCL", source)
+
+    def test_interval_and_cutoff_require_integers(self):
+        for interval in (True, 1.0, "1", float("nan"), float("inf"), 0, -1):
+            with self.subTest(interval=interval):
+                with self.assertRaises(ValueError):
+                    m.evaluate("CRWV", bars(n=5), interval_minutes=interval)
+        for cutoff in (True, 300000.5, "300000", float("nan"), float("inf")):
+            with self.subTest(cutoff=cutoff):
+                with self.assertRaises(ValueError):
+                    m.evaluate("CRWV", bars(n=5), as_of=cutoff)
+
+    def test_optional_volume_profiles_must_be_finite(self):
+        for value in (float("nan"), float("inf"), float("-inf"), True):
+            with self.subTest(value=value):
+                with self.assertRaises(ValueError):
+                    m.evaluate("CRWV", bars(n=5), prior_20_session_adv=value)
+                with self.assertRaises(ValueError):
+                    m.evaluate("CRWV", bars(n=5), same_clock_expected={5: value})
+
+    def test_fractional_volume_outside_range_vwap_and_nulls_survive(self):
+        source = bars(n=5)
+        for row in source:
+            row.update(v=100.25, vw=200)
+        legacy = [[row[k] for k in ("t", "o", "h", "l", "c", "v", "vw")] + [0]
+                  for row in source]
+        original = json.dumps(source, sort_keys=True)
+        for ticker in ("CRWV", "ORCL"):
+            result = m.evaluate(ticker, source, prior_20_session_adv=0,
+                                same_clock_expected={5: 0})
+            self.assertEqual(result, m.evaluate(ticker, legacy, prior_20_session_adv=0,
+                                               same_clock_expected={5: 0}))
+            window = result["windows"]["5m"]
+            self.assertEqual(window["shares"], 501.25)
+            self.assertEqual(window["estimated_turnover_usd"], 100250)
+            self.assertIsNone(window["prior_20_session_adv_pct"])
+            self.assertIsNone(window["same_clock_rvol"])
+            self.assertIsNone(result["windows"]["15m"])
+            self.assertEqual(json.loads(json.dumps(result, allow_nan=False)), result)
+        self.assertEqual(json.dumps(source, sort_keys=True), original)
+
+    def test_finite_inputs_cannot_emit_overflowed_metrics(self):
+        source = bars(n=5)
+        for row in source:
+            row["v"] = 1e308
+        with self.assertRaises(ValueError):
+            m.evaluate("CRWV", source)
+
+    def test_cli_rejects_nonfinite_volume_without_emitting_snapshot(self):
+        source = bars(n=5)
+        source[2]["v"] = float("nan")
+        script = Path(__file__).resolve().parents[1]/"run_metrics.py"
+        with tempfile.TemporaryDirectory() as directory:
+            input_path = Path(directory)/"invalid-bars.jsonl"
+            input_path.write_text("".join(json.dumps(row)+"\n" for row in source))
+            completed = subprocess.run(
+                [sys.executable, "-B", str(script), "CRWV", "--jsonl", str(input_path)],
+                text=True, capture_output=True, timeout=10)
+        self.assertNotEqual(completed.returncode, 0)
+        self.assertEqual(completed.stdout, "")
+        self.assertIn("finite number", completed.stderr)
+
 if __name__=="__main__":unittest.main()
