@@ -1,0 +1,635 @@
+{
+  "schema_hint": "unregistered; proposed basket.macro_register@1. B00 owns schemas/**; registration is not requested by this change.",
+  "register_id": "macro_backdrop.macros",
+  "version": "1.0.0",
+  "created_on": "2026-11-02",
+  "spark_id": "B17",
+  "issue": 141,
+  "status": "draft",
+  "purpose": "Static register of the macro measures tracked to characterize the market backdrop against which live tape is read. It names what is tracked, how each is computed, which candidate contrast it routes to, where it comes from, whether access is verified, and when a reading expires. It holds no dated observations.",
+  "doctrine": [
+    "Measure the backdrop; do not forecast. No probabilities, forecasts or trade instructions appear in this register.",
+    "Index and aggregate level only. Ticker specifics belong to ticker research.",
+    "Output is per-contrast direction and magnitude. Concurrent or disagreeing contrasts are valid states, not defects.",
+    "Static register only. Dated observations belong in snapshots (append-only; corrections are new files), never in this file.",
+    "Unretrieved or unentitled measures stay unknown. Never infer one from another series.",
+    "Thresholds are hypotheses until validated. Fixed reference points from the 2026-09-30 instrument (COR1M 15, DSPX 25, MOVE/VIX 5) were shown to stamp the era rather than the day and are not carried forward.",
+    "Every figure carries data age and a TTD. Expired observations are historical evidence only.",
+    "USD. Original currency and dated FX basis would be preserved for any non-USD series; none is tracked at v1.0.0."
+  ],
+  "partition": {
+    "logic": "Register = what is tracked and how it is read (static, versioned). Snapshot = what was observed at a time (dated, append-only). Method prompt = how an analysis is run (kept at the Claude Project level as claude/macro-backdrop-template.md).",
+    "naming": "macros.v<MAJOR>.json. A change to the meaning of an existing field creates macros.v<MAJOR+1>.json. Additive measures bump MINOR in the version field. Measure ids are stable: C=contrast, I=intraday, F=futures, IX=index close, R=rates and policy, E=energy, D=dollar, V=volatility."
+  },
+  "access_status_vocabulary": {
+    "verified": "Retrieved from an entitled or official source on evidence_date.",
+    "cross_checked": "Retrieved from two or more independent web sources that agree; no entitled or official source.",
+    "unverified": "Single web source, missing timestamp, or conflicting sources.",
+    "not_entitled": "Provider refused the series on evidence_date.",
+    "failed_fetch": "Source page failed to load on evidence_date.",
+    "unknown": "Not retrieved or not tested."
+  },
+  "conventions": {
+    "ratio_z21": {
+      "level": "v = close(numerator) / close(denominator), daily adjusted closes",
+      "a21": "mean of v over 21 sessions including the current session",
+      "sigma": "sqrt(mean(r^2)) where r is the daily ratio return, over the trailing 30 calendar days",
+      "z": "(v / a21 - 1) / sigma",
+      "outputs": ["day_pct", "vs21_pct", "z"],
+      "note": "Level against a trailing average is a regime read. No deadband width is set; see unknowns."
+    },
+    "intraday_vs_prior_close": {
+      "levels": ["prior_close", "prior_low", "premarket_high", "premarket_low", "session_vwap"],
+      "expiry": "Levels expire at their session's close.",
+      "thin_volume_rule": "Flag any 1-minute bar whose volume is small relative to the instrument's regular-session volume. No numeric cutoff is set; see unknowns.",
+      "time": "Provider timestamps are UTC milliseconds. ET display is UTC-5 from 2026-11-01 (DST ended) and UTC-4 before."
+    },
+    "level_vs_threshold": {
+      "rule": "Compare the current level with each attached threshold. A threshold is a hypothesis, carries its set date and rationale, and is not a forecast."
+    },
+    "event": {
+      "rule": "A scheduled event carries its date, time in ET, source class and access status. Consensus and prior values are quoted as published and are not predictions made here."
+    }
+  },
+  "measures": [
+    {
+      "id": "C01",
+      "name": "Equal-weight vs cap-weight S&P 500",
+      "group": "index_contrast",
+      "kind": "ratio",
+      "instruments": ["RSP", "SPY"],
+      "formula": "RSP / SPY",
+      "convention": "ratio_z21",
+      "role": "Residual contrast: within-pool share shift between equal-weight and cap-weight large caps.",
+      "reads_as": { "up": "Average stock outperforming the cap-weighted index", "down": "Cap-weighted index leading or equal-weight lagging" },
+      "cadence": "daily",
+      "source_class": "market_data_provider",
+      "access": { "status": "verified", "provider": "Massive /v2/aggs daily", "evidence_date": "2026-11-02", "evidence_note": "Daily bars retrieved for the contrast ETFs, window 2026-08-20 to 2026-10-30." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": []
+    },
+    {
+      "id": "C02",
+      "name": "Small caps vs S&P 500",
+      "group": "index_contrast",
+      "kind": "ratio",
+      "instruments": ["IWM", "SPY"],
+      "formula": "IWM / SPY",
+      "convention": "ratio_z21",
+      "role": "Residual contrast: small-cap share vs large-cap share.",
+      "reads_as": { "up": "Small caps outperforming", "down": "Small caps lagging" },
+      "cadence": "daily",
+      "source_class": "market_data_provider",
+      "access": { "status": "verified", "provider": "Massive /v2/aggs daily", "evidence_date": "2026-11-02", "evidence_note": "Same pull as C01." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": []
+    },
+    {
+      "id": "C03",
+      "name": "Nasdaq-100 vs S&P 500",
+      "group": "index_contrast",
+      "kind": "ratio",
+      "instruments": ["QQQ", "SPY"],
+      "formula": "QQQ / SPY",
+      "convention": "ratio_z21",
+      "role": "Concentration read: cap-weight tech and AI leadership vs the broader index.",
+      "reads_as": { "up": "Tech and AI leading the S&P 500", "down": "Tech and AI lagging" },
+      "cadence": "daily",
+      "source_class": "market_data_provider",
+      "access": { "status": "verified", "provider": "Massive /v2/aggs daily", "evidence_date": "2026-11-02", "evidence_note": "Same pull as C01." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": []
+    },
+    {
+      "id": "C04",
+      "name": "Semiconductors vs S&P 500",
+      "group": "index_contrast",
+      "kind": "ratio",
+      "instruments": ["SMH", "SPY"],
+      "formula": "SMH / SPY",
+      "convention": "ratio_z21",
+      "role": "Semiconductor leadership vs the broader index.",
+      "reads_as": { "up": "Semis outperforming", "down": "Semis lagging" },
+      "cadence": "daily",
+      "source_class": "market_data_provider",
+      "access": { "status": "verified", "provider": "Massive /v2/aggs daily", "evidence_date": "2026-11-02", "evidence_note": "Same pull as C01." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": []
+    },
+    {
+      "id": "C05",
+      "name": "Equities vs 7-10 year Treasuries",
+      "group": "index_contrast",
+      "kind": "ratio",
+      "instruments": ["SPY", "IEF"],
+      "formula": "SPY / IEF",
+      "convention": "ratio_z21",
+      "role": "Factor-loaded contrast: cross-pool level move between equities and intermediate duration.",
+      "reads_as": { "up": "Equities outperforming intermediate Treasuries", "down": "Intermediate Treasuries outperforming equities" },
+      "cadence": "daily",
+      "source_class": "market_data_provider",
+      "access": { "status": "verified", "provider": "Massive /v2/aggs daily", "evidence_date": "2026-11-02", "evidence_note": "Same pull as C01." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": []
+    },
+    {
+      "id": "C06",
+      "name": "Consumer discretionary vs staples",
+      "group": "index_contrast",
+      "kind": "ratio",
+      "instruments": ["XLY", "XLP"],
+      "formula": "XLY / XLP",
+      "convention": "ratio_z21",
+      "role": "Factor-loaded contrast: cyclical vs defensive consumer exposure.",
+      "reads_as": { "up": "Discretionary outperforming staples", "down": "Staples outperforming discretionary" },
+      "cadence": "daily",
+      "source_class": "market_data_provider",
+      "access": { "status": "verified", "provider": "Massive /v2/aggs daily", "evidence_date": "2026-11-02", "evidence_note": "Same pull as C01." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": []
+    },
+    {
+      "id": "C07",
+      "name": "High-yield vs investment-grade bonds",
+      "group": "index_contrast",
+      "kind": "ratio",
+      "instruments": ["HYG", "LQD"],
+      "formula": "HYG / LQD",
+      "convention": "ratio_z21",
+      "role": "Duration-weighted credit contrast. Not a pure credit read.",
+      "reads_as": { "up": "High yield outperforming investment grade", "down": "Investment grade outperforming high yield" },
+      "cadence": "daily",
+      "source_class": "market_data_provider",
+      "access": { "status": "verified", "provider": "Massive /v2/aggs daily", "evidence_date": "2026-11-02", "evidence_note": "Same pull as C01." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": [],
+      "note": "Prior analysis (2026-09-30 shard, claim c4, inference) found HYG/LQD correlates -0.67 with IEF returns and +0.12 with SPY returns, so it reads as duration. Do not infer a credit crisis from it."
+    },
+    {
+      "id": "C08",
+      "name": "Gold vs S&P 500",
+      "group": "index_contrast",
+      "kind": "ratio",
+      "instruments": ["GLD", "SPY"],
+      "formula": "GLD / SPY",
+      "convention": "ratio_z21",
+      "role": "Haven-bid contrast: gold share vs equity share.",
+      "reads_as": { "up": "Gold outperforming equities", "down": "Equities outperforming gold" },
+      "cadence": "daily",
+      "source_class": "market_data_provider",
+      "access": { "status": "verified", "provider": "Massive /v2/aggs daily", "evidence_date": "2026-11-02", "evidence_note": "Same pull as C01." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": [],
+      "note": "A falling ratio with equities also falling means gold is not acting as a haven that day; read the ratio together with the SPY day change, not alone."
+    },
+    {
+      "id": "C09",
+      "name": "Energy vs S&P 500",
+      "group": "index_contrast",
+      "kind": "ratio",
+      "instruments": ["XLE", "SPY"],
+      "formula": "XLE / SPY",
+      "convention": "ratio_z21",
+      "role": "Energy share vs the broader index.",
+      "reads_as": { "up": "Energy outperforming", "down": "Energy lagging" },
+      "cadence": "daily",
+      "source_class": "market_data_provider",
+      "access": { "status": "verified", "provider": "Massive /v2/aggs daily", "evidence_date": "2026-11-02", "evidence_note": "Same pull as C01." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": []
+    },
+    {
+      "id": "I01",
+      "name": "Index ETF intraday levels vs prior close",
+      "group": "intraday",
+      "kind": "level",
+      "instruments": ["SPY", "QQQ", "SMH", "RSP"],
+      "formula": "last 1-minute close vs prior regular-session close, prior low, premarket high and low, session VWAP",
+      "convention": "intraday_vs_prior_close",
+      "role": "Live read of whether a premarket or intraday move holds relative to the prior session's closing and low levels.",
+      "reads_as": { "up": "Trading above the prior close", "down": "Trading below the prior close" },
+      "cadence": "intraday_1m",
+      "source_class": "market_data_provider",
+      "access": {
+        "status": "verified",
+        "provider": "Massive /v2/aggs 1-minute",
+        "evidence_date": "2026-11-02",
+        "evidence_note": "Newest bar started 08:49 ET at clock 08:50:33 ET, about 1.5 minutes. This conflicts with the feed profile's 10-15 minute note; see known_conflicts. RSP and IEF premarket bars were thin (572 and 261 shares in the last observed minute)."
+      },
+      "ttd": { "rule": "Premarket reads expire at the 09:30 ET regular open. Levels expire at their session's close." },
+      "thresholds": []
+    },
+    {
+      "id": "F01",
+      "name": "Index futures vs prior settle",
+      "group": "futures",
+      "kind": "futures",
+      "instruments": ["ES", "NQ", "YM"],
+      "formula": "front-month level vs prior settlement",
+      "convention": "level_vs_threshold",
+      "role": "Overnight direction and size of the gap relative to the prior regular session.",
+      "reads_as": { "up": "Futures above prior settle", "down": "Futures below prior settle" },
+      "cadence": "intraday_web",
+      "source_class": "web_aggregator",
+      "access": { "status": "cross_checked", "provider": "Yahoo Finance, CNBC and TipRanks pages", "evidence_date": "2026-11-02", "evidence_note": "Pages stamped 05:18 to 05:38 ET. Massive futures entitlement was not tested." },
+      "ttd": { "rule": "Premarket reads expire at the 09:30 ET regular open." },
+      "thresholds": []
+    },
+    {
+      "id": "IX01",
+      "name": "Index closes",
+      "group": "index_level",
+      "kind": "level",
+      "instruments": ["SPX", "COMP", "DJI", "RUT"],
+      "formula": "official daily close and percent change",
+      "convention": "level_vs_threshold",
+      "role": "Reference closes for the prior session and distance from the record close.",
+      "reads_as": { "up": "Index closed higher", "down": "Index closed lower" },
+      "cadence": "daily",
+      "source_class": "web_aggregator",
+      "access": { "status": "cross_checked", "provider": "Multiple news and market-data pages", "evidence_date": "2026-11-02", "evidence_note": "Closes for 2026-10-30 agreed across five pages. Massive index entitlement was not tested." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": []
+    },
+    {
+      "id": "R01",
+      "name": "US 10-year Treasury yield",
+      "group": "rates_policy",
+      "kind": "rate",
+      "instruments": ["US10Y"],
+      "formula": "constant-maturity or quoted yield, percent",
+      "convention": "level_vs_threshold",
+      "role": "Discount-rate level for long-duration equity and the rates leg of SPY/IEF.",
+      "reads_as": { "up": "Higher long-end yield", "down": "Lower long-end yield" },
+      "cadence": "intraday_web",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "provider": "Trading Economics page; FRED H.15 (official, prior day); Forbes Advisor", "evidence_date": "2026-11-02", "evidence_note": "The Trading Economics quote carried no timestamp and its own text varied from 4.91 to 4.93. The CNBC quote page failed to load. Friday close differs by source; see known_conflicts." },
+      "ttd": { "rule": "Premarket reads expire at the 09:30 ET regular open. The official H.15 value is prior-day and expires at the next release." },
+      "thresholds": [
+        { "id": "R01-T1", "op": "<=", "value": 5.0, "unit": "percent", "status": "hypothesis", "set_on": "2026-11-02", "rationale": "Round level below the 2026 high of 5.31% set on 2026-10-05." }
+      ]
+    },
+    {
+      "id": "R02",
+      "name": "US 2-year Treasury yield",
+      "group": "rates_policy",
+      "kind": "rate",
+      "instruments": ["US2Y"],
+      "formula": "constant-maturity yield, percent",
+      "convention": "level_vs_threshold",
+      "role": "Policy-path sensitivity at the front end.",
+      "reads_as": { "up": "Higher front-end yield", "down": "Lower front-end yield" },
+      "cadence": "daily",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "provider": "Forbes Advisor Treasury rates page", "evidence_date": "2026-10-30", "evidence_note": "Single source; value as of the 2026-10-30 close." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": []
+    },
+    {
+      "id": "R03",
+      "name": "US 30-year Treasury yield",
+      "group": "rates_policy",
+      "kind": "rate",
+      "instruments": ["US30Y"],
+      "formula": "constant-maturity yield, percent",
+      "convention": "level_vs_threshold",
+      "role": "Long-end term premium and duration pressure.",
+      "reads_as": { "up": "Higher long-end yield", "down": "Lower long-end yield" },
+      "cadence": "daily",
+      "source_class": "web_aggregator",
+      "access": { "status": "cross_checked", "provider": "Forbes Advisor and Federal Reserve H.15 listing", "evidence_date": "2026-10-30", "evidence_note": "Both pages show 5.31 to 5.33 percent around the 2026-10-30 close." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": []
+    },
+    {
+      "id": "R04",
+      "name": "10s2s curve spread",
+      "group": "rates_policy",
+      "kind": "rate_spread",
+      "instruments": ["US10Y", "US2Y"],
+      "formula": "R01 - R02, in basis points",
+      "convention": "level_vs_threshold",
+      "role": "Curve shape.",
+      "reads_as": { "up": "Steeper curve", "down": "Flatter curve" },
+      "cadence": "daily",
+      "source_class": "derived",
+      "access": { "status": "unverified", "provider": "Derived from R01 and R02", "evidence_date": "2026-11-02", "evidence_note": "Inherits the weakest input status." },
+      "ttd": { "rule": "Expires with the older of its two inputs." },
+      "thresholds": []
+    },
+    {
+      "id": "R05",
+      "name": "US 10-year TIPS real yield",
+      "group": "rates_policy",
+      "kind": "rate",
+      "instruments": ["US10Y_TIPS"],
+      "formula": "constant-maturity TIPS yield, percent",
+      "convention": "level_vs_threshold",
+      "role": "Real-rate component; with R01 gives implied breakeven.",
+      "reads_as": { "up": "Higher real yield", "down": "Lower real yield" },
+      "cadence": "daily",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "provider": "Trading Economics table", "evidence_date": "2026-10-30", "evidence_note": "Single source; value as of the 2026-10-30 close." },
+      "ttd": { "rule": "Expires at the next regular-session close." },
+      "thresholds": []
+    },
+    {
+      "id": "R06",
+      "name": "Federal funds target range",
+      "group": "rates_policy",
+      "kind": "policy",
+      "instruments": ["FOMC"],
+      "formula": "published target range, percent",
+      "convention": "level_vs_threshold",
+      "role": "Policy-rate level and the most recent decision and dissents.",
+      "reads_as": { "up": "Tighter policy", "down": "Looser policy" },
+      "cadence": "event",
+      "source_class": "official_statement",
+      "access": { "status": "cross_checked", "provider": "Reports citing the FOMC statement of 2026-10-28", "evidence_date": "2026-11-02", "evidence_note": "Range 3.75 to 4.00 percent after a 10-2 vote with two dissents for a hike; the prior move was a 25bp increase on 2026-09-16. The Federal Reserve page itself was not fetched." },
+      "ttd": { "rule": "Valid until the next FOMC decision on 2026-12-09." },
+      "thresholds": []
+    },
+    {
+      "id": "R07",
+      "name": "Market-implied December rate-hike pricing",
+      "group": "rates_policy",
+      "kind": "policy_pricing",
+      "instruments": ["FOMC_2026-12"],
+      "formula": "implied probability or basis points of tightening for the December meeting, as published",
+      "convention": "level_vs_threshold",
+      "role": "How much of the next hike is already priced.",
+      "reads_as": { "up": "More tightening priced", "down": "Less tightening priced" },
+      "cadence": "intraday_web",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "provider": "BBH (about 80 to 83 percent before Q3 GDP) and Danske (21bp after the FOMC)", "evidence_date": "2026-10-29", "evidence_note": "Two sources at different times. No current reading retrieved." },
+      "ttd": { "rule": "Stale after the next data release; no current value held." },
+      "thresholds": []
+    },
+    {
+      "id": "E01",
+      "name": "Brent crude, front month",
+      "group": "energy",
+      "kind": "commodity",
+      "instruments": ["BRENT"],
+      "formula": "front-month futures price, USD per barrel",
+      "convention": "level_vs_threshold",
+      "role": "Energy-cost and inflation-pressure input; driven by the US-Iran situation in current coverage.",
+      "reads_as": { "up": "Higher oil price", "down": "Lower oil price" },
+      "cadence": "intraday_web",
+      "source_class": "web_aggregator",
+      "access": { "status": "cross_checked", "provider": "Yahoo Finance, TipRanks and Tradingkey pages", "evidence_date": "2026-11-02", "evidence_note": "Three pages put Brent between about 107 and 108.7 USD per barrel premarket. Pages stamped 05:18 to 05:38 ET; one page has an unlabeled time zone." },
+      "ttd": { "rule": "Premarket reads expire at the 09:30 ET regular open." },
+      "thresholds": [
+        { "id": "E01-T1", "op": "<", "value": 110, "unit": "USD per barrel", "status": "hypothesis", "set_on": "2026-11-02", "rationale": "Brent was 114.55 on 2026-10-27 and about 108.7 premarket on 2026-11-02." }
+      ]
+    },
+    {
+      "id": "E02",
+      "name": "WTI crude, front month",
+      "group": "energy",
+      "kind": "commodity",
+      "instruments": ["WTI"],
+      "formula": "front-month futures price, USD per barrel",
+      "convention": "level_vs_threshold",
+      "role": "US crude benchmark; companion to E01.",
+      "reads_as": { "up": "Higher oil price", "down": "Lower oil price" },
+      "cadence": "intraday_web",
+      "source_class": "web_aggregator",
+      "access": { "status": "cross_checked", "provider": "Yahoo Finance, CNBC and TipRanks pages", "evidence_date": "2026-11-02", "evidence_note": "Pages put WTI between about 98.8 and 100.3 USD per barrel premarket." },
+      "ttd": { "rule": "Premarket reads expire at the 09:30 ET regular open." },
+      "thresholds": []
+    },
+    {
+      "id": "D01",
+      "name": "US dollar index",
+      "group": "dollar",
+      "kind": "index",
+      "instruments": ["DXY"],
+      "formula": "published index level",
+      "convention": "level_vs_threshold",
+      "role": "Dollar strength as a tightening-conditions input.",
+      "reads_as": { "up": "Stronger dollar", "down": "Weaker dollar" },
+      "cadence": "intraday_web",
+      "source_class": "unknown",
+      "access": { "status": "unknown", "provider": "none", "evidence_date": "2026-11-02", "evidence_note": "Not retrieved. Issue #94 lists UUP as a candidate proxy; that proxy is untested here and is not substituted." },
+      "ttd": { "rule": "Not applicable until retrieved." },
+      "thresholds": []
+    },
+    {
+      "id": "V01",
+      "name": "VIX",
+      "group": "volatility",
+      "kind": "index",
+      "instruments": ["I:VIX"],
+      "formula": "published index level",
+      "convention": "level_vs_threshold",
+      "role": "Implied equity volatility.",
+      "reads_as": { "up": "Higher implied volatility", "down": "Lower implied volatility" },
+      "cadence": "intraday_web",
+      "source_class": "unknown",
+      "access": { "status": "not_entitled", "provider": "Massive", "evidence_date": "2026-10-28", "evidence_note": "Recorded in the Project feed profile as not entitled on 2026-10-28; not re-probed on 2026-11-02." },
+      "ttd": { "rule": "Not applicable until retrieved." },
+      "thresholds": []
+    },
+    {
+      "id": "V02",
+      "name": "MOVE index",
+      "group": "volatility",
+      "kind": "index",
+      "instruments": ["MOVE"],
+      "formula": "published index level",
+      "convention": "level_vs_threshold",
+      "role": "Implied Treasury volatility.",
+      "reads_as": { "up": "Higher implied rates volatility", "down": "Lower implied rates volatility" },
+      "cadence": "daily",
+      "source_class": "unknown",
+      "access": { "status": "unknown", "provider": "none", "evidence_date": "2026-11-02", "evidence_note": "Not retrieved." },
+      "ttd": { "rule": "Not applicable until retrieved." },
+      "thresholds": []
+    },
+    {
+      "id": "V03",
+      "name": "COR1M implied correlation",
+      "group": "volatility",
+      "kind": "index",
+      "instruments": ["COR1M"],
+      "formula": "published index level",
+      "convention": "level_vs_threshold",
+      "role": "One-month implied S&P 500 correlation.",
+      "reads_as": { "up": "Higher implied correlation", "down": "Lower implied correlation" },
+      "cadence": "daily",
+      "source_class": "unknown",
+      "access": { "status": "unknown", "provider": "none", "evidence_date": "2026-11-02", "evidence_note": "Not retrieved. The prior fixed reference point of 15 is not carried forward." },
+      "ttd": { "rule": "Not applicable until retrieved." },
+      "thresholds": []
+    },
+    {
+      "id": "V04",
+      "name": "DSPX dispersion index",
+      "group": "volatility",
+      "kind": "index",
+      "instruments": ["DSPX"],
+      "formula": "published index level",
+      "convention": "level_vs_threshold",
+      "role": "Implied S&P 500 dispersion.",
+      "reads_as": { "up": "Higher implied dispersion", "down": "Lower implied dispersion" },
+      "cadence": "daily",
+      "source_class": "unknown",
+      "access": { "status": "unknown", "provider": "none", "evidence_date": "2026-11-02", "evidence_note": "Not retrieved. The prior fixed reference point of 25 is not carried forward." },
+      "ttd": { "rule": "Not applicable until retrieved." },
+      "thresholds": []
+    }
+  ],
+  "routing": {
+    "rule": "A candidate is judged against its routed contrast since the prior close, not against the index. Rising with the tape does not count.",
+    "map": [
+      { "candidate_type": "semiconductors", "contrast": ["C04"] },
+      { "candidate_type": "mega-cap tech and AI software", "contrast": ["C03"] },
+      { "candidate_type": "consumer discretionary", "contrast": ["C06"] },
+      { "candidate_type": "energy", "contrast": ["C09"] },
+      { "candidate_type": "small caps", "contrast": ["C02"] },
+      { "candidate_type": "rate-sensitive", "contrast": ["C05", "R01"] },
+      { "candidate_type": "credit-sensitive", "contrast": ["C07"] }
+    ]
+  },
+  "permission_rules": {
+    "status": "hypothesis",
+    "set_on": "2026-11-02",
+    "states": [
+      {
+        "state": "OPEN",
+        "all_of": [
+          { "measure": "C03", "test": "not_making_new_low_vs_prior_close" },
+          { "measure": "C04", "test": "not_making_new_low_vs_prior_close" },
+          { "measure": "C01", "test": "not_falling" },
+          { "measure": "R01", "threshold": "R01-T1" },
+          { "measure": "E01", "threshold": "E01-T1" }
+        ]
+      },
+      {
+        "state": "CONDITIONAL",
+        "description": "Index holds its premarket gain but C03 is still sagging. Confirm only candidates beating their routed contrast."
+      },
+      {
+        "state": "CLOSED",
+        "any_of": [
+          { "description": "Index gives back its premarket gain and C03 and C04 make new lows." },
+          { "all_of": [
+            { "measure": "E01", "test": "above_threshold", "threshold": "E01-T1" },
+            { "measure": "R01", "test": "above_threshold", "threshold": "R01-T1" },
+            { "measure": "C05", "test": "falling_with_equities" }
+          ] }
+        ]
+      },
+      {
+        "state": "VOID",
+        "description": "Incoherence flag: C01 falling while C03 also falls means broad liquidation. The rotation reading is void and the instrument reports no state for candidates."
+      }
+    ],
+    "caveat": "Descriptive classification of the backdrop only. It is not a forecast and gives no trade instruction."
+  },
+  "base_rate_study": {
+    "status": "hypothesis",
+    "event_rule": "QQQ daily close-to-close return <= -0.03",
+    "instruments": ["QQQ", "SPY"],
+    "history_start": "2023-11-01",
+    "horizons_sessions": [1, 5, 10],
+    "report": ["n", "n_independent", "count_up", "median_return"],
+    "episode_rule": "Events within 10 sessions of the first event in a cluster count as one episode.",
+    "caveat": "Small sample. Descriptive hit counts only; not a probability and not a forecast."
+  },
+  "calendar": [
+    {
+      "id": "K01",
+      "date": "2026-11-02",
+      "time_et": "10:00",
+      "name": "ISM Manufacturing PMI (October), including prices and new-orders sub-indexes",
+      "detail": "Published consensus 54.7 vs prior 54.5 for the headline; prices index prior 77.9.",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "evidence_date": "2026-11-02", "evidence_note": "Investing.com economic calendar page; single source." }
+    },
+    {
+      "id": "K02",
+      "date": "2026-11-02",
+      "time_et": "after close",
+      "name": "Earnings: Palantir (PLTR) and Apple (AAPL)",
+      "detail": "Reported by market pages as due after the close.",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "evidence_date": "2026-11-02", "evidence_note": "Mentioned on premarket pages; the company calendars were not fetched." }
+    },
+    {
+      "id": "K03",
+      "date": "2026-11-03",
+      "time_et": "all day",
+      "name": "US midterm elections",
+      "detail": "All 435 House seats and 35 Senate seats.",
+      "source_class": "web_aggregator",
+      "access": { "status": "cross_checked", "evidence_date": "2026-11-02", "evidence_note": "Stated on several market and policy pages." }
+    },
+    {
+      "id": "K04",
+      "date": "2026-11-06",
+      "time_et": "08:30",
+      "name": "Employment Situation (October)",
+      "detail": "BLS release.",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "evidence_date": "2026-11-02", "evidence_note": "Date from a Fed-calendar article; the BLS schedule page was not fetched." }
+    },
+    {
+      "id": "K05",
+      "date": "2026-11-10",
+      "time_et": "08:30",
+      "name": "Consumer Price Index (October)",
+      "detail": "BLS release.",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "evidence_date": "2026-11-02", "evidence_note": "Date from a Fed-calendar article; the BLS schedule page was not fetched." }
+    },
+    {
+      "id": "K06",
+      "date": "2026-11-25",
+      "time_et": "08:30",
+      "name": "Second estimate of Q3 GDP",
+      "detail": "Named in coverage of the 2026-10-29 advance estimate.",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "evidence_date": "2026-11-02", "evidence_note": "Single source." }
+    },
+    {
+      "id": "K07",
+      "date": "2026-12-09",
+      "time_et": "decision day",
+      "name": "FOMC decision with new projections",
+      "detail": "Meeting spans 2026-12-08 and 2026-12-09.",
+      "source_class": "official_statement",
+      "access": { "status": "cross_checked", "evidence_date": "2026-11-02", "evidence_note": "Cited by reports quoting the Federal Reserve calendar." }
+    }
+  ],
+  "known_conflicts": [
+    {
+      "id": "KC1",
+      "subject": "Feed latency of Massive minute aggregates",
+      "detail": "The Project feed profile records /v2/aggs as about 10 to 15 minutes delayed. On 2026-11-02 the newest 1-minute bar started 08:49 ET when the clock read 08:50:33 ET, about 1.5 minutes. The profile's snapshot latency also remains unverified.",
+      "resolution": "Open. Re-measure at the regular open before relying on either figure."
+    },
+    {
+      "id": "KC2",
+      "subject": "US 10-year yield at the 2026-10-30 close",
+      "detail": "Forbes Advisor shows 4.94 percent. A Yahoo ticker snapshot implied about 4.99 percent. Both sit below the 5.0 percent hypothesis threshold.",
+      "resolution": "Open. Prefer the official H.15 value when it posts."
+    }
+  ],
+  "unknowns": [
+    "VIX, MOVE, COR1M, DSPX and DXY were not retrieved; entitlement for UUP, USO and TLT was not tested.",
+    "Q3 GDP and September PCE figures from 2026-10-29 were not retrieved.",
+    "No numeric cutoff is set for thin premarket volume.",
+    "No deadband width is set for the contrast board.",
+    "The 5.0 percent 10-year and 110 USD Brent thresholds have not been validated.",
+    "Futures and index entitlement on the data provider has not been tested."
+  ],
+  "prior_art": [
+    { "pointer": "Drive folder 20260930-macro-flow-model-macro-backdrop-instrument (id 1sUCYgd_V1PkolDshHMpJlRObzRn5bJIb)", "use": "Source of the contrast board, the z-in-own-sigma convention and the retired fixed reference points." },
+    { "pointer": "GitHub issue 100 and PR 101 (B17 market_context)", "use": "Owns macro level and impulse in a disjoint path; this register does not duplicate or edit it." },
+    { "pointer": "GitHub issue 94", "use": "Names HYG, IEF or TLT, UUP and USO as the macro set for live scoring." },
+    { "pointer": "GitHub issue 112", "use": "Repository-first persistence requirement." },
+    { "pointer": "Claude Project doc claude/macro-backdrop-template.md", "use": "Method prompt, refresh recipe and confirmation wrapper; lives outside the repository." }
+  ]
+}
