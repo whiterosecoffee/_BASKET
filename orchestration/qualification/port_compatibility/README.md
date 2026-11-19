@@ -62,3 +62,20 @@ evidence.json; shared CI pins jsonschema 4.23.0. Independent #105 acceptance rem
 separate. Temporal/unit/entitlement, transitive dependencies, inventory truth,
 composition and domain/operational acceptance remain outside the demonstrated scope.
 Next: #105 reviews exact-head preflight evidence under #103 authority.
+
+## Hosted discovery increment
+
+The new `orchestration/tests/test_port_compatibility_qualification.py` bridge
+supersedes the earlier local-only coverage statement for the 26 portable tests.
+It imports the actual suite under an isolated name, requires all 26 identities,
+rejects duplicates, missing/empty source, skip/expected-failure markers and runtime
+skips/expected failures, and restores the import path. No workflow changes.
+`test_discovery.py` contains nine local bridge checks (eight negative probes);
+these guard checks are not themselves wired into shared discovery.
+
+Run direct tests with `python -m unittest discover -s
+orchestration/qualification/port_compatibility -p 'test_*.py' -v` (35 total), and
+shared tests with `python -m unittest discover -s orchestration/tests -p
+ 'test_*.py' -v` (279 total, including the original 58 component tests and all
+26 portable identities once). Historical evidence remains immutable; hosted proof
+must be verified at the published revision, not inferred from these instructions.
