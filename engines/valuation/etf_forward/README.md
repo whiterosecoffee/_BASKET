@@ -46,3 +46,18 @@ The source manifest is passed through and hashed, **not cryptographically verifi
 `return_bridge.py` adds the separately versioned `bridge(earnings_change, multiple_factor, horizon_years, annual_expense_rate, round_trip_cost, return_basis)`. It derives gross conditional price return from earnings change × multiple factor, decomposes the interaction, compounds an explicitly **annual** expense rate for the selected number of years, and deducts round-trip trading costs **once**. It rejects `return_basis="observed_etf_nav"`: observed fund prices already embed expenses, so a second fee deduction would double-count them. The output is **share-price appreciation, not total return**; no dividends, withholding taxes, taxes on gains, leverage financing, slippage uncertainty or rebalancing are included.
 
 `test_return_bridge.py` contains ten tests. The new look-through and bridge modules passed **21/21 locally** on 2026-11-04. Independent complete-suite test execution at current GitHub head is still pending B01 #129. The pre-existing `upside.py` and `portfolio.py` remain **legacy experimental contracts** and are not automatically upgraded by adding the new bridge; integrations must explicitly select the new version to avoid silent reinterpretation. The return bridge's net-price factor is a model sensitivity, not a validated ETF forecast.
+
+## SMH/SOXX peer comparison (experimental)
+
+New read-only `compare_funds.compare_funds(request)` composes the existing `lookthrough.calculate` and returns `basket.etf_peer_comparison_output@1`. It requires:
+
+- `schema="basket.etf_peer_comparison_input@1"`; common `as_of`, `holdings_effective_date`, `equity_market_cap_as_of`.
+- Exactly two fund snapshots, SMH and SOXX, each with issuer-primary (upstream-asserted) holdings provenance and matching declared dates, a nonempty source manifest, and complete USD-normalized inputs for each constituent.
+- Separate calendarized 2027/2028 net income estimates. A year's comparison is **unrankable** if either fund lacks complete positive aggregate earnings yield.
+- The spread decomposes as `EY_SMH - EY_SOXX = sum_ticker(contribution_SMH - contribution_SOXX)`; it is **not** stock-return attribution.
+
+`peer_report.render_peer_markdown(result)` produces a date-labeled, synthetic-explicit comparison report. A lower P/E is not a risk-adjusted winner. This component does not claim real ETF EPS, estimate currency conversion, synchronized true source market caps, external provider entitlement, issuer NAV reconciliation or current 2027/2028 valuations.
+
+Run tests via `cd engines/valuation/etf_forward && python -m unittest discover -p 'test_*.py' -v`. New modules `test_compare_funds.py` (12 cases) and `test_peer_report.py` (3 cases) were locally executed against a manually reconstructed lookthrough dependency; **15/15 pass**, but the exact GitHub-head suite requires B01 #129 acceptance. See `feature-design-peer-comparison.md` and `state.json`. Existing 66 tests were previously run independently at the *previous* head; those results must not be attributed to new code.
+
+Follow #128 for authoritative issuer/consensus data ownership and #136 for B00 orchestrator routing. No cross-domain writes or merges from B04.
