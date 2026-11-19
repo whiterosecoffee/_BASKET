@@ -1,0 +1,41 @@
+{
+  "source_checkout": "real Git clone of existing PR179, detached read-only replay",
+  "checkout_sha": "0c2cb2c9017a6d7c92180530978fecd86c6b4dc6",
+  "source_artifact_revision": "a51a3c53963307c01c6f097e4e55fefb34723b19",
+  "request_id": "de1836eb14f1a727226825556520667a936aca5cb3ff31bae9bf0cd165d7002d",
+  "request_file_sha256": "126249926e7a3bcb57cc24ee879dfa0134bdd50a06cace61d122dac02316d28f",
+  "runs": [
+    {
+      "exit_code": 0,
+      "result": {
+        "status": "unchanged",
+        "request_id": "de1836eb14f1a727226825556520667a936aca5cb3ff31bae9bf0cd165d7002d",
+        "output": "orchestration/conversation_closeout/versions/EXTERNAL_AGENTS.request.json",
+        "submitted": false,
+        "accepted": false
+      }
+    },
+    {
+      "exit_code": 0,
+      "result": {
+        "status": "unchanged",
+        "request_id": "de1836eb14f1a727226825556520667a936aca5cb3ff31bae9bf0cd165d7002d",
+        "output": "orchestration/conversation_closeout/versions/EXTERNAL_AGENTS.request.json",
+        "submitted": false,
+        "accepted": false
+      }
+    }
+  ],
+  "unpinned_HEAD_negative": {
+    "exit_code": 2,
+    "result": {
+      "status": "blocked",
+      "reason": "revision must be a full commit SHA",
+      "submitted": false
+    }
+  },
+  "git_clean_before_and_after": true,
+  "queue_changed": false,
+  "new_submission": false,
+  "external_provider_invoked": false
+}
