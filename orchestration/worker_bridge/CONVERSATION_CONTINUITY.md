@@ -18,32 +18,43 @@ D7: Simplify first, universal public capability contracts, bounded Codex autonom
 ## Current evidence and deduplication
 GitHub main and four required operating files were fetched. Catalog is 1.6.0. All 46 returned open PR changed-file lists were fetched; none reserves this increment's three new worker_bridge documents or BLOCK_ENGINEERING_METHOD.md. This is a dated audit, not a new live status registry. Worker activity remains unknown.
 
-PR137 metadata proves merged at `5e01589bb32827ef6bcb4e1a644dcdbbfc858021`, despite stale prose saying unmerged. Reuse integrated worker_bridge, github_snapshot, planner and progress_tracker. Preserve its historical branch. The continuation branch `work/136-conversation-continuity` starts at current main under the same authorized intake.
+Metadata for PR137 proves merged at `5e01589bb32827ef6bcb4e1a644dcdbbfc858021`, despite stale prose saying unmerged. Reuse integrated worker_bridge, github_snapshot, planner and progress_tracker. Preserve its historical branch. The continuation branch `work/136-conversation-continuity` starts at current main under the same authorized intake.
 
 Main workflows independently fetched successful at the baseline:
 - [NVDA local data contract 41265183837](https://github.com/whiterosecoffee/_BASKET/actions/runs/41265183837).
 - [Validate BASKET data 41265183929](https://github.com/whiterosecoffee/_BASKET/actions/runs/41265183929).
 These do not verify this new increment.
 
-PR157 is open/draft/unmerged at `460631386ed7183cde61ea7f454dab78810994ff`; its migration file is a decision proposal, not current implemented governance. #59/PR60 is open; branch observed at `2dcf248e5991022b170406aa059ad62f2098f86c`. Never infer independent acceptance from its reported tests or old shared green.
+The observed PR157 is open/draft/unmerged at `460631386ed7183cde61ea7f454dab78810994ff`; its migration file is a decision proposal, not current implemented governance. #59/PR60 is open; branch observed at `2dcf248e5991022b170406aa059ad62f2098f86c`. Never infer independent acceptance from its reported tests or old shared green.
 
 ## Fourteen principles: reuse and genuine remaining gates
-| Principle / prior-art family | Existing destination / lesson | Remaining gate and owner |
-| --- | --- | --- |
-| 1 Event sourcing, immutable corrections | Main runtime/observations.py and runtime/ticker_data.py; original records and corrections retained | Full issuer-event revision lineage/reconciliation: B03 #12/PR14; do not copy market journal into a filings store |
-| 2 Bitemporal / point-in-time correctness | Main freshness/events contracts, observation availability/replay; prevent look-ahead | Full source/effective/available/ingested semantics and historical unknowns: B03 #12, B02 #11; events@1 alone lacks full temporal guarantees |
-| 3 Idempotent ingestion, transactions, replay | NVDA TickerStore stable source identity, linear revisions and atomic replacement; partial PR15 recovery | Accession/checkpoint/alert outbox crash consistency across hosted ingestion: B03 #12 + B08 #34, B01 #65; NVDA-only proof does not generalize automatically |
-| 4 Observation → validation → change → materiality → interpretation → action (CQRS) | B03 events, B21 narrative, B08 consumers, existing block method | New filing must not imply new economic information; stage-specific contracts/negative cases with existing owners |
-| 5 Evidence-to-valuation provenance (W3C PROV/DAG) | Main provenance conventions; PR22 economic graph, B05 relationships and B04 valuation candidates | End-to-end source→excerpt→fact→metric→assumption→forecast→valuation→alert lineage: B00 contracts #103, B05/B04 owners; no second graph store |
-| 6 Dependency-aware incremental recomputation | Existing planner dependencies concern work; domain graph/provenance can identify affected outputs | Domain invalidation is NOT established by task dependencies; B04/B05 via #136 to define affected-node/replay tests only when justified |
-| 7 Baseline-relative materiality / decision theory | Existing B06 alert-gate candidate PR58, B03 events and B21 falsifiers | Prior economic baseline, policy version, uncertainty and explainable suppress/alert outcomes require B03/B04/B08 acceptance; deduplicate repeated documents |
-| 8 Universal versioned black-box contracts / Design by Contract | #103/PR104 canonical candidate; #156/PR157 granularity decision | Prompt/code/hybrid port/error/effect qualification remains #103 + B01 #65; these prose contracts do not replace its schema |
-| 9 Replaceable adapters / bounded contexts | Main repository adapter, #78/PR79 provider-neutral envelope, B08 snapshot PR55 | Verify substitutability with contract fixtures; high-frequency market data and issuer filings share semantics without sharing inappropriate storage cadence |
-| 10 Desired-state reconciliation | Integrated #136 bridge/planner/progress; declared, tested, integrated, operational remain distinct | Current-head evidence and independent acceptance; no new manager |
-| 11 Shadow migration / strangler cutover | #148 single resolver/copy/hash/replay migration; #34 service acceptance | Differential replay, restart/rollback and verified cutover before retiring monitoring; no dual writes or legacy deletion |
-| 12 Scientific reproducibility / analytical validation | Input hashes, Git/model/policy versions, USD/FX, timestamps; B07 calibration/B01 tests | Walk-forward/no-lookahead, baseline comparisons, uncertainty, costs and falsifiers; passing software tests never proves valuation accuracy |
-| 13 Cross-conversation consolidation | #136 canonical intake, #59 discovery, existing issues/research/contracts | Deduplicate with explicit retained/superseded/deferred dispositions; no conversation database |
-| 14 Conversation-to-capability feedback / certification | Separate extractor/integrator and this issue-linked reconciliation | Independent coverage + integration gate before certificate YES; retain failures and open owners |
+K1: Event sourcing, immutable corrections. Existing reuse: Main runtime/observations.py and runtime/ticker_data.py; original records and corrections retained. Remaining gate/owner: Full issuer-event revision lineage/reconciliation: B03 #12/PR14; do not copy market journal into a filings store.
+
+K2: Bitemporal / point-in-time correctness. Existing reuse: Main freshness/events contracts, observation availability/replay; prevent look-ahead. Remaining gate/owner: Full source/effective/available/ingested semantics and historical unknowns: B03 #12, B02 #11; events@1 alone lacks full temporal guarantees.
+
+K3: Idempotent ingestion, transactions, replay. Existing reuse: NVDA TickerStore stable source identity, linear revisions and atomic replacement; partial PR15 recovery. Remaining gate/owner: Accession/checkpoint/alert outbox crash consistency across hosted ingestion: B03 #12 + B08 #34, B01 #65; NVDA-only proof does not generalize automatically.
+
+K4: Observation → validation → change → materiality → interpretation → action (CQRS). Existing reuse: B03 events, B21 narrative, B08 consumers, existing block method. Remaining gate/owner: New filing must not imply new economic information; stage-specific contracts/negative cases with existing owners.
+
+K5: Evidence-to-valuation provenance (W3C PROV/DAG). Existing reuse: Main provenance conventions; PR22 economic graph, B05 relationships and B04 valuation candidates. Remaining gate/owner: End-to-end source→excerpt→fact→metric→assumption→forecast→valuation→alert lineage: B00 contracts #103, B05/B04 owners; no second graph store.
+
+K6: Dependency-aware incremental recomputation. Existing reuse: Existing planner dependencies concern work; domain graph/provenance can identify affected outputs. Remaining gate/owner: Domain invalidation is NOT established by task dependencies; B04/B05 via #136 to define affected-node/replay tests only when justified.
+
+K7: Baseline-relative materiality / decision theory. Existing reuse: Existing B06 alert-gate candidate PR58, B03 events and B21 falsifiers. Remaining gate/owner: Prior economic baseline, policy version, uncertainty and explainable suppress/alert outcomes require B03/B04/B08 acceptance; deduplicate repeated documents.
+
+K8: Universal versioned black-box contracts / Design by Contract. Existing reuse: #103/PR104 canonical candidate; #156/PR157 granularity decision. Remaining gate/owner: Prompt/code/hybrid port/error/effect qualification remains #103 + B01 #65; these prose contracts do not replace its schema.
+
+K9: Replaceable adapters / bounded contexts. Existing reuse: Main repository adapter, #78/PR79 provider-neutral envelope, B08 snapshot PR55. Remaining gate/owner: Verify substitutability with contract fixtures; high-frequency market data and issuer filings share semantics without sharing inappropriate storage cadence.
+
+K10: Desired-state reconciliation. Existing reuse: Integrated #136 bridge/planner/progress; declared, tested, integrated, operational remain distinct. Remaining gate/owner: Current-head evidence and independent acceptance; no new manager.
+
+K11: Shadow migration / strangler cutover. Existing reuse: #148 single resolver/copy/hash/replay migration; #34 service acceptance. Remaining gate/owner: Differential replay, restart/rollback and verified cutover before retiring monitoring; no dual writes or legacy deletion.
+
+K12: Scientific reproducibility / analytical validation. Existing reuse: Input hashes, Git/model/policy versions, USD/FX, timestamps; B07 calibration/B01 tests. Remaining gate/owner: Walk-forward/no-lookahead, baseline comparisons, uncertainty, costs and falsifiers; passing software tests never proves valuation accuracy.
+
+K13: Cross-conversation consolidation. Existing reuse: #136 canonical intake, #59 discovery, existing issues/research/contracts. Remaining gate/owner: Deduplicate with explicit retained/superseded/deferred dispositions; no conversation database.
+
+K14: Conversation-to-capability feedback / certification. Existing reuse: Separate extractor/integrator and this issue-linked reconciliation. Remaining gate/owner: Independent coverage + integration gate before certificate YES; retain failures and open owners.
 
 ## MRIE acceptance use case and source limitations
 R1: Monitor MU, AAOI, NVDA, CRWV, LITE, COHR and SoftBank Group (SFTBY identity/ADR mapping must remain explicit).
@@ -96,3 +107,13 @@ This record is a continuation anchor. The final issue certificate must pin the a
   "next_action": "B00 #136 obtain independent exact-head coverage review and integrate the continuity increment only under existing merge authorization rules"
 }
 ```
+
+## 2026-11-19 review routing delta
+
+The 2026-11-04 evidence above is historical. Current main is 74d913e8913d630d85451344689e093aeea07efc; PR171 remains unmerged and no submitted review was found. Prior exact-head CI41767270468 passed, but does not establish independent semantic coverage. All82 returned open PR file lists were fetched before this bounded continuation; no competing writer reserves this document or the new owner-local request.
+
+Existing #169/PR170 owns executable closeout and HANDOFF_PROMPT.md; #178/PR179 owns versioned prompt candidates and the closeout_semantic QC intake/helper. They complement these separate extraction/integration contracts and are not adopted defaults or new runtime authority. PR179 reviewed dependency is 0a020f22cf9b6bcf756fe7a439cd6ffe875bcc44. Use its unchanged intake request format, exact committed artifact hashes and source-derived D1-D7/K1-K14/R1-R8 inventory. Never write its shared QC_QUEUE.json or archive from this producer lane.
+
+The owner-local continuity-qc-request.json pins these documents at their artifact revision. Submit its immutable URL with the existing basket-qc-submit@1 marker on PR171. Independent reviewer must derive completeness from source comment6620988985 and the user handoff, not copy the submitted ID list as proof. Original full transcript/checkpoint bytes remain unavailable. Every item needs a bounded disposition; source omissions or unavailable review remain explicit rework/blocked gates. Intake acceptance is not feature acceptance, integration, merge authorization or archive certification.
+
+Next action: existing B00 QC intake owner (#178/#136, coordinated with B01 #65) retrieves the pinned PR171 request and records a source-anchored per-item receipt. Archive-ready remains NO until independent durable-coverage acceptance and authorized integration/main verification.
