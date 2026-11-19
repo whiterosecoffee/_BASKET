@@ -41,8 +41,11 @@
       "design": "engines/valuation/etf_forward/feature-design-peer-comparison.md",
       "tests": [
         "engines/valuation/etf_forward/test_compare_funds.py",
-        "engines/valuation/etf_forward/test_peer_report.py"
-      ]
+        "engines/valuation/etf_forward/test_peer_report.py",
+        "engines/valuation/etf_forward/test_peer_cli.py"
+      ],
+      "fixture": "engines/valuation/etf_forward/smh_soxx.synthetic.json",
+      "entrypoint": "python compare_funds.py smh_soxx.synthetic.json --format markdown"
     }
   ],
   "evidence": {
@@ -53,12 +56,12 @@
       "ci_run": 42892228611
     },
     "new_peer_tests": {
-      "count": 15,
-      "status": "local_pass_reconstructed_dependency_not_exact_head",
+      "count": 17,
+      "status": "local_pass_reconstructed_dependency_including_cli_not_exact_head",
       "synthetic_only": true
     },
     "new_exact_head_ci": {
-      "status": "queued_or_pending_at_review",
+      "status": "pending_recheck_after_latest_commit",
       "requires_fresh_check": true
     },
     "real_holdings_consensus": {
