@@ -92,3 +92,14 @@ B00 #103 approves or revises the proposed B06 daily-state interface (research #1
 **Regression design:** `test_interior_unavailable_bar_fails_closed`, `test_interior_incomplete_bar_fails_closed`, `test_future_tail_is_excluded_without_compression`. These extend the original 19 synthetic cases to 22 authored tests; **execution of the new 22-case suite must be verified against the latest committed source**, and generic GitHub QC must not be described as domain test execution. No real historical replay was performed.
 
 **Reasoning:** a hidden missing session can contaminate every subsequent SMA and percentile; explicit fail-closed behavior is preferable to plausible but numerically wrong state. The later production B06 #108 component should consume B02's calendar-qualified indexed partition reader under #148/#183 and additionally test gaps not represented by supplied rows.
+
+
+## Continuation verification — 2026-11-19
+
+At PR #160 head `62e41633434602fd481b8a3ed7a1a92f3f628fcb`, fetched exact source blobs `37246e26b715119e1aa20abc575f548f5bb51ec3` (reference) and `c55fba7515d7113bb67f77976b8bc8ce7a350341` (tests) were written to an isolated local directory and verified using `git hash-object`. `python3 -m unittest discover -s /tmp/b06check -p test_reference_state.py -v` executed **22 tests, all passed, zero skips**; `python3 -m py_compile` also passed. This closes the previously unexecuted three-case interior-gap/trailing-suffix check. It is owner-local synthetic conformance, not independent B01 acceptance or real historical replay. Earlier failures and 19-test evidence above remain historical.
+
+Exact-source repository CI [41937186418](https://github.com/whiterosecoffee/_BASKET/actions/runs/41937186418) completed successfully at that head. A subsequent documentation commit needs its own CI check; do not transfer the earlier run to its new SHA.
+
+Current main's `architecture/BLACK_BOX_COMPONENT_CONTRACT.md`, blob `eef8ff04f04d5454a635de395949ffb8e5011e63`, now **accepts the architecture** of one pure `compute_state` port composed with canonical traversal. It explicitly retains the measurement definitions as research pending exact method approval; it does **not** approve this oracle or its production adoption. This supersedes the earlier blanket statement that all B00 architecture disposition is absent. B00 #103 exact-method approval, B02 #148/#183 qualified inputs, B06 #108 adoption, B07 #93 paired empirical validation, and B01 #98 independent acceptance remain distinct gates. PR109 metrics is reported integrated by its owner; this does not integrate #160.
+
+Next action: B01 #98 independently execute these pinned 22 cases and return exact source/run evidence while B00 #103 dispositions the exact method. No new engine, raw-data copy, schema, merge or release. **Archive-ready remains false** until #160 has authorized integration or an explicit alternative disposition and applicable main validation.
