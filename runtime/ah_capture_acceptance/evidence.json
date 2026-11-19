@@ -1,0 +1,26 @@
+{
+  "as_of": "2026-11-19",
+  "session_date": "2026-11-05",
+  "package_sha256": "6fabd0fc30819d9728c62530ceb5dc4953ac3c9ec07d8b53432ba37b463929f5",
+  "checks": {
+    "NVDA": {
+      "journal_rows": 911,
+      "AH_source_rows": 240,
+      "journal_sha256": "b293a567386244302845051b8a03e0412d8f00fd28314f11e6eef8f394bac736",
+      "source_sha256": "e5050f06b5f0f305177e2a68d51200f4a5051272350e2253083245683462cb99",
+      "hash_date_lineage_source_match": "pass",
+      "historical_repeat_import": true
+    },
+    "SMH": {
+      "journal_rows": 692,
+      "AH_source_rows": 226,
+      "journal_sha256": "75f8edb9026990118d7c9696c6a1d7101d1e31241c3a553d42d1bb874b23fff6",
+      "source_sha256": "395d84d93fc82829ae6c5808edbc4302a893c90291d7d701fb5a764852831d9e",
+      "hash_date_lineage_source_match": "pass",
+      "historical_repeat_import": true
+    }
+  },
+  "canonical_adoption": false,
+  "independent_review": false,
+  "note": "Read-only revalidation of retained archive. Nov6 repeat-import receipt retained; not rerun against any workstation writer."
+}
