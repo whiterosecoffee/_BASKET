@@ -21,6 +21,33 @@ def run(rows, cutoff="2026-11-04T23:59:00Z", **kwargs):
 
 
 class HistoricalStateTests(unittest.TestCase):
+    def test_calendar_attestation_must_be_boolean_true(self):
+        for attestation in ("false", 1, [True]):
+            with self.subTest(attestation=attestation):
+                with self.assertRaises(ValueError):
+                    evaluate(bars(30), as_of="2026-11-04T23:59:00Z",
+                             instrument="TEST", input_manifest_hash="fixture",
+                             calendar_validated=attestation)
+
+    def test_unknown_adjustment_rejected(self):
+        for adjustment in (None, "", "unknown"):
+            rows = bars(30)
+            for row in rows:
+                row["adjustment"] = adjustment
+            with self.subTest(adjustment=adjustment):
+                with self.assertRaises(ValueError):
+                    run(rows)
+
+    def test_lookback_cap_is_not_silently_expanded(self):
+        self.assertEqual(run(bars(500))["eligible_completed_sessions"], 500)
+        with self.assertRaises(ValueError):
+            run(bars(501))
+
+    def test_excluded_tail_does_not_count_toward_lookback_cap(self):
+        rows = bars(501)
+        rows[-1]["available_at"] = "2026-11-05T00:00:00Z"
+        self.assertEqual(run(rows)["eligible_completed_sessions"], 500)
+
     def test_sma_9_10(self):
         self.assertIsNone(run(bars(9))["features"]["10"]["sma"])
         self.assertEqual(run(bars(10))["features"]["10"]["sma"], 100)

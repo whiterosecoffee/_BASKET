@@ -9,6 +9,8 @@ from math import isfinite
 
 METHOD = "basket.self_relative.reference@0"
 WINDOWS = (10, 30, 200)
+MAX_SESSIONS = 500
+ADJUSTMENTS = ("unadjusted", "split_adjusted", "total_return_adjusted")
 
 
 def _instant(value):
@@ -41,7 +43,7 @@ def evaluate(rows, *, as_of, instrument, input_manifest_hash,
     calendar_validated attests external calendar verification, not performed
     here. Fail closed otherwise. Missing history produces None.
     """
-    if not calendar_validated:
+    if calendar_validated is not True:
         raise ValueError("caller must validate session calendar")
     if not instrument or not input_manifest_hash:
         raise ValueError("instrument and input_manifest_hash required")
@@ -58,6 +60,8 @@ def evaluate(rows, *, as_of, instrument, input_manifest_hash,
             raise ValueError("duplicate or unordered session")
         previous_date = day
         kind = raw["adjustment"]
+        if kind not in ADJUSTMENTS:
+            raise ValueError("unknown adjustment policy")
         if adjustment is None:
             adjustment = kind
         if kind != adjustment:
@@ -73,6 +77,8 @@ def evaluate(rows, *, as_of, instrument, input_manifest_hash,
         if excluded_tail_started:
             raise ValueError("non-prefix eligible sessions; refusing to compress a history gap")
         selected.append((day, vals))
+        if len(selected) > MAX_SESSIONS:
+            raise ValueError("eligible lookback exceeds 500 sessions; caller must select bounded history")
     prices = [bar["c"] for _, bar in selected]
     n = len(prices)
 

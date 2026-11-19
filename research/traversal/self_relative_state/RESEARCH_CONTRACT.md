@@ -88,3 +88,10 @@ Every newly written **physical JSONL** must represent exactly one exchange/sessi
 ### Conformance fixture IDs to request (not execution claims)
 
 `SMA-N-9-10`, `SMA-N-29-30`, `SLOPE-30-34-35`, `SMA-N-199-200`, `SLOPE-200-204-205`, `RANK-200-451-452`, `ATR-14-14-15`, `ATR-ZERO`, `PERSIST-TIE`, `PERSIST-LEFT-CENSOR`, `PIT-INTRADAY-FINAL-CLOSE`, `SESSION-DST-EARLY-CLOSE`, `PARTITION-MIXED-DATE-REJECT`. These are proposed golden tests for the appropriate owners B06/B02/B01; they are **not** reported as passed.
+
+
+## Research boundary hardening (2026-11-19)
+
+The reference requires literal boolean `calendar_validated=True`; strings and numeric truthy values are not calendar qualification. Accepted adjustment labels are `unadjusted`, `split_adjusted`, `total_return_adjusted`; one homogeneous policy is required and its source correctness remains B02's responsibility. Reject unknown or missing adjustment basis.
+
+Reject more than 500 eligible completed sessions. The approved reader must select and manifest the requested recent bounded window before calling the oracle. Do not silently trim: Wilder ATR seed, persistence censoring and input identity depend on that boundary. Histories below 200 remain admissible solely to return available short-horizon features and explicit long-horizon nulls, not to imply full research eligibility. Excluded future trailing rows do not count toward the eligible cap. This changes research input validation only, not canonical B00/B02 contracts.
