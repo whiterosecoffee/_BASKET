@@ -1,0 +1,153 @@
+{
+  "record_version": 1,
+  "source": "user retirement spark: CI Failure Flood",
+  "original_incident": {
+    "disposition": "resolved",
+    "verified": {
+      "B05_PR10_merged": true,
+      "B01_PR13_merged": true,
+      "main_validation": {
+        "run": 38990763024,
+        "sha": "5bf7fc14e2577e479279efdedfeae4b90bf85820",
+        "result": "success"
+      }
+    },
+    "do_not_reopen_without_new_incident_evidence": true
+  },
+  "historical_claim": {
+    "latest_100_zero_failures": "historical source claim; not current"
+  },
+  "fresh_verification": {
+    "latest_runs_inspected": 100,
+    "failures": [
+      {
+        "id": 39094898598,
+        "sha": "419bb6b93b2a8b44056a21188cd166de9f36457a",
+        "branch": "work/45-b01-openai-ci",
+        "workflow": "OpenAI research strict gate",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39094898598"
+      },
+      {
+        "id": 39094546299,
+        "sha": "8829896f598eb051da5bc3afbdcf5613befd0406",
+        "branch": "work/45-b01-openai-ci",
+        "workflow": "OpenAI research strict gate",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39094546299"
+      },
+      {
+        "id": 39094544119,
+        "sha": "8829896f598eb051da5bc3afbdcf5613befd0406",
+        "branch": "work/45-b01-openai-ci",
+        "workflow": "OpenAI research strict gate",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39094544119"
+      },
+      {
+        "id": 39093689898,
+        "sha": "4b1e8c4f895e544216cf5df1b964d6501b390318",
+        "branch": "work/44-b01-worker-qc",
+        "workflow": "Validate BASKET data",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093689898"
+      },
+      {
+        "id": 39093686803,
+        "sha": "4b1e8c4f895e544216cf5df1b964d6501b390318",
+        "branch": "work/44-b01-worker-qc",
+        "workflow": "Validate BASKET data",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093686803"
+      },
+      {
+        "id": 39093661326,
+        "sha": "a525bb375b58122928e94cc4749d600e23f97f05",
+        "branch": "work/45-b01-openai-ci",
+        "workflow": "Validate BASKET data",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093661326"
+      },
+      {
+        "id": 39093661325,
+        "sha": "a525bb375b58122928e94cc4749d600e23f97f05",
+        "branch": "work/45-b01-openai-ci",
+        "workflow": "OpenAI research strict gate",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093661325"
+      },
+      {
+        "id": 39093658248,
+        "sha": "a525bb375b58122928e94cc4749d600e23f97f05",
+        "branch": "work/45-b01-openai-ci",
+        "workflow": "Validate BASKET data",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093658248"
+      },
+      {
+        "id": 39093658193,
+        "sha": "a525bb375b58122928e94cc4749d600e23f97f05",
+        "branch": "work/45-b01-openai-ci",
+        "workflow": "OpenAI research strict gate",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093658193"
+      },
+      {
+        "id": 39093617888,
+        "sha": "0dc96d38dd700848f741ae1c84cfc5b80f543ac5",
+        "branch": "work/45-b01-openai-ci",
+        "workflow": "OpenAI research strict gate",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093617888"
+      },
+      {
+        "id": 39093617851,
+        "sha": "0dc96d38dd700848f741ae1c84cfc5b80f543ac5",
+        "branch": "work/45-b01-openai-ci",
+        "workflow": "Validate BASKET data",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093617851"
+      },
+      {
+        "id": 39093615284,
+        "sha": "0dc96d38dd700848f741ae1c84cfc5b80f543ac5",
+        "branch": "work/45-b01-openai-ci",
+        "workflow": "OpenAI research strict gate",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093615284"
+      },
+      {
+        "id": 39093615275,
+        "sha": "0dc96d38dd700848f741ae1c84cfc5b80f543ac5",
+        "branch": "work/45-b01-openai-ci",
+        "workflow": "Validate BASKET data",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093615275"
+      },
+      {
+        "id": 39093613740,
+        "sha": "3ad03d91e513289936a03ebfb4b5a37ebe0868d2",
+        "branch": "work/45-b01-openai-ci",
+        "workflow": "OpenAI research strict gate",
+        "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/39093613740"
+      }
+    ],
+    "interpretation": "Current worker QC/OpenAI failures are separate from original resolved SFTBY incident; preserve their evidence."
+  },
+  "optimization": {
+    "priority": "P2 nonblocking",
+    "task": "T-009",
+    "owner": "B01 #44/PR #47 validate.yml reservation; successor needs documented transfer if retired",
+    "queue_owner": "B00 #24/PR #25",
+    "current_triggers": "unrestricted push plus pull_request on main and PR #47",
+    "proposed_trigger_policy": {
+      "push_branches": [
+        "main"
+      ],
+      "pull_request": "feature PR revisions",
+      "concurrency": "workflow-specific plus PR number, with main ref isolated; cancel superseded PR runs only"
+    },
+    "acceptance": [
+      "one workflow run per feature PR commit absent intentional reruns",
+      "no cross-PR cancellation",
+      "main push validation remains mandatory",
+      "strict schema, data, release and all QC gates retained",
+      "actual Actions evidence across PR revision and main push",
+      "progress tracker records independent verification and closure"
+    ],
+    "state": "requested not implemented",
+    "sequence": "after P1 B00 QC correctness repair and queue goals/scopes reconciliation; extend T-009 without duplicate worker"
+  },
+  "protected": [
+    46,
+    47
+  ],
+  "changed_workflows": false
+}
