@@ -1,0 +1,125 @@
+{
+  "schema": "basket.etf_worker_state@1",
+  "as_of": "2026-11-19",
+  "status": "implementation_prototype_unmerged",
+  "owner_spark": "B04",
+  "issue": 126,
+  "branch": "work/126-etf-forward-valuation",
+  "pr": 127,
+  "purpose": "Risk-adjusted 2027 and 2028 individual company portfolio optimization benchmarked against ETFs; current smallest working peer unit is SMH versus SOXX valuation comparison.",
+  "objectives": {
+    "primary": "highest risk-adjusted share-price appreciation",
+    "selection": "optimize company portfolios versus ETFs",
+    "horizons": [
+      "2027",
+      "2028"
+    ]
+  },
+  "owned_paths": [
+    "engines/valuation/etf_forward/**"
+  ],
+  "inherits_from": [
+    "AGENTS.md",
+    "orchestration/sparks.json",
+    "orchestration/WORKER_PROTOCOL.md"
+  ],
+  "features": [
+    {
+      "id": "lookthrough",
+      "implementation": "experimental",
+      "path": "engines/valuation/etf_forward/lookthrough.py"
+    },
+    {
+      "id": "risk_frontier",
+      "implementation": "experimental",
+      "path": "engines/valuation/etf_forward/risk_frontier.py"
+    },
+    {
+      "id": "peer_comparison",
+      "implementation": "committed_experimental",
+      "path": "engines/valuation/etf_forward/compare_funds.py",
+      "design": "engines/valuation/etf_forward/feature-design-peer-comparison.md",
+      "tests": [
+        "engines/valuation/etf_forward/test_compare_funds.py",
+        "engines/valuation/etf_forward/test_peer_report.py"
+      ]
+    }
+  ],
+  "evidence": {
+    "existing_domain_tests": {
+      "count": 66,
+      "status": "hosted_pass_on_previous_head",
+      "handoff_issue": 129,
+      "ci_run": 42892228611
+    },
+    "new_peer_tests": {
+      "count": 15,
+      "status": "local_pass_reconstructed_dependency_not_exact_head",
+      "synthetic_only": true
+    },
+    "new_exact_head_ci": {
+      "status": "queued_or_pending_at_review",
+      "requires_fresh_check": true
+    },
+    "real_holdings_consensus": {
+      "status": "unavailable_for_validated_comparison"
+    },
+    "smh_oct_30_attribution": {
+      "status": "not_verified"
+    }
+  },
+  "dependencies": [
+    {
+      "issue": 128,
+      "owners": [
+        "B00",
+        "B02",
+        "B03"
+      ],
+      "purpose": "authoritative issuer holdings, matched-market capitalization, FX, estimate vintages"
+    },
+    {
+      "issue": 129,
+      "owner": "B01",
+      "purpose": "latest-head independent regression suite"
+    },
+    {
+      "issue": 136,
+      "owner": "B00",
+      "purpose": "orchestrator routing and canonical issue queue"
+    }
+  ],
+  "planned_ghost_nodes": [
+    {
+      "id": "issuer_adapter",
+      "owner": "B00/B02",
+      "input": "dated fund holdings",
+      "output": "approved point-in-time snapshot",
+      "status": "unassigned_pending_ownership"
+    },
+    {
+      "id": "consensus_adapter",
+      "owner": "B00/B03",
+      "input": "calendarized earnings estimates and source vintages",
+      "output": "2027/2028 net income",
+      "status": "unassigned_pending_ownership"
+    },
+    {
+      "id": "risk_adjusted_optimizer",
+      "owner": "B04",
+      "input": "verified snapshots + measured risk",
+      "output": "separate 2027/2028 Pareto rankings",
+      "status": "planned_not_implemented"
+    }
+  ],
+  "next_action": "B01 run all current PR127 B04 tests at exact head and record SHA, actual counts, failures and workflow link; B00 then reconcile data contracts under issue128.",
+  "nonclaims": [
+    "not integrated into main",
+    "not verified real ETF multiples",
+    "not live",
+    "no predictive probabilities",
+    "no risk-adjusted winner",
+    "not a new ingestion store"
+  ],
+  "merging": "explicit_user_authorization_required"
+}
