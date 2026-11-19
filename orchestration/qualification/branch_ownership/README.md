@@ -107,3 +107,36 @@ remains an owner proposal with concrete real-boundary acceptance, not adopted or
 operational. The review's additional requests are explicitly deferred to their
 existing owners rather than reimplemented here. Pinned documents are read-only
 evidence; no new runtime dependency or controller is added.
+
+## Real bridge rejection probes
+
+`bridge-cases.json`, `bridge_probe.py`, `bridge-observed.json` and
+`test_bridge_probe.py` qualify the existing main-pinned
+`orchestration.worker_bridge.bridge.run_codex` with the real
+`orchestration.agentic.manager`. No controller or subprocess function is mocked.
+Eight synthetic negative cases reject before any audited filesystem mutation,
+process creation or network event. Source hashes and fixture equality are checked.
+A separate valid synthetic control reaches `os.mkdir`; the test audit hook blocks
+that first effect. That control is instrumentation evidence, not bridge rejection
+or authorized execution. No output directory or model process is created.
+
+Run from the repository root:
+
+```sh
+python -B -m unittest discover -s orchestration/qualification/branch_ownership -p 'test_*.py' -v
+python -B orchestration/qualification/branch_ownership/bridge_probe.py
+```
+
+Observed: 34 tests, zero failures/errors/skips; eight rejection cases pass;
+deterministic saved report matches replay. The original 17-case corpus and seven
+selected-function gaps remain unchanged. Shared CI discovery does not include
+these nested focused tests; run the command explicitly.
+
+Integration with the #136 / Dot plan: the finite repository launch boundary already
+exists. The remaining owner task is to establish whether Dot's actual session
+launcher invokes this boundary with authentic fresh evidence and an atomic lease,
+then obtain independent acceptance at the published head. This suite proves only
+these pinned Python rejection paths with synthetic authority. Python audit events
+are test instrumentation, not an OS sandbox, distributed lock, or live collector.
+No positive model execution, deployment, main integration, or owner adoption is
+claimed. Preserve #32/#78/B08 launcher ownership and #230 projection ownership.
