@@ -1,0 +1,97 @@
+{
+  "schema": "crwv.research_state@1",
+  "version": "1.1.0",
+  "purpose": "Maintain dated CRWV earnings, capacity, funding and price assessment with an explicit source and assumption trail",
+  "status": "post_earnings_review_locally_verified",
+  "owner": {
+    "spark": "B10",
+    "issue": 121,
+    "branch": "work/121-neocloud-market-research",
+    "pr": 122,
+    "write_paths": [
+      "research/CRWV/market-research-2026-10-29/**"
+    ]
+  },
+  "parents": [
+    {
+      "path": "../../../AGENTS.md",
+      "role": "standing scope and governance"
+    },
+    {
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/main/architecture/COMPONENT_QUICKSTART.md",
+      "role": "reusable construction and review guidance"
+    }
+  ],
+  "objectives": {
+    "now": "Published Q3 actual-versus-expectation and current-price sensitivity on existing branch",
+    "next": "Verify updated funding and billable capacity milestones",
+    "later": "Qualify repeatable 2027 and 2028 capital and earnings revisions"
+  },
+  "children": [
+    {
+      "id": "post_earnings_review",
+      "status": "locally_verified",
+      "input": "Pinned issuer Q3 results/10-Q/transcript plus prior Nov10 benchmark and Massive observations",
+      "output": "Dated report with facts, estimates, scenario assumptions and unresolved funding inputs",
+      "evidence": "post-earnings-price-review-2026-11-19.json"
+    },
+    {
+      "id": "funding_cohort_waterfall",
+      "status": "planned",
+      "input": "Per-project draws, customer prepayments, capex, principal and billing dates",
+      "output": "Cash and principal waterfall with uncovered requirements",
+      "dependency": "Requires verified project-level inputs and coordination with existing CRWV model PR87"
+    }
+  ],
+  "feature_designs": [
+    "feature-design.md"
+  ],
+  "review": "review.md",
+  "dependencies": [
+    {
+      "issue": 186,
+      "status": "qualified_historical_integrity_acceptance",
+      "evidence": "https://github.com/whiterosecoffee/_BASKET/issues/186#issuecomment-7000276534"
+    },
+    {
+      "issue": 148,
+      "status": "canonical_target_assignment_pending",
+      "owner": "B00"
+    },
+    {
+      "issue": 214,
+      "status": "independent_source_gate_pending",
+      "owner": "B01"
+    }
+  ],
+  "evidence": [
+    "post-earnings-price-review-2026-11-19.json",
+    "earnings-price-bridge-2026-11-10.json",
+    "review.md"
+  ],
+  "next_actions": [
+    {
+      "owner": "B10 #121",
+      "action": "Verify actual customer deposit receipts and DDTL closes/draws against the Nov10 forecasts, then refresh named site commissioning/billing milestones"
+    },
+    {
+      "owner": "B00 #148",
+      "action": "Assign the canonical CRWV data destination and existing PR122 transition owner"
+    },
+    {
+      "owner": "B01 #214",
+      "action": "Independently verify the final adopted source with the existing PR197 audit and minute consumer probe"
+    }
+  ],
+  "integrated": false,
+  "operational": false,
+  "price_as_of": "2026-11-19T14:00:22.928Z",
+  "last_review_date": "2026-11-19",
+  "unresolved": [
+    "Billable MW and named-site billing dates",
+    "Realized prepayments and after-quarter cash/debt",
+    "Fully diluted shares and post-September ATM use",
+    "Current issue-level credit spread",
+    "Canonical data target and independent acceptance"
+  ]
+}
