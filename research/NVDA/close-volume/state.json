@@ -1,0 +1,58 @@
+{
+  "version": "0.1.0",
+  "purpose": "Separate expiry removal from unverified positioning changes in NVDA close/AH research",
+  "owner": "B14",
+  "issue": 195,
+  "branch": "work/195-nvda-close-volume",
+  "status": "research_local_checks_passed_independent_acceptance_pending",
+  "as_of": "2026-11-19",
+  "parent": "../../../AGENTS.md",
+  "design": "feature-design.md",
+  "review": "review.md",
+  "objectives": {
+    "now": "Preserve corrected method and demonstrate arithmetic",
+    "next": "Qualify privately retained paired observations and cleared OI",
+    "later": "Second ticker and shared component qualification"
+  },
+  "evidence": {
+    "main_inspected": "433d3574033a35f24910dc1ffee21ecbf27702dc",
+    "open_pr_file_lists_checked": 82,
+    "test_command": "python -m unittest discover -s research/NVDA/close-volume -p 'test_*.py' -v",
+    "test_cases_passed": 3,
+    "independent_ci": "pending",
+    "raw_data_retained_by_this_worker": false
+  },
+  "dependencies": [
+    {
+      "owner": "B02",
+      "issue": 195,
+      "purpose": "Existing raw-retention handoff; receiver unconfirmed"
+    },
+    {
+      "owner": "B00",
+      "path": "architecture/COMPONENT_QUICKSTART.md",
+      "purpose": "Existing component qualification guidance"
+    }
+  ],
+  "planned_nodes": [
+    {
+      "id": "cleared-oi-comparison",
+      "status": "planned",
+      "input": "matching contract IDs and two cleared OI vintages",
+      "output": "net outstanding-contract change; no inferred trade direction"
+    }
+  ],
+  "unknowns": [
+    "Exact screenshot metric and exposure unit",
+    "Verified screenshot observation times",
+    "Current options entitlement",
+    "Durable original minute source",
+    "Independent acceptance"
+  ],
+  "next_actions": [
+    "Obtain paired private snapshot references with known metric/unit/settings and cleared OI through existing B02 owner",
+    "Run comparison on qualified sources; do not treat synthetic tests as financial validation"
+  ],
+  "operational": false,
+  "merged": false
+}
