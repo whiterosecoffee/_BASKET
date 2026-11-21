@@ -5,6 +5,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 matplotlib.rcParams['svg.fonttype']='none'
+matplotlib.rcParams['svg.hashsalt']='orcl-dated-research-v1'
 
 HERE=Path(__file__).resolve().parent
 r=json.loads((HERE/'replay-output.json').read_text())
@@ -25,3 +26,6 @@ fig.text(.08,.045,'Baseline: FY2026 $6.83 EPS excluding investment gains. Dated 
 fig.subplots_adjust(bottom=.23,top=.86,left=.09,right=.96)
 fig.savefig(HERE/'eps-growth.png',dpi=160)
 fig.savefig(HERE/'eps-growth.svg',metadata={'Date':None})
+
+svg=HERE/'eps-growth.svg'
+svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n')
