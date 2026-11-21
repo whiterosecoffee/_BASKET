@@ -1,0 +1,7 @@
+CRWV reconciliation | crwv-reconciliation@0.1.0 | as of 2026-11-21T03:22:20.167815+00:00
+Reference equity value USD 21.973B; EV is a mixed-date illustration.
+arincen FY2027: reported EPS -1.79; verified GAAP P/E None; unqualified: GAAP accounting basis not established; point-in-time source availability not established; matching net income and forecast diluted shares missing
+arincen FY2028: reported EPS 1.51; verified GAAP P/E None; unqualified: GAAP accounting basis not established; point-in-time source availability not established; matching net income and forecast diluted shares missing
+marketscreener FY2027: reported EPS None; verified GAAP P/E None; unqualified: GAAP accounting basis not established; point-in-time source availability not established; matching net income and forecast diluted shares missing; unexplained pretax reconciliation residual
+marketscreener FY2028: reported EPS None; verified GAAP P/E None; unqualified: GAAP accounting basis not established; point-in-time source availability not established; matching net income and forecast diluted shares missing; unexplained pretax reconciliation residual
+Funding: insufficient_inputs; fully funded = unknown

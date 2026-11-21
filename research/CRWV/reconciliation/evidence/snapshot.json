@@ -1,0 +1,181 @@
+{
+  "schema": "crwv.reconciliation_input@1",
+  "as_of": "2026-11-21T03:22:20.167815+00:00",
+  "sources": {
+    "issuer_q3": {
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Third-Quarter-2026-Results/default.aspx",
+      "class": "issuer_filing",
+      "published_on": "2026-11-10",
+      "first_available_at": null,
+      "observed_at": "2026-11-21T03:22:20.167815+00:00",
+      "available_at": "2026-11-21T03:22:20.167815+00:00",
+      "availability_basis": "Conservative known-by bound: retrieved in this run; exact first publication time unknown. Not a Nov10 replay."
+    },
+    "issuer_10q": {
+      "url": "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q3/CoreWeave-Inc-10-Q-Q3-2026.pdf",
+      "class": "issuer_filing",
+      "published_on": null,
+      "first_available_at": null,
+      "observed_at": "2026-11-21T03:22:20.167815+00:00",
+      "available_at": "2026-11-21T03:22:20.167815+00:00",
+      "availability_basis": "Conservative known-by retrieval bound, not inferred original timestamp."
+    },
+    "arincen": {
+      "url": "https://en.arincen.com/instruments/CRWV/earnings",
+      "class": "third_party_estimate",
+      "observed_at": "2026-11-21T03:22:20.167815+00:00",
+      "available_at": null,
+      "first_available_at": null,
+      "basis": "unknown"
+    },
+    "marketscreener": {
+      "url": "https://www.marketscreener.com/quote/stock/COREWEAVE-INC-185380761/finances/",
+      "class": "third_party_estimate",
+      "observed_at": "2026-11-21T03:22:20.167815+00:00",
+      "available_at": null,
+      "first_available_at": null,
+      "basis": "mixed_or_unreconciled"
+    },
+    "massive_reference": {
+      "url": "https://api.massive.com/v3/reference/tickers/CRWV",
+      "class": "vendor_reference",
+      "observed_at": null,
+      "available_at": null,
+      "note": "Earlier conversation retrieval; shares are historical reference, not independently refreshed here."
+    }
+  },
+  "price_reference": {
+    "price_usd": 39.51,
+    "observed_at": "2026-11-20T21:00:00Z",
+    "session": "regular_close",
+    "shares_outstanding_m": 556.125724,
+    "shares_source_id": "massive_reference",
+    "status": "historical_conversation_reference_not_current_quote"
+  },
+  "earnings": {
+    "source_id": "issuer_q3",
+    "period_end": "2026-09-30",
+    "operating_income_m": 207,
+    "net_interest_m": 846,
+    "other_income_m": 13,
+    "tax_m": 83,
+    "gaap_net_income_m": -709,
+    "adjustments_m": {
+      "sbc": 160,
+      "acquired_intangibles_amortization": 12,
+      "other_adjustments": -11,
+      "income_tax_adjustment": 19
+    },
+    "adjusted_net_income_m": -529,
+    "weighted_average_shares_m": 559,
+    "reported_gaap_eps": -1.27
+  },
+  "balance": {
+    "source_id": "issuer_10q",
+    "period_end": "2026-09-30",
+    "debt_carrying_components_m": {
+      "recourse_current": 9183,
+      "recourse_noncurrent": 32417,
+      "nonrecourse_current": 1389,
+      "nonrecourse_noncurrent": 3884
+    },
+    "principal_schedule_m": {
+      "2026_remaining": 2433,
+      "2027": 10974,
+      "2028": 5479,
+      "2029": 4727,
+      "2030": 4247,
+      "thereafter": 19645
+    },
+    "unamortized_discount_and_costs_m": 632,
+    "finance_leases_m": {
+      "current": 296,
+      "noncurrent": 353
+    },
+    "operating_leases_m": {
+      "current": 668,
+      "noncurrent": 18029
+    },
+    "unrestricted_cash_m": 4122,
+    "marketable_securities_m": 62,
+    "restricted_cash_m": {
+      "current": 1405,
+      "noncurrent": 877
+    }
+  },
+  "cash": {
+    "source_id": "issuer_q3",
+    "period_end": "2026-09-30",
+    "opening_total_cash_m": 6904,
+    "operating_cash_flow_m": 1975,
+    "investing_cash_flow_m": -9836,
+    "financing_cash_flow_m": 7361,
+    "closing_total_cash_m": 6404,
+    "cash_ppe_purchases_m": 9441,
+    "deferred_revenue_change_m": 2127
+  },
+  "forward_estimates": [
+    {
+      "source_id": "arincen",
+      "fiscal_year": 2027,
+      "revenue_m": 27050,
+      "eps": -1.79,
+      "basis": "unknown",
+      "net_income_m": null,
+      "diluted_shares_m": null
+    },
+    {
+      "source_id": "arincen",
+      "fiscal_year": 2028,
+      "revenue_m": 44360,
+      "eps": 1.51,
+      "basis": "unknown",
+      "net_income_m": null,
+      "diluted_shares_m": null
+    },
+    {
+      "source_id": "marketscreener",
+      "fiscal_year": 2027,
+      "revenue_m": 27095,
+      "eps": null,
+      "basis": "unknown",
+      "net_income_m": -2089,
+      "diluted_shares_m": null,
+      "ebit_m": 4602,
+      "interest_m": 5246,
+      "pretax_income_m": -2467,
+      "other_pretax_items_m": null
+    },
+    {
+      "source_id": "marketscreener",
+      "fiscal_year": 2028,
+      "revenue_m": 45109,
+      "eps": null,
+      "basis": "unknown",
+      "net_income_m": -558.8,
+      "diluted_shares_m": null,
+      "ebit_m": 9220,
+      "interest_m": 7448,
+      "pretax_income_m": -524.6,
+      "other_pretax_items_m": null
+    }
+  ],
+  "funding": {
+    "opening_unrestricted_cash_m": null,
+    "monthly_uses": null,
+    "committed_draw_conditions": null,
+    "prepayment_receipts": null,
+    "restricted_cash_release_conditions": null,
+    "covenant_headroom": null,
+    "issuer_expected_prepayments_m": 9000,
+    "expected_is_not_received": true
+  },
+  "unknowns": [
+    "2027/2028 forecast GAAP adjustments and forecast diluted denominator",
+    "Monthly timing, restrictions and use of expected customer deposits; do not add deposits to earnings",
+    "Current balances and cash receipts after September30",
+    "Current facility eligibility, covenant headroom and project-to-parent distribution restrictions",
+    "Economic earning life and exact CRWV NVIDIA trade-in guarantees",
+    "No tick-level/current-price or standalone traversal classification is produced"
+  ]
+}
