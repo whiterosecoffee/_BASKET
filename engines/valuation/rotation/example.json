@@ -1,0 +1,115 @@
+{
+  "held": "SNDK",
+  "shares": 1000,
+  "terminal_edge": 0.1,
+  "cost_per_share": [
+    0.01,
+    0.02
+  ],
+  "paired_quotes": [
+    {
+      "at": "2026-11-20T13:00:00-07:00",
+      "bid": {
+        "SNDK": 80
+      },
+      "ask": {
+        "NVDA": 130,
+        "CRWV": 40
+      }
+    },
+    {
+      "at": "2026-11-20T13:15:00-07:00",
+      "bid": {
+        "SNDK": 79
+      },
+      "ask": {
+        "NVDA": 126,
+        "CRWV": 39
+      }
+    }
+  ],
+  "alternatives": {
+    "NVDA": [
+      {
+        "name": "illustrative base",
+        "years": 1,
+        "end": "2027-11-20",
+        "source": "synthetic fixture; USD diluted EPS",
+        "available_at": "2026-11-19T12:00:00Z",
+        "eps_multiple_held_then_candidate": [
+          11,
+          8,
+          6,
+          24
+        ]
+      },
+      {
+        "name": "illustrative base",
+        "years": 2,
+        "end": "2028-11-20",
+        "source": "synthetic fixture; USD diluted EPS",
+        "available_at": "2026-11-19T12:00:00Z",
+        "eps_multiple_held_then_candidate": [
+          12,
+          8,
+          7,
+          24
+        ]
+      },
+      {
+        "name": "illustrative base",
+        "years": 3,
+        "end": "2029-11-20",
+        "source": "synthetic fixture; USD diluted EPS",
+        "available_at": "2026-11-19T12:00:00Z",
+        "eps_multiple_held_then_candidate": [
+          13,
+          8,
+          8,
+          24
+        ]
+      }
+    ],
+    "CRWV": [
+      {
+        "name": "illustrative base",
+        "years": 1,
+        "end": "2027-11-20",
+        "source": "synthetic fixture; USD diluted EPS",
+        "available_at": "2026-11-19T12:00:00Z",
+        "eps_multiple_held_then_candidate": [
+          11,
+          8,
+          -1,
+          20
+        ]
+      },
+      {
+        "name": "illustrative base",
+        "years": 2,
+        "end": "2028-11-20",
+        "source": "synthetic fixture; USD diluted EPS",
+        "available_at": "2026-11-19T12:00:00Z",
+        "eps_multiple_held_then_candidate": [
+          12,
+          8,
+          0,
+          20
+        ]
+      },
+      {
+        "name": "illustrative base",
+        "years": 3,
+        "end": "2029-11-20",
+        "source": "synthetic fixture; USD diluted EPS",
+        "available_at": "2026-11-19T12:00:00Z",
+        "eps_multiple_held_then_candidate": [
+          13,
+          8,
+          1,
+          20
+        ]
+      }
+    ]
+  }
+}
