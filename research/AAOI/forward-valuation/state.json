@@ -11,9 +11,10 @@
   ],
   "evidence": [
     "2026-11-19.json",
-    "2026-11-19.md"
+    "2026-11-19.md",
+    "2026-11-20.md"
   ],
-  "status": "draft_research",
+  "status": "archive_ready_receiver_pending",
   "objectives": {
     "now": "Reconcile EPS cut, price and ATM authorization",
     "next": "Verify consensus diluted-share assumptions",
@@ -29,7 +30,7 @@
   ],
   "dependencies": {
     "canonical_events": "B03; no promotion requested",
-    "market_ingestion": "B02; no raw market data pulled"
+    "market_ingestion": "B02/FETCH owns canonical ingestion; Nov20 private six-instrument snapshot capture exists, canonical_ingestion=false"
   },
   "unknowns": [
     "Actual new ATM sales and weighted-average 2027 diluted shares",
@@ -38,5 +39,6 @@
     "Exact analyst estimate revision timestamps"
   ],
   "next_action": "Check whether 2027 consensus already includes the newly authorized ATM; update only on new evidence",
-  "integration": "unmerged; independent acceptance pending"
+  "integration": "Draft PR277 unmerged; validate/stores/worker-qc passed at 66994ce26fd05b661f67d88147850776760d2e0c. Closeout commit checks must be verified separately.",
+  "handoff": "HANDOFF.md"
 }
