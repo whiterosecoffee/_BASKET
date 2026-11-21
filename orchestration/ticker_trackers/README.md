@@ -136,3 +136,23 @@ reverse valuation and financing/dilution scenarios, and appends a dependent valu
 revision. Fresh scenario outputs render in a separate conditional area. Expiry and
 corrections hide conditional outputs too. Synthetic/incomplete results remain on the
 refresh queue. This command performs one refresh; it does not start a daemon.
+
+## Dated ORCL company-analysis packet (2026-11-21)
+
+The [ORCL dossier](orcl_analysis/analysis.md), [standing guidance](orcl_analysis/AGENTS.md),
+[state](orcl_analysis/state.json), [company map](orcl_analysis/company-map.json),
+[inputs](orcl_analysis/inputs.json) and [receiver prompt](orcl_analysis/prompt.md)
+are a source-linked research projection, not new live tracker data.
+The [base method](analysis_method/AGENTS.md) and [design contract](analysis_method/feature-design.md)
+contain reusable procedure without embedded ORCL facts. Global pattern promotion is pending
+second-ticker and independent review. No new ingestion service or canonical financial schema.
+
+Replay from repository root:
+
+```sh
+python orchestration/ticker_trackers/analysis_method/replay.py --instance orchestration/ticker_trackers/orcl_analysis --check-links
+```
+
+The packet preserves historical price status, reported/guidance/consensus/model distinctions,
+unknown forward GAAP, preferred conversion and lease/financing limits. It is separate from
+production-eligible panel revisions and does not make a current investment signal.
