@@ -21,3 +21,5 @@ Earlier near-term GAAP scenarios did not fully present the published FYE31 growt
 ## Five-year EPS table
 
 Used one ChartMill series with FY26 $1.77 base and FY27-FY31 $2.28/$3.10/$4.15/$6.20/$10.40; both search systems returned the full sequence. Near-year S&P estimates differ by about one cent; distant-source coverage is not verified. Growth rates recomputed from rounded figures. Table, CSV and JSON replay identically; period/basis/holding-period caveats retained. This series does not replace earlier vendor-specific or GAAP bridge inputs.
+
+Calendar extension 0.3.0: issuer dates verified; FY2026 actual diluted adjusted growth uses filed $1.63 to $1.77, explicitly resolving vendor $1.64. FY2028–FY2030 exact release dates remain unannounced. Five-row CSV, independent FY2026 growth arithmetic, tentative/assumed date statuses, JSON parsing, deterministic replay and diff whitespace checks passed. Independent financial review remains pending.

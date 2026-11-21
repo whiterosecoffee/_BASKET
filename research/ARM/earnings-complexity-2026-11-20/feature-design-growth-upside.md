@@ -32,3 +32,7 @@ Replay checks date horizon, growth rates, cohort arithmetic and scenario count; 
 ## Five-year estimate-series extension
 
 The same calculator now composes a five-fiscal-year table from a single vendor series in growth-upside-inputs.json. Outputs EPS_FIVE_YEAR.md and EPS_FIVE_YEAR.csv label adjusted basis, prior actual, fiscal dates, recomputed YoY rates, reference-price multiples and unverified far-year panel coverage. Preserve differences from the earlier S&P series and the separate issuer >$9 target. Do not infer a five-year GAAP forecast or literal capital payback.
+
+## FY2026–FY2030 calendar view
+
+Compose issuer historical diluted adjusted EPS with the existing single-vendor forward series. Calendar dates retain reported versus issuer-tentative status; May 2028–2030 is only an annual timing assumption. Prefer the issuer tentative February 3 date over vendor February 2. EPS_2026_2030.md and CSV contain fiscal March year-ends, report dates/windows, EPS, recomputed YoY growth and reference multiples. FY2026 P/E is historical-year earnings at the reference price, not forward earnings. FY2026 growth uses issuer FY2025 $1.63, explicitly documenting the vendor $1.64 difference. No five-year GAAP series is inferred.

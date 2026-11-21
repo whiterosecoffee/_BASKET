@@ -34,7 +34,9 @@
     "growth-upside-inputs.json",
     "growth-upside-results.json",
     "EPS_FIVE_YEAR.md",
-    "EPS_FIVE_YEAR.csv"
+    "EPS_FIVE_YEAR.csv",
+    "EPS_2026_2030.md",
+    "EPS_2026_2030.csv"
   ],
   "dependencies": [
     {
@@ -70,13 +72,13 @@
       "design": "feature-design-growth-upside.md"
     }
   ],
-  "next_action": "Review FY30/FY31 analyst coverage and earnings assumptions before treating long-range adjusted EPS as reliable",
+  "next_action": "Verify the tentative February 3, 2027 report date when the formal release is announced.",
   "integration_status": "unmerged",
   "ci_status": "new_revision_pending_external_verification",
   "model_versions": {
     "complexity_sensitivity": "0.1.0",
     "forward_gaap_bridge": "0.2.0",
-    "growth_upside": "0.2.0"
+    "growth_upside": "0.3.0"
   },
-  "previous_model_revision": "a89d6ffaafa7e88b4c29d14e63ea7db1ecd8c71a"
+  "previous_model_revision": "5c77f6eed890fd18197f5535969a4266725b316d"
 }

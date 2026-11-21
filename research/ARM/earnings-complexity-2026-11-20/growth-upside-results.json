@@ -1,6 +1,6 @@
 {
-  "model_version": "arm-growth-upside/0.2.0",
-  "input_sha256": "e1caf4f86160436efea7e60babceacab68b16feab3377a5fb7a1ab98556d8395",
+  "model_version": "arm-growth-upside/0.3.0",
+  "input_sha256": "4a70db5dbec098b18cd65efd6f2da44c0bfddca295bdbffb4551038dd428d724",
   "years_to_fy31": 4.358658453114305,
   "reference_price_over_fy31_adjusted_eps_reference": 16.91111111111111,
   "adjusted_eps_cagr_fy28_to_fy31_reference": 0.4281089580216073,

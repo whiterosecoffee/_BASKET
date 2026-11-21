@@ -1,5 +1,5 @@
 {
-  "model_version": "arm-growth-upside/0.2.0",
+  "model_version": "arm-growth-upside/0.3.0",
   "reference_date": "2026-11-20",
   "currency": "USD",
   "observed_at": "2026-11-21T03:36:22.816617+00:00",
@@ -161,5 +161,53 @@
       "No direct inference of cash payback from EPS.",
       "YoY rates recomputed from rounded EPS inputs can differ slightly from vendor percentages."
     ]
+  },
+  "earnings_calendar": {
+    "observed_at": "2026-11-21T04:22:03.000486+00:00",
+    "available_at": null,
+    "source_url": "https://investors.arm.com/news-events/investor-events-presentations",
+    "source_class": "issuer_investor_calendar",
+    "events": [
+      {
+        "period": "Q3 FY2026",
+        "date": "2026-02-04",
+        "status": "reported"
+      },
+      {
+        "period": "Q4 and FY2026",
+        "date": "2026-05-06",
+        "status": "reported"
+      },
+      {
+        "period": "Q1 FY2027",
+        "date": "2026-07-29",
+        "status": "reported"
+      },
+      {
+        "period": "Q2 FY2027",
+        "date": "2026-11-04",
+        "status": "reported"
+      },
+      {
+        "period": "Q3 FY2027",
+        "date": "2027-02-03",
+        "status": "issuer_tentative"
+      },
+      {
+        "period": "Q4 and FY2027",
+        "date": "2027-05-05",
+        "status": "issuer_tentative"
+      }
+    ],
+    "later_annual_report_month": "May; timing assumption only, exact FY2028-FY2030 dates unannounced",
+    "date_conflict": "ChartMill says expected February 2, 2027; prefer issuer tentative February 3."
+  },
+  "historical_adjusted_eps": {
+    "FY2025": 1.63,
+    "FY2026": 1.77,
+    "source_url": "https://investors.arm.com/node/8141/html",
+    "source_class": "issuer_filed_6K",
+    "available_at": "2026-05-06",
+    "vendor_difference": "ChartMill FY2025 1.64 implies 7.9% FY2026 growth; issuer diluted non-GAAP EPS 1.63 implies 8.6%. Use issuer actuals for FY2026 growth; leave forecast series unchanged."
   }
 }
