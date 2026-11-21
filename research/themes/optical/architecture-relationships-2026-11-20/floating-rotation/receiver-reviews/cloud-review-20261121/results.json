@@ -1,0 +1,56 @@
+{
+  "engine_revision": "56e9e03693cfcd71cf0ca04d50470332110defda",
+  "probe_groups": 10,
+  "observations": [
+    {
+      "name": "parent fixture",
+      "kind": "supported",
+      "observation": "626 NVDA shares; nonpositive CRWV EPS suppresses P/E scenarios"
+    },
+    {
+      "name": "three horizons tick boundaries",
+      "kind": "supported",
+      "observation": "All three required bids pass; one cent below fails (6 checks)"
+    },
+    {
+      "name": "non-finite quote",
+      "kind": "supported",
+      "observation": "Rejected with ValueError"
+    },
+    {
+      "name": "lookahead forecast",
+      "kind": "supported",
+      "observation": "Rejected with ValueError"
+    },
+    {
+      "name": "explicit expired quote metadata",
+      "kind": "gap",
+      "observation": "as_of/TTD fields ignored; historical quotes still emit clears=true"
+    },
+    {
+      "name": "mixed earnings basis metadata",
+      "kind": "gap",
+      "observation": "GAAP/adjusted metadata ignored; upstream validation required"
+    },
+    {
+      "name": "mismatched common horizon",
+      "kind": "gap",
+      "observation": "years=3 with 2035 endpoint accepted alongside 2029 candidate"
+    },
+    {
+      "name": "residual cash conservative exclusion",
+      "kind": "documented limitation",
+      "observation": "1 B share plus $40 residual yields $140 vs $100 hold; engine excludes cash and requires $120 bid"
+    },
+    {
+      "name": "estimate revision",
+      "kind": "supported",
+      "observation": "Higher candidate EPS lowers threshold at unchanged quotes; forecast attribution/history absent"
+    },
+    {
+      "name": "design algebra",
+      "kind": "review arithmetic only",
+      "observation": "Parity, directed spread, reciprocal 10% band, 100-to-125 share round trip and common price scaling checked; no implemented stateful index claimed"
+    }
+  ]
+}
