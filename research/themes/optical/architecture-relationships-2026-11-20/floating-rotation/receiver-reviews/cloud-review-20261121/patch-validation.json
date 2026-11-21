@@ -1,0 +1,14 @@
+{
+  "schema": "rotation.patch_review@1",
+  "base_engine": "56e9e03693cfcd71cf0ca04d50470332110defda",
+  "patch_apply_check": "pass",
+  "unit_test_methods": 5,
+  "invalid_input_subcases": 11,
+  "test_result": "pass",
+  "legacy_existing_fields": "unchanged",
+  "original_worktrees": "clean",
+  "scope": "candidate_delta_not_adopted",
+  "owner_adoption": "pending",
+  "ci": "not_run",
+  "execution": "hosted_container_not_Spark"
+}

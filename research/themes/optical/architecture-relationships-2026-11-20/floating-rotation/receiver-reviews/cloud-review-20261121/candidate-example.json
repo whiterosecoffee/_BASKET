@@ -1,0 +1,171 @@
+{
+  "held": "SNDK",
+  "shares": 1000,
+  "terminal_edge": 0.1,
+  "cost_per_share": [
+    0.01,
+    0.02
+  ],
+  "paired_quotes": [
+    {
+      "at": "2026-11-20T13:00:00-07:00",
+      "bid": {
+        "SNDK": 80
+      },
+      "ask": {
+        "NVDA": 130,
+        "CRWV": 40
+      },
+      "source": "synthetic",
+      "session": "regular",
+      "observed_at": {
+        "CRWV": "2026-11-20T13:00:00-07:00",
+        "SNDK": "2026-11-20T13:00:00-07:00",
+        "NVDA": "2026-11-20T13:00:00-07:00"
+      }
+    },
+    {
+      "at": "2026-11-20T13:15:00-07:00",
+      "bid": {
+        "SNDK": 79
+      },
+      "ask": {
+        "NVDA": 126,
+        "CRWV": 39
+      },
+      "source": "synthetic",
+      "session": "regular",
+      "observed_at": {
+        "CRWV": "2026-11-20T13:15:00-07:00",
+        "SNDK": "2026-11-20T13:15:00-07:00",
+        "NVDA": "2026-11-20T13:15:00-07:00"
+      }
+    }
+  ],
+  "alternatives": {
+    "NVDA": [
+      {
+        "name": "illustrative base",
+        "years": 1,
+        "end": "2027-11-20",
+        "source": "synthetic fixture; USD diluted EPS",
+        "available_at": "2026-11-19T12:00:00Z",
+        "eps_multiple_held_then_candidate": [
+          11,
+          8,
+          6,
+          24
+        ],
+        "held_basis": "recurring-adjusted",
+        "candidate_basis": "recurring-adjusted"
+      },
+      {
+        "name": "illustrative base",
+        "years": 2,
+        "end": "2028-11-20",
+        "source": "synthetic fixture; USD diluted EPS",
+        "available_at": "2026-11-19T12:00:00Z",
+        "eps_multiple_held_then_candidate": [
+          12,
+          8,
+          7,
+          24
+        ],
+        "held_basis": "recurring-adjusted",
+        "candidate_basis": "recurring-adjusted"
+      },
+      {
+        "name": "illustrative base",
+        "years": 3,
+        "end": "2029-11-20",
+        "source": "synthetic fixture; USD diluted EPS",
+        "available_at": "2026-11-19T12:00:00Z",
+        "eps_multiple_held_then_candidate": [
+          13,
+          8,
+          8,
+          24
+        ],
+        "held_basis": "recurring-adjusted",
+        "candidate_basis": "recurring-adjusted"
+      }
+    ],
+    "CRWV": [
+      {
+        "name": "illustrative base",
+        "years": 1,
+        "end": "2027-11-20",
+        "source": "synthetic fixture; USD diluted EPS",
+        "available_at": "2026-11-19T12:00:00Z",
+        "eps_multiple_held_then_candidate": [
+          11,
+          8,
+          -1,
+          20
+        ],
+        "held_basis": "recurring-adjusted",
+        "candidate_basis": "recurring-adjusted"
+      },
+      {
+        "name": "illustrative base",
+        "years": 2,
+        "end": "2028-11-20",
+        "source": "synthetic fixture; USD diluted EPS",
+        "available_at": "2026-11-19T12:00:00Z",
+        "eps_multiple_held_then_candidate": [
+          12,
+          8,
+          0,
+          20
+        ],
+        "held_basis": "recurring-adjusted",
+        "candidate_basis": "recurring-adjusted"
+      },
+      {
+        "name": "illustrative base",
+        "years": 3,
+        "end": "2029-11-20",
+        "source": "synthetic fixture; USD diluted EPS",
+        "available_at": "2026-11-19T12:00:00Z",
+        "eps_multiple_held_then_candidate": [
+          13,
+          8,
+          1,
+          20
+        ],
+        "held_basis": "recurring-adjusted",
+        "candidate_basis": "recurring-adjusted"
+      }
+    ]
+  },
+  "qualification": {
+    "as_of": "2026-11-20T13:15:00-07:00",
+    "quote_ttd_seconds": 60,
+    "max_quote_skew_seconds": 2,
+    "instruments": {
+      "CRWV": {
+        "currency": "USD",
+        "instrument_id": "CRWV",
+        "share_basis": "synthetic common",
+        "earnings_basis": "recurring-adjusted"
+      },
+      "SNDK": {
+        "currency": "USD",
+        "instrument_id": "SNDK",
+        "share_basis": "synthetic common",
+        "earnings_basis": "recurring-adjusted"
+      },
+      "NVDA": {
+        "currency": "USD",
+        "instrument_id": "NVDA",
+        "share_basis": "synthetic common",
+        "earnings_basis": "recurring-adjusted"
+      }
+    },
+    "endpoints": {
+      "1": "2027-11-20",
+      "2": "2028-11-20",
+      "3": "2029-11-20"
+    }
+  }
+}
