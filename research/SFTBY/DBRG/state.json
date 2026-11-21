@@ -1,0 +1,111 @@
+{
+  "schema_note": "Local research record; not an executable controller or new shared schema",
+  "component_id": "SFTBY.DBRG.ownership-role",
+  "parent": {
+    "guidance": [
+      "../../../AGENTS.md",
+      "../../../orchestration/sparks.json"
+    ],
+    "capability": "B09 SFTBY parent holdings research",
+    "intake": "https://github.com/whiterosecoffee/_BASKET/issues/28"
+  },
+  "objectives": {
+    "primary": "Preserve verified historical DBRG ownership and qualified SFTBY synergy research",
+    "acceptance": [
+      "Source-linked closing statement",
+      "Separate owned NAV from AUM",
+      "Classify every synergy hypothesis",
+      "Keep review/integration status explicit"
+    ]
+  },
+  "status": "recorded_for_review",
+  "owner": "B09 research scope; current conversation authored bounded documentation",
+  "branch": "work/28-dbrg-research-consolidation",
+  "designs": [
+    "feature-design.md"
+  ],
+  "composition": [
+    {
+      "issue": 20,
+      "pr": 22,
+      "role": "Read-only capital-to-profit proposal; not operational implementation"
+    }
+  ],
+  "evidence": [
+    {
+      "url": "https://group.softbank/en/news/press/20260930",
+      "effective_date": "2026-09-30",
+      "retrieval_host_date_utc": "2026-11-19",
+      "retrieval_exact_time": null,
+      "classification": "issuer_statement"
+    },
+    {
+      "url": "https://github.com/whiterosecoffee/_BASKET/issues/28#issuecomment-6622287909",
+      "classification": "prior_conversation_research_and_audit"
+    }
+  ],
+  "verification": {
+    "issuer_page_reopened": true,
+    "open_pr_path_collision_checks": 82,
+    "conflicting_research_SFTBY_paths_found": 0,
+    "json_syntax": "pass; fetched committed state and parsed in author session",
+    "independent_review": "not_verified",
+    "merged": false,
+    "operational": false,
+    "dot_receipt": "not_verified",
+    "author_readback": {
+      "result": "pass",
+      "revision": "5db4ebb940c0d827f48381a9b0fa734df2447538",
+      "paths": [
+        "research/SFTBY/DBRG/state.json",
+        "research/SFTBY/DBRG/feature-design.md"
+      ]
+    },
+    "shared_ci": {
+      "result": "pass",
+      "revision": "5db4ebb940c0d827f48381a9b0fa734df2447538",
+      "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/44462481994",
+      "scope": "Shared repository validation; not independent research acceptance"
+    }
+  },
+  "children": [],
+  "planned_nodes": [],
+  "dependencies": [],
+  "unknowns": [
+    "Specific DBRG commercial commitments to proposed ecosystem counterparties",
+    "Quantified incremental earnings or NAV contribution",
+    "Later changes beyond the historical closing announcement"
+  ],
+  "next_actions": [
+    {
+      "owner": "B09/B00 reviewer",
+      "action": "Review this draft's evidence classifications and accounting boundaries; accept or request concrete corrections before any authorized integration"
+    }
+  ],
+  "review": {
+    "author_assessment": "Four local documentation acceptance conditions satisfied; independent review remains pending",
+    "criteria": [
+      {
+        "id": "A1",
+        "result": "pass",
+        "evidence": "feature-design.md Source evidence and temporal limits"
+      },
+      {
+        "id": "A2",
+        "result": "pass",
+        "evidence": "feature-design.md Economic transmission and invariants"
+      },
+      {
+        "id": "A3",
+        "result": "pass",
+        "evidence": "feature-design.md Observed role and potential synergies"
+      },
+      {
+        "id": "A4",
+        "result": "pass",
+        "evidence": "state.json verification and next_actions"
+      }
+    ],
+    "pr": "https://github.com/whiterosecoffee/_BASKET/pull/271"
+  }
+}
