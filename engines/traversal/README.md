@@ -9,6 +9,10 @@ python -m unittest discover -s engines/traversal/tests -v
 
 Records must be completed ordered bars containing `t` (UTC start milliseconds), `o,h,l,c,v` and optional `vw`. An older 8-element array format is also accepted. Each horizon demands complete contiguous bars; gaps/missing samples produce null. A session-aware caller must filter sessions; exchange calendars and early closes are **not implemented** by this module. No fabricated bars.
 
+Observation timestamps, `as_of` and `interval_minutes` must be integers (not booleans, numeric strings or floats); the interval must be positive. This prevents fractional milliseconds from being silently truncated. OHLCV, supplied VWAP and optional volume baselines must be finite numeric values, not booleans. Invalid input or non-finite derived arithmetic raises `ValueError` instead of emitting NaN/Infinity. Existing finite nonpositive volume baselines still produce null ratios.
+
+Fractional share volumes remain valid. A positive supplied VWAP is preserved even when it lies outside candle high/low; this validation does not clip, round or discard it. Missing VWAP keeps the existing typical-price approximation. These checks establish numeric usability, not provider entitlement, source quality, trade eligibility or canonical data acceptance. Strict JSON output and dict/legacy-array parity are covered by the domain regressions.
+
 ## Contract and scope
 - Method `basket.traversal.metrics@1`; observed range position does not imply direction. Velocity in USD/min is based on the *fixed window*, not a changing boundary. Normalized band velocity remains null until frozen reference versions are available.
 - Sampled path efficiency is `(last_close - first_open) / (abs(first_close - first_open) + sum(abs(successive close changes)))`; the numerator and denominator share the same first-open origin. This is not a reconstructable intrabar price path. Zero sampled travel gives null. This repairs the counterexample documented in #108 and #109 comments.

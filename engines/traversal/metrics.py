@@ -2,10 +2,38 @@
 No detector, polling, persistence, or predictive probabilities are implemented here.
 """
 import json
+from math import isfinite
+from collections.abc import Mapping
 from datetime import datetime, timezone
 
 METHOD = "basket.traversal.metrics@1"
 WINDOWS = (5, 15, 60, 390)
+
+def _finite_number(value, field):
+    if isinstance(value, bool):
+        raise ValueError(f"{field} must be a finite number")
+    try:
+        number = float(value)
+    except (TypeError, ValueError, OverflowError):
+        raise ValueError(f"{field} must be a finite number") from None
+    if not isfinite(number):
+        raise ValueError(f"{field} must be a finite number")
+    return number
+
+def _integer(value, field):
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise ValueError(f"{field} must be an integer")
+    return value
+
+def _require_finite_output(value):
+    if isinstance(value, float) and not isfinite(value):
+        raise ValueError("Numeric overflow in derived traversal metrics")
+    if isinstance(value, dict):
+        for item in value.values():
+            _require_finite_output(item)
+    elif isinstance(value, (list, tuple)):
+        for item in value:
+            _require_finite_output(item)
 
 def _bar(raw):
     if isinstance(raw, list):
@@ -15,9 +43,9 @@ def _bar(raw):
         raw = dict(t=t, o=o, h=h, l=l, c=c, v=v, vw=vw)
     if not all(k in raw for k in ("t", "o", "h", "l", "c", "v")):
         raise ValueError("Missing completed-bar fields")
-    x = {k: float(raw[k]) for k in ("o", "h", "l", "c", "v")}
-    x["t"] = int(raw["t"])
-    x["vw"] = float(raw["vw"]) if raw.get("vw") is not None else None
+    x = {k: _finite_number(raw[k], k) for k in ("o", "h", "l", "c", "v")}
+    x["t"] = _integer(raw["t"], "bar start milliseconds")
+    x["vw"] = _finite_number(raw["vw"], "vw") if raw.get("vw") is not None else None
     if x["v"] < 0 or x["l"] <= 0 or x["l"] > min(x["o"], x["c"]) or x["h"] < max(x["o"], x["c"]):
         raise ValueError("Invalid OHLCV")
     if x["vw"] is not None and x["vw"] <= 0:
@@ -32,15 +60,27 @@ def evaluate(instrument, observations, interval_minutes=1, as_of=None, currency=
     available by that cutoff may be passed by the caller.
     Unknown trade scheduling, metadata, and true same-clock profiles remain null.
     """
+    interval_minutes = _integer(interval_minutes, "interval_minutes")
     if interval_minutes <= 0 or not instrument:
         raise ValueError("Invalid instrument or interval")
+    if as_of is not None:
+        as_of = _integer(as_of, "as_of milliseconds")
+    if prior_20_session_adv is not None:
+        prior_20_session_adv = _finite_number(prior_20_session_adv, "prior_20_session_adv")
+    if same_clock_expected is not None:
+        if not isinstance(same_clock_expected, Mapping):
+            raise ValueError("same_clock_expected must be a mapping")
+        same_clock_expected = {
+            minutes: _finite_number(value, "same_clock_expected")
+            for minutes, value in same_clock_expected.items()
+        }
     bars = [_bar(b) for b in observations]
     if not bars:
         raise ValueError("No completed observations")
     step = interval_minutes * 60000
     if any(b["t"] <= a["t"] for a, b in zip(bars, bars[1:])):
         raise ValueError("Duplicate or out-of-order observations")
-    if as_of is not None and bars[-1]["t"] + step > int(as_of):
+    if as_of is not None and bars[-1]["t"] + step > as_of:
         raise ValueError("Incomplete or future bar")
     horizons = {}
     for minutes in WINDOWS:
@@ -89,9 +129,11 @@ def evaluate(instrument, observations, interval_minutes=1, as_of=None, currency=
             "contacts":None,"rejections":None,"accepted_breaks":None,
             "complete_traversals":None
         }
-    return {"schema":METHOD,"instrument":instrument,"currency":currency,
+    result = {"schema":METHOD,"instrument":instrument,"currency":currency,
             "as_of":datetime.fromtimestamp((as_of if as_of is not None else bars[-1]["t"]+step)/1000,timezone.utc).isoformat(),
             "observed_last_bar_start":bars[-1]["t"],"interval_minutes":interval_minutes,
             "observation_count":len(bars),"windows":horizons,
             "health":{"source_quality":"not_attested","freshness":"unknown","gap_windows":[k for k,v in horizons.items() if v is None]},
             "context":None,"frozen_bands":None,"structural_regime":None}
+    _require_finite_output(result)
+    return result
