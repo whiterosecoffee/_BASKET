@@ -61,3 +61,17 @@ All scenario inputs hypothetical; not known customer exposure or updated consens
 |Severe competition|12%|5pp|2%|15.65|24.24|363.54|
 These cases preserve much of the original growth path: not an exhaustive downside range. One-year delay: FY28 EPS19.62 at15x=$294.30. Severe-case FY28 at12x=$290.83. At15x FY28 break-even EPS vs prior304.41 close is20.294,33.7% below baseline. Full model fields/formula in inputs-results.json.
 Issuer confirms December9,2026 after-market FY2026 report: https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announce-fourth-quarter-and-fiscal-year-2026
+
+## Google relationship and stress interpretation — November20,2026
+Google matters as a TPU co-development/supply and AI networking customer/partner, not because a verified equity stake controls Broadcom. April6 SEC8-K confirms future-generation custom TPU development/supply and networking/other rack components through up to2031; a separate Anthropic collaboration provides access through Broadcom to approximately3.5GW beginning2027, contingent on Anthropic commercial success. This filing does not disclose per-generation purchase minimums, economics, exclusivity or a guaranteed profit stream.
+Source https://www.sec.gov/Archives/edgar/data/1730168/000119312526144028/d87999d8k.htm
+
+Ownership: no strategic Alphabet/Google AVGO equity investment established by reviewed sources. Broadcom2026 proxy as-of-Feb24 >5% owner table names Vanguard9.9% and BlackRock7.3%, not Alphabet. It cannot rule out smaller holdings or later changes; do not claim zero ownership as verified current fact.
+Source https://www.sec.gov/Archives/edgar/data/1730168/000119312526085691/d49254ddef14a.htm
+
+Concentration: August2 quarter top-five end customers55% aggregate; one direct distributor50%. Neither statistic identifies Google's revenue share; do not label unnamed distributor as Google.
+Source https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm
+
+Meaning of Google customer-share loss: reduced share of Google's chip procurement allocated to AVGO, product mix/ASP changes or deployment delays. Those can occur while total AI demand grows. Existing20/30/40% affected revenue shares in stress model are hypothetical total-company product exposures, not verified Google percentages. Example20% exposure x20% product-sales reduction =4% total revenue loss under constant ASP; premium-product mix could magnify it.
+Stress results remain baseline19.62/30.61 FY27/FY28; narrow4% revenue loss18.84/29.35; broader6% loss+3pp additional operating-margin compression17.60/27.37; severe12% loss+5pp compression+2%dilution15.65/24.24. Assumptions65% lost-revenue contribution,16% tax,5B diluted shares; not company guidance, GAAP EPS or calibrated probabilities. If baseline growth stalls, downside can exceed these preserved-growth cases.
+Each additional1pp margin compression on full baseline sales costs about0.30FY27EPS and0.48FY28EPS under the same tax/share assumptions. Long-term relationship provides visibility; earnings durability still depends on allocated content, volumes, pricing, costs and dilution.
