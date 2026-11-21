@@ -1,0 +1,3 @@
+# Capital conversion B09 worker
+
+Inherit root AGENTS.md and B09 spark in orchestration/sparks.json. Local role: maintain the sourced SFTBY 2027–2030 capital-conversion research prototype. Read state.json and feature-design.md. Preserve scenario-vs-observation distinctions. Never modify other spark domains. Do not represent historical NAV, illustrative 2026-11-20 NAV, private OpenAI value, or parent cash as a current audited fact. Smallest next action: reconcile collateral restrictions, net OpenAI fund entitlement and parent liquidity; then review results, update state and commit only this path.
