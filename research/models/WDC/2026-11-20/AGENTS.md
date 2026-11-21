@@ -1,0 +1,3 @@
+# WDC earnings and competitive economics
+
+Inherit /AGENTS.md, /orchestration/sparks.json B04 and /orchestration/WORKER_PROTOCOL.md. Exclusive scope is this dated research subtree, issue303. Read state.json then feature-design.md and REPORT.md. Reuse STX issue295/PR296 WDC_COMPARISON.md and handoff291 as historical leads. Primary issuer actuals outrank vendor actuals; retain disagreements. Forecasts, scenarios and webpage prices are not canonical observations or issuer guidance. B02 FETCH207 owns canonical price refresh; no duplicate writer or market files. Review arithmetic, fiscal dates, denominator and margin consistency before advancing. Next action comes from state.json; state is a record, not an executable controller. No merge authorized.
