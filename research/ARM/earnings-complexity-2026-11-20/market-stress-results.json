@@ -1,0 +1,114 @@
+{
+  "model_version": "arm-market-stress/0.1.0",
+  "input_sha256": "11b8f8c209861cd77843c92977c1bb849fbbb4369458a6e787879fa6b4cb7854",
+  "years": 4.358658453114305,
+  "scenarios": [
+    {
+      "id": "delayed_ramp",
+      "label": "Delayed chip ramp",
+      "ip_revenue_b": 8,
+      "chip_revenue_b": 5,
+      "total_revenue_b": 13,
+      "gross_profit_before_restored_costs_b": 9.67,
+      "non_sbc_opex_b": 5.6,
+      "restored_compensation_other_b": 2.8499999999999996,
+      "gaap_style_pretax_b": 1.2200000000000006,
+      "gaap_style_net_income_b": 1.0370000000000006,
+      "adjusted_style_eps_same_assumptions": 2.882916666666667,
+      "gaap_style_eps": 0.8641666666666672,
+      "reference_pe": 176.12343297974917,
+      "future_price_at_30x_gaap": 25.925000000000015,
+      "future_price_cagr": -0.33374675289230393,
+      "discounted_terminal_price_at_required_return": 15.819553242901632,
+      "classification": "unweighted_hypothetical_GAAP_style_earnings_sensitivity_not_consensus_or_guidance"
+    },
+    {
+      "id": "partial_scale",
+      "label": "Partial scale",
+      "ip_revenue_b": 9,
+      "chip_revenue_b": 10,
+      "total_revenue_b": 19,
+      "gross_profit_before_restored_costs_b": 13.41,
+      "non_sbc_opex_b": 5.6,
+      "restored_compensation_other_b": 2.8499999999999996,
+      "gaap_style_pretax_b": 4.960000000000001,
+      "gaap_style_net_income_b": 4.216000000000001,
+      "adjusted_style_eps_same_assumptions": 5.532083333333334,
+      "gaap_style_eps": 3.5133333333333345,
+      "reference_pe": 43.320683111954445,
+      "future_price_at_30x_gaap": 105.40000000000003,
+      "future_price_cagr": -0.08084408942587185,
+      "discounted_terminal_price_at_required_return": 64.31556072523941,
+      "classification": "unweighted_hypothetical_GAAP_style_earnings_sensitivity_not_consensus_or_guidance"
+    },
+    {
+      "id": "revenue_targets",
+      "label": "Issuer revenue levels, modeled costs",
+      "ip_revenue_b": 10,
+      "chip_revenue_b": 15,
+      "total_revenue_b": 25,
+      "gross_profit_before_restored_costs_b": 17.4,
+      "non_sbc_opex_b": 5.6,
+      "restored_compensation_other_b": 2.8499999999999996,
+      "gaap_style_pretax_b": 8.95,
+      "gaap_style_net_income_b": 7.6075,
+      "adjusted_style_eps_same_assumptions": 8.358333333333333,
+      "gaap_style_eps": 6.339583333333334,
+      "reference_pe": 24.007886953664144,
+      "future_price_at_30x_gaap": 190.1875,
+      "future_price_cagr": 0.052449267042264935,
+      "discounted_terminal_price_at_required_return": 116.05327993767995,
+      "classification": "unweighted_hypothetical_GAAP_style_earnings_sensitivity_not_consensus_or_guidance"
+    },
+    {
+      "id": "strong_execution",
+      "label": "Stronger scale and margins",
+      "ip_revenue_b": 12,
+      "chip_revenue_b": 20,
+      "total_revenue_b": 32,
+      "gross_profit_before_restored_costs_b": 22.88,
+      "non_sbc_opex_b": 6.3,
+      "restored_compensation_other_b": 3.4,
+      "gaap_style_pretax_b": 13.179999999999998,
+      "gaap_style_net_income_b": 11.202999999999998,
+      "adjusted_style_eps_same_assumptions": 11.274399999999998,
+      "gaap_style_eps": 8.962399999999999,
+      "reference_pe": 16.982058377220387,
+      "future_price_at_30x_gaap": 268.87199999999996,
+      "future_price_cagr": 0.13945938769069977,
+      "discounted_terminal_price_at_required_return": 164.06692071457837,
+      "classification": "unweighted_hypothetical_GAAP_style_earnings_sensitivity_not_consensus_or_guidance"
+    }
+  ],
+  "one_variable_sensitivities": [
+    {
+      "change": "Chip revenue $5B lower",
+      "gaap_style_eps": 4.5687500000000005,
+      "eps_change": -1.770833333333333
+    },
+    {
+      "change": "Chip gross margin 10 percentage points lower",
+      "gaap_style_eps": 5.2770833333333345,
+      "eps_change": -1.0624999999999991
+    },
+    {
+      "change": "SBC $1B higher",
+      "gaap_style_eps": 5.63125,
+      "eps_change": -0.7083333333333339
+    },
+    {
+      "change": "Development/SG&A $1B higher",
+      "gaap_style_eps": 5.63125,
+      "eps_change": -0.7083333333333339
+    },
+    {
+      "change": "Diluted shares 5% higher",
+      "gaap_style_eps": 6.037698412698413,
+      "eps_change": -0.30188492063492056
+    }
+  ],
+  "edge_tam_annualized_growth": 0.06961037572506878,
+  "fy28_to_fy31_chip_cagr_using_generous_2b_fy28_anchor": 0.9574338205844317,
+  "gaap_eps_required_for_12pct_annual_return_at_30x": 8.314151774525216,
+  "note": "$2B is actually combined FY27\u2013FY28 up-to revenue, not a FY28 annual forecast; assigning all to FY28 is a generous ramp illustration, not a rigorous growth bound."
+}

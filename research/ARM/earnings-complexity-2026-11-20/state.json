@@ -19,7 +19,8 @@
     "feature-design.md",
     "feature-design-gaap-bridge.md",
     "feature-design-assumptions-review.md",
-    "feature-design-growth-upside.md"
+    "feature-design-growth-upside.md",
+    "feature-design-market-stress.md"
   ],
   "evidence": [
     "inputs.json",
@@ -36,7 +37,11 @@
     "EPS_FIVE_YEAR.md",
     "EPS_FIVE_YEAR.csv",
     "EPS_2026_2030.md",
-    "EPS_2026_2030.csv"
+    "EPS_2026_2030.csv",
+    "market-stress-inputs.json",
+    "market-stress-results.json",
+    "market-stress.csv",
+    "MARKET_STRESS.md"
   ],
   "dependencies": [
     {
@@ -70,15 +75,24 @@
       "input": "Published long-term management model, current growth split and contractual royalty accounting",
       "output": "Identified growth vs unproven consensus omissions; horizon-aware sensitivity",
       "design": "feature-design-growth-upside.md"
+    },
+    {
+      "id": "ARM_MARKET_REVENUE_STRESS",
+      "kind": "feature_variant",
+      "status": "implemented_research_variant",
+      "input": "Issuer revenue streams, partner evidence, nonadditive TAM and explicit FY2031 cost/margin/share assumptions",
+      "output": "Revenue-to-GAAP-EPS stress scenarios, sensitivities and falsifiers",
+      "design": "feature-design-market-stress.md"
     }
   ],
-  "next_action": "Verify the tentative February 3, 2027 report date when the formal release is announced.",
+  "next_action": "Check commercial chip revenue recognition, hardware margin and recurring compensation/development costs at the next earnings report.",
   "integration_status": "unmerged",
   "ci_status": "new_revision_pending_external_verification",
   "model_versions": {
     "complexity_sensitivity": "0.1.0",
     "forward_gaap_bridge": "0.2.0",
-    "growth_upside": "0.3.0"
+    "growth_upside": "0.3.0",
+    "market_stress": "0.1.0"
   },
-  "previous_model_revision": "5c77f6eed890fd18197f5535969a4266725b316d"
+  "previous_model_revision": "0149fb341f6c106bbcbf556206f22a5c2b17a95d"
 }
