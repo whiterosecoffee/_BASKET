@@ -37,7 +37,7 @@
     }
   ],
   "next_actions": [
-    "Replace scenario assumptions with calendar-aligned combined earnings/share and GAAP/FCF evidence"
+    "Continue common-horizon recurring earnings/cash qualification in semiconductor_vetf; preserve original AVGO corrections"
   ],
   "limitations": [
     "No operational market feed",
@@ -45,5 +45,13 @@
     "Sparse distant consensus",
     "Hosted CI pending",
     "Customer exposures and stress inputs hypothetical"
+  ],
+  "related_components": [
+    {
+      "id": "SEMICONDUCTOR_VETF",
+      "path": "research/models/semiconductor_vetf/state.json",
+      "status": "initial_partial_evidence_snapshot",
+      "same_conversation_issue": 306
+    }
   ]
 }
