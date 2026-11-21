@@ -18,7 +18,8 @@
     "inputs-results.json",
     "REPORT.md",
     "https://github.com/whiterosecoffee/_BASKET/issues/291",
-    "REPORT.md#competitive-moat"
+    "REPORT.md#competitive-moat",
+    "competitive-paths-2030.json"
   ],
   "feature_design": "feature-design.md",
   "planned_nodes": [
@@ -30,13 +31,13 @@
     },
     {
       "id": "competitive-paths-2030",
-      "status": "planned",
+      "status": "modeled_illustrative",
       "input": "Scenario revenue growth, gross margin, R&D/other expense, tax, financing and post-merger shares",
       "output": "Separate AVGO and MRVL+ earnings paths and required economics for 4x MRVL share price"
     }
   ],
   "next_actions": [
-    "Verify repeat optical scale-up production wins and compare matched performance/yield; retain unclosed LITE status"
+    "Replace scenario assumptions with calendar-aligned combined earnings/share and GAAP/FCF evidence"
   ],
   "limitations": [
     "No operational market feed",
