@@ -1,0 +1,64 @@
+{
+  "as_of": "2026-11-20",
+  "correction": "CLS is publicly listed Celestica; acquired Celestial AI is different. Interpret user intent as Celestial AI plus proposed Lumentum.",
+  "status": {
+    "Celestial": "completed February2 2026",
+    "Lumentum": "announced expected H1CY2028;4.5share ratio"
+  },
+  "products": [
+    "custom XPUs and attach silicon",
+    "SerDes optical DSP and networking switches",
+    "Celestial optical scale-up and future memory interconnect",
+    "Lumentum lasers optical modules OCS and compound semiconductor production"
+  ],
+  "relationships": [
+    {
+      "entity": "AWS",
+      "type": "verified customer/collaborator",
+      "evidence": "five-year multi-generation agreement covering custom AI DSP AEC PCIe DCI Ethernet",
+      "url": "https://investor.marvell.com/news-events/press-releases/detail/121/marvell-expands-strategic-collaboration-with-aws-to-enable-accelerated-infrastructure-for-ai-in-the-cloud"
+    },
+    {
+      "entity": "NVIDIA",
+      "type": "Marvell partner/investor; Lumentum purchase/capacity counterparty; competitor by layer",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-AI-Ecosystem-Expands-as-Marvell-Joins-Forces-Through-NVLink-Fusion/"
+    },
+    {
+      "entity": "Microsoft/Oracle",
+      "type": "verified hardware-security standards collaborators; do not infer custom-XPU purchase volume",
+      "url": "https://investor.marvell.com/news-events/press-releases/detail/1038/marvell-microsoft-and-oracle-establish-ocp-working-group-to-standardize-data-center-hardware-security"
+    }
+  ],
+  "competitors": {
+    "AVGO": "broadest custom silicon switching CPO overlap",
+    "NVDA": "system/fabric architecture plus partnership",
+    "COHR": "lasers optics manufacturing",
+    "AyarLabs": "package opticalIO",
+    "CRDO": "AEC DSP optical connectivity",
+    "ALAB": "PCIe CXL retimers scale-up switching"
+  },
+  "valuation": {
+    "price_source": "StockAnalysis retrieved page not Massive; Nov20 2026 19:59EST both marks, no verified execution pairing",
+    "MRVL": 125.75,
+    "LITE": 473.5,
+    "parent_equivalent_lite": 105.22222222222223,
+    "combined_cy2027_illustrative_eps": 7.147925000000001,
+    "cy2028_verified_eps": null,
+    "reason": "quarterly standalone income/share reconciliation still unresolved; no invented new consensus"
+  },
+  "hypothesis": "Broader electrical+photonic platform can raise content per deployment and reduce customer integration burden; value depends on after-tax profits per diluted share not TAM alone",
+  "risks": [
+    "integration and fab capex",
+    "customer concentration and dual sourcing",
+    "displacing existing DSP/pluggable revenue",
+    "regulatory delay",
+    "dilution and overlap in consensus/synergies"
+  ],
+  "sources": [
+    "https://www.marvell.com/company/newsroom/marvell-completes-acquisition-of-celestial-ai.html",
+    "https://investor.marvell.com/news-events/press-releases/detail/1040/marvell-and-lumentum-to-combine-creating-a-category-leader-in-ai-connectivity",
+    "https://corporate.celestica.com/node/5941",
+    "https://stockanalysis.com/stocks/mrvl/forecast/",
+    "https://stockanalysis.com/stocks/lite/forecast/"
+  ]
+}

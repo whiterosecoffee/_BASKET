@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-11-20",
+  "scope": "CPO technology comparison and conditional EPS; no quote refresh",
+  "classification": {
+    "Broadcom": "strongest demonstrated merchant switch+CPO integration contender; qualitative judgment",
+    "NVIDIA": "integrated GPU fabric platform leader; different layer from component supplier",
+    "Coherent": "closest direct public optical/laser peer; not established as categorically better",
+    "AyarLabs": "in-package optical IO specialist; specifications preliminary",
+    "MarvellCelestial": "custom compute, switching and optical scale-up platform",
+    "Lumentum": "advanced lasers and optical manufacturing; benefits from optical IO adoption across architectures"
+  },
+  "mechanism": "Replace selected electrical communication paths with optical IO; computation and local transistor/cache wiring remain electronic; protocol and coherence layers remain necessary. Copper retains cost/power/reliability advantages on appropriate short links.",
+  "sources": [
+    "https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-third-generation-co-packaged-optics-cpo",
+    "https://www.nvidia.com/en-us/networking/products/silicon-photonics/",
+    "https://www.coherent.com/news/press-releases/nvidia-and-coherent-announce-strategic-partnership",
+    "https://ayarlabs.com/teraphY/",
+    "https://investor.marvell.com/news-events/press-releases/detail/1000/marvell-to-acquire-celestial-ai-accelerating-scale-up-connectivity-for-next-generation-data-centers",
+    "https://www.marvell.com/ai-data-center/scale-up.html",
+    "https://stockanalysis.com/stocks/mrvl/forecast/",
+    "https://stockanalysis.com/stocks/lite/forecast/"
+  ],
+  "estimate_snapshot": {
+    "MRVL": {
+      "FY2027": 4.22,
+      "FY2028": 7.37
+    },
+    "LITE": {
+      "FY2027": 24.94,
+      "FY2028": 40.13
+    },
+    "basis": "non-GAAP adjusted, fiscal periods differ; not combined-parent forecasts"
+  },
+  "scenario": {
+    "description": "MRVL standalone-equivalent sensitivity: after FY28 anchor apply20%-40% annual EPS growth. Not consensus; no probabilities; excludes explicit LITE combination. Calendar2028 parent forecast still blocked.",
+    "rows": [
+      {
+        "fy": 2028,
+        "period_end": "January 2028",
+        "low_eps": 7.37,
+        "high_eps": 7.37,
+        "low_cumulative_percent": 74.64454976303318,
+        "high_cumulative_percent": 74.64454976303318
+      },
+      {
+        "fy": 2029,
+        "period_end": "January 2029",
+        "low_eps": 8.844,
+        "high_eps": 10.318,
+        "low_cumulative_percent": 109.57345971563979,
+        "high_cumulative_percent": 144.50236966824644
+      },
+      {
+        "fy": 2030,
+        "period_end": "January 2030",
+        "low_eps": 10.6128,
+        "high_eps": 14.445199999999998,
+        "low_cumulative_percent": 151.48815165876778,
+        "high_cumulative_percent": 242.303317535545
+      }
+    ]
+  },
+  "optical_increment": {
+    "company_roadmap": "Celestial500M annualized Q4FY28;1B annualized Q4FY29; not full-year revenue",
+    "sensitivity": "Each1B incremental annual revenue at20%-30% after-tax incremental margin / assumed1B diluted shares ->0.20-0.30EPS; excludes LITE merger dilution and cannot be stacked atop consensus without removing embedded contribution"
+  },
+  "risks": [
+    "customer qualification and production ramp",
+    "yield, laser reliability, thermal packaging and serviceability",
+    "higher unit volumes offset by ASP compression and displaced DSP/pluggable content",
+    "R&D and capex reduce cash economics",
+    "dilution and earnouts",
+    "possible merger changes"
+  ],
+  "deal_ratio": "Retrieved Nov2 announcement says4.500, not5.5; verify amendments before valuation",
+  "status": "research_and_labeled_sensitivity_not_fair_value"
+}

@@ -1,0 +1,52 @@
+{
+  "as_of": "2026-11-20",
+  "scope": "Marvell including completed Celestial and conditional Lumentum",
+  "assessment": "Strong design-win and engineering moat; potential broader manufacturing/integration moat; limited pricing power against concentrated hyperscalers. Not a monopoly.",
+  "mechanisms": [
+    {
+      "name": "custom design switching costs",
+      "strength": "strong within won generation",
+      "mechanism": "Redesign validation firmware package board and qualification costs discourage mid-generation replacement",
+      "limit": "next-generation rebids and customer insourcing"
+    },
+    {
+      "name": "reusable mixed-signal/IP platform",
+      "strength": "strong",
+      "mechanism": "SerDes DSP custom ASIC photonics packaging reuse reduces design time and integration risk",
+      "limit": "Broadcom and other established platforms"
+    },
+    {
+      "name": "InP laser fabrication reliability and qualification",
+      "strength": "strong conditional addition",
+      "mechanism": "process/yield/packaging learning and field validation harder to replicate than schematic design",
+      "limit": "Lumentum deal pending; Coherent alternative; capex and yield execution"
+    },
+    {
+      "name": "Celestial optical package integration",
+      "strength": "promising not yet scaled proof",
+      "mechanism": "thermal stability and bandwidth density may improve architecture economics",
+      "limit": "vendor claims require production deployment reliability and cost evidence"
+    },
+    {
+      "name": "system co-design",
+      "strength": "potential",
+      "mechanism": "custom compute electrical and optical links switching laser supply can be optimized together",
+      "limit": "customers can prefer multivendor architectures"
+    }
+  ],
+  "falsifiers": [
+    "loss of next-generation design renewal",
+    "falling gross margin or FCF per diluted share despite revenue growth",
+    "qualifications not converting into volume",
+    "reliability or yield failures",
+    "price erosion exceeding cost reduction",
+    "customers shift internal design or competing platforms"
+  ],
+  "sources": [
+    "https://investor.marvell.com/sec-filings/all-sec-filings/content/0001835632-26-000011/mrvl-20260131.htm",
+    "https://www.sec.gov/Archives/edgar/data/1835632/000119312526443876/d178787d425.htm",
+    "https://www.lumentum.com/en/products/data-center/cw-lasers/uhp-lasers-cpo",
+    "https://investor.marvell.com/news-events/press-releases/detail/1000/marvell-to-acquire-celestial-ai-accelerating-scale-up-connectivity-for-next-generation-data-centers"
+  ],
+  "status": "qualitative_inference_no_predictive_score"
+}
