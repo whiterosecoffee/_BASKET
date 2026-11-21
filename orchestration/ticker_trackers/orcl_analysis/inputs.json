@@ -1,0 +1,240 @@
+{
+  "format": "basket.ticker_analysis_inputs.draft@1",
+  "ticker": "ORCL",
+  "currency": "USD",
+  "as_of": "2026-11-21",
+  "method_version": "company-analysis-method/0.1.0-draft",
+  "price_reference": {
+    "value": 103.2954,
+    "effective_at": "2026-11-21T00:59:57.483Z",
+    "source_ids": [
+      "M01"
+    ],
+    "status": "historical_reference_only",
+    "current_use_eligible": false
+  },
+  "fiscal_year_end": "05-31",
+  "baseline": {
+    "fiscal_year": 2026,
+    "adjusted_eps": 7.63,
+    "adjusted_ex_investment_gains_eps": 6.83,
+    "gaap_eps": 5.83,
+    "prior_adjusted_eps": 6.03,
+    "source_ids": [
+      "S01",
+      "S24"
+    ]
+  },
+  "eps_series": [
+    {
+      "fiscal_year": 2026,
+      "period_end": "2026-05-31",
+      "eps": 7.63,
+      "gaap_eps": 5.83,
+      "classification": "reported_actual",
+      "source_ids": [
+        "S01"
+      ],
+      "report_date": "2026-06-10",
+      "report_date_status": "reported"
+    },
+    {
+      "fiscal_year": 2027,
+      "period_end": "2027-05-31",
+      "eps": 8.15,
+      "gaap_eps": null,
+      "classification": "consensus_estimate",
+      "source_ids": [
+        "S06"
+      ],
+      "range": [
+        8,
+        8.6
+      ],
+      "analyst_count": 39,
+      "issuer_guidance_eps": 8.1,
+      "issuer_guidance_source_ids": [
+        "S04"
+      ],
+      "report_date": null,
+      "report_window": "June 2027",
+      "report_date_status": "estimated_window"
+    },
+    {
+      "fiscal_year": 2028,
+      "period_end": "2028-05-31",
+      "eps": 11.06,
+      "gaap_eps": null,
+      "classification": "consensus_estimate",
+      "source_ids": [
+        "S06"
+      ],
+      "range": [
+        9,
+        12.77
+      ],
+      "analyst_count": 40,
+      "report_date": null,
+      "report_window": "June 2028",
+      "report_date_status": "estimated_window"
+    },
+    {
+      "fiscal_year": 2029,
+      "period_end": "2029-05-31",
+      "eps": null,
+      "gaap_eps": null,
+      "classification": "modeled_interpolation",
+      "formula": "sqrt(FY2028 EPS * FY2030 target floor)",
+      "source_ids": [
+        "S06",
+        "S04"
+      ],
+      "report_date": null,
+      "report_window": "June 2029",
+      "report_date_status": "estimated_window"
+    },
+    {
+      "fiscal_year": 2030,
+      "period_end": "2030-05-31",
+      "eps": 21,
+      "gaap_eps": null,
+      "classification": "issuer_target_floor",
+      "source_ids": [
+        "S04"
+      ],
+      "report_date": null,
+      "report_window": "June 2030",
+      "report_date_status": "estimated_window"
+    }
+  ],
+  "eps_basis": "issuer_non_gaap_actual_and_vendor_adjusted_consensus; future_GAAP_reconciliation_unavailable",
+  "earnings_calendar": [
+    {
+      "period": "Q2FY2027",
+      "period_end": "2026-11-30",
+      "date": "2026-12-14",
+      "date_status": "official_FAQ_search_extract; reverify announcement",
+      "eps_consensus": 1.89,
+      "source_ids": [
+        "S23",
+        "S06"
+      ]
+    },
+    {
+      "period": "Q3FY2027",
+      "period_end": "2027-02-28",
+      "date": null,
+      "window": "March 2027",
+      "date_status": "estimated",
+      "eps_consensus": 2.02,
+      "source_ids": [
+        "S06",
+        "S23"
+      ]
+    },
+    {
+      "period": "Q4FY2027",
+      "period_end": "2027-05-31",
+      "date": null,
+      "window": "June 2027",
+      "date_status": "estimated",
+      "eps_consensus": 2.34,
+      "source_ids": [
+        "S06",
+        "S23"
+      ]
+    }
+  ],
+  "november_notes": [
+    {
+      "principal_usd_b": 2,
+      "coupon": 0.07,
+      "maturity_year": 2029
+    },
+    {
+      "principal_usd_b": 1.75,
+      "coupon": 0.0745,
+      "maturity_year": 2031
+    },
+    {
+      "principal_usd_b": 2.25,
+      "coupon": 0.0785,
+      "maturity_year": 2033
+    },
+    {
+      "principal_usd_b": 2.5,
+      "coupon": 0.08,
+      "maturity_year": 2037
+    },
+    {
+      "principal_usd_b": 1.5,
+      "coupon": 0.0865,
+      "maturity_year": 2046
+    }
+  ],
+  "financing": {
+    "source_ids": [
+      "S03",
+      "S07",
+      "S08",
+      "S09"
+    ],
+    "common_shares_aug31": 3023726695,
+    "november_common_shares": 86206897,
+    "offering_price_usd": 116,
+    "preferred_shares": 50000,
+    "conversion_per_preferred_min": 499.8126,
+    "conversion_per_preferred_max": 624.7657,
+    "expected_mandatory_conversion_date": "2029-01-15",
+    "q1_interest_expense_usd_b": 1.428,
+    "interest_capitalized_usd_b": null,
+    "quarterly_preferred_dividend_usd_b": 0.081,
+    "future_fully_diluted_shares": null,
+    "future_employee_dilution": null
+  },
+  "scenarios": [
+    {
+      "name": "execution_shortfall",
+      "classification": "scenario",
+      "revenue_usd_b": 180,
+      "adjusted_operating_margin": 0.35,
+      "net_nonoperating_cost_usd_b": 8,
+      "tax_rate": 0.18,
+      "diluted_shares_b": 3.6,
+      "preferred_dividends_usd_b": 0,
+      "preferred_assumption": "scheduled conversion completed"
+    },
+    {
+      "name": "target_compatible",
+      "classification": "scenario",
+      "revenue_usd_b": 225,
+      "adjusted_operating_margin": 0.4,
+      "net_nonoperating_cost_usd_b": 6,
+      "tax_rate": 0.15,
+      "diluted_shares_b": 3.4,
+      "preferred_dividends_usd_b": 0,
+      "preferred_assumption": "scheduled conversion completed"
+    },
+    {
+      "name": "stronger_execution",
+      "classification": "scenario",
+      "revenue_usd_b": 250,
+      "adjusted_operating_margin": 0.42,
+      "net_nonoperating_cost_usd_b": 6,
+      "tax_rate": 0.15,
+      "diluted_shares_b": 3.4,
+      "preferred_dividends_usd_b": 0,
+      "preferred_assumption": "scheduled conversion completed"
+    }
+  ],
+  "multiples": [
+    10,
+    12.674282208588956,
+    15,
+    20
+  ],
+  "multiple_basis": "illustrative_sensitivity_not_peer_derived_fair_value",
+  "current_peer_discount_pct": null,
+  "historical_price_return_probability": null,
+  "input_hash_policy": "replay.py hashes exact inputs.json bytes; commit identifies method code"
+}
