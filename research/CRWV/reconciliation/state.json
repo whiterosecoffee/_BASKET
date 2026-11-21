@@ -1,0 +1,62 @@
+{
+  "schema": "crwv.reconciliation_state@1",
+  "component_id": "CRWV_EVIDENCE_RECONCILIATION",
+  "owner": {
+    "spark": "B10",
+    "issue": 91,
+    "branch": "work/91-crwv-functional-tool-collision"
+  },
+  "parent_refs": [
+    "../../../AGENTS.md",
+    "../../../orchestration/sparks.json#B10"
+  ],
+  "purpose": "Resolve financial evidence inconsistencies before populating the existing monthly tool",
+  "objectives": {
+    "now": "Filed arithmetic and fail-closed forecast audit",
+    "next": "Owner-accepted source adapter",
+    "later": "Qualified current earnings and funding inputs"
+  },
+  "status": "branch_tested_not_integrated",
+  "write_paths": [
+    "research/CRWV/reconciliation/**"
+  ],
+  "designs": [
+    "feature-design.md"
+  ],
+  "review": "review.md",
+  "dependencies": {
+    "monthly_finance": "https://github.com/whiterosecoffee/_BASKET/issues/86",
+    "independent_CI": "https://github.com/whiterosecoffee/_BASKET/issues/89",
+    "traversal": "https://github.com/whiterosecoffee/_BASKET/issues/70"
+  },
+  "planned_nodes": [
+    {
+      "id": "GAAP_FORECAST_ADAPTER",
+      "status": "planned",
+      "input": "same-period GAAP net income and diluted shares, source availability",
+      "output": "qualified forward EPS/P-E or null",
+      "owner": "B10/B04 via #86"
+    },
+    {
+      "id": "MONTHLY_FUNDING_INPUT_ADAPTER",
+      "status": "planned",
+      "input": "receipt dates, monthly uses, draw eligibility and restrictions",
+      "output": "approved input to #86 monthly engine",
+      "owner": "B10 #86"
+    },
+    {
+      "id": "TRAVERSAL_STATE_CONSUMER",
+      "status": "reference_only",
+      "input": "owner-qualified current market state",
+      "output": "separate descriptive market context",
+      "owner": "B06 existing #70/#108"
+    }
+  ],
+  "evidence": [
+    "evidence/snapshot.json",
+    "evidence/output/result.json",
+    "evidence/ownership-and-ci.json",
+    "VALIDATION.md"
+  ],
+  "next_action": "B10 #86 consume reconciled filing values and request missing same-basis forecast/receipt data; B01 verify this audit at its exact published head."
+}

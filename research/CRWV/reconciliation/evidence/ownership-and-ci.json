@@ -1,0 +1,189 @@
+{
+  "schema": "crwv.reconciliation_evidence@1",
+  "main_sha": "433d3574033a35f24910dc1ffee21ecbf27702dc",
+  "ownership": {
+    "open_pr_count": 91,
+    "fetch_failures": 0,
+    "claimed_path": "research/CRWV/reconciliation/**",
+    "collisions": [],
+    "retained_owners": [
+      {
+        "pr": 122,
+        "paths": [
+          "research/CRWV/market-research-2026-10-29/AGENTS.md",
+          "research/CRWV/market-research-2026-10-29/DAILY_STAGING.md",
+          "research/CRWV/market-research-2026-10-29/backfill_minutes.py",
+          "research/CRWV/market-research-2026-10-29/capture-revisions-2026-10-30.json",
+          "research/CRWV/market-research-2026-10-29/daily-capture-validation.json",
+          "research/CRWV/market-research-2026-10-29/daily-shard-preparation.json",
+          "research/CRWV/market-research-2026-10-29/earnings-price-bridge-2026-11-10.json",
+          "research/CRWV/market-research-2026-10-29/feature-design.md",
+          "research/CRWV/market-research-2026-10-29/findings.json",
+          "research/CRWV/market-research-2026-10-29/post-earnings-price-review-2026-11-19.json",
+          "research/CRWV/market-research-2026-10-29/prepare_daily_shards.py",
+          "research/CRWV/market-research-2026-10-29/recent-history-2026-10-30.json",
+          "research/CRWV/market-research-2026-10-29/review.md",
+          "research/CRWV/market-research-2026-10-29/state.json",
+          "research/CRWV/market-research-2026-10-29/test_daily_capture.py",
+          "research/CRWV/market-research-2026-10-29/test_prepare_daily_shards.py",
+          "research/CRWV/market-research-2026-10-29/trading-update-2026-11-04.json",
+          "tickers/CRWV/intraday/2026-10.1m.jsonl",
+          "tickers/CRWV/intraday/2026-10.1m.meta.json",
+          "tickers/CRWV/intraday/2026-11-02.1m.jsonl",
+          "tickers/CRWV/intraday/2026-11-02.1m.meta.json",
+          "tickers/CRWV/intraday/2026-11-03.1m.jsonl",
+          "tickers/CRWV/intraday/2026-11-03.1m.meta.json",
+          "tickers/CRWV/intraday/2026-11-04.1m.jsonl",
+          "tickers/CRWV/intraday/2026-11-04.1m.meta.json",
+          "tickers/CRWV/intraday/README.md"
+        ]
+      },
+      {
+        "pr": 114,
+        "paths": [
+          "research/CRWV/assessments/2026-10-29-evidence-and-peers.md"
+        ]
+      },
+      {
+        "pr": 99,
+        "paths": [
+          "research/CRWV/trading-tool/.gitignore",
+          "research/CRWV/trading-tool/HANDOFF.md",
+          "research/CRWV/trading-tool/README.md",
+          "research/CRWV/trading-tool/VALIDATION.md",
+          "research/CRWV/trading-tool/component.json",
+          "research/CRWV/trading-tool/corpus.py",
+          "research/CRWV/trading-tool/examples/historical-matrix.json",
+          "research/CRWV/trading-tool/patterns.py",
+          "research/CRWV/trading-tool/poller.py",
+          "research/CRWV/trading-tool/run.py",
+          "research/CRWV/trading-tool/store.py",
+          "research/CRWV/trading-tool/tests/test_patterns.py"
+        ]
+      },
+      {
+        "pr": 87,
+        "paths": [
+          "research/CRWV/tool/README.md",
+          "research/CRWV/tool/VALIDATION.md",
+          "research/CRWV/tool/contracts/README.md",
+          "research/CRWV/tool/contracts/result.v1.json",
+          "research/CRWV/tool/contracts/snapshot.v1.json",
+          "research/CRWV/tool/demo.py",
+          "research/CRWV/tool/examples/base.txt",
+          "research/CRWV/tool/examples/revision-bridge.json",
+          "research/CRWV/tool/examples/sensitivities.json",
+          "research/CRWV/tool/examples/summary.json",
+          "research/CRWV/tool/examples/unfunded.txt",
+          "research/CRWV/tool/fixtures/base.json",
+          "research/CRWV/tool/fixtures/build.py",
+          "research/CRWV/tool/fixtures/bull.json",
+          "research/CRWV/tool/fixtures/slow.json",
+          "research/CRWV/tool/fixtures/snapshot.json",
+          "research/CRWV/tool/fixtures/unfunded-snapshot.json",
+          "research/CRWV/tool/fixtures/unfunded.json",
+          "research/CRWV/tool/history.py",
+          "research/CRWV/tool/market.py",
+          "research/CRWV/tool/model.py",
+          "research/CRWV/tool/run.py",
+          "research/CRWV/tool/source-manifest.json",
+          "research/CRWV/tool/tests/test_model.py"
+        ]
+      },
+      {
+        "pr": 74,
+        "paths": [
+          "research/CRWV/73-replacement-cost-rates/README.md",
+          "research/CRWV/73-replacement-cost-rates/findings.json",
+          "research/CRWV/73-replacement-cost-rates/verify.py"
+        ]
+      },
+      {
+        "pr": 72,
+        "paths": [
+          "research/CRWV/operations-vs-buildout/2026-10-23/README.md",
+          "research/CRWV/operations-vs-buildout/2026-10-23/findings.json",
+          "research/CRWV/operations-vs-buildout/2026-10-23/verify.py"
+        ]
+      },
+      {
+        "pr": 69,
+        "paths": [
+          "research/CRWV/debt/2026-10-22/README.md",
+          "research/CRWV/debt/2026-10-22/battle-matrix-contract.md",
+          "research/CRWV/debt/2026-10-22/battle-matrix-history.jsonl",
+          "research/CRWV/debt/2026-10-22/battle_matrix.py",
+          "research/CRWV/debt/2026-10-22/capacity-conversion.json",
+          "research/CRWV/debt/2026-10-22/capacity-conversion.md",
+          "research/CRWV/debt/2026-10-22/capacity-scenarios.json",
+          "research/CRWV/debt/2026-10-22/capacity-scenarios.py",
+          "research/CRWV/debt/2026-10-22/capacity-weighted-valuation.md",
+          "research/CRWV/debt/2026-10-22/debt-repricing-2026-10-23.json",
+          "research/CRWV/debt/2026-10-22/debt-stack.json",
+          "research/CRWV/debt/2026-10-22/directional-turnover-2026-10-28.json",
+          "research/CRWV/debt/2026-10-22/discount-demand-and-oi-2026-10-28.json",
+          "research/CRWV/debt/2026-10-22/divergence-and-repricing-2026-10-23.md",
+          "research/CRWV/debt/2026-10-22/earnings-lifespan-services.md",
+          "research/CRWV/debt/2026-10-22/factor-attribution-2026-10-22.json",
+          "research/CRWV/debt/2026-10-22/factor-attribution-2026-10-23.json",
+          "research/CRWV/debt/2026-10-22/factor-closes-2026-10-22.csv",
+          "research/CRWV/debt/2026-10-22/factor-closes-2026-10-23.csv",
+          "research/CRWV/debt/2026-10-22/factor_tracker.py",
+          "research/CRWV/debt/2026-10-22/flow-2026-10-28T1357Z.json",
+          "research/CRWV/debt/2026-10-22/forward-valuation.json",
+          "research/CRWV/debt/2026-10-22/forward-valuation.md",
+          "research/CRWV/debt/2026-10-22/functional-tool-blueprint.md",
+          "research/CRWV/debt/2026-10-22/gray-contracted-power-overlay.md",
+          "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV-daily-bars.csv",
+          "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV-minute-bars.csv",
+          "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/CRWV.range-patterns.jsonl",
+          "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/README.md",
+          "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/manifest.json",
+          "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/pattern-index.json",
+          "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/range_replay.py",
+          "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/summary.json",
+          "research/CRWV/debt/2026-10-22/historical-ranges-2026-10-28/test_range_replay.py",
+          "research/CRWV/debt/2026-10-22/integrated-assessment.md",
+          "research/CRWV/debt/2026-10-22/matrix-input-2026-10-28.json",
+          "research/CRWV/debt/2026-10-22/matrix-output-2026-10-28T1416Z-v1.1.0.json",
+          "research/CRWV/debt/2026-10-22/matrix-output-2026-10-28T1416Z.json",
+          "research/CRWV/debt/2026-10-22/next-conversation-prompt.md",
+          "research/CRWV/debt/2026-10-22/october-turnover-velocity.json",
+          "research/CRWV/debt/2026-10-22/repricing-assessment.md",
+          "research/CRWV/debt/2026-10-22/test_battle_matrix.py",
+          "research/CRWV/debt/2026-10-22/trajectory-2026-10-28.json",
+          "research/CRWV/debt/2026-10-22/trajectory-2026-10-28.md",
+          "research/CRWV/debt/2026-10-22/traversal-compression-2026-10-23.json",
+          "research/CRWV/debt/2026-10-22/traversal-prior-art-review.md"
+        ]
+      }
+    ]
+  },
+  "original_acceptance": {
+    "workflow_sha": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+    "source_sha": "7a33a6f49a2740a93310fa1c66a8090c25dd110a",
+    "run_url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/40919835438",
+    "job_id": 123609743311,
+    "status": "success",
+    "tests": 39,
+    "tests_seconds": 0.228,
+    "scenarios": [
+      "slow",
+      "base",
+      "bull",
+      "unfunded"
+    ],
+    "new_execution": false,
+    "freshly_retrieved_logs": true
+  },
+  "current_integration": {
+    "pr87_merged": false,
+    "pr90_merged": false
+  },
+  "new_audit": {
+    "tests": 10,
+    "skipped": 0,
+    "execution": "local",
+    "independent_domain_ci": "pending"
+  }
+}
