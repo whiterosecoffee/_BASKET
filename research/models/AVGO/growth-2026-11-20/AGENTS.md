@@ -1,0 +1,2 @@
+# AVGO growth research
+Inherit root AGENTS.md and B04 in orchestration/sparks.json; read orchestration/WORKER_PROTOCOL.md. Scope only research/models/AVGO/growth-2026-11-20/** under issue #306, branch work/306-avgo-cumulative-growth. Parent research purpose: B04 Company Economics & Valuation. Reuse handoff #291; do not duplicate data ingestion. Read state.json, feature-design.md and REPORT.md. Next: qualify customer mix and consensus revisions. Review source dates, EPS basis, arithmetic and limitations before updates.
