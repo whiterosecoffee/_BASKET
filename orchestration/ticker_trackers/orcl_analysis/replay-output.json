@@ -1,0 +1,155 @@
+{
+  "method_version": "company-analysis-method/0.1.0-draft",
+  "input_sha256": "ffa724e4664840abd366b6b37ef05314ef598fb8f79dde8e1078f06d6df960f8",
+  "ticker": "ORCL",
+  "as_of": "2026-11-21",
+  "price_status": "historical_reference_only",
+  "current_quote_eligible": false,
+  "annual": [
+    {
+      "fiscal_year": 2026,
+      "period_end": "2026-05-31",
+      "classification": "reported_actual",
+      "adjusted_eps": 7.63,
+      "gaap_eps": 5.83,
+      "yoy_pct": 26.533996683250404,
+      "cumulative_vs_ex_gain_fy26_pct": null,
+      "cumulative_vs_reported_fy26_pct": 0.0,
+      "cumulative_vs_first_forward_pct": -6.380368098159517,
+      "historical_reference_pe": 13.538060288335519,
+      "price_equivalent_at_first_forward_pe": 96.70477325153374,
+      "illustrative_prices": {
+        "10": 76.3,
+        "12.674282208588956": 96.70477325153374,
+        "15": 114.45,
+        "20": 152.6
+      }
+    },
+    {
+      "fiscal_year": 2027,
+      "period_end": "2027-05-31",
+      "classification": "consensus_estimate",
+      "adjusted_eps": 8.15,
+      "gaap_eps": null,
+      "yoy_pct": 6.815203145478388,
+      "cumulative_vs_ex_gain_fy26_pct": 19.32650073206443,
+      "cumulative_vs_reported_fy26_pct": 6.815203145478388,
+      "cumulative_vs_first_forward_pct": 0.0,
+      "historical_reference_pe": 12.674282208588956,
+      "price_equivalent_at_first_forward_pe": 103.2954,
+      "illustrative_prices": {
+        "10": 81.5,
+        "12.674282208588956": 103.29539999999999,
+        "15": 122.25,
+        "20": 163.0
+      }
+    },
+    {
+      "fiscal_year": 2028,
+      "period_end": "2028-05-31",
+      "classification": "consensus_estimate",
+      "adjusted_eps": 11.06,
+      "gaap_eps": null,
+      "yoy_pct": 35.70552147239263,
+      "cumulative_vs_ex_gain_fy26_pct": 61.93265007320645,
+      "cumulative_vs_reported_fy26_pct": 44.95412844036699,
+      "cumulative_vs_first_forward_pct": 35.70552147239263,
+      "historical_reference_pe": 9.339547920433995,
+      "price_equivalent_at_first_forward_pe": 140.17756122699387,
+      "illustrative_prices": {
+        "10": 110.60000000000001,
+        "12.674282208588956": 140.17756122699384,
+        "15": 165.9,
+        "20": 221.20000000000002
+      }
+    },
+    {
+      "fiscal_year": 2029,
+      "period_end": "2029-05-31",
+      "classification": "modeled_interpolation",
+      "adjusted_eps": 15.24007873995407,
+      "gaap_eps": null,
+      "yoy_pct": 37.7945636523876,
+      "cumulative_vs_ex_gain_fy26_pct": 123.13438857912256,
+      "cumulative_vs_reported_fy26_pct": 99.73890878052516,
+      "cumulative_vs_first_forward_pct": 86.9948311650806,
+      "historical_reference_pe": 6.77787836680897,
+      "price_equivalent_at_first_forward_pe": 193.15705883129468,
+      "illustrative_prices": {
+        "10": 152.4007873995407,
+        "12.674282208588956": 193.15705883129465,
+        "15": 228.60118109931105,
+        "20": 304.8015747990814
+      }
+    },
+    {
+      "fiscal_year": 2030,
+      "period_end": "2030-05-31",
+      "classification": "issuer_target_floor",
+      "adjusted_eps": 21,
+      "gaap_eps": null,
+      "yoy_pct": 37.7945636523876,
+      "cumulative_vs_ex_gain_fy26_pct": 207.46705710102486,
+      "cumulative_vs_reported_fy26_pct": 175.22935779816513,
+      "cumulative_vs_first_forward_pct": 157.6687116564417,
+      "historical_reference_pe": 4.9188285714285715,
+      "price_equivalent_at_first_forward_pe": 266.15992638036806,
+      "illustrative_prices": {
+        "10": 210,
+        "12.674282208588956": 266.15992638036806,
+        "15": 315,
+        "20": 420
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "execution_shortfall",
+      "classification": "scenario",
+      "net_common_income_usd_b": 45.099999999999994,
+      "eps": 12.527777777777775,
+      "historical_reference_pe": 8.245309090909092,
+      "price_at_15x": 187.91666666666663
+    },
+    {
+      "name": "target_compatible",
+      "classification": "scenario",
+      "net_common_income_usd_b": 71.4,
+      "eps": 21.000000000000004,
+      "historical_reference_pe": 4.918828571428571,
+      "price_at_15x": 315.00000000000006
+    },
+    {
+      "name": "stronger_execution",
+      "classification": "scenario",
+      "net_common_income_usd_b": 84.15,
+      "eps": 24.750000000000004,
+      "historical_reference_pe": 4.173551515151515,
+      "price_at_15x": 371.25000000000006
+    }
+  ],
+  "checks": [
+    "unique source IDs and resolved input references",
+    "unique sorted fiscal years",
+    "explicit interpolation classification",
+    "finite numeric and fraction guards",
+    "current quote eligibility withheld",
+    "negative/nonpositive EPS does not produce positive P/E"
+  ],
+  "financing_arithmetic": {
+    "proforma_common_shares": 3109933592,
+    "conversion_share_range": [
+      24990630.0,
+      31238285.000000004
+    ],
+    "proforma_after_conversion_before_other_changes": [
+      3134924222.0,
+      3141171877.0
+    ],
+    "new_notes_annual_coupon_usd_b": 0.77675,
+    "weighted_new_coupon": 0.07767500000000001,
+    "q1_interest_annualized_plus_coupon_usd_b": 6.48875,
+    "interest_capitalized_usd_b": null,
+    "forward_fully_diluted_shares": null
+  }
+}
