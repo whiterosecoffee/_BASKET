@@ -1,0 +1,3 @@
+# This subtree pins exact bytes, including JSON fixtures and source evidence.
+# Disable line-ending conversion locally; never change user/system Git config.
+* -text
