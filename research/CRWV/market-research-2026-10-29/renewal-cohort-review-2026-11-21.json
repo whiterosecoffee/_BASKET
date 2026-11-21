@@ -1,0 +1,69 @@
+{
+  "schema": "crwv.renewal_cohort_review@1",
+  "observed_at": "2026-11-21T22:38:00.112Z",
+  "currency": "USD",
+  "status": "historical_claims_qualified_current_cohort_schedule_unknown",
+  "sources": {
+    "call": "https://s205.q4cdn.com/133937190/files/content_files/CoreWeave-3Q26-Transcript-_1_.pdf",
+    "policy": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000104/R29.htm",
+    "Q3": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm"
+  },
+  "facts_and_claims": {
+    "technology_accounting_life_years": 6,
+    "policy_period": "FY2025; Q3 filing says no material policy changes",
+    "economic_life": "unknown per cohort; not guaranteed by accounting policy",
+    "management_2027_rolloff_GPU_over": 130000,
+    "management_2028_rolloff_GPU_approx": 170000,
+    "management_2027_annualized_opportunity_approx_b": 4,
+    "management_2028_combined_annualized_opportunity_approx_b": 10,
+    "not_additive_14b": true,
+    "management_paid_off_claim": "Infrastructure paid off at end of initial contract, not proof all2027/28cohorts debt-free today",
+    "signed_fraction_of_renewal_opportunity": null,
+    "management_existing_paid_off_infra_prepayment_subset_over_b": 3,
+    "subset_of_expected_total_b": 9,
+    "receipt_status": "Expected three-month collection statement; exact receipt dates and customer/cohort mapping unverified",
+    "counterparties_and_terms": null
+  },
+  "scenario": {
+    "not_forecast": true,
+    "fully_used_delivered_capacity": true,
+    "assumed_uniform_renewal_starts": true,
+    "annual_revenue_placeholders_b": {
+      "cohort2027": 4,
+      "new_cohort2028": 6
+    },
+    "recognition": "2027 average half-year2B;2028 prior4B plus half of new6B=7B. Ignores cohort shrinkage/contract changes solely for isolated timing sensitivity.",
+    "pretax_contribution_margin": 0.4,
+    "margin_definition": "After operating costs, remaining depreciation,SBC and allocated costs/interest; hypothetical, not disclosed cohort profitability.",
+    "positive_income_tax": 0.25,
+    "shares_b": 0.65,
+    "rows": [
+      {
+        "period": "2027",
+        "revenue": 2,
+        "annual_run_rate": 4,
+        "pretax_at40": 0.8,
+        "EPS_contribution": 0.9230769230769231
+      },
+      {
+        "period": "2028",
+        "revenue": 7,
+        "annual_run_rate": 10,
+        "pretax_at40": 2.8000000000000003,
+        "EPS_contribution": 3.230769230769231
+      }
+    ],
+    "EPS_not_company_forecast": "Cohort contributions exclude remainder-company profit/loss. Cannot add them to consensus EPS: overlap and basis unknown.",
+    "cash_not_EPS": "CFO adds back remaining depreciation but subtracts working capital/taxes; distributable cash also depends on maintenance/replacement capex, actual debt/lease/reserve/parent restrictions."
+  },
+  "receipt_and_profit_requirements": [
+    "Per-cohort hardware/commissioning and first-contract end dates",
+    "Original asset cost, remaining book value, depreciation end and economic life",
+    "Loan principal and payoff proof, new liens and pledged cash restrictions",
+    "Signed renewal start/end/price and recognized revenue",
+    "Operating, repair, sustaining capex, software/overhead and remaining depreciation",
+    "Customer prepayment receipt/refund/use restrictions and deferred recognition",
+    "Parent interest/tax/diluted-share reconciliation"
+  ],
+  "next_action": "Owner86: obtain one actual signed and debt-reconciled renewal cohort with remaining depreciation and billing dates, then reconcile GAAP profit and distributable cash in the existing engine; do not value all announced renewals as completed."
+}

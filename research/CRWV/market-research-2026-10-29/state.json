@@ -1,6 +1,6 @@
 {
   "schema": "crwv.research_state@1",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "purpose": "Maintain dated CRWV earnings, capacity, funding and price assessment with an explicit source and assumption trail",
   "status": "funding_terms_and_earnings_hurdles_documented_actual_receipts_unverified",
   "owner": {
@@ -23,8 +23,8 @@
     }
   ],
   "objectives": {
-    "now": "Qualified revenue streams/partnership stages/TAM and testedGAAPmargin/funding/dilution sensitivities",
-    "next": "Owner86: qualify the2027–2028 renewed-fleet cash and GAAP profit cohort using actual signed renewals, depreciation/maintenance schedules, receipt/draw restrictions and independent diluted shares; keep new-stream revenues unknown until disclosed.",
+    "now": "Separated renewal debt payoff, six-year accounting life and revenue recognition timing",
+    "next": "Owner86: obtain one actual signed and debt-reconciled renewal cohort with remaining depreciation and billing dates, then reconcile GAAP profit and distributable cash in the existing engine; do not value all announced renewals as completed.",
     "later": "Qualify repeatable 2027 and 2028 capital and earnings revisions"
   },
   "children": [
@@ -83,7 +83,9 @@
     "eps-calendar-2026-2030.json",
     "eps-calendar-2026-2030.md",
     "growth-streams-and-stress-2026-11-20.json",
-    "growth-streams-and-stress-2026-11-20.md"
+    "growth-streams-and-stress-2026-11-20.md",
+    "renewal-cohort-review-2026-11-21.json",
+    "renewal-cohort-review-2026-11-21.md"
   ],
   "next_actions": [
     {
