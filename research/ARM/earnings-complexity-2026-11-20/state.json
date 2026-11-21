@@ -1,0 +1,38 @@
+{
+  "id": "ARM_EARNINGS_COMPLEXITY_20261120",
+  "parent": {
+    "role": "../../../AGENTS.md",
+    "registry": "../../../orchestration/sparks.json",
+    "spark": "B12"
+  },
+  "purpose": "Explain complexity monetization, EPS growth and compression with reproducible arithmetic",
+  "objectives": {
+    "minimum": "Source verified quarter and EPS calendar",
+    "next": "Independent review of assumptions and current estimates"
+  },
+  "status": "research_draft",
+  "owner": "B12-287",
+  "issue": "https://github.com/whiterosecoffee/_BASKET/issues/287",
+  "branch": "work/287-arm-complexity-eps",
+  "base_commit": "433d3574033a35f24910dc1ffee21ecbf27702dc",
+  "feature_designs": [
+    "feature-design.md"
+  ],
+  "evidence": [
+    "inputs.json",
+    "observations.jsonl",
+    "results.json"
+  ],
+  "dependencies": [
+    {
+      "spark": "B09",
+      "blocking": false,
+      "reason": "No SoftBank NAV computed"
+    }
+  ],
+  "children": [],
+  "planned_nodes": [],
+  "next_action": "Independently review consensus vintage and royalty assumptions at the draft PR",
+  "integration_status": "unmerged",
+  "ci_status": "pending_external_verification"
+}

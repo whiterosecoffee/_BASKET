@@ -1,0 +1,146 @@
+{
+  "model_version": "arm-complexity-sensitivity/0.1.0",
+  "as_of_market_date": "2026-11-20",
+  "retrieved_at": "2026-11-21T00:40:24.797735+00:00",
+  "currency": "USD",
+  "sources": {
+    "results": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000141/exhibit992fye27q230-sepx26.htm",
+      "class": "issuer_filing",
+      "available_date": "2026-11-04",
+      "observed_at": "2026-11-21T00:40:24.797735+00:00",
+      "ingested_at": "2026-11-21T00:40:24.797735+00:00",
+      "available_at": null,
+      "observation_method": "read during this session; exact first-publication time not established"
+    },
+    "filing": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000142/arm-20260930.htm",
+      "class": "issuer_filing",
+      "available_date": "2026-11-04",
+      "observed_at": "2026-11-21T00:40:24.797735+00:00",
+      "ingested_at": "2026-11-21T00:40:24.797735+00:00",
+      "available_at": null,
+      "observation_method": "read during this session; exact first-publication time not established"
+    },
+    "transcript": {
+      "url": "https://investors.arm.com/static-files/6f3ab670-7d16-479b-948a-7b1df5ff5b32",
+      "class": "issuer_hosted_transcript",
+      "available_date": "2026-11-05",
+      "observed_at": "2026-11-21T00:40:24.797735+00:00",
+      "ingested_at": "2026-11-21T00:40:24.797735+00:00",
+      "available_at": null,
+      "observation_method": "read during this session; exact first-publication time not established"
+    },
+    "presentation": {
+      "url": "https://investors.arm.com/static-files/09d542eb-980d-42c8-8965-ed4f9d83aa28",
+      "class": "issuer_presentation",
+      "available_date": "2026-11-04",
+      "long_term_estimate_vintage": "2026-03",
+      "observed_at": "2026-11-21T00:40:24.797735+00:00",
+      "ingested_at": "2026-11-21T00:40:24.797735+00:00",
+      "available_at": null,
+      "observation_method": "read during this session; exact first-publication time not established"
+    },
+    "consensus": {
+      "url": "https://stockanalysis.com/stocks/arm/forecast/",
+      "class": "third_party_consensus",
+      "data_as_of_date": "2026-11-17",
+      "provider": "S&P Global via Stock Analysis",
+      "observed_at": "2026-11-21T00:40:24.797735+00:00",
+      "ingested_at": "2026-11-21T00:40:24.797735+00:00",
+      "available_at": null,
+      "observation_method": "read during this session; exact first-publication time not established"
+    },
+    "market": {
+      "url": "https://massive.com/docs/rest/stocks/aggregates/daily-ticker-summary",
+      "class": "entitled_market_provider",
+      "endpoint": "/v1/open-close/ARM/2026-11-20",
+      "observed_at": "2026-11-21T00:40:24.797735+00:00",
+      "ingested_at": "2026-11-21T00:40:24.797735+00:00",
+      "available_at": null,
+      "observation_method": "read during this session; exact first-publication time not established"
+    },
+    "sector": {
+      "url": "https://www.marketwatch.com/story/chip-stocks-see-2-3-trillion-weekly-wipeout-as-panic-grips-the-ai-trade-371f2f03",
+      "class": "third_party_reporting",
+      "available_date": "2026-11-20",
+      "observed_at": "2026-11-21T00:40:24.797735+00:00",
+      "ingested_at": "2026-11-21T00:40:24.797735+00:00",
+      "available_at": null,
+      "observation_method": "read during this session; exact first-publication time not established"
+    }
+  },
+  "observations": {
+    "q2_period_end": "2026-09-30",
+    "q2_revenue_m": 1443,
+    "q2_license_m": 773,
+    "q2_royalty_m": 670,
+    "q2_license_yoy_pct": 50,
+    "q2_royalty_yoy_pct": 8,
+    "q2_adjusted_eps": 0.52,
+    "q2_gaap_eps": 0.12,
+    "q2_sbc_m": 376,
+    "q2_adjusted_opex_m": 774,
+    "q2_acv_yoy_pct": 12,
+    "q2_gaap_gross_margin_pct": 97.1,
+    "q3_adjusted_eps_mid": 0.56,
+    "q3_adjusted_eps_half_range": 0.04,
+    "q3_revenue_mid_m": 1540,
+    "q3_adjusted_opex_m": 825,
+    "q3_royalty_yoy_guidance": "low single digits",
+    "agi_first_shipments": "FY27 Q4 (Jan-Mar 2027)",
+    "agi_cumulative_revenue_fy27_fy28_upper_m": 2000,
+    "agi_gross_margin_range_pct": [
+      30,
+      40
+    ],
+    "fy26_royalty_mix_pct": {
+      "edge": 78,
+      "cloud": 14,
+      "physical": 8
+    },
+    "q2_cloud_royalty_yoy_pct": 100,
+    "q2_physical_royalty_yoy_pct": 50,
+    "close": 152.2,
+    "previous_close": 177.17,
+    "session_low": 150.37,
+    "session_high": 170.675
+  },
+  "consensus_adjusted_eps": {
+    "FY26_actual": 1.77,
+    "FY27_ending_2027-03-31": 2.27,
+    "FY28_ending_2028-03-31": 3.09
+  },
+  "assumptions": {
+    "diluted_shares_b": 1.1,
+    "tax_rate": 0.15,
+    "incremental_royalty_operating_margin": [
+      0.7,
+      0.85
+    ],
+    "incremental_revenue_b": 1,
+    "hardware_gross_margin": [
+      0.3,
+      0.4
+    ],
+    "price_grid": [
+      100,
+      125,
+      150,
+      175,
+      200
+    ],
+    "fy28_eps_scenarios": [
+      2.5,
+      3.09,
+      4.0
+    ]
+  },
+  "limitations": [
+    "Consensus refreshed Nov 17 rather than guaranteed post-Nov20 revisions.",
+    "Direct silicon gross margin is not net margin; incremental opex and cannibalization unknown.",
+    "Core and subsystem pricing illustrations do not apply to every contract.",
+    "No calibrated probabilities, live feed, point-in-time backtest or current SFTBY NAV.",
+    "Aggregate market data volumes vary by provider coverage; no volume-based prediction."
+  ]
+}
