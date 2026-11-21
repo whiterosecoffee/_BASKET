@@ -1,0 +1,93 @@
+{
+  "schema": "basket.mrie_source_fixture@1",
+  "status": "research_fixture_not_canonical",
+  "entity": {
+    "ticker": "AAOI",
+    "name": "Applied Optoelectronics, Inc.",
+    "cik": "0001158114"
+  },
+  "period_end": "2026-09-30",
+  "economic_event_id": "AAOI:earnings:2026-09-30",
+  "source_documents": [
+    {
+      "id": "SEC:0001437749-26-035282",
+      "kind": "sec_10_q",
+      "form": "10-Q",
+      "accession": "0001437749-26-035282",
+      "url": "https://www.sec.gov/Archives/edgar/data/1158114/000143774926035282/aaoi20260930_10q.htm",
+      "published_date": "2026-11-05",
+      "accepted_at": null,
+      "available_at": null,
+      "raw_document_sha256": null,
+      "excerpt": "Revenue, net ... 269,875 ... 118,630",
+      "excerpt_units": "USD thousands"
+    },
+    {
+      "id": "IR:AAOI:2026-11-05-Q3-earnings",
+      "kind": "official_issuer_release",
+      "url": "https://investors.ao-inc.com/2026-11-05-Applied-Optoelectronics-Reports-Third-Quarter-2026-Results",
+      "published_date": "2026-11-05",
+      "accepted_at": null,
+      "available_at": null,
+      "raw_document_sha256": null,
+      "excerpt": "GAAP revenue was $269.9 million, compared with $118.6 million in the third quarter of 2025",
+      "excerpt_units": "USD millions"
+    }
+  ],
+  "canonical_candidate": {
+    "id": "AAOI:earnings:2026-09-30",
+    "type": "earnings",
+    "reported_period_end": "2026-09-30",
+    "reported_values": [
+      {
+        "metric": "revenue",
+        "value": 269875000,
+        "unit": "USD",
+        "source": "SEC:0001437749-26-035282"
+      },
+      {
+        "metric": "prior_year_revenue",
+        "value": 118630000,
+        "unit": "USD",
+        "source": "SEC:0001437749-26-035282"
+      }
+    ],
+    "source_ids": [
+      "SEC:0001437749-26-035282",
+      "IR:AAOI:2026-11-05-Q3-earnings"
+    ],
+    "accepted": false,
+    "ingested_at": null,
+    "notification_candidate": false
+  },
+  "separate_forward_guidance": {
+    "status": "issuer_forecast_not_observed",
+    "period": "2026-Q4",
+    "revenue_range_usd": [
+      385000000,
+      420000000
+    ],
+    "source_id": "IR:AAOI:2026-11-05-Q3-earnings"
+  },
+  "verification": {
+    "source_excerpts_checked": "2026-11-21",
+    "full_raw_bytes_saved": false,
+    "acceptance_timestamp_verified": false,
+    "canonical_persistence_verified": false,
+    "as_of_rule": "source availability unknown: no point-in-time acceptance before authoritative timestamp confirmed",
+    "historical_backfill": true,
+    "alert_allowed": false
+  },
+  "integration": {
+    "owner": "B03",
+    "issue": 12,
+    "follow_on": "raw document capture and independent accepted events@1 write/readback",
+    "downstream": "B00 #269 / PR #270 read-only replay",
+    "do_not_infer": [
+      "source excerpt SHA as full document SHA",
+      "issuer guidance as realized financials",
+      "two releases as two earnings events",
+      "historical backfill as fresh alert"
+    ]
+  }
+}
