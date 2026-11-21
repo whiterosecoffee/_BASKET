@@ -1,0 +1,63 @@
+{
+  "format": "basket.analysis_component.draft@1",
+  "id": "company-analysis-method",
+  "version": "0.1.0-draft",
+  "purpose": "Reusable evidence-to-economics-to-valuation research method, independent of ticker",
+  "status": "draft_documented_local_arithmetic_verified",
+  "owner": {
+    "spark": "B00",
+    "issue": 75,
+    "branch": "work/75-orcl-evolving-tracker",
+    "pr": 77
+  },
+  "parent_guidance": "../../../AGENTS.md",
+  "files": {
+    "guidance": "AGENTS.md",
+    "design": "feature-design.md",
+    "prompt": "prompt.md",
+    "review": "review.md",
+    "replay": "replay.py"
+  },
+  "children": [
+    {
+      "id": "ORCL-analysis",
+      "state": "../orcl_analysis/state.json"
+    }
+  ],
+  "promotion_status": "local candidate only; no global pattern registration or second-ticker acceptance",
+  "objectives": [
+    {
+      "tier": 1,
+      "objective": "Separate facts, guidance, estimates, scenarios and unknowns",
+      "status": "implemented_in_documents"
+    },
+    {
+      "tier": 2,
+      "objective": "Reproduce EPS growth, multiples and financing math",
+      "status": "local_arithmetic_verified"
+    },
+    {
+      "tier": 3,
+      "objective": "Generalize using a second independent ticker",
+      "status": "planned_not_started"
+    }
+  ],
+  "planned_nodes": [
+    {
+      "id": "cross_ticker_adapter",
+      "input": "second ticker source ledger and fiscal configuration",
+      "output": "comparative method fit and exceptions",
+      "status": "planned"
+    },
+    {
+      "id": "quarterly_cohort_cash_bridge",
+      "input": "accepted site revenue/lease/capex/debt schedules",
+      "output": "EPS and cash reconciliation by quarter",
+      "status": "planned_requires_domain_owner"
+    }
+  ],
+  "next_actions": [
+    "Validate ORCL adapter; do not build a new feed or shared financial engine."
+  ],
+  "conflicts": []
+}
