@@ -1,0 +1,56 @@
+{
+  "component_id": "WDC_EARNINGS_COMPETITIVE_ECONOMICS_20261120",
+  "purpose": "Dated, reproducible WDC EPS-growth and competitive-economics assessment",
+  "owner": "B04",
+  "issue": 303,
+  "branch": "work/303-wdc-growth-moat",
+  "parent": "/AGENTS.md",
+  "guidance": [
+    "/orchestration/sparks.json",
+    "/orchestration/WORKER_PROTOCOL.md"
+  ],
+  "objectives": {
+    "now": "Compare dated EPS and compression with moat and margin evidence",
+    "next": "Reconcile long-horizon analyst cohorts, diluted shares and GAAP bridge",
+    "later": "Receive canonical FETCH evidence before validated valuation use"
+  },
+  "status": "research_draft",
+  "dependencies": [
+    {
+      "issue": 291,
+      "status": "historical lead reused"
+    },
+    {
+      "issue": 207,
+      "status": "FETCH refresh requested; receipt pending"
+    },
+    {
+      "pr": 296,
+      "status": "WDC peer comparison reused; independent scope"
+    }
+  ],
+  "planned_nodes": [
+    {
+      "path": "feature-design.md",
+      "input": "Primary issuer releases and separately identified vendor forecasts",
+      "output": "Growth, valuation, sensitivity and source-quality contract"
+    },
+    {
+      "path": "inputs-results.json",
+      "input": "Dated public research summaries",
+      "output": "Arithmetic and provenance, no raw licensed rows"
+    },
+    {
+      "path": "REPORT.md",
+      "input": "Evidence and arithmetic",
+      "output": "Company assessment and falsifiers"
+    }
+  ],
+  "unknowns": [
+    "Canonical adjusted high/history and AH verification",
+    "Long-horizon EPS definition and analyst cohort counts",
+    "Future GAAP EPS and SBC/dilution",
+    "Actual contract cancellation and repricing terms"
+  ],
+  "next_action": "Verify same-cohort EPS/revenue/gross-margin/diluted-share bridge; keep vendor inconsistencies unresolved."
+}
