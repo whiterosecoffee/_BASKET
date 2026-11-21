@@ -41,3 +41,17 @@ Run python calculate.py in this directory. Inputs, source classes and assumption
 
 Sources S1-S7: exact URLs and source/period dates in inputs.json. This research adds no ingestion, scheduler, market runtime or shared economic engine.
 
+
+## User-requested 2026–2030 extension
+One consistent FMP estimate vintage, November17,2026 (https://deltascreener.com/stock/MRVL/forecast). The earlier bridge uses separately dated7.37/12.60 inputs; do not silently replace them with this panel. Different vintages/provider populations explain small differences; no consensus revision claim is inferred from cross-provider differences.
+
+| Fiscal year | Mostly calendar year | Adjusted EPS | YoY | P/E at125.75 | Full-year report |
+|---|---|---|---|---|---|
+| 2026 | 2025 | $2.84 | 80.9% | 44.3x | 2026-03-05 |
+| 2027 | 2026 | $4.21 | 48.2% | 29.9x | March 2027 estimated |
+| 2028 | 2027 | $7.28 | 72.9% | 17.3x | March 2028 estimated |
+| 2029 | 2028 | $12.51 | 71.8% | 10.1x | March 2029 estimated |
+| 2030 | 2029 | $18.99 | 51.8% | 6.6x | March 2030 estimated |
+| 2031 | 2030 | $28.95 | 52.4% | 4.3x | March 2031 estimated |
+
+Future March windows are inferred historical cadence, unconfirmed. Fiscal-year ending JanuaryY approximates calendarY-1, not an exact conversion. Dec1,2026 Q3FY2027 is the next issuer-announced report, at14:30 Arizona. FY2031 covers most calendar2030; issuer's October6 investor-day target is >$30 adjusted EPS forFY2031, separately from FMP28.95 consensus. Outer-year estimates retain source/basis and merger limitations. HistoricalFY26EPS2.84 and full-year reportMarch5,2026 are issuer facts. The panel supplies adjusted growth/multiples; forward verified GAAP remains unknown.

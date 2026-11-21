@@ -21,7 +21,8 @@
   "evidence": [
     "inputs.json",
     "results.json",
-    "VALIDATION.md"
+    "VALIDATION.md",
+    "horizon-2026-2030.json"
   ],
   "feature_designs": [
     "feature-design.md"
@@ -81,6 +82,8 @@
     "independent_decimal_cases": 6,
     "replay": "byte_identical",
     "shared_ci": "pending_check",
-    "independent_financial_review": "pending"
-  }
+    "independent_financial_review": "pending",
+    "future_growth_ladder": "Five forward growth/P-E rows independently recomputed using Python Decimal; passed."
+  },
+  "scope_extension": "User requested 2026–2030 dates, YoY EPS and P/E; added horizon-2026-2030.json with one FMP vintage, explicit fiscal/calendar mapping and unconfirmed reporting windows."
 }
