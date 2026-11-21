@@ -1,0 +1,7 @@
+Read the repository guidance, analysis_method/AGENTS.md and state.json, then the selected ticker's AGENTS.md and state.json. Follow explicit parent references; do not assume JSON implements inheritance. Reconcile the owner's existing issue/branch/PR and current path collisions before writing.
+
+Select the first unmet objective with usable inputs. Refresh relevant sources and preserve prior corrections. Build only the smallest useful change linking business demand, revenue, margins, financing, cash, diluted recurring EPS and conditional valuation. Keep reported facts, issuer forecasts, consensus, scenario assumptions and missing values separate. Use the ticker's fiscal calendar and named accounting basis. State period ends and release dates independently.
+
+For market questions, request the existing FETCH update and inspect accepted per-day JSONL/receipt. Do not create a competing fetcher or call stale context live. For strategy questions, trace each partner/product to paid revenue, capital needs, margins and falsifiers. For multiple questions, require matching horizons/bases, retain nulls and avoid double-counting discounts.
+
+Run the method's arithmetic replay and child review, update evidence and state, publish only to the owned branch and verify remote files. Report actual checks, unresolved gaps, branch/main status and one next action. Do not trade, schedule, merge or promote the candidate method without the required authorization and review.
