@@ -8,7 +8,7 @@
   "purpose": "Explain complexity monetization, EPS growth and compression with reproducible arithmetic",
   "objectives": {
     "minimum": "Source verified quarter and EPS calendar",
-    "next": "Reconcile cash generation and future employee ownership claims in per-share valuation"
+    "next": "Reconcile custom-design royalties with quarter-matched segment volumes and contractual content"
   },
   "status": "research_draft",
   "owner": "B12-287",
@@ -18,7 +18,8 @@
   "feature_designs": [
     "feature-design.md",
     "feature-design-gaap-bridge.md",
-    "feature-design-assumptions-review.md"
+    "feature-design-assumptions-review.md",
+    "feature-design-growth-upside.md"
   ],
   "evidence": [
     "inputs.json",
@@ -29,7 +30,9 @@
     "gaap-validation.json",
     "GAAP_BRIDGE.md",
     "gaap-bridge.csv",
-    "ASSUMPTIONS_REVIEW.md"
+    "ASSUMPTIONS_REVIEW.md",
+    "growth-upside-inputs.json",
+    "growth-upside-results.json"
   ],
   "dependencies": [
     {
@@ -55,14 +58,23 @@
       "input": "Annual and interim award disclosures; actual SBC tax effect; dated GAAP net-income forecasts",
       "output": "Compensation growth, tax sensitivity and GAAP consensus reference through FY29",
       "design": "feature-design-assumptions-review.md"
+    },
+    {
+      "id": "ARM_GROWTH_UPSIDE",
+      "kind": "feature_variant",
+      "status": "implemented_research_variant",
+      "input": "Published long-term management model, current growth split and contractual royalty accounting",
+      "output": "Identified growth vs unproven consensus omissions; horizon-aware sensitivity",
+      "design": "feature-design-growth-upside.md"
     }
   ],
-  "next_action": "Review cash flow and award settlements without conflating noncash GAAP expense with cash spending; independent acceptance remains pending",
+  "next_action": "Obtain quarter-matched absolute royalties, shipments and pricing by segment before asserting an exact 8% royalty-growth bridge",
   "integration_status": "unmerged",
   "ci_status": "new_revision_pending_external_verification",
   "model_versions": {
     "complexity_sensitivity": "0.1.0",
-    "forward_gaap_bridge": "0.2.0"
+    "forward_gaap_bridge": "0.2.0",
+    "growth_upside": "0.1.0"
   },
   "previous_model_revision": "a89d6ffaafa7e88b4c29d14e63ea7db1ecd8c71a"
 }

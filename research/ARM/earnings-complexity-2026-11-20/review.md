@@ -13,3 +13,7 @@ Local historical reconciliation, independent forward arithmetic, fiscal boundary
 ## Compensation/dilution second-method review
 
 Read annual and interim award/tax notes and dated net-income aggregates separately. Unrecognized Omnibus costs rose 98.1% March to September. Actual historical SBC tax-effect ratios (about 16% FY26 and 21% H1 FY27) support a sensitivity rather than one guaranteed tax shield. H1 basic versus diluted denominator difference is 1.03%; that is distinct from the large GAAP versus adjusted numerator difference. SBC expense is not cash returned to the company. New report preserves original GAAP stress cases and separately labels consensus-derived EPS. This owning-worker review is not independent acceptance. All local checks and byte-identical output replay passed.
+
+## Growth-horizon correction
+
+Earlier near-term GAAP scenarios did not fully present the published FYE31 growth case. Added management-target, consensus and unpriced-upside distinctions; annual segment mix is not a quarter-matched royalty bridge. Verified royalties accrue in shipment quarter, so blanket reporting-lag explanations are invalid. Contract volume tiers and licensing treatment of buy-downs are sourced mechanisms, not quantified causes of this quarter. Long-term $9 is adjusted, not GAAP EPS; future dilution unresolved. Local growth/horizon arithmetic and byte-identical replay passed.

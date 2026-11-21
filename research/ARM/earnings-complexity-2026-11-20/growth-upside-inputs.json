@@ -1,0 +1,114 @@
+{
+  "model_version": "arm-growth-upside/0.1.0",
+  "reference_date": "2026-11-20",
+  "currency": "USD",
+  "observed_at": "2026-11-21T03:36:22.816617+00:00",
+  "reference_price": 152.2,
+  "reference_price_status": "historical_regular_close",
+  "management_target": {
+    "period_end": "2031-03-31",
+    "classification": "issuer_long_term_target_not_guidance_or_consensus",
+    "ip_revenue_b": 10,
+    "chip_revenue_b": 15,
+    "total_revenue_b": 25,
+    "adjusted_eps_lower_reference": 9,
+    "actual_statement": "more than $9 non-GAAP EPS power",
+    "ip_adjusted_operating_margin_lower_reference": 0.65,
+    "chip_adjusted_operating_margin_lower_reference": 0.3,
+    "chip_gross_margin_lower_reference": 0.5,
+    "royalty_cagr_target": 0.2,
+    "core_count_per_chip_growth_assumption": 0.2,
+    "status": "published_March_2026_model_referenced_in_later_materials"
+  },
+  "near_term_estimates": {
+    "period_end": "2028-03-31",
+    "adjusted_eps": 3.09,
+    "revenue_b": 8.37,
+    "classification": "third_party_consensus_Nov17_vintage"
+  },
+  "reported_growth": {
+    "period_end": "2026-09-30",
+    "revenue": 0.27,
+    "license": 0.5,
+    "royalty": 0.08,
+    "data_center_royalty": 1.0,
+    "physical_ai_royalty": 0.5,
+    "edge_ai_royalty": "roughly_flat",
+    "classification": "issuer_reported_and_management_segment_descriptions"
+  },
+  "sensitivity": {
+    "fy31_adjusted_eps_cases": [
+      5,
+      7,
+      9
+    ],
+    "exit_adjusted_pe_cases": [
+      25,
+      30,
+      35
+    ],
+    "discount_rate_cases": [
+      0.1,
+      0.12,
+      0.15
+    ],
+    "classification": "unweighted_hypothetical_future_share_price_sensitivity_not_DCF_or_target",
+    "gaap_eps_available": false
+  },
+  "sources": {
+    "investor_session": {
+      "url": "https://investors.arm.com/static-files/01d3c055-162f-4cf4-a983-5bb338aeb5e5",
+      "class": "issuer_hosted_investor_session",
+      "source_event": "Arm Everywhere March 2026",
+      "facts": [
+        "FYE31 target",
+        "20% core-count assumption",
+        "robotics largely beyond FYE31",
+        "mid-teens adjusted opex growth"
+      ]
+    },
+    "november_call": {
+      "url": "https://investors.arm.com/static-files/6f3ab670-7d16-479b-948a-7b1df5ff5b32",
+      "class": "issuer_hosted_earnings_call",
+      "event_date": "2026-11-04",
+      "facts": [
+        "segment growth",
+        "memory pressure",
+        "first shipments FYE27 Q4",
+        "supply constraints"
+      ]
+    },
+    "filing": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000142/arm-20260930.htm",
+      "class": "issuer_filing",
+      "available_date": "2026-11-04",
+      "facts": [
+        "royalties accrued in shipment quarter",
+        "some volume discounts",
+        "buy-downs/minimum commitments classified as licensing",
+        "contract rates percentage ASP or fixed-per-chip"
+      ]
+    },
+    "results": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000141/exhibit992fye27q230-sepx26.htm",
+      "class": "issuer_filing",
+      "available_date": "2026-11-04",
+      "facts": [
+        "headline growth",
+        "license-to-production timing"
+      ]
+    },
+    "consensus": {
+      "url": "https://stockanalysis.com/stocks/arm/forecast/",
+      "class": "third_party_consensus",
+      "data_as_of_date": "2026-11-17"
+    }
+  },
+  "unknowns": [
+    "Quarter-matched absolute royalties by cloud, edge and physical AI needed to reconcile weighted 8% total growth exactly",
+    "No analyst-level model proves a disclosed growth driver is omitted from consensus",
+    "No quantified signed accelerator-compute expansion contract established in this review",
+    "Future GAAP bridge and diluted shares for FYE31 remain unknown",
+    "Royalty rate coverage is not guaranteed shipment volume or take-or-pay backlog"
+  ]
+}
