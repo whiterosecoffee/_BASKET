@@ -75,3 +75,38 @@ Source https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-2
 Meaning of Google customer-share loss: reduced share of Google's chip procurement allocated to AVGO, product mix/ASP changes or deployment delays. Those can occur while total AI demand grows. Existing20/30/40% affected revenue shares in stress model are hypothetical total-company product exposures, not verified Google percentages. Example20% exposure x20% product-sales reduction =4% total revenue loss under constant ASP; premium-product mix could magnify it.
 Stress results remain baseline19.62/30.61 FY27/FY28; narrow4% revenue loss18.84/29.35; broader6% loss+3pp additional operating-margin compression17.60/27.37; severe12% loss+5pp compression+2%dilution15.65/24.24. Assumptions65% lost-revenue contribution,16% tax,5B diluted shares; not company guidance, GAAP EPS or calibrated probabilities. If baseline growth stalls, downside can exceed these preserved-growth cases.
 Each additional1pp margin compression on full baseline sales costs about0.30FY27EPS and0.48FY28EPS under the same tax/share assumptions. Long-term relationship provides visibility; earnings durability still depends on allocated content, volumes, pricing, costs and dilution.
+
+## AVGO versus MRVL/LITE: trailing valuation and future growth — November20,2026
+Regular-session close reference USD: AVGO304.41, MRVL122.28,LITE460.54. Provider trailing GAAP P/E38.86,41.08,not meaningful respectively. Published rounded EPS7.83,2.98,-82.08; use provider unrounded multiples rather than imply precision by dividing rounded fields. Source stockanalysis.com/stocks/{avgo,mrvl,lite}/ accessed this turn.
+MRVL trailing earnings include a1.8B pretax automotive Ethernet divestiture gain (completed Aug14,2025; last reported quarter Aug2026 means gain remains in trailing period). Source https://investor.marvell.com/news-events/press-releases/detail/999/marvell-technology-inc-reports-third-quarter-of-fiscal-year-2026-financial-results . Do not treat trailing GAAP PE as recurring operating valuation. LITE debt extinguishment materially distorts GAAP losses; source https://www.sec.gov/Archives/edgar/data/1633978/000162828026057358/lite-20260627.htm .
+Simple sum of displayed company TTM income2.64B-6.58B=-3.94B; combined trailing GAAP PE not meaningful. This is a diagnostic of reported historical earnings, not a transaction-adjusted pro forma statement or average of PEs.
+
+Future estimates: ChartMill single-provider normalized EPS per issuer. MRVL/LITE snapshot recorded Nov14; AVGO captured Nov20 without independently verified original update time. No qualified live canonical feed, FETCH or ticker store used. All valuation prices dated Nov20 close.
+https://www.chartmill.com/stock/quote/AVGO/estimates
+https://www.chartmill.com/stock/quote/MRVL/estimates
+https://www.chartmill.com/stock/quote/LITE/estimates
+
+|Issuer|FY end approximately|EPS|YoY growth|Cumulative vs own FY26|P/E at Nov20 close|
+|---|---|---:|---:|---:|---:|
+|AVGO|Oct/Nov 2026|11.78|—|0.0%|25.8x|
+|AVGO|Oct/Nov 2027|19.62|66.6%|66.6%|15.5x|
+|AVGO|Oct/Nov 2028|30.61|56.0%|159.8%|9.9x|
+|AVGO|Oct/Nov 2029|41.48|35.5%|252.1%|7.3x|
+|AVGO|Oct/Nov 2030|48.63|17.2%|312.8%|6.3x|
+|MRVL|Jan 2026|2.85|—|0.0%|42.9x|
+|MRVL|Jan 2027|4.30|50.9%|50.9%|28.4x|
+|MRVL|Jan 2028|7.51|74.7%|163.5%|16.3x|
+|MRVL|Jan 2029|13.03|73.5%|357.2%|9.4x|
+|MRVL|Jan 2030|14.76|13.3%|417.9%|8.3x|
+|LITE|Jun 2026|8.37|—|0.0%|55.0x|
+|LITE|Jun 2027|24.21|189.2%|189.2%|19.0x|
+|LITE|Jun 2028|39.70|64.0%|374.3%|11.6x|
+|LITE|Jun 2029|54.95|38.4%|556.5%|8.4x|
+|LITE|Jun 2030|unverified|—|—|—|
+
+Fiscal periods are NOT aligned. MRVL FY2028 ends Jan2028, LITE Jun2028, AVGO around Nov2028. Their FY26 baselines similarly differ; cumulative growth percentages do not span identical dates. For endpoints clustered near calendar2028 year-end: AVGO FY28 Nov28 EPS30.61(+56.0% YoY,+159.8% vs FY26), MRVL FY29 Jan29 EPS13.03(+73.5%,+357.2%), LITE FY29 Jun29 EPS54.95(+38.4%,+556.5%); LITE extends7months beyond AVGO. This approximate overlay is not exact calendarization.
+
+Pairing status: LITE transaction remains proposed, expected H1calendar2028. Cannot add standalone EPS, average PEs, stack Celestial expected revenue atop embedded consensus, or label constituent growth as combined-parent EPS. Proper combined formula: (calendar-aligned MRVL earnings + aligned LITE earnings + after-tax synergies - integration/purchase-accounting adjustments)/(MRVL diluted shares + 4.5*eligible LITE shares + other incremental dilution), after avoiding preexisting earnings adjustments/double count. Preclose holding mix unspecified; no invented portfolio weights. Existing owner PR191 research remains read only.
+LITE2030 null; do not extrapolate a consensus. MRVL2030 EPS rises while provider sales/operating income decline; sparse/different analyst-cohort inconsistency unresolved. Distant forecasts not a verified integrated model.
+
+Interpretation: AVGO lower published trailing multiple and lower own-FY28 normalized multiple than either constituent; MRVL/LITE show faster long-horizon earnings growth but carry calendar, concentration, dilution and integration uncertainty. No universal risk-adjusted winner established. Next: calendarize combined diluted earnings to common Dec2027/Dec2028 endpoints before parent valuation.
