@@ -1,0 +1,33 @@
+{
+  "id": "SFTBY_CAPITAL_CONVERSION",
+  "parent": "research/SFTBY",
+  "spark": "B09",
+  "status": "research_prototype",
+  "issue": 300,
+  "branch": "work/300-sftby-capital-conversion-rotation",
+  "as_of": "2026-11-20",
+  "objective": "2027-2030 quarterly capital conversion, NAV alpha per dollar invested and quarterly LTV/liquidity",
+  "design": "feature-design.md",
+  "workbook": "local chat workbook, not committed",
+  "links": {
+    "official_nav": "https://group.softbank/en/ir/stock/sotp",
+    "arm": "https://newsroom.arm.com/news/arm-q2-fye27-results",
+    "sbenergy": "https://www.sec.gov/Archives/edgar/data/2133037/000162828026075026/sbenergy-sx1a3.htm"
+  },
+  "evidence": {
+    "local_workbook_formula_error_scan": "0 matches",
+    "repo_ci": "not_run",
+    "current_nav": "unverified scenario",
+    "unrestricted_cash": "unverified"
+  },
+  "dependencies": [
+    28,
+    30
+  ],
+  "next_actions": [
+    "Reconcile unrestricted cash with post-October finance flows",
+    "Verify OpenAI fund rights and NAV embedded mark",
+    "Verify SB Energy parent participation"
+  ],
+  "review": "Confirm no operating revenue is double-added as equity NAV, and stress-case capital constraints are explicitly flagged."
+}
