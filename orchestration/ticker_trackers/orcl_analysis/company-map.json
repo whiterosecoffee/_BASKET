@@ -1,0 +1,442 @@
+{
+  "format": "basket.company_research_map.draft@1",
+  "ticker": "ORCL",
+  "as_of": "2026-11-21",
+  "classification": "source_linked_research_and_analyst_inference",
+  "revenue_streams": [
+    {
+      "id": "oci",
+      "name": "Cloud infrastructure",
+      "buyer": "Model developers, enterprises, sovereign operators",
+      "monetization": "accepted compute/network/storage services",
+      "source_ids": [
+        "S02",
+        "S05"
+      ],
+      "risk_tags": [
+        "capex",
+        "leases",
+        "customer_credit",
+        "power",
+        "depreciation"
+      ],
+      "standalone_profit_usd": null,
+      "overlap_policy": "Health/database/AI labels may overlay reported segments; not additive"
+    },
+    {
+      "id": "database",
+      "name": "Database, support and multicloud",
+      "buyer": "Enterprise transaction/data users",
+      "monetization": "support, migration, subscription and consumption",
+      "source_ids": [
+        "S02",
+        "S16",
+        "S17"
+      ],
+      "risk_tags": [
+        "legacy_cannibalization",
+        "competition",
+        "channel_economics"
+      ],
+      "standalone_profit_usd": null,
+      "overlap_policy": "Health/database/AI labels may overlay reported segments; not additive"
+    },
+    {
+      "id": "applications",
+      "name": "Fusion and NetSuite",
+      "buyer": "Finance/HR/supply-chain and smaller enterprises",
+      "monetization": "subscriptions, renewal and expansion",
+      "source_ids": [
+        "S02",
+        "S20"
+      ],
+      "risk_tags": [
+        "bundled_AI",
+        "implementation",
+        "seat_pricing"
+      ],
+      "standalone_profit_usd": null,
+      "overlap_policy": "Health/database/AI labels may overlay reported segments; not additive"
+    },
+    {
+      "id": "health",
+      "name": "Health/industry applications overlay",
+      "buyer": "Hospitals and regulated buyers",
+      "monetization": "deployment, workflow and service attachment",
+      "source_ids": [
+        "S02",
+        "S22"
+      ],
+      "risk_tags": [
+        "clinical_quality",
+        "procurement",
+        "implementation"
+      ],
+      "standalone_profit_usd": null,
+      "overlap_policy": "Health/database/AI labels may overlay reported segments; not additive"
+    },
+    {
+      "id": "services_hardware",
+      "name": "Services and hardware",
+      "buyer": "Product adopters and installed systems",
+      "monetization": "implementation and specialized hardware",
+      "source_ids": [
+        "S02"
+      ],
+      "risk_tags": [
+        "margin_mix",
+        "project_timing"
+      ],
+      "standalone_profit_usd": null,
+      "overlap_policy": "Health/database/AI labels may overlay reported segments; not additive"
+    }
+  ],
+  "partnerships": [
+    {
+      "counterparty": "OpenAI",
+      "role": "customer_and_model_distribution",
+      "status": "issuer_says_funded_delivery; enterprise_products_announced",
+      "monetization_path": "capacity billing and application/data adoption",
+      "source_ids": [
+        "S09",
+        "S13"
+      ],
+      "missing_proof": "payment/security and acceptance terms",
+      "recognized_revenue_usd": null,
+      "exclusive": null
+    },
+    {
+      "counterparty": "NVIDIA",
+      "role": "supplier_and_platform_ecosystem",
+      "status": "issuer_describes_GA_and_planned_expansion",
+      "monetization_path": "compute services; Oracle integration",
+      "source_ids": [
+        "S14"
+      ],
+      "missing_proof": "delivered/accepted racks and all-in economics",
+      "recognized_revenue_usd": null,
+      "exclusive": null
+    },
+    {
+      "counterparty": "AMD",
+      "role": "supplier_and_alternative_platform",
+      "status": "historical_plan_current_delivery_unverified",
+      "monetization_path": "alternative GPU/CPU services",
+      "source_ids": [
+        "S15"
+      ],
+      "missing_proof": "current delivery receipt",
+      "recognized_revenue_usd": null,
+      "exclusive": null
+    },
+    {
+      "counterparty": "AWS",
+      "role": "distribution_and_competitor",
+      "status": "counterparty_describes_GA_and_expanded_agreement",
+      "monetization_path": "database services via cloud channel",
+      "source_ids": [
+        "S16"
+      ],
+      "missing_proof": "recognized incremental Oracle profit",
+      "recognized_revenue_usd": null,
+      "exclusive": null
+    },
+    {
+      "counterparty": "Microsoft Azure",
+      "role": "distribution_and_competitor",
+      "status": "counterparty_announcements_mixed_GA_and_preview",
+      "monetization_path": "database and enterprise-data integration",
+      "source_ids": [
+        "S17"
+      ],
+      "missing_proof": "preview conversion, paid usage and economics",
+      "recognized_revenue_usd": null,
+      "exclusive": null
+    },
+    {
+      "counterparty": "Google Cloud",
+      "role": "distribution_and_competitor",
+      "status": "included_in_multicloud_plan",
+      "monetization_path": "database distribution",
+      "source_ids": [
+        "S18"
+      ],
+      "missing_proof": "service stage and authorized public-sector deployments",
+      "recognized_revenue_usd": null,
+      "exclusive": null
+    },
+    {
+      "counterparty": "Alloy operators",
+      "role": "local_operator_channel",
+      "status": "product_operating_model_documented",
+      "monetization_path": "platform/services to operator",
+      "source_ids": [
+        "S21"
+      ],
+      "missing_proof": "Oracle net economics vs operator revenue",
+      "recognized_revenue_usd": null,
+      "exclusive": null
+    }
+  ],
+  "leadership": [
+    {
+      "name": "Larry Ellison",
+      "role": "Chairman and CTO",
+      "assessment": "Strategic/product continuity; concentration and key-person risk",
+      "assessment_class": "analyst_judgment",
+      "source_ids": [
+        "S10",
+        "S11"
+      ],
+      "numeric_quality_score": null,
+      "falsifier": "adverse operating/cash outcomes or unexplained disclosure changes"
+    },
+    {
+      "name": "Clay Magouyrk",
+      "role": "Co-CEO",
+      "assessment": "OCI operating experience; capital-cycle returns not established",
+      "assessment_class": "analyst_judgment",
+      "source_ids": [
+        "S10",
+        "S11"
+      ],
+      "numeric_quality_score": null,
+      "falsifier": "adverse operating/cash outcomes or unexplained disclosure changes"
+    },
+    {
+      "name": "Mike Sicilia",
+      "role": "Co-CEO",
+      "assessment": "Industry/application expertise; paid AI expansion needs proof",
+      "assessment_class": "analyst_judgment",
+      "source_ids": [
+        "S10",
+        "S11"
+      ],
+      "numeric_quality_score": null,
+      "falsifier": "adverse operating/cash outcomes or unexplained disclosure changes"
+    },
+    {
+      "name": "Hilary Maxson",
+      "role": "CFO",
+      "assessment": "Infrastructure/energy finance background; execution outcome pending",
+      "assessment_class": "analyst_judgment",
+      "source_ids": [
+        "S12"
+      ],
+      "numeric_quality_score": null,
+      "falsifier": "adverse operating/cash outcomes or unexplained disclosure changes"
+    },
+    {
+      "name": "Safra Catz",
+      "role": "Executive vice chair",
+      "assessment": "Succession continuity; no automatic quality score",
+      "assessment_class": "analyst_judgment",
+      "source_ids": [
+        "S11"
+      ],
+      "numeric_quality_score": null,
+      "falsifier": "adverse operating/cash outcomes or unexplained disclosure changes"
+    }
+  ],
+  "innovation": [
+    {
+      "capability": "Database26ai integrated vector/relational features",
+      "ownership": "Oracle technology, platform/version availability varies",
+      "economic_hypothesis": "governed data use and database consumption",
+      "monetization_verified": false,
+      "source_ids": [
+        "S19"
+      ]
+    },
+    {
+      "capability": "OCI cluster/cloud/network integration",
+      "ownership": "Oracle integration with purchased NVIDIA/AMD hardware/IP",
+      "economic_hypothesis": "production performance/reliability and accepted capacity",
+      "monetization_verified": false,
+      "source_ids": [
+        "S14",
+        "S15"
+      ]
+    },
+    {
+      "capability": "Fusion agent orchestration/governance",
+      "ownership": "Oracle application platform with model partners",
+      "economic_hypothesis": "retention, consumption and workflow expansion; no assumed separate studio fee",
+      "monetization_verified": false,
+      "source_ids": [
+        "S20",
+        "S13"
+      ]
+    },
+    {
+      "capability": "Clinical AI workflows",
+      "ownership": "Oracle Health with deployment ecosystem",
+      "economic_hypothesis": "paid workflow adoption and implementation returns",
+      "monetization_verified": false,
+      "source_ids": [
+        "S22"
+      ]
+    }
+  ],
+  "moat_hypotheses": [
+    {
+      "layer": "Database",
+      "mechanism": "mission-critical dependencies and migration risk",
+      "erosion_test": "new workload losses and net support/migration erosion"
+    },
+    {
+      "layer": "Applications",
+      "mechanism": "embedded controls/workflows and integrations",
+      "erosion_test": "renewal/paid expansion weakens as agents substitute interfaces"
+    },
+    {
+      "layer": "Multicloud",
+      "mechanism": "follows existing customers into other clouds",
+      "erosion_test": "partner captures profit or alternatives improve"
+    },
+    {
+      "layer": "AI infrastructure",
+      "mechanism": "power/network/operations and contracts",
+      "erosion_test": "supplier capacity broadens and unit returns deteriorate"
+    },
+    {
+      "layer": "Sovereign/regulated",
+      "mechanism": "residency/control and local channel",
+      "erosion_test": "certification, procurement and cost undermine premium"
+    }
+  ],
+  "TAM": {
+    "aggregate_usd": null,
+    "reason": "No independently reconciled additive dollar TAM; overlapping budgets and capture unknown",
+    "method": "qualified buyer budget * addressable share * adoption * Oracle capture; then margin/reinvestment/financing/tax/dilution",
+    "expansion_pools": [
+      "training/inference services",
+      "multicloud database modernization",
+      "agentic enterprise workflows",
+      "sovereign/regulated cloud",
+      "public-sector multicloud",
+      "Health/industry workflows"
+    ],
+    "excluded_unverified_contributions": [
+      "direct robotics revenue",
+      "quantum earnings uplift"
+    ],
+    "source_ids": [
+      "S13",
+      "S18",
+      "S20",
+      "S21",
+      "S22"
+    ]
+  },
+  "multiple_discount_factors": [
+    {
+      "id": "accounting_quality",
+      "primary_model_channel": "forecast_quality_and_multiple",
+      "risk": "Adjusted earnings exclude costs; forward GAAP missing",
+      "narrowing_evidence": "reconciled recurring GAAP and owner cash",
+      "source_ids": [
+        "S02",
+        "S03"
+      ],
+      "numeric_haircut": null,
+      "assessment_class": "analyst_risk_inference"
+    },
+    {
+      "id": "capital_intensity",
+      "primary_model_channel": "reinvestment_and_multiple",
+      "risk": "Equipment, leases and replacement consume cash",
+      "narrowing_evidence": "returns after all capital and principal",
+      "source_ids": [
+        "S03",
+        "S05"
+      ],
+      "numeric_haircut": null,
+      "assessment_class": "analyst_risk_inference"
+    },
+    {
+      "id": "concentration",
+      "primary_model_channel": "forecast_cash_and_credit",
+      "risk": "Customer payment/renegotiation exposure",
+      "narrowing_evidence": "paying customer diversification and enforceable security",
+      "source_ids": [
+        "S09",
+        "S13"
+      ],
+      "numeric_haircut": null,
+      "assessment_class": "analyst_risk_inference"
+    },
+    {
+      "id": "timing",
+      "primary_model_channel": "forecast_timing_and_liquidity",
+      "risk": "Acceptance/billing may lag fixed obligations",
+      "narrowing_evidence": "matched cohort cash schedules",
+      "source_ids": [
+        "S03",
+        "S05"
+      ],
+      "numeric_haircut": null,
+      "assessment_class": "analyst_risk_inference"
+    },
+    {
+      "id": "financing",
+      "primary_model_channel": "cash_interest_and_dilution",
+      "risk": "Future refinancing, vendor obligations and equity",
+      "narrowing_evidence": "unrestricted liquidity and matched instrument terms",
+      "source_ids": [
+        "S07",
+        "S08"
+      ],
+      "numeric_haircut": null,
+      "assessment_class": "analyst_risk_inference"
+    },
+    {
+      "id": "business_mix",
+      "primary_model_channel": "margin_forecast",
+      "risk": "AI growth can reduce software-like blended margins",
+      "narrowing_evidence": "unit returns and enterprise profit durability",
+      "source_ids": [
+        "S02",
+        "S05"
+      ],
+      "numeric_haircut": null,
+      "assessment_class": "analyst_risk_inference"
+    },
+    {
+      "id": "technology",
+      "primary_model_channel": "forecast_and_reinvestment",
+      "risk": "Hardware generation and competitive substitution",
+      "narrowing_evidence": "production reliability and re-contracting",
+      "source_ids": [
+        "S14",
+        "S19"
+      ],
+      "numeric_haircut": null,
+      "assessment_class": "analyst_risk_inference"
+    },
+    {
+      "id": "governance",
+      "primary_model_channel": "multiple_and_capital_decisions",
+      "risk": "Concentrated decisions, incentives and pledged holdings",
+      "narrowing_evidence": "transparent capital returns and oversight",
+      "source_ids": [
+        "S11"
+      ],
+      "numeric_haircut": null,
+      "assessment_class": "analyst_risk_inference"
+    },
+    {
+      "id": "macro",
+      "primary_model_channel": "discount_rate_and_refinancing",
+      "risk": "Real yields, spreads and energy; no fitted causal model",
+      "narrowing_evidence": "matched benchmarks with validated sensitivities",
+      "source_ids": [],
+      "numeric_haircut": null,
+      "assessment_class": "analyst_risk_inference"
+    }
+  ],
+  "peer_policy": {
+    "current_peer_discount": null,
+    "rule": "Match horizon, earnings basis, lease accounting and cash conversion; do not mechanically equalize multiples."
+  }
+}
