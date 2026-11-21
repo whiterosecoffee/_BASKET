@@ -80,3 +80,20 @@ Sandisk and SK hynix jointly announced an initial OCP HBF technical specificatio
 Implication: WDC may constrain NAND demand at the bulk-capacity boundary; HBF/SSD growth closer to compute can coexist with HDD growth. WDC must prove customer acceptance, net cost/TB, performance at required latency and margins; NAND suppliers can counter with cheaper/dense QLC, better controllers and tiering. No quantified share transfer, market-share probability or margin uplift assumed.
 
 Primary sources: https://blog.westerndigital.com/performance-optimized-hdd-4x-throughput-hbdt-dual-pivot/ ; roadmap above; https://www.sandisk.com/company/newsroom/press-releases/2026/2026-08-03-Sandisk-and-sk-hynix-advance-global-standardization-of-hbf ; https://news.skhynix.com/en/hbm-to-essd/ . Source classes manually reviewed; no executable change or new market-data pull. Next: compare same-workload TCO/latency and customer-qualified deployments before inferring NAND displacement.
+
+## Profit and share-price growth sensitivity — November20,2026
+
+User asks profit and share-price growth after competitive review. Held baseline is Nov20 regular close261.11, not AH268.50. Company annual adjusted EPS baselineFY2026=10.22. S&P/StockAnalysis adjusted forecast snapshotNov12 remains24.72/40.40 forFY2027/28, separately from prior ChartMill forecasts. NoFY2029/30 accepted consensus extension; avoid splicing provider series into a growth trajectory.
+
+| Earnings horizon | Adjusted EPS | Cumulative EPS vsFY2026 | Illustrative adjusted profit at380M diluted shares | Price at8x | At10x | At12x |
+|---|---:|---:|---:|---:|---:|---:|
+| FY2027 (~June/July2027) | 24.72 | +141.9% | 9.394B | 197.76(-24.3%) | 247.20(-5.3%) | 296.64(+13.6%) |
+| FY2028 (~June/July2028) | 40.40 | +295.3% | 15.352B | 323.20(+23.8%) | 404.00(+54.7%) | 484.80(+85.7%) |
+
+EPS growthFY2028/FY2027=63.4%. Total profit above is EPS times hypothetical constant380M fully diluted shares, derived from Q2 guide; not actual analyst net-income consensus, GAAP profit or a separately projected share count.8x/10x/12x are arbitrary valuation sensitivities, not validated fair multiples or floors. Values pair each year's annual EPS with a hypothetical multiple at that horizon; future markets may price a different forward year. Returns are cumulative from261.11, before dividends, costs and taxes, not annual return rates or probabilities.
+
+For comparison only, prior ChartMillFY2029 EPS54.35 would produce543.50(+108.1%) at10x or652.20(+149.8%) at12x; these do not establish a dependableFY2029 target. Long-horizon margin/denominator concerns remain unresolved. Doubling from261.11 requires52.222EPS at10x or43.5183EPS at12x. TheFY2028 40.40 consensus does not alone support doubling under those multiples.
+
+Stress: if annual EPS is22.04 (remainingFY2027 quarters hold atQ2 guided5.80 afterQ1 actual4.64),10x/12x prices220.40(-15.6%)/264.48(+1.3%). IfFY2028 EPS instead30,10x/12x prices300(+14.9%)/360(+37.9%). These are conditional examples, not forecasts. Profit can grow faster than price when valuation contracts;FY2026-to-future EPS growth must not be confused with return from today's already-forward-looking price.
+
+Sources: issuer_quarter and sp_crosscheck above, reopened this turn. No new market-store read or writer. Calculations replayed in tool runtime; no executable implementation change. Next: combine revenue, margin, tax, dilution and valuation sensitivities before choosing a base investment-return case.
