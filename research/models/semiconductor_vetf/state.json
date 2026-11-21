@@ -5,7 +5,7 @@
   "issue": 306,
   "branch": "work/306-avgo-cumulative-growth",
   "pr": 307,
-  "status": "building_initial_research_snapshot",
+  "status": "dated_partial_snapshot_published_qualification_blocked",
   "as_of": "2026-11-21",
   "timezone": "America/Phoenix",
   "parent_refs": [
@@ -53,7 +53,7 @@
       "id": "snapshot-2026-11-21",
       "input": "dated issuer/ETF public evidence plus historical closes",
       "output": "seven tables, source/basis gaps and algebraic thresholds",
-      "status": "planned"
+      "status": "partial_evidence_snapshot"
     },
     {
       "id": "qualified-wealth-vector",
@@ -102,5 +102,29 @@
     "no_calendar_fork",
     "no_merge"
   ],
-  "next_action": "Qualify full recurring EPS/FCF and executable FETCH receipt before numerical value-vector rotation"
+  "next_action": "Qualify full recurring EPS/FCF and executable FETCH receipt before numerical value-vector rotation",
+  "snapshot": "snapshots/2026-11-21.json",
+  "report": "snapshots/2026-11-21.md",
+  "review": "review.md",
+  "maturity": {
+    "dated_evidence": true,
+    "algebra_checked": true,
+    "qualified_recurring_forecasts": false,
+    "executable_signal": false,
+    "engine_extension": false,
+    "backtested": false,
+    "live_monitor": false,
+    "independent_review": "pending",
+    "hosted_CI": "pending"
+  },
+  "blockers": [
+    "FETCH acknowledgement/invocation/host/destination/receipt unverified",
+    "Marketclosed; no executable bid/ask",
+    "Full recurringTTM and commoncalendar EPS/FCF not qualified",
+    "No complete segment/cash/dilution bridge for INTC and MRVLtransaction",
+    "Sharedrotation engine stale/basis/horizon/cash defects review312",
+    "Full corporate-action/rights basis uncertified",
+    "Tax lots/account feasibility absent; pre-tax only",
+    "No walk-forward performance/turnover evidence"
+  ]
 }
