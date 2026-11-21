@@ -1,0 +1,51 @@
+{
+  "component_id": "STX_EARNINGS_GROWTH_20261120",
+  "parent": {
+    "guidance": "../../../../AGENTS.md",
+    "spark_registry": "../../../../orchestration/sparks.json",
+    "spark_id": "B04"
+  },
+  "purpose": "Source-verified STX earnings growth with explicit provider and fiscal reconciliation",
+  "objectives": {
+    "current": "Test dated EPS against an internally consistent adjusted earnings sensitivity",
+    "next": "Verify long-horizon consensus definitions before valuation"
+  },
+  "status": "research_draft_consensus_reconciliation_blocked",
+  "owner": {
+    "issue": 295,
+    "spark": "B04",
+    "branch": "work/295-stx-earnings-growth"
+  },
+  "feature_design": "feature-design.md",
+  "evidence": [
+    "inputs.json",
+    "REPORT.md",
+    "https://github.com/whiterosecoffee/_BASKET/issues/291",
+    "MARGIN_REVIEW.md",
+    "margin-sensitivity.json",
+    "REVENUE_MOAT_STRESS.md",
+    "stress-scenarios.json",
+    "MARGIN_PROTECTION.md"
+  ],
+  "dependencies": {
+    "B02": "canonical market data; not used",
+    "B03": "canonical event integration; not modified"
+  },
+  "planned_nodes": [
+    {
+      "id": "STX_NORMALIZED_MARGIN_BRIDGE",
+      "status": "bounded_adjusted_sensitivity_implemented_not_gaap_or_normalized_forecast",
+      "input": "verified price/TB, exabytes, cost/TB, opex, interest, tax and diluted shares",
+      "output": "GAAP and adjusted normalized EPS sensitivity; no unsupported return probabilities"
+    },
+    {
+      "id": "STX_REVENUE_MOAT_STRESS",
+      "status": "bounded_research_completed_review_pending",
+      "input": "Public issuer/acquirer revenue, technology, integration and service evidence; explicit sensitivity assumptions",
+      "output": "REVENUE_MOAT_STRESS.md and stress-scenarios.json"
+    }
+  ],
+  "next_action": "Verify contract cancellation/repricing protections and track realized pricing minus cost per TB; no gross-margin floor established",
+  "validation_status": "Three reverse-solve round trips independently replayed in Python; publication/CI in issue receipts",
+  "integration_status": "Not merged; independent review pending"
+}

@@ -1,0 +1,53 @@
+{
+  "model_version": "stx-revenue-moat-stress/0.1.0",
+  "record_class": "scenario_not_forecast",
+  "as_of_local_date": "2026-11-20",
+  "timezone": "America/Phoenix",
+  "currency": "USD",
+  "available_at": null,
+  "expires_at": null,
+  "scenarios": [
+    {
+      "name": "Demand/pricing stress",
+      "r": 23.110400000000002,
+      "gm": 0.45,
+      "o": 1.5,
+      "eps": 31.724168240343353
+    },
+    {
+      "name": "Latest margin held",
+      "r": 28.888,
+      "gm": 0.578,
+      "o": 1.2,
+      "eps": 55.509449613733906
+    },
+    {
+      "name": "Margin expansion",
+      "r": 28.888,
+      "gm": 0.65,
+      "o": 1.2,
+      "eps": 63.0079313304721
+    }
+  ],
+  "fixed_assumptions": {
+    "other_expense_b": 0.1,
+    "tax": 0.16,
+    "diluted_shares_b": 0.233
+  },
+  "incremental_services_eps_uplift": 0,
+  "services_uplift_reason": "Standalone financial contribution not verified; zero is a modeling choice, not a claim of no actual services earnings",
+  "volume_price_examples": {
+    "volume_growth": 0.25,
+    "price_change": [
+      -0.1,
+      0,
+      0.1
+    ],
+    "revenue_growth": [
+      0.125,
+      0.25,
+      0.375
+    ]
+  },
+  "source_status": "Issuer/acquirer claims and dated vendor benchmark; not certified current model inputs"
+}
