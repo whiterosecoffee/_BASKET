@@ -24,7 +24,8 @@
     "MARGIN_REVIEW.md",
     "margin-sensitivity.json",
     "REVENUE_MOAT_STRESS.md",
-    "stress-scenarios.json"
+    "stress-scenarios.json",
+    "MARGIN_PROTECTION.md"
   ],
   "dependencies": {
     "B02": "canonical market data; not used",
@@ -44,7 +45,7 @@
       "output": "REVENUE_MOAT_STRESS.md and stress-scenarios.json"
     }
   ],
-  "next_action": "Verify same-cohort long-horizon consensus and pricing/TB economics; quantify services only with disclosed revenue and margins",
+  "next_action": "Verify contract cancellation/repricing protections and track realized pricing minus cost per TB; no gross-margin floor established",
   "validation_status": "Three reverse-solve round trips independently replayed in Python; publication/CI in issue receipts",
   "integration_status": "Not merged; independent review pending"
 }
