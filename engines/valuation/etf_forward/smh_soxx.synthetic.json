@@ -1,0 +1,130 @@
+{
+  "schema": "basket.etf_peer_comparison_input@1",
+  "as_of": "2026-10-30T20:00:00Z",
+  "holdings_effective_date": "2026-10-29",
+  "equity_market_cap_as_of": "2026-10-29T20:00:00Z",
+  "funds": [
+    {
+      "as_of": "2026-10-30T20:00:00Z",
+      "holdings_available_at": "2026-10-29T20:00:00Z",
+      "holdings_effective_date": "2026-10-29",
+      "equity_market_cap_as_of": "2026-10-29T20:00:00Z",
+      "currency": "USD",
+      "source_class": "issuer_primary",
+      "data_kind": "synthetic_test",
+      "source_manifest": [
+        {
+          "id": "toy-only"
+        }
+      ],
+      "ticker": "SMH",
+      "holdings": [
+        {
+          "id": "NVDA",
+          "asset_type": "equity",
+          "available_at": "2026-10-29T20:00:00Z",
+          "weight": "0.6",
+          "equity_currency": "USD",
+          "market_cap_usd": "100",
+          "estimates": {
+            "2027": {
+              "calendar_year": 2027,
+              "available_at": "2026-10-29T20:00:00Z",
+              "currency": "USD",
+              "net_income_usd": "10"
+            },
+            "2028": {
+              "calendar_year": 2028,
+              "available_at": "2026-10-29T20:00:00Z",
+              "currency": "USD",
+              "net_income_usd": "12"
+            }
+          }
+        },
+        {
+          "id": "AMD",
+          "asset_type": "equity",
+          "available_at": "2026-10-29T20:00:00Z",
+          "weight": "0.4",
+          "equity_currency": "USD",
+          "market_cap_usd": "100",
+          "estimates": {
+            "2027": {
+              "calendar_year": 2027,
+              "available_at": "2026-10-29T20:00:00Z",
+              "currency": "USD",
+              "net_income_usd": "5"
+            },
+            "2028": {
+              "calendar_year": 2028,
+              "available_at": "2026-10-29T20:00:00Z",
+              "currency": "USD",
+              "net_income_usd": "8"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "as_of": "2026-10-30T20:00:00Z",
+      "holdings_available_at": "2026-10-29T20:00:00Z",
+      "holdings_effective_date": "2026-10-29",
+      "equity_market_cap_as_of": "2026-10-29T20:00:00Z",
+      "currency": "USD",
+      "source_class": "issuer_primary",
+      "data_kind": "synthetic_test",
+      "source_manifest": [
+        {
+          "id": "toy-only"
+        }
+      ],
+      "ticker": "SOXX",
+      "holdings": [
+        {
+          "id": "NVDA",
+          "asset_type": "equity",
+          "available_at": "2026-10-29T20:00:00Z",
+          "weight": "0.3",
+          "equity_currency": "USD",
+          "market_cap_usd": "100",
+          "estimates": {
+            "2027": {
+              "calendar_year": 2027,
+              "available_at": "2026-10-29T20:00:00Z",
+              "currency": "USD",
+              "net_income_usd": "10"
+            },
+            "2028": {
+              "calendar_year": 2028,
+              "available_at": "2026-10-29T20:00:00Z",
+              "currency": "USD",
+              "net_income_usd": "12"
+            }
+          }
+        },
+        {
+          "id": "AMD",
+          "asset_type": "equity",
+          "available_at": "2026-10-29T20:00:00Z",
+          "weight": "0.7",
+          "equity_currency": "USD",
+          "market_cap_usd": "100",
+          "estimates": {
+            "2027": {
+              "calendar_year": 2027,
+              "available_at": "2026-10-29T20:00:00Z",
+              "currency": "USD",
+              "net_income_usd": "5"
+            },
+            "2028": {
+              "calendar_year": 2028,
+              "available_at": "2026-10-29T20:00:00Z",
+              "currency": "USD",
+              "net_income_usd": "8"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
