@@ -22,3 +22,42 @@ Reported risk: https://www.barrons.com/articles/broadcom-stock-google-ai-chips-e
 
 ## Review and next action
 All 98 open PR file inventories checked before claiming scope; none overlaps this new AVGO path. Arithmetic calculated in JavaScript and reviewed using growth-factor identities. No new runtime, FETCH, canonical quote/JSONL writer, independently certified feed, backtest, probability, merge or release. Canonical B02/B03 qualification and exact-head hosted CI remain pending. Next: reconcile customer-specific TPU exposure and updated FY2027 EPS after issuer commentary.
+
+## Competitive moat: AVGO versus MRVL + Celestial AI + proposed Lumentum
+Research date November20,2026. CEL interpreted as Celestial AI; if user means Celestica (CLS), it is a different system-integration layer.
+
+Transaction status: Celestial acquisition closed February2,2026; Lumentum agreement announced November2 with expected H1calendar2028 close, subject to approvals. Current announcement ratio4.500 MRVL/LITE, not historical user5.5. Do not assume completed LITE integration or sum standalone EPS.
+
+Qualitative inference, not measured market-share ranking:
+- AVGO advantage today: mature merchant switch/CPO integration, switch SDK and system qualification, manufacturing/test/thermal/connector ecosystem and customer design experience. Not dependent on copper remaining dominant.
+- MRVL+Celestial threat: optical scale-up and package-level XPU chiplets; Photonic Fabric could secure valuable design wins at a new architectural boundary. Company performance claims are not independently benchmarked.
+- Proposed LITE integration: InP/lasers/optical manufacturing plus electrical DSP/custom-silicon co-design could improve control over cost, yield and timing. This is an intended post-close benefit, not delivered group-wide evidence.
+- Broadcom also develops lasers/photodetectors, CPO, near-packaged optics and custom-XPU packaging; avoid falsely characterizing it as only a copper/switch supplier.
+- Switching cost operates at qualified architecture/product cycle; hyperscalers can dual-source or redirect the next generation. Open standards expand adoption and also permit competition. No permanent proprietary monopoly established.
+- More components under one owner do not ensure better power, yield, serviceability or customer neutrality. A MRVL/LITE group may face customer/channel conflicts while AVGO also has powerful concentrated buyers.
+- MRVL/Celestial optical IO can coexist with Broadcom Ethernet switching. A connection win does not imply displacement of the entire fabric or processor logic.
+- Celestica DS6005 explicitly uses Broadcom TH6-Davisson; CLS system integration is not Celestial chiplet IP.
+
+Timing: Celestial company roadmap initial revenue H2FY2028 (~second half calendar2027), $500M annualized Q4FY2028 (~Jan2028), $1B annualized Q4FY2029 (~Jan2029); not annual booked revenues. LITE expected H1calendar2028 close then integration. Treat 2027 execution and 2028–2030 architecture competition separately.
+
+Investment implication: demonstrated AVGO execution supports higher earnings confidence than an uncompleted combined roadmap, but cannot independently justify forecast EPS/multiples. Threat needs measured share/ASP/margin sensitivity; no arbitrary automatic haircut to all AVGO revenue. Monitor named shipping XPU designs, recurring revenue, independent power/latency/error-rate comparison at matched reach/temperature, packaging yield and field repairability, and diluted EPS after integration. Broadcom moat weakens if repeat high-volume sockets move away while its pricing/margins erode.
+
+Primary sources:
+https://investor.marvell.com/sec-filings/all-sec-filings/content/0001193125-26-442714/d81187dex991.htm
+https://www.marvell.com/company/newsroom/marvell-completes-acquisition-of-celestial-ai.html
+https://investor.marvell.com/news-events/press-releases/detail/1000/marvell-to-acquire-celestial-ai-accelerating-scale-up-connectivity-for-next-generation-data-centers
+https://investors.broadcom.com/news-releases/news-release-details/broadcom-announces-third-generation-co-packaged-optics-cpo
+https://investors.broadcom.com/news-releases/news-release-details/broadcom-showcases-industry-leading-solutions-scaling-ai
+https://celestica.gcs-web.com/node/17831/pdf
+Reused existing qualitative research: PR191 head0928564c9a0a83e6223b60bdacdc51dec9154b24 research/models/mrvl_lite/optical_competition_2026-11-20.json (read only).
+
+## Customer and margin stress
+All scenario inputs hypothetical; not known customer exposure or updated consensus. Revenue references178.513B/287.345B; EPS19.62/30.61. Assume65% contribution on lost revenue,16% marginal tax,5B shares, incremental margin shock on remaining revenue.
+| Case | Revenue loss | Extra margin pressure | Extra dilution | FY27 EPS | FY28 EPS | FY28 value at15x |
+|---|---:|---:|---:|---:|---:|---:|
+|Estimate baseline|0%|0pp|0%|19.62|30.61|459.15|
+|Narrow product cut|4%|0pp|0%|18.84|29.35|440.32|
+|Broader pressure|6%|3pp|0%|17.60|27.37|410.49|
+|Severe competition|12%|5pp|2%|15.65|24.24|363.54|
+These cases preserve much of the original growth path: not an exhaustive downside range. One-year delay: FY28 EPS19.62 at15x=$294.30. Severe-case FY28 at12x=$290.83. At15x FY28 break-even EPS vs prior304.41 close is20.294,33.7% below baseline. Full model fields/formula in inputs-results.json.
+Issuer confirms December9,2026 after-market FY2026 report: https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announce-fourth-quarter-and-fiscal-year-2026
