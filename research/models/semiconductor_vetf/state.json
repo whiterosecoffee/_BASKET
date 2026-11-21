@@ -78,6 +78,12 @@
       "input": "ADS/FX/liquidity and contribution qualification",
       "output": "foundry comparison, allocation remains zero",
       "status": "planned"
+    },
+    {
+      "id": "reverse-valuation-2028",
+      "input": "pinned historical price; explicit return, dividend, exit-multiple and cash-yield sensitivities",
+      "output": "required recurring EPS and economic FCF per share; no forecast or rotation admission",
+      "status": "planned"
     }
   ],
   "decisions": {
@@ -115,7 +121,11 @@
     "backtested": false,
     "live_monitor": false,
     "independent_review": "pending",
-    "hosted_CI": "pending"
+    "hosted_CI": {
+      "commit": "871bcf3db52c2b8ad840635331ab04f383862e98",
+      "status": "success",
+      "run": 44882834337
+    }
   },
   "blockers": [
     "FETCH acknowledgement/invocation/host/destination/receipt unverified",
