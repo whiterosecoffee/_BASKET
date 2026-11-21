@@ -1,0 +1,90 @@
+{
+  "model_version": "avgo-growth@1",
+  "retrieved_local_date": "2026-11-20",
+  "timezone": "America/Phoenix",
+  "currency": "USD",
+  "status": "provisional_research_not_canonical_feed",
+  "observed_at": null,
+  "available_at": null,
+  "ingested_at": null,
+  "validity": "Research snapshot; refresh before trading use",
+  "price": {
+    "close": 304.41,
+    "close_at": "2026-11-20T16:00:00-05:00",
+    "after_hours": 310.89,
+    "after_hours_at": "2026-11-20T19:34:00-05:00",
+    "source": "https://stockanalysis.com/stocks/avgo/"
+  },
+  "eps_source": {
+    "url": "https://www.chartmill.com/stock/quote/AVGO/estimates",
+    "source_class": "third_party_analyst_consensus",
+    "retrieval": "Search-index full annual table; direct page returned 403",
+    "basis": "Normalized/adjusted EPS series; provider field-level reconciliation not verified; not GAAP",
+    "coverage": "2029–2030 sparse; annual fiscal dates and point-in-time analyst cohorts not verified",
+    "alternative": "https://kaplio.com/ticker/AVGO/estimates",
+    "alternative_eps": {
+      "2026": 11.68,
+      "2027": 19.32,
+      "2028": 30.71
+    },
+    "alternative_policy": "Do not blend with primary series"
+  },
+  "formulas": {
+    "yoy": "EPS(t)/EPS(t-1)-1",
+    "cumulative": "EPS(t)/EPS(FY2026)-1",
+    "pe": "reference_price/EPS(t)",
+    "sensitivity": "EPS(t)*assumed_multiple; no discounting or probability"
+  },
+  "rows": [
+    {
+      "fy": 2026,
+      "eps": 11.78,
+      "yoy_pct": null,
+      "cumulative_pct": 0,
+      "pe_at_304_41": 25.841256366723265,
+      "pe_at_310_89": 26.391341256366722,
+      "price_at_20x": 235.6,
+      "price_at_25x": 294.5
+    },
+    {
+      "fy": 2027,
+      "eps": 19.62,
+      "yoy_pct": 66.55348047538203,
+      "cumulative_pct": 66.55348047538203,
+      "pe_at_304_41": 15.515290519877677,
+      "pe_at_310_89": 15.845565749235472,
+      "price_at_20x": 392.40000000000003,
+      "price_at_25x": 490.5
+    },
+    {
+      "fy": 2028,
+      "eps": 30.61,
+      "yoy_pct": 56.01427115188582,
+      "cumulative_pct": 159.84719864176574,
+      "pe_at_304_41": 9.944789284547534,
+      "pe_at_310_89": 10.156484808885985,
+      "price_at_20x": 612.2,
+      "price_at_25x": 765.25
+    },
+    {
+      "fy": 2029,
+      "eps": 41.48,
+      "yoy_pct": 35.51127082652727,
+      "cumulative_pct": 252.12224108658745,
+      "pe_at_304_41": 7.338717454194794,
+      "pe_at_310_89": 7.4949373191899715,
+      "price_at_20x": 829.5999999999999,
+      "price_at_25x": 1037
+    },
+    {
+      "fy": 2030,
+      "eps": 48.63,
+      "yoy_pct": 17.23722275795565,
+      "cumulative_pct": 312.81833616298815,
+      "pe_at_304_41": 6.259716224552745,
+      "pe_at_310_89": 6.392967304133251,
+      "price_at_20x": 972.6,
+      "price_at_25x": 1215.75
+    }
+  ]
+}
