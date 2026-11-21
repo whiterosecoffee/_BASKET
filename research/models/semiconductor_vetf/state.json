@@ -83,7 +83,9 @@
       "id": "reverse-valuation-2028",
       "input": "pinned historical price; explicit return, dividend, exit-multiple and cash-yield sensitivities",
       "output": "required recurring EPS and economic FCF per share; no forecast or rotation admission",
-      "status": "planned"
+      "status": "published_arithmetic_sensitivity_not_forecast",
+      "report": "snapshots/2026-11-21-reverse-valuation.md",
+      "data": "snapshots/2026-11-21-reverse-valuation.json"
     }
   ],
   "decisions": {
@@ -108,7 +110,7 @@
     "no_calendar_fork",
     "no_merge"
   ],
-  "next_action": "Qualify full recurring EPS/FCF and executable FETCH receipt before numerical value-vector rotation",
+  "next_action": "Qualify AVGO/MRVL December2028 recurring EPS/cash/shares from existing owner packets, separate transaction states; FETCH executable receipt independently required.",
   "snapshot": "snapshots/2026-11-21.json",
   "report": "snapshots/2026-11-21.md",
   "review": "review.md",
