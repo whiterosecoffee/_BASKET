@@ -1,0 +1,72 @@
+{
+  "schema": "mrvl.research_state@1",
+  "component_id": "MRVL_GAAP_BRIDGE_20261120",
+  "purpose": "Explain adjusted-to-GAAP earnings conversion and bounded standalone potential through calendar2028.",
+  "owner": {
+    "spark_id": "B04",
+    "issue": 290,
+    "branch": "work/290-mrvl-gaap-calendar-2028"
+  },
+  "status": "branch_research_local_checks_passed_publication_pending",
+  "parent": {
+    "guidance": "../../../../AGENTS.md",
+    "registry": "../../../../orchestration/sparks.json",
+    "protocol": "../../../../orchestration/WORKER_PROTOCOL.md"
+  },
+  "objectives": {
+    "now": "Reproduce filed reconciliation and conditionally quantify future excluded costs",
+    "next": "Replace assumptions with Dec1 guidance and matching forecast income/share/tax evidence",
+    "later": "Existing merger owner resolves exact closing/purchase accounting and calendar weights"
+  },
+  "evidence": [
+    "inputs.json",
+    "results.json",
+    "VALIDATION.md"
+  ],
+  "feature_designs": [
+    "feature-design.md"
+  ],
+  "review": "feature-design.md#review",
+  "dependencies": [
+    {
+      "issue": 189,
+      "scope": "Read-only merger model"
+    },
+    {
+      "issue": 190,
+      "status": "source-vintage finding posted; no owner acceptance inferred"
+    },
+    {
+      "issue": 207,
+      "status": "refresh requested in comment7057134640, no receipt yet"
+    }
+  ],
+  "planned_nodes": [
+    {
+      "id": "calendar_2028_exact",
+      "status": "planned_blocked",
+      "input": "January2028/January2029 net income plus calendar-weighted shares",
+      "output": "Exact standalone calendar2028 EPS",
+      "owner": "existing B04 earnings domain; no new worker allocation"
+    },
+    {
+      "id": "combined_2028",
+      "status": "existing_component_external",
+      "input": "Same-period LITE/MRVL income, exact diluted shares, closing and purchase accounting",
+      "output": "Combined calendar2028 adjusted/GAAP EPS",
+      "reference": "issue189 / PR191 / research/models/mrvl_lite"
+    }
+  ],
+  "unknowns": [
+    "Forecast diluted share and EPS constituent basis",
+    "Future SBC award schedule",
+    "Timing of IPR&D production/amortization",
+    "Fair-value contingent-consideration changes",
+    "Forward GAAP taxes and non-deductible items",
+    "Exact calendar2028 and post-close Lumentum earnings"
+  ],
+  "next_action": "At Dec1 release, reconcile actual Q3 and Q4 guidance before revising forward assumptions.",
+  "integration": "draft_not_merged",
+  "independent_review": "pending"
+}
+
