@@ -58,3 +58,13 @@ Next: reconcile FY2028–29 same-cohort sales, gross margin, operating costs, ta
 - roadmap: https://investor.wdc.com/news-releases/news-release-details/western-digital-accelerates-storage-innovation-ai-era
 - stx: https://investors.seagate.com/news/news-details/2026/Seagate-Delivers-Industrys-Highest-Capacity-Hard-Drives-with-Next-Generation-Mozaic-4/default.aspx
 - toshiba: https://toshiba.semicon-storage.com/us/company/news/2025/10/storage-20251014-1.html
+
+## Projection reliability review — November20,2026
+
+Qualification: growth direction is better supported than exact multiyear EPS. FY2027 moderate confidence in approximate scale, FY2028 conditional, FY2029–30 low confidence; these are qualitative assessments, not calibrated probabilities. Previous long-horizon table must not be interpreted as a dependable base case. ChartMill still403. S&P/StockAnalysis directly retrieved, snapshotNov12, explicitly adjusted EPS24.72/40.40 forFY2027/28; no evidence the snapshot incorporates Nov20 developments. Provider agreement may reuse underlying analysts and is not independent validation.
+
+Guidance bridge: Q1 actual4.64 + Q2 midpoint5.80 =10.44. Holding Q3/Q4 flat at Q2 midpoint yieldsFY2027 EPS22.04 and11.85x at held Nov20 close261.11, versus10.56x on S&P24.72. To reach24.72, H2 must average7.14/quarter,23.1% above Q2 guidance. ThereforeFY2027 forecast needs continued improvement, but not a leap directly to distant-year economics. All future-quarter figures are scenarios, not issuer guidance.
+
+Multiples are arithmetic at a held historical close, not sustainable trading-multiple estimates. AtEPS20/25/30/40.40, P/E=13.06/10.44/8.70/6.46x. Earnings disappointment raises the effective P/E at an unchanged price; markets may also lower the multiple assigned to future EPS. No evidence supports assuming a10x or15x terminal floor. FY2028 vendor revenue itself must rise~42% fromFY2027, so margin-only stress holding30.454B revenue understates combined demand/pricing downside.
+
+Source URLs: issuer_quarter and sp_crosscheck above. Arithmetic independently recomputed in JS; source classifications manually reviewed. No fresh market pull, canonical history verification or GAAP EPS claim. Next: same-cohort margin/share/cost bridge with combined revenue and margin stress before treatingFY2028 as a base case.
