@@ -1,0 +1,40 @@
+{
+  "component_id": "STX_EARNINGS_GROWTH_20261120",
+  "parent": {
+    "guidance": "../../../../AGENTS.md",
+    "spark_registry": "../../../../orchestration/sparks.json",
+    "spark_id": "B04"
+  },
+  "purpose": "Source-verified STX earnings growth with explicit provider and fiscal reconciliation",
+  "objectives": {
+    "current": "Publish dated earnings-growth comparison",
+    "next": "Verify long-horizon consensus definitions before valuation"
+  },
+  "status": "research_draft",
+  "owner": {
+    "issue": 295,
+    "spark": "B04",
+    "branch": "work/295-stx-earnings-growth"
+  },
+  "feature_design": "feature-design.md",
+  "evidence": [
+    "inputs.json",
+    "REPORT.md",
+    "https://github.com/whiterosecoffee/_BASKET/issues/291"
+  ],
+  "dependencies": {
+    "B02": "canonical market data; not used",
+    "B03": "canonical event integration; not modified"
+  },
+  "planned_nodes": [
+    {
+      "id": "STX_NORMALIZED_MARGIN_BRIDGE",
+      "status": "planned_not_implemented",
+      "input": "verified price/TB, exabytes, cost/TB, opex, interest, tax and diluted shares",
+      "output": "GAAP and adjusted normalized EPS sensitivity; no unsupported return probabilities"
+    }
+  ],
+  "next_action": "Verify FY2028/FY2029 consensus coverage and accounting basis before building a normalized margin bridge",
+  "validation_status": "Arithmetic checked before publication; readback and CI reported separately on issue/PR",
+  "integration_status": "Not merged; independent review pending"
+}
