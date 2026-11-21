@@ -1,6 +1,6 @@
 {
   "schema": "crwv.research_state@1",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "purpose": "Maintain dated CRWV earnings, capacity, funding and price assessment with an explicit source and assumption trail",
   "status": "funding_terms_and_earnings_hurdles_documented_actual_receipts_unverified",
   "owner": {
@@ -23,8 +23,8 @@
     }
   ],
   "objectives": {
-    "now": "Reused PR289 audit, refreshed filing inventory and documented funding constraints/current-price earnings hurdles",
-    "next": "Owner86: map actual deposit receipts/refund terms and DDTL5.5 excess-cash sweep/eligible draws into monthly project-to-parent liquidity; retain unknown funding gap until the source schedule is complete.",
+    "now": "Conditional2x–5x earnings-year milestones and earlier-doubling hurdle documented",
+    "next": "Use existing source-qualified model to test whether2028 GAAP EPS can reach3.28 with actual receipt/draw/acceptance schedules and independently forecast dilution; if not, retain2029 conditional EPS milestone without promising an earlier stock date.",
     "later": "Qualify repeatable 2027 and 2028 capital and earnings revisions"
   },
   "children": [
@@ -77,12 +77,14 @@
     "eps-basis-reconciliation-2026-11-20.json",
     "handoff-reconciliation-2026-11-20.md",
     "funding-and-earnings-hurdles-2026-11-20.json",
-    "funding-and-earnings-hurdles-2026-11-20.md"
+    "funding-and-earnings-hurdles-2026-11-20.md",
+    "return-milestones-2026-11-20.json",
+    "return-milestones-2026-11-20.md"
   ],
   "next_actions": [
     {
-      "owner": "B10 #86",
-      "action": "Owner86: map actual deposit receipts/refund terms and DDTL5.5 excess-cash sweep/eligible draws into monthly project-to-parent liquidity; retain unknown funding gap until the source schedule is complete."
+      "owner": "B10 #86; source research #121",
+      "action": "Use existing source-qualified model to test whether2028 GAAP EPS can reach3.28 with actual receipt/draw/acceptance schedules and independently forecast dilution; if not, retain2029 conditional EPS milestone without promising an earlier stock date."
     },
     {
       "owner": "B10 #121",
