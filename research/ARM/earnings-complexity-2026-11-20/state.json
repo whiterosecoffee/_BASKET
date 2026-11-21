@@ -8,7 +8,7 @@
   "purpose": "Explain complexity monetization, EPS growth and compression with reproducible arithmetic",
   "objectives": {
     "minimum": "Source verified quarter and EPS calendar",
-    "next": "Independent financial review of compensation recognition, tax shields and direct-chip development budget"
+    "next": "Reconcile cash generation and future employee ownership claims in per-share valuation"
   },
   "status": "research_draft",
   "owner": "B12-287",
@@ -17,7 +17,8 @@
   "base_commit": "433d3574033a35f24910dc1ffee21ecbf27702dc",
   "feature_designs": [
     "feature-design.md",
-    "feature-design-gaap-bridge.md"
+    "feature-design-gaap-bridge.md",
+    "feature-design-assumptions-review.md"
   ],
   "evidence": [
     "inputs.json",
@@ -27,7 +28,8 @@
     "gaap-results.json",
     "gaap-validation.json",
     "GAAP_BRIDGE.md",
-    "gaap-bridge.csv"
+    "gaap-bridge.csv",
+    "ASSUMPTIONS_REVIEW.md"
   ],
   "dependencies": [
     {
@@ -45,13 +47,22 @@
       "input": "Filed H1 reconciliation; dated adjusted consensus; explicit exclusions, tax and diluted-share assumptions",
       "output": "FY27/FY28 conditional GAAP EPS and cost/valuation sensitivities",
       "design": "feature-design-gaap-bridge.md"
+    },
+    {
+      "id": "ARM_GAAP_ASSUMPTION_REVIEW",
+      "kind": "feature_variant",
+      "status": "implemented_second_method_review",
+      "input": "Annual and interim award disclosures; actual SBC tax effect; dated GAAP net-income forecasts",
+      "output": "Compensation growth, tax sensitivity and GAAP consensus reference through FY29",
+      "design": "feature-design-assumptions-review.md"
     }
   ],
-  "next_action": "Review forward GAAP model at PR #288; retain draft until independent assumptions review",
+  "next_action": "Review cash flow and award settlements without conflating noncash GAAP expense with cash spending; independent acceptance remains pending",
   "integration_status": "unmerged",
   "ci_status": "new_revision_pending_external_verification",
   "model_versions": {
     "complexity_sensitivity": "0.1.0",
-    "forward_gaap_bridge": "0.1.0"
-  }
+    "forward_gaap_bridge": "0.2.0"
+  },
+  "previous_model_revision": "a89d6ffaafa7e88b4c29d14e63ea7db1ecd8c71a"
 }

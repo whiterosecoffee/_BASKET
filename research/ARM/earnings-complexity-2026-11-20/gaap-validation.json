@@ -1,6 +1,6 @@
 {
-  "model_version": "arm-forward-gaap-bridge/0.1.0",
-  "observed_at": "2026-11-21T00:56:19.866789+00:00",
+  "model_version": "arm-forward-gaap-bridge/0.2.0",
+  "observed_at": "2026-11-21T02:37:46.308122+00:00",
   "execution": "local",
   "checks": [
     "H1 inverse reconciliation exact",
@@ -11,15 +11,20 @@
     "Expense and diluted-share sensitivities",
     "JSON and six-row CSV parse",
     "Byte-identical JSON/CSV/report replay",
-    "Explicit LF CSV line endings for GitHub round-trip hash stability"
+    "Explicit LF CSV line endings for GitHub round-trip hash stability",
+    "Historical basic versus diluted EPS denominators independently recomputed",
+    "Already-GAAP forecast net income not charged SBC a second time",
+    "Prior cost-scenario outputs preserved under version 0.2.0",
+    "Unrecognized compensation balance compared at matched plan scope"
   ],
   "result": "pass",
-  "input_sha256": "26e4ce375347d56b640113629a43b968276b401b25ef5853176c7d5c7536cec6",
-  "code_sha256": "29a30f7bba77067caf1c11412182fe24526abf021d25cf85d09bcfe33f3a5e4c",
+  "input_sha256": "a0641cb265e2f4049b91da6e5a32b23e8260af651ef51b165dc0f74afc6c9106",
+  "code_sha256": "c21652754e71b0a187b0542585b3601b4d1ffb29d0466bac21b39f2998fd1e55",
   "outputs_sha256": {
-    "gaap-results.json": "08a3e173a25b31b56b7f173c3404924466becc04ba07449a4e77dbdb9fca6246",
+    "gaap-results.json": "3504a592172b93f492bb5170344320b9a00acc8aa1c4f1f39aa51acdabd81f5d",
     "gaap-bridge.csv": "e7c0a0142183b2f0b3c813cebcc414b14b6a91765cc9a6a777d0ad2d5e1cd524",
-    "GAAP_BRIDGE.md": "9ff1e46751f57e52a05b9590a96ae611adace7c5f84555dee7df838f36cd23cd"
+    "GAAP_BRIDGE.md": "1e4db72d75fefcac95613bf640fb0e39ad87e72b8b22c31a6a521be88f63bf17",
+    "ASSUMPTIONS_REVIEW.md": "9f08b8e1a8a2469e44cc631e325ed04063d46a2f2dfc4ae7e19cfdb43ca7eebf"
   },
   "ci_status": "not_asserted_by_local_check",
   "independent_financial_review": "pending"

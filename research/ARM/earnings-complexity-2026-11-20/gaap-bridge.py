@@ -116,7 +116,80 @@ def produce(d):
     out['development_cost_sensitivity'] = {
         'extra_100m_reduces_fy28_gaap_eps_by': 100*(1-a['marginal_tax_shield'])/d['forecast_anchors']['FY28']['diluted_shares_assumed'],
         'ordinary_rd_deducted_again': False}
+    out['assumptions_review'] = review_assumptions(d, out)
     return out
+
+
+def review_assumptions(d, r):
+    v = d['assumption_review']
+    price = d['assumptions']['reference_price']
+    ratio = v['h1_sbc_tax_effect']/v['h1_sbc_cost']
+    cases=[]
+    for c in d['scenario_inputs']:
+        x=c['FY28']; shares=d['forecast_anchors']['FY28']['diluted_shares_assumed']
+        ni=d['forecast_anchors']['FY28']['adjusted_eps']*shares
+        others=x['employer_tax']+x['acquisition']+x['other_operating']+x['extra_development']
+        eps=(ni-x['sbc']*(1-ratio)-others*(1-d['assumptions']['marginal_tax_shield']))/shares
+        cases.append({'id':c['id'],'fy28_gaap_eps':eps,'note':'Historical SBC-specific tax-effect ratio sensitivity, not future tax guidance'})
+    consensus=[]
+    for year in ('FY27','FY28','FY29'):
+        net=d['gaap_consensus_crosscheck'][year+'_net_income'] if year!='FY29' else v['fy29_gaap_net_income_forecast']
+        shares=d['forecast_anchors'][year]['diluted_shares_assumed'] if year!='FY29' else v['fy29_shares_assumed']
+        eps=net/shares
+        consensus.append({'year':year,'gaap_net_income_forecast':net,'shares_assumed':shares,'derived_eps':eps,'pe_at_reference_price':price/eps,'classification':'EPS_derived_from_dated_aggregate_net_income_forecast','sbc_subtracted_again':False})
+    return {'omnibus_unrecognized_growth_pct':(v['september_omnibus_unrecognized_cost']/v['march_omnibus_unrecognized_cost']-1)*100,
+        'fy26_observed_sbc_tax_effect_ratio':v['fy26_sbc_tax_effect']/v['fy26_sbc_cost'],
+        'h1_observed_sbc_tax_effect_ratio':ratio,'sbc_specific_tax_sensitivity':cases,
+        'gaap_consensus_reference':consensus,
+        'share_mechanics':{'h1_gaap_basic_eps_unrounded':v['h1_gaap_ni']/v['h1_basic_shares'],
+            'h1_gaap_diluted_eps_unrounded':v['h1_gaap_ni']/v['h1_diluted_shares'],
+            'h1_adjusted_diluted_eps_unrounded':v['h1_adjusted_ni']/v['h1_diluted_shares'],
+            'incremental_diluted_share_count_pct':(v['h1_diluted_shares']/v['h1_basic_shares']-1)*100,
+            'outstanding_awards_to_common_share_count_pct':v['september_expected_awards_m']/v['september_common_outstanding_m']*100,
+            'approximate_new_grant_date_value_m':v['h1_grants_m_rounded']*v['h1_grant_date_fair_value_per_award'],
+            'new_grant_value_is_current_cash_outflow':False,
+            'gaap_expense_and_share_denominator_are_different_measures':True},
+        'opex_run_rate_check':{'q3_guidance_annualized':v['q3_adjusted_opex_guidance']*4,'classification':'Quarterly_guidance_annualized_not_FY28_guidance'},
+        'independent_acceptance':'pending'}
+
+
+def render_review(d, r):
+    x=r['assumptions_review']; m=x['share_mechanics']; v=d['assumption_review']
+    rows=['# ARM compensation, dilution and assumptions review', '',
+          'Source-based second-method review by the owning worker; independent financial acceptance remains pending. All values USD unless stated. Existing scenario EPS values are preserved.', '',
+          '## Why a large expense is not cash returned to Arm', '',
+          'Arm compensates employees with equity claims, retaining cash that cash salaries would otherwise consume. Granted equity is compensation to employees; it is not money returned to the company. When employees sell shares in the market, buyers pay the employees. GAAP records grant-date fair value over the service period. Shares may vest later, and current diluted share count measures a different quantity from expense dollars. Cash-flow SBC addbacks reverse a noncash charge; they do not create new revenue or free shareholder value.', '',
+          '| April-September 2026 calculation | Result |', '|---|---:|',
+          f"| $400M GAAP income / 1.068B basic shares | ${m['h1_gaap_basic_eps_unrounded']:.4f} |",
+          f"| $400M GAAP income / 1.079B diluted shares | ${m['h1_gaap_diluted_eps_unrounded']:.4f} |",
+          f"| $1.046B adjusted income / 1.079B diluted shares | ${m['h1_adjusted_diluted_eps_unrounded']:.4f} |", '',
+          f"Incremental diluted share count was about {m['incremental_diluted_share_count_pct']:.2f}% above basic shares. The much larger adjusted-versus-GAAP EPS gap largely comes from expense exclusions in the numerator. Both displayed basic and diluted GAAP EPS round to $0.37. This does not imply zero award overhang or zero economic dilution.", '',
+          f"About 23M outstanding awards expected to vest equal {m['outstanding_awards_to_common_share_count_pct']:.2f}% of the September common shares. This is a gross outstanding-award count, not the current diluted EPS increment, annual dilution forecast or a complete future-grant model. The roughly 11M H1 grants at $212.03 grant-date fair value imply about $2.33B of grant-date award value using rounded counts; this is not current cash spending and is recognized over service periods.", '',
+          '## Expense trajectory', '',
+          f"Unrecognized Omnibus compensation increased from $1.7193B in March to $3.4066B in September, about {x['omnibus_unrecognized_growth_pct']:.1f}%. Recognition duration increased from 1.2 to 1.5 weighted-average years. This supports stress-testing higher expense; it does not establish the model's $2.4B FY28 recognition amount or an exact vesting schedule.", '',
+          '## Tax review', '',
+          f"The FY26 SBC tax-effect ratio was {x['fy26_observed_sbc_tax_effect_ratio']:.1%}; H1 FY27 was approximately {x['h1_observed_sbc_tax_effect_ratio']:.1%}, using rounded reported amounts. Thus the original 15% shield is a conservative reference near the prior full-year observation. Using the H1 ratio for SBC only, while retaining 15% on other modeled costs, gives:", '',
+          '| Scenario | FY28 GAAP EPS with historical SBC-specific tax ratio |', '|---|---:|']
+    for c in x['sbc_specific_tax_sensitivity']:
+        rows.append(f"| {c['id']} | ${c['fy28_gaap_eps']:.2f} |")
+    rows += ['', 'This is a sensitivity, not a corrected forecast or evidence that future tax credits will repeat.', '',
+             '## Separate GAAP consensus reference', '',
+             'The aggregate earnings forecast page is dated November 16. Net-income forecasts already include forecast accounting expenses; do not subtract modeled SBC again. EPS below is derived using our share assumptions, not published EPS from a matched analyst panel.', '',
+             '| Fiscal year ending March | Net income forecast | Assumed diluted shares | Derived GAAP EPS | P/E at $152.20 |', '|---|---:|---:|---:|---:|']
+    for c in x['gaap_consensus_reference']:
+        rows.append(f"| {c['year']} | ${c['gaap_net_income_forecast']/1000:.3f}B | {c['shares_assumed']/1000:.2f}B | ${c['derived_eps']:.2f} | {c['pe_at_reference_price']:.1f}x |")
+    rows += ['', 'The approximately $1.75 FY28 figure is a dated consensus reference; $1.02 remains a distinct compensation-cost stress case. Neither is issuer guidance or a verified fair-value conclusion.', '',
+             '## Development-budget check', '',
+             'Ordinary chip-development spending remains in adjusted opex. At the fixed $8.37B FY28 revenue anchor, the existing illustrative mix assumptions imply an adjusted opex budget of approximately $3.78B with $0.8B hardware sales or $3.28B with $1.6B hardware sales to reach $3.09 adjusted EPS. Q3 opex guidance of $825M annualizes to $3.30B. The higher-hardware mix therefore leaves little room for expense growth under these assumptions. These are product-mix sensitivities, not a disclosed analyst budget or FY28 guidance.', '',
+             '## Valuation interpretation', '',
+             'GAAP earnings, cash flow and ownership claims must be assessed together. GAAP expense plus the normal diluted denominator is standard earnings accounting. An economic valuation should avoid treating noncash SBC as an equal cash payout and then also charging the same award cost again through redundant buyback/dilution assumptions. Conversely, simply adding SBC back while ignoring future employee ownership transfers overstates existing-shareholder economics. The bridge explains GAAP EPS; a high GAAP P/E alone does not establish a fair share price.', '',
+             '## Sources', '',
+             '- Annual compensation disclosure: '+d['sources']['annual_compensation']['url'],
+             '- Interim compensation, EPS and tax notes: '+d['sources']['financial_notes']['url'],
+             '- Earnings-call development/opex discussion: '+d['sources']['call']['url'],
+             '- Dated GAAP earnings aggregates: '+d['sources']['gaap_crosscheck']['url'], '',
+             'Next action: reconcile cash generation, award settlements/new grants and future diluted ownership in a per-share valuation; independent reviewer acceptance remains pending.']
+    return '\n'.join(rows)+'\n'
 
 
 def check(d, r):
@@ -138,6 +211,11 @@ def check(d, r):
     assert h['gaap_rd'] > h['adjusted_rd'] > 0
     assert r['development_cost_sensitivity']['ordinary_rd_deducted_again'] is False
     assert all(b['includes_chip_rd'] for b in r['implied_opex_budgets'])
+    z=r['assumptions_review']
+    assert 95 < z['omnibus_unrecognized_growth_pct'] < 100
+    assert 1 < z['share_mechanics']['incremental_diluted_share_count_pct'] < 1.1
+    assert all(c['sbc_subtracted_again'] is False for c in z['gaap_consensus_reference'])
+    assert z['share_mechanics']['new_grant_value_is_current_cash_outflow'] is False
     assert produce(d) == r
 
 
@@ -204,6 +282,7 @@ def main():
         check(d,r)
     (ROOT/'gaap-results.json').write_text(json.dumps(r,indent=2)+'\n')
     (ROOT/'GAAP_BRIDGE.md').write_text(render(d,r))
+    (ROOT/'ASSUMPTIONS_REVIEW.md').write_text(render_review(d,r))
     buf=io.StringIO(); writer=csv.writer(buf, lineterminator="\n")
     writer.writerow(['scenario','fiscal_year','period_end','adjusted_eps_anchor','gaap_eps_modeled','pe_at_152_20','assumed_diluted_shares_m','restored_costs_m','extra_development_m','tax_shield_rate'])
     for s in r['scenarios']:

@@ -85,3 +85,4 @@ Local validation checks exact historical reconciliation, actual-H1 retention, P&
 - consensus: https://stockanalysis.com/stocks/arm/forecast/
 - gaap_crosscheck: https://simplywall.st/stocks/us/semiconductors/nasdaq-arm/arm-holdings/future
 - price: https://stockanalysis.com/stocks/arm/forecast/
+- annual_compensation: https://www.sec.gov/Archives/edgar/data/1973239/000197323926000097/arm-20260331.htm

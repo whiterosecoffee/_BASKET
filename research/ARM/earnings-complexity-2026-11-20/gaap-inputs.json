@@ -1,5 +1,5 @@
 {
-  "model_version": "arm-forward-gaap-bridge/0.1.0",
+  "model_version": "arm-forward-gaap-bridge/0.2.0",
   "prepared_at": "2026-11-21T00:50:51.502838+00:00",
   "reference_market_date": "2026-11-20",
   "currency": "USD",
@@ -46,7 +46,7 @@
     "gaap_crosscheck": {
       "url": "https://simplywall.st/stocks/us/semiconductors/nasdaq-arm/arm-holdings/future",
       "class": "third_party_consensus",
-      "data_as_of_date": null,
+      "data_as_of_date": "2026-11-16",
       "sections": "Forecast net earnings, NOT adjusted EPS",
       "observed_at": "2026-11-21T00:50:51.502838+00:00",
       "ingested_at": "2026-11-21T00:50:51.502838+00:00",
@@ -59,6 +59,15 @@
       "crosscheck": "Prior-session Massive daily summary in observations.jsonl",
       "observed_at": "2026-11-21T00:50:51.502838+00:00",
       "ingested_at": "2026-11-21T00:50:51.502838+00:00",
+      "available_at": null
+    },
+    "annual_compensation": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000097/arm-20260331.htm",
+      "class": "issuer_filing",
+      "period_end": "2026-03-31",
+      "available_date": "2026-05-26",
+      "sections": "Note 15 Omnibus award balance, unrecognized cost and SBC tax effects",
+      "observed_at": "2026-11-21T02:37:04.327977+00:00",
       "available_at": null
     }
   },
@@ -266,6 +275,35 @@
     "Additional development costs are explicit misses relative to that embedded budget, not a second charge for all chip development.",
     "Only FY27 H2 is forecast; actual H1 including investment gains and discrete taxes remains unchanged.",
     "No DCF, calibrated probabilities or definitive fair-value estimate.",
-    "Product mix budget check holds total revenue fixed; it does not imply additional hardware sales have negative gross profit."
-  ]
+    "Product mix budget check holds total revenue fixed; it does not imply additional hardware sales have negative gross profit.",
+    "GAAP SBC expense is largely noncash; economic valuation must separately reconcile retained cash and future ownership claims, without treating the expense as an equal cash payout or subtracting compensation/buybacks/dilution redundantly."
+  ],
+  "assumption_review": {
+    "source_ids": [
+      "annual_compensation",
+      "financial_notes",
+      "gaap_crosscheck",
+      "call"
+    ],
+    "classification": "sourced_observations_with_explicit_sensitivities",
+    "march_omnibus_unrecognized_cost": 1719.3,
+    "september_omnibus_unrecognized_cost": 3406.6,
+    "fy26_sbc_cost": 1052,
+    "fy26_sbc_tax_effect": 168,
+    "h1_sbc_cost": 720,
+    "h1_sbc_tax_effect": 150,
+    "h1_basic_shares": 1068,
+    "h1_diluted_shares": 1079,
+    "h1_gaap_ni": 400,
+    "h1_adjusted_ni": 1046,
+    "september_expected_awards_m": 23,
+    "september_common_outstanding_m": 1070,
+    "h1_grants_m_rounded": 11,
+    "h1_grant_date_fair_value_per_award": 212.03,
+    "q3_adjusted_opex_guidance": 825,
+    "fy29_gaap_net_income_forecast": 2935,
+    "fy29_shares_assumed": 1130,
+    "fy29_forecast_source_class": "third_party_aggregate_forecast_not_independently_matched_panel",
+    "reviewer": "owning_worker_second_method_not_independent_acceptance"
+  }
 }

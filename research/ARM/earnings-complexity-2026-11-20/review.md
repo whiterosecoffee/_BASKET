@@ -9,3 +9,7 @@ Local arithmetic and JSON parsing are required before publication. CI and indepe
 ## Forward GAAP bridge review
 
 Local historical reconciliation, independent forward arithmetic, fiscal boundary, ordinary R&D retention, share and cost sensitivities, parsing and byte-identical replay passed; see gaap-validation.json. Reconciled original 376m cash-flow SBC to 377m P&L SBC including software amortization. The note discloses the 1m difference; no unexplained source variance remains. Higher compensation inputs are scenarios, not a schedule inferred by dividing award backlog by its weighted-average duration. Third-party net-income estimates are a separate aggregate cross-check. Model has no unsupported scenario probabilities or asserted fair-value multiple. Exact-head CI must be fetched after publication; independent financial review remains pending.
+
+## Compensation/dilution second-method review
+
+Read annual and interim award/tax notes and dated net-income aggregates separately. Unrecognized Omnibus costs rose 98.1% March to September. Actual historical SBC tax-effect ratios (about 16% FY26 and 21% H1 FY27) support a sensitivity rather than one guaranteed tax shield. H1 basic versus diluted denominator difference is 1.03%; that is distinct from the large GAAP versus adjusted numerator difference. SBC expense is not cash returned to the company. New report preserves original GAAP stress cases and separately labels consensus-derived EPS. This owning-worker review is not independent acceptance. All local checks and byte-identical output replay passed.

@@ -1,5 +1,5 @@
 {
-  "model_version": "arm-forward-gaap-bridge/0.1.0",
+  "model_version": "arm-forward-gaap-bridge/0.2.0",
   "reference_price": 152.2,
   "marginal_tax_shield": 0.15,
   "historical_reconciliations": {
@@ -148,7 +148,7 @@
       "fy28_gaap_eps_growth_vs_fy27_pct": 30.166608307614528
     }
   ],
-  "input_sha256": "26e4ce375347d56b640113629a43b968276b401b25ef5853176c7d5c7536cec6",
+  "input_sha256": "a0641cb265e2f4049b91da6e5a32b23e8260af651ef51b165dc0f74afc6c9106",
   "tax_shield_sensitivity": [
     {
       "marginal_tax_shield": 0.0,
@@ -346,5 +346,71 @@
   "development_cost_sensitivity": {
     "extra_100m_reduces_fy28_gaap_eps_by": 0.07657657657657657,
     "ordinary_rd_deducted_again": false
+  },
+  "assumptions_review": {
+    "omnibus_unrecognized_growth_pct": 98.13877740941082,
+    "fy26_observed_sbc_tax_effect_ratio": 0.1596958174904943,
+    "h1_observed_sbc_tax_effect_ratio": 0.20833333333333334,
+    "sbc_specific_tax_sensitivity": [
+      {
+        "id": "flat_q2_costs",
+        "fy28_gaap_eps": 1.8306906906906906,
+        "note": "Historical SBC-specific tax-effect ratio sensitivity, not future tax guidance"
+      },
+      {
+        "id": "higher_compensation",
+        "fy28_gaap_eps": 1.1485585585585583,
+        "note": "Historical SBC-specific tax-effect ratio sensitivity, not future tax guidance"
+      },
+      {
+        "id": "development_overrun",
+        "fy28_gaap_eps": 0.9188288288288285,
+        "note": "Historical SBC-specific tax-effect ratio sensitivity, not future tax guidance"
+      }
+    ],
+    "gaap_consensus_reference": [
+      {
+        "year": "FY27",
+        "gaap_net_income_forecast": 1190,
+        "shares_assumed": 1090,
+        "derived_eps": 1.091743119266055,
+        "pe_at_reference_price": 139.41008403361346,
+        "classification": "EPS_derived_from_dated_aggregate_net_income_forecast",
+        "sbc_subtracted_again": false
+      },
+      {
+        "year": "FY28",
+        "gaap_net_income_forecast": 1939,
+        "shares_assumed": 1110,
+        "derived_eps": 1.7468468468468468,
+        "pe_at_reference_price": 87.12841670964414,
+        "classification": "EPS_derived_from_dated_aggregate_net_income_forecast",
+        "sbc_subtracted_again": false
+      },
+      {
+        "year": "FY29",
+        "gaap_net_income_forecast": 2935,
+        "shares_assumed": 1130,
+        "derived_eps": 2.5973451327433628,
+        "pe_at_reference_price": 58.59829642248722,
+        "classification": "EPS_derived_from_dated_aggregate_net_income_forecast",
+        "sbc_subtracted_again": false
+      }
+    ],
+    "share_mechanics": {
+      "h1_gaap_basic_eps_unrounded": 0.37453183520599254,
+      "h1_gaap_diluted_eps_unrounded": 0.3707136237256719,
+      "h1_adjusted_diluted_eps_unrounded": 0.969416126042632,
+      "incremental_diluted_share_count_pct": 1.0299625468164875,
+      "outstanding_awards_to_common_share_count_pct": 2.149532710280374,
+      "approximate_new_grant_date_value_m": 2332.33,
+      "new_grant_value_is_current_cash_outflow": false,
+      "gaap_expense_and_share_denominator_are_different_measures": true
+    },
+    "opex_run_rate_check": {
+      "q3_guidance_annualized": 3300,
+      "classification": "Quarterly_guidance_annualized_not_FY28_guidance"
+    },
+    "independent_acceptance": "pending"
   }
 }
