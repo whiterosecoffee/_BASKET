@@ -13,6 +13,12 @@ import sys
 
 from jsonschema import Draft202012Validator, FormatChecker
 
+# Keep both package imports and the documented direct-file CLI working.
+if __name__ == "__main__" and not __package__:
+    from planner import ci_results
+else:
+    from orchestration.planner import ci_results
+
 ROOT = Path(__file__).resolve().parents[1]
 REPO = "whiterosecoffee/_BASKET"
 
@@ -62,7 +68,8 @@ def evidence_check(task, report, github, spark_catalog):
     errors, warnings = [], []
     issues = {x["number"]: x for x in github["issues"]}
     prs = {x["number"]: x for x in github["pull_requests"]}
-    runs = {x["url"]: x for x in github["workflow_runs"]}
+    # Preserve distinct attempts even when GitHub reuses a run URL.
+    runs = dict(enumerate(github["workflow_runs"]))
     sparks = {x["id"]: x for x in spark_catalog["sparks"]}
 
     issue = task["issue"]["number"]
@@ -111,6 +118,7 @@ def evidence_check(task, report, github, spark_catalog):
                 if task["spark_id"] in sparks and not permitted(
                         path, sparks[task["spark_id"]]["write_paths"]):
                     errors.append("PR touches path owned by another spark: " + path)
+    head_ci = ci_results(pr["head_sha"], runs) if pr else []
     ci_passes = 0
     for check in report["checks"]:
         if check["result"] == "pass" and not check["evidence_urls"]:
@@ -118,15 +126,20 @@ def evidence_check(task, report, github, spark_catalog):
         if check["result"] == "pass" and check["execution"] == "not_executed":
             errors.append("not_executed check cannot pass: " + check["id"])
         if check["kind"] == "workflow" and check["result"] == "pass":
-            confirmed = False
-            for url in check["evidence_urls"]:
-                run = runs.get(url)
-                if run and run["conclusion"] == "success" and (
-                        pr is None or run["head_sha"] == pr["head_sha"]):
-                    confirmed = True
+            # Check each cited workflow independently. Auxiliary workflows are
+            # valid evidence, but cannot substitute for the required gate.
+            cited_names = sorted({run["name"] for run in runs.values()
+                                  if run["url"] in check["evidence_urls"]})
+            cited_ci = ci_results(pr["head_sha"], runs, cited_names) if pr else []
+            confirmed = bool(cited_ci) and all(
+                result["result"] == "PASS"
+                and result["evidence_url"] in check["evidence_urls"]
+                for result in cited_ci)
             if not confirmed:
                 errors.append("workflow success not verified at PR head: " + check["id"])
-            else:
+            elif head_ci and all(result["result"] == "PASS"
+                                 and result["evidence_url"] in check["evidence_urls"]
+                                 for result in head_ci):
                 ci_passes += 1
         if check["result"] in ("skipped", "not_run"):
             warnings.append("check not executed: " + check["id"])
@@ -151,10 +164,8 @@ def evidence_check(task, report, github, spark_catalog):
         errors.append("integrated report requires PR merged in GitHub evidence")
 
     # Merge alone does not assert a functioning release. CI on the main commit is separate.
-    main_ci = [run for run in github["workflow_runs"]
-               if run["head_sha"] == github["main_commit"]
-               and run["name"] == "Validate BASKET data"
-               and run["conclusion"] == "success"]
+    main_ci = all(result["result"] == "PASS"
+                  for result in ci_results(github["main_commit"], runs))
     if errors:
         # An invalid record can never appear in a verified phase. A failed
         # ownership check or stale/missing CI overrides apparent readiness.

@@ -1,0 +1,105 @@
+name: Project adapter and Copier strict gate
+on:
+  pull_request:
+    paths:
+      - 'orchestration/project_sync/**'
+      - 'orchestration/bootstrap/**'
+      - 'copier.yml'
+      - 'orchestration/worker_protocol.py'
+      - 'orchestration/sparks.json'
+      - 'schemas/worker-*.json'
+      - '.github/workflows/project-sync-acceptance.yml'
+      - 'tests/integration/*project_sync*'
+      - 'tests/integration/PROJECT_SYNC_GATE.md'
+  push:
+    branches: [main]
+    paths:
+      - 'orchestration/project_sync/**'
+      - 'orchestration/bootstrap/**'
+      - 'copier.yml'
+      - 'orchestration/worker_protocol.py'
+      - 'orchestration/sparks.json'
+      - 'schemas/worker-*.json'
+      - '.github/workflows/project-sync-acceptance.yml'
+      - 'tests/integration/*project_sync*'
+      - 'tests/integration/PROJECT_SYNC_GATE.md'
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: 'Optional exact 40-character source revision; never a live Project'
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  project-sync:
+    name: project-sync-${{ matrix.suite }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [adapter, copier]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          path: candidate
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.workflow_sha }}
+          path: acceptance
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned offline test dependencies
+        run: python -m pip install jsonschema==4.23.0 PyYAML==6.0.2 copier==9.19.1
+      - name: Independently test fail-closed gate
+        working-directory: acceptance
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python - <<'PYTEST'
+          import unittest
+          suite = unittest.TestLoader().discover('tests/integration', pattern='test_project_sync_gate.py')
+          count = suite.countTestCases()
+          if count < 20:
+              raise SystemExit('Missing gate regression tests')
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          raise SystemExit(0 if result.wasSuccessful() and result.testsRun == count
+                           and not result.skipped and not result.expectedFailures else 1)
+          PYTEST
+      - name: Select actual source or labeled pinned unmerged dependency
+        id: source
+        env:
+          REQUESTED_SOURCE: ${{ inputs.source_sha }}
+        run: python acceptance/tests/integration/project_sync_gate.py select --root candidate --requested "$REQUESTED_SOURCE" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.source.outputs.sha }}
+          path: source
+          persist-credentials: false
+      - name: Run named exact-source suite and preserve evidence
+        env:
+          SOURCE_SHA: ${{ steps.source.outputs.sha }}
+          SOURCE_MODE: ${{ steps.source.outputs.mode }}
+          ACCEPTANCE_SHA: ${{ github.workflow_sha }}
+          SUITE: ${{ matrix.suite }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python acceptance/tests/integration/project_sync_gate.py run \
+            --source source --expected-source "$SOURCE_SHA" \
+            --acceptance acceptance --expected-acceptance "$ACCEPTANCE_SHA" \
+            --suite "$SUITE" --mode "$SOURCE_MODE" --output "evidence/$SUITE"
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: project-sync-${{ matrix.suite }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: evidence/${{ matrix.suite }}
+          if-no-files-found: error

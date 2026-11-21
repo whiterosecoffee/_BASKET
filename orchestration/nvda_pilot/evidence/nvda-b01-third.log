@@ -1,0 +1,12 @@
+======================================================================
+FAIL: test_resolved_report_files_are_usable_relative_to_returned_directory (test_nvda_pilot_acceptance.NvdaPilotIndependentAcceptance.test_resolved_report_files_are_usable_relative_to_returned_directory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/basket-nvda-pilot/tests/integration/test_nvda_pilot_acceptance.py", line 154, in test_resolved_report_files_are_usable_relative_to_returned_directory
+    self.assertTrue(document.is_file(), f'Resolver returned unusable document path: {document}')
+AssertionError: False is not true : Resolver returned unusable document path: /tmp/tmpmi4c_lh2/destination/_TICKERS/NVDA/versions/09e99fe68e1924d56cbb09f8cf4680fbcecf175c669c9297fadbc2eb50c2f435/reports/reports/FY2026-Q1.md
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.435s
+
+FAILED (failures=1)

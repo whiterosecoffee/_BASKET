@@ -1,0 +1,39 @@
+{
+  "reviewer": "independent_B01",
+  "acceptance": "local_integrity_replay_PASS_exact_commit_CI_pending",
+  "manifest_id": "1c27bf3a093dffcd971797a8a6fc7c6367e7b9976ada610078baa126b1df54d3",
+  "manifest_files": 12,
+  "as_of": "2026-11-04T02:56:11Z",
+  "canonical_report_sha256": "b34a1522e35cfd58373d82f0aac1ca8fbaa425a0dc12bf4ccfc25be7896da7c9",
+  "market": 4690,
+  "financial_facts": 7,
+  "source_reports": 6,
+  "independent_tests": 24,
+  "workflow_tests_total": 67,
+  "skipped": 0,
+  "numeric_source_cells_verified": 32830,
+  "raw_source_sha256": "78310f336a11a5561ac5fc39026fa3a37662a9ced79e5930e4e9e2847dc78898",
+  "historical_financial_facts": 1,
+  "historical_reports": 0,
+  "historical_warnings": 0,
+  "source_quality_status": "SOURCE_QUALITY_AMBIGUOUS",
+  "source_quality": {
+    "fractional_volume_bars": 4664,
+    "vwap_outside_ohlc_bars": 864
+  },
+  "source_reconciliation_warnings": [
+    {
+      "code": "SOURCE_PERIOD_SUM_DIFFERENCE",
+      "detail": "FY2027Q1 revenue81,615 million +Q2 revenue96,221 million =177,836 million; Q2release six-month table reports177,837 million. Preserve as-reported values; cause not established. No automatic correction."
+    }
+  ],
+  "validation_scope": "integrity_and_replay_only",
+  "implementation_fingerprints": {
+    "orchestration/nvda_pilot/store.py": "ede7b457be6f5a652623ee302ab32fdb63e1c453dcf49540f16f56603d798cc6",
+    "orchestration/nvda_pilot/cli.py": "a50c9ebd09ed6d4c01875de83895cacf64d52dfae794262ea969f1ce6c0d37ec",
+    "tests/integration/test_nvda_pilot_acceptance.py": "8e6aadffc4b2b5dcd1a22eb71fe984253202bfbf1eddf357c93f9c6416c0754f",
+    ".github/workflows/nvda-pilot.yml": "a1ad164b0c3b99d1185a5bf0ec0d751a0e84704dea86a6e9ecabc386b1b23197",
+    "runtime/ticker_data.py": "a2473507b247eb69246edd7efd5a67bdfa301b22b3382db434cc81696c715952",
+    "runtime/observations.py": "d0849f2907771f1dfc28594e41f291cbe6530eb80c0a9e1f9235efb9af16bd6a"
+  }
+}
