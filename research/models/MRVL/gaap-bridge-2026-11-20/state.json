@@ -7,7 +7,7 @@
     "issue": 290,
     "branch": "work/290-mrvl-gaap-calendar-2028"
   },
-  "status": "branch_research_local_checks_passed_publication_pending",
+  "status": "review",
   "parent": {
     "guidance": "../../../../AGENTS.md",
     "registry": "../../../../orchestration/sparks.json",
@@ -67,6 +67,20 @@
   ],
   "next_action": "At Dec1 release, reconcile actual Q3 and Q4 guidance before revising forward assumptions.",
   "integration": "draft_not_merged",
-  "independent_review": "pending"
+  "independent_review": "pending",
+  "pr": 292,
+  "publication": {
+    "status": "published_draft",
+    "source_revision": "060bcac0d2e2090ae8c4f5b610a1db601a660056",
+    "files_read_back": 8,
+    "readback": "byte_identical",
+    "head_authority": "Live GitHub branch/PR head; no self-referential commit identifier embedded."
+  },
+  "validation": {
+    "local": "passed",
+    "independent_decimal_cases": 6,
+    "replay": "byte_identical",
+    "shared_ci": "pending_check",
+    "independent_financial_review": "pending"
+  }
 }
-
