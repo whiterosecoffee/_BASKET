@@ -1,0 +1,54 @@
+{
+  "id": "TEAM_EARNINGS_2026_2030",
+  "version": "0.1.0",
+  "purpose": "Reproducible source-dated earnings calendar, EPS growth and valuation comparison",
+  "parent": {
+    "guidance": "../../../../AGENTS.md",
+    "scope": "B04 research/models/**"
+  },
+  "owner": {
+    "spark": "B04",
+    "issue": 293,
+    "branch": "work/293-team-earnings-2026-2030"
+  },
+  "objectives": {
+    "current": "Published research with actual/consensus/scenario distinctions",
+    "next": "Verify FY2030 consensus basis and build sourced GAAP costs/tax/share bridge"
+  },
+  "status": "draft_research",
+  "files": {
+    "inputs_and_results": "inputs-results.json",
+    "report": "report.md",
+    "design": "feature-design.md",
+    "review": "review.md"
+  },
+  "dependencies": [
+    {
+      "issue": 207,
+      "status": "refresh_requested_no_receipt",
+      "blocking_current_quote": true,
+      "blocking_dated_research": false
+    }
+  ],
+  "planned_nodes": [
+    {
+      "id": "TEAM_GAAP_COST_BRIDGE",
+      "status": "planned_only",
+      "input": "Dated consensus plus compensation/cash pay, tax and share schedules",
+      "output": "Conditional matched-basis GAAP EPS reconciliation"
+    }
+  ],
+  "checks": {
+    "arithmetic": "passed_in_tool_runtime",
+    "remote_readback": "see_issue_resolution",
+    "independent_review": "pending",
+    "exact_head_ci": "pending"
+  },
+  "unknowns": [
+    "FY2030 comparable consensus",
+    "GAAP forecast cost and tax schedules",
+    "Net share growth after FY27",
+    "Accepted FETCH receipt"
+  ],
+  "next_action": "Verify FY2030 estimate basis before treating an outer-year consensus as comparable."
+}
