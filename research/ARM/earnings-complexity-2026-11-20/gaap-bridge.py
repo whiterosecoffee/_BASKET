@@ -204,7 +204,7 @@ def main():
         check(d,r)
     (ROOT/'gaap-results.json').write_text(json.dumps(r,indent=2)+'\n')
     (ROOT/'GAAP_BRIDGE.md').write_text(render(d,r))
-    buf=io.StringIO(); writer=csv.writer(buf)
+    buf=io.StringIO(); writer=csv.writer(buf, lineterminator="\n")
     writer.writerow(['scenario','fiscal_year','period_end','adjusted_eps_anchor','gaap_eps_modeled','pe_at_152_20','assumed_diluted_shares_m','restored_costs_m','extra_development_m','tax_shield_rate'])
     for s in r['scenarios']:
         for year,y in s['years'].items():
