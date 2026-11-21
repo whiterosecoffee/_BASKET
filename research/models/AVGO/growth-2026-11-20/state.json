@@ -17,24 +17,26 @@
   "evidence": [
     "inputs-results.json",
     "REPORT.md",
-    "https://github.com/whiterosecoffee/_BASKET/issues/291"
+    "https://github.com/whiterosecoffee/_BASKET/issues/291",
+    "REPORT.md#competitive-moat"
   ],
   "feature_design": "feature-design.md",
   "planned_nodes": [
     {
       "id": "customer-margin-stress",
-      "status": "planned",
+      "status": "research_sensitivity_recorded",
       "input": "FY2027/2028 reference EPS/revenue; hypothetical affected revenue share, product cuts, contribution margin, additional operating-margin pressure, tax and dilution",
       "output": "EPS deltas, P/E and hypothetical valuation sensitivity; no customer-specific forecast"
     }
   ],
   "next_actions": [
-    "Reconcile updated consensus with customer-specific TPU exposure"
+    "Verify repeat optical scale-up production wins and compare matched performance/yield; retain unclosed LITE status"
   ],
   "limitations": [
     "No operational market feed",
     "No GAAP forecast bridge",
     "Sparse distant consensus",
-    "Hosted CI pending"
+    "Hosted CI pending",
+    "Customer exposures and stress inputs hypothetical"
   ]
 }
