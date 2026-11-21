@@ -48,11 +48,25 @@
     "issuer_page_reopened": true,
     "open_pr_path_collision_checks": 82,
     "conflicting_research_SFTBY_paths_found": 0,
-    "json_syntax": "to_be_verified_after_write",
+    "json_syntax": "pass; fetched committed state and parsed in author session",
     "independent_review": "not_verified",
     "merged": false,
     "operational": false,
-    "dot_receipt": "not_verified"
+    "dot_receipt": "not_verified",
+    "author_readback": {
+      "result": "pass",
+      "revision": "5db4ebb940c0d827f48381a9b0fa734df2447538",
+      "paths": [
+        "research/SFTBY/DBRG/state.json",
+        "research/SFTBY/DBRG/feature-design.md"
+      ]
+    },
+    "shared_ci": {
+      "result": "pass",
+      "revision": "5db4ebb940c0d827f48381a9b0fa734df2447538",
+      "url": "https://github.com/whiterosecoffee/_BASKET/actions/runs/44462481994",
+      "scope": "Shared repository validation; not independent research acceptance"
+    }
   },
   "children": [],
   "planned_nodes": [],
@@ -67,5 +81,31 @@
       "owner": "B09/B00 reviewer",
       "action": "Review this draft's evidence classifications and accounting boundaries; accept or request concrete corrections before any authorized integration"
     }
-  ]
+  ],
+  "review": {
+    "author_assessment": "Four local documentation acceptance conditions satisfied; independent review remains pending",
+    "criteria": [
+      {
+        "id": "A1",
+        "result": "pass",
+        "evidence": "feature-design.md Source evidence and temporal limits"
+      },
+      {
+        "id": "A2",
+        "result": "pass",
+        "evidence": "feature-design.md Economic transmission and invariants"
+      },
+      {
+        "id": "A3",
+        "result": "pass",
+        "evidence": "feature-design.md Observed role and potential synergies"
+      },
+      {
+        "id": "A4",
+        "result": "pass",
+        "evidence": "state.json verification and next_actions"
+      }
+    ],
+    "pr": "https://github.com/whiterosecoffee/_BASKET/pull/271"
+  }
 }
