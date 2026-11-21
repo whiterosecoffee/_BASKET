@@ -1,8 +1,12 @@
 {
   "schema": "crwv.acceptance_audit@1",
-  "source_head": "c575f0f987d773bb70fca6c0fdc5f439078f9426",
+  "source_head": "4151d3f75570f7ab5828c6ccd60bb9994c891bb1",
   "result": "historical_bytes_verified_canonical_adoption_pending",
   "source_inventory": [
+    {
+      "path": "research/CRWV/market-research-2026-10-29/AGENTS.md",
+      "sha256": "7a7ea89eee4e7ab87a723f56ba156563c1a0054886896127d588d2790f24d40c"
+    },
     {
       "path": "research/CRWV/market-research-2026-10-29/DAILY_STAGING.md",
       "sha256": "bb4cb732c044f243fe57249e36b8473d47782def38230159fc799bc74b43c9bd"
@@ -28,8 +32,48 @@
       "sha256": "820aa9b755ace895f76fe6341d201fa594d673a5c26f699e74575823d278fb85"
     },
     {
+      "path": "research/CRWV/market-research-2026-10-29/eps-basis-reconciliation-2026-11-20.json",
+      "sha256": "c6f2c3ca6cda159ee35dc1b3df19b77292796a6b7f877ed28eb719cfbaad8938"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/eps-calendar-2026-2030.json",
+      "sha256": "30871c4bddf1a0887176a648ded234f0d3122433b8d9daddc0da300dacd8bf6b"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/eps-calendar-2026-2030.md",
+      "sha256": "2b4f965ee0f6cd79f9271992f29f34ae83f2bb364bd382148b00f423d9cd0e9e"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/feature-design.md",
+      "sha256": "9b95a7073e7b89aabb0893c7a6edc5722b527023f8e529fc845ade8ea9c18cd3"
+    },
+    {
       "path": "research/CRWV/market-research-2026-10-29/findings.json",
       "sha256": "236c7a909c0ef29c54f68148563498563249732542db8a9df85158c6b1a00404"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/funding-and-earnings-hurdles-2026-11-20.json",
+      "sha256": "9dadd5d55be86c6b437a0ca553a86841d93fa5a814dc64a97232ace625d7a84f"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/funding-and-earnings-hurdles-2026-11-20.md",
+      "sha256": "cad2164d8081ddd8039c890bef22309f05844a3dec21a56e5569d7a92a8d207b"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/growth-streams-and-stress-2026-11-20.json",
+      "sha256": "ef408b858fdce1432b3db5afdeb48b8c6d2c2cd5aae1574988735eb937e52cd1"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/growth-streams-and-stress-2026-11-20.md",
+      "sha256": "a32da84e077171fffa55e724dbbe9ec2d13c57259e8a2cd8addee3effddb41c4"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/handoff-reconciliation-2026-11-20.md",
+      "sha256": "13c37286b5dde66c551c98dd3e61698bcd12881db1fee513fb03a0a7eaeabcfa"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/post-earnings-price-review-2026-11-19.json",
+      "sha256": "7ba9ef123fae44a8390864084a18874251ca0f55869cc7bf7e3612186eec0a83"
     },
     {
       "path": "research/CRWV/market-research-2026-10-29/prepare_daily_shards.py",
@@ -38,6 +82,30 @@
     {
       "path": "research/CRWV/market-research-2026-10-29/recent-history-2026-10-30.json",
       "sha256": "01db6a113d3a11e4cd50aa04824216352500cbeb5d9c9bcbea233eca062e42f7"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/renewal-cohort-review-2026-11-21.json",
+      "sha256": "dcf780c7ee6c94ce42436ec4f5bf3655d8c92e0dabdc3cf9a54820f9f454711a"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/renewal-cohort-review-2026-11-21.md",
+      "sha256": "703b9e744125c0aea6397538fd54f3437ecb68ecef07c295a1a024ecd4f68e80"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/return-milestones-2026-11-20.json",
+      "sha256": "9fd6a9ae3f8cc5adec2014fb7a6c828d203eb912f39328935713608bd1829859"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/return-milestones-2026-11-20.md",
+      "sha256": "d12d4153cc2839b24959fd3d02e20fcd81636f7502dc7cacb451166a2a82e950"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/review.md",
+      "sha256": "e69c8c3931215b1c2793e2f23e27d6c83b0605b2798893ea932c4a106cef322d"
+    },
+    {
+      "path": "research/CRWV/market-research-2026-10-29/state.json",
+      "sha256": "7ff6104b42e0b76e2c33d98f9bae5031a3b001b50ff3ad77b909ea521b74e7f1"
     },
     {
       "path": "research/CRWV/market-research-2026-10-29/test_daily_capture.py",

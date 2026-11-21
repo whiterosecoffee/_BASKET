@@ -28,3 +28,20 @@ B01 named source-gate owner #214 rather than pretend that comment dispatched wor
 Next decision is concrete: B00 must identify one approved CRWV data target and
 PR122 path-update owner; B01 adds this exact-source composition to its existing
 gate after reviewing inputs. No need to create another queue, engine or history.
+
+
+## 2026-11-21 transport recovery
+
+Recovered the existing private capture archive through its published binding.
+Both original transport CSV hashes match that binding; October also matches
+PR122 capture metadata. Existing backfill code reproduced all25daily JSONL
+partitions (21,844rows) exactly, with zero duplicate rows and unchanged replay.
+All2,563vendor VWAP anomalies remain. No private source bytes were published.
+The older audit's unavailable-CSV limitation is resolved by this separate proof;
+unknown original retrieval/first availability and provider truth remain unknown.
+
+PR122 source reviewed at4151d3f75570f7ab5828c6ccd60bb9994c891bb1.
+Consumer evidence remains pinned to main74d913; it is not a claim about newer main.
+Existing FETCH writer authority and _MASSIVE adoption were inspected: no bound
+request route or confirmed connected host was supplied. Canonical target and
+independent B01 exact-head acceptance remain blockers; no merge performed.

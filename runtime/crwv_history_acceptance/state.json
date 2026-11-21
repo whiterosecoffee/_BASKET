@@ -1,9 +1,9 @@
 {
   "schema": "crwv.acceptance_state@1",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "purpose": "Qualify existing CRWV historical daily partitions without publishing another history or pretending staging is canonical ingestion.",
   "tiered_objectives": {
-    "now": "Refresh exact-source audit and prove compatibility with the existing main minute consumer.",
+    "now": "Verify preserved transport CSV provenance and deterministic replay against all25daily partitions.",
     "next": "B00 assigns one canonical target and writer; B01 independently checks final candidate.",
     "later": "Owner-qualified adoption, revision/restart and operational integration."
   },
@@ -33,8 +33,8 @@
   ],
   "sources": {
     "candidate_pr": 122,
-    "candidate_head": "c575f0f987d773bb70fca6c0fdc5f439078f9426",
-    "previous_candidate_head": "827dd1ee9e9239c5761013c05f320b30e795c84c",
+    "candidate_head": "4151d3f75570f7ab5828c6ccd60bb9994c891bb1",
+    "previous_candidate_head": "c575f0f987d773bb70fca6c0fdc5f439078f9426",
     "main_head": "74d913e8913d630d85451344689e093aeea07efc"
   },
   "children": [
@@ -43,6 +43,12 @@
       "status": "locally_verified",
       "input": "Hash-verified one-date CRWV eight-field arrays plus exact main metrics.py",
       "output": "Per-date descriptive consumer acceptance, gaps and rejection check; no new source data store"
+    },
+    {
+      "id": "transport_provenance_probe",
+      "status": "locally_verified",
+      "input": "Existing private capture archive and exact PR122 source revision",
+      "output": "Metadata-only proof that original October and November CSVs reproduce all25daily JSONL partitions byte-for-byte"
     }
   ],
   "dependencies": [
@@ -57,13 +63,20 @@
       "owner": "B02/B01",
       "status": "partial_integrity_acceptance",
       "output": "Final adopted source and independent domain validation"
+    },
+    {
+      "owner": "B02/fetch.massive",
+      "authority_ref": "whiterosecoffee/_PATTERNS@c3d8ceb1c50b9909c33b3731e270e831c6ef3d2f:components/tools/massive-maintainer-source/source/runtime/massive_maintainer/AUTHORITY.md",
+      "status": "route_unbound",
+      "output": "Verified incumbent-writer intake route and private canonical target; Snapshot dependency request_route is null."
     }
   ],
   "evidence": [
     "evidence.json",
     "evidence-current.json",
     "consumer-evidence.json",
-    "review.md"
+    "review.md",
+    "provenance-evidence.json"
   ],
   "next_actions": [
     {
@@ -84,5 +97,5 @@
   "independent_ci": "not_run",
   "integrated": false,
   "operational": false,
-  "source_delta": "One added earnings report; original20source files unchanged."
+  "source_delta": "Subsequent B10 research additions; original historical source bytes unchanged. Recovered original transport CSVs from existing private archive; no new archive or raw data publication."
 }

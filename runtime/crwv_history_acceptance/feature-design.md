@@ -20,7 +20,7 @@ row shape, ET date, hashes, counts, lineage, anomalies, byte reconstruction and
 unchanged replay. It does not implement another splitter/writer. Dates here are
 US equity local dates; no futures overnight-session generalization is assumed.
 Unknown retrieval/first availability remains unknown; end-of-bar arithmetic is
-not proof of publication. Original CSV unavailable: preserve that source limit.
+not proof of publication. Original CSV was unavailable to the earlier audit; provenance_probe.py now verifies the preserved private capture separately. Earlier evidence remains a dated record.
 
 ## Child: existing minute-consumer probe
 
@@ -53,3 +53,19 @@ Prior-art mechanisms: content-addressed manifests detect source changes; immutab
 snapshots preserve revision history; explicit adapter composition reuses a tested
 consumer; deterministic replay and negative probes expose gaps without inventing
 observations. Hash integrity cannot establish vendor accuracy or availability.
+
+## Child: transport provenance probe
+
+Input: exact PR122 checkout and existing private CRWV capture ZIP identified by
+_PATTERNS _CRWV capture-binding.json at dc1e25268f819e5860afc26f41257757c8b564ba.
+Output: metadata-only provenance-evidence.json. Verify the two declared CSV
+hashes, then reuse PR122 backfill_minutes.capture in temporary external staging.
+Compare every generated daily JSONL hash, count, date, anomaly and boundary to
+the independent source audit. Replay the identical CSV and require unchanged
+bytes and no added files. Never extract arbitrary archive paths.
+
+The private archive is reused, not republished or copied into GitHub. It closes
+the transport-file availability gap, not vendor accuracy, acquisition-time,
+canonical adoption or independent B01 validation. The existing FETCH authority
+remains exclusive; its recorded request_route is null and an archive is not a
+qualified replica. No new writer, data root or generic ingestion contract.
