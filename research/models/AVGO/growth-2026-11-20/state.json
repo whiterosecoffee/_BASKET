@@ -20,7 +20,14 @@
     "https://github.com/whiterosecoffee/_BASKET/issues/291"
   ],
   "feature_design": "feature-design.md",
-  "planned_nodes": [],
+  "planned_nodes": [
+    {
+      "id": "customer-margin-stress",
+      "status": "planned",
+      "input": "FY2027/2028 reference EPS/revenue; hypothetical affected revenue share, product cuts, contribution margin, additional operating-margin pressure, tax and dilution",
+      "output": "EPS deltas, P/E and hypothetical valuation sensitivity; no customer-specific forecast"
+    }
+  ],
   "next_actions": [
     "Reconcile updated consensus with customer-specific TPU exposure"
   ],
