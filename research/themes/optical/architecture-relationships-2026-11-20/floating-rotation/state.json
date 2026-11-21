@@ -1,0 +1,72 @@
+{
+  "id": "FLOATING_RELATIVE_VALUE_ROTATION",
+  "purpose": "Floating multi-ticker relative valuation and two-way share/earnings purchasing-power comparison",
+  "parent_refs": [
+    "../AGENTS.md",
+    "../feature-design-rotation.md"
+  ],
+  "instructions_ref": "AGENTS.md",
+  "feature_design": "feature-design-floating-index.md",
+  "assignment": "SPARK-ASSIGNMENT.md",
+  "owner": "B15-305 design; B04 #297/#311 engine",
+  "branch": "work/305-optical-architecture-relationships",
+  "maturity": {
+    "formalized": true,
+    "implemented": false,
+    "backtested": false,
+    "live": false,
+    "receiver_access": "pending"
+  },
+  "objectives": {
+    "required": [
+      "Define floating earnings-adjusted ratio",
+      "Explicit bidirectional bands and net costs",
+      "Prepared source-pinned Spark review packet"
+    ],
+    "next": [
+      "Spark checkout verification and bounded offline review"
+    ]
+  },
+  "dependencies": [
+    {
+      "repo": "whiterosecoffee/_PATTERNS",
+      "id": "_AGENT_FRAMEWORK",
+      "revision": "0758c08f1a8c5451a07df652bfaba985c7f6670b"
+    },
+    {
+      "repo": "whiterosecoffee/_PATTERNS",
+      "id": "_WORKSTATION_HANDOFF",
+      "revision": "59b4a88638293a0c2a5dba12afee269fdd33f934"
+    },
+    {
+      "repo": "whiterosecoffee/_BASKET",
+      "issue": 311,
+      "role": "shared engine owner request"
+    }
+  ],
+  "planned_components": [
+    {
+      "id": "directed-index",
+      "input": "matched quotes and common-date scenario valuations",
+      "output": "executable purchasing ratio and index range",
+      "status": "planned"
+    },
+    {
+      "id": "two-way-band-policy",
+      "input": "held state,net ledger,index range and eligibility",
+      "output": "hold/partial/full proposed actions with reasons",
+      "status": "planned"
+    },
+    {
+      "id": "report-date-forward-bridge",
+      "input": "point-in-time quarterly estimates and confirmed/estimated reports",
+      "output": "rolling forward EPS by report date",
+      "status": "planned"
+    }
+  ],
+  "evidence": {
+    "prior_examples": "../rotation-earnings-date-purchasing-power-2026-11-21.md",
+    "checkout_methods": "feature-design-floating-index.md#_patterns-methods"
+  },
+  "next_action": "Existing Spark session retrieves exact source packet and records receiver acknowledgment before scoped review."
+}

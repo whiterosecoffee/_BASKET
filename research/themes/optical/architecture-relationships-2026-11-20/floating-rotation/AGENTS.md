@@ -1,0 +1,2 @@
+# Floating relative-value rotation consumer
+Inherit ../AGENTS.md and ../feature-design-rotation.md. Read state.json, then feature-design-floating-index.md and SPARK-ASSIGNMENT.md. Reuse B04 engine and ticker forecasts by explicit reference. A ratio or scenario is not a forecast of a profitable trade. Keep the current design, receiver review evidence and shared-engine implementation status distinct. Select the smallest missing evidence item; review outputs against input validity, net wealth and ownership before updating state. No generic engine changes from this B15 scope.
