@@ -1,0 +1,101 @@
+{
+  "schema": "crwv.acceptance_state@1",
+  "version": "1.2.0",
+  "purpose": "Qualify existing CRWV historical daily partitions without publishing another history or pretending staging is canonical ingestion.",
+  "tiered_objectives": {
+    "now": "Verify preserved transport CSV provenance and deterministic replay against all25daily partitions.",
+    "next": "B00 assigns one canonical target and writer; B01 independently checks final candidate.",
+    "later": "Owner-qualified adoption, revision/restart and operational integration."
+  },
+  "status": "locally_verified_integration_blocked",
+  "owner": {
+    "spark": "B02",
+    "issue": 196,
+    "branch": "work/196-crwv-history-acceptance",
+    "pr": 197,
+    "write_paths": [
+      "runtime/crwv_history_acceptance/**"
+    ]
+  },
+  "parents": [
+    {
+      "path": "../../AGENTS.md",
+      "kind": "standing_guidance"
+    },
+    {
+      "path": "../../architecture/COMPONENT_QUICKSTART.md",
+      "ref": "74d913e8913d630d85451344689e093aeea07efc",
+      "kind": "reusable_method"
+    }
+  ],
+  "feature_designs": [
+    "feature-design.md"
+  ],
+  "sources": {
+    "candidate_pr": 122,
+    "candidate_head": "4151d3f75570f7ab5828c6ccd60bb9994c891bb1",
+    "previous_candidate_head": "c575f0f987d773bb70fca6c0fdc5f439078f9426",
+    "main_head": "74d913e8913d630d85451344689e093aeea07efc"
+  },
+  "children": [
+    {
+      "id": "minute_consumer_probe",
+      "status": "locally_verified",
+      "input": "Hash-verified one-date CRWV eight-field arrays plus exact main metrics.py",
+      "output": "Per-date descriptive consumer acceptance, gaps and rejection check; no new source data store"
+    },
+    {
+      "id": "transport_provenance_probe",
+      "status": "locally_verified",
+      "input": "Existing private capture archive and exact PR122 source revision",
+      "output": "Metadata-only proof that original October and November CSVs reproduce all25daily JSONL partitions byte-for-byte"
+    }
+  ],
+  "dependencies": [
+    {
+      "issue": 148,
+      "owner": "B00",
+      "status": "requested",
+      "output": "One canonical target and authorized path transition"
+    },
+    {
+      "issue": 186,
+      "owner": "B02/B01",
+      "status": "partial_integrity_acceptance",
+      "output": "Final adopted source and independent domain validation"
+    },
+    {
+      "owner": "B02/fetch.massive",
+      "authority_ref": "whiterosecoffee/_PATTERNS@c3d8ceb1c50b9909c33b3731e270e831c6ef3d2f:components/tools/massive-maintainer-source/source/runtime/massive_maintainer/AUTHORITY.md",
+      "status": "route_unbound",
+      "output": "Verified incumbent-writer intake route and private canonical target; Snapshot dependency request_route is null."
+    }
+  ],
+  "evidence": [
+    "evidence.json",
+    "evidence-current.json",
+    "consumer-evidence.json",
+    "review.md",
+    "provenance-evidence.json"
+  ],
+  "next_actions": [
+    {
+      "owner": "B00 #148",
+      "action": "Assign one canonical CRWV target and authorize existing PR122 path-update owner; preserve originals."
+    },
+    {
+      "owner": "B01 #214",
+      "action": "Review and extend existing named domain-source acceptance gate for PR122 plus PR197 exact-source audit/consumer probe."
+    }
+  ],
+  "limitations": [
+    "State is a dated record, not an executable controller or proof of receiver activity.",
+    "Private source data must not be newly published.",
+    "No independent B01 acceptance or canonical adoption."
+  ],
+  "review": "review.md",
+  "independent_ci": "not_run",
+  "integrated": false,
+  "operational": false,
+  "source_delta": "Subsequent B10 research additions; original historical source bytes unchanged. Recovered original transport CSVs from existing private archive; no new archive or raw data publication."
+}

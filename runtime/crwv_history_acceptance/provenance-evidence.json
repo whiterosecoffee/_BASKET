@@ -1,0 +1,33 @@
+{
+  "schema": "crwv.transport_provenance@1",
+  "source_head": "4151d3f75570f7ab5828c6ccd60bb9994c891bb1",
+  "archive_sha256": "62b7c0027c578a8802b9f6a60226271bd546ad134683343cc5c7bb49cf9b9cc1",
+  "captures": [
+    {
+      "source_csv": "CRWV-2026-10-minute-source.csv",
+      "sha256": "4e5cee44828b552ff54f79d9a88fdd8d5d0bc1c1d9c8653228ec1ac630c29852",
+      "records": 19186,
+      "daily_partitions": 22,
+      "duplicate_rows": 0,
+      "candidate_daily_bytes_match": true,
+      "replay_unchanged": true,
+      "replay_added_files": 0
+    },
+    {
+      "source_csv": "CRWV-nov4-source.csv",
+      "sha256": "4bf12d43a25bc4129844129921e340e60514858bbb8902e7cdb754a5670a6e5b",
+      "records": 2658,
+      "daily_partitions": 3,
+      "duplicate_rows": 0,
+      "candidate_daily_bytes_match": true,
+      "replay_unchanged": true,
+      "replay_added_files": 0
+    }
+  ],
+  "total_records": 21844,
+  "source_unchanged": true,
+  "limitations": [
+    "Preserved CSV identity and deterministic conversion verified; vendor truth and original retrieval time remain unverified.",
+    "Temporary staging only; no canonical write, writer activation or independent B01 acceptance."
+  ]
+}
