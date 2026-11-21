@@ -1,8 +1,8 @@
 {
   "schema": "crwv.research_state@1",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "purpose": "Maintain dated CRWV earnings, capacity, funding and price assessment with an explicit source and assumption trail",
-  "status": "post_earnings_review_locally_verified",
+  "status": "handoff_reconciled_forward_EPS_basis_unresolved",
   "owner": {
     "spark": "B10",
     "issue": 121,
@@ -23,8 +23,8 @@
     }
   ],
   "objectives": {
-    "now": "Published Q3 actual-versus-expectation and current-price sensitivity on existing branch",
-    "next": "Verify updated funding and billable capacity milestones",
+    "now": "Reconciled incoming CRWV handoff and audited Street versus GAAP forward EPS",
+    "next": "Obtain provider-defined exclusions and separately projected diluted shares through owner86",
     "later": "Qualify repeatable 2027 and 2028 capital and earnings revisions"
   },
   "children": [
@@ -67,9 +67,15 @@
   "evidence": [
     "post-earnings-price-review-2026-11-19.json",
     "earnings-price-bridge-2026-11-10.json",
-    "review.md"
+    "review.md",
+    "eps-basis-reconciliation-2026-11-20.json",
+    "handoff-reconciliation-2026-11-20.md"
   ],
   "next_actions": [
+    {
+      "owner": "B10 #86 finance tool; B10 #121 research evidence",
+      "action": "Owner #86: obtain source-defined 2027–2028 estimate adjustments and independently projected weighted diluted shares, then populate a sourced funding/commissioning bridge in the existing tool."
+    },
     {
       "owner": "B10 #121",
       "action": "Verify actual customer deposit receipts and DDTL closes/draws against the Nov10 forecasts, then refresh named site commissioning/billing milestones"
@@ -85,13 +91,14 @@
   ],
   "integrated": false,
   "operational": false,
-  "price_as_of": "2026-11-19T14:00:22.928Z",
-  "last_review_date": "2026-11-19",
+  "price_as_of": "2026-11-20T21:00:00Z",
+  "last_review_date": "2026-11-20",
   "unresolved": [
     "Billable MW and named-site billing dates",
     "Realized prepayments and after-quarter cash/debt",
     "Fully diluted shares and post-September ATM use",
     "Current issue-level credit spread",
-    "Canonical data target and independent acceptance"
+    "Canonical data target and independent acceptance",
+    "2027–2028 forecast GAAP/adjusted conventions and independent weighted diluted shares"
   ]
 }
