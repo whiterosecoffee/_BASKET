@@ -1,0 +1,61 @@
+{
+  "exit_code": 0,
+  "files": {
+    "orchestration/handoff_loop/.gitignore": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793",
+    "orchestration/handoff_loop/DRY_RUN.md": "e6840b1893ea53308803379df744205ff82f8ea9904dd322446bca0e762829ba",
+    "orchestration/handoff_loop/GITHUB_READONLY.md": "13f7df4049a772236ebbb8c81f6d4527bd9b32b41da72bf5c5cbd4e29ff0e69e",
+    "orchestration/handoff_loop/README.md": "c23dd921688cf49d1a0fa22554301d4b53666129cb45f0d82e21b0d545405517",
+    "orchestration/handoff_loop/SCHEDULER.md": "e08fff76ab8450ce621429ede84fc1f23d2dbaf1f6f80ea311c3d431acdf4f69",
+    "orchestration/handoff_loop/SYNTHETIC_ADAPTER.md": "bfff590330aef43a02d1c0c2c1783f70b9526e55ef843f8059195a93b53b46ee",
+    "orchestration/handoff_loop/TRIGGER_BRIDGE.md": "21ce4e8adccf0a2f1ee882796a059ea72256bdb1460d2796dbb447189f26c4a8",
+    "orchestration/handoff_loop/__init__.py": "f6a68f2e20b0ac9a275acf27b74c52c867941b7b7d4a28ebd1cfe7b2a7263950",
+    "orchestration/handoff_loop/core.py": "84b1505693270080fa415d499b5a8ea28640c4e76b3a7fcecc7a5b2ec6091e85",
+    "orchestration/handoff_loop/dry-run-evidence.json": "e234a5a1605b526d5cb9c8902691c5690913e08ad1dafed10a1ea894316b8169",
+    "orchestration/handoff_loop/dry_run.py": "6be23c13ee383b090af88c336ed6b4bdd092d6fe837d235ad817bf30cd616c39",
+    "orchestration/handoff_loop/github-read-evidence.json": "1310ffc17ed9abc60df01e6a20a022d43a272f5d0cbecf088d19ef06e4edfbef",
+    "orchestration/handoff_loop/github_readonly.py": "681b902de42fe2826b6e402cd834d98df73d9d7c7e804a45b3535f2618833dc3",
+    "orchestration/handoff_loop/methodology-gaps.json": "43bc6f933627d4b5df7dd1e2a60fc9a2e6daa5d81e47b22feeed11c437876f0e",
+    "orchestration/handoff_loop/objectives-status.example.json": "1f720f9a413ce4252a4e4f93accd419b25f8b9132851dbf6b8a6ede2e6e9e648",
+    "orchestration/handoff_loop/synthetic_adapter.py": "bdc3f2b8d653e2991aab844fc4fa2f7517c373a8875b03f1ccbba24b12f8f685",
+    "orchestration/handoff_loop/test_adversarial.py": "3e6ae4376cc8d19d099942a64d57379b1fd4d0b0dcf63ad22b71b86f315f3324",
+    "orchestration/handoff_loop/test_core.py": "bbef9948c4a5ee46eab3037d94a990a9e0542ca7c89c5c40c8145fcc3ba7a555",
+    "orchestration/handoff_loop/test_dry_run.py": "bca664293ae19ce0b119942b742728651ebb1b9f5a5cf95554e74570c9600725",
+    "orchestration/handoff_loop/test_github_readonly.py": "75cc0182eea3b8f256eecebf76b5c9c710618bc55d129c0b761346b03e21cfbf",
+    "orchestration/handoff_loop/test_synthetic_adapter.py": "f2e7fccb57b9daedd0da1276da3d2ebe07df26d97fd602cb9b0857ee8e59a923",
+    "orchestration/handoff_loop/test_trigger_bridge.py": "8bf57fd0d286b414ce6018ca1bd20f156428e8cb385b5208958cb28da86860a2",
+    "orchestration/handoff_loop/trigger-boundary-evidence.json": "a54f1935920acda4c0c01f912c8b3ae3bd701ee775b7954782bc44e4ae61fb2d",
+    "orchestration/handoff_loop/trigger_bridge.py": "93c9dbf3149d899d66b00de07d8c2f842f033a4b286357c22402ffc2ed71eb7c"
+  },
+  "inputs_unchanged": true,
+  "integrated": false,
+  "manifest_sha256": "ff11d0313a293184664425e2ea4b648ffd92470a877dc59f311282d9961c91b3",
+  "modules": [
+    "orchestration.handoff_loop.test_core",
+    "orchestration.handoff_loop.test_adversarial",
+    "orchestration.handoff_loop.test_dry_run",
+    "orchestration.handoff_loop.test_github_readonly",
+    "orchestration.handoff_loop.test_synthetic_adapter",
+    "orchestration.handoff_loop.test_trigger_bridge"
+  ],
+  "operational": false,
+  "passed": true,
+  "reviewer_files": {
+    "project_sync_gate.py": "3fdf912a077b65faac72c775aaffe111db899e1adfe5615b5c07d18183a5231f",
+    "qualify.py": "8b0fa93fe7acc275d6403b2f80a6f6dae82fc2c59e852eb17c4342ea7aecc3d8"
+  },
+  "schema": "basket.component_export_result@0.1-draft",
+  "semantic_acceptance": false,
+  "source_revision": "48356290d402f0c47b89f84ddaa728c7e72d951e",
+  "tests": {
+    "discovered": 81,
+    "errors": 0,
+    "expected_failures": 0,
+    "failures": 0,
+    "minimum": 81,
+    "passed": true,
+    "run": 81,
+    "skipped": 0,
+    "unexpected_successes": 0
+  },
+  "verification_scope": "component_export_only"
+}

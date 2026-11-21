@@ -1,0 +1,22 @@
+test_boolean_timestamp_cannot_establish_freshness (__main__.ConsumerProbes.test_boolean_timestamp_cannot_establish_freshness) ... FAIL
+test_continue_is_only_a_decision (__main__.ConsumerProbes.test_continue_is_only_a_decision) ... ok
+test_criterion_cannot_be_weakened_during_persistence (__main__.ConsumerProbes.test_criterion_cannot_be_weakened_during_persistence) ... ok
+test_live_boundary_cannot_be_enabled_by_caller_flags (__main__.ConsumerProbes.test_live_boundary_cannot_be_enabled_by_caller_flags) ... ok
+test_omitted_wake_is_consumed_atomically (__main__.ConsumerProbes.test_omitted_wake_is_consumed_atomically) ... ok
+test_success_dimension_cannot_be_self_asserted (__main__.ConsumerProbes.test_success_dimension_cannot_be_self_asserted) ... ok
+
+======================================================================
+FAIL: test_boolean_timestamp_cannot_establish_freshness (__main__.ConsumerProbes.test_boolean_timestamp_cannot_establish_freshness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/integration/handoff_loop_review_20261119/probe_handoff.py", line 65, in test_boolean_timestamp_cannot_establish_freshness
+    self.assertEqual(self.core.evaluate(self.state, observation, {}, now=100)['action'], 'blocked')
+AssertionError: 'continue' != 'blocked'
+- continue
++ blocked
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.018s
+
+FAILED (failures=1)

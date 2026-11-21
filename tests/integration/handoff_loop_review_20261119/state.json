@@ -1,0 +1,127 @@
+{
+  "schema": "basket.local_component_state@0.1-draft",
+  "record_kind": "dated_review_checkpoint_not_controller",
+  "as_of": "2026-11-19",
+  "purpose": "Preserve independent PR264 evidence and a reusable B01 component-export qualification variant",
+  "owner": "B01",
+  "issue": "https://github.com/whiterosecoffee/_BASKET/issues/272",
+  "branch": "work/272-handoff-loop-independent-review",
+  "status": "draft_review",
+  "parent": {
+    "guidance": "../../../AGENTS.md",
+    "capability": "../DOMAIN_SOURCE_GATE.md",
+    "state": null,
+    "note": "Parent source-gate capability has no node state file asserted here."
+  },
+  "composes": [
+    "../project_sync_gate.py:revision",
+    "../project_sync_gate.py:strict_result"
+  ],
+  "objectives": {
+    "primary": "Independent evidence-backed qualification without modifying source ownership",
+    "secondary": [
+      "Formalize reusable tool using verified Microsoft methods",
+      "Preserve failed consumer expectation and next owner action"
+    ],
+    "acceptance": [
+      "A1 exact source blobs",
+      "A2 real suites and independent probes",
+      "A3 tool and pattern artifacts",
+      "A4 published review and verified readback"
+    ]
+  },
+  "source": {
+    "pr": 264,
+    "owner_issue": 169,
+    "revision": "48356290d402f0c47b89f84ddaa728c7e72d951e",
+    "status": "rework_requested_by_reviewer",
+    "finding": "F1 boolean verified_at treated as fresh"
+  },
+  "evidence": [
+    {
+      "path": "source-manifest.json",
+      "kind": "reviewed_connector_export_inventory",
+      "files": 24
+    },
+    {
+      "path": "source-results.json",
+      "kind": "local_producer_suite",
+      "tests": 81,
+      "passed": 81,
+      "failed": 0
+    },
+    {
+      "path": "source-suite.log",
+      "kind": "local_log"
+    },
+    {
+      "path": "probe-results.txt",
+      "kind": "independent_consumer_probes",
+      "tests": 6,
+      "passed": 5,
+      "failed": 1
+    },
+    {
+      "path": "test_qualify.py",
+      "kind": "tool_regressions",
+      "tests": 7,
+      "passed": 7
+    }
+  ],
+  "feature_designs": [
+    "feature-design.md"
+  ],
+  "review": "review.md",
+  "children": [
+    {
+      "id": "pr264-export-instance",
+      "status": "implemented_locally",
+      "manifest": "source-manifest.json"
+    }
+  ],
+  "planned_ghost_nodes": [
+    {
+      "id": "second-real-component",
+      "purpose": "Demonstrate another real consumer before consolidation",
+      "input": "separately scoped reviewed export and consumer expectations",
+      "output": "independent evidence and comparative reuse decision",
+      "status": "planned_not_started",
+      "owner": "B01"
+    }
+  ],
+  "dependencies": [
+    {
+      "issue": 169,
+      "owner": "B00",
+      "gate": "source fix then review repin",
+      "blocks_tool_review": false
+    },
+    {
+      "issue": 214,
+      "owner": "B01",
+      "gate": "existing full-checkout gate remains authoritative for its suites",
+      "blocks_tool_review": false
+    }
+  ],
+  "publication": {
+    "status": "pending_at_artifact_checkpoint",
+    "authority": "Current issue/PR readback supersedes this checkpoint"
+  },
+  "integration": "not_integrated",
+  "operational": "not_established",
+  "next_actions": [
+    {
+      "owner": "B00 #169",
+      "action": "Reproduce F1, add finite numeric validation and persistence rejection, publish exact source head"
+    },
+    {
+      "owner": "B01 #272",
+      "action": "After fix, review explicit repin and rerun source suite plus six consumer probes"
+    }
+  ],
+  "exceptions": [
+    "Component-only export qualification does not establish complete Git checkout integrity",
+    "No automated source retrieval or authenticated live port",
+    "No policy adoption or merge authorized"
+  ]
+}
