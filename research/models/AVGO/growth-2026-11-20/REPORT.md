@@ -144,3 +144,22 @@ MRVL+ headwinds: AVGO R&D budget remains~34–37B even under competitive pressur
 4x is economically feasible under strong delivery plus retained premium valuation. It is not automatic from acquiring LITE or4x corporate revenue; middle case here~3.1x, bull~5.1x. No unsupported odds.
 
 Sources: official October6 Marvell investor deck and Nov2 merger presentation linked in model. Company targets distinct from our assumptions. Readback/JavaScript arithmetic validation only; hosted exact-head CI and independent review pending.
+
+## User-standardized AVGO $300 baseline and common December endpoints
+User entry assumption300AVGO; research snapshotNov20,2026. Original normalized EPS series11.78/19.62/30.61/41.48/48.63 converted at unchanged25.466893xFY26E earnings.
+|FY|EPS|YoY|Cumulative vsFY26|Price at fixed multiple|
+|---|---:|---:|---:|---:|
+|2026|11.78|—|0.0%|300.00|
+|2027|19.62|66.6%|66.6%|499.66|
+|2028|30.61|56.0%|159.8%|779.54|
+|2029|41.48|35.5%|252.1%|1056.37|
+|2030|48.63|17.2%|312.8%|1238.46|
+This is a mechanical conversion of EPS estimates, not price consensus or a share-price forecast. Original EPS estimate dates/sparse coverage caveats preserved. FY dates end around lateOct/earlyNov, notDec31. At2030EPS48.63,20x=$972.60 and15x=$729.45. It differs from earlier competitive-path price scenarios because that separate model changes revenue, margins, diluted EPS and terminal multiple.
+
+Common December comparison: starting investment300each,1AVGOat300 vs300/122.28=2.453385672MRVL shares. MRVL+ is conditional pro-forma combined parent, not a second LITE position. In2027parentisnotyetclosed; values are hypothetical combined economic sensitivities rather than actual standaloneEPS valuation. AVGOcalendarEPSapprox10/12currentFY+2/12followingFY, smooth earnings assumption, not exact quarterly calendarization. MRVL+ annual endpoints were modeled calendar years. Both comparison and constant-multiple series are stored in competitive-paths-2030.json.
+|Scenario|Dec2027 AVGO|Dec2027 MRVL+ investment|Dec2028 AVGO|Dec2028 MRVL+ investment|
+|---|---:|---:|---:|---:|
+|AVGO maintains lead|384.43|216.19|561.41|280.11|
+|Competitive convergence|308.72|359.96|404.70|553.48|
+|Meaningful AVGO share loss|226.06|445.89|258.69|761.07|
+All investment values USD; do not label MRVL standardized capital value as its actual share price. Dividends/tax/costs excluded.
