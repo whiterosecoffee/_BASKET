@@ -11,10 +11,10 @@
       "Five reusable child launch prompts"
     ],
     "next": [
-      "Receiver verifies current sources and existing ownership"
+      "Formalize multi-ticker rotation extension using B04 #297 rather than creating another engine"
     ]
   },
-  "status": "draft_research_published_receiver_execution_pending",
+  "status": "draft_research_with_rotation_design_owner_execution_pending",
   "owner": "B15-305",
   "issue": 305,
   "branch": "work/305-optical-architecture-relationships",
@@ -37,6 +37,10 @@
     {
       "spark": "B05",
       "mode": "canonical graph changes require separate handoff"
+    },
+    {
+      "issue": 311,
+      "mode": "B04 implementation handoff requested; receiver access pending"
     }
   ],
   "feature_design": "feature-design.md",
@@ -76,9 +80,17 @@
       "input": "Shared contract plus child scope and current evidence",
       "output": "Evidence table, economic drivers, falsifiers and next action",
       "prompt_ref": "launch-prompts.md"
+    },
+    {
+      "id": "relative-valuation-rotation",
+      "status": "planned_owner_handoff",
+      "parent_capability": "B04 #297 / PR298",
+      "input": "Validated quotes, common-date valuation scenarios and private account constraints",
+      "output": "Directed rotation matrix, threshold surfaces and feasible action frontier",
+      "feature_design": "feature-design-rotation.md"
     }
   ],
-  "next_action": "Launch the package-I/O scope in an existing appropriate session or a newly claimed worker; first reverify deal terms.",
+  "next_action": "B04 owner evaluates multi-ticker rotation extension acceptance and implements within its existing scope.",
   "independent_receiver_access": "pending",
   "checks": {
     "source_review": "manual",
