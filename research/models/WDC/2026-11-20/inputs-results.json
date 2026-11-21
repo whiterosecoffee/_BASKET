@@ -1,0 +1,141 @@
+{
+  "as_of_date": "2026-11-20",
+  "as_of_timezone": "America/Phoenix",
+  "model_version": "wdc-research-arithmetic@1",
+  "currency": "USD",
+  "sources": {
+    "issuer_annual": "https://investor.wdc.com/node/28586",
+    "issuer_quarter": "https://investor.wdc.com/news-releases/news-release-details/wd-reports-fiscal-first-quarter-2027-financial-results",
+    "sec_quarter": "https://www.sec.gov/Archives/edgar/data/106040/000162828026066933/wdc-20261002.htm",
+    "sec_annual": "https://www.sec.gov/Archives/edgar/data/106040/000162828026057139/wdc-20260703.htm",
+    "chartmill": "https://www.chartmill.com/stock/quote/WDC/estimates",
+    "sp_crosscheck": "https://stockanalysis.com/stocks/wdc/forecast/",
+    "quote": "https://finance.yahoo.com/quote/WDC/history/",
+    "peak": "https://wallstreetnumbers.com/stocks/WDC/price",
+    "roadmap": "https://investor.wdc.com/news-releases/news-release-details/western-digital-accelerates-storage-innovation-ai-era",
+    "stx": "https://investors.seagate.com/news/news-details/2026/Seagate-Delivers-Industrys-Highest-Capacity-Hard-Drives-with-Next-Generation-Mozaic-4/default.aspx",
+    "toshiba": "https://toshiba.semicon-storage.com/us/company/news/2025/10/storage-20251014-1.html"
+  },
+  "observed_at": "2026-11-21T05:00:00Z",
+  "observed_at_note": "Approximate retrieval session hour, not a quote timestamp; individual first-availability and ingest instants unknown",
+  "available_at": null,
+  "ingested_at": null,
+  "expiry_status": "dated_research_not_live",
+  "series": [
+    {
+      "fy": 2026,
+      "eps": 10.22,
+      "revenue": 12.919,
+      "yoy_pct": null,
+      "cumulative_pct": 0,
+      "pe_close": 25.548923679060664
+    },
+    {
+      "fy": 2027,
+      "eps": 25.25,
+      "revenue": 21.511,
+      "yoy_pct": 147.06457925636008,
+      "cumulative_pct": 147.06457925636008,
+      "pe_close": 10.340990099009902,
+      "required_gm": 0.6155102488891926,
+      "eps_at_60pct_gm": 24.52125789473684
+    },
+    {
+      "fy": 2028,
+      "eps": 41.46,
+      "revenue": 30.454,
+      "yoy_pct": 64.19801980198021,
+      "cumulative_pct": 305.6751467710372,
+      "pe_close": 6.297877472262422,
+      "required_gm": 0.678455596867011,
+      "eps_at_60pct_gm": 36.24129473684211
+    },
+    {
+      "fy": 2029,
+      "eps": 54.35,
+      "revenue": 36.445,
+      "yoy_pct": 31.090207428847073,
+      "cumulative_pct": 431.8003913894325,
+      "pe_close": 4.804231830726771,
+      "required_gm": 0.7288553307757026,
+      "eps_at_60pct_gm": 44.092657894736845
+    },
+    {
+      "fy": 2030,
+      "eps": 52.68,
+      "revenue": 35.645,
+      "yoy_pct": -3.072677092916287,
+      "cumulative_pct": 415.45988258317027,
+      "pe_close": 4.956529992406986,
+      "required_gm": 0.7237636194941076,
+      "eps_at_60pct_gm": 43.04423684210526
+    }
+  ],
+  "baseline": {
+    "basis": "issuer FY2026 adjusted diluted EPS",
+    "period_end": "2026-07-03",
+    "eps": 10.22,
+    "vendor_discrepancy": 10.19,
+    "gaap_eps": 24.28
+  },
+  "forward_basis": "ChartMill search-index forecast series; direct access403; normalized-vs-GAAP definition and analyst cohorts not independently reconciled",
+  "crosscheck": {
+    "provider": "S&P via StockAnalysis",
+    "updated": "2026-11-12",
+    "fy2027_eps": 24.72,
+    "fy2028_eps": 40.4,
+    "rule": "Do not splice into ChartMill forecast series"
+  },
+  "compression": {
+    "peak": 799.87,
+    "peak_date": "2026-06-18",
+    "close": 261.11,
+    "ah": 268.5,
+    "low": 256.88,
+    "close_drawdown_pct": -67.35594534111793,
+    "ah_drawdown_pct": -66.4320452073462,
+    "recovery_pct": 206.33449504040442,
+    "close_at": "2026-11-20T16:00:00-05:00",
+    "ah_at": "2026-11-20T19:59:58-05:00",
+    "basis": "source-displayed intraday peak; canonical adjusted history unverified",
+    "fetch_receipt": "pending #207"
+  },
+  "margin_sensitivity": {
+    "revenue_b": 30.454,
+    "annual_opex_b": 1.62,
+    "annual_net_other_expense_b": 0.06,
+    "tax_rate": 0.17,
+    "diluted_shares_b": 0.38,
+    "formula": "EPS=(revenue*gross_margin-opex-net_other_expense)*(1-tax_rate)/diluted_shares",
+    "assumption_basis": "Annualized Q2FY2027 guidance midpoint; fixed across years solely for sensitivity, not forecast",
+    "results": [
+      {
+        "gross_margin": 0.45,
+        "eps": 26.263602631578948
+      },
+      {
+        "gross_margin": 0.5,
+        "eps": 29.589499999999997
+      },
+      {
+        "gross_margin": 0.55,
+        "eps": 32.915397368421054
+      },
+      {
+        "gross_margin": 0.6,
+        "eps": 36.24129473684211
+      },
+      {
+        "gross_margin": 0.65,
+        "eps": 39.56719210526316
+      }
+    ]
+  },
+  "quality_flags": [
+    "ChartMill FY2030 operating margin57.7% exceeds gross margin54.0%; rows not one coherent income statement",
+    "FY2028–2030 EPS definitions and analyst/share cohorts unresolved",
+    "Future fiscal ends approximate late June/early July, not confirmed report dates",
+    "No trading probabilities or price targets",
+    "No canonical source rows or market data writes"
+  ]
+}
