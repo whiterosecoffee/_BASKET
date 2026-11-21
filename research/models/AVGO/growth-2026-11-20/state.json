@@ -27,6 +27,12 @@
       "status": "research_sensitivity_recorded",
       "input": "FY2027/2028 reference EPS/revenue; hypothetical affected revenue share, product cuts, contribution margin, additional operating-margin pressure, tax and dilution",
       "output": "EPS deltas, P/E and hypothetical valuation sensitivity; no customer-specific forecast"
+    },
+    {
+      "id": "competitive-paths-2030",
+      "status": "planned",
+      "input": "Scenario revenue growth, gross margin, R&D/other expense, tax, financing and post-merger shares",
+      "output": "Separate AVGO and MRVL+ earnings paths and required economics for 4x MRVL share price"
     }
   ],
   "next_actions": [
