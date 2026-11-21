@@ -1,0 +1,50 @@
+{
+  "schema": "basket.handoff_trigger_boundary_evidence@0.1-draft",
+  "recorded_at": "2026-11-13T02:20:28.932079+00:00",
+  "actual": {
+    "source": "read-only automations.peek; existing Handoff task lookup",
+    "task_found": true,
+    "enabled": true,
+    "recurrence": "hourly",
+    "run_details": {
+      "last_run": null,
+      "latest_result": null,
+      "delivery_status": "unknown"
+    },
+    "environment_selection": "inherited",
+    "environments": null,
+    "schedule_modified": false,
+    "local_identity_matches_existing_worker": true,
+    "private_identifiers_omitted": true
+  },
+  "unavailable": [
+    "authenticated current scheduler invocation/original run ID",
+    "authoritative current owner observation",
+    "exclusive lease/fence observation"
+  ],
+  "simulated": [
+    "fixture original-run/target/checkpoint bindings",
+    "fixture owner and lease observations",
+    "repeat and separate-process replay tests"
+  ],
+  "live_boundary_probe": {
+    "schema": "basket.handoff_trigger_admission@0.1-draft",
+    "status": "blocked",
+    "reason": "authoritative trigger/ownership/lease interface unavailable",
+    "missing_interfaces": [
+      "authenticated current invocation with stable original run ID and target binding",
+      "authoritative current owner/session/environment observation",
+      "authoritative exclusive lease/fence observation and expiry"
+    ],
+    "actual_trigger_verified": false,
+    "ownership_verified": false,
+    "lease_verified": false,
+    "dispatch_authorized": false,
+    "checkpoint_written": false,
+    "effective_decisions": 0
+  },
+  "disposable_checkpoint_sha256_before": "fdbd7458287de713bb7645f756bc646179e55c40cffc7a40b1260566dbf94f34",
+  "disposable_checkpoint_sha256_after": "fdbd7458287de713bb7645f756bc646179e55c40cffc7a40b1260566dbf94f34",
+  "checkpoint_unchanged": true,
+  "actual_scheduled_trigger_admitted": false
+}
