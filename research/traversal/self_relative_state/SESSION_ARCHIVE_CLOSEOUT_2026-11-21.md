@@ -196,3 +196,8 @@ after B00 records the disposition; do not conflate that with release.
 - [ ] Product integration/merge/main CI (not source closeout tasks; intentionally open).
 
 **Source-closeout disposition:** **Hand off before archiving** until B00 handoff posting and remote readback are confirmed. After posting, local source work is exhausted and it is reasonable to archive the conversation as a source, while outstanding owner acceptance remains pending. The _BASKET product workstream must stay open and no closure/release claim is made.
+
+
+## Actual B00 posting receipt (2026-11-21)
+
+The complete self-contained B00 receiver assignment above was **posted** to existing [_BASKET issue #136, comment 7070415678](https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-7070415678), with an exact source-artifact link. This proves **handoff posted**, not receiver acknowledgment, active claim, owner decision, model acceptance, source persistence or main integration. The source authoring branch remains draft. No new issue, branch or worker was created. The other pending receiver is the separate _PATTERNS registered historical-state component, which remains independently unacknowledged.
