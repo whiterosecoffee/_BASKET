@@ -1,0 +1,126 @@
+{
+  "schema": "mrvl.earnings_horizon@1",
+  "as_of_date": "2026-11-20",
+  "price_reference": {
+    "usd": 125.75,
+    "observed_at": "2026-11-20T19:59:00-05:00",
+    "live": false
+  },
+  "basis": "adjusted_non_GAAP_like_aggregator_EPS_not_verified_GAAP",
+  "estimate_vintage": "2026-11-17",
+  "source": "https://deltascreener.com/stock/MRVL/forecast",
+  "source_class": "third_party_FMP_aggregate",
+  "rows": [
+    {
+      "fiscal_year": 2026,
+      "mostly_calendar_year": 2025,
+      "adjusted_eps": 2.84,
+      "yoy_growth_pct": 80.89171974522291,
+      "pe_at_125_75": 44.27816901408451,
+      "report_window": {
+        "date": "2026-03-05",
+        "status": "reported"
+      }
+    },
+    {
+      "fiscal_year": 2027,
+      "mostly_calendar_year": 2026,
+      "adjusted_eps": 4.21,
+      "yoy_growth_pct": 48.239436619718326,
+      "pe_at_125_75": 29.86935866983373,
+      "report_window": {
+        "month": "March",
+        "year": 2027,
+        "status": "estimated_unconfirmed"
+      }
+    },
+    {
+      "fiscal_year": 2028,
+      "mostly_calendar_year": 2027,
+      "adjusted_eps": 7.28,
+      "yoy_growth_pct": 72.92161520190024,
+      "pe_at_125_75": 17.273351648351646,
+      "report_window": {
+        "month": "March",
+        "year": 2028,
+        "status": "estimated_unconfirmed"
+      }
+    },
+    {
+      "fiscal_year": 2029,
+      "mostly_calendar_year": 2028,
+      "adjusted_eps": 12.51,
+      "yoy_growth_pct": 71.84065934065933,
+      "pe_at_125_75": 10.051958433253397,
+      "report_window": {
+        "month": "March",
+        "year": 2029,
+        "status": "estimated_unconfirmed"
+      }
+    },
+    {
+      "fiscal_year": 2030,
+      "mostly_calendar_year": 2029,
+      "adjusted_eps": 18.99,
+      "yoy_growth_pct": 51.79856115107913,
+      "pe_at_125_75": 6.62190626645603,
+      "report_window": {
+        "month": "March",
+        "year": 2030,
+        "status": "estimated_unconfirmed"
+      }
+    },
+    {
+      "fiscal_year": 2031,
+      "mostly_calendar_year": 2030,
+      "adjusted_eps": 28.95,
+      "yoy_growth_pct": 52.448657187993696,
+      "pe_at_125_75": 4.343696027633851,
+      "report_window": {
+        "month": "March",
+        "year": 2031,
+        "status": "estimated_unconfirmed"
+      }
+    }
+  ],
+  "notes": [
+    "Use one consistent FMP vintage for this growth ladder rather than mixing consensus revisions.",
+    "Fiscal year ending around JanuaryY mostly covers calendarY-1; exact Jan-Dec EPS remains unavailable.",
+    "All March future full-year report windows are estimates based on historical cadence, not announced dates.",
+    "Latest completed quarterly report Aug27,2026, Q2FY2027; next confirmed Q3 report Dec1,2026.",
+    "FY2031 completes most of calendar2030 and is included to avoid truncating the requested horizon.",
+    "FY2026 is reported adjusted EPS2.84, not forward EPS; P/E on it is a historical-basis reference.",
+    "Outer-year EPS constituent diluted/standalone/deal treatment not independently audited. No combined-company or GAAP forecasts inferred."
+  ],
+  "issuer_long_term_target": {
+    "fy": 2031,
+    "adjusted_eps_gt": 30,
+    "published_date": "2026-10-06",
+    "status": "issuer_target_not_consensus_or_guarantee",
+    "source": "https://investor.marvell.com/_assets/_c8b5c7be7627f26c20be25056bbe4c06/marvell/db/3711/35439/file/marvell-investor-day-2026-presentaion-deck-print-version.pdf"
+  },
+  "announced_dates": [
+    {
+      "period": "FY2026/Q4",
+      "date": "2026-03-05",
+      "status": "reported"
+    },
+    {
+      "period": "Q1FY2027",
+      "date": "2026-05-27",
+      "status": "reported"
+    },
+    {
+      "period": "Q2FY2027",
+      "date": "2026-08-27",
+      "status": "reported"
+    },
+    {
+      "period": "Q3FY2027",
+      "date": "2026-12-01",
+      "call_time_arizona": "14:30",
+      "status": "announced_future"
+    }
+  ],
+  "reproduce": "Growth=(EPS_t/EPS_t_minus_1-1)*100; P/E=125.75/EPS. Calculated with Python Decimal validation before publication."
+}

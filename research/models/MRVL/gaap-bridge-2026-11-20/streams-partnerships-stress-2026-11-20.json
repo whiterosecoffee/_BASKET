@@ -1,0 +1,131 @@
+{
+  "as_of": "2026-11-20",
+  "classification": "issuer_targets_and_conditional_stress_not_verified_forecast",
+  "owner": "B04-290",
+  "prior_source_revision": "60fda31d9c97bcbc08f18c97c50dfc201d02220d",
+  "revenue_streams": [
+    {
+      "name": "Interconnect",
+      "fy2031_target_b": 37.5,
+      "cy2030_tam_b": 65,
+      "implied_share_pct": 57.692307692307686,
+      "drivers": "Optical/electrical DSPs, data-center links, optical scale-up",
+      "risks": "Very high implied share; pricing, competing interconnect architectures and optical ramp execution"
+    },
+    {
+      "name": "Custom",
+      "fy2031_target_b": 30,
+      "cy2030_tam_b": 235,
+      "implied_share_pct": 12.76595744680851,
+      "drivers": "Custom XPU and companion/attach chips",
+      "risks": "Program concentration, design-to-production delays, customer insourcing, yield and economics"
+    },
+    {
+      "name": "Switching/storage",
+      "fy2031_target_b": 10,
+      "cy2030_tam_b": 85,
+      "implied_share_pct": 11.76470588235294,
+      "drivers": "Ethernet/PCIe/CXL switching and storage controllers",
+      "risks": "Competing fabrics, controller share and delayed new products"
+    },
+    {
+      "name": "Comms/other",
+      "fy2031_target_b": 2.5,
+      "cy2030_tam_b": 15,
+      "drivers": "Existing communications/enterprise infrastructure",
+      "risks": "Modest TAM growth"
+    }
+  ],
+  "observed_segment_split": {
+    "period": "Q2FY2027",
+    "data_center_revenue_m": 2171.5,
+    "communications_other_m": 567.8,
+    "note": "Issuer reported end-market split; no invented current custom/interconnect/switching revenue partition."
+  },
+  "partnerships": [
+    {
+      "name": "Google",
+      "status": "signed_custom_silicon_agreement_July29_2026",
+      "products": "TPU-ecosystem inference accelerators, storage/NIC/memory interface/near-memory chips",
+      "economic_gate": "Purchases discretionary.240 tranches times500M=$120B warrant-linked revenue milestones throughFY2033, not backlog or guaranteed orders.",
+      "warrant_max_shares": 58970907,
+      "exercise_price": 206.58,
+      "source": "https://investor.marvell.com/sec-filings/all-sec-filings/content/0001193125-26-356217/d412696d8k.htm"
+    },
+    {
+      "name": "AWS",
+      "status": "five_year_multi_generation_agreement_announced_Dec2_2024",
+      "products": "Custom AI, optical/AEC DSP, PCIe retimer, DCI module, Ethernet switch",
+      "economic_gate": "Agreement not disclosed guaranteed annual revenue",
+      "source": "https://www.marvell.com/company/newsroom/marvell-expands-strategic-collaboration-aws-enable-accelerated-infrastructure-ai-cloud.html"
+    },
+    {
+      "name": "NVIDIA",
+      "status": "strategic_partnership_March31_2026_and2B_investment",
+      "products": "NVLink Fusion-compatible custom XPU and scale-up; silicon photonics and AI-RAN",
+      "economic_gate": "Investment is capital not sales; platform participation not guaranteed share",
+      "source": "https://www.marvell.com/company/newsroom/nvidia-ai-ecosystem-expands-marvell-joins-forces-through-nvlink-fusion.html"
+    },
+    {
+      "name": "Celestial_AI",
+      "status": "acquisition_closed_Feb2_2026",
+      "products": "Photonic Fabric optical scale-up",
+      "economic_gate": "Issuer expects revenue start2HFY28,500M annualized byQ4FY28,1B annualizedQ4FY29; these are exit run-rates not full-year revenue",
+      "source": "https://www.marvell.com/company/newsroom/marvell-completes-acquisition-of-celestial-ai.html"
+    },
+    {
+      "name": "Lumentum",
+      "status": "proposed_combination_expected1H2028_subject_approvals",
+      "products": "Lasers, transceivers, optical switches added to electrical/optical processing",
+      "economic_gate": "Combined550B TAM overlaps standalone400B; do not add them. Shares, purchase accounting and close weighting unresolved.",
+      "source": "https://investor.marvell.com/news-events/press-releases/detail/1040/marvell-and-lumentum-to-combine-creating-a-category-leader-in-ai-connectivity"
+    }
+  ],
+  "target_sources": [
+    "https://investor.marvell.com/_assets/_d3db02acfbc9a80b767712a21ae0aac2/marvell/db/3711/35439/file/marvell-investor-day-2026-presentaion-deck-print-version.pdf",
+    "https://investor.marvell.com/_assets/_de258ecc084556935b61ff8ecc599288/marvell/db/3710/35393/presentation/marvell-investor-day-2026-presentaion-deck.pdf"
+  ],
+  "stress": {
+    "basis": "FY2029 mostlyCY2028 existing standalone GAAP-like reference; SBC and amortization already deducted",
+    "assumptions": "50% decremental pretax margin on revenue misses,18% tax,980M base shares; other modeled exclusion schedules held fixed; further5pp drop only on remaining severe-case revenue; dilution5%/10%. No probabilities.",
+    "formula": "stressNI=baselineGAAPNI-(revenueLoss*.50+additionalMarginLoss)*.82; EPS=stressNI/(980*(1+extraShares)); PE=125.75/EPS",
+    "rows": [
+      {
+        "case": "Reference",
+        "revenue_m": 31760,
+        "loss": 0,
+        "margin_extra": 0,
+        "extra_shares": 0,
+        "gaap_eps": 8.615382131391883,
+        "pe": 14.595986351180468
+      },
+      {
+        "case": "20% revenue miss",
+        "revenue_m": 25408,
+        "loss": 6352,
+        "margin_extra": 0,
+        "extra_shares": 0.05,
+        "gaap_eps": 5.67420261298741,
+        "pe": 22.161704221167014
+      },
+      {
+        "case": "40% miss +5pp margin pressure",
+        "revenue_m": 19056,
+        "loss": 12704,
+        "margin_extra": 952.8,
+        "extra_shares": 0.1,
+        "gaap_eps": 2.275638672322862,
+        "pe": 55.25921207501737
+      }
+    ]
+  },
+  "falsifiers": [
+    "Custom program delays or customer product substitution",
+    "Interconnect market share/pricing insufficient for37.5B target",
+    "Bookings do not convert to production/shipment and acceptance",
+    "SBC/dilution and new amortization outpace profits",
+    "Optical integration substitutes products within Marvell portfolio rather than adding independent TAM",
+    "Several product categories share hyperscaler capex exposure; correlated demand shocks"
+  ],
+  "next_action": "December1: reconcile custom vs connectivity growth, forward production milestones, margins, compensation and diluted shares; require evidence of recurring volume, not TAM alone."
+}
