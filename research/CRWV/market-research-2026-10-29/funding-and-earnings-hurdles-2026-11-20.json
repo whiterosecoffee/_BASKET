@@ -1,0 +1,328 @@
+{
+  "schema": "crwv.funding_earnings_research@1",
+  "model_version": "existing_earnings_to_price_formulas@1",
+  "observed_at": "2026-11-21T03:51:56.678Z",
+  "ingested_at": "2026-11-21T03:51:56.678Z",
+  "available_at": "2026-11-21T03:51:56.678Z",
+  "first_available_at": null,
+  "availability_basis": "Current retrieval is a known-by bound; original filing acceptance recorded per source, not inferred for every fact.",
+  "currency": "USD",
+  "monetary_unit": "USD billions unless labeled",
+  "status": "source_gaps_narrowed; monthly_funding_and_forward_GAAP_EPS_unverified",
+  "ownership": {
+    "issue": 121,
+    "branch": "work/121-neocloud-market-research",
+    "pr": 122,
+    "exclusive_path": "research/CRWV/market-research-2026-10-29/**",
+    "finance_owner": 86,
+    "reconciliation_owner": 91,
+    "no_parallel_model": true
+  },
+  "reused_work": {
+    "PR289": {
+      "head": "fc4fc696674acf3f7f64842a18c770c217754a40",
+      "opened": [
+        "AGENTS.md",
+        "state.json",
+        "README.md",
+        "HANDOFF.md",
+        "evidence/output/result.json"
+      ],
+      "disposition": "Read and reuse dated audit; no changes to its code or source fixture. Sender10-test claim not rerun here. Tool87 remains owner86; no integration/receiver-runtime claim."
+    }
+  },
+  "sources": [
+    {
+      "id": "10Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "source_class": "issuer_filing",
+      "period_end": "2026-09-30",
+      "filed_on": "2026-11-12",
+      "available_at": "2026-11-12T12:20:41Z",
+      "observed_at": "2026-11-21T03:51:56.678Z",
+      "sections": [
+        "Note2 revenue",
+        "Note7 other current liabilities",
+        "Note10 debt",
+        "Note11 equity",
+        "MD&A liquidity and capital resources"
+      ]
+    },
+    {
+      "id": "Q3release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+      "source_class": "issuer_results",
+      "period_end": "2026-09-30",
+      "published_on": "2026-11-10",
+      "available_at": "2026-11-10T21:05:53Z",
+      "observed_at": "2026-11-21T03:51:56.678Z",
+      "sections": [
+        "Business outlook",
+        "cashflow statement",
+        "non-GAAP reconciliation"
+      ]
+    },
+    {
+      "id": "Q3call",
+      "url": "https://s205.q4cdn.com/133937190/files/content_files/CoreWeave-3Q26-Transcript-_1_.pdf",
+      "source_class": "management_statement",
+      "event_date": "2026-11-10",
+      "available_at": null,
+      "observed_at": "2026-11-21T03:51:56.678Z",
+      "sections": [
+        "Pages1,5–6 funding and outlook"
+      ]
+    },
+    {
+      "id": "filing_inventory",
+      "url": "https://data.sec.gov/submissions/CIK0001769628.json",
+      "source_class": "SEC_submissions_via_sec-gov",
+      "provider_workflow": "filings/filings@1.4.0",
+      "observed_at": "2026-11-21T03:49:41.100Z",
+      "query": {
+        "forms": [
+          "10-Q",
+          "8-K",
+          "424B5"
+        ],
+        "from": "2026-11-01",
+        "to": "2026-11-20",
+        "limit": 50,
+        "include_amendments": false
+      },
+      "returned_accessions": [
+        "0001769628-26-000465",
+        "0001769628-26-000461"
+      ],
+      "interpretation": "No later financing close/draw or $9B deposit receipt confirmation in this bounded returned filing inventory. Does not establish no private/nonpublic receipts or exclude unqueried forms/amendments.",
+      "failed_route": "Massive SEC filing list with valid CRWV/date filters returned empty despite the known10Q; not treated as evidence of no filings."
+    },
+    {
+      "id": "market",
+      "provider": "Massive",
+      "endpoint": "/v1/open-close/CRWV/2026-11-20?adjusted=true",
+      "observed_at": "2026-11-21T03:51:56.678Z",
+      "effective_at": "2026-11-20T21:00:00Z",
+      "source_class": "vendor_daily_summary",
+      "expiry": "historical completed-session close; no live quote claim"
+    }
+  ],
+  "market": {
+    "regular_close": 39.51,
+    "after_hours_summary": 40.9453,
+    "after_hours_trade_timestamp": null,
+    "regular_volume": 77215297.932035,
+    "market_status": "US regular and after-hours sessions ended at report cutoff",
+    "price_use": "Freeze regular close for comparable arithmetic; AH field has no precise trade timestamp in this endpoint."
+  },
+  "historical_funding_ledger": {
+    "period_end": "2026-09-30",
+    "source_id": "10Q",
+    "balances_not_current": true,
+    "unrestricted_cash": 4.122,
+    "marketables": 0.062,
+    "restricted_cash": 2.282,
+    "facility_availability": 5.653,
+    "reported_liquidity": 9.837,
+    "capacity_includes_cash": false,
+    "cash_plus_marketables": 4.184,
+    "availability_status": "Undrawn secured commitments; eligible assets/DSCR/dates/project conditions still apply. Not cash and not universal parent liquidity.",
+    "customer_liabilities": 1.915,
+    "deferred_revenue_reclassified_when_contracts_became_cancellable_approx": 1.9,
+    "customer_liability_note": "No cancellation/refund-paid conclusion. Exact refund triggers, counterparty mapping and settlement timing not disclosed here; not subtracted automatically from cash.",
+    "deferred_revenue_current": 2.269,
+    "deferred_revenue_noncurrent": 7.733,
+    "principal_remaining_2026": 2.433,
+    "principal_2027": 10.974,
+    "principal_2028": 5.479,
+    "principal_not_EPS_expense": true,
+    "interest_and_capex_additional_to_principal": true
+  },
+  "facilities": [
+    {
+      "id": "DDTL4",
+      "source_id": "10Q",
+      "commitment": 8.5,
+      "draw_availability_end": "2027-06-30",
+      "maturity": "2032-03",
+      "reported_drawn_float_approx": 2.2,
+      "reported_drawn_fixed_approx": 2.4,
+      "floating_coupon": "Daily compounded SOFR+2.25% or alternative base+1.25%",
+      "fixed_coupon_at_draw": "Applicable US Treasury blended rate+2.00%; does not reset to current secondary yield",
+      "undrawn_fee_pct": 0.5,
+      "hedge_requirement": "At least95% anticipated floating borrowings, within prescribed period following commitment termination; not proof fully hedged now",
+      "recourse": "Nonrecourse except customary limited carveouts",
+      "cash_reserve": "Forward-looking3-month scheduled interest/principal/settlements/operating costs; later maximum projected3-month requirement",
+      "principal_start": "First payment date following earliest contractual end/delayed-site amortization/top-up-draw trigger; monthly schedule not reconstructed",
+      "conditions": [
+        "Eligible assets",
+        "Debt sizing",
+        "Projected DSCR",
+        "Project conditions"
+      ],
+      "parent_distribution_cash": null
+    },
+    {
+      "id": "DDTL5",
+      "source_id": "10Q",
+      "commitment": 3.1,
+      "reported_carrying_balance": 2.749,
+      "carrying_is_not_drawn_principal": true,
+      "draw_availability_end": "2026-09-30",
+      "monthly_principal_start": "2026-11",
+      "expected_final_installment": "2031-05",
+      "debt_table_stated_maturity": "2031-11",
+      "maturity_note": "Expected final installment and debt table maturity are distinct reported fields; verify governing agreement before modeling.",
+      "coupon": "SOFR+4.50%",
+      "parent_guarantee": true,
+      "new_funding_status": "Existing, not a newly available November facility"
+    },
+    {
+      "id": "DDTL5.5",
+      "source_id": "10Q",
+      "commitment": 2.6,
+      "issuer_close_announcement": "2026-08-10",
+      "reported_carrying_balance": 1.555,
+      "carrying_is_not_drawn_principal": true,
+      "draw_availability_end": "2026-12-31",
+      "monthly_principal_start": "2027-02",
+      "expected_final_installment": "2031-07",
+      "debt_table_stated_maturity": "2031-09",
+      "coupon": "Term SOFR+5.50%",
+      "undrawn_fee_pct": 0.5,
+      "parent_guarantee": true,
+      "mandatory_cash_sweep": "After commitment termination, monthly excess cash flow prepays loans until principal reduced to $1.3B; supporting-contract events also trigger prepayment.",
+      "cash_sweep_note": "Not unrestricted parent/shareholder cash. Contractual definition of excess cash must be sourced before modeling. This closed facility is not the future DDTL discussed Nov10.",
+      "agreement_entered_on": "2026-08-07",
+      "exact_closing_date": null
+    }
+  ],
+  "management_future_funding": {
+    "source_id": "Q3call",
+    "statement_date": "2026-11-10",
+    "expected_customer_receipts_next_three_months": 9,
+    "subset_recontracting_existing_infrastructure_over": 3,
+    "subset_not_additional_to_total": true,
+    "actual_receipts_after_statement": null,
+    "new_DDTL": {
+      "status": "Expected launch in coming weeks; not confirmed closed/drawn in retrieved inventory",
+      "indicated_yield_pct": [
+        7,
+        7.5
+      ],
+      "indicated_associated_capex_financed_pct_over": 90,
+      "commitment": null,
+      "actual_draws": null
+    },
+    "parent_incremental_capital_through_2027_under": 5,
+    "capital_is_not_necessarily_equity": true,
+    "construction_in_progress_over": 9,
+    "CIP_not_fresh_cash": true,
+    "nearly_5B_DDTL_availability_not_extra_to_quarter_end_facility_availability": "Different cutoffs; reconcile changes, do not add both.",
+    "funding_gap": null,
+    "fully_funded": null
+  },
+  "period_checks": {
+    "Q3_2026_three_months": {
+      "source_id": "Q3release",
+      "CFO": 1.975,
+      "cash_PPE_purchases": 9.441,
+      "mechanical_CFO_less_cash_PPE": -7.466,
+      "deferred_revenue_cashflow_change": 2.127,
+      "CFO_minus_deferred_change": -0.152,
+      "note": "Deferred revenue cashflow adjustment is not gross customer receipts; removal is a sensitivity, not normalized CFO or a free-cash earnings measure."
+    },
+    "YTD_2026_nine_months": {
+      "source_id": "10Q",
+      "CFO": 5.638,
+      "cash_PPE_purchases": 23.558,
+      "mechanical_CFO_less_cash_PPE": -17.92
+    },
+    "q4_implied": {
+      "source_id": "Q3release",
+      "FY_adjusted_OI_range": [
+        1.275,
+        1.375
+      ],
+      "YTD_adjusted_OI": 0.528,
+      "implied_Q4_adjusted_OI": [
+        0.747,
+        0.847
+      ],
+      "Q4_interest_guidance": [
+        1.05,
+        1.15
+      ],
+      "adjusted_OI_minus_interest_range": [
+        -0.403,
+        -0.203
+      ],
+      "limit": "Guidance arithmetic before other nonoperating items/tax/adjusted net-income exclusions, not a GAAP net-income forecast. Gap persists despite improving operating guidance."
+    }
+  },
+  "reverse_earnings_hurdle": {
+    "scenario_only": true,
+    "not_forecast": true,
+    "price": 39.51,
+    "price_date": "2026-11-20 regular close",
+    "fiscal_year_for_hurdle": 2028,
+    "revenue": 44.36,
+    "revenue_basis": "Unreconciled third-party FY2028 revenue estimate retained as sensitivity, not company guidance.",
+    "share_denominator_m": 556.125724,
+    "share_basis": "Historical Oct30 outstanding common shares held constant solely as an illustrative positive-EPS denominator; not forecast weighted diluted shares.",
+    "tax_rate_pct": 25,
+    "tax_basis": "Chosen positive-income sensitivity, not company tax guidance; other pretax items assumed zero.",
+    "target_multiples": [
+      25,
+      20
+    ],
+    "GAAP_NI_required_for_25x": 0.8789010942096,
+    "GAAP_NI_required_for_20x": 1.098626367762,
+    "formula": "Required GAAP operating margin=[(price/multiple * shares)/(1-tax) + expensed net interest - other pretax income]/revenue. Operating margin retains SBC and depreciation; principal/capex cash uses stay in separate funding layer.",
+    "rows": [
+      {
+        "annual_expensed_net_interest_b": 4.4,
+        "pretax_breakeven_GAAP_operating_margin_pct": 9.918845807033366,
+        "GAAP_margin_for_25x_pct": 12.560568362517586,
+        "GAAP_margin_for_20x_pct": 13.22099900138864
+      },
+      {
+        "annual_expensed_net_interest_b": 5.5,
+        "pretax_breakeven_GAAP_operating_margin_pct": 12.398557258791705,
+        "GAAP_margin_for_25x_pct": 15.040279814275925,
+        "GAAP_margin_for_20x_pct": 15.700710453146979
+      },
+      {
+        "annual_expensed_net_interest_b": 7.5,
+        "pretax_breakeven_GAAP_operating_margin_pct": 16.90712353471596,
+        "GAAP_margin_for_25x_pct": 19.548846090200183,
+        "GAAP_margin_for_20x_pct": 20.209276729071238
+      }
+    ],
+    "interest_cases_basis": {
+      "4.4": "Hypothetical flat annualization of midpoint Q4 interest guidance (1.10*4), not a2028 forecast",
+      "5.5": "Chosen intermediate annual expense sensitivity, not sourced forecast",
+      "7.5": "Chosen high annual expense sensitivity, not sourced forecast"
+    },
+    "EPS_effect_of_1B_extra_expensed_interest": -1.3486159111747902,
+    "EPS_effect_of_1_percentage_point_GAAP_margin": 0.598246018197137,
+    "limits": [
+      "Does not establish fair value or return-to-2028 discount rate",
+      "Future weighted diluted shares may be higher",
+      "Debt principal and replacement capex still require cash",
+      "Do not assume MarketScreener unexplained other-pretax residual is zero in a forecast; zero is only this isolated scenario"
+    ]
+  },
+  "dilution_sensitivity": {
+    "scenario_only": true,
+    "ATM_authorization_m_shares": 35,
+    "ATM_no_sales_through": "2026-09-30",
+    "later_sales": null,
+    "assumed_all_remaining_shares_sold_at": 39.51,
+    "gross_cash": 1.38285,
+    "share_increase_pct": 6.2935409188156894,
+    "EPS_drop_pct_if_earnings_unchanged": 5.920906260543656,
+    "limit": "Illustration only, before fees; authorization is not completed issuance or future forecast. No additional35M shares automatically added to current count; ATM could differ afterSep30."
+  },
+  "next_action": "Owner86: map actual deposit receipts/refund terms and DDTL5.5 excess-cash sweep/eligible draws into monthly project-to-parent liquidity; retain unknown funding gap until the source schedule is complete."
+}

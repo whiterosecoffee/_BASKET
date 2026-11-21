@@ -1,0 +1,557 @@
+{
+  "schema": "crwv.earnings_price_review@1",
+  "version": "1.0.0",
+  "ticker": "CRWV",
+  "currency": "USD",
+  "model_version": "earnings-price-bridge@1.1.0",
+  "source_head": "c575f0f987d773bb70fca6c0fdc5f439078f9426",
+  "report_date": "2026-11-19",
+  "price_as_of": "2026-11-19T14:00:22.928Z",
+  "source_status": "branch_research",
+  "sources": [
+    {
+      "id": "issuer_results",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Third-Quarter-2026-Results/default.aspx",
+      "source_class": "issuer_statement",
+      "effective_at": "2026-09-30",
+      "published_at": "2026-11-10",
+      "available_at": null,
+      "observed_at": null,
+      "validity": "historical_report",
+      "ingested_at": null
+    },
+    {
+      "id": "sec_q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "source_class": "regulatory_filing",
+      "period_end": "2026-09-30",
+      "available_at": "2026-11-12T12:20:41Z",
+      "observed_at": null,
+      "accession": "0001769628-26-000465",
+      "validity": "latest_verified_quarter",
+      "ingested_at": null
+    },
+    {
+      "id": "guidance",
+      "url": "https://s205.q4cdn.com/133937190/files/content_files/CoreWeave-4Q-and-FY2026-Outlook-Presentation-_1_.pdf",
+      "source_class": "issuer_forecast",
+      "effective_at": "2026-11-10",
+      "available_at": null,
+      "observed_at": null,
+      "validity": "latest_verified_guidance",
+      "ingested_at": null
+    },
+    {
+      "id": "transcript",
+      "url": "https://s205.q4cdn.com/133937190/files/content_files/CoreWeave-3Q26-Transcript-_1_.pdf",
+      "source_class": "issuer_statement",
+      "effective_at": "2026-11-10",
+      "available_at": null,
+      "observed_at": null,
+      "validity": "forward_statements_require_confirmation",
+      "ingested_at": null
+    },
+    {
+      "id": "presentation",
+      "url": "https://s205.q4cdn.com/133937190/files/content_files/CoreWeave-3Q26-Earnings-Presentation-Final.pdf",
+      "source_class": "issuer_statement",
+      "effective_at": "2026-11-10",
+      "available_at": null,
+      "observed_at": null,
+      "validity": "historical_report",
+      "ingested_at": null
+    },
+    {
+      "id": "analyst",
+      "url": "https://finance.yahoo.com/quote/CRWV/analysis/",
+      "source_class": "third_party_estimate",
+      "observed_at": "2026-11-19T13:58:56.407Z",
+      "available_at": null,
+      "period_end": "2027-12-31",
+      "validity": "estimate_revision_possible",
+      "ingested_at": null
+    },
+    {
+      "id": "massive",
+      "source_class": "market_provider",
+      "url": "https://massive.com/docs/rest/stocks/aggregates/custom-bars",
+      "observed_at": "2026-11-19T14:00:22.928Z",
+      "available_at": null,
+      "validity": "dated_snapshot_expires_for_live_use",
+      "expiry_policy": "Refresh on update. This report remains historical after its trade timestamp.",
+      "ingested_at": null
+    }
+  ],
+  "purpose": "Resolve the pre-release checklist with reported Q3 results, update price and funding sensitivity, and preserve actionable next milestones",
+  "prior_record": "earnings-price-bridge-2026-11-10.json",
+  "current": {
+    "anchor": {
+      "ticker": "CRWV",
+      "last": 50.3,
+      "previous_close": 47.83,
+      "source_timestamp_ns": "1795096822928162137",
+      "observed_at": "2026-11-19T14:00:22.928Z",
+      "change_pct": 5.164122935396187
+    },
+    "tape": [
+      {
+        "ticker": "CRWV",
+        "last": 50.3,
+        "previous_close": 47.83,
+        "source_timestamp_ns": "1795096822928162137",
+        "observed_at": "2026-11-19T14:00:22.928Z",
+        "change_pct": 5.164122935396187
+      },
+      {
+        "ticker": "ORCL",
+        "last": 117.3,
+        "previous_close": 113.89,
+        "source_timestamp_ns": "1795096801866251820",
+        "observed_at": "2026-11-19T14:00:01.866Z",
+        "change_pct": 2.9941171305645664
+      },
+      {
+        "ticker": "IREN",
+        "last": 16.01,
+        "previous_close": 15.24,
+        "source_timestamp_ns": "1795096823577996073",
+        "observed_at": "2026-11-19T14:00:23.577Z",
+        "change_pct": 5.052493438320216
+      },
+      {
+        "ticker": "NBIS",
+        "last": 112.94,
+        "previous_close": 106.96,
+        "source_timestamp_ns": "1795096814644755224",
+        "observed_at": "2026-11-19T14:00:14.644Z",
+        "change_pct": 5.5908750934928975
+      },
+      {
+        "ticker": "QQQ",
+        "last": 671.62,
+        "previous_close": 659.51,
+        "source_timestamp_ns": "1795096823625348257",
+        "observed_at": "2026-11-19T14:00:23.625Z",
+        "change_pct": 1.8362117329532524
+      },
+      {
+        "ticker": "NVDA",
+        "last": 152.75,
+        "previous_close": 150.96,
+        "source_timestamp_ns": "1795096823597674536",
+        "observed_at": "2026-11-19T14:00:23.597Z",
+        "change_pct": 1.185744568097502
+      }
+    ],
+    "pm": {
+      "bars": 298,
+      "first_utc": "2026-11-19T09:00:00.000Z",
+      "cutoff_utc": "2026-11-19T14:00:00.000Z",
+      "low": 48.87,
+      "high": 51,
+      "volume_shares": 2347361.7286549998,
+      "approximate_turnover_usd": 118119577.66023168,
+      "vwap": 50.32014291547314,
+      "provider_vwap_outside_ohlc": 13
+    },
+    "daily": [
+      {
+        "date": "2026-11-09",
+        "open": 46.375,
+        "high": 50.1,
+        "low": 45.15,
+        "close": 48.98,
+        "volume": 49012070.133545
+      },
+      {
+        "date": "2026-11-10",
+        "open": 48.1,
+        "high": 51.02,
+        "low": 47.0575,
+        "close": 48.73,
+        "volume": 90252210.491716
+      },
+      {
+        "date": "2026-11-11",
+        "open": 55.965,
+        "high": 62.025,
+        "low": 53.81,
+        "close": 60.77,
+        "volume": 165134504.917707
+      },
+      {
+        "date": "2026-11-12",
+        "open": 50.905,
+        "high": 58.56,
+        "low": 50.17,
+        "close": 56.6,
+        "volume": 108555208.38052
+      },
+      {
+        "date": "2026-11-13",
+        "open": 56.055,
+        "high": 56.36,
+        "low": 49.24,
+        "close": 53.13,
+        "volume": 80146267.578821
+      },
+      {
+        "date": "2026-11-16",
+        "open": 49.36,
+        "high": 52.06,
+        "low": 48.59,
+        "close": 49.88,
+        "volume": 53567576.85289
+      },
+      {
+        "date": "2026-11-17",
+        "open": 49.7,
+        "high": 50.79,
+        "low": 46.835,
+        "close": 49.89,
+        "volume": 58675913.053273
+      },
+      {
+        "date": "2026-11-18",
+        "open": 51.07,
+        "high": 51.07,
+        "low": 46.21,
+        "close": 47.83,
+        "volume": 61302422.215765
+      }
+    ],
+    "valuation": {
+      "shares_bn": 0.556125724,
+      "share_as_of": "2026-10-30",
+      "debt_carrying_bn": 46.873,
+      "unrestricted_cash_and_marketable_bn": 4.184,
+      "equity_value_bn": 27.973123917200002,
+      "enterprise_value_bn": 70.6621239172,
+      "ev_sales_2027": 2.6078941935299227,
+      "ev_sales_2026": 5.37354554503422,
+      "street_2027_revenue_bn": 27.09547193,
+      "street_2027_eps": -3.64231,
+      "street_2027_pe": null,
+      "break_even_margin": 0.16238875674013775,
+      "hurdles": [
+        {
+          "pe": 15,
+          "eps": 3.353333333333333,
+          "net_income_bn": 1.8648749278133334,
+          "op_income_bn": 6.886499903751112,
+          "required_gaap_op_margin": 0.2541568540139139
+        },
+        {
+          "pe": 20,
+          "eps": 2.5149999999999997,
+          "net_income_bn": 1.39865619586,
+          "op_income_bn": 6.2648749278133335,
+          "required_gaap_op_margin": 0.23121482969546986
+        },
+        {
+          "pe": 25,
+          "eps": 2.012,
+          "net_income_bn": 1.1189249566880002,
+          "op_income_bn": 5.891899942250667,
+          "required_gaap_op_margin": 0.21744961510440344
+        }
+      ],
+      "scenarios2027": [
+        {
+          "case": "slow",
+          "revenue_bn": 24.867,
+          "gaap_operating_margin": 0.12,
+          "interest_bn": 4.6,
+          "shares_bn": 0.556125724,
+          "tax_rate_on_positive": 0.25,
+          "net_income_bn": -1.6159599999999998,
+          "eps": -2.905745823762685,
+          "price_to_earnings": null
+        },
+        {
+          "case": "illustrative_base",
+          "revenue_bn": 27.09547193,
+          "gaap_operating_margin": 0.2,
+          "interest_bn": 4.4,
+          "shares_bn": 0.556125724,
+          "tax_rate_on_positive": 0.25,
+          "net_income_bn": 0.7643207894999999,
+          "eps": 1.3743669039485034,
+          "price_to_earnings": 36.598669434988594
+        },
+        {
+          "case": "fast",
+          "revenue_bn": 30.1065,
+          "gaap_operating_margin": 0.25,
+          "interest_bn": 4,
+          "shares_bn": 0.556125724,
+          "tax_rate_on_positive": 0.25,
+          "net_income_bn": 2.6449687500000003,
+          "eps": 4.756062587746795,
+          "price_to_earnings": 10.575975204697597
+        }
+      ],
+      "scenarios2028": [
+        {
+          "case": "slow",
+          "revenue_bn": 31,
+          "gaap_operating_margin": 0.14,
+          "interest_bn": 5,
+          "shares_bn": 0.6,
+          "tax_rate_on_positive": 0.25,
+          "net_income_bn": -0.6599999999999993,
+          "eps": -1.0999999999999988,
+          "price_to_earnings": null
+        },
+        {
+          "case": "illustrative_base",
+          "revenue_bn": 36,
+          "gaap_operating_margin": 0.24,
+          "interest_bn": 4.5,
+          "shares_bn": 0.61,
+          "tax_rate_on_positive": 0.25,
+          "net_income_bn": 3.1050000000000004,
+          "eps": 5.09016393442623,
+          "price_to_earnings": 9.881803542673106
+        },
+        {
+          "case": "fast",
+          "revenue_bn": 42,
+          "gaap_operating_margin": 0.28,
+          "interest_bn": 4.3,
+          "shares_bn": 0.63,
+          "tax_rate_on_positive": 0.25,
+          "net_income_bn": 5.5950000000000015,
+          "eps": 8.880952380952383,
+          "price_to_earnings": 5.663806970509381
+        }
+      ],
+      "net_debt_delta_since_june": 13.145000000000003,
+      "previous_reference_ev": 56.11703348435999
+    },
+    "earnings_deltas": {
+      "revenue_beat_pct": 3.3926088817792577,
+      "revenue_qoq_pct": 42.1747572815534,
+      "adjusted_oi_above_guidance_high_pct": 45.76923076923076,
+      "gaap_operating_margin": 0.05654192843485386,
+      "adjusted_op_margin": 0.10352362742420104,
+      "implied_q4_rev_bn": [
+        4.686,
+        4.986000000000001
+      ],
+      "implied_q4_adjusted_oi_bn": [
+        0.7469999999999999,
+        0.847
+      ],
+      "implied_q4_adjusted_margin_mid": 0.1648056244830438,
+      "q4_interest_bn": [
+        1.05,
+        1.15
+      ],
+      "implied_q4_adjusted_oi_less_interest_range_bn": [
+        -0.403,
+        -0.20300000000000007
+      ],
+      "q3_cash_cfo_minus_cash_ppe_bn": -7.466000000000001,
+      "nine_month_cash_cfo_minus_cash_ppe_bn": -17.92,
+      "post_earnings_peak_drawdown_pct": -18.903667875856513,
+      "last_close_vs_earnings_close_pct": -1.8469115534578306,
+      "quote_vs_earnings_close_pct": 3.2218345988097585,
+      "net_backlog_additions_and_modifications_bn": 32.161,
+      "scheduled_2027_principal_delta_bn": 4.79
+    }
+  },
+  "facts": {
+    "period_end": "2026-09-30",
+    "revenue_bn": 3.661,
+    "gaap_operating_income_bn": 0.207,
+    "adjusted_operating_income_bn": 0.379,
+    "adjusted_ebitda_bn": 2.256,
+    "net_interest_bn": 0.846,
+    "gaap_eps": -1.27,
+    "cash_cfo_bn": 1.975,
+    "cash_ppe_bn": 9.441,
+    "reported_capex_bn": 14.511,
+    "ytd_reported_capex_bn": 30.65,
+    "capex_definition": "Issuer additions to gross property/equipment including finance leases, less change in construction in progress. Cash PPE purchases are a separate reported measure.",
+    "source_ids": [
+      "issuer_results",
+      "presentation",
+      "sec_q3"
+    ]
+  },
+  "guidance": {
+    "full_year_revenue_bn": [
+      13,
+      13.3
+    ],
+    "full_year_adjusted_oi_bn": [
+      1.275,
+      1.375
+    ],
+    "exit_2026_annualized_runrate_revenue_bn": [
+      20,
+      21
+    ],
+    "runrate_definition": "December monthly revenue multiplied by12",
+    "q4_interest_bn": [
+      1.05,
+      1.15
+    ],
+    "full_year_reported_capex_bn": [
+      37,
+      39
+    ],
+    "q4_revenue": "Derived from FY guidance less reported nine-month revenue. A separate Q4 revenue range was not in the outlook deck.",
+    "q4_revenue_implied_bn": [
+      4.686,
+      4.986000000000001
+    ],
+    "q4_adjusted_oi_implied_bn": [
+      0.7469999999999999,
+      0.847
+    ],
+    "prior_q4_consensus_bn": 4.69724938,
+    "current_q4_consensus_bn": 4.84507707,
+    "current_2027_revenue_consensus_bn": 27.09547193,
+    "current_2027_eps_consensus": -3.64231,
+    "issuer_profitability_target": "Adjusted net loss expected to narrow in2027 and adjusted net income positive in first half and full year2028. Issuer target does not specify GAAP EPS.",
+    "source_ids": [
+      "guidance",
+      "transcript",
+      "analyst"
+    ]
+  },
+  "capacity": {
+    "as_of": "2026-09-30",
+    "active_power_gw_lower_bound": 1.7,
+    "contracted_power_gw_lower_bound": 4.6,
+    "international_contracted_gw_lower_bound": 1.3,
+    "year_end_active_power_gw_lower_bound": 1.85,
+    "backlog_bn": 132.5,
+    "rpo_bn": 132.3,
+    "rpo_24mo_expected_fraction": 0.36,
+    "rpo_24mo_expected_bn": 47.628,
+    "billable_mw": null,
+    "near_term_capacity_schedule": "Requires named site, energized critical IT MW, accepted GPU MW, acceptance/billing dates and source. Aggregate active-power disclosure cannot establish site billable MW.",
+    "renewal_claims": {
+      "gpus_off_contract_2027_lower_bound": 130000,
+      "gpus_off_contract_2028_approx": 170000,
+      "issuer_annualized_2027_revenue_opportunity_approaching_bn": 4,
+      "issuer_annualized_2027_plus_2028_opportunity_nearly_bn": 10,
+      "treatment": "Management opportunity at current pricing. Renewal signatures/timing unresolved. Reconcile expiring and renewed cohorts before adding revenue to consensus, backlog or ARR."
+    },
+    "source_ids": [
+      "issuer_results",
+      "sec_q3",
+      "transcript"
+    ]
+  },
+  "funding": {
+    "as_of": "2026-09-30",
+    "debt_carrying_bn": 46.873,
+    "debt_principal_bn": 47.505,
+    "debt_current_carrying_bn": 10.572,
+    "unrestricted_cash_bn": 4.122,
+    "marketable_securities_bn": 0.062,
+    "restricted_cash_bn": 2.282,
+    "total_cash_restricted_and_securities_bn": 6.466,
+    "operating_lease_liabilities_bn": 18.697,
+    "finance_lease_liabilities_bn": 0.649,
+    "scheduled_principal_bn": {
+      "2027": 10.974,
+      "2028": 5.479,
+      "remaining_2026": 2.433
+    },
+    "atm": {
+      "shares_available_at_quarter_end": 35000000,
+      "shares_sold_through_quarter_end": 0,
+      "forward_agreements_entered_through_quarter_end": 0,
+      "post_quarter_sales": null,
+      "full_authorization_share_increase_pct": 6.293540918815689,
+      "full_authorization_gross_at_reference_price_bn": 1.7605000000000002
+    },
+    "forecast": {
+      "ddtl_undrawn_nearly_bn": 5,
+      "expected_prepayments_and_deposits_next_3months_approx_bn": 9,
+      "expected_prepayments_related_to_existing_infrastructure_lower_bound_bn": 3,
+      "parent_level_incremental_capital_through2027_upper_bound_bn": 5,
+      "committed_backlog_only_2027_capex": "Expected in line with2026 spending",
+      "comment": "Amounts are management statements from Nov10. Expected deposits and new debt are not realized cash at report checkpoint. Avoid adding prepayments again as revenue or assigning planned facilities as closed.",
+      "reported_cip_required_for_next_capacity_lower_bound_bn": 9
+    },
+    "gap_calculation_status": "Undetermined until receipt schedule, eligible undrawn capacity, principal/cash interest, project spending and billing are matched by month. No linear runway from total cash divided by cash PPE shortfall.",
+    "source_ids": [
+      "sec_q3",
+      "transcript"
+    ]
+  },
+  "valuation_methods": {
+    "shares": "October30 actual A+B total556,125,724, later fully diluted count unresolved",
+    "ev": "reference price×October30 A+B shares +September30 debt carrying value−unrestricted cash−marketable securities. September balances are a dated proxy for November valuation.",
+    "lease_policy": "Operating lease liabilities shown separately with rent reflected in operating margins. Finance lease liability0.649B is excluded from headline EV proxy and shown separately. Adding it raises EV proxy by0.649B.",
+    "scenario_formula": "Pretax=calendar revenue×GAAP operating margin−net interest. Net=pretax−max(pretax,0)×25%. EPS=net/current or explicit scenario shares. P/E=null if EPS<=0.",
+    "reverse_formula": "Required operating margin=[(price/PE)×shares/(1−25%)+interest]/revenue.",
+    "assumptions_2027": "Revenue low/mean/high uses fresh analyst data. Margins12/20/25% and interest4.6/4.4/4.0B are chosen sensitivities. Current shares held flat to isolate economics. These cases are not consensus EPS or fitted forecasts.",
+    "assumptions_2028": "All2028 revenue/margin/interest/share inputs are illustrative assumptions. No verified2028 analyst forecast retrieved. Shared operating formula includes depreciation, rent and share compensation in GAAP margin and excludes other income/expense and discrete taxes.",
+    "cash_valuation_limit": "Maintenance versus growth spending and cohort cash payback unresolved. Scenario P/E does not establish distributable cash. Renewals and weaker USD/FX assumptions cannot be silently added."
+  },
+  "interpretation": {
+    "earnings": "Revenue and margin improved beyond prior expectations, but forward interest remains above implied adjusted operating profit.",
+    "price": "At the dated premarket quote, CRWV is18.90% below the Nov11 intraday high but3.22% above Nov10 regular close. This supports a failed post-earnings rally description alongside the current rebound.",
+    "value": "2027 sales multiple alone understates the financing burden. Street2027 loss forecast leaves P/E undefined. A20x earnings valuation requires roughly23.1% GAAP operating margin under4.4B interest and25% tax.",
+    "credit": "No current CUSIP-level secondary bond quote or Treasury-matched spread was verified. Equity recovery alone cannot establish easing credit conditions."
+  },
+  "review_gates": [
+    {
+      "rank": 1,
+      "state": "unresolved",
+      "trigger": "Verify actual receipt of the expected9B prepayments and binding new asset financing on the issuer's stated timeline",
+      "invalidation": "Delayed receipts, unmet draw conditions or increased parent funding needs"
+    },
+    {
+      "rank": 2,
+      "state": "unresolved",
+      "trigger": "Verify >1.85GW active by year-end with named customer acceptance/billing and signed renewal economics",
+      "invalidation": "Commissioning slips, weak acceptance or renewal repricing"
+    },
+    {
+      "rank": 3,
+      "state": "unresolved",
+      "trigger": "Sustained regular-session reclaim above50.32 premarketVWAP and51.00–51.07 overhead with relative strength",
+      "invalidation": "Failure back below49.88–49.89 and48.87, with47.83 prior close as next observed reference"
+    },
+    {
+      "rank": 4,
+      "state": "scheduled_owner_work",
+      "trigger": "B00#148 assigns canonical data target and B01#214 completes independent source acceptance",
+      "invalidation": "Owner paths or source hashes conflict"
+    }
+  ],
+  "delivery": {
+    "issue": 121,
+    "pr": 122,
+    "branch": "work/121-neocloud-market-research",
+    "b02_acceptance": {
+      "status": "qualified_integrity_and_explicit_input_consumer_acceptance",
+      "issue": 196,
+      "pr": 197,
+      "reviewed_source": "c575f0f987d773bb70fca6c0fdc5f439078f9426",
+      "audit_head": "b4dd1843c69e6ac4999808e66cbff3105b9b3d51",
+      "evidence": "https://github.com/whiterosecoffee/_BASKET/issues/186#issuecomment-7000276534",
+      "canonical_target": "pending B00#148",
+      "independent_domain_gate": "pending B01#214",
+      "correction": "Supersedes earlier blanket pending-B02 wording. Owner-qualified byte acceptance exists. Canonical adoption remains open."
+    },
+    "new_market_data": {
+      "stage_path": "/workspace/scratch/16d87132a1bd/crwv121-captures/2026-11-19-complete-minutes.jsonl",
+      "session_date": "2026-11-19",
+      "records": 298,
+      "sha256": "7c64962eef4d97f478b6fbfe57b832ef15a6658739051e415ba59c44b527e5b9",
+      "status": "local dated research capture, canonical acceptance pending",
+      "source_available_at": null,
+      "correction_policy": "Original pulls retained separately. Conflicting later bars require revision evidence. No inferred missing minutes."
+    }
+  },
+  "next_action": "Verify funded receipt/draw milestones and named billable commissioning dates, then rerun the same snapshot→earnings→capacity→funding→valuation→tape→review sequence on issuer changes."
+}

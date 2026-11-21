@@ -1,0 +1,194 @@
+{
+  "schema": "crwv.eps_basis_reconciliation@1",
+  "observed_at": "2026-11-21T03:27:56.556Z",
+  "currency": "USD",
+  "status": "basis_conflict_identified_not_resolved_to_GAAP_forecast",
+  "source_class": "mixed_primary_actuals_vendor_market_data_and_third_party_forecasts",
+  "effective_at": "2026-11-20T21:00:00Z",
+  "available_at": null,
+  "ingested_at": "2026-11-21T03:27:56.556Z",
+  "model_version": "arithmetic_basis_audit@1",
+  "validity": "dated research; not a live quote or fair-value target",
+  "market": {
+    "provider": "Massive",
+    "daily_endpoint": "/v1/open-close/CRWV/2026-11-20",
+    "regular": {
+      "open": 43.2,
+      "high": 43.24,
+      "low": 39.28,
+      "close": 39.51,
+      "previous_close": 44.91,
+      "change_pct": -12.024048096192386,
+      "volume": 77215297.932035
+    },
+    "after_hours_summary": {
+      "price": 40.9453,
+      "trade_timestamp": null,
+      "change_vs_close_pct": 3.6327512022273023
+    },
+    "separately_retrieved_snapshot_last_trade": {
+      "price": 40.9453,
+      "epoch_ns": "1795222795138913077",
+      "timestamp": "2026-11-21T00:59:55.138913077Z",
+      "session": "2026-11-20 after-hours",
+      "not_live_at_report_time": true
+    },
+    "interpretation": "Regular-session markdown; after-hours rebound attempt. No established floor or calibrated rebound probability."
+  },
+  "primary_Q3": {
+    "period_end": "2026-09-30",
+    "released_at": "2026-11-10",
+    "source": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Third-Quarter-2026-Results/default.aspx",
+    "revenue_m": 3661,
+    "GAAP_operating_income_m": 207,
+    "adjusted_operating_income_m": 379,
+    "net_interest_m": 846,
+    "GAAP_net_loss_m": -709,
+    "GAAP_diluted_EPS": -1.27,
+    "adjusted_net_loss_m": -529,
+    "actual_net_income_bridge_m": {
+      "GAAP": -709,
+      "SBC_addback": 160,
+      "debt_extinguishment": 0,
+      "acquisition_costs": 0,
+      "acquired_intangible_amortization": 12,
+      "other_adjustments": -11,
+      "income_tax_adjustments": 19,
+      "adjusted": -529
+    },
+    "limits": "Actual Q3 adjustments cannot be extrapolated mechanically to FY2027–2028. Adjusted earnings still include substantial financing and equipment costs."
+  },
+  "provider_forecasts": [
+    {
+      "source": "https://tenetinvesting.com/stock/CRWV/analyst",
+      "basis": "Explicit Street basis, not reconciled GAAP. Shares derived by provider from net income/EPS, not independent diluted-share forecast.",
+      "FY2027": {
+        "revenue_b": 27.1,
+        "EPS": -1.79,
+        "net_income_b": -1,
+        "displayed_shares_b": 0.57
+      },
+      "FY2028": {
+        "revenue_b": 44.4,
+        "EPS": 1.51,
+        "net_income_b": 1.2,
+        "displayed_shares_b": 0.81
+      },
+      "conflict": "Revenue, EBITDA, NI and EPS panels may aggregate distinct analyst sets and accounting conventions; do not form one coherent forecast from them."
+    },
+    {
+      "source": "https://en.arincen.com/instruments/CRWV/earnings",
+      "basis": "Unreconciled estimate convention; no verified GAAP-to-adjusted bridge",
+      "FY2027": {
+        "revenue_b": 27.05,
+        "EPS": -1.79
+      },
+      "FY2028": {
+        "revenue_b": 44.36,
+        "EPS": 1.51
+      }
+    },
+    {
+      "source": "https://www.marketscreener.com/quote/stock/COREWEAVE-INC-185380761/finances/",
+      "basis": "Provider forecast; table accounting convention and internally inconsistent share panels unresolved. Q3 EBIT display matches adjusted issuer OI while net loss matches GAAP.",
+      "FY2027": {
+        "revenue_b": 27.095,
+        "EBITDA_b": 17.174,
+        "EBIT_b": 4.602,
+        "EBT_b": -2.467,
+        "net_income_b": -2.089,
+        "EPS": -3.642,
+        "displayed_shares": 556126000,
+        "net_debt_b": 70.595
+      },
+      "FY2028": {
+        "revenue_b": 45.109,
+        "EBITDA_b": 29.527,
+        "EBIT_b": 9.22,
+        "EBT_b": -0.5246,
+        "net_income_b": -0.5588,
+        "EPS": -1.198,
+        "displayed_shares": 556126000,
+        "net_debt_b": 90.534
+      },
+      "inconsistency": "FY2028 NI/EPS implies about 466.4M shares rather than displayed 556.126M. Do not solve for actual dilution from cross-panel ratios."
+    }
+  ],
+  "valuation": {
+    "price_basis": "2026-11-20 regular close",
+    "price": 39.51,
+    "reference_shares": 556125724,
+    "shares_as_of": "2026-10-30 filing reference; later issuance unverified",
+    "equity_b": 21.972527355239997,
+    "GAAP_2027_PE": null,
+    "GAAP_2028_PE": null,
+    "conditional_Street_2028_PE": 26.165562913907284,
+    "Street_multiple_limit": "26.2x is conditional on an unreconciled $1.51 Street EPS estimate, not a verified GAAP P/E, company guidance or fair value",
+    "equity_revenue_2027": 0.8122930630402956,
+    "equity_revenue_2028": 0.4953229791532912,
+    "illustrative_net_debt_plus_finance_leases_b": 43.338,
+    "illustrative_EV_b": 65.31052735524,
+    "EV_limit": "Sep30 carrying debt and finance leases minus unrestricted cash and marketables; excludes operating leases and all subsequent changes. Not current verified EV.",
+    "constant_net_debt_EV_revenue_2027": 2.414437240489464,
+    "constant_net_debt_EV_revenue_2028": 1.4722842054833183,
+    "provider_net_debt_scenarios": {
+      "FY2027_EV_revenue": 3.4164062504240635,
+      "FY2028_EV_revenue": 2.494103778741271,
+      "limit": "Uses MarketScreener forecast net debt and revenue with unchanged current equity. Future scenario, not present debt; net-debt definitions unreconciled."
+    }
+  },
+  "bridge_contract": {
+    "flow": [
+      "contracted_MW",
+      "active_MW",
+      "accepted_billable_MW",
+      "recognized_revenue",
+      "operating_costs_and_DA",
+      "instrument_level_cash_and_expensed_interest",
+      "tax_and_other_nonoperating",
+      "attributable_GAAP_NI",
+      "weighted_diluted_shares",
+      "GAAP_EPS"
+    ],
+    "adjusted_to_GAAP": "GAAP NI = adjusted NI - provider-defined net-of-tax exclusions; GAAP EPS requires GAAP weighted diluted shares with loss-period anti-dilution rules.",
+    "missing": [
+      "Provider-by-year GAAP/adjusted adjustment definitions and constituent analyst samples",
+      "2027–2028 SBC, acquired intangible amortization, discrete taxes and attribution",
+      "Instrument-level drawn balances, availability conditions, benchmark resets, hedges, fees and capitalized versus expensed interest",
+      "Actual customer prepayment receipts, restrictions and revenue recognition timing",
+      "Site commissioning and customer acceptance/billing dates, GPU accounting depreciation cohorts and earning lives",
+      "After-quarter share issuance; future basic/weighted/diluted share reconciliation"
+    ],
+    "action": "Have model owner #86 reconcile these source inputs in the existing model; retain null GAAP forecast and dependent valuation fields until sourced."
+  },
+  "evidence": {
+    "model_source_commit": "7a33a6f49a2740a93310fa1c66a8090c25dd110a",
+    "sender_replay": {
+      "tests": 39,
+      "passed": true,
+      "demo": [
+        "slow",
+        "base",
+        "bull",
+        "unfunded"
+      ],
+      "unfunded_first_gap_month": 1,
+      "unfunded_valuation": null,
+      "fixtures": "synthetic; none of the demo values are CRWV targets"
+    },
+    "independent_acceptance": {
+      "workflow_head": "f07763d929b383b5bef8927007a2d51ef1fe5460",
+      "run": 40919835438,
+      "result": "success",
+      "verified_steps": [
+        "source presence",
+        "pinned source checkout",
+        "nonzero financial tests",
+        "scenario demo"
+      ],
+      "supersedes": "Earlier failed run40637774072; no implication that PR87 or90 merged"
+    },
+    "current_main_contains_finance_tool": false
+  },
+  "next_action": "Owner #86: obtain source-defined 2027–2028 estimate adjustments and independently projected weighted diluted shares, then populate a sourced funding/commissioning bridge in the existing tool."
+}

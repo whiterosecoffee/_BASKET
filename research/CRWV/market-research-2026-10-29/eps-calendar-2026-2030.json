@@ -1,0 +1,113 @@
+{
+  "schema": "crwv.eps_calendar@1",
+  "observed_at": "2026-11-21T04:21:09.994Z",
+  "currency": "USD",
+  "price": {
+    "value": 40.9453,
+    "source": "Massive /v1/open-close/CRWV/2026-11-20 adjusted=true",
+    "session": "after-hours summary",
+    "exact_trade_timestamp": null,
+    "regular_close": 39.51,
+    "status": "completed session; not live"
+  },
+  "fiscal_year": "Calendar year ending December31",
+  "estimates": {
+    "source": "https://tenetinvesting.com/stock/CRWV/analyst",
+    "as_of": "2026-11-19",
+    "basis": "Unreconciled Street estimates, not company guidance or verified GAAP",
+    "FY2025_GAAP_reference": -2.81,
+    "analyst_count": [
+      20,
+      20,
+      16,
+      13,
+      13
+    ],
+    "panel_change": "Provider says more than one-third changed across2028/29; +362.9% calculated here is cross-panel arithmetic, not a matched-cohort growth forecast."
+  },
+  "earnings_dates": {
+    "last_report": {
+      "date": "2026-11-10",
+      "period": "Q3 FY2026 ending September30",
+      "source": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Third-Quarter-2026-Results/default.aspx",
+      "status": "actual"
+    },
+    "next_report": {
+      "date": "2027-02-25",
+      "period": "Q4/full-year FY2026",
+      "source": "https://tickerfilings.com/stock/CRWV/earnings",
+      "status": "third-party estimate, not company confirmed"
+    },
+    "later_annual_windows": "February2028–2031 inferred from cadence only; exact dates not announced/verified"
+  },
+  "rows": [
+    {
+      "fiscal_year": 2026,
+      "fiscal_year_end": "2026-12-31",
+      "EPS_Street": -3.78,
+      "EPS_change": null,
+      "YoY_growth_pct": null,
+      "loss_reduction_pct": null,
+      "YoY_status": "2025 GAAP and2026 Street not comparable",
+      "forward_PE_diagnostic": null,
+      "verified_GAAP_PE": null,
+      "annual_results_window": "2027-02-25 (third-party estimate, unconfirmed)"
+    },
+    {
+      "fiscal_year": 2027,
+      "fiscal_year_end": "2027-12-31",
+      "EPS_Street": -1.79,
+      "EPS_change": 1.9899999999999998,
+      "YoY_growth_pct": null,
+      "loss_reduction_pct": 52.64550264550264,
+      "YoY_status": "Loss narrows; positive EPS growth rate not meaningful",
+      "forward_PE_diagnostic": null,
+      "verified_GAAP_PE": null,
+      "annual_results_window": "2028-02 (cadence assumption, not announced)"
+    },
+    {
+      "fiscal_year": 2028,
+      "fiscal_year_end": "2028-12-31",
+      "EPS_Street": 1.51,
+      "EPS_change": 3.3,
+      "YoY_growth_pct": null,
+      "loss_reduction_pct": null,
+      "YoY_status": "Loss to profit; positive-base growth rate not meaningful",
+      "forward_PE_diagnostic": 27.11609271523179,
+      "verified_GAAP_PE": null,
+      "annual_results_window": "2029-02 (cadence assumption, not announced)"
+    },
+    {
+      "fiscal_year": 2029,
+      "fiscal_year_end": "2029-12-31",
+      "EPS_Street": 6.99,
+      "EPS_change": 5.48,
+      "YoY_growth_pct": 362.9139072847682,
+      "loss_reduction_pct": null,
+      "YoY_status": "Arithmetic from displayed EPS; material analyst-panel change, not same-panel forecast growth",
+      "forward_PE_diagnostic": 5.857696709585122,
+      "verified_GAAP_PE": null,
+      "annual_results_window": "2030-02 (cadence assumption, not announced)"
+    },
+    {
+      "fiscal_year": 2030,
+      "fiscal_year_end": "2030-12-31",
+      "EPS_Street": 19.59,
+      "EPS_change": 12.6,
+      "YoY_growth_pct": 180.25751072961373,
+      "loss_reduction_pct": null,
+      "YoY_status": "Arithmetic from rounded displayed EPS; provider may differ from unrounded inputs",
+      "forward_PE_diagnostic": 2.0901123021949974,
+      "verified_GAAP_PE": null,
+      "annual_results_window": "2031-02 (cadence assumption, not announced)"
+    }
+  ],
+  "method": {
+    "YoY": "(current EPS/prior EPS -1)*100 only with positive prior EPS and comparable interpretation; crossing loss boundary is N/M",
+    "loss_narrowing": "1 - abs(new loss)/abs(old loss)",
+    "PE": "fixed dated price / displayed annual positive EPS; loss years null",
+    "first_annual_reporting_year": "Fiscal year+1; February windows inferred, not scheduled"
+  },
+  "validation": "5row calculations checked, loss PE/negative-base growth remain null",
+  "next_action": "Replace diagnostic Street multiples only when forecast adjustments and independent weighted diluted shares reconcile to GAAP through owner86."
+}
