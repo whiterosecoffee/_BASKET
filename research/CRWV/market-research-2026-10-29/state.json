@@ -1,6 +1,6 @@
 {
   "schema": "crwv.research_state@1",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "purpose": "Maintain dated CRWV earnings, capacity, funding and price assessment with an explicit source and assumption trail",
   "status": "funding_terms_and_earnings_hurdles_documented_actual_receipts_unverified",
   "owner": {
@@ -23,8 +23,8 @@
     }
   ],
   "objectives": {
-    "now": "Conditional2x–5x earnings-year milestones and earlier-doubling hurdle documented",
-    "next": "Use existing source-qualified model to test whether2028 GAAP EPS can reach3.28 with actual receipt/draw/acceptance schedules and independently forecast dilution; if not, retain2029 conditional EPS milestone without promising an earlier stock date.",
+    "now": "FY2026–2030 earnings calendar, Street EPS growth and diagnostic forward multiples documented",
+    "next": "Replace diagnostic Street multiples only when forecast adjustments and independent weighted diluted shares reconcile to GAAP through owner86.",
     "later": "Qualify repeatable 2027 and 2028 capital and earnings revisions"
   },
   "children": [
@@ -79,7 +79,9 @@
     "funding-and-earnings-hurdles-2026-11-20.json",
     "funding-and-earnings-hurdles-2026-11-20.md",
     "return-milestones-2026-11-20.json",
-    "return-milestones-2026-11-20.md"
+    "return-milestones-2026-11-20.md",
+    "eps-calendar-2026-2030.json",
+    "eps-calendar-2026-2030.md"
   ],
   "next_actions": [
     {
