@@ -1,2 +1,5 @@
 # AVGO growth research
 Inherit root AGENTS.md and B04 in orchestration/sparks.json; read orchestration/WORKER_PROTOCOL.md. Scope only research/models/AVGO/growth-2026-11-20/** under issue #306, branch work/306-avgo-cumulative-growth. Parent research purpose: B04 Company Economics & Valuation. Reuse handoff #291; do not duplicate data ingestion. Read state.json, feature-design.md and REPORT.md. Next: qualify customer mix and consensus revisions. Review source dates, EPS basis, arithmetic and limitations before updates.
+
+## Explicit scope extension, 2026-11-21
+The same B04-306 conversation now also owns research/models/semiconductor_vetf/** under issue306 scope revision. That node inherits root B04 guidance and references the existing rotation/calendar/memory owners. Continue through its AGENTS.md/state.json for portfolio work; retain this AVGO research and its corrections as linked historical evidence. This overrides the original scope-only sentence for this authorized continuation; no shared engine/calendar/data ownership is expanded.
