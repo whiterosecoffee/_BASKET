@@ -544,5 +544,134 @@
     "No unchanged-multiple guarantee",
     "Raw quote/JSONL ingestion not performed"
   ],
-  "next_action": "Replace hypothetical combined margins/revenue/share schedule with calendar-aligned company/filing evidence and show GAAP/FCF bridge"
+  "next_action": "Replace hypothetical combined margins/revenue/share schedule with calendar-aligned company/filing evidence and show GAAP/FCF bridge",
+  "common_december_comparison": {
+    "baseline": {
+      "investment_each": 300,
+      "avgo_entry_user_assumed": 300,
+      "mrvl_entry_historical_reference": 122.28,
+      "mrvl_shares_per300": 2.4533856722276743
+    },
+    "calendarization": "AVGO smooth annual EPS approximation:10/12current FY +2/12following FY for December TTM; not quarterly calendarization or certified exact endpoint; MRVL+ modeled calendar-year values",
+    "rows": [
+      {
+        "endpoint": "2027-12-31",
+        "scenario": "AVGO maintains lead",
+        "avgo_calendar_eps_approx": 19.221579405940595,
+        "avgo_price": 384.4315881188119,
+        "avgo_cumulative_pct": 28.143862706270628,
+        "mrvl_plus_share_price": 88.1194029850746,
+        "mrvl_plus_value_per_300_invested": 216.19088072883858,
+        "mrvl_plus_cumulative_pct": -27.936373090387146,
+        "warning": "Conditional preclose combined pro-forma sensitivity; not actual MRVL standalone earnings valuation"
+      },
+      {
+        "endpoint": "2028-12-31",
+        "scenario": "AVGO maintains lead",
+        "avgo_calendar_eps_approx": 28.07068820617356,
+        "avgo_price": 561.4137641234712,
+        "avgo_cumulative_pct": 87.13792137449039,
+        "mrvl_plus_share_price": 114.17294117647056,
+        "mrvl_plus_value_per_300_invested": 280.1102580384459,
+        "mrvl_plus_cumulative_pct": -6.629913987184688,
+        "warning": "Conditional on transaction close and modeled integration"
+      },
+      {
+        "endpoint": "2027-12-31",
+        "scenario": "Competitive convergence",
+        "avgo_calendar_eps_approx": 17.1509900990099,
+        "avgo_price": 308.7178217821782,
+        "avgo_cumulative_pct": 2.9059405940593974,
+        "mrvl_plus_share_price": 146.7188059701492,
+        "mrvl_plus_value_per_300_invested": 359.9578164135162,
+        "mrvl_plus_cumulative_pct": 19.985938804505388,
+        "warning": "Conditional preclose combined pro-forma sensitivity; not actual MRVL standalone earnings valuation"
+      },
+      {
+        "endpoint": "2028-12-31",
+        "scenario": "Competitive convergence",
+        "avgo_calendar_eps_approx": 22.483428926422054,
+        "avgo_price": 404.70172067559696,
+        "avgo_cumulative_pct": 34.90057355853231,
+        "mrvl_plus_share_price": 225.59647058823526,
+        "mrvl_plus_value_per_300_invested": 553.4751486463083,
+        "mrvl_plus_cumulative_pct": 84.4917162154361,
+        "warning": "Conditional on transaction close and modeled integration"
+      },
+      {
+        "endpoint": "2027-12-31",
+        "scenario": "Meaningful AVGO share loss",
+        "avgo_calendar_eps_approx": 15.070719108910884,
+        "avgo_price": 226.06078663366327,
+        "avgo_cumulative_pct": -24.64640445544558,
+        "mrvl_plus_share_price": 181.7462686567164,
+        "mrvl_plus_value_per_300_invested": 445.89369150322966,
+        "mrvl_plus_cumulative_pct": 48.63123050107656,
+        "warning": "Conditional preclose combined pro-forma sensitivity; not actual MRVL standalone earnings valuation"
+      },
+      {
+        "endpoint": "2028-12-31",
+        "scenario": "Meaningful AVGO share loss",
+        "avgo_calendar_eps_approx": 17.245718485730922,
+        "avgo_price": 258.6857772859638,
+        "avgo_cumulative_pct": -13.771407571345396,
+        "mrvl_plus_share_price": 310.21323529411757,
+        "mrvl_plus_value_per_300_invested": 761.0727068059803,
+        "mrvl_plus_cumulative_pct": 153.69090226866012,
+        "warning": "Conditional on transaction close and modeled integration"
+      }
+    ]
+  },
+  "avgo_constant_multiple_300": {
+    "basis": "Original ChartMill normalized EPS estimate series; independent of competitive-path assumptions; baseline FY26 estimate11.78 and user entry300",
+    "multiple": 25.466893039049236,
+    "rows": [
+      {
+        "fy": 2026,
+        "period_end_approx": "late Oct/early Nov 2026",
+        "eps": 11.78,
+        "yoy_eps_growth_pct": null,
+        "cumulative_eps_growth_pct": 0,
+        "constant_pe": 25.466893039049236,
+        "price": 300
+      },
+      {
+        "fy": 2027,
+        "period_end_approx": "late Oct/early Nov 2027",
+        "eps": 19.62,
+        "yoy_eps_growth_pct": 66.55348047538203,
+        "cumulative_eps_growth_pct": 66.55348047538203,
+        "constant_pe": 25.466893039049236,
+        "price": 499.66044142614606
+      },
+      {
+        "fy": 2028,
+        "period_end_approx": "late Oct/early Nov 2028",
+        "eps": 30.61,
+        "yoy_eps_growth_pct": 56.01427115188582,
+        "cumulative_eps_growth_pct": 159.84719864176574,
+        "constant_pe": 25.466893039049236,
+        "price": 779.5415959252972
+      },
+      {
+        "fy": 2029,
+        "period_end_approx": "late Oct/early Nov 2029",
+        "eps": 41.48,
+        "yoy_eps_growth_pct": 35.51127082652727,
+        "cumulative_eps_growth_pct": 252.12224108658745,
+        "constant_pe": 25.466893039049236,
+        "price": 1056.3667232597622
+      },
+      {
+        "fy": 2030,
+        "period_end_approx": "late Oct/early Nov 2030",
+        "eps": 48.63,
+        "yoy_eps_growth_pct": 17.23722275795565,
+        "cumulative_eps_growth_pct": 312.81833616298815,
+        "constant_pe": 25.466893039049236,
+        "price": 1238.4550084889645
+      }
+    ],
+    "limits": "No share-price prediction, fixed multiple assumption; distant estimates sparse; dated research snapshotNov20,2026; no refreshed quote or confirmed GAAP bridge"
+  }
 }
