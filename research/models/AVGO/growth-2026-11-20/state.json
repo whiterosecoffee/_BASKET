@@ -1,0 +1,33 @@
+{
+  "purpose": "AVGO FY2027–2030 EPS growth and valuation",
+  "tiered_objectives": [
+    "Preserve single-source annual series",
+    "Reproduce cumulative growth/multiples",
+    "Qualify customer and GAAP economics next"
+  ],
+  "status": "draft_research",
+  "owner": "B04-306",
+  "issue": 306,
+  "branch": "work/306-avgo-cumulative-growth",
+  "parent": "orchestration/sparks.json#B04",
+  "dependencies": [
+    "B02",
+    "B03"
+  ],
+  "evidence": [
+    "inputs-results.json",
+    "REPORT.md",
+    "https://github.com/whiterosecoffee/_BASKET/issues/291"
+  ],
+  "feature_design": "feature-design.md",
+  "planned_nodes": [],
+  "next_actions": [
+    "Reconcile updated consensus with customer-specific TPU exposure"
+  ],
+  "limitations": [
+    "No operational market feed",
+    "No GAAP forecast bridge",
+    "Sparse distant consensus",
+    "Hosted CI pending"
+  ]
+}
