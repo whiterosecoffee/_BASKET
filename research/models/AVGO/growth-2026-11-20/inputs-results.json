@@ -1,0 +1,226 @@
+{
+  "model_version": "avgo-growth@1",
+  "retrieved_local_date": "2026-11-20",
+  "timezone": "America/Phoenix",
+  "currency": "USD",
+  "status": "provisional_research_not_canonical_feed",
+  "observed_at": null,
+  "available_at": null,
+  "ingested_at": null,
+  "validity": "Research snapshot; refresh before trading use",
+  "price": {
+    "close": 304.41,
+    "close_at": "2026-11-20T16:00:00-05:00",
+    "after_hours": 310.89,
+    "after_hours_at": "2026-11-20T19:34:00-05:00",
+    "source": "https://stockanalysis.com/stocks/avgo/"
+  },
+  "eps_source": {
+    "url": "https://www.chartmill.com/stock/quote/AVGO/estimates",
+    "source_class": "third_party_analyst_consensus",
+    "retrieval": "Search-index full annual table; direct page returned 403",
+    "basis": "Normalized/adjusted EPS series; provider field-level reconciliation not verified; not GAAP",
+    "coverage": "2029–2030 sparse; annual fiscal dates and point-in-time analyst cohorts not verified",
+    "alternative": "https://kaplio.com/ticker/AVGO/estimates",
+    "alternative_eps": {
+      "2026": 11.68,
+      "2027": 19.32,
+      "2028": 30.71
+    },
+    "alternative_policy": "Do not blend with primary series"
+  },
+  "formulas": {
+    "yoy": "EPS(t)/EPS(t-1)-1",
+    "cumulative": "EPS(t)/EPS(FY2026)-1",
+    "pe": "reference_price/EPS(t)",
+    "sensitivity": "EPS(t)*assumed_multiple; no discounting or probability"
+  },
+  "rows": [
+    {
+      "fy": 2026,
+      "eps": 11.78,
+      "yoy_pct": null,
+      "cumulative_pct": 0,
+      "pe_at_304_41": 25.841256366723265,
+      "pe_at_310_89": 26.391341256366722,
+      "price_at_20x": 235.6,
+      "price_at_25x": 294.5
+    },
+    {
+      "fy": 2027,
+      "eps": 19.62,
+      "yoy_pct": 66.55348047538203,
+      "cumulative_pct": 66.55348047538203,
+      "pe_at_304_41": 15.515290519877677,
+      "pe_at_310_89": 15.845565749235472,
+      "price_at_20x": 392.40000000000003,
+      "price_at_25x": 490.5
+    },
+    {
+      "fy": 2028,
+      "eps": 30.61,
+      "yoy_pct": 56.01427115188582,
+      "cumulative_pct": 159.84719864176574,
+      "pe_at_304_41": 9.944789284547534,
+      "pe_at_310_89": 10.156484808885985,
+      "price_at_20x": 612.2,
+      "price_at_25x": 765.25
+    },
+    {
+      "fy": 2029,
+      "eps": 41.48,
+      "yoy_pct": 35.51127082652727,
+      "cumulative_pct": 252.12224108658745,
+      "pe_at_304_41": 7.338717454194794,
+      "pe_at_310_89": 7.4949373191899715,
+      "price_at_20x": 829.5999999999999,
+      "price_at_25x": 1037
+    },
+    {
+      "fy": 2030,
+      "eps": 48.63,
+      "yoy_pct": 17.23722275795565,
+      "cumulative_pct": 312.81833616298815,
+      "pe_at_304_41": 6.259716224552745,
+      "pe_at_310_89": 6.392967304133251,
+      "price_at_20x": 972.6,
+      "price_at_25x": 1215.75
+    }
+  ],
+  "customer_margin_stress": {
+    "classification": "hypothetical_sensitivity_not_customer_forecast",
+    "model_version": "avgo-stress@1",
+    "reference_revenue_billions": {
+      "2027": 178.513,
+      "2028": 287.345
+    },
+    "revenue_source": "ChartMill annual table captured in prior research; consensus metric cohorts not independently reconciled",
+    "assumptions": {
+      "lost_revenue_contribution_margin": 0.65,
+      "incremental_tax_rate": 0.16,
+      "reference_diluted_shares_billions": 5,
+      "pricing_held_constant": true,
+      "affected_product_share": "Assumed 20/30/40% of total revenue, not observed Google exposure",
+      "margin_shock": "Additional percentage-point reduction on remaining revenue; excludes lost-product contribution already subtracted",
+      "timing": "Same scenario applied to each baseline year; preserves much of baseline growth, does not model an autonomous growth trajectory"
+    },
+    "formula": "(baselineEPS - revenue * [f*u*0.65 + (1-f*u)*additional_margin_shock] * (1-.16)/5)/(1+additional_dilution)",
+    "results": [
+      {
+        "name": "Estimate baseline",
+        "f": 0,
+        "u": 0,
+        "m": 0,
+        "d": 0,
+        "results": {
+          "2027": {
+            "eps": 19.62,
+            "pe": 15.515290519877677,
+            "value15x": 294.3,
+            "value20x": 392.40000000000003,
+            "return15x_pct": -3.3211786734995585,
+            "cumulative_vs_2026_pct": 66.55348047538203
+          },
+          "2028": {
+            "eps": 30.61,
+            "pe": 9.944789284547534,
+            "value15x": 459.15,
+            "value20x": 612.2,
+            "return15x_pct": 50.83275845077362,
+            "cumulative_vs_2026_pct": 159.84719864176574
+          }
+        },
+        "yoy2028_pct": 56.01427115188582
+      },
+      {
+        "name": "Narrow product cut",
+        "f": 0.2,
+        "u": 0.2,
+        "m": 0,
+        "d": 0,
+        "results": {
+          "2027": {
+            "eps": 18.840255216,
+            "pe": 16.157424435603254,
+            "value15x": 282.60382824,
+            "value20x": 376.80510432,
+            "return15x_pct": -7.163421622154342,
+            "cumulative_vs_2026_pct": 59.93425480475383
+          },
+          "2028": {
+            "eps": 29.354877039999998,
+            "pe": 10.369997448301355,
+            "value15x": 440.32315559999995,
+            "value20x": 587.0975407999999,
+            "return15x_pct": 44.64805873657236,
+            "cumulative_vs_2026_pct": 149.19250458404076
+          }
+        },
+        "yoy2028_pct": 55.80933858619126
+      },
+      {
+        "name": "Broader pressure",
+        "f": 0.3,
+        "u": 0.2,
+        "m": 0.03,
+        "d": 0,
+        "results": {
+          "2027": {
+            "eps": 17.6046596352,
+            "pe": 17.291444782683623,
+            "value15x": 264.069894528,
+            "value20x": 352.093192704,
+            "return15x_pct": -13.251898910022664,
+            "cumulative_vs_2026_pct": 49.445327972835344
+          },
+          "2028": {
+            "eps": 27.365989887999998,
+            "pe": 11.12366120304254,
+            "value15x": 410.48984831999996,
+            "value20x": 547.3197977599999,
+            "return15x_pct": 34.8476884202227,
+            "cumulative_vs_2026_pct": 132.30891246179968
+          }
+        },
+        "yoy2028_pct": 55.44742389272044
+      },
+      {
+        "name": "Severe competition",
+        "f": 0.4,
+        "u": 0.3,
+        "m": 0.05,
+        "d": 0.02,
+        "results": {
+          "2027": {
+            "eps": 15.648232894117646,
+            "pe": 19.453314764661467,
+            "value15x": 234.72349341176468,
+            "value20x": 312.9646578823529,
+            "return15x_pct": -22.892318448222902,
+            "cumulative_vs_2026_pct": 32.83729112154199
+          },
+          "2028": {
+            "eps": 24.23585968627451,
+            "pe": 12.560313681482342,
+            "value15x": 363.5378952941176,
+            "value20x": 484.7171937254902,
+            "return15x_pct": 19.423769026680326,
+            "cumulative_vs_2026_pct": 105.73734877991944
+          }
+        },
+        "yoy2028_pct": 54.87921128388275
+      }
+    ],
+    "delay_case": {
+      "description": "2028 reaches only current 2027 EPS estimate",
+      "eps": 19.62,
+      "value15x": 294.3
+    },
+    "limitations": [
+      "No customer-specific ASP/volume/margin disclosure verified",
+      "Price is prior closing reference, not refreshed live",
+      "No GAAP conversion",
+      "Stress case probabilities unavailable"
+    ]
+  }
+}

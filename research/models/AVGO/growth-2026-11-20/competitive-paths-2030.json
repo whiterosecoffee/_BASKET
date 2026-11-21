@@ -1,0 +1,677 @@
+{
+  "model_version": "competitive-paths@1",
+  "status": "illustrative_scenarios_not_consensus_or_price_targets",
+  "as_of_local_date": "2026-11-20",
+  "timezone": "America/Phoenix",
+  "currency": "USD",
+  "units": "Revenue, R&D, net financing costs and shares in billions; per-share USD",
+  "scope": "AVGO versus proposed MRVL+LITE including existing Celestial AI; conditional on LITE deal closing",
+  "reference_prices": {
+    "AVGO": 304.41,
+    "MRVL": 122.28,
+    "source": "https://stockanalysis.com/stocks/",
+    "effective_at": "2026-11-20T16:00:00-05:00",
+    "freshness": "Historical close reference, not live or qualified canonical FETCH data"
+  },
+  "observations": {
+    "mrvl_deal_ratio": 4.5,
+    "legacy_mrvl_postclose_ownership": 0.67,
+    "expected_close": "H1 calendar2028",
+    "mrvl_predeal_fy2031_target": {
+      "revenue": [
+        70,
+        90
+      ],
+      "adjusted_eps_greater_than": 30,
+      "source": "https://investor.marvell.com/_assets/_fe1fa82248ac6d1d9eb772cb4c3be236/marvell/db/3710/35393/presentation/marvell-investor-day-2026-presentaion-deck.pdf",
+      "period": "FY2031 ends around Jan2031; pre-LITE announcement and includes existing Celestial roadmap"
+    },
+    "synergy_issuer_claim": "$1B+ annual run-rate primarily COGS; no guaranteed achievement",
+    "source_deal": "https://investor.marvell.com/sec-filings/all-sec-filings/content/0001193125-26-442714/d81187dex992.htm"
+  },
+  "assumptions": {
+    "avgo": {
+      "FY2026_reference_revenue": 106,
+      "base_gross_margin": 0.8,
+      "base_rd_ratio": 0.1,
+      "base_other_opex_ratio": 0.04,
+      "net_financing_cost": 3,
+      "tax": 0.18,
+      "shares_2027_to2030": [
+        5,
+        5.05,
+        5.1,
+        5.2
+      ],
+      "margin_path": "Linear interpolation from assumed base to endpoint; normalized economics, excludes SBC and acquisition amortization; not GAAP"
+    },
+    "mrvl_plus": {
+      "baseline_annualized_revenue": 17.7,
+      "baseline_annualized_revenue_policy": "Company deal-deck run rate from MRVL guidance plus LITE actual quarter; not full-year revenue or audited pro forma",
+      "base_gross_margin": 0.57,
+      "base_rd_ratio": 0.12,
+      "base_other_opex_ratio": 0.06,
+      "net_financing_cost": 1,
+      "tax": 0.18,
+      "diluted_shares_2027_to2030": [
+        1.34,
+        1.36,
+        1.38,
+        1.4
+      ],
+      "share_derivation": "~0.878B MRVL shares /0.67 legacy ownership ~=1.31B indicative deal count, rounded future scenario rises to1.40B; not exact conversion/security schedule",
+      "share_basis_warning": "All years hypothetical fully combined economic model; calendar2027 is pre-close pro forma, not actual parent guidance; future record date share count unknown",
+      "margin_path": "Linear interpolation from assumed base to endpoint; synergies embedded in gross/operating margins, not added twice; separate restructuring cash charges/SBC/purchase accounting excluded",
+      "revenue_policy": "Consolidated external revenue net of intercompany shipments; no addition of independent EPS or duplicate Celestial contribution"
+    },
+    "terminal_multiple_policy": "Explicit assumed adjusted PEs per scenario, constant across displayed years; not measured probabilities, no separate empirical justification or discounted fair-value claim",
+    "competitive_policy": "Scenarios describe broad competitive/market paths; AVGO revenue deficit is not mechanically transferred to MRVL; no measured absolute market-share forecast"
+  },
+  "formulas": {
+    "operating_margin": "gross_margin-rd_ratio-other_opex_ratio",
+    "eps": "(external_revenue*operating_margin-net_financing_cost)*(1-tax)/diluted_shares",
+    "price": "EPS*assumed_PE",
+    "price_cumulative_pct": "(scenario_price/reference_close-1)*100",
+    "revenue_yoy": "revenue(t)/revenue(t-1)-1",
+    "cumulative_revenue": "revenue(t)/106-1 for AVGO; MRVL2026 run-rate cannot stand in as full-year baseline",
+    "fourfold_required_revenue": "((4*MRVL_reference_price/PE)*shares/(1-tax)+net_financing_cost)/operating_margin"
+  },
+  "paths": [
+    {
+      "name": "AVGO maintains lead",
+      "avgo": [
+        {
+          "fy": 2027,
+          "revenue": 169.60000000000002,
+          "growth_pct": 60,
+          "cumulative_revenue_growth_pct": 60.00000000000003,
+          "gross_margin": 0.795,
+          "rd_ratio": 0.0975,
+          "rd_dollars": 16.536,
+          "other_opex_ratio": 0.045,
+          "operating_margin": 0.6525,
+          "eps": 17.656896,
+          "terminal_pe": 20,
+          "price": 353.13792,
+          "price_cumulative_pct": 16.007332216418636
+        },
+        {
+          "fy": 2028,
+          "revenue": 262.88000000000005,
+          "growth_pct": 55.00000000000001,
+          "cumulative_revenue_growth_pct": 148.00000000000006,
+          "gross_margin": 0.79,
+          "rd_ratio": 0.095,
+          "rd_dollars": 24.973600000000005,
+          "other_opex_ratio": 0.05,
+          "operating_margin": 0.645,
+          "eps": 27.04499643564357,
+          "terminal_pe": 20,
+          "price": 540.8999287128713,
+          "price_cumulative_pct": 77.68796317889401
+        },
+        {
+          "fy": 2029,
+          "revenue": 328.6000000000001,
+          "growth_pct": 25,
+          "cumulative_revenue_growth_pct": 210.00000000000006,
+          "gross_margin": 0.785,
+          "rd_ratio": 0.0925,
+          "rd_dollars": 30.395500000000006,
+          "other_opex_ratio": 0.055,
+          "operating_margin": 0.6375,
+          "eps": 33.19914705882354,
+          "terminal_pe": 20,
+          "price": 663.9829411764708,
+          "price_cumulative_pct": 118.12126447109846
+        },
+        {
+          "fy": 2030,
+          "revenue": 394.3200000000001,
+          "growth_pct": 20,
+          "cumulative_revenue_growth_pct": 272.0000000000001,
+          "gross_margin": 0.78,
+          "rd_ratio": 0.09,
+          "rd_dollars": 35.488800000000005,
+          "other_opex_ratio": 0.06,
+          "operating_margin": 0.6300000000000001,
+          "eps": 38.70109846153848,
+          "terminal_pe": 20,
+          "price": 774.0219692307696,
+          "price_cumulative_pct": 154.26956053702887
+        }
+      ],
+      "mrvl_plus": {
+        "calendar2030_revenue": 45,
+        "gross_margin": 0.57,
+        "rd_ratio": 0.16,
+        "rd_dollars": 7.2,
+        "other_opex_ratio": 0.08,
+        "operating_margin": 0.3299999999999999,
+        "shares": 1.4,
+        "eps": 8.112142857142855,
+        "terminal_pe": 18,
+        "value": 146.0185714285714,
+        "multiple_of_entry": 1.194132903406701
+      },
+      "avgo_terminal_pe": 20,
+      "mrvl_plus_annual": [
+        {
+          "calendar_year": 2027,
+          "revenue": 24,
+          "revenue_yoy_pct": null,
+          "rd_ratio": 0.13,
+          "rd_dollars": 3.12,
+          "gross_margin": 0.57,
+          "other_opex_ratio": 0.065,
+          "operating_margin": 0.37499999999999994,
+          "diluted_shares_billions": 1.34,
+          "eps": 4.8955223880597,
+          "eps_yoy_pct": null,
+          "terminal_pe": 18,
+          "price": 88.1194029850746,
+          "price_cumulative_pct": -27.936373090387146
+        },
+        {
+          "calendar_year": 2028,
+          "revenue": 32,
+          "revenue_yoy_pct": 33.33333333333333,
+          "rd_ratio": 0.14,
+          "rd_dollars": 4.48,
+          "gross_margin": 0.57,
+          "other_opex_ratio": 0.07,
+          "operating_margin": 0.35999999999999993,
+          "diluted_shares_billions": 1.36,
+          "eps": 6.342941176470586,
+          "eps_yoy_pct": 29.566176470588236,
+          "terminal_pe": 18,
+          "price": 114.17294117647056,
+          "price_cumulative_pct": -6.629913987184688
+        },
+        {
+          "calendar_year": 2029,
+          "revenue": 39,
+          "revenue_yoy_pct": 21.875,
+          "rd_ratio": 0.15,
+          "rd_dollars": 5.85,
+          "gross_margin": 0.57,
+          "other_opex_ratio": 0.075,
+          "operating_margin": 0.3449999999999999,
+          "diluted_shares_billions": 1.38,
+          "eps": 7.400797101449274,
+          "eps_yoy_pct": 16.67768777208356,
+          "terminal_pe": 18,
+          "price": 133.21434782608694,
+          "price_cumulative_pct": 8.942057430558492
+        },
+        {
+          "calendar_year": 2030,
+          "revenue": 45,
+          "revenue_yoy_pct": 15.384615384615374,
+          "rd_ratio": 0.16,
+          "rd_dollars": 7.2,
+          "gross_margin": 0.57,
+          "other_opex_ratio": 0.08,
+          "operating_margin": 0.3299999999999999,
+          "diluted_shares_billions": 1.4,
+          "eps": 8.112142857142855,
+          "eps_yoy_pct": 9.611745139645578,
+          "terminal_pe": 18,
+          "price": 146.0185714285714,
+          "price_cumulative_pct": 19.4132903406701
+        }
+      ]
+    },
+    {
+      "name": "Competitive convergence",
+      "avgo": [
+        {
+          "fy": 2027,
+          "revenue": 159,
+          "growth_pct": 50,
+          "cumulative_revenue_growth_pct": 50,
+          "gross_margin": 0.79,
+          "rd_ratio": 0.10500000000000001,
+          "rd_dollars": 16.695,
+          "other_opex_ratio": 0.045,
+          "operating_margin": 0.64,
+          "eps": 16.19664,
+          "terminal_pe": 18,
+          "price": 291.53952,
+          "price_cumulative_pct": -4.22800827830887
+        },
+        {
+          "fy": 2028,
+          "revenue": 222.6,
+          "growth_pct": 40,
+          "cumulative_revenue_growth_pct": 110.00000000000001,
+          "gross_margin": 0.78,
+          "rd_ratio": 0.11,
+          "rd_dollars": 24.486,
+          "other_opex_ratio": 0.05,
+          "operating_margin": 0.62,
+          "eps": 21.922740594059405,
+          "terminal_pe": 18,
+          "price": 394.6093306930693,
+          "price_cumulative_pct": 29.630869778610847
+        },
+        {
+          "fy": 2029,
+          "revenue": 267.12,
+          "growth_pct": 20,
+          "cumulative_revenue_growth_pct": 152,
+          "gross_margin": 0.77,
+          "rd_ratio": 0.11499999999999999,
+          "rd_dollars": 30.718799999999998,
+          "other_opex_ratio": 0.055,
+          "operating_margin": 0.6,
+          "eps": 25.286870588235292,
+          "terminal_pe": 18,
+          "price": 455.1636705882353,
+          "price_cumulative_pct": 49.523232018736316
+        },
+        {
+          "fy": 2030,
+          "revenue": 307.188,
+          "growth_pct": 15,
+          "cumulative_revenue_growth_pct": 189.79999999999995,
+          "gross_margin": 0.76,
+          "rd_ratio": 0.12,
+          "rd_dollars": 36.862559999999995,
+          "other_opex_ratio": 0.06,
+          "operating_margin": 0.5800000000000001,
+          "eps": 27.622810153846153,
+          "terminal_pe": 18,
+          "price": 497.21058276923077,
+          "price_cumulative_pct": 63.335824305781905
+        }
+      ],
+      "mrvl_plus": {
+        "calendar2030_revenue": 70,
+        "gross_margin": 0.6,
+        "rd_ratio": 0.14,
+        "rd_dollars": 9.8,
+        "other_opex_ratio": 0.06,
+        "operating_margin": 0.39999999999999997,
+        "shares": 1.4,
+        "eps": 15.814285714285713,
+        "terminal_pe": 24,
+        "value": 379.5428571428571,
+        "multiple_of_entry": 3.1038833590354686
+      },
+      "avgo_terminal_pe": 18,
+      "mrvl_plus_annual": [
+        {
+          "calendar_year": 2027,
+          "revenue": 28,
+          "revenue_yoy_pct": null,
+          "rd_ratio": 0.125,
+          "rd_dollars": 3.5,
+          "gross_margin": 0.5774999999999999,
+          "other_opex_ratio": 0.06,
+          "operating_margin": 0.3924999999999999,
+          "diluted_shares_billions": 1.34,
+          "eps": 6.11328358208955,
+          "eps_yoy_pct": null,
+          "terminal_pe": 24,
+          "price": 146.7188059701492,
+          "price_cumulative_pct": 19.985938804505388
+        },
+        {
+          "calendar_year": 2028,
+          "revenue": 42,
+          "revenue_yoy_pct": 50,
+          "rd_ratio": 0.13,
+          "rd_dollars": 5.46,
+          "gross_margin": 0.585,
+          "other_opex_ratio": 0.06,
+          "operating_margin": 0.39499999999999996,
+          "diluted_shares_billions": 1.36,
+          "eps": 9.39985294117647,
+          "eps_yoy_pct": 53.761114055231744,
+          "terminal_pe": 24,
+          "price": 225.59647058823526,
+          "price_cumulative_pct": 84.4917162154361
+        },
+        {
+          "calendar_year": 2029,
+          "revenue": 56,
+          "revenue_yoy_pct": 33.33333333333333,
+          "rd_ratio": 0.135,
+          "rd_dollars": 7.5600000000000005,
+          "gross_margin": 0.5925,
+          "other_opex_ratio": 0.06,
+          "operating_margin": 0.3975,
+          "diluted_shares_billions": 1.38,
+          "eps": 12.632753623188407,
+          "eps_yoy_pct": 34.393098511680684,
+          "terminal_pe": 24,
+          "price": 303.18608695652176,
+          "price_cumulative_pct": 147.9441339193014
+        },
+        {
+          "calendar_year": 2030,
+          "revenue": 70,
+          "revenue_yoy_pct": 25,
+          "rd_ratio": 0.14,
+          "rd_dollars": 9.8,
+          "gross_margin": 0.6,
+          "other_opex_ratio": 0.06,
+          "operating_margin": 0.39999999999999997,
+          "diluted_shares_billions": 1.4,
+          "eps": 15.814285714285713,
+          "eps_yoy_pct": 25.18478699099582,
+          "terminal_pe": 24,
+          "price": 379.5428571428571,
+          "price_cumulative_pct": 210.38833590354687
+        }
+      ]
+    },
+    {
+      "name": "Meaningful AVGO share loss",
+      "avgo": [
+        {
+          "fy": 2027,
+          "revenue": 148.39999999999998,
+          "growth_pct": 40,
+          "cumulative_revenue_growth_pct": 39.99999999999997,
+          "gross_margin": 0.78,
+          "rd_ratio": 0.1125,
+          "rd_dollars": 16.694999999999997,
+          "other_opex_ratio": 0.045,
+          "operating_margin": 0.6224999999999999,
+          "eps": 14.658155999999995,
+          "terminal_pe": 15,
+          "price": 219.87233999999992,
+          "price_cumulative_pct": -27.77098649847248
+        },
+        {
+          "fy": 2028,
+          "revenue": 185.49999999999997,
+          "growth_pct": 25,
+          "cumulative_revenue_growth_pct": 74.99999999999997,
+          "gross_margin": 0.76,
+          "rd_ratio": 0.125,
+          "rd_dollars": 23.187499999999996,
+          "other_opex_ratio": 0.05,
+          "operating_margin": 0.585,
+          "eps": 17.13353465346534,
+          "terminal_pe": 15,
+          "price": 257.0030198019801,
+          "price_cumulative_pct": -15.573397785230425
+        },
+        {
+          "fy": 2029,
+          "revenue": 207.76,
+          "growth_pct": 12,
+          "cumulative_revenue_growth_pct": 96,
+          "gross_margin": 0.74,
+          "rd_ratio": 0.1375,
+          "rd_dollars": 28.567,
+          "other_opex_ratio": 0.055,
+          "operating_margin": 0.5475,
+          "eps": 17.806637647058825,
+          "terminal_pe": 15,
+          "price": 267.09956470588236,
+          "price_cumulative_pct": -12.256639168922723
+        },
+        {
+          "fy": 2030,
+          "revenue": 228.536,
+          "growth_pct": 10,
+          "cumulative_revenue_growth_pct": 115.60000000000001,
+          "gross_margin": 0.72,
+          "rd_ratio": 0.15,
+          "rd_dollars": 34.2804,
+          "other_opex_ratio": 0.06,
+          "operating_margin": 0.51,
+          "eps": 17.906491384615382,
+          "terminal_pe": 15,
+          "price": 268.59737076923074,
+          "price_cumulative_pct": -11.764603406842511
+        }
+      ],
+      "mrvl_plus": {
+        "calendar2030_revenue": 100,
+        "gross_margin": 0.62,
+        "rd_ratio": 0.12,
+        "rd_dollars": 12,
+        "other_opex_ratio": 0.06,
+        "operating_margin": 0.44,
+        "shares": 1.4,
+        "eps": 25.185714285714287,
+        "terminal_pe": 25,
+        "value": 629.6428571428572,
+        "multiple_of_entry": 5.149189214449274
+      },
+      "avgo_terminal_pe": 15,
+      "mrvl_plus_annual": [
+        {
+          "calendar_year": 2027,
+          "revenue": 32,
+          "revenue_yoy_pct": null,
+          "rd_ratio": 0.12,
+          "rd_dollars": 3.84,
+          "gross_margin": 0.5825,
+          "other_opex_ratio": 0.06,
+          "operating_margin": 0.4025,
+          "diluted_shares_billions": 1.34,
+          "eps": 7.269850746268657,
+          "eps_yoy_pct": null,
+          "terminal_pe": 25,
+          "price": 181.7462686567164,
+          "price_cumulative_pct": 48.63123050107656
+        },
+        {
+          "calendar_year": 2028,
+          "revenue": 52,
+          "revenue_yoy_pct": 62.5,
+          "rd_ratio": 0.12,
+          "rd_dollars": 6.24,
+          "gross_margin": 0.595,
+          "other_opex_ratio": 0.06,
+          "operating_margin": 0.415,
+          "diluted_shares_billions": 1.36,
+          "eps": 12.408529411764704,
+          "eps_yoy_pct": 70.68478906714198,
+          "terminal_pe": 25,
+          "price": 310.21323529411757,
+          "price_cumulative_pct": 153.69090226866012
+        },
+        {
+          "calendar_year": 2029,
+          "revenue": 75,
+          "revenue_yoy_pct": 44.230769230769226,
+          "rd_ratio": 0.12,
+          "rd_dollars": 9,
+          "gross_margin": 0.6074999999999999,
+          "other_opex_ratio": 0.06,
+          "operating_margin": 0.42749999999999994,
+          "diluted_shares_billions": 1.38,
+          "eps": 18.457427536231883,
+          "eps_yoy_pct": 48.7479049590851,
+          "terminal_pe": 25,
+          "price": 461.43568840579707,
+          "price_cumulative_pct": 277.359902196432
+        },
+        {
+          "calendar_year": 2030,
+          "revenue": 100,
+          "revenue_yoy_pct": 33.33333333333333,
+          "rd_ratio": 0.12,
+          "rd_dollars": 12,
+          "gross_margin": 0.62,
+          "other_opex_ratio": 0.06,
+          "operating_margin": 0.44,
+          "diluted_shares_billions": 1.4,
+          "eps": 25.185714285714287,
+          "eps_yoy_pct": 36.453003736705966,
+          "terminal_pe": 25,
+          "price": 629.6428571428572,
+          "price_cumulative_pct": 414.91892144492743
+        }
+      ]
+    }
+  ],
+  "fourfold_hurdle": [
+    {
+      "pe": 20,
+      "target": 489.12,
+      "eps": 24.456,
+      "net_income": 34.2384,
+      "revenue_at40_opmargin": 106.88536585365854
+    },
+    {
+      "pe": 25,
+      "target": 489.12,
+      "eps": 19.5648,
+      "net_income": 27.39072,
+      "revenue_at40_opmargin": 86.00829268292682
+    },
+    {
+      "pe": 30,
+      "target": 489.12,
+      "eps": 16.304,
+      "net_income": 22.825599999999998,
+      "revenue_at40_opmargin": 72.09024390243901
+    }
+  ],
+  "limits": [
+    "No calibrated probabilities",
+    "No calendar-aligned combined consensus",
+    "No precise current diluted security schedule",
+    "No GAAP cash earnings or acquisition cash-cost bridge",
+    "No unchanged-multiple guarantee",
+    "Raw quote/JSONL ingestion not performed"
+  ],
+  "next_action": "Replace hypothetical combined margins/revenue/share schedule with calendar-aligned company/filing evidence and show GAAP/FCF bridge",
+  "common_december_comparison": {
+    "baseline": {
+      "investment_each": 300,
+      "avgo_entry_user_assumed": 300,
+      "mrvl_entry_historical_reference": 122.28,
+      "mrvl_shares_per300": 2.4533856722276743
+    },
+    "calendarization": "AVGO smooth annual EPS approximation:10/12current FY +2/12following FY for December TTM; not quarterly calendarization or certified exact endpoint; MRVL+ modeled calendar-year values",
+    "rows": [
+      {
+        "endpoint": "2027-12-31",
+        "scenario": "AVGO maintains lead",
+        "avgo_calendar_eps_approx": 19.221579405940595,
+        "avgo_price": 384.4315881188119,
+        "avgo_cumulative_pct": 28.143862706270628,
+        "mrvl_plus_share_price": 88.1194029850746,
+        "mrvl_plus_value_per_300_invested": 216.19088072883858,
+        "mrvl_plus_cumulative_pct": -27.936373090387146,
+        "warning": "Conditional preclose combined pro-forma sensitivity; not actual MRVL standalone earnings valuation"
+      },
+      {
+        "endpoint": "2028-12-31",
+        "scenario": "AVGO maintains lead",
+        "avgo_calendar_eps_approx": 28.07068820617356,
+        "avgo_price": 561.4137641234712,
+        "avgo_cumulative_pct": 87.13792137449039,
+        "mrvl_plus_share_price": 114.17294117647056,
+        "mrvl_plus_value_per_300_invested": 280.1102580384459,
+        "mrvl_plus_cumulative_pct": -6.629913987184688,
+        "warning": "Conditional on transaction close and modeled integration"
+      },
+      {
+        "endpoint": "2027-12-31",
+        "scenario": "Competitive convergence",
+        "avgo_calendar_eps_approx": 17.1509900990099,
+        "avgo_price": 308.7178217821782,
+        "avgo_cumulative_pct": 2.9059405940593974,
+        "mrvl_plus_share_price": 146.7188059701492,
+        "mrvl_plus_value_per_300_invested": 359.9578164135162,
+        "mrvl_plus_cumulative_pct": 19.985938804505388,
+        "warning": "Conditional preclose combined pro-forma sensitivity; not actual MRVL standalone earnings valuation"
+      },
+      {
+        "endpoint": "2028-12-31",
+        "scenario": "Competitive convergence",
+        "avgo_calendar_eps_approx": 22.483428926422054,
+        "avgo_price": 404.70172067559696,
+        "avgo_cumulative_pct": 34.90057355853231,
+        "mrvl_plus_share_price": 225.59647058823526,
+        "mrvl_plus_value_per_300_invested": 553.4751486463083,
+        "mrvl_plus_cumulative_pct": 84.4917162154361,
+        "warning": "Conditional on transaction close and modeled integration"
+      },
+      {
+        "endpoint": "2027-12-31",
+        "scenario": "Meaningful AVGO share loss",
+        "avgo_calendar_eps_approx": 15.070719108910884,
+        "avgo_price": 226.06078663366327,
+        "avgo_cumulative_pct": -24.64640445544558,
+        "mrvl_plus_share_price": 181.7462686567164,
+        "mrvl_plus_value_per_300_invested": 445.89369150322966,
+        "mrvl_plus_cumulative_pct": 48.63123050107656,
+        "warning": "Conditional preclose combined pro-forma sensitivity; not actual MRVL standalone earnings valuation"
+      },
+      {
+        "endpoint": "2028-12-31",
+        "scenario": "Meaningful AVGO share loss",
+        "avgo_calendar_eps_approx": 17.245718485730922,
+        "avgo_price": 258.6857772859638,
+        "avgo_cumulative_pct": -13.771407571345396,
+        "mrvl_plus_share_price": 310.21323529411757,
+        "mrvl_plus_value_per_300_invested": 761.0727068059803,
+        "mrvl_plus_cumulative_pct": 153.69090226866012,
+        "warning": "Conditional on transaction close and modeled integration"
+      }
+    ]
+  },
+  "avgo_constant_multiple_300": {
+    "basis": "Original ChartMill normalized EPS estimate series; independent of competitive-path assumptions; baseline FY26 estimate11.78 and user entry300",
+    "multiple": 25.466893039049236,
+    "rows": [
+      {
+        "fy": 2026,
+        "period_end_approx": "late Oct/early Nov 2026",
+        "eps": 11.78,
+        "yoy_eps_growth_pct": null,
+        "cumulative_eps_growth_pct": 0,
+        "constant_pe": 25.466893039049236,
+        "price": 300
+      },
+      {
+        "fy": 2027,
+        "period_end_approx": "late Oct/early Nov 2027",
+        "eps": 19.62,
+        "yoy_eps_growth_pct": 66.55348047538203,
+        "cumulative_eps_growth_pct": 66.55348047538203,
+        "constant_pe": 25.466893039049236,
+        "price": 499.66044142614606
+      },
+      {
+        "fy": 2028,
+        "period_end_approx": "late Oct/early Nov 2028",
+        "eps": 30.61,
+        "yoy_eps_growth_pct": 56.01427115188582,
+        "cumulative_eps_growth_pct": 159.84719864176574,
+        "constant_pe": 25.466893039049236,
+        "price": 779.5415959252972
+      },
+      {
+        "fy": 2029,
+        "period_end_approx": "late Oct/early Nov 2029",
+        "eps": 41.48,
+        "yoy_eps_growth_pct": 35.51127082652727,
+        "cumulative_eps_growth_pct": 252.12224108658745,
+        "constant_pe": 25.466893039049236,
+        "price": 1056.3667232597622
+      },
+      {
+        "fy": 2030,
+        "period_end_approx": "late Oct/early Nov 2030",
+        "eps": 48.63,
+        "yoy_eps_growth_pct": 17.23722275795565,
+        "cumulative_eps_growth_pct": 312.81833616298815,
+        "constant_pe": 25.466893039049236,
+        "price": 1238.4550084889645
+      }
+    ],
+    "limits": "No share-price prediction, fixed multiple assumption; distant estimates sparse; dated research snapshotNov20,2026; no refreshed quote or confirmed GAAP bridge"
+  }
+}
