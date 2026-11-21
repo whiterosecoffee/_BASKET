@@ -1,8 +1,8 @@
 {
   "schema": "crwv.research_state@1",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "purpose": "Maintain dated CRWV earnings, capacity, funding and price assessment with an explicit source and assumption trail",
-  "status": "handoff_reconciled_forward_EPS_basis_unresolved",
+  "status": "funding_terms_and_earnings_hurdles_documented_actual_receipts_unverified",
   "owner": {
     "spark": "B10",
     "issue": 121,
@@ -23,8 +23,8 @@
     }
   ],
   "objectives": {
-    "now": "Reconciled incoming CRWV handoff and audited Street versus GAAP forward EPS",
-    "next": "Obtain provider-defined exclusions and separately projected diluted shares through owner86",
+    "now": "Reused PR289 audit, refreshed filing inventory and documented funding constraints/current-price earnings hurdles",
+    "next": "Owner86: map actual deposit receipts/refund terms and DDTL5.5 excess-cash sweep/eligible draws into monthly project-to-parent liquidity; retain unknown funding gap until the source schedule is complete.",
     "later": "Qualify repeatable 2027 and 2028 capital and earnings revisions"
   },
   "children": [
@@ -37,7 +37,7 @@
     },
     {
       "id": "funding_cohort_waterfall",
-      "status": "planned",
+      "status": "planned_source_requirements_narrowed_not_implemented",
       "input": "Per-project draws, customer prepayments, capex, principal and billing dates",
       "output": "Cash and principal waterfall with uncovered requirements",
       "dependency": "Requires verified project-level inputs and coordination with existing CRWV model PR87"
@@ -62,6 +62,12 @@
       "issue": 214,
       "status": "independent_source_gate_pending",
       "owner": "B01"
+    },
+    {
+      "issue": 91,
+      "pr": 289,
+      "revision": "fc4fc696674acf3f7f64842a18c770c217754a40",
+      "status": "read_only_audit_reused_not_independently_runtime_accepted"
     }
   ],
   "evidence": [
@@ -69,12 +75,14 @@
     "earnings-price-bridge-2026-11-10.json",
     "review.md",
     "eps-basis-reconciliation-2026-11-20.json",
-    "handoff-reconciliation-2026-11-20.md"
+    "handoff-reconciliation-2026-11-20.md",
+    "funding-and-earnings-hurdles-2026-11-20.json",
+    "funding-and-earnings-hurdles-2026-11-20.md"
   ],
   "next_actions": [
     {
-      "owner": "B10 #86 finance tool; B10 #121 research evidence",
-      "action": "Owner #86: obtain source-defined 2027–2028 estimate adjustments and independently projected weighted diluted shares, then populate a sourced funding/commissioning bridge in the existing tool."
+      "owner": "B10 #86",
+      "action": "Owner86: map actual deposit receipts/refund terms and DDTL5.5 excess-cash sweep/eligible draws into monthly project-to-parent liquidity; retain unknown funding gap until the source schedule is complete."
     },
     {
       "owner": "B10 #121",
@@ -99,6 +107,7 @@
     "Fully diluted shares and post-September ATM use",
     "Current issue-level credit spread",
     "Canonical data target and independent acceptance",
-    "2027–2028 forecast GAAP/adjusted conventions and independent weighted diluted shares"
+    "2027–2028 forecast GAAP/adjusted conventions and independent weighted diluted shares",
+    "Customer1.915B liability/refund conditions and facility5.5 cash-sweep-to-parent mapping"
   ]
 }
