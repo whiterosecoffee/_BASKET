@@ -7,10 +7,10 @@
   },
   "purpose": "Source-verified STX earnings growth with explicit provider and fiscal reconciliation",
   "objectives": {
-    "current": "Publish dated earnings-growth comparison",
+    "current": "Test dated EPS against an internally consistent adjusted earnings sensitivity",
     "next": "Verify long-horizon consensus definitions before valuation"
   },
-  "status": "research_draft",
+  "status": "research_draft_consensus_reconciliation_blocked",
   "owner": {
     "issue": 295,
     "spark": "B04",
@@ -20,7 +20,9 @@
   "evidence": [
     "inputs.json",
     "REPORT.md",
-    "https://github.com/whiterosecoffee/_BASKET/issues/291"
+    "https://github.com/whiterosecoffee/_BASKET/issues/291",
+    "MARGIN_REVIEW.md",
+    "margin-sensitivity.json"
   ],
   "dependencies": {
     "B02": "canonical market data; not used",
@@ -29,12 +31,12 @@
   "planned_nodes": [
     {
       "id": "STX_NORMALIZED_MARGIN_BRIDGE",
-      "status": "planned_not_implemented",
+      "status": "bounded_adjusted_sensitivity_implemented_not_gaap_or_normalized_forecast",
       "input": "verified price/TB, exabytes, cost/TB, opex, interest, tax and diluted shares",
       "output": "GAAP and adjusted normalized EPS sensitivity; no unsupported return probabilities"
     }
   ],
-  "next_action": "Verify FY2028/FY2029 consensus coverage and accounting basis before building a normalized margin bridge",
-  "validation_status": "Arithmetic checked before publication; readback and CI reported separately on issue/PR",
+  "next_action": "Obtain same-cohort adjusted revenue, gross profit, operating expenses, taxes and diluted shares before accepting long-horizon EPS",
+  "validation_status": "Three reverse-solve round trips independently replayed in Python; publication/CI in issue receipts",
   "integration_status": "Not merged; independent review pending"
 }
