@@ -5,3 +5,7 @@ Check source vintage, fiscal versus calendar periods, GAAP versus adjusted EPS, 
 Observed attempts: Yahoo analysis page returned HTTP 429; Stock Analysis supplied dated S&P Global consensus. Initial connector calls for issue-comment and branch search used incorrect parameter names and returned argument errors before mutation; corrected using tool declarations. HTTPS git push failed without local credentials; publication uses authorized connector. No financial conclusion depends on these failures.
 
 Local arithmetic and JSON parsing are required before publication. CI and independent review are separately reported on GitHub; this document does not claim integrated functionality. No shared schema, workflow, canonical ticker, or market runtime files changed.
+
+## Forward GAAP bridge review
+
+Local historical reconciliation, independent forward arithmetic, fiscal boundary, ordinary R&D retention, share and cost sensitivities, parsing and byte-identical replay passed; see gaap-validation.json. Reconciled original 376m cash-flow SBC to 377m P&L SBC including software amortization. The note discloses the 1m difference; no unexplained source variance remains. Higher compensation inputs are scenarios, not a schedule inferred by dividing award backlog by its weighted-average duration. Third-party net-income estimates are a separate aggregate cross-check. Model has no unsupported scenario probabilities or asserted fair-value multiple. Exact-head CI must be fetched after publication; independent financial review remains pending.

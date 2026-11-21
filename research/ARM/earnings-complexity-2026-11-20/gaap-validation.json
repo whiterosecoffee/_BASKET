@@ -1,0 +1,25 @@
+{
+  "model_version": "arm-forward-gaap-bridge/0.1.0",
+  "observed_at": "2026-11-21T00:53:20.918799+00:00",
+  "execution": "local",
+  "checks": [
+    "H1 inverse reconciliation exact",
+    "Q2 inverse reconciliation exact",
+    "Forward FY28 independent NI/expense arithmetic",
+    "No ordinary R&D double subtraction",
+    "Actual H1 GAAP NI retained",
+    "Expense and diluted-share sensitivities",
+    "JSON and six-row CSV parse",
+    "Byte-identical JSON/CSV/report replay"
+  ],
+  "result": "pass",
+  "input_sha256": "26e4ce375347d56b640113629a43b968276b401b25ef5853176c7d5c7536cec6",
+  "code_sha256": "ee8c7bd0e76146232631c8993d0c074896d1f7b9e3cb220bc888dc93ec343d5f",
+  "outputs_sha256": {
+    "gaap-results.json": "08a3e173a25b31b56b7f173c3404924466becc04ba07449a4e77dbdb9fca6246",
+    "gaap-bridge.csv": "684ec5f196d8bdef2df50bd505aa0fa23f03642a519aa12d4084104d0a4355ab",
+    "GAAP_BRIDGE.md": "9ff1e46751f57e52a05b9590a96ae611adace7c5f84555dee7df838f36cd23cd"
+  },
+  "ci_status": "not_asserted_by_local_check",
+  "independent_financial_review": "pending"
+}

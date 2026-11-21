@@ -1,0 +1,271 @@
+{
+  "model_version": "arm-forward-gaap-bridge/0.1.0",
+  "prepared_at": "2026-11-21T00:50:51.502838+00:00",
+  "reference_market_date": "2026-11-20",
+  "currency": "USD",
+  "financial_units": "USD millions; shares millions; EPS USD per ADS",
+  "source_revision_base": "73cce3960c8642d82cb574798d11959c5b1e604f",
+  "sources": {
+    "reconciliation": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000141/exhibit992fye27q230-sepx26.htm",
+      "class": "issuer_filing",
+      "available_date": "2026-11-04",
+      "sections": "Q2 and H1 GAAP-to-non-GAAP reconciliation",
+      "observed_at": "2026-11-21T00:50:51.502838+00:00",
+      "ingested_at": "2026-11-21T00:50:51.502838+00:00",
+      "available_at": null
+    },
+    "financial_notes": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000142/arm-20260930.htm",
+      "class": "issuer_filing",
+      "available_date": "2026-11-04",
+      "sections": "Notes 10-12; income statement; R&D discussion",
+      "observed_at": "2026-11-21T00:50:51.502838+00:00",
+      "ingested_at": "2026-11-21T00:50:51.502838+00:00",
+      "available_at": null
+    },
+    "call": {
+      "url": "https://investors.arm.com/static-files/6f3ab670-7d16-479b-948a-7b1df5ff5b32",
+      "class": "issuer_hosted_transcript",
+      "available_date": "2026-11-05",
+      "sections": "First silicon margin and commercial delivery outlook",
+      "observed_at": "2026-11-21T00:50:51.502838+00:00",
+      "ingested_at": "2026-11-21T00:50:51.502838+00:00",
+      "available_at": null
+    },
+    "consensus": {
+      "url": "https://stockanalysis.com/stocks/arm/forecast/",
+      "class": "third_party_consensus",
+      "data_as_of_date": "2026-11-17",
+      "provider": "S&P Global via Stock Analysis",
+      "sections": "Adjusted EPS, revenue, forecast GAAP net-income row",
+      "observed_at": "2026-11-21T00:50:51.502838+00:00",
+      "ingested_at": "2026-11-21T00:50:51.502838+00:00",
+      "available_at": null
+    },
+    "gaap_crosscheck": {
+      "url": "https://simplywall.st/stocks/us/semiconductors/nasdaq-arm/arm-holdings/future",
+      "class": "third_party_consensus",
+      "data_as_of_date": null,
+      "sections": "Forecast net earnings, NOT adjusted EPS",
+      "observed_at": "2026-11-21T00:50:51.502838+00:00",
+      "ingested_at": "2026-11-21T00:50:51.502838+00:00",
+      "available_at": null
+    },
+    "price": {
+      "url": "https://stockanalysis.com/stocks/arm/forecast/",
+      "class": "third_party_market_display",
+      "effective_at": "2026-11-20T21:00:00Z",
+      "crosscheck": "Prior-session Massive daily summary in observations.jsonl",
+      "observed_at": "2026-11-21T00:50:51.502838+00:00",
+      "ingested_at": "2026-11-21T00:50:51.502838+00:00",
+      "available_at": null
+    }
+  },
+  "historical": {
+    "H1_FY27": {
+      "period_end": "2026-09-30",
+      "source_ids": [
+        "reconciliation"
+      ],
+      "classification": "verified_observation",
+      "revenue": 2732,
+      "adjusted_net_income": 1046,
+      "gaap_net_income": 400,
+      "sbc_restored": 720,
+      "employer_tax_restored": 138,
+      "acquisition_restored": 12,
+      "other_operating_restored": 7,
+      "equity_gain_retained": 108,
+      "tax_reconciliation_addback": 123,
+      "adjusted_pretax_income": 1230,
+      "gaap_pretax_income": 461,
+      "gaap_income_tax": 61,
+      "diluted_shares": 1079,
+      "adjusted_rd": 1077,
+      "gaap_rd": 1695,
+      "adjusted_sga": 430,
+      "adjusted_opex": 1507
+    },
+    "Q2_FY27": {
+      "period_end": "2026-09-30",
+      "source_ids": [
+        "reconciliation",
+        "financial_notes"
+      ],
+      "classification": "verified_observation",
+      "adjusted_net_income": 566,
+      "gaap_net_income": 130,
+      "sbc_restored": 377,
+      "employer_tax_restored": 48,
+      "acquisition_restored": 12,
+      "equity_loss_restored": 20,
+      "tax_reconciliation_addback": 21,
+      "diluted_shares": 1079,
+      "adjusted_rd": 547,
+      "gaap_rd": 857
+    },
+    "compensation_backlog": {
+      "period_end": "2026-09-30",
+      "source_ids": [
+        "financial_notes"
+      ],
+      "classification": "verified_observation",
+      "omnibus_unrecognized_cost": 3406.6,
+      "weighted_average_recognition_years": 1.5,
+      "espp_unrecognized_cost": 20.2,
+      "recognition_schedule_available": false,
+      "interpretation": "Weighted-average duration does not establish a quarterly amortization schedule or an annual minimum. New grants and forfeitures remain unknown."
+    },
+    "sbc_note_correction": {
+      "source_ids": [
+        "financial_notes"
+      ],
+      "classification": "verified_observation",
+      "q2_cashflow_sbc": 376,
+      "q2_amortized_software_sbc": 1,
+      "q2_income_statement_sbc_including_amortization": 377,
+      "h1_cashflow_sbc": 719,
+      "h1_income_statement_sbc_including_amortization": 720,
+      "reason": "Original research quoted cash-flow SBC; the GAAP bridge restores P&L SBC including software amortization, avoiding a 1m understatement."
+    }
+  },
+  "forecast_anchors": {
+    "FY27": {
+      "period_start": "2026-04-01",
+      "period_end": "2027-03-31",
+      "adjusted_eps": 2.27,
+      "revenue": 6100,
+      "diluted_shares_assumed": 1090,
+      "source_ids": [
+        "consensus"
+      ],
+      "classification": "third_party_estimate_plus_share_assumption"
+    },
+    "FY28": {
+      "period_start": "2027-04-01",
+      "period_end": "2028-03-31",
+      "adjusted_eps": 3.09,
+      "revenue": 8370,
+      "diluted_shares_assumed": 1110,
+      "source_ids": [
+        "consensus"
+      ],
+      "classification": "third_party_estimate_plus_share_assumption"
+    }
+  },
+  "scenario_inputs": [
+    {
+      "id": "flat_q2_costs",
+      "label": "Q2 exclusions annualized",
+      "classification": "scenario_not_guidance",
+      "FY27": {
+        "sbc": 1508,
+        "employer_tax": 192,
+        "acquisition": 48,
+        "other_operating": 7,
+        "extra_development": 0
+      },
+      "FY28": {
+        "sbc": 1508,
+        "employer_tax": 192,
+        "acquisition": 48,
+        "other_operating": 0,
+        "extra_development": 0
+      }
+    },
+    {
+      "id": "higher_compensation",
+      "label": "Higher compensation expense",
+      "classification": "scenario_not_guidance",
+      "FY27": {
+        "sbc": 1850,
+        "employer_tax": 250,
+        "acquisition": 40,
+        "other_operating": 7,
+        "extra_development": 0
+      },
+      "FY28": {
+        "sbc": 2400,
+        "employer_tax": 250,
+        "acquisition": 50,
+        "other_operating": 0,
+        "extra_development": 0
+      }
+    },
+    {
+      "id": "development_overrun",
+      "label": "Higher compensation plus development overrun",
+      "classification": "scenario_not_guidance",
+      "FY27": {
+        "sbc": 1850,
+        "employer_tax": 250,
+        "acquisition": 40,
+        "other_operating": 7,
+        "extra_development": 100
+      },
+      "FY28": {
+        "sbc": 2400,
+        "employer_tax": 250,
+        "acquisition": 50,
+        "other_operating": 0,
+        "extra_development": 300
+      }
+    }
+  ],
+  "assumptions": {
+    "reference_price": 152.2,
+    "marginal_tax_shield": 0.15,
+    "tax_shield_sensitivity": [
+      0.0,
+      0.15,
+      0.25
+    ],
+    "fy28_shares_sensitivity": [
+      1090,
+      1110,
+      1130
+    ],
+    "valuation_pe_hurdles": [
+      40,
+      50,
+      60
+    ],
+    "future_equity_gains": 0,
+    "ordinary_development_treatment": "Already expensed inside adjusted earnings. Only extra_development above the embedded consensus cost budget is deducted again. No historical R&D addback.",
+    "share_treatment": "Use expenses in numerator and forecast weighted diluted shares in denominator; no additional cash buyback charge and no automatic conversion of expense dollars into new shares.",
+    "budget_check": {
+      "ip_gross_margin_before_restored_costs": 0.98,
+      "hardware_gross_margin_before_restored_costs": 0.35,
+      "interest_income": 120,
+      "adjusted_effective_tax_rate": 0.15,
+      "FY27_hardware_revenue": 100,
+      "FY28_hardware_revenue_cases": [
+        800,
+        1600
+      ],
+      "adjusted_opex_growth_check": 0.15,
+      "note": "Illustrative product mix and gross margins, not consensus segment forecasts; exact Arm silicon margin metric is not forward GAAP reconciled. COGS excludes separately restored costs to avoid double subtraction."
+    }
+  },
+  "gaap_consensus_crosscheck": {
+    "FY27_net_income": 1190,
+    "FY28_net_income": 1939,
+    "source_ids": [
+      "consensus",
+      "gaap_crosscheck"
+    ],
+    "classification": "third_party_estimate",
+    "note": "Separate consensus aggregations, not a matched analyst-level bridge. Convert to EPS using our disclosed assumed shares only; do not label derived EPS as published GAAP EPS consensus."
+  },
+  "limitations": [
+    "Arm does not supply a forward GAAP reconciliation; outputs are conditional estimates, not company guidance.",
+    "Tax credits, employee withholding, grant-date valuations, vesting and performance awards can materially change future tax expense and dilution.",
+    "Higher compensation scenario is a risk sensitivity motivated by disclosed backlog, not a mathematically derived vesting forecast.",
+    "Adjusted consensus contains ordinary R&D and expected chip economics but its exact development budget is not disclosed.",
+    "Additional development costs are explicit misses relative to that embedded budget, not a second charge for all chip development.",
+    "Only FY27 H2 is forecast; actual H1 including investment gains and discrete taxes remains unchanged.",
+    "No DCF, calibrated probabilities or definitive fair-value estimate.",
+    "Product mix budget check holds total revenue fixed; it does not imply additional hardware sales have negative gross profit."
+  ]
+}
