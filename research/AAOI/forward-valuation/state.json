@@ -12,11 +12,12 @@
   "evidence": [
     "2026-11-19.json",
     "2026-11-19.md",
-    "2026-11-20.md"
+    "2026-11-20.md",
+    "aaoi-lite-relative-valuation-2026-11-21.md"
   ],
-  "status": "archive_ready_receiver_pending",
+  "status": "research_active_receiver_pending",
   "objectives": {
-    "now": "Reconcile EPS cut, price and ATM authorization",
+    "now": "Compare AAOI earnings discount against LITE technology premium on aligned fiscal periods",
     "next": "Verify consensus diluted-share assumptions",
     "later": "Build quarterly capacity-to-EPS bridge only with sourced inputs"
   },
@@ -38,7 +39,7 @@
     "2027 quarterly capacity, utilization, yield, ASP and margin bridge",
     "Exact analyst estimate revision timestamps"
   ],
-  "next_action": "Check whether 2027 consensus already includes the newly authorized ATM; update only on new evidence",
+  "next_action": "Replace LITE calendar2027 interpolation with quarterly estimates; reconcile AAOI FY2027 diluted earnings bridge.",
   "integration": "Draft PR277 unmerged; validate/stores/worker-qc passed at 66994ce26fd05b661f67d88147850776760d2e0c. Closeout commit checks must be verified separately.",
   "handoff": "HANDOFF.md"
 }
