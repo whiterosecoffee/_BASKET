@@ -1,0 +1,106 @@
+{
+  "id": "SEMICONDUCTOR_VETF",
+  "purpose": "Dated five-security semiconductor research allocation and floating two-way relative-value comparison",
+  "owner": "B04-306",
+  "issue": 306,
+  "branch": "work/306-avgo-cumulative-growth",
+  "pr": 307,
+  "status": "building_initial_research_snapshot",
+  "as_of": "2026-11-21",
+  "timezone": "America/Phoenix",
+  "parent_refs": [
+    "../../../AGENTS.md",
+    "../../../orchestration/sparks.json#B04"
+  ],
+  "method_refs": [
+    {
+      "pr": 298,
+      "sha": "56e9e03693cfcd71cf0ca04d50470332110defda",
+      "path": "engines/valuation/rotation/feature-design.md"
+    },
+    {
+      "pr": 308,
+      "sha": "f4df492838020f82730382752511fb5342dd12a3",
+      "path": "research/themes/optical/architecture-relationships-2026-11-20/floating-rotation/feature-design-floating-index.md"
+    }
+  ],
+  "dependencies": [
+    {
+      "issue": 152,
+      "request_comment": 7059421213,
+      "status": "requested_unacknowledged"
+    },
+    {
+      "issue": 311,
+      "status": "source_retrieved_shared_engine_not_modified"
+    },
+    {
+      "issue": 128,
+      "status": "existing_holdings_calendar_source_contract"
+    },
+    {
+      "issue": 198,
+      "status": "memory_sleeve_read_only"
+    },
+    {
+      "pr": 310,
+      "sha": "6a830aaa907a58e065c82bc3690bcb2aac17261f",
+      "status": "read_only_dependency"
+    }
+  ],
+  "planned_children": [
+    {
+      "id": "snapshot-2026-11-21",
+      "input": "dated issuer/ETF public evidence plus historical closes",
+      "output": "seven tables, source/basis gaps and algebraic thresholds",
+      "status": "planned"
+    },
+    {
+      "id": "qualified-wealth-vector",
+      "input": "common December recurring diluted earnings/FCF and dividends",
+      "output": "one positive W vector per horizon/regime",
+      "status": "blocked_missing_recurring_bridges"
+    },
+    {
+      "id": "rotation-consumer",
+      "input": "qualified W vector and same-session bid/ask after FETCH",
+      "output": "all directed pair indices and net thresholds",
+      "status": "planned_existing_engine_dependency"
+    },
+    {
+      "id": "mrvl-transaction-consumer",
+      "input": "reported/delay/close owner packets",
+      "output": "listed MRVL wealth scenarios, separate deal parity",
+      "status": "planned_owner_reference_only"
+    },
+    {
+      "id": "TSM-comparator",
+      "input": "ADS/FX/liquidity and contribution qualification",
+      "output": "foundry comparison, allocation remains zero",
+      "status": "planned"
+    }
+  ],
+  "decisions": {
+    "benchmark": "SMH; SHM transposition assumption",
+    "neutral_weights": {
+      "NVDA": 20,
+      "AMD": 20,
+      "INTC": 20,
+      "AVGO": 20,
+      "MRVL": 20
+    },
+    "tactical_direction": null,
+    "private_positions_used": false
+  },
+  "constraints": [
+    "research_only",
+    "no_trade",
+    "no_margin",
+    "no_scheduler",
+    "no_new_engine",
+    "no_new_quote_store",
+    "no_calendar_fork",
+    "no_merge"
+  ],
+  "next_action": "Qualify full recurring EPS/FCF and executable FETCH receipt before numerical value-vector rotation"
+}
