@@ -16,8 +16,8 @@
     "stx": "https://investors.seagate.com/news/news-details/2026/Seagate-Delivers-Industrys-Highest-Capacity-Hard-Drives-with-Next-Generation-Mozaic-4/default.aspx",
     "toshiba": "https://toshiba.semicon-storage.com/us/company/news/2025/10/storage-20251014-1.html"
   },
-  "observed_at": "2026-11-21T05:00:00Z",
-  "observed_at_note": "Approximate retrieval session hour, not a quote timestamp; individual first-availability and ingest instants unknown",
+  "observed_at": null,
+  "observed_at_note": "Retrieval session dated2026-11-20 America/Phoenix; exact individual retrieval timestamps not retained. Price effective timestamps are recorded separately.",
   "available_at": null,
   "ingested_at": null,
   "expiry_status": "dated_research_not_live",
