@@ -22,7 +22,9 @@
     "REPORT.md",
     "https://github.com/whiterosecoffee/_BASKET/issues/291",
     "MARGIN_REVIEW.md",
-    "margin-sensitivity.json"
+    "margin-sensitivity.json",
+    "REVENUE_MOAT_STRESS.md",
+    "stress-scenarios.json"
   ],
   "dependencies": {
     "B02": "canonical market data; not used",
@@ -34,9 +36,15 @@
       "status": "bounded_adjusted_sensitivity_implemented_not_gaap_or_normalized_forecast",
       "input": "verified price/TB, exabytes, cost/TB, opex, interest, tax and diluted shares",
       "output": "GAAP and adjusted normalized EPS sensitivity; no unsupported return probabilities"
+    },
+    {
+      "id": "STX_REVENUE_MOAT_STRESS",
+      "status": "bounded_research_completed_review_pending",
+      "input": "Public issuer/acquirer revenue, technology, integration and service evidence; explicit sensitivity assumptions",
+      "output": "REVENUE_MOAT_STRESS.md and stress-scenarios.json"
     }
   ],
-  "next_action": "Obtain same-cohort adjusted revenue, gross profit, operating expenses, taxes and diluted shares before accepting long-horizon EPS",
+  "next_action": "Verify same-cohort long-horizon consensus and pricing/TB economics; quantify services only with disclosed revenue and margins",
   "validation_status": "Three reverse-solve round trips independently replayed in Python; publication/CI in issue receipts",
   "integration_status": "Not merged; independent review pending"
 }
