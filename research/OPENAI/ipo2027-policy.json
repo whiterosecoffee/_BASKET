@@ -1,0 +1,246 @@
+{
+  "schema": "basket.openai_ipo_weight_policy@1",
+  "policy_version": "0.1.0",
+  "as_of_date": "2026-10-17",
+  "entity_id": "OPENAI",
+  "currency": "USD",
+  "intent": "Adaptive relative measurement importance and point-in-time valuation-scenario gating; NOT probabilities, fair-value calibration or an autonomous trading rule.",
+  "stages": {
+    "pre_prospectus": {
+      "description": "Confidential IPO filing or 2027 talk but no publicly verified S-1 pricing/financial disclosure",
+      "base_weights_pct": {
+        "revenue_quality": 20,
+        "growth_durability": 12,
+        "unit_economics": 17,
+        "capital_funding": 20,
+        "competitive_position": 8,
+        "governance_dilution": 8,
+        "market_price_discovery": 8,
+        "compute_delivery": 7
+      },
+      "proof": "none_required"
+    },
+    "prospectus_public": {
+      "description": "Public audited S-1 / prospectus available with GAAP results and cap table",
+      "base_weights_pct": {
+        "revenue_quality": 17,
+        "growth_durability": 12,
+        "unit_economics": 20,
+        "capital_funding": 19,
+        "competitive_position": 8,
+        "governance_dilution": 9,
+        "market_price_discovery": 9,
+        "compute_delivery": 6
+      },
+      "proof": "public_S1"
+    },
+    "bookbuilding": {
+      "description": "Official SEC filing plus dated proposed offering price range and share classes",
+      "base_weights_pct": {
+        "revenue_quality": 14,
+        "growth_durability": 9,
+        "unit_economics": 18,
+        "capital_funding": 20,
+        "competitive_position": 7,
+        "governance_dilution": 10,
+        "market_price_discovery": 17,
+        "compute_delivery": 5
+      },
+      "proof": "official_price_range"
+    },
+    "post_listing": {
+      "description": "Actual IPO/listing completed; >=20 completed public sessions needed for traversal",
+      "base_weights_pct": {
+        "revenue_quality": 14,
+        "growth_durability": 12,
+        "unit_economics": 24,
+        "capital_funding": 18,
+        "competitive_position": 8,
+        "governance_dilution": 7,
+        "market_price_discovery": 11,
+        "compute_delivery": 6
+      },
+      "proof": "actual_listing"
+    }
+  },
+  "factors": {
+    "revenue_quality": {
+      "measurement": "recognized GAAP revenue by channel, gross vs net, ARR/annualized distinct; B2B revenue share",
+      "frequency": "quarterly_and_material_updates",
+      "priority_sources": [
+        "filed_prospectus",
+        "audited_statement",
+        "issuer_disclosure",
+        "reliable_report"
+      ],
+      "falsifiers": [
+        "previously quoted run rate not reconciled to audited quarterly sales",
+        "channel gross/net scope changes"
+      ],
+      "release_gate": "comparability_missing"
+    },
+    "growth_durability": {
+      "measurement": "quarterly sequential and YoY growth by enterprise/API/consumer, net retention, contracted/collected bookings",
+      "frequency": "quarterly",
+      "priority_sources": [
+        "filed_prospectus",
+        "audited_statement"
+      ],
+      "falsifiers": [
+        "revenue run-rate reverses",
+        "enterprise growth fails to translate to cash"
+      ]
+    },
+    "unit_economics": {
+      "measurement": "net monetization per delivered workload, inference gross profit, training amortization, token costs, gross margin after infrastructure, SBC",
+      "frequency": "quarterly",
+      "priority_sources": [
+        "audited_statement",
+        "filing",
+        "issuer_disclosure"
+      ],
+      "falsifiers": [
+        "declining net dollar output per compute dollar",
+        "non-GAAP excludes material compensation or training costs"
+      ],
+      "release_gate": "cost_accounting_missing"
+    },
+    "capital_funding": {
+      "measurement": "unrestricted cash, operating/FCF burn, committed-vs-funded new capital, minimum compute obligations, financing rates, maturity, net dilution",
+      "frequency": "quarterly_plus_event",
+      "priority_sources": [
+        "filing",
+        "issuer_disclosure",
+        "security_transaction"
+      ],
+      "falsifiers": [
+        "funding shortfall precedes operating breakeven",
+        "contracted lease obligations exceed deployable capacity"
+      ],
+      "release_gate": "runway_missing"
+    },
+    "competitive_position": {
+      "measurement": "enterprise seat/workload share, churn, pricing pressure, model quality by use case, distribution/channel concentration",
+      "frequency": "quarterly",
+      "priority_sources": [
+        "issuer_disclosure",
+        "independent_industry_dataset"
+      ],
+      "falsifiers": [
+        "net retention undercuts gross sales growth",
+        "open-weight alternatives materially undercut inference pricing"
+      ]
+    },
+    "governance_dilution": {
+      "measurement": "Foundation control, preferred/common IPO conversions, warrants, equity issuance, employee SBC, listing lockups, voting concentration",
+      "frequency": "filing_or_event",
+      "priority_sources": [
+        "filed_prospectus",
+        "company_IR"
+      ],
+      "falsifiers": [
+        "unexpected conversion preference reduces common per-share value",
+        "new financing dilutes prior holder more than modeled"
+      ],
+      "release_gate": "fully_diluted_cap_table_missing"
+    },
+    "market_price_discovery": {
+      "measurement": "completed priced rounds, verified secondary trades, IPO offering range/books, public comparable forward EV/revenue on aligned basis, perps only separately",
+      "frequency": "event_or_market_daily",
+      "priority_sources": [
+        "completed_transaction",
+        "filed_prospectus",
+        "public_company_filing",
+        "direct_exchange_data"
+      ],
+      "falsifiers": [
+        "perp marks deviate materially from settled cash transaction",
+        "stale/illiquid proxy shown as market quote"
+      ],
+      "release_gate": "equity_ev_bridge_missing"
+    },
+    "compute_delivery": {
+      "measurement": "signed/funded/energized GPU capacity, realized utilization and inference throughput, supplier credit stress, collateral and delivery SLAs",
+      "frequency": "monthly_plus_event",
+      "priority_sources": [
+        "issuer_disclosure",
+        "supplier_filing",
+        "direct_contract"
+      ],
+      "falsifiers": [
+        "announced GW never becomes deployed",
+        "unfunded commitments treated as productive assets"
+      ]
+    }
+  },
+  "regime_adjustments": {
+    "neutral": {
+      "description": "No evidence of special funding or pricing regime",
+      "multipliers": {}
+    },
+    "credit_stress": {
+      "description": "Widening provider spreads/refinancing stress supported by dated security data; no claim that distress caused OpenAI repricing",
+      "multipliers": {
+        "capital_funding": 1.6,
+        "compute_delivery": 1.25,
+        "market_price_discovery": 1.2,
+        "growth_durability": 0.9
+      }
+    },
+    "competition_price_war": {
+      "description": "Independent evidence of broad per-token price compression",
+      "multipliers": {
+        "unit_economics": 1.4,
+        "competitive_position": 1.3,
+        "growth_durability": 1.2,
+        "capital_funding": 1.1
+      }
+    },
+    "ipo_pricing_volatility": {
+      "description": "Verified public prospectus/bookbuilding valuation dislocation",
+      "multipliers": {
+        "market_price_discovery": 1.6,
+        "governance_dilution": 1.25,
+        "capital_funding": 1.1
+      }
+    }
+  },
+  "methodology": {
+    "normalise": "weight_i(stage,regime)=100 × base_weight_i(stage) × regime_multiplier_i / sum_j(base_weight_j × regime_multiplier_j)",
+    "evidence_coverage": "C=SUM(weight_i/100 × reliability_i) where reliability_i in [0,1] must come from evidence rubric, not assertion",
+    "conditional_factor_score": "For independently assigned, sourced factor ratings 0..100 ONLY: score_known=SUM(weight_i × reliability_i × rating_i)/SUM(weight_i × reliability_i) across rated factors. Missing/unrated factors are not zero or 50.",
+    "bounds": "quality_score_lower=SUM(weight_i × reliability_i × rating_i)/100; upper=lower + SUM(weight_i × (1-reliability_i))/1 on a 0..100 basis (ratings required for positive reliability). Report coverage alongside BOTH and never call bounds valuation confidence intervals.",
+    "no_probability": "No predictive IPO probability, chance of IPO price or calibrated returns without point-in-time walk-forward testing.",
+    "maturity": "Never automatically promote IPO stage from elapsed time; require externally verified, available-on-date proof.",
+    "no_leakage": "Only observations available_on <= as_of_date and last valid/revised evidence permitted. Day precision cannot establish intraday availability.",
+    "missing_metric": "Do not hide missing denominators via redistributed weights. Publish unknown/not_ready and factor importance separately from observed quality.",
+    "gating": [
+      "no published IPO target or equity fair value without audited normalized revenue, EV-to-equity bridge, funding schedule and fully diluted share rights",
+      "no net SFTBY NAV without B09 reconciled embedded SVF2 mark and fund waterfall"
+    ],
+    "issuer_ev_proxy": "EV_proxy_2027_USD_b = normalized_forward_revenue_2027_USD_b × explicit_EV_to_revenue_multiple_scenario; Equity_proxy=EV_proxy + unrestricted_excess_cash - debt - other_senior_equity_claims; explicit inputs only",
+    "financing": "Additional financing proceeds enter cash AND new share count; do not subtract future cash calls from equity while also deducting corresponding forecast FCF in DCF. A multiple scenario and a full FCFF DCF are alternative methods, not quantities to add.",
+    "ipo_price": "offering_per_share = pre_or_post_money_equity_value_USD / appropriately defined fully diluted common-equivalent shares; unknown until filed security class, range and new shares. IPO aftermarket prices are not predictable from pre-IPO perp.",
+    "dcf_future": "B04-owned FCFF DCF: EV=sum_t FCFF_t/(1+WACC)^t + TV/(1+WACC)^N; negative cash flow requires financing analysis and dilution; model and snapshot IDs mandatory."
+  },
+  "release_criteria": {
+    "analytics_only": true,
+    "weight_scores_are_not_valuation_multipliers": true,
+    "required_coverage_for_report": 0.75,
+    "hard_data_gates": [
+      "gaap_quarter_revenue",
+      "net_margin_or_compute_cost_reconciliation",
+      "financing_cash_maturities",
+      "preferred_fully_diluted_equity_bridge"
+    ],
+    "no_current_fair_value_without_gates": true
+  },
+  "next_review_triggers": [
+    "public S-1 available",
+    "2026 Q4 revenue and cash burn disclosed",
+    "financing round closed/funded",
+    "new compute-delivery contract or financing stress",
+    "Anthropic actual IPO completed and audited financials released",
+    "new share conversion or dilution change"
+  ]
+}

@@ -1,0 +1,546 @@
+{
+  "schema": "basket.openai_source_registry@1",
+  "version": "0.1.0",
+  "prepared_on": "2026-10-17",
+  "entity_id": "OPENAI",
+  "issuer_market_status": "private_unlisted",
+  "reporting_currency": "USD",
+  "purpose": "Inventory candidate independently usable sources, connector entitlement truth, factor coverage, data class, owner, and executable next validation. This is a registry, not ingestion.",
+  "prohibitions": [
+    "mark documented endpoints as already collecting",
+    "pass perp price into OPENAI public OHLCV",
+    "make confidential S-1 appear public",
+    "confuse third-party engagement with recognized revenue",
+    "add SoftBank SVF2 embedded stake twice",
+    "construct market price from unverified private shares"
+  ],
+  "sources": [
+    {
+      "id": "openai_ir",
+      "name": "OpenAI official announcements and governance",
+      "priority": "P0",
+      "owner": "B13",
+      "factors": [
+        "revenue_quality",
+        "growth_durability",
+        "capital_funding",
+        "governance_dilution",
+        "compute_delivery"
+      ],
+      "access": "web_accessible_not_scheduled",
+      "source_class": "issuer_statement",
+      "evidence": "issuer_attestations_not_audited_financials",
+      "url": "https://openai.com/news/",
+      "cadence": "event",
+      "ttd_days": 7,
+      "persistence": "research/OPENAI/**",
+      "verified_today": "not_api_tested",
+      "measure": [
+        "historical financing",
+        "governance",
+        "published usage/operating claims"
+      ],
+      "missing": [
+        "audited quarterly accounts",
+        "security-level capitalization",
+        "restricted cash"
+      ],
+      "fallback": null
+    },
+    {
+      "id": "edgar_filings",
+      "name": "SEC EDGAR issuer S-1 registration and counterparty 10-K/10-Q/8-K",
+      "priority": "P0",
+      "owner": "B03",
+      "factors": [
+        "revenue_quality",
+        "unit_economics",
+        "capital_funding",
+        "governance_dilution",
+        "compute_delivery"
+      ],
+      "access": "CONNECTED_TESTED_OK",
+      "source_class": "regulatory_filing",
+      "evidence": "accession_stamped_primary",
+      "url": "https://www.sec.gov/edgar/sec-api-documentation",
+      "cadence": "filing_event",
+      "ttd_days": 14,
+      "persistence": "research/events/**",
+      "verified_today": "Called Oct17 Firecrawl Alexandria SEC company CRWV (CIK 0001769628), filings index CRWV 8-Ks 2026-09-17 and 09-22; SEC XBRL MSFT Revenues concept returned FY ended 2026-06-30 and year-to-date Q3 2026. No OpenAI public S-1 was identified or requested.",
+      "measure": [
+        "IPO public prospectus",
+        "issuer or customer filings",
+        "RPO",
+        "cash flow",
+        "leases",
+        "share class",
+        "capital calls",
+        "SEC XBRL concept with filing accession/period/unit; distinguish year-to-date from standalone quarter"
+      ],
+      "missing": [
+        "confidential filings before public release",
+        "normalize cumulative quarter-to-date/year-to-date periods before peer multiple"
+      ],
+      "fallback": "issuer IR/SEC web text; no private confidential S-1 assumed"
+    },
+    {
+      "id": "softbank_issuer",
+      "name": "SoftBank IR SOTP, valuation and financing notes",
+      "priority": "P0",
+      "owner": "B09",
+      "factors": [
+        "governance_dilution",
+        "capital_funding",
+        "market_price_discovery"
+      ],
+      "access": "web_accessible_no_adapter",
+      "source_class": "investor_statement",
+      "evidence": "reported_fund_NAV_not_independent_OpenAI_market_price",
+      "url": "https://group.softbank/en/ir/stock/sotp",
+      "cadence": "quarterly_and_disclosure",
+      "ttd_days": 90,
+      "persistence": "research/SFTBY/**",
+      "verified_today": "source historically reviewed; no live parent NAV verified in this task",
+      "measure": [
+        "SVF2 embedded OpenAI mark",
+        "fund waterfall",
+        "LTV",
+        "parent USD-equivalent debt"
+      ],
+      "missing": [
+        "issuer direct price",
+        "fund security class and fully diluted rights"
+      ],
+      "fallback": null
+    },
+    {
+      "id": "massive_treasury",
+      "name": "Massive Treasury yield curve",
+      "priority": "P0",
+      "owner": "B02",
+      "factors": [
+        "capital_funding",
+        "market_price_discovery"
+      ],
+      "access": "CONNECTED_TESTED_OK",
+      "source_class": "market_primary_or_provider",
+      "evidence": "dated_treasury_market_reference",
+      "endpoint": "GET /fed/v1/treasury-yields",
+      "url": "https://massive.com/docs",
+      "cadence": "trading_day",
+      "ttd_days": 2,
+      "persistence": "runtime/**",
+      "verified_today": "Called Oct17: records returned for Oct15 and Oct14 2026; not a live 2027 feed",
+      "measure": [
+        "risk-free discount-rate scenarios",
+        "yield curve change"
+      ],
+      "missing": [
+        "issuer credit premium",
+        "private market liquidity premium"
+      ],
+      "fallback": "US Treasury official rates with dated source"
+    },
+    {
+      "id": "massive_public_financials",
+      "name": "Massive public company income/cash-flow statements",
+      "priority": "P0",
+      "owner": "B02",
+      "factors": [
+        "revenue_quality",
+        "unit_economics",
+        "market_price_discovery"
+      ],
+      "access": "NOT_ENTITLED_VERIFIED",
+      "source_class": "aggregated_filing",
+      "evidence": "peer fundamentals_for_public_equities_only",
+      "endpoint": "GET /stocks/financials/v1/income-statements",
+      "url": "https://massive.com/pricing",
+      "cadence": "quarterly",
+      "ttd_days": 90,
+      "persistence": "runtime/**",
+      "verified_today": "Called Oct17 for MSFT; NOT_ENTITLED",
+      "measure": [
+        "peer EV/revenue",
+        "FCF margin",
+        "growth",
+        "stock based compensation"
+      ],
+      "missing": [
+        "current entitlement"
+      ],
+      "fallback": "SEC/EDGAR XBRL concept verified via Firecrawl for MSFT; normalize period end, year-to-date vs isolated quarter and filing vintage"
+    },
+    {
+      "id": "massive_equity_history",
+      "name": "Massive equities bars and reference",
+      "priority": "P1",
+      "owner": "B02",
+      "factors": [
+        "market_price_discovery",
+        "competitive_position"
+      ],
+      "access": "CONNECTOR_EXISTS_HISTORY_KNOWN_FUTURE_ENTITLEMENT_UNCHECKED",
+      "source_class": "market_data",
+      "evidence": "historical public prices_not_private_OpenAI",
+      "endpoint": "GET /v2/aggs/ticker/{stocksTicker}/range/{multiplier}/{timespan}/{from}/{to}",
+      "url": "https://massive.com/docs",
+      "cadence": "market_day",
+      "ttd_days": 2,
+      "persistence": "tickers/*/history.jsonl",
+      "verified_today": "Not tested this turn; prior historical public OHLCV in repository",
+      "measure": [
+        "peer multiples",
+        "equity factor drawdowns",
+        "public SFTBY/CRWV/NVDA price movement"
+      ],
+      "missing": [
+        "forward price entitlement and timestamps"
+      ],
+      "fallback": "exchange/issuer closing-price records with dates"
+    },
+    {
+      "id": "massive_ipo_reference",
+      "name": "Massive public IPO reference",
+      "priority": "P1",
+      "owner": "B02",
+      "factors": [
+        "market_price_discovery",
+        "governance_dilution"
+      ],
+      "access": "ENDPOINT_DISCOVERED_ENTITLEMENT_UNCONFIRMED",
+      "source_class": "provider_reference",
+      "evidence": "public_ipos_not_private_ipo_probabilities",
+      "endpoint": "GET /vX/reference/ipos",
+      "url": "https://massive.com/docs",
+      "cadence": "event",
+      "ttd_days": 2,
+      "persistence": "runtime/**",
+      "verified_today": "Search succeeded; first query used invalid sort parameter, provider permission not verified",
+      "measure": [
+        "announced listing dates",
+        "pricing status",
+        "public IPO comparables"
+      ],
+      "missing": [
+        "verified endpoint response"
+      ],
+      "fallback": "SEC public registration filings"
+    },
+    {
+      "id": "hyperliquid_hip3",
+      "name": "Hyperliquid HIP-3 perpetual asset contexts/oracles",
+      "priority": "P2",
+      "owner": "B02",
+      "factors": [
+        "market_price_discovery"
+      ],
+      "access": "PUBLIC_API_DOCUMENTED_NOT_CONNECTED",
+      "source_class": "derivative_market",
+      "evidence": "speculative_price_proxy_never_cash_equity",
+      "endpoint": "POST https://api.hyperliquid.xyz/info type=metaAndAssetCtxs (specific dex required)",
+      "url": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint/perpetuals",
+      "cadence": "minute_or_hour",
+      "ttd_days": 0.006944444444444444,
+      "persistence": "runtime/** separate derivative instrument",
+      "verified_today": "API documentation reviewed; no exchange retrieval; contract symbol and oracle unverified",
+      "measure": [
+        "mark",
+        "index/oracle",
+        "OI",
+        "funding",
+        "traded notional",
+        "spread and depth via extra endpoint"
+      ],
+      "missing": [
+        "deployer oracle methodology",
+        "actual contract for issuer",
+        "liquidity validation",
+        "persistent entitled worker"
+      ],
+      "fallback": "article observation as reported claim, not price"
+    },
+    {
+      "id": "fred_corp_oas",
+      "name": "FRED/ICE investment grade and high-yield OAS",
+      "priority": "P1",
+      "owner": "B02",
+      "factors": [
+        "capital_funding"
+      ],
+      "access": "WEB_ACCESSIBLE_NOT_API_INGESTED",
+      "source_class": "indexed_credit_proxy",
+      "evidence": "market_credit_regime_not_OpenAI_coupon",
+      "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+      "cadence": "daily",
+      "ttd_days": 2,
+      "persistence": "fx/** or B02 runtime (ownership decision needed)",
+      "verified_today": "FRED series documented; licensing and downloadable history limits apply",
+      "measure": [
+        "credit regime relative spread",
+        "credit stress background"
+      ],
+      "missing": [
+        "CRWV bond specific spread",
+        "financing facility terms"
+      ],
+      "fallback": "US Treasury yield and verified bond issue data"
+    },
+    {
+      "id": "crwv_counterparty_filings",
+      "name": "CoreWeave quarterly filings and debt covenants",
+      "priority": "P0",
+      "owner": "B03",
+      "factors": [
+        "compute_delivery",
+        "capital_funding",
+        "unit_economics"
+      ],
+      "access": "PUBLIC_EDGAR_FILING_ACCESS",
+      "source_class": "regulatory_filing",
+      "evidence": "supplier economics_not_OpenAI_direct_cost",
+      "url": "https://www.sec.gov/edgar/search/",
+      "cadence": "quarterly_and_event",
+      "ttd_days": 90,
+      "persistence": "research/filings/**",
+      "verified_today": "historical Q2 CRWV filing reviewed prior turn; current Q3 not checked here",
+      "measure": [
+        "RPO recognition",
+        "capacity delivery",
+        "debt maturity",
+        "interest",
+        "cash flow",
+        "customer concentration"
+      ],
+      "missing": [
+        "OpenAI-specific contract economics",
+        "contract SLAs"
+      ],
+      "fallback": null
+    },
+    {
+      "id": "hyperscaler_filings",
+      "name": "Microsoft/Amazon/Alphabet/Oracle cloud segment SEC filings",
+      "priority": "P1",
+      "owner": "B03",
+      "factors": [
+        "unit_economics",
+        "compute_delivery",
+        "competitive_position",
+        "revenue_quality"
+      ],
+      "access": "PUBLIC_EDGAR_FILING_ACCESS",
+      "source_class": "regulatory_filing",
+      "evidence": "channel economics_and_supplier_crosscheck",
+      "url": "https://www.sec.gov/edgar/search/",
+      "cadence": "quarterly",
+      "ttd_days": 90,
+      "persistence": "research/filings/**",
+      "verified_today": "not freshly extracted this turn",
+      "measure": [
+        "cloud AI revenue",
+        "capex/FCF burden",
+        "principal-agent disclosure",
+        "delivery cadence"
+      ],
+      "missing": [
+        "private OpenAI specific partner gross/net split"
+      ],
+      "fallback": null
+    },
+    {
+      "id": "direct_private_transactions",
+      "name": "Primary/secondary OpenAI security-level transactions (issuer, verified secondary, licensed databases)",
+      "priority": "P0",
+      "owner": "B13",
+      "factors": [
+        "market_price_discovery",
+        "governance_dilution"
+      ],
+      "access": "NO_ENTITLED_TRANSACTION_FEED",
+      "source_class": "completed_security_transaction",
+      "evidence": "highest_cash_market_benchmark_if_settled_and_class_matched",
+      "url": "https://openai.com/news/",
+      "cadence": "event",
+      "ttd_days": 30,
+      "persistence": "research/OPENAI/**",
+      "verified_today": "no completed secondary class-matched feed verified",
+      "measure": [
+        "actual settlement price",
+        "transaction volume",
+        "security class",
+        "cap table dilution"
+      ],
+      "missing": [
+        "validated class-matched transaction tape",
+        "fees/restrictions"
+      ],
+      "fallback": "primary financing benchmark labeled historical"
+    },
+    {
+      "id": "enterprise_demand_proxy",
+      "name": "Independent enterprise adoption and traffic (usage surveys, Similarweb, public procurement)",
+      "priority": "P2",
+      "owner": "B13",
+      "factors": [
+        "growth_durability",
+        "competitive_position"
+      ],
+      "access": "THIRD_PARTY_PLUGIN_AVAILABLE_NOT_CONNECTED",
+      "source_class": "demand_proxy",
+      "evidence": "nonfinancial_interest_signal",
+      "url": "https://www.similarweb.com/",
+      "cadence": "monthly",
+      "ttd_days": 45,
+      "persistence": "research/OPENAI/**",
+      "verified_today": "Similarweb plugin surfaced as available; not connected; attribution/representativeness unknown",
+      "measure": [
+        "web traffic share",
+        "app referrals",
+        "enterprise adoption surveys",
+        "retention proxies"
+      ],
+      "missing": [
+        "paid conversion",
+        "revenue recognition",
+        "API traffic invisible to web surveys"
+      ],
+      "fallback": "issuer or audited retention disclosures"
+    },
+    {
+      "id": "compute_cost_independent",
+      "name": "GPU, HBM, networking and power economics from vendor earnings/industry reports",
+      "priority": "P1",
+      "owner": "B19",
+      "factors": [
+        "unit_economics",
+        "compute_delivery",
+        "capital_funding"
+      ],
+      "access": "SOURCE_BY_SOURCE_RESEARCH_NOT_FEED",
+      "source_class": "industry_operating_proxy",
+      "evidence": "input_cost_floor_not_OpenAI_actual_inference_margin",
+      "url": "https://investor.nvidia.com/",
+      "cadence": "quarterly_and_event",
+      "ttd_days": 90,
+      "persistence": "research/themes/supply-chain/**",
+      "verified_today": "not validated as direct OpenAI costs",
+      "measure": [
+        "$/GPU-hour or token cost",
+        "HBM/power capex",
+        "GPU lifecycle and refresh credits",
+        "site energized capacity"
+      ],
+      "missing": [
+        "discount schedules and OpenAI realized pricing"
+      ],
+      "fallback": "explicit scenario ranges never as audited OpenAI cost"
+    },
+    {
+      "id": "ipo_comparable_after_listing",
+      "name": "Actual Anthropic IPO prospectus/offer/aftermarket and adjacent public software IPOs",
+      "priority": "P1",
+      "owner": "B04",
+      "factors": [
+        "market_price_discovery",
+        "competitive_position",
+        "unit_economics"
+      ],
+      "access": "PUBLIC_ONLY_IF_FILED_AND_LISTED",
+      "source_class": "prospectus_or_market_transaction",
+      "evidence": "normalization_required_for_principal_agent_accounting",
+      "url": "https://www.sec.gov/edgar/search/",
+      "cadence": "event_and_market_day",
+      "ttd_days": 7,
+      "persistence": "research/models/**",
+      "verified_today": "Anthropic public S-1 and actual listing not confirmed in this task",
+      "measure": [
+        "actual IPO price vs fundamental normalized revenue",
+        "offer revisions",
+        "post-listing 20/60-session repricing"
+      ],
+      "missing": [
+        "SEC filings, common rights and direct/indirect revenue parity"
+      ],
+      "fallback": "public peer comparables with uncertainty bounds"
+    }
+  ],
+  "not_a_live_data_system": true,
+  "required_while_ingesting": [
+    "record_id",
+    "source_url",
+    "source_class",
+    "method",
+    "effective_at",
+    "observed_at",
+    "available_at",
+    "ingested_at",
+    "period_end",
+    "instrument_id",
+    "currency",
+    "original_unit",
+    "ttd_seconds",
+    "parent_source_ids",
+    "supersedes",
+    "expiry_state"
+  ],
+  "status_vocab": [
+    "CONNECTED_TESTED_OK",
+    "NOT_ENTITLED_VERIFIED",
+    "PUBLIC_API_DOCUMENTED_NOT_CONNECTED",
+    "public_api_documented_connector_discovered_not_called",
+    "web_accessible_not_scheduled",
+    "UNKNOWN"
+  ],
+  "source_weighting_policy": "Fundamental source class affects reliability, not a direct multiple. Critical missing evidence retains high impact; resource access status never turns unmeasured facts into values.",
+  "future_tasks": [
+    {
+      "id": "OA-SRC-01",
+      "owner": "B03",
+      "target": "SEC public filings",
+      "result": "OpenAI S-1 monitor and counterparties XBRL",
+      "priority": "P0",
+      "dependency": "public filing accession & stable company CIK; B01 strict fixture"
+    },
+    {
+      "id": "OA-SRC-02",
+      "owner": "B02",
+      "target": "Massive stock/treasury series",
+      "result": "snapshot-able public comparables, Treasury yields and provider entitlement manifest",
+      "priority": "P0",
+      "dependency": "B02 #11; no fabricated current quotes"
+    },
+    {
+      "id": "OA-SRC-03",
+      "owner": "B04",
+      "target": "financial calibration",
+      "result": "sampled normalized peer EV/revenue and FCFF/margin frontier, vintage controlled",
+      "priority": "P0",
+      "dependency": "B00 #29; B04 #30; B02 feeds"
+    },
+    {
+      "id": "OA-SRC-04",
+      "owner": "B09",
+      "target": "SVF2 bridge",
+      "result": "base fund OpenAI mark decomposition and net parent delta",
+      "priority": "P0",
+      "dependency": "B09 #28 + B05 #16"
+    },
+    {
+      "id": "OA-SRC-05",
+      "owner": "B02",
+      "target": "perps & bond credit",
+      "result": "isolated derivatives and credit observations; documented contract mapping",
+      "priority": "P2",
+      "dependency": "real quote feed entitlement and security-level identifiers"
+    },
+    {
+      "id": "OA-SRC-06",
+      "owner": "B13",
+      "target": "evidence-quality map",
+      "result": "new independent issuer news and regulator filing source links, contradictions with date-only precision",
+      "priority": "P1",
+      "dependency": "no cross-owner write"
+    }
+  ]
+}
