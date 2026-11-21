@@ -1,0 +1,397 @@
+{
+  "format": "basket.ticker_analysis_state.draft@1",
+  "id": "ORCL-analysis",
+  "version": "0.1.0-draft",
+  "as_of": "2026-11-21",
+  "updated_at": "2026-11-21T22:54:12.007167Z",
+  "purpose": "Persistent ORCL evidence-to-earnings/cash/valuation and separate descriptive traversal tracker dossier",
+  "status": {
+    "research": "draft_source_reviewed",
+    "implementation": "documents_and_arithmetic_replay_local_verified",
+    "integration": "draft_PR_unmerged",
+    "live_feed": "not_connected_by_this_package",
+    "independent_acceptance": "pending"
+  },
+  "owner": {
+    "spark": "B00",
+    "issue": 75,
+    "branch": "work/75-orcl-evolving-tracker",
+    "pr": 77,
+    "write_paths": [
+      "orchestration/ticker_trackers/analysis_method/**",
+      "orchestration/ticker_trackers/orcl_analysis/**"
+    ],
+    "domain_calculation_owner": "B04"
+  },
+  "parent": {
+    "state": "../analysis_method/state.json",
+    "guidance": "../analysis_method/AGENTS.md",
+    "design": "../analysis_method/feature-design.md"
+  },
+  "precedence": [
+    "explicit user instructions",
+    "repository AGENTS.md and ownership",
+    "referenced base guidance",
+    "local AGENTS.md",
+    "local configuration; record conflict rather than silently override"
+  ],
+  "files": {
+    "analysis": "analysis.md",
+    "inputs": "inputs.json",
+    "sources": "sources.json",
+    "observations": "observations-2026-11-21.jsonl",
+    "prompt": "prompt.md",
+    "review": "review.md",
+    "replay_output": "replay-output.json",
+    "chart": "eps-growth.svg",
+    "chart_renderer": "render_chart.py",
+    "company_map": "company-map.json",
+    "validation": "VALIDATION.md"
+  },
+  "identity": {
+    "ticker": "ORCL",
+    "issuer": "Oracle Corporation",
+    "security": "NYSE common stock",
+    "currency": "USD",
+    "fiscal_year_end": "May 31",
+    "benchmarks": [
+      "QQQ",
+      "NVDA",
+      "IBM"
+    ],
+    "comparison_peers": [
+      "MSFT",
+      "AMZN",
+      "GOOGL",
+      "SAP",
+      "CRM",
+      "IBM",
+      "CRWV"
+    ],
+    "peer_weights": null
+  },
+  "objectives": [
+    {
+      "tier": 1,
+      "objective": "Preserve source-led company/leadership/technology/partnership/margin/TAM analysis",
+      "status": "draft"
+    },
+    {
+      "tier": 2,
+      "objective": "2026-2030 EPS with evidence classes and scenario valuation",
+      "status": "draft"
+    },
+    {
+      "tier": 3,
+      "objective": "Quarterly accepted capacity-to-cash bridge and current traversal",
+      "status": "blocked_on_inputs"
+    }
+  ],
+  "thesis": {
+    "classification": "analyst_hypothesis",
+    "statement": "Database/application distribution plus cloud capacity can expand earnings, if capital conversion and per-share cash generation justify the investment.",
+    "falsifiers": [
+      "Repeated acceptance/billing delays against lease commencements",
+      "Guided cash inflection repeatedly deferred",
+      "Legacy/customer economics erode faster than new recurring profits",
+      "Unplanned financing materially reduces per-share economics"
+    ],
+    "source_ids": [
+      "S02",
+      "S04",
+      "S05",
+      "S16",
+      "S17"
+    ]
+  },
+  "watchpoints": [
+    {
+      "id": "W01",
+      "priority": "P0",
+      "factor": "Capacity acceptance and billing",
+      "cadence": "quarterly_and_material_event",
+      "measure": "delivered -> accepted -> billable -> recognized revenue",
+      "review_trigger": "Any committed milestone slips or billing starts after fixed costs",
+      "required_evidence": "Customer acceptance evidence, delivery dates and revenue start schedule",
+      "owner": "B03/B04",
+      "source_ids": [
+        "S02",
+        "S05",
+        "S09"
+      ],
+      "status": "manual_review_required",
+      "latest_evaluation": null
+    },
+    {
+      "id": "W02",
+      "priority": "P0",
+      "factor": "Customer credit and funding",
+      "cadence": "material_event",
+      "measure": "OpenAI liquidity, payment evidence, concentration and restrictions",
+      "review_trigger": "Funding shortfall, payment delay, renegotiation or weaker security",
+      "required_evidence": "Instrument terms; distinguish Oracle funding from customer funding",
+      "owner": "B03/B04",
+      "source_ids": [
+        "S09",
+        "S13"
+      ],
+      "status": "manual_review_required",
+      "latest_evaluation": null
+    },
+    {
+      "id": "W03",
+      "priority": "P0",
+      "factor": "Lease and power timing",
+      "cadence": "quarterly",
+      "measure": "Uncommenced leases -> commencement -> rent/power -> billing",
+      "review_trigger": "Costs commence before customer acceptance; unexplained cash gap",
+      "required_evidence": "Cohort schedule; classify operating vs finance leases",
+      "owner": "B04",
+      "source_ids": [
+        "S03"
+      ],
+      "status": "manual_review_required",
+      "latest_evaluation": null
+    },
+    {
+      "id": "W04",
+      "priority": "P0",
+      "factor": "Cash conversion",
+      "cadence": "quarterly",
+      "measure": "CFO, prepayments, capex, vendor principal and economic replacement",
+      "review_trigger": "H2FY28 FCF-positive or FY29 30B+ target delayed; deterioration not explained",
+      "required_evidence": "Reconcile reported FCF and financing-adjusted owner cash",
+      "owner": "B04",
+      "source_ids": [
+        "S04",
+        "S05"
+      ],
+      "status": "manual_review_required",
+      "latest_evaluation": null
+    },
+    {
+      "id": "W05",
+      "priority": "P1",
+      "factor": "Margin mix and unit returns",
+      "cadence": "quarterly",
+      "measure": "Infrastructure margin vs database/apps profit and cost leverage",
+      "review_trigger": "Consolidated margin guidance cut or ramped cohorts fail unit economics",
+      "required_evidence": "Reconcile GAAP and adjusted gross/operating margins",
+      "owner": "B04",
+      "source_ids": [
+        "S02",
+        "S05"
+      ],
+      "status": "manual_review_required",
+      "latest_evaluation": null
+    },
+    {
+      "id": "W06",
+      "priority": "P1",
+      "factor": "Dilution and financing",
+      "cadence": "quarterly_and_financing_event",
+      "measure": "Common issuance, awards, preferred conversion, debt maturity and net interest",
+      "review_trigger": "Unplanned equity, worsening matched bond spread or refinancing costs",
+      "required_evidence": "Weighted shares and debt/interest/lease schedule",
+      "owner": "B04",
+      "source_ids": [
+        "S03",
+        "S07",
+        "S08"
+      ],
+      "status": "manual_review_required",
+      "latest_evaluation": null
+    },
+    {
+      "id": "W07",
+      "priority": "P1",
+      "factor": "Database and application retention",
+      "cadence": "quarterly",
+      "measure": "Cloud growth, legacy support decline, migration and recurring spend",
+      "review_trigger": "Legacy erosion exceeds migration contribution; agent use fails monetization",
+      "required_evidence": "Customer retention and organic growth where disclosed; missing remains null",
+      "owner": "B04",
+      "source_ids": [
+        "S02",
+        "S16",
+        "S17"
+      ],
+      "status": "manual_review_required",
+      "latest_evaluation": null
+    },
+    {
+      "id": "W08",
+      "priority": "P1",
+      "factor": "Technology production quality",
+      "cadence": "material_event_and_quarterly",
+      "measure": "Availability -> production usage -> reliability -> paid economics",
+      "review_trigger": "Outage/security/agent-control failure; new hardware delivery unsupported",
+      "required_evidence": "Independent operational/customer evidence; benchmark scope",
+      "owner": "B03/B04",
+      "source_ids": [
+        "S14",
+        "S19",
+        "S20",
+        "S22"
+      ],
+      "status": "manual_review_required",
+      "latest_evaluation": null
+    },
+    {
+      "id": "W09",
+      "priority": "P2",
+      "factor": "Governance and leadership",
+      "cadence": "quarterly_and_proxy",
+      "measure": "Capital-return discipline, disclosure revisions, incentives and pledges",
+      "review_trigger": "Unexplained forecast changes; shareholder pledge stress; executive departure",
+      "required_evidence": "Proxy/current filing; avoid inferring forced sales from pledged stock alone",
+      "owner": "B00/B04",
+      "source_ids": [
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "status": "manual_review_required",
+      "latest_evaluation": null
+    },
+    {
+      "id": "W10",
+      "priority": "P2",
+      "factor": "Macro and relative tape",
+      "cadence": "per_requested_market_analysis",
+      "measure": "QQQ/NVDA/IBM returns; credit spreads; 2y/10y/real rates; oil",
+      "review_trigger": "ORCL-specific residual weakness with issuer credit deterioration",
+      "required_evidence": "Matched-session entitled FETCH receipt; rolling fit without lookahead",
+      "owner": "B02/B06/B17",
+      "source_ids": [
+        "M01"
+      ],
+      "status": "manual_review_required",
+      "latest_evaluation": null
+    },
+    {
+      "id": "W11",
+      "priority": "P2",
+      "factor": "TAM realization",
+      "cadence": "quarterly_and_product_event",
+      "measure": "Qualified customers -> deployment -> paid consumption -> cash",
+      "review_trigger": "Certification delayed, deployment absent, AI bundled without paid expansion",
+      "required_evidence": "Bottom-up buyer budgets and disjoint revenue attribution",
+      "owner": "B04/B05",
+      "source_ids": [
+        "S13",
+        "S18",
+        "S20",
+        "S21"
+      ],
+      "status": "manual_review_required",
+      "latest_evaluation": null
+    }
+  ],
+  "freshness": {
+    "historical_quote": "M01 historical only; no current quote eligibility",
+    "fundamentals": "Historical filing truth retained; recheck filings before current analysis",
+    "consensus": "Dated web aggregate; requery each use and retain vendor accounting caveat",
+    "leadership_and_partnerships": "Recheck each full review and material events",
+    "contract_terms": "Unknown until received; issuer example never substituted for executed terms",
+    "market_data_rule": "Request existing FETCH update before reading; inspect local per-day JSONL; do not build competing ingestion"
+  },
+  "dependencies": [
+    {
+      "issue": 76,
+      "role": "Existing ORCL producer/domain integration",
+      "status": "not_revalidated_here"
+    },
+    {
+      "issue": 207,
+      "role": "Existing FETCH canonical source/receipt work",
+      "status": "receipt_not_obtained_here"
+    },
+    {
+      "issue": 108,
+      "role": "Canonical traversal acceptance",
+      "status": "not_revalidated_here"
+    },
+    {
+      "pr": 83,
+      "role": "ORCL forward multiple design",
+      "status": "read_only_reference"
+    },
+    {
+      "pr": 84,
+      "role": "ORCL traversal design",
+      "status": "read_only_reference"
+    },
+    {
+      "pr": 85,
+      "role": "ORCL vector orchestration",
+      "status": "read_only_reference"
+    }
+  ],
+  "planned_nodes": [
+    {
+      "id": "ORCL-quarterly-cohort-bridge",
+      "input": "site acceptance/billing, lease commencement/payment, capex and debt schedules",
+      "output": "quarterly revenue, GAAP/adjusted EPS and owner-cash sensitivity",
+      "status": "planned_not_implemented"
+    },
+    {
+      "id": "ORCL-relative-value-peer-set",
+      "input": "same-vintage recurring diluted EPS/FCF and matched prices",
+      "output": "justified comparable range with explicit adjustment evidence",
+      "status": "planned_blocked"
+    },
+    {
+      "id": "ORCL-traversal-link",
+      "input": "accepted B02 receipt and B06 results",
+      "output": "narrow touch zones and up/down dollar-volume movement metrics",
+      "status": "planned_existing_owners"
+    }
+  ],
+  "unknowns": [
+    "Full executed OpenAI pricing/security/acceptance/cancellation terms",
+    "FY2029 independently verified consensus and FY2027-2030 GAAP EPS",
+    "Forward diluted employee-award schedule and exact tax/interest reconciliation",
+    "Capitalized interest and cohort equipment economic replacement cash",
+    "Quarterly commencement schedule for additional lease commitments",
+    "Unbundled agent AI revenue, retention and margin contribution",
+    "Dollar TAM with overlap removed and competitive capture evidence",
+    "Current matched peer multiples and market/traversal inputs"
+  ],
+  "resolution": {
+    "latest_commit": null,
+    "local_checks": [
+      "JSON parse and source-reference checks",
+      "deterministic arithmetic replay",
+      "state file links",
+      "single-day research observation log",
+      "29 existing valuation/tracker tests passed",
+      "Independent Decimal arithmetic and negative guards passed",
+      "Chart visually reviewed",
+      "Relative Markdown links resolved",
+      "git diff --check passed"
+    ],
+    "independent_ci": "not_run",
+    "source_original_hashes": "not_captured",
+    "current_quote_verified": false
+  },
+  "next_actions": [
+    {
+      "priority": 1,
+      "owner": "B04 with B03 evidence",
+      "action": "Acquire site-by-site acceptance/billing and lease/vendor-finance payment schedules; quantify revenue delay before changing $21 target feasibility."
+    },
+    {
+      "priority": 2,
+      "owner": "B01/B00",
+      "action": "Review exact branch source and arithmetic evidence before integration; never merge automatically."
+    }
+  ],
+  "components": {
+    "strategy_and_company_map": "company-map.json",
+    "earnings_and_financing_inputs": "inputs.json",
+    "evidence": "sources.json",
+    "watch_plan": "state.json#/watchpoints",
+    "reusable_method": "../analysis_method/feature-design.md"
+  }
+}
