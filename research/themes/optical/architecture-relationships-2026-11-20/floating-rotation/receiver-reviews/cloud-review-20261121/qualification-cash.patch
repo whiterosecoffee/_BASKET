@@ -1,0 +1,179 @@
+--- a/engines/valuation/rotation/rotation.py
++++ b/engines/valuation/rotation/rotation.py
+@@ -23,7 +23,61 @@
+     return value.quantize(D(unit), rounding=ROUND_CEILING)
+ 
+ 
++def qualify(data):
++    """Validate supplied point-in-time metadata; no provider/account verification."""
++    if "qualification" not in data:
++        return False
++    try:
++        config = data["qualification"]
++        as_of = instant(config["as_of"])
++        ttd = number(config["quote_ttd_seconds"])
++        skew = number(config["max_quote_skew_seconds"])
++        if ttd <= 0 or skew < 0:
++            raise ValueError("invalid freshness policy")
++        tickers = {data["held"], *data["alternatives"]}
++        instruments = config["instruments"]
++        for ticker in tickers:
++            meta = instruments[ticker]
++            if (meta["currency"] != "USD" or not meta["instrument_id"]
++                    or not meta["share_basis"] or not meta["earnings_basis"]):
++                raise ValueError("USD instrument and earnings basis required")
++        snapshots = data["paired_quotes"]
++        if len(snapshots) != 2 or snapshots[0]["session"] != snapshots[1]["session"]:
++            raise ValueError("matching sessions required")
++        for index, snapshot in enumerate(snapshots):
++            at = instant(snapshot["at"])
++            if not snapshot["source"] or at > as_of:
++                raise ValueError("missing quote source or future snapshot")
++            times = [instant(snapshot["observed_at"][t]) for t in tickers]
++            if any(t > at or number((at-t).total_seconds()) > ttd for t in times):
++                raise ValueError("stale or future constituent quote")
++            if number((max(times)-min(times)).total_seconds()) > skew:
++                raise ValueError("asynchronous quotes")
++            if index == 1 and number((as_of-at).total_seconds()) > ttd:
++                raise ValueError("expired current snapshot")
++        current = instant(snapshots[1]["at"])
++        endpoints = config["endpoints"]
++        for candidate, cases in data["alternatives"].items():
++            for case in cases:
++                years = case["years"]
++                end = date.fromisoformat(case["end"])
++                if (type(years) is not int or years not in (1, 2, 3)
++                        or endpoints[str(years)] != case["end"]
++                        or end.year != current.year + years):
++                    raise ValueError("inconsistent calendar endpoint")
++                held_basis = instruments[data["held"]]["earnings_basis"]
++                candidate_basis = instruments[candidate]["earnings_basis"]
++                if (case["held_basis"] != held_basis
++                        or case["candidate_basis"] != candidate_basis
++                        or held_basis != candidate_basis):
++                    raise ValueError("mixed earnings bases")
++    except (KeyError, TypeError, IndexError) as exc:
++        raise ValueError("incomplete qualification metadata") from exc
++    return True
++
++
+ def analyze(data):
++    qualified = qualify(data)
+     h = data["held"]
+     n = number(data["shares"])
+     edge = number(data["terminal_edge"])
+@@ -46,6 +100,7 @@
+         movement = ratio / (bid0 / ask0)
+         spend = n * (bid - sell)
+         qty = int(spend // (ask + buy))
++        residual = spend - qty * (ask + buy)
+         rows = []
+         for case in cases:
+             years = case["years"]
+@@ -63,13 +118,21 @@
+                 required = ceiling(sell + needed*(ask+buy)/n, ".01")
+                 row.update(held_value=vh, candidate_value=vc, required_shares=needed,
+                            required_bid=required, bid_gap=required-bid, clears=bid>=required)
++                hold_wealth = n * vh
++                switch_wealth = qty * vc + residual
++                row.update(hold_wealth=hold_wealth, switch_wealth=switch_wealth,
++                           wealth_edge=switch_wealth/hold_wealth-1,
++                           clears_including_cash=switch_wealth >= hold_wealth*(1+edge))
+             else:
+                 row["status"] = "P/E scenario unavailable"
+             rows.append(row)
+         output[c] = dict(held_move_pct=100*(bid/bid0-1), candidate_move_pct=100*(ask/ask0-1),
+                          quote_ratio=ratio, ratio_move_pct=100*(movement-1),
+                          relative_log_bps_per_min=10000*movement.ln()/elapsed,
+-                         gross_usd=n*bid, whole_shares=qty, scenarios=rows)
++                         gross_usd=n*bid, whole_shares=qty, residual_cash=residual,
++                         metadata_qualified=qualified,
++                         decision_scope="pre_tax_price_only_scenario",
++                         legacy_threshold_cash_mode="excluded", scenarios=rows)
+     return output
+ 
+ 
+--- /dev/null
++++ b/engines/valuation/rotation/test_qualification_cash.py
+@@ -0,0 +1,81 @@
++import copy
++import importlib.util
++import json
++import os
++import unittest
++from decimal import Decimal as D
++from pathlib import Path
++import rotation
++
++REFERENCE = Path(os.environ['ROTATION_REFERENCE_ROOT'])
++EXAMPLE = json.loads((REFERENCE/'example.json').read_text())
++
++def qualified():
++    d = copy.deepcopy(EXAMPLE)
++    tickers = {d['held'], *d['alternatives']}
++    d['qualification'] = dict(as_of=d['paired_quotes'][1]['at'],
++        quote_ttd_seconds=60, max_quote_skew_seconds=2,
++        instruments={t:dict(currency='USD', instrument_id=t,
++            share_basis='synthetic common', earnings_basis='recurring-adjusted') for t in tickers},
++        endpoints={str(c['years']):c['end'] for c in d['alternatives']['NVDA']})
++    for q in d['paired_quotes']:
++        q.update(source='synthetic', session='regular', observed_at={t:q['at'] for t in tickers})
++    for cases in d['alternatives'].values():
++        for c in cases:
++            c.update(held_basis='recurring-adjusted', candidate_basis='recurring-adjusted')
++    return d
++
++class CandidateChecks(unittest.TestCase):
++    def test_valid_metadata(self):
++        self.assertTrue(rotation.analyze(qualified())['NVDA']['metadata_qualified'])
++
++    def test_legacy_fields_unchanged(self):
++        spec=importlib.util.spec_from_file_location('original',REFERENCE/'rotation.py')
++        original=importlib.util.module_from_spec(spec);spec.loader.exec_module(original)
++        old=original.analyze(EXAMPLE);new=rotation.analyze(EXAMPLE)
++        for ticker, value in old.items():
++            self.assertFalse(new[ticker]['metadata_qualified'])
++            for key,v in value.items():
++                if key=='scenarios':
++                    for a,b in zip(v,new[ticker][key]):
++                        for field,x in a.items():self.assertEqual(x,b[field])
++                else:self.assertEqual(v,new[ticker][key])
++
++    def test_bad_metadata_rejected(self):
++        def stale(d): d['qualification']['as_of']='2026-11-21T00:00:00Z'
++        def skew(d): d['paired_quotes'][1]['observed_at']['NVDA']='2026-11-20T13:14:50-07:00'
++        def old_constituent(d): d['paired_quotes'][1]['observed_at']['NVDA']='2026-11-20T13:10:00-07:00'
++        def future(d): d['paired_quotes'][1]['observed_at']['NVDA']='2026-11-20T13:16:00-07:00'
++        def basis(d): d['alternatives']['NVDA'][0]['held_basis']='GAAP'
++        def endpoint(d): d['alternatives']['CRWV'][2]['end']='2035-11-20'
++        def fx(d): d['qualification']['instruments']['NVDA']['currency']='KRW'
++        def missing(d): del d['paired_quotes'][1]['source']
++        def policy(d): d['qualification']['quote_ttd_seconds']='NaN'
++        def lookahead(d): d['alternatives']['NVDA'][0]['available_at']='2030-01-01T00:00:00Z'
++        def session(d): d['paired_quotes'][1]['session']='afterhours'
++        for change in [stale,skew,old_constituent,future,basis,endpoint,fx,missing,policy,lookahead,session]:
++            with self.subTest(case=change.__name__):
++                d=qualified();change(d)
++                with self.assertRaises(ValueError):rotation.analyze(d)
++
++    def test_cash_ledger_and_conservative_mode(self):
++        d=dict(held='A',shares=1,terminal_edge=.1,cost_per_share=[1,1],
++          paired_quotes=[dict(at='2026-11-20T12:00:00Z',bid={'A':100},ask={'B':60}),
++                         dict(at='2026-11-20T12:15:00Z',bid={'A':100},ask={'B':60})],
++          alternatives={'B':[dict(name='synthetic',years=1,end='2027-11-20',source='synthetic',
++             available_at='2026-11-19T00:00:00Z',eps_multiple_held_then_candidate=[10,10,10,10])]})
++        r=rotation.analyze(d)['B'];c=r['scenarios'][0]
++        self.assertEqual(r['whole_shares'],1);self.assertEqual(r['residual_cash'],D(38))
++        self.assertEqual(c['switch_wealth'],D(138));self.assertEqual(c['hold_wealth'],D(100))
++        self.assertTrue(c['clears_including_cash']);self.assertFalse(c['clears'])
++
++    def test_same_price_no_growth_loses_only_costs(self):
++        d=qualified();d['shares']=1;d['cost_per_share']=[1,1]
++        for q in d['paired_quotes']:
++            q['bid']['SNDK']=100;q['ask']['NVDA']=100
++        for c in d['alternatives']['NVDA']:c['eps_multiple_held_then_candidate']=[10,10,10,10]
++        r=rotation.analyze(d)['NVDA'];c=r['scenarios'][0]
++        self.assertEqual(r['whole_shares'],0);self.assertEqual(c['switch_wealth'],D(99))
++        self.assertEqual(c['wealth_edge'],D('-.01'))
++
++if __name__=='__main__':unittest.main(verbosity=2)

@@ -1,0 +1,21 @@
+{
+  "id": "FLOATING_ROTATION_REVIEW_B15_312",
+  "source": {
+    "repository": "whiterosecoffee/_BASKET",
+    "revision": "f4df492838020f82730382752511fb5342dd12a3",
+    "path": "research/themes/optical/architecture-relationships-2026-11-20/floating-rotation/state.json"
+  },
+  "owner": "B15-312",
+  "branch": "work/312-floating-rotation-review",
+  "status": "cloud_review_complete_spark_pickup_pending",
+  "guidance_ref": "AGENTS.md",
+  "review_ref": "REVIEW.md",
+  "ack_ref": "receiver-ack.json",
+  "evidence_refs": [
+    "provenance.json",
+    "results.json",
+    "parent-output.json"
+  ],
+  "next_action": "B04 #311 qualifies input freshness/basis/horizons and residual-cash ledger before directed indices.",
+  "independent_acceptance": "pending"
+}
