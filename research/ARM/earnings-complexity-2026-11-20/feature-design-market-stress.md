@@ -1,0 +1,13 @@
+# ARM revenue streams, TAM and GAAP stress variant
+
+Parent: feature-design-growth-upside.md and feature-design-gaap-bridge.md. Same B12-287 owned research subtree. No canonical events or relationships are modified.
+
+Input: market-stress-inputs.json, primary issuer/customer sources, historical H1 expense reconciliation and explicit FY2031 product-mix, margins, expense, tax and share assumptions. Output: MARKET_STRESS.md, market-stress-results.json and market-stress.csv. Replay: python market-stress.py.
+
+Method: build gross profit separately for licensed IP and direct silicon. Subtract non-SBC development/administrative expense, SBC, employer payroll taxes and acquisition expense exactly once. Assume no future equity gains or net interest. Apply a scenario tax rate and diluted shares. Non-SBC operating expense retains ordinary chip development; COGS includes manufacturing and packaging. Gross margins are before the separately charged SBC/employer/acquisition costs to prevent double counting. These are GAAP-style economic scenarios retaining specified recurring expenses, not a complete issuer GAAP forecast or consensus. Distribution of SBC between COGS and operating expense is not forecast; all is charged once to aggregate operating income. Do not subtract buybacks or a cash equivalent of SBC again.
+
+Keep future TAM, reachable market, share and realized revenue separate. Do not add cloud, CPU, physical and broad semiconductor TAMs that overlap. Partner names describe distinct economic routes and do not establish purchase volume. AWS/Google/Microsoft and NVIDIA use Arm IP; Meta co-develops Arm silicon. Customer and channel partners are not interchangeable. No extra third-party royalty is booked on Arm self-sold chips, and partner capex is not Arm backlog.
+
+FY2031 revenue-target case sets issuer revenue levels only; independently selected cost, tax, margin and share assumptions mean it need not reproduce management adjusted EPS. Four cases are unweighted and not calibrated probabilities. Value sensitivities use a disclosed terminal multiple, horizon and discount rate; no intrinsic value or trade recommendation is established. Cash flow, capex, working capital, purchase commitments, net cash and investment gains are outside this earnings-only model.
+
+Review: compare a base operating bridge with an independent closed-form calculation; require positive revenues, nonnegative expenses, tax/share validity, gross margin bounds, model/input hash, monotonic one-variable sensitivities and deterministic replay. Avoid large suites. Track falsifiers: first commercial deliveries, accepted/recognized revenue, absolute royalties, hardware margin improvement, recurring R&D/SBC growth, customer breadth and diluted shares.

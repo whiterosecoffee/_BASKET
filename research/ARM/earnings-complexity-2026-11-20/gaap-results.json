@@ -1,0 +1,416 @@
+{
+  "model_version": "arm-forward-gaap-bridge/0.2.0",
+  "reference_price": 152.2,
+  "marginal_tax_shield": 0.15,
+  "historical_reconciliations": {
+    "H1_FY27": {
+      "calculated_gaap_ni": 400,
+      "reported_gaap_ni": 400,
+      "residual": 0
+    },
+    "Q2_FY27": {
+      "calculated_gaap_ni": 130,
+      "reported_gaap_ni": 130,
+      "residual": 0
+    }
+  },
+  "scenarios": [
+    {
+      "id": "flat_q2_costs",
+      "label": "Q2 exclusions annualized",
+      "classification": "scenario_not_guidance",
+      "years": {
+        "FY27": {
+          "period_end": "2027-03-31",
+          "adjusted_eps_anchor": 2.27,
+          "diluted_shares": 1090,
+          "adjusted_ni_anchor": 2474.3,
+          "historical_gaap_ni_retained": 400,
+          "future_adjusted_ni": 1428.3000000000002,
+          "full_year_restored_expenses": 1755,
+          "future_restored_expenses": 878,
+          "extra_development_above_embedded_budget": 0,
+          "future_tax_shield": 131.7,
+          "future_after_tax_charge": 746.3,
+          "gaap_ni": 1082.0000000000002,
+          "gaap_eps": 0.9926605504587158,
+          "eps_gap_to_adjusted": 1.2773394495412842,
+          "adjusted_eps_after_extra_development": 2.27,
+          "pe_at_reference_price": 153.32532347504616
+        },
+        "FY28": {
+          "period_end": "2028-03-31",
+          "adjusted_eps_anchor": 3.09,
+          "diluted_shares": 1110,
+          "adjusted_ni_anchor": 3429.8999999999996,
+          "historical_gaap_ni_retained": 0,
+          "future_adjusted_ni": 3429.8999999999996,
+          "full_year_restored_expenses": 1748,
+          "future_restored_expenses": 1748,
+          "extra_development_above_embedded_budget": 0,
+          "future_tax_shield": 262.2,
+          "future_after_tax_charge": 1485.8,
+          "gaap_ni": 1944.0999999999997,
+          "gaap_eps": 1.7514414414414412,
+          "eps_gap_to_adjusted": 1.3385585585585587,
+          "adjusted_eps_after_extra_development": 3.09,
+          "pe_at_reference_price": 86.89985083071859
+        }
+      },
+      "fy28_gaap_eps_growth_vs_fy27_pct": 76.43911008975697
+    },
+    {
+      "id": "higher_compensation",
+      "label": "Higher compensation expense",
+      "classification": "scenario_not_guidance",
+      "years": {
+        "FY27": {
+          "period_end": "2027-03-31",
+          "adjusted_eps_anchor": 2.27,
+          "diluted_shares": 1090,
+          "adjusted_ni_anchor": 2474.3,
+          "historical_gaap_ni_retained": 400,
+          "future_adjusted_ni": 1428.3000000000002,
+          "full_year_restored_expenses": 2147,
+          "future_restored_expenses": 1270,
+          "extra_development_above_embedded_budget": 0,
+          "future_tax_shield": 190.5,
+          "future_after_tax_charge": 1079.5,
+          "gaap_ni": 748.8000000000002,
+          "gaap_eps": 0.6869724770642204,
+          "eps_gap_to_adjusted": 1.5830275229357795,
+          "adjusted_eps_after_extra_development": 2.27,
+          "pe_at_reference_price": 221.55181623931617
+        },
+        "FY28": {
+          "period_end": "2028-03-31",
+          "adjusted_eps_anchor": 3.09,
+          "diluted_shares": 1110,
+          "adjusted_ni_anchor": 3429.8999999999996,
+          "historical_gaap_ni_retained": 0,
+          "future_adjusted_ni": 3429.8999999999996,
+          "full_year_restored_expenses": 2700,
+          "future_restored_expenses": 2700,
+          "extra_development_above_embedded_budget": 0,
+          "future_tax_shield": 405.0,
+          "future_after_tax_charge": 2295.0,
+          "gaap_ni": 1134.8999999999996,
+          "gaap_eps": 1.022432432432432,
+          "eps_gap_to_adjusted": 2.0675675675675675,
+          "adjusted_eps_after_extra_development": 3.09,
+          "pe_at_reference_price": 148.8606925720328
+        }
+      },
+      "fy28_gaap_eps_growth_vs_fy27_pct": 48.83164414414405
+    },
+    {
+      "id": "development_overrun",
+      "label": "Higher compensation plus development overrun",
+      "classification": "scenario_not_guidance",
+      "years": {
+        "FY27": {
+          "period_end": "2027-03-31",
+          "adjusted_eps_anchor": 2.27,
+          "diluted_shares": 1090,
+          "adjusted_ni_anchor": 2474.3,
+          "historical_gaap_ni_retained": 400,
+          "future_adjusted_ni": 1428.3000000000002,
+          "full_year_restored_expenses": 2147,
+          "future_restored_expenses": 1270,
+          "extra_development_above_embedded_budget": 100,
+          "future_tax_shield": 205.5,
+          "future_after_tax_charge": 1164.5,
+          "gaap_ni": 663.8000000000002,
+          "gaap_eps": 0.6089908256880736,
+          "eps_gap_to_adjusted": 1.6610091743119264,
+          "adjusted_eps_after_extra_development": 2.1920183486238534,
+          "pe_at_reference_price": 249.92166315155157
+        },
+        "FY28": {
+          "period_end": "2028-03-31",
+          "adjusted_eps_anchor": 3.09,
+          "diluted_shares": 1110,
+          "adjusted_ni_anchor": 3429.8999999999996,
+          "historical_gaap_ni_retained": 0,
+          "future_adjusted_ni": 3429.8999999999996,
+          "full_year_restored_expenses": 2700,
+          "future_restored_expenses": 2700,
+          "extra_development_above_embedded_budget": 300,
+          "future_tax_shield": 450.0,
+          "future_after_tax_charge": 2550.0,
+          "gaap_ni": 879.8999999999996,
+          "gaap_eps": 0.7927027027027024,
+          "eps_gap_to_adjusted": 2.2972972972972974,
+          "adjusted_eps_after_extra_development": 2.86027027027027,
+          "pe_at_reference_price": 192.00136379134
+        }
+      },
+      "fy28_gaap_eps_growth_vs_fy27_pct": 30.166608307614528
+    }
+  ],
+  "input_sha256": "a0641cb265e2f4049b91da6e5a32b23e8260af651ef51b165dc0f74afc6c9106",
+  "tax_shield_sensitivity": [
+    {
+      "marginal_tax_shield": 0.0,
+      "scenarios": [
+        {
+          "id": "flat_q2_costs",
+          "FY27_gaap_eps": 0.8718348623853213,
+          "FY28_gaap_eps": 1.515225225225225
+        },
+        {
+          "id": "higher_compensation",
+          "FY27_gaap_eps": 0.5122018348623855,
+          "FY28_gaap_eps": 0.6575675675675673
+        },
+        {
+          "id": "development_overrun",
+          "FY27_gaap_eps": 0.42045871559633047,
+          "FY28_gaap_eps": 0.38729729729729695
+        }
+      ]
+    },
+    {
+      "marginal_tax_shield": 0.15,
+      "scenarios": [
+        {
+          "id": "flat_q2_costs",
+          "FY27_gaap_eps": 0.9926605504587158,
+          "FY28_gaap_eps": 1.7514414414414412
+        },
+        {
+          "id": "higher_compensation",
+          "FY27_gaap_eps": 0.6869724770642204,
+          "FY28_gaap_eps": 1.022432432432432
+        },
+        {
+          "id": "development_overrun",
+          "FY27_gaap_eps": 0.6089908256880736,
+          "FY28_gaap_eps": 0.7927027027027024
+        }
+      ]
+    },
+    {
+      "marginal_tax_shield": 0.25,
+      "scenarios": [
+        {
+          "id": "flat_q2_costs",
+          "FY27_gaap_eps": 1.0732110091743121,
+          "FY28_gaap_eps": 1.9089189189189186
+        },
+        {
+          "id": "higher_compensation",
+          "FY27_gaap_eps": 0.8034862385321102,
+          "FY28_gaap_eps": 1.2656756756756753
+        },
+        {
+          "id": "development_overrun",
+          "FY27_gaap_eps": 0.734678899082569,
+          "FY28_gaap_eps": 1.0629729729729727
+        }
+      ]
+    }
+  ],
+  "share_sensitivity_fixed_ni": [
+    {
+      "scenario_id": "flat_q2_costs",
+      "fy28_net_income_held_fixed": 1944.0999999999997,
+      "cases": [
+        {
+          "diluted_shares": 1090,
+          "gaap_eps": 1.783577981651376
+        },
+        {
+          "diluted_shares": 1110,
+          "gaap_eps": 1.7514414414414412
+        },
+        {
+          "diluted_shares": 1130,
+          "gaap_eps": 1.7204424778761058
+        }
+      ]
+    },
+    {
+      "scenario_id": "higher_compensation",
+      "fy28_net_income_held_fixed": 1134.8999999999996,
+      "cases": [
+        {
+          "diluted_shares": 1090,
+          "gaap_eps": 1.0411926605504584
+        },
+        {
+          "diluted_shares": 1110,
+          "gaap_eps": 1.022432432432432
+        },
+        {
+          "diluted_shares": 1130,
+          "gaap_eps": 1.0043362831858405
+        }
+      ]
+    },
+    {
+      "scenario_id": "development_overrun",
+      "fy28_net_income_held_fixed": 879.8999999999996,
+      "cases": [
+        {
+          "diluted_shares": 1090,
+          "gaap_eps": 0.807247706422018
+        },
+        {
+          "diluted_shares": 1110,
+          "gaap_eps": 0.7927027027027024
+        },
+        {
+          "diluted_shares": 1130,
+          "gaap_eps": 0.7786725663716811
+        }
+      ]
+    }
+  ],
+  "valuation_hurdles": [
+    {
+      "pe": 40,
+      "required_gaap_eps": 3.8049999999999997,
+      "required_net_income_at_fy28_shares": 4223.549999999999
+    },
+    {
+      "pe": 50,
+      "required_gaap_eps": 3.0439999999999996,
+      "required_net_income_at_fy28_shares": 3378.8399999999997
+    },
+    {
+      "pe": 60,
+      "required_gaap_eps": 2.5366666666666666,
+      "required_net_income_at_fy28_shares": 2815.7
+    }
+  ],
+  "required_adjusted_eps_by_scenario_at_50x_gaap": [
+    {
+      "scenario_id": "flat_q2_costs",
+      "required_gaap_eps": 3.0439999999999996,
+      "required_baseline_adjusted_eps_before_extra_development": 4.382558558558558,
+      "increase_over_adjusted_consensus_pct": 41.83037406338377
+    },
+    {
+      "scenario_id": "higher_compensation",
+      "required_gaap_eps": 3.0439999999999996,
+      "required_baseline_adjusted_eps_before_extra_development": 5.111567567567567,
+      "increase_over_adjusted_consensus_pct": 65.42289862678213
+    },
+    {
+      "scenario_id": "development_overrun",
+      "required_gaap_eps": 3.0439999999999996,
+      "required_baseline_adjusted_eps_before_extra_development": 5.341297297297297,
+      "increase_over_adjusted_consensus_pct": 72.85751771188664
+    }
+  ],
+  "third_party_net_income_crosscheck": {
+    "FY27": {
+      "forecast_net_income": 1190,
+      "eps_using_our_assumed_shares": 1.091743119266055
+    },
+    "FY28": {
+      "forecast_net_income": 1939,
+      "eps_using_our_assumed_shares": 1.7468468468468468
+    }
+  },
+  "implied_opex_budgets": [
+    {
+      "fiscal_year": "FY27",
+      "revenue": 6100,
+      "hardware_revenue": 100,
+      "implied_adjusted_gross_profit": 5915.0,
+      "implied_total_adjusted_opex_including_development": 3124.0588235294113,
+      "includes_chip_rd": true,
+      "classification": "mix_and_cost_budget_sensitivity_not_segment_guidance"
+    },
+    {
+      "fiscal_year": "FY28",
+      "revenue": 8370,
+      "hardware_revenue": 800,
+      "implied_adjusted_gross_profit": 7698.599999999999,
+      "implied_total_adjusted_opex_including_development": 3783.4235294117643,
+      "includes_chip_rd": true,
+      "classification": "mix_and_cost_budget_sensitivity_not_segment_guidance"
+    },
+    {
+      "fiscal_year": "FY28",
+      "revenue": 8370,
+      "hardware_revenue": 1600,
+      "implied_adjusted_gross_profit": 7194.599999999999,
+      "implied_total_adjusted_opex_including_development": 3279.4235294117643,
+      "includes_chip_rd": true,
+      "classification": "mix_and_cost_budget_sensitivity_not_segment_guidance"
+    }
+  ],
+  "development_cost_sensitivity": {
+    "extra_100m_reduces_fy28_gaap_eps_by": 0.07657657657657657,
+    "ordinary_rd_deducted_again": false
+  },
+  "assumptions_review": {
+    "omnibus_unrecognized_growth_pct": 98.13877740941082,
+    "fy26_observed_sbc_tax_effect_ratio": 0.1596958174904943,
+    "h1_observed_sbc_tax_effect_ratio": 0.20833333333333334,
+    "sbc_specific_tax_sensitivity": [
+      {
+        "id": "flat_q2_costs",
+        "fy28_gaap_eps": 1.8306906906906906,
+        "note": "Historical SBC-specific tax-effect ratio sensitivity, not future tax guidance"
+      },
+      {
+        "id": "higher_compensation",
+        "fy28_gaap_eps": 1.1485585585585583,
+        "note": "Historical SBC-specific tax-effect ratio sensitivity, not future tax guidance"
+      },
+      {
+        "id": "development_overrun",
+        "fy28_gaap_eps": 0.9188288288288285,
+        "note": "Historical SBC-specific tax-effect ratio sensitivity, not future tax guidance"
+      }
+    ],
+    "gaap_consensus_reference": [
+      {
+        "year": "FY27",
+        "gaap_net_income_forecast": 1190,
+        "shares_assumed": 1090,
+        "derived_eps": 1.091743119266055,
+        "pe_at_reference_price": 139.41008403361346,
+        "classification": "EPS_derived_from_dated_aggregate_net_income_forecast",
+        "sbc_subtracted_again": false
+      },
+      {
+        "year": "FY28",
+        "gaap_net_income_forecast": 1939,
+        "shares_assumed": 1110,
+        "derived_eps": 1.7468468468468468,
+        "pe_at_reference_price": 87.12841670964414,
+        "classification": "EPS_derived_from_dated_aggregate_net_income_forecast",
+        "sbc_subtracted_again": false
+      },
+      {
+        "year": "FY29",
+        "gaap_net_income_forecast": 2935,
+        "shares_assumed": 1130,
+        "derived_eps": 2.5973451327433628,
+        "pe_at_reference_price": 58.59829642248722,
+        "classification": "EPS_derived_from_dated_aggregate_net_income_forecast",
+        "sbc_subtracted_again": false
+      }
+    ],
+    "share_mechanics": {
+      "h1_gaap_basic_eps_unrounded": 0.37453183520599254,
+      "h1_gaap_diluted_eps_unrounded": 0.3707136237256719,
+      "h1_adjusted_diluted_eps_unrounded": 0.969416126042632,
+      "incremental_diluted_share_count_pct": 1.0299625468164875,
+      "outstanding_awards_to_common_share_count_pct": 2.149532710280374,
+      "approximate_new_grant_date_value_m": 2332.33,
+      "new_grant_value_is_current_cash_outflow": false,
+      "gaap_expense_and_share_denominator_are_different_measures": true
+    },
+    "opex_run_rate_check": {
+      "q3_guidance_annualized": 3300,
+      "classification": "Quarterly_guidance_annualized_not_FY28_guidance"
+    },
+    "independent_acceptance": "pending"
+  }
+}

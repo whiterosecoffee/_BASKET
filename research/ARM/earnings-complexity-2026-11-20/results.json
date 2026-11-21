@@ -1,0 +1,64 @@
+{
+  "model_version": "arm-complexity-sensitivity/0.1.0",
+  "input_sha256": "b289151a0853def038211d71403f0e76002e19355ad7c8d5fc55486b567e8bde",
+  "close": 152.2,
+  "day_change_pct": -14.093808206807024,
+  "pe_fy27": 67.04845814977973,
+  "pe_fy28": 49.25566343042071,
+  "fy27_eps_growth_pct": 28.248587570621474,
+  "fy28_eps_growth_pct": 36.12334801762114,
+  "incremental_royalty_eps_range": [
+    0.5409090909090908,
+    0.6568181818181816
+  ],
+  "hardware_after_tax_gross_profit_per_share_before_incremental_opex": [
+    0.23181818181818176,
+    0.3090909090909091
+  ],
+  "license_share_of_q2_revenue_pct": 53.56895356895357,
+  "sbc_share_of_q2_revenue_pct": 26.056826056826054,
+  "valuation_grid": [
+    {
+      "fy28_eps_scenario": 2.5,
+      "pe_at_current_price": 60.879999999999995,
+      "price_at_40x": 100.0,
+      "price_at_50x": 125.0
+    },
+    {
+      "fy28_eps_scenario": 3.09,
+      "pe_at_current_price": 49.25566343042071,
+      "price_at_40x": 123.6,
+      "price_at_50x": 154.5
+    },
+    {
+      "fy28_eps_scenario": 4.0,
+      "pe_at_current_price": 38.05,
+      "price_at_40x": 160.0,
+      "price_at_50x": 200.0
+    }
+  ],
+  "price_pe_fy28": [
+    {
+      "price": 100,
+      "pe": 32.36245954692557
+    },
+    {
+      "price": 125,
+      "pe": 40.45307443365696
+    },
+    {
+      "price": 150,
+      "pe": 48.54368932038835
+    },
+    {
+      "price": 175,
+      "pe": 56.63430420711974
+    },
+    {
+      "price": 200,
+      "pe": 64.72491909385114
+    }
+  ],
+  "illustrative_stock_return_with_eps_growth_36pct_and_pe_80_to_50": -15.000000000000002,
+  "classification": "deterministic_sensitivity_not_prediction"
+}
