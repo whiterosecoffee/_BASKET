@@ -163,3 +163,19 @@ Common December comparison: starting investment300each,1AVGOat300 vs300/122.28=2
 |Competitive convergence|308.72|359.96|404.70|553.48|
 |Meaningful AVGO share loss|226.06|445.89|258.69|761.07|
 All investment values USD; do not label MRVL standardized capital value as its actual share price. Dividends/tax/costs excluded.
+
+## Multiple durability and explicit compression path
+Research snapshotNov20,2026. Judgment:25x adjusted earnings can be a premium scenario, but is not established fair value. Condition on sustained per-share growth, cash conversion after economic stock compensation, retained customer sockets, pricing and returns on incremental R&D. As growth slows, reduce modeled P/E rather than assume immutable premium.
+Newly retrieved ChartMill annual table keeps EPS11.78/19.62/30.61/41.48/48.63/53.19 throughFY2031 (2031growth9.4%). Original estimate snapshot latestFY2026 observationNov14. Primary source companyQ3 release cashflow13.665B and GAAPEPS2.68vsadjusted3.32; stock compensation excluded from adjustedEPS.2026Q3stockcomp2.019B from10-Q. FCF is not equivalent to economic owner earnings after dilution.
+Provider quality warning: ChartMill FY2029 operating margin74.2% exceeds listed gross margin70.2%; FY2030operating72.7% exceeds gross70.5%. Metrics are not a reconciled same-basis operating model. Do not promote its standaloneEPS series into verified profitability or reliable2030fair value; analyst-cohort/accounting-basis reconciliation needed. Preserve evidence rather than overwrite series.
+Source https://www.chartmill.com/stock/quote/AVGO/estimates
+Source https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-third-quarter-fiscal-year-2026-financial
+Source https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm
+Compression sensitivity:assumeFY27/28/29/30sameyearadjustedP/E24/22/20/18, no empirical probability or fair-value claim.
+|FY|EPS|AssumedPE|Price|Cumulative return from300|
+|---|---:|---:|---:|---:|
+|2027|19.62|24|470.88|57.0%|
+|2028|30.61|22|673.42|124.5%|
+|2029|41.48|20|829.60|176.5%|
+|2030|48.63|18|875.34|191.8%|
+2030EPS25%below48.63and15x=$547.0875,+82.36%from300. Not a downside floor; deeper earnings/multiple declines can lose capital. No dividends/tax/costs, discounting or current-price claim. Next action: reconcile distantEPS with common-basis margins and diluted FCF before investment-grade target claims.
