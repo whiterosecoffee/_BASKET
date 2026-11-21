@@ -1,0 +1,47 @@
+{
+  "source_design": "f4df492838020f82730382752511fb5342dd12a3",
+  "engine": "56e9e03693cfcd71cf0ca04d50470332110defda",
+  "method_revision": "0758c08f1a8c5451a07df652bfaba985c7f6670b",
+  "method_blobs": [
+    {
+      "path": "_LIBRARIES/_MICROSOFT/_AGENT_FRAMEWORK/AGENTS.md",
+      "sha": "c223fee0cca5dd25645e0050519c826feadf438b"
+    },
+    {
+      "path": "_LIBRARIES/_MICROSOFT/_AGENT_FRAMEWORK/state.json",
+      "sha": "34d3f81f5c9d57790f97c77993c83b03fdda5177"
+    },
+    {
+      "path": "_LIBRARIES/_MICROSOFT/_AGENT_FRAMEWORK/check_fixture.py",
+      "sha": "cc8e04e712e5f36f204baf260e875ea04074f11f"
+    },
+    {
+      "path": "_LIBRARIES/_MICROSOFT/_AGENT_FRAMEWORK/tool_contract.py",
+      "sha": "c8850f8081565620614a0860da2b367ff479b7d2"
+    },
+    {
+      "path": "_LIBRARIES/_MICROSOFT/_AGENT_FRAMEWORK/skills/review-prepared-checkout/SKILL.md",
+      "sha": "9cce63d53c4b87a1ad8fbbf91640cb795ab06ff0"
+    },
+    {
+      "path": "_LIBRARIES/_MICROSOFT/_AGENT_FRAMEWORK/examples/prepared-checkout/assignment.json",
+      "sha": "5bc5297487810f9cba1509724b4b9e0b39950a7f"
+    },
+    {
+      "path": "_LIBRARIES/_MICROSOFT/_AGENT_FRAMEWORK/examples/prepared-checkout/evidence.json",
+      "sha": "5a098c631a8303abcaa3fedbc474094d4b0e6f87"
+    },
+    {
+      "path": "_LIBRARIES/_MICROSOFT/_AGENT_FRAMEWORK/examples/prepared-checkout/receiver-ack.json",
+      "sha": "4064cac2c65106d55060c4e45789ccadd4a9800e"
+    },
+    {
+      "path": "_LIBRARIES/_MICROSOFT/_AGENT_FRAMEWORK/ADOPTION_REVIEW.md",
+      "sha": "369677468846affa243530feea8edb6be0cf59da"
+    }
+  ],
+  "native_patterns_git": "failed_authentication",
+  "connector_method_blob_verification": "pass",
+  "fixture": "PASS synthetic-prepared-checkout-01 (17 checks)",
+  "independent_receiver_access": "pending"
+}

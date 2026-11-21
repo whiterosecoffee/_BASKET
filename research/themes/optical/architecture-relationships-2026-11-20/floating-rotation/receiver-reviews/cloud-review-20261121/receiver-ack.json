@@ -1,0 +1,57 @@
+{
+  "schema": "rotation.review_ack@1",
+  "assignment": "B15-305-floating-rotation-spark-review",
+  "review_task": "B15-312",
+  "requested_receiver": {
+    "host": "Spark workstation",
+    "session_id": null,
+    "status": "not_observed"
+  },
+  "actual_context": {
+    "host": "292052b11752",
+    "kind": "hosted_container",
+    "session_id": null,
+    "same_conversation_as_sender": true
+  },
+  "source": {
+    "repository": "whiterosecoffee/_BASKET",
+    "source_branch": "work/305-optical-architecture-relationships",
+    "revision": "f4df492838020f82730382752511fb5342dd12a3",
+    "local_checkout_mode": "detached_readonly",
+    "worktree": "task_scratch/review-source",
+    "head_verified": true,
+    "clean_before": true,
+    "clean_after": true
+  },
+  "engine": {
+    "revision": "56e9e03693cfcd71cf0ca04d50470332110defda",
+    "live_pr298_head_matches": true,
+    "worktree": "task_scratch/review-engine",
+    "clean_after": true
+  },
+  "ownership": {
+    "source_mutations": false,
+    "engine_mutations": false,
+    "review_branch": "work/312-floating-rotation-review",
+    "write_paths": [
+      "research/themes/optical/architecture-relationships-2026-11-20/floating-rotation/receiver-reviews/cloud-review-20261121/**"
+    ],
+    "authorization": "User assignment plus source SPARK-ASSIGNMENT.md separate receiver review subtree."
+  },
+  "pickup": {
+    "cloud_source_access": "verified",
+    "cloud_offline_review": "completed",
+    "spark_checkout": "pending",
+    "spark_receiver_ack": "withheld_missing_host_session_evidence",
+    "independent_acceptance": "pending_same_conversation"
+  },
+  "pending_operations": {
+    "known_before_review": [],
+    "patterns_native_clone": {
+      "result": "failed_authentication",
+      "fallback": "authorized connector exact blobs; no native checkout claimed"
+    }
+  },
+  "recorded_at": null,
+  "path_disclosure": "Task-local binding aliases; absolute workspace paths remain local."
+}

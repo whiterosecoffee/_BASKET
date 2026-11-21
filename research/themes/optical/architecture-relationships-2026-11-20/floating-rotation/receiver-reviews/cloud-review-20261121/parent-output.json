@@ -1,0 +1,92 @@
+{
+  "NVDA": {
+    "held_move_pct": "-1.2500",
+    "candidate_move_pct": "-3.076923076923076923076923080",
+    "quote_ratio": "0.6269841269841269841269841270",
+    "ratio_move_pct": "1.884920634920634920634920600",
+    "relative_log_bps_per_min": "12.44917419816286977444085305",
+    "gross_usd": "79000",
+    "whole_shares": 626,
+    "scenarios": [
+      {
+        "case": "illustrative base",
+        "years": 1,
+        "end": "2027-11-20",
+        "held_forward_pe": "7.181818181818181818181818182",
+        "candidate_forward_pe": "21",
+        "held_value": "88",
+        "candidate_value": "144",
+        "required_shares": "673",
+        "required_bid": "84.83",
+        "bid_gap": "5.83",
+        "clears": false
+      },
+      {
+        "case": "illustrative base",
+        "years": 2,
+        "end": "2028-11-20",
+        "held_forward_pe": "6.583333333333333333333333333",
+        "candidate_forward_pe": "18",
+        "held_value": "96",
+        "candidate_value": "168",
+        "required_shares": "629",
+        "required_bid": "79.28",
+        "bid_gap": "0.28",
+        "clears": false
+      },
+      {
+        "case": "illustrative base",
+        "years": 3,
+        "end": "2029-11-20",
+        "held_forward_pe": "6.076923076923076923076923077",
+        "candidate_forward_pe": "15.75",
+        "held_value": "104",
+        "candidate_value": "192",
+        "required_shares": "596",
+        "required_bid": "75.12",
+        "bid_gap": "-3.88",
+        "clears": true
+      }
+    ]
+  },
+  "CRWV": {
+    "held_move_pct": "-1.2500",
+    "candidate_move_pct": "-2.500",
+    "quote_ratio": "2.025641025641025641025641026",
+    "ratio_move_pct": "1.282051282051282051282051300",
+    "relative_log_bps_per_min": "8.492683851619838204653827807",
+    "gross_usd": "79000",
+    "whole_shares": 2024,
+    "scenarios": [
+      {
+        "case": "illustrative base",
+        "years": 1,
+        "end": "2027-11-20",
+        "held_forward_pe": "7.181818181818181818181818182",
+        "candidate_forward_pe": null,
+        "status": "P/E scenario unavailable"
+      },
+      {
+        "case": "illustrative base",
+        "years": 2,
+        "end": "2028-11-20",
+        "held_forward_pe": "6.583333333333333333333333333",
+        "candidate_forward_pe": null,
+        "status": "P/E scenario unavailable"
+      },
+      {
+        "case": "illustrative base",
+        "years": 3,
+        "end": "2029-11-20",
+        "held_forward_pe": "6.076923076923076923076923077",
+        "candidate_forward_pe": "39",
+        "held_value": "104",
+        "candidate_value": "20",
+        "required_shares": "5720",
+        "required_bid": "223.21",
+        "bid_gap": "144.21",
+        "clears": false
+      }
+    ]
+  }
+}
