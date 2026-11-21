@@ -1,0 +1,194 @@
+{
+  "format": "basket.branch_ownership.adoption_disposition@1",
+  "status": "owner_proposal_not_runtime_acceptance",
+  "issue": 248,
+  "source_commit": "6a2a49ffba03cff47a3e628b10ddc59eb8c39b3d",
+  "review": {
+    "url": "https://github.com/whiterosecoffee/_BASKET/pull/258#issuecomment-6855696196",
+    "disposition": "independent_reproduction_report_received",
+    "tests": 22,
+    "scenarios": 17,
+    "mismatches": 0,
+    "gaps": 7,
+    "limits": "Reviewer report verifies bounded observations, not enforcement or clean-system adoption; this continuation separately checks source hashes and reruns producer suite."
+  },
+  "sources": [
+    {
+      "id": "adapter",
+      "commit": "be8c35eafa4f873dc95437da2e338f32c25c5027",
+      "path": "orchestration/agent_adapters/README.md",
+      "blob_sha": "188e1a2d7e3bc2d211540fe89d220c379e753bc0"
+    },
+    {
+      "id": "admission",
+      "commit": "baba85f89ed90116345754bc2e457354e1f2f26b",
+      "path": "orchestration/execution_admission/README.md",
+      "blob_sha": "23aba66c38b2212c1a025bc978a60706b8657ae1"
+    },
+    {
+      "id": "map",
+      "commit": "1a9fdb7952676d026e92d001f88f62de67f103e0",
+      "path": "_MAP/microtests/queue_handoff/contract.json",
+      "blob_sha": "3b64031927385d64532190a100e34a3060bddd73"
+    }
+  ],
+  "top_level": {
+    "owner": 230,
+    "pr": 231,
+    "groups": [
+      "G5",
+      "G3",
+      "G8"
+    ],
+    "patterns": [
+      "P1",
+      "P3",
+      "P5",
+      "P6",
+      "P7"
+    ],
+    "handoff": "https://github.com/whiterosecoffee/_BASKET/pull/231#issuecomment-6855724473",
+    "adopted": false
+  },
+  "gaps": [
+    {
+      "case_id": "two_writers_same_issue_branch",
+      "source_ids": [
+        "admission",
+        "adapter"
+      ],
+      "existing_coverage": "Existing admission contract rejects every active writer for new/transfer and requires exact session/lease identity for continuation.",
+      "owner": "#32 controller + existing admission owner; #78 preserves assignment identity",
+      "next_acceptance": "Exercise two real concurrent starts against the same admitted branch; exactly one obtains the lease and the other produces no effects.",
+      "disposition": "reuse_existing_contract_then_verify_binding",
+      "receiver_acknowledged": false,
+      "integrated": false,
+      "operationally_enforced": false
+    },
+    {
+      "case_id": "unwritten_claim_not_in_pr_inventory",
+      "source_ids": [
+        "admission",
+        "adapter"
+      ],
+      "existing_coverage": "Admission requires complete relevant owner/writer inventory, including branch/worktree; PR files alone are insufficient.",
+      "owner": "#32 trusted collector + existing admission owner",
+      "next_acceptance": "Supply a real competing claim with no PR changes; collector reports it and launcher blocks without writes.",
+      "disposition": "reuse_existing_contract_then_verify_binding",
+      "receiver_acknowledged": false,
+      "integrated": false,
+      "operationally_enforced": false
+    },
+    {
+      "case_id": "stale_base_commit",
+      "source_ids": [
+        "admission",
+        "adapter"
+      ],
+      "existing_coverage": "Adapter requires verified base/head; admission binds current branch/head/worktree to controller pins. Worker v1 main label is not origin verification.",
+      "owner": "#32 collector + #78 adapter",
+      "next_acceptance": "Mismatch actual Git origin/head against freshly approved pins; refuse launch and preserve checkout.",
+      "disposition": "reuse_existing_contract_then_verify_binding",
+      "receiver_acknowledged": false,
+      "integrated": false,
+      "operationally_enforced": false
+    },
+    {
+      "case_id": "stale_claim_timestamp",
+      "source_ids": [
+        "admission",
+        "map"
+      ],
+      "existing_coverage": "Admission requires a confirmed unexpired continuation lease; _MAP stale_claim tests a bridge fence. Timestamp age is not the same predicate.",
+      "owner": "#32 lease/collector + existing admission owner",
+      "next_acceptance": "Reject expired/unconfirmed lease and stale fencing identity using authentic observations; do not infer owner transfer from age.",
+      "disposition": "reuse_existing_contract_then_verify_binding",
+      "receiver_acknowledged": false,
+      "integrated": false,
+      "operationally_enforced": false
+    },
+    {
+      "case_id": "unconfirmed_previous_write",
+      "source_ids": [
+        "admission",
+        "map"
+      ],
+      "existing_coverage": "Admission rejects unknown effects; existing _MAP uncertain_* cases model readback and stop/reconcile behavior.",
+      "owner": "#32 controller and B08 #34 executor",
+      "next_acceptance": "Interrupt after a real bounded effect; reconcile matching/absent/unavailable/conflicting readback before retry, with zero duplicate effects.",
+      "disposition": "reuse_existing_contract_then_verify_binding",
+      "receiver_acknowledged": false,
+      "integrated": false,
+      "operationally_enforced": false
+    },
+    {
+      "case_id": "broad_domain_wildcard_not_task_allocation",
+      "source_ids": [
+        "admission",
+        "adapter"
+      ],
+      "existing_coverage": "Admission rejects wildcard scope syntax and requires concrete paths bound to controller authority; adapter does not allocate ownership.",
+      "owner": "#32 allocation/collector + #201 governing instruction owner",
+      "next_acceptance": "Resolve broad domain authority into exact assigned paths; reject undeclared descendant/alias collision at actual write boundary.",
+      "disposition": "reuse_existing_contract_then_verify_binding",
+      "receiver_acknowledged": false,
+      "integrated": false,
+      "operationally_enforced": false
+    },
+    {
+      "case_id": "pending_approval_without_path_collision",
+      "source_ids": [
+        "admission",
+        "adapter"
+      ],
+      "existing_coverage": "Admission explicitly never authorizes effects; adapter relies on authorized claim and transport. No collision is not approval.",
+      "owner": "#32/#78 authority boundary + B08 #34 executor",
+      "next_acceptance": "Withhold required authority while paths are disjoint; actual executor must perform no write/launch. Keep denial separate from collision.",
+      "disposition": "reuse_existing_contract_then_verify_binding",
+      "receiver_acknowledged": false,
+      "integrated": false,
+      "operationally_enforced": false
+    }
+  ],
+  "deferred_review_requests": [
+    {
+      "requirement": "fake/nonexistent branches",
+      "owner": "#32 trusted collector/executor",
+      "reason": "Authentic Git collection and actual launcher are not owned here."
+    },
+    {
+      "requirement": "unadmitted planned-child promotion and executable dependency cycle",
+      "owner": "#230 _MAP",
+      "reason": "Owner projection and its existing suite must verify these; no duplicate graph validator."
+    },
+    {
+      "requirement": "wrong-head or false acceptance",
+      "owner": "#105 independent gate + #32",
+      "reason": "Use existing protocol/acceptance checks and allocate actual hosted discovery."
+    },
+    {
+      "requirement": "lost later correction",
+      "owner": "#169/#178 conversion owners + #201",
+      "reason": "Semantic conversion history is separate from this collision corpus."
+    },
+    {
+      "requirement": "public/private destination mismatch",
+      "owner": "existing publishing owner + #32",
+      "reason": "Real destination authorization is not inferred from schema or path validity."
+    },
+    {
+      "requirement": "restart after uncertain effects",
+      "owner": "#32 + B08 #34",
+      "reason": "Reuse _MAP readback requirements and real durable effect ledger; pure replay is insufficient."
+    }
+  ],
+  "unchanged_source_policy": "Do not modify or import candidate admission/_MAP/adapter code; the three pinned documents are reference evidence, not new runtime dependencies.",
+  "next_action": "Existing #32/admission owner selects one real blocked-launch/no-effects probe using these requirements; #230 retains projection adoption and #105 retains independent gate allocation.",
+  "no_effects": [
+    "no new worker",
+    "no ownership transfer",
+    "no controller or registry",
+    "no merge",
+    "no deployment"
+  ]
+}

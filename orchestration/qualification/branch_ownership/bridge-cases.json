@@ -1,0 +1,56 @@
+{
+  "base_commit": "74d913e8913d630d85451344689e093aeea07efc",
+  "authority": "synthetic; never a live lease",
+  "entrypoint": "orchestration.worker_bridge.bridge.run_codex",
+  "source_sha256": {
+    "orchestration/worker_bridge/bridge.py": "a7efa85ee82db5a4c7518d9afa39116728ad95e81269c69c011b4fdf1056f81d"
+  },
+  "cases": [
+    {
+      "id": "readonly_write",
+      "expected_code": "execution_permission",
+      "source_symbol": "run_codex"
+    },
+    {
+      "id": "outside_output",
+      "expected_code": "log_scope",
+      "source_symbol": "owned_output_directory"
+    },
+    {
+      "id": "stale_token",
+      "expected_code": "stale_fence",
+      "source_symbol": "assert_fence"
+    },
+    {
+      "id": "expired_lease",
+      "expected_code": "lease_expired",
+      "source_symbol": "assert_fence"
+    },
+    {
+      "id": "missing_lease",
+      "expected_code": "lease_expired",
+      "source_symbol": "assert_fence"
+    },
+    {
+      "id": "missing_attempt",
+      "expected_code": "attempt_unregistered",
+      "source_symbol": "assert_attempt"
+    },
+    {
+      "id": "wrong_attempt",
+      "expected_code": "attempt_unregistered",
+      "source_symbol": "assert_attempt"
+    },
+    {
+      "id": "resolved_attempt",
+      "expected_code": "attempt_unregistered",
+      "source_symbol": "assert_attempt"
+    }
+  ],
+  "limits": [
+    "Does not establish authentic collector evidence or atomic lease acquisition.",
+    "Does not prove Dot uses this repository bridge.",
+    "No successful model execution or deployment tested.",
+    "Python audit observations are scoped to these pinned Python functions, not a general OS sandbox."
+  ]
+}
