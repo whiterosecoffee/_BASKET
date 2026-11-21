@@ -1,6 +1,6 @@
 {
-  "model_version": "arm-growth-upside/0.1.0",
-  "input_sha256": "2367e4f58666eb55a232cd91d9e85f2506382b19c117327820194f466fc6287b",
+  "model_version": "arm-growth-upside/0.2.0",
+  "input_sha256": "e1caf4f86160436efea7e60babceacab68b16feab3377a5fb7a1ab98556d8395",
   "years_to_fy31": 4.358658453114305,
   "reference_price_over_fy31_adjusted_eps_reference": 16.91111111111111,
   "adjusted_eps_cagr_fy28_to_fy31_reference": 0.4281089580216073,
@@ -224,5 +224,54 @@
       "classification": "unweighted_hypothetical_future_share_price_sensitivity_not_DCF_or_target"
     }
   ],
-  "classification": "conditional_target_arithmetic_not_GAAP_forecast_or_fair_value"
+  "classification": "conditional_target_arithmetic_not_GAAP_forecast_or_fair_value",
+  "five_year_eps": {
+    "provider": "ChartMill",
+    "basis": "adjusted_or_normalized_EPS; FY26 actual 1.77 agrees with issuer adjusted EPS, not GAAP EPS",
+    "rows": [
+      {
+        "fiscal_year": 2027,
+        "period_end": "2027-03-31",
+        "adjusted_eps": 2.28,
+        "yoy_growth_pct": 28.81355932203389,
+        "pe_at_reference_price": 66.75438596491229,
+        "classification": "third_party_adjusted_eps_estimate"
+      },
+      {
+        "fiscal_year": 2028,
+        "period_end": "2028-03-31",
+        "adjusted_eps": 3.1,
+        "yoy_growth_pct": 35.964912280701775,
+        "pe_at_reference_price": 49.096774193548384,
+        "classification": "third_party_adjusted_eps_estimate"
+      },
+      {
+        "fiscal_year": 2029,
+        "period_end": "2029-03-31",
+        "adjusted_eps": 4.15,
+        "yoy_growth_pct": 33.8709677419355,
+        "pe_at_reference_price": 36.67469879518072,
+        "classification": "third_party_adjusted_eps_estimate"
+      },
+      {
+        "fiscal_year": 2030,
+        "period_end": "2030-03-31",
+        "adjusted_eps": 6.2,
+        "yoy_growth_pct": 49.39759036144578,
+        "pe_at_reference_price": 24.548387096774192,
+        "classification": "third_party_adjusted_eps_estimate"
+      },
+      {
+        "fiscal_year": 2031,
+        "period_end": "2031-03-31",
+        "adjusted_eps": 10.4,
+        "yoy_growth_pct": 67.74193548387098,
+        "pe_at_reference_price": 14.634615384615383,
+        "classification": "third_party_adjusted_eps_estimate"
+      }
+    ],
+    "cagr_fy26_to_fy31": 0.42499064945385645,
+    "source_url": "https://www.chartmill.com/stock/quote/ARM/estimates",
+    "annual_panel_counts_verified": false
+  }
 }

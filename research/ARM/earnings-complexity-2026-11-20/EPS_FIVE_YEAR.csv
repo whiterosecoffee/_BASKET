@@ -1,0 +1,6 @@
+fiscal_year,period_end,adjusted_eps,yoy_growth_pct,pe_at_reference_price,classification
+2027,2027-03-31,2.28,28.81355932203389,66.75438596491229,third_party_adjusted_eps_estimate
+2028,2028-03-31,3.1,35.964912280701775,49.096774193548384,third_party_adjusted_eps_estimate
+2029,2029-03-31,4.15,33.8709677419355,36.67469879518072,third_party_adjusted_eps_estimate
+2030,2030-03-31,6.2,49.39759036144578,24.548387096774192,third_party_adjusted_eps_estimate
+2031,2031-03-31,10.4,67.74193548387098,14.634615384615383,third_party_adjusted_eps_estimate

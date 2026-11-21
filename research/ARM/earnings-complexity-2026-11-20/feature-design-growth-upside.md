@@ -28,3 +28,7 @@ The arithmetic uses a $9 adjusted EPS reference rather than treating a greater-t
 
 ## Review and next action
 Replay checks date horizon, growth rates, cohort arithmetic and scenario count; preserve exact input hash. Source names and URLs are in growth-upside-inputs.json. Earlier near-term premium conclusions should not be presented as a complete long-horizon valuation. Next: build a dated royalty cohort bridge using quarter-matched shipped units, dollars per chip and absolute segment revenue; until available, report the missing fields explicitly.
+
+## Five-year estimate-series extension
+
+The same calculator now composes a five-fiscal-year table from a single vendor series in growth-upside-inputs.json. Outputs EPS_FIVE_YEAR.md and EPS_FIVE_YEAR.csv label adjusted basis, prior actual, fiscal dates, recomputed YoY rates, reference-price multiples and unverified far-year panel coverage. Preserve differences from the earlier S&P series and the separate issuer >$9 target. Do not infer a five-year GAAP forecast or literal capital payback.

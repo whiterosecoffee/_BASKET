@@ -1,5 +1,5 @@
 {
-  "model_version": "arm-growth-upside/0.1.0",
+  "model_version": "arm-growth-upside/0.2.0",
   "reference_date": "2026-11-20",
   "currency": "USD",
   "observed_at": "2026-11-21T03:36:22.816617+00:00",
@@ -110,5 +110,56 @@
     "No quantified signed accelerator-compute expansion contract established in this review",
     "Future GAAP bridge and diluted shares for FYE31 remain unknown",
     "Royalty rate coverage is not guaranteed shipment volume or take-or-pay backlog"
-  ]
+  ],
+  "five_year_eps_series": {
+    "classification": "third_party_adjusted_eps_forecast_series",
+    "provider": "ChartMill",
+    "source_url": "https://www.chartmill.com/stock/quote/ARM/estimates",
+    "observed_at": "2026-11-21T03:41:45.943593+00:00",
+    "source_as_of": null,
+    "fy27_history_last_observation_date": "2026-11-14",
+    "basis": "adjusted_or_normalized_EPS; FY26 actual 1.77 agrees with issuer adjusted EPS, not GAAP EPS",
+    "fiscal_year_end": "March 31",
+    "actual_base": {
+      "fiscal_year": 2026,
+      "eps": 1.77
+    },
+    "forecasts": [
+      {
+        "fiscal_year": 2027,
+        "eps": 2.28
+      },
+      {
+        "fiscal_year": 2028,
+        "eps": 3.1
+      },
+      {
+        "fiscal_year": 2029,
+        "eps": 4.15
+      },
+      {
+        "fiscal_year": 2030,
+        "eps": 6.2
+      },
+      {
+        "fiscal_year": 2031,
+        "eps": 10.4
+      }
+    ],
+    "annual_panel_counts_verified": false,
+    "crosscheck": {
+      "provider": "S&P Global via Stock Analysis",
+      "as_of": "2026-11-17",
+      "FY27_eps": 2.27,
+      "FY28_eps": 3.09
+    },
+    "limitations": [
+      "Do not splice vendor estimates silently.",
+      "No verified five-year GAAP EPS consensus.",
+      "Far-year contributor counts and exact table timestamp not verified.",
+      "FY27 already in progress; five fiscal forecasts do not mean five full future years.",
+      "No direct inference of cash payback from EPS.",
+      "YoY rates recomputed from rounded EPS inputs can differ slightly from vendor percentages."
+    ]
+  }
 }

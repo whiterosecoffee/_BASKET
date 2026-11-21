@@ -17,3 +17,7 @@ Read annual and interim award/tax notes and dated net-income aggregates separate
 ## Growth-horizon correction
 
 Earlier near-term GAAP scenarios did not fully present the published FYE31 growth case. Added management-target, consensus and unpriced-upside distinctions; annual segment mix is not a quarter-matched royalty bridge. Verified royalties accrue in shipment quarter, so blanket reporting-lag explanations are invalid. Contract volume tiers and licensing treatment of buy-downs are sourced mechanisms, not quantified causes of this quarter. Long-term $9 is adjusted, not GAAP EPS; future dilution unresolved. Local growth/horizon arithmetic and byte-identical replay passed.
+
+## Five-year EPS table
+
+Used one ChartMill series with FY26 $1.77 base and FY27-FY31 $2.28/$3.10/$4.15/$6.20/$10.40; both search systems returned the full sequence. Near-year S&P estimates differ by about one cent; distant-source coverage is not verified. Growth rates recomputed from rounded figures. Table, CSV and JSON replay identically; period/basis/holding-period caveats retained. This series does not replace earlier vendor-specific or GAAP bridge inputs.

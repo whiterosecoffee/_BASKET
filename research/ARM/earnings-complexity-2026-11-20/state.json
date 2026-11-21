@@ -8,7 +8,7 @@
   "purpose": "Explain complexity monetization, EPS growth and compression with reproducible arithmetic",
   "objectives": {
     "minimum": "Source verified quarter and EPS calendar",
-    "next": "Reconcile custom-design royalties with quarter-matched segment volumes and contractual content"
+    "next": "Evaluate per-share valuation sensitivity to the back-loaded EPS ramp and terminal multiple"
   },
   "status": "research_draft",
   "owner": "B12-287",
@@ -32,7 +32,9 @@
     "gaap-bridge.csv",
     "ASSUMPTIONS_REVIEW.md",
     "growth-upside-inputs.json",
-    "growth-upside-results.json"
+    "growth-upside-results.json",
+    "EPS_FIVE_YEAR.md",
+    "EPS_FIVE_YEAR.csv"
   ],
   "dependencies": [
     {
@@ -68,13 +70,13 @@
       "design": "feature-design-growth-upside.md"
     }
   ],
-  "next_action": "Obtain quarter-matched absolute royalties, shipments and pricing by segment before asserting an exact 8% royalty-growth bridge",
+  "next_action": "Review FY30/FY31 analyst coverage and earnings assumptions before treating long-range adjusted EPS as reliable",
   "integration_status": "unmerged",
   "ci_status": "new_revision_pending_external_verification",
   "model_versions": {
     "complexity_sensitivity": "0.1.0",
     "forward_gaap_bridge": "0.2.0",
-    "growth_upside": "0.1.0"
+    "growth_upside": "0.2.0"
   },
   "previous_model_revision": "a89d6ffaafa7e88b4c29d14e63ea7db1ecd8c71a"
 }
