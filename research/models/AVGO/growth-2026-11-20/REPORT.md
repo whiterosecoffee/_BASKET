@@ -110,3 +110,37 @@ Pairing status: LITE transaction remains proposed, expected H1calendar2028. Cann
 LITE2030 null; do not extrapolate a consensus. MRVL2030 EPS rises while provider sales/operating income decline; sparse/different analyst-cohort inconsistency unresolved. Distant forecasts not a verified integrated model.
 
 Interpretation: AVGO lower published trailing multiple and lower own-FY28 normalized multiple than either constituent; MRVL/LITE show faster long-horizon earnings growth but carry calendar, concentration, dilution and integration uncertainty. No universal risk-adjusted winner established. Next: calendarize combined diluted earnings to common Dec2027/Dec2028 endpoints before parent valuation.
+
+## Competitive paths and combined MRVL+ share prices
+Model: competitive-paths-2030.json. Illustrative normalized economics, not consensus/targets/probabilities. USD billions except EPS/prices; MRVL+ combines external MRVL/LITE revenue with intercompany eliminations and merger shares, including existing Celestial once. Conditional on deal. Calendar2027 combined earnings are hypothetical preclose pro forma.
+Material update: official Oct6 investor deck targets standalone MRVL FY2031 (aroundJan2031) revenue70–90B, adjusted EPS>30, opmargin44–46%, tax15%. Prior sparse FY2030 EPS14.76 cannot be treated as definitive current trajectory. It is not combined diluted EPS or a guaranteed result.
+
+|Scenario|AVGO revenue growth FY27/28/29/30|AVGO2030 revenue|AVGO2030 R&D|AVGO2030 opmargin|MRVL+2030 revenue|MRVL+2030 R&D|MRVL+2030 opmargin|
+|---|---|---:|---:|---:|---:|---:|---:|
+|AVGO maintains lead|60%/55%/25%/20%|394.3|35.5 (9%)|63%|45|7.2 (16%)|33%|
+|Competitive convergence|50%/40%/20%/15%|307.2|36.9 (12%)|58%|70|9.8 (14%)|40%|
+|Meaningful AVGO share loss|40%/25%/12%/10%|228.5|34.3 (15%)|51%|100|12.0 (12%)|44%|
+
+|MRVL+ calendar year|AVGO maintains lead,18x|Convergence,24x|AVGO share loss,25x|
+|---|---:|---:|---:|
+|2027|$88 (-28%)|$147 (+20%)|$182 (+49%)|
+|2028|$114 (-7%)|$226 (+84%)|$310 (+154%)|
+|2029|$133 (+9%)|$303 (+148%)|$461 (+277%)|
+|2030|$146 (+19%)|$380 (+210%)|$630 (+415%)|
+Price returns are cumulative vs122.28 entry reference, not cumulative EPS percentages.
+
+|AVGO fiscal year|Maintains lead,20x|Convergence,18x|Share loss,15x|
+|---|---:|---:|---:|
+|2027|$353|$292|$220|
+|2028|$541|$395|$257|
+|2029|$664|$455|$267|
+|2030|$774|$497|$269|
+AVGO fiscal-year endpoints aroundNov vs MRVL+ modeled calendar-yearDec. Revenue base106B FY2026 is a rounded research estimate, not filed actual. Gross margins/R&D split and future tax/interest/shares are explicit scenario choices. AVGO maintains-lead EPS2030$38.70 is below earlier consensus48.63 because this model independently assumes slower revenue ramp and more conservative earnings economics; not a verified consensus revision.
+MRVL+ EPS2030$8.11/$15.81/$25.19; shares1.4B. EPS is normalized with no GAAP SBC/amortization/integration cash-cost bridge; not owner earnings. 2030 values$146/$380/$630:1.19x/3.10x/5.15x current MRVL reference.
+4x target489.12 requires EPS24.46at20x,19.56at25x,16.30at30x; at40%opmargin18%tax1B netfinancing1.4B shares, required revenue106.9B/86.0B/72.1B. ~40%annualized share-price return for roughly4years, no probability implied.
+Synergy sensitivity:1B pre-tax improvement net of implementation at18%tax/1.4B shares adds0.586EPS (~14.64/share at25x); no double addition because margins already embed synergy. 3pp lower opmargin on70B revenue reduces EPS1.23 (~29.40/share at24x). 10%extra shares reduces EPS/value9.1% holding earnings/multiple fixed.
+
+MRVL+ headwinds: AVGO R&D budget remains~34–37B even under competitive pressure versus MRVL+7–12B, so competitor can fund a sustained response; illustration, not measured R&D budgets. Customers can resist vertical bundles or dual-source; ownership of LITE may create neutrality/channel conflicts. Yield/thermal/repairability determine production adoption; a failure in one tightly integrated stage can delay whole platforms. Laser fabs add capital demands and working capital beyond fabless engineering. CPO can cannibalize discrete DSP/pluggable content; eliminate internal sales. Differentiated ASIC supply does not guarantee software lock-in or permanent margins. Shares, earnouts, talent costs, SBC, integration and purchase accounting matter. Industry/NVDA/other competition remains; profits are not a two-company zero-sum pool.
+4x is economically feasible under strong delivery plus retained premium valuation. It is not automatic from acquiring LITE or4x corporate revenue; middle case here~3.1x, bull~5.1x. No unsupported odds.
+
+Sources: official October6 Marvell investor deck and Nov2 merger presentation linked in model. Company targets distinct from our assumptions. Readback/JavaScript arithmetic validation only; hosted exact-head CI and independent review pending.
