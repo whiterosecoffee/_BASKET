@@ -1,0 +1,12 @@
+# Emerging markets and partnerships
+Checked November20 2026. AAOI focus with Source Photonics competitor context. No current quote or canonical data refresh.
+
+No named robotics OEM partnership verified for either company in reviewed official sources; absence of evidence is not proof none exists. AAOI announced automotive LiDAR laser March30 2020: https://investors.ao-inc.com/node/11676/pdf . Historical product capability, not proof of current robotics contract or material revenue.
+
+AAOI's clearer adjacent opportunity is high-power laser supply for silicon photonics/CPO. December18 2025 announcement describes 400mW narrow-linewidth laser, samples and expected later2026 production, not verified achieved shipment ramp: https://newsroom.ao-inc.com/news-releases/aoi-introduces-new-ultra-high-power-semiconductor-laser-to-support-silicon-photonics-and-cpo/ . Potential optical I/O value must be modeled with architecture adoption, qualified share, optical content and ASP; do not add full CPO TAM to transceiver TAM without accounting for substitution/shared sources.
+
+Source Photonics and Delta Electronics announced joint 1.6T transceiver/switch demonstration and validated interoperability March17 2026: https://www.sourcephotonics.com/news/source-photonics-and-delta-electronics-join-force-to-demo-1-6t-transceiver-and-switch-products-at-ofc26/ . Named networking collaboration, not robotics contract; Delta's other businesses do not establish downstream customer exposure. Source also demonstrated external laser sources for NPO/CPO and higher-bandwidth packaging; demos not revenue commitments.
+
+AAOI named broadband ecosystem: Mediacom + AOI + Digicomm DOCSIS4.0 upgrade https://newsroom.ao-inc.com/latest-news/an-ecosystem-built-for-docsis-4-0-execution-mediacom-aoi-digicomm/ . Commercial adjacent upgrade market; Quantum Bandwidth is branding, not quantum-computing revenue proof.
+
+Analytical ranking: 800G/1.6T upgrades strongest established growth route; CPO/optical I/O emerging optionality; broadband adjacent diversification; robotics/LiDAR speculative pending named design wins, qualification and revenue. Robotics may add training/simulation/network demand indirectly, but cannot be treated as direct revenue per robot. No sourced dollar TAM or incremental EPS assigned. Next evidence: named customer, qualification, production shipments, incremental gross profit, market substitution and diluted-share effect.
