@@ -1,0 +1,89 @@
+{
+  "id": "optical-architecture-relationships-2026-11-20",
+  "parent_refs": [
+    "/AGENTS.md",
+    "/orchestration/sparks.json#B15"
+  ],
+  "purpose": "Separate optical layers and relationships; prepare scoped research expansion.",
+  "objectives": {
+    "required": [
+      "Source-backed relationship map",
+      "Five reusable child launch prompts"
+    ],
+    "next": [
+      "Receiver verifies current sources and existing ownership"
+    ]
+  },
+  "status": "draft_research_published_receiver_execution_pending",
+  "owner": "B15-305",
+  "issue": 305,
+  "branch": "work/305-optical-architecture-relationships",
+  "exclusive_paths": [
+    "research/themes/optical/architecture-relationships-2026-11-20/**"
+  ],
+  "dependencies": [
+    {
+      "issue": 189,
+      "mode": "read-only reuse"
+    },
+    {
+      "issue": 290,
+      "mode": "read-only reuse"
+    },
+    {
+      "issue": 273,
+      "mode": "read-only reuse"
+    },
+    {
+      "spark": "B05",
+      "mode": "canonical graph changes require separate handoff"
+    }
+  ],
+  "feature_design": "feature-design.md",
+  "evidence": "REPORT.md",
+  "children": [
+    {
+      "id": "platforms",
+      "status": "planned",
+      "input": "Shared contract plus child scope and current evidence",
+      "output": "Evidence table, economic drivers, falsifiers and next action",
+      "prompt_ref": "launch-prompts.md"
+    },
+    {
+      "id": "package-io",
+      "status": "planned",
+      "input": "Shared contract plus child scope and current evidence",
+      "output": "Evidence table, economic drivers, falsifiers and next action",
+      "prompt_ref": "launch-prompts.md"
+    },
+    {
+      "id": "optical-supply",
+      "status": "planned",
+      "input": "Shared contract plus child scope and current evidence",
+      "output": "Evidence table, economic drivers, falsifiers and next action",
+      "prompt_ref": "launch-prompts.md"
+    },
+    {
+      "id": "manufacturing",
+      "status": "planned",
+      "input": "Shared contract plus child scope and current evidence",
+      "output": "Evidence table, economic drivers, falsifiers and next action",
+      "prompt_ref": "launch-prompts.md"
+    },
+    {
+      "id": "module-transition",
+      "status": "planned",
+      "input": "Shared contract plus child scope and current evidence",
+      "output": "Evidence table, economic drivers, falsifiers and next action",
+      "prompt_ref": "launch-prompts.md"
+    }
+  ],
+  "next_action": "Launch the package-I/O scope in an existing appropriate session or a newly claimed worker; first reverify deal terms.",
+  "independent_receiver_access": "pending",
+  "checks": {
+    "source_review": "manual",
+    "financial_model": "not_created",
+    "live_market_data": "not_requested",
+    "ci": "pending"
+  }
+}
