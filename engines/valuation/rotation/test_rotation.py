@@ -7,6 +7,7 @@ from engines.valuation.rotation import cli, store
 from engines.valuation.rotation.calendarize import calendarize, extend, ntm
 from engines.valuation.rotation.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
 from engines.valuation.rotation import portfolio as pf
+from engines.valuation.rotation import anchors as an, history as hist
 from engines.valuation.rotation.implied import implied_growth, pv
 from engines.valuation.rotation.macro import equity_duration, multiple_factor
 from engines.valuation.rotation.tape import tape_stats
@@ -274,6 +275,61 @@ class I(unittest.TestCase):
             p.write_text("ticker,metric,fiscal_year,value,basis,kind,source,as_of,fye_month\n"
                          "AAA,eps,2026,4.0,non_gaap,consensus,x,2026-06-01,12\nAAA,eps,2026,4.77,non_gaap,actual,x,2026-06-01,12\n")
             self.assertEqual(store.load_estimates(p, ASOF)[("AAA", "eps")][2026].value, 4.77)
+
+
+class A(unittest.TestCase):
+    def test_memory_pnl_matches_hand_calc(self):
+        cfg = {"industry": {"type": "memory_pnl", "gm": 0.85, "opex": 0.045, "opex_growth": 0.10, "cost_per_bit_change": -0.10,
+                            "bits": "b", "asp": "a"}}
+        ind = {"b": {"bear": .1, "base": .2, "bull": .3}, "a": {"bear": -.35, "base": -.2, "bull": -.05}}
+        r = an.anchor_I("X", None, cfg, ind, {}, {})["ret"]
+        op0 = 1 - 0.15 - 0.045
+        base = (1.2 * 0.8 - 0.15 * 1.2 * 0.9 - 0.045 * 1.1) / op0 - 1
+        self.assertAlmostEqual(r["base"], base)
+        self.assertLess(r["bear"], r["base"])
+        self.assertLess(r["base"], r["bull"])
+
+    def test_std_factors_default_is_flat_and_hist_is_like_for_like(self):
+        f, _ = an.std_factors(16.0, {"median": 44.0, "p25": 33.0, "p75": 50.0}, True, 0.0, 0.2)
+        self.assertEqual(f, {"bear": 0.8, "base": 1.0, "bull": 1.2})
+        f2, _ = an.std_factors(16.0, {"median": 32.0, "p25": 24.0, "p75": 40.0}, True, 0.5, 0.2)
+        self.assertAlmostEqual(f2["base"], 1.5)             # halfway to a median that is 2x today's trailing multiple
+        self.assertEqual(an.std_factors(16.0, None, True, 0.5, 0.2)[0]["base"], 1.0)
+
+    def test_blend_renormalises_and_flags_disagreement(self):
+        a = {"ret": {"bear": -.2, "base": 0.0, "bull": .2}, "flags": []}
+        b = {"ret": {"bear": .3, "base": .9, "bull": 1.5}, "flags": []}
+        r = an.blend({"F": a, "I": b, "R": None}, {"F": .5, "I": .3, "R": .2})
+        self.assertAlmostEqual(r["weights"]["F"], 0.5 / 0.8)
+        self.assertAlmostEqual(r["ret"]["base"], 0.3 / 0.8 * 0.9)
+        self.assertTrue(any(f.startswith("ANCHOR_DISAGREE") for f in r["flags"]))
+        self.assertTrue(any(f.startswith("MISSING_ANCHOR") for f in r["flags"]))
+
+    def test_ratio_anchor_rich_name_gets_negative_return(self):
+        a = [(date.fromordinal(738000 + i), 100.0 + (50 if i > 280 else 0)) for i in range(300)]
+        b = [(t, 100.0) for t, _ in a]
+        r = an.anchor_R({"A": a, "B": b}, lookback=250, lam=0.5)
+        self.assertLess(r["A"]["ret"]["base"], 0)
+        self.assertGreater(r["B"]["ret"]["base"], 0)
+
+    def test_history_normalises_split_and_bad_filing_dates(self):
+        mk = lambda pe, fd, ni, sh: {"period_end": pe, "filing": fd, "revenue": 1.0, "ni": ni, "sh": sh}
+        rows = [mk(date(2026, 1, 2), date(2026, 1, 30), 800.0, 1248.0), mk(date(2026, 7, 3), date(2026, 8, 17), 6903.0, 158.0),
+                mk(date(2025, 6, 27), date(2026, 8, 17), -23.0, 145.0), mk(date(2026, 10, 2), date(2026, 10, 30), 8101.0, 1232.0)]
+        rows.sort(key=lambda r: r["period_end"])
+        out = hist.normalise(rows)
+        by = {r["period_end"]: r for r in out}
+        self.assertEqual(by[date(2026, 7, 3)]["split_k"], 8.0)
+        self.assertAlmostEqual(by[date(2026, 7, 3)]["eps_norm"], 6903 / (158 * 8))
+        self.assertEqual(by[date(2026, 1, 2)]["split_k"], 1.0)
+        self.assertEqual(by[date(2025, 6, 27)]["avail"], date(2025, 6, 27) + __import__("datetime").timedelta(days=45))  # filing date a year late
+        self.assertEqual(by[date(2026, 1, 2)]["avail"], date(2026, 1, 30))
+
+    def test_disagreeing_anchors_halve_the_weight_cap(self):
+        a = pf.Name("A", 1, {"bear": 0, "base": 1, "bull": 2}, 1.0, 0.3, "auto_anchors", ["ANCHOR_DISAGREE"])
+        b = pf.Name("B", 1, {"bear": 0, "base": .1, "bull": .2}, 0.1, 0.3, "auto_anchors", [])
+        w = pf.target_weights([a, b], max_w=0.8)
+        self.assertAlmostEqual(w["A"], 0.4)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,10 @@
+metric,period,scenario,value,kind,source,as_of
+ai_capex_growth_yoy,2027,bear,0.14,assumption,half of consensus growth; no published bear case (policy/permitting shock per TrendForce risk note),2026-11-22
+ai_capex_growth_yoy,2027,base,0.276,published,"consensus big-4 hyperscaler 2027 capex $934.5B vs 2026 guided $732.5B (io-fund.com citing MarketScreener, Aug 2026); Goldman +32% brackets it",2026-08-01
+ai_capex_growth_yoy,2027,bull,0.62,published,"2027 hyperscaler capex est raised to $1.092T from $863B, +62% YoY (drrobertcastellano.substack.com; secondary)",2026-11-01
+nand_bits_growth_yoy,2027,bear,0.1,assumption,demand below supply growth in oversupply; TrendForce publishes supply only,2026-11-22
+nand_bits_growth_yoy,2027,base,0.2,assumption,TrendForce 2026-11-19: bit SUPPLY +25-30% YoY and outpacing demand; shipped bits assumed below supply,2026-11-19
+nand_bits_growth_yoy,2027,bull,0.3,published,TrendForce 2026-11-19 top of bit supply growth range 25-30%,2026-11-19
+nand_asp_change,2027 exit vs now,bear,-0.35,assumption,"TrendForce gives direction only (0-5% QoQ decline in 1Q27, widening each quarter from 2Q27)",2026-11-22
+nand_asp_change,2027 exit vs now,base,-0.2,assumption,"approx: Q1 -2.5%, then widening declines compounded; TrendForce 2026-11-19 gives no numbers beyond 1Q27",2026-11-19
+nand_asp_change,2027 exit vs now,bull,-0.05,assumption,Chinese CSP inventory clears faster / US demand upgrades offset (TrendForce key swing factors),2026-11-19

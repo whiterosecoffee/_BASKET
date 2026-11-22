@@ -119,18 +119,19 @@ def swap(a: Name, b: Name, shares_a: float, basis_a: float | None, c: Costs, hur
 def target_weights(names: list[Name], max_w: float = 0.5, min_mu: float = 0.0) -> dict[str, float]:
     """w ~ mu/sigma among names with mu > min_mu, capped at max_w (excess redistributed pro rata)."""
     score = {n.ticker: (n.exp / n.sigma if n.sigma and n.exp > min_mu else 0.0) for n in names}
+    cap = {n.ticker: (max_w / 2 if any(f.startswith("ANCHOR_DISAGREE") for f in n.flags) else max_w) for n in names}
     w = {t: 0.0 for t in score}
     free, budget = {t for t, s in score.items() if s > 0}, 1.0
     while free and budget > 1e-12:
         tot = sum(score[t] for t in free)
-        over = {t for t in free if budget * score[t] / tot > max_w - w[t] + 1e-12}
+        over = {t for t in free if budget * score[t] / tot > cap[t] - w[t] + 1e-12}
         if not over:
             for t in free:
                 w[t] += budget * score[t] / tot
             break
         for t in over:
-            budget -= max_w - w[t]
-            w[t] = max_w
+            budget -= cap[t] - w[t]
+            w[t] = cap[t]
         free -= over
     return w
 

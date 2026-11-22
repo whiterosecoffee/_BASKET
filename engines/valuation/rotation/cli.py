@@ -4,9 +4,11 @@ from __future__ import annotations
 import argparse
 import csv
 import sys
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
+from . import anchors as an
+from . import history as hist
 from . import portfolio as pf
 from . import store
 from .implied import implied_growth
@@ -119,14 +121,73 @@ def _names(a, asof, data):
         sig = pf.realised_vol(bars, a.horizon)
         if t in tg:
             ret = pf.normalise_returns(tg[t]["raw"], s["price"], asof, a.horizon)
-            out.append(pf.Name(t, s["price"], ret, sum(w * ret[k] for w, k in zip(probs, pf.SCEN)), sig, "user_target",
-                               flags + tg[t]["flags"]))
+            src = " ".join(r["source"] for r in tg[t]["raw"].values())
+            auto = src.startswith("auto:")
+            out.append(pf.Name(t, s["price"], ret, sum(w * ret[k] for w, k in zip(probs, pf.SCEN)), sig, "auto_anchors" if auto else "user_target",
+                               flags + tg[t]["flags"] + (["ANCHOR_DISAGREE"] if "ANCHOR_DISAGREE" in src else [])))
         elif v.usable and (sc := scenarios(v, Params(horizon_months=a.horizon))):
             ret = {k: sc[k] for k in pf.SCEN}
             out.append(pf.Name(t, s["price"], ret, sc["exp"], sig, "model", flags))
         else:
             print(f"skip {t}: no targets and model not usable ({','.join(v.flags) or 'no data'})", file=sys.stderr)
     return out
+
+
+def _anchor_run(a, asof, data):
+    snaps = store.load_ratios(data / "ratios.csv", asof)
+    ests = store.load_estimates(data / "estimates.csv", asof)
+    guide = store.load_guidance(data / "guidance.csv", asof)
+    ind = an.load_industry(data / "industry.csv", asof)
+    cmap = an.load_map(data / "anchor_map.json")
+    w = {"F": a.w_f, "I": a.w_i, "R": a.w_r}
+    prices = {t: store.load_prices(data / "prices" / f"{t}.csv", asof) for t in snaps}
+    ratio = an.anchor_R({t: p for t, p in prices.items() if p}, lam=a.lam)
+    out = {}
+    for t, s in sorted(snaps.items()):
+        cfg = cmap.get(t, {})
+        v = build_view(t, s, ests, asof)
+        ev_info = {"ev": s["enterprise_value"], "mcap": s["market_cap"]}
+        bars = store.load_bars(data / "prices" / f"{t}.csv", asof)
+        rows = hist.load_fund(data / "fundamentals" / f"{t}_quarterly.csv")
+        mh = hist.multiple_history(bars, rows) if rows and bars else {"pe": []}
+        st = hist.stats(mh["pe"])
+        ok = bool(st) and hist.eps_regime_ok(rows, asof)
+        sig = pf.realised_vol(bars, a.horizon)
+        band_i = a.band if a.band is not None else (min(0.5, max(0.15, sig)) if sig else 0.15)
+        tn = hist.ttm_at(rows, asof) if rows else None
+        trailing_now = s["price"] / tn["eps"] if tn and tn["eps"] > 0 else None
+        anch = {"F": an.anchor_F(t, v, cfg, guide, st, ok, trailing_now, a.horizon, a.rerate, band_i, ev_info),
+                "I": an.anchor_I(t, v, cfg, ind, guide, ev_info), "R": ratio.get(t)}
+        if anch["F"]:
+            anch["F"]["flags"].append(f"BAND={band_i:.0%}{'(auto=realised vol, clamp 15-50%)' if a.band is None else ''}")
+        out[t] = {"price": s["price"], "anchors": anch, "blend": an.blend(anch, w), "view": v, "hist": st}
+    return out
+
+
+def cmd_anchors(a) -> int:
+    data, asof = Path(a.data), date.fromisoformat(a.asof) if a.asof else date.today()
+    res = _anchor_run(a, asof, data)
+    print(f"Anchors as of {asof}, horizon {a.horizon}m, weights F{a.w_f:.0%} I{a.w_i:.0%} R{a.w_r:.0%}, rerate toward hist median {a.rerate:.0%}, multiple band {'auto' if a.band is None else format(a.band, '.0%')}\n")
+    print("TICKER  ANCHOR  BEAR     BASE     BULL    FLAGS")
+    for t, r in res.items():
+        for k in ("F", "I", "R"):
+            x = r["anchors"][k]
+            print(f"{t:<7} {k:<7} " + (" ".join(_f(x['ret'][s], 7, 1, True) for s in an.SC) + "  " + " ".join(x["flags"]) if x else "   n/a (no inputs)"))
+        b = r["blend"]
+        print(f"{t:<7} BLEND   " + " ".join(_f(b['ret'][s], 7, 1, True) for s in an.SC) + f"  -> targets {', '.join(f'{r['price']*(1+b['ret'][s]):.2f}' for s in an.SC)}  " + " ".join(b["flags"]))
+        if r["hist"]:
+            h = r["hist"]
+            print(f"        hist P/E {h['first']}..{h['last']}: p25 {h['p25']:.1f} median {h['median']:.1f} p75 {h['p75']:.1f}  (now {r['view'].ntm_pe or float('nan'):.1f} NTM)")
+        print()
+    if a.write:
+        when = (asof + timedelta(days=round(30.4375 * a.horizon))).isoformat()
+        rows = []
+        for t, r in res.items():
+            for s in an.SC:
+                rows.append({"ticker": t, "scenario": s, "target_price": round(r["price"] * (1 + r["blend"]["ret"][s]), 4), "horizon_date": when,
+                             "source": f"auto:build-targets w=F{a.w_f}/I{a.w_i}/R{a.w_r} " + " ".join(r["blend"]["flags"]), "as_of": asof.isoformat()})
+        print(f"appended {store.append_csv(data / 'targets.csv', pf.TARGET_FIELDS, rows)} auto-generated targets (override by appending your own rows with a later as_of)")
+    return 0
 
 
 def cmd_swap(a) -> int:
@@ -244,6 +305,12 @@ def main(argv=None) -> int:
         else:
             s.add_argument("--max-weight", type=float, default=0.5); s.add_argument("--band", type=float, default=0.10)
             s.add_argument("--stage", type=float, default=0.33); s.add_argument("--record", action="store_true", help="append paper trades to ledger.csv")
+    s = sub.add_parser("anchors"); s.set_defaults(fn=cmd_anchors)
+    s.add_argument("--asof"); s.add_argument("--horizon", type=int, default=12)
+    s.add_argument("--w-f", type=float, default=0.5); s.add_argument("--w-i", type=float, default=0.3); s.add_argument("--w-r", type=float, default=0.2)
+    s.add_argument("--rerate", type=float, default=0.0, help="fraction of the way multiples move toward their historical TRAILING P/E quartiles (default 0 = off)")
+    s.add_argument("--band", type=float, default=None, help="multiple compression/expansion band; default auto = realised horizon vol clamped to 15-50%%"); s.add_argument("--lam", type=float, default=0.25, help="ratio reversion fraction")
+    s.add_argument("--write", action="store_true", help="append blended targets to targets.csv")
     s = sub.add_parser("simulate"); s.set_defaults(fn=cmd_simulate)
     s.add_argument("a"); s.add_argument("b"); s.add_argument("--asof"); s.add_argument("--lookback", type=int, default=60)
     s.add_argument("--band", type=float, default=0.10); s.add_argument("--cost", type=float, default=0.002)

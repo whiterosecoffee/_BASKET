@@ -36,6 +36,13 @@ Answers: *"Is it worth rotating from HELD to CANDIDATE, after costs, taxes and c
 - `CONTESTED`: clears hurdle but not in every scenario. `HOLD`: below hurdle.
 Re-ratings you expect at earnings are explicit inputs: `--rerate NVDA=1.10`. Nothing is inferred about earnings outcomes.
 
+## Auto targets from three anchors (`anchors.py`, `history.py`)
+`cli anchors [--write]` builds bear/base/bull returns over the horizon from three independent anchors and blends them (default F 50% / I 30% / R 20%, renormalised if one is missing). `--write` appends them to `targets.csv` with `source=auto:...`; your own rows with a later `as_of` override them.
+- **F, standardized estimates:** company estimates/guidance (NVDA consensus EPS path, SNDK guided run-rate, CRWV backlog-conversion revenue with EV/sales held constant and net debt rolled forward). The multiple moves by a flat band by default; the band is the realised horizon volatility clamped to 15-50%. `--rerate w` (default off) moves the multiple `w` of the way toward historical TRAILING P/E quartiles, compared like for like with today's trailing P/E; it is off by default because history is a poor target once growth matures.
+- **I, industry forecasts:** `industry.csv` scenarios, each tagged `published` or `assumption`, translated by `anchor_map.json` (NVDA: EPS growth = beta x hyperscaler capex growth; SNDK: a bits x price P&L bridge using TrendForce supply and price direction; CRWV: revenue tracks capex growth). Every translation parameter is an editable assumption.
+- **R, historical spot ratio:** each name's price ratio to every other name, partially reverted (`--lam`, default 25%) toward its own 250-day median. Relative-only and zero-sum across the cohort. Low weight on purpose: the price-only simulation showed ratio reversion accumulates no shares when the ratio trends.
+- **Guards:** `ANCHOR_DISAGREE` when anchor base returns differ by >50pp (the name's weight cap is halved in `rebalance`); `HIST_UNRELIABLE` when history is short or EPS changed regime >6x; `history.py` normalises split-adjusted vs unadjusted share counts (Massive mixes them) and replaces filing dates that are >120 days late with period end + 45 days.
+
 ## Implied expectations (`implied.py`)
 Reverse DCF on trailing FCF: the constant 10-year FCF growth that justifies today's market cap at `r = 10y yield + ERP` (default 4.5%) and 3% terminal growth. These are assumptions, not facts. Compare with consensus before setting `targets.csv`. Note Massive's TTM FCF can lag the last four reported quarters (NVDA: 127.0B vs 148.6B from releases), which understates the market's pessimism.
 
