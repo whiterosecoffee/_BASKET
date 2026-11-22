@@ -5,6 +5,7 @@ from dataclasses import dataclass, field
 from datetime import date, timedelta
 
 from .calendarize import ntm
+from .macro import multiple_factor
 from .metrics import View, _frac
 
 
@@ -15,6 +16,7 @@ class Params:
     probs: tuple[float, float, float] = (0.25, 0.50, 0.25)  # bear, base, bull
     round_trip_cost: float = 0.0020      # fraction of position (spread + slippage, both legs)
     tax_rate: float = 0.0                # applied to unrealised gain on HELD if sold
+    rate_shock_bp: float = 0.0           # parallel discount-rate shock applied to every multiple via equity duration
     hurdle: float = 0.08                 # minimum after-friction edge over the horizon
     catalyst_window_days: int = 21
     rerate: dict = field(default_factory=dict)  # ticker -> target multiple factor (e.g. 1.10 = expect +10% re-rating)
@@ -26,7 +28,7 @@ def exp_return(v: View, p: Params, scen: float, rerate: float = 1.0) -> float | 
     fwd = ntm(v.eps, t.year, _frac(t))
     if not (fwd and v.ntm_eps and v.ntm_eps > 0 and fwd > 0):
         return None
-    return fwd / v.ntm_eps * rerate * (1 + scen) - 1
+    return fwd / v.ntm_eps * rerate * (1 + scen) * multiple_factor(v.duration, p.rate_shock_bp) - 1
 
 
 def scenarios(v: View, p: Params) -> dict[str, float] | None:

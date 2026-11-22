@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 from datetime import date
 
 from .calendarize import calendarize, extend, ntm
+from .macro import equity_duration
 from .store import Est
 
 YEARS = (2026, 2027, 2028, 2029, 2030)
@@ -28,6 +29,9 @@ class View:
     est_age_days: int | None = None
     flags: list[str] = field(default_factory=list)
     resid: float | None = None  # growth-adjusted rich(+)/cheap(-) vs cohort, in P/E turns
+    fcf_yield: float | None = None
+    duration: float = 40.0
+
 
     def pe(self, y: int) -> float | None:
         e = self.eps.get(y)
@@ -75,6 +79,11 @@ def _series(ests: dict[int, Est] | None):
 
 def build_view(ticker: str, snap: dict, estimates: dict, as_of: date) -> View:
     v = View(ticker, snap["price"], as_of, snap["asof"], market_cap=snap["market_cap"], ev=snap["enterprise_value"])
+    fcf = _num(snap.get("free_cash_flow"))
+    v.fcf_yield = fcf / snap["market_cap"] if fcf is not None and snap["market_cap"] else None
+    v.duration, dflag = equity_duration(v.fcf_yield)
+    if dflag:
+        v.flags.append(dflag)
     if (as_of - snap["asof"]).days > PRICE_STALE_DAYS:
         v.flags.append("STALE_PRICE")
     newest = []

@@ -8,6 +8,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 from . import store
+from .macro import load_yields, multiple_factor
 from .tape import tape_stats
 from .metrics import YEARS, add_growth_adjusted_residuals, build_view, ratio_stats
 from .rotation import Params, decide
@@ -43,6 +44,16 @@ def cmd_report(a) -> int:
         print(f"{v.ticker:<6} {v.price:>7.2f} {_f(v.ntm_pe,7)} " + " ".join(_f(v.pe(y)) for y in YEARS)
               + f" {_f(v.cagr,6,0,True)} {_f(v.peg,5,2)} {_f(v.ev_sales_ntm,5)} {_f(v.resid,6)}  "
               f"{str(earn.get(v.ticker) or '-'):>10}  {' '.join(v.flags)}")
+    ys = load_yields(data / "macro" / "treasury_yields.csv", asof)
+    if ys:
+        (d1, a), (d0, b) = ys[-1], ys[max(0, len(ys) - 6)]
+        print(f"\nRATES {d1}: 2y {a['yield_2_year']}  10y {a['yield_10_year']}  30y {a['yield_30_year']}  "
+              f"(vs {d0}: 10y {float(a['yield_10_year'])-float(b['yield_10_year']):+.2f}pp, 2y {float(a['yield_2_year'])-float(b['yield_2_year']):+.2f}pp)")
+    print("\nRATE SENSITIVITY  (multiple change = -duration x shock; duration ~ 1/FCF yield, capped 3-40y)")
+    print("TICKER  FCF_YIELD  DURATION   +25bp   +50bp  +100bp")
+    for v in views:
+        print(f"{v.ticker:<6} {_f(v.fcf_yield,9,1,True)} {v.duration:>9.1f} " + " ".join(_f(multiple_factor(v.duration, b) - 1, 7, 1, True) for b in (25, 50, 100))
+              + ("   (capped)" if any(f.endswith("CAPPED") for f in v.flags) else ""))
     if tapes:
         print("\nTAPE (daily bars; volume averages exclude the last bar)")
         print("TICKER  CLOSE  1D%    5D%   10D%  LOW_52W  ON_DATE     VOL_ON_LOW  %>LOW  %<HIGH  LOWEST_LOW  ON_DATE     LAST_VOL  x20D  x50D")
@@ -57,9 +68,9 @@ def cmd_report(a) -> int:
         if not held:
             print(f"\n{a.hold} has no snapshot.")
             return 1
-        p = Params(horizon_months=a.horizon, hurdle=a.hurdle, tax_rate=a.tax, round_trip_cost=a.cost,
+        p = Params(horizon_months=a.horizon, hurdle=a.hurdle, rate_shock_bp=a.rate_shock_bp, tax_rate=a.tax, round_trip_cost=a.cost,
                    rerate={k.upper(): float(x) for k, x in (kv.split("=") for kv in a.rerate)})
-        print(f"\nRotation from {held.ticker} (horizon {p.horizon_months}m, hurdle {p.hurdle:.0%}, cost {p.round_trip_cost:.2%}, tax {p.tax_rate:.0%})")
+        print(f"\nRotation from {held.ticker} (horizon {p.horizon_months}m, rate shock {p.rate_shock_bp:+.0f}bp, hurdle {p.hurdle:.0%}, cost {p.round_trip_cost:.2%}, tax {p.tax_rate:.0%})")
         print("CAND    SIGNAL            EXP_EDGE  BEAR   BASE   BULL  ROBUST  RESID_GAP  NOTES")
         for v in views:
             if v is held:
@@ -111,6 +122,7 @@ def main(argv=None) -> int:
     r = sub.add_parser("report")
     r.add_argument("--asof"); r.add_argument("--hold")
     r.add_argument("--horizon", type=int, default=12); r.add_argument("--hurdle", type=float, default=0.08)
+    r.add_argument("--rate-shock-bp", type=float, default=0.0, help="parallel rate shock applied to all multiples via equity duration")
     r.add_argument("--tax", type=float, default=0.0); r.add_argument("--cost", type=float, default=0.002)
     r.add_argument("--rerate", nargs="*", default=[], help="TICKER=1.10 expected re-rating factor")
     r.set_defaults(fn=cmd_report)

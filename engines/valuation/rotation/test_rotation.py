@@ -6,6 +6,7 @@ from pathlib import Path
 from engines.valuation.rotation import cli, store
 from engines.valuation.rotation.calendarize import calendarize, extend, ntm
 from engines.valuation.rotation.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
+from engines.valuation.rotation.macro import equity_duration, multiple_factor
 from engines.valuation.rotation.tape import tape_stats
 from engines.valuation.rotation.rotation import Params, decide
 
@@ -112,6 +113,19 @@ class T(unittest.TestCase):
         hl = ratio_stats(a, b)["half_life_days"]
         self.assertIsNotNone(hl)
         self.assertTrue(1.5 < hl < 8, hl)  # true AR(0.8) half-life ~3.1 days
+
+    def test_duration_inverse_of_fcf_yield_and_capped(self):
+        self.assertAlmostEqual(equity_duration(0.05)[0], 20.0)
+        self.assertEqual(equity_duration(-0.1), (40.0, "NEG_FCF_DURATION_CAPPED"))
+        self.assertEqual(equity_duration(0.5)[0], 3.0)
+        self.assertAlmostEqual(multiple_factor(20.0, 50), 0.90)
+
+    def test_rate_shock_favours_short_duration_candidate(self):
+        h, c = self._pair({2026: 4, 2027: 4.6, 2028: 5.3}, {2026: 4, 2027: 4.4, 2028: 4.8})
+        h.duration, c.duration = 30.0, 5.0
+        base = decide(h, c, Params(), None, {})
+        shock = decide(h, c, Params(rate_shock_bp=100), None, {})
+        self.assertGreater(shock["edge"]["base"], base["edge"]["base"])
 
     def _pair(self, held_eps, cand_eps):
         h = build_view("HLD", snap(100), est("HLD", held_eps), ASOF)
