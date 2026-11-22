@@ -1,0 +1,179 @@
+{
+  "schema": "research.note@1",
+  "ticker": "CRWV",
+  "currency": "USD",
+  "research_only": true,
+  "created_at": "2026-10-29T23:46:15.982256+00:00",
+  "owner_issue": 121,
+  "branch": "work/121-neocloud-market-research",
+  "snapshot": {
+    "source": "Massive minute aggregates",
+    "cutoff": "2026-10-29T19:31:00-04:00",
+    "latest": 57.6,
+    "after_hours_low": 56.42,
+    "activity": {
+      "shares": 2750821.422168,
+      "dollars": 159923145.47773418,
+      "bars": 210,
+      "vwap": 58.136505768409435
+    },
+    "method": "ticker-patterns@1.0.0",
+    "feed_status": "delayed; realtime entitlement unverified",
+    "data_hash": "ec6812d2073bab84ee5420d25579a9169836d1cbdf6d7edd4f3e9baa3c7b9493",
+    "canonical_capture_status": "not appended to B02 canonical store; research note only"
+  },
+  "window15": {
+    "score": 1.2257370621963972,
+    "path": {
+      "signed_efficiency": 0.1206030150753809,
+      "gross_ranges": 0.22309417040358842,
+      "net_ranges": 0.02690582959641357,
+      "state": "observed_close_path"
+    },
+    "activity": {
+      "shares": 22846.613869,
+      "dollars": 1314076.4782857236,
+      "bars": 15,
+      "vwap": 57.51734089876492
+    },
+    "net": 0.12000000000000455
+  },
+  "window30": {
+    "score": 1.0201832705939413,
+    "net": 0.490000000000002
+  },
+  "screenshot_observation": {
+    "source": "user Nasdaq screenshot",
+    "observed_at": "2026-10-29T19:43:00-04:00",
+    "price": 57.56,
+    "regular_close": 60.74,
+    "prior_close": 63.93,
+    "afterhours_pct": -5.235429700362204,
+    "prior_close_pct": -9.964023150320656
+  },
+  "interpretation": {
+    "state": "regular rebound failed; afterhours markdown followed by weak stabilization",
+    "causal_hypothesis": "Amazon earnings/cashflow repricing transmitted to AI infrastructure; no causal proof",
+    "probability": null,
+    "range_status": "retrospective session envelope, not validated frozen range",
+    "quality": "minute aggregates are gross turnover, not signed order flow; 15:59 close 60.72 differs from official auction close 60.74"
+  },
+  "sources": [
+    "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/default.aspx",
+    "https://stockanalysis.com/stocks/crwv/history/"
+  ],
+  "earlier_peer_screen": {
+    "CRWV": {
+      "price": 63.26,
+      "equity_value_b": 34.89020544252,
+      "quote_minute_start_et": "2026-10-29T12:53:00-04:00",
+      "capacity_evidence": {
+        "active_mw": 1500,
+        "active_date": "2026-06-30",
+        "contracted_power_mw": 3700,
+        "customer_contracted_mw": null,
+        "source": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx"
+      }
+    },
+    "NBIS": {
+      "price": 176.04,
+      "equity_value_b": 47.85739257672,
+      "quote_minute_start_et": "2026-10-29T12:53:00-04:00",
+      "capacity_evidence": {
+        "current_active_mw": null,
+        "year_end_contracted_power_target_mw": 5000,
+        "deployment_target_2027_mw": 1000,
+        "deployment_target_qualifier": "more than 1000 per year starting 2027; guidance",
+        "source": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-2.htm"
+      }
+    },
+    "IREN": {
+      "price": 26.905,
+      "equity_value_b": 10.60214792444,
+      "quote_minute_start_et": "2026-10-29T12:53:00-04:00",
+      "capacity_evidence": {
+        "operating_ai_mw_june30": 40,
+        "horizon1_accepted_it_mw_august": 50,
+        "year_end2026_target_it_mw": 300,
+        "year_end2027_target_it_mw": 800,
+        "power_agreements_and_letters_mw": 5000,
+        "source": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000052/iren-20260630.htm"
+      }
+    },
+    "DOCN": {
+      "price": 100.96,
+      "equity_value_b": 11.870831368,
+      "quote_minute_start_et": "2026-10-29T12:53:00-04:00",
+      "capacity_evidence": {
+        "comparable_capacity_mw": null,
+        "quarter_revenue_m": 281.184,
+        "source": "https://investors.digitalocean.com/news/news-details/2026/DigitalOcean-Announces-Second-Quarter-2026-Financial-Results/default.aspx"
+      }
+    },
+    "APLD": {
+      "price": 19.7997,
+      "equity_value_b": 5.987174655858,
+      "quote_minute_start_et": "2026-10-29T12:53:00-04:00",
+      "capacity_evidence": {
+        "operational_it_mw_oct1": 250,
+        "leased_it_mw": 1410,
+        "year_end2026_target_it_mw": 300,
+        "source": "https://ir.applieddigital.com/sec-filings/all-sec-filings/content/0001144879-26-000057/apldq127earningsrelease.htm"
+      }
+    },
+    "CIFR": {
+      "price": 8.3178,
+      "equity_value_b": 3.4521425394516,
+      "quote_minute_start_et": "2026-10-29T12:53:00-04:00",
+      "capacity_evidence": {
+        "contracted_gross_mw": 700,
+        "billing_mw": null,
+        "billing_status": "Black Pearl first rent August; exact MW unavailable",
+        "stingray_delivery": "H1 2027",
+        "source": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000038/cipherdigital_businessup.htm"
+      }
+    },
+    "WULF": {
+      "price": 12.97,
+      "equity_value_b": 6.47162374069,
+      "quote_minute_start_et": "2026-10-29T12:53:00-04:00",
+      "capacity_evidence": {
+        "revenue_generating_it_mw_july": 102,
+        "construction_it_mw": 336,
+        "additional_anthropic_leased_it_mw": 401,
+        "additional_anthropic_initial_delivery": "H2 2027",
+        "source": "https://investors.terawulf.com/news-events/press-releases/detail/144/terawulf-reports-second-quarter-2026-results"
+      }
+    },
+    "CORZ": {
+      "price": 14.63,
+      "equity_value_b": 4.70121065183,
+      "quote_minute_start_et": "2026-10-29T12:53:00-04:00",
+      "capacity_evidence": {
+        "billing_mw_midjuly": 437,
+        "leased_it_mw": 1100,
+        "source": "https://investors.corescientific.com/news-events/press-releases/detail/139/core-scientific-announces-second-quarter-2026-results"
+      }
+    },
+    "HUT": {
+      "price": 67.695,
+      "equity_value_b": 8.34404968626,
+      "quote_minute_start_et": "2026-10-29T12:54:00-04:00",
+      "capacity_evidence": {
+        "contracted_it_mw": 949,
+        "large_campus_billable_mw": null,
+        "initial_deliveries": {
+          "River Bend": "Q2 2027",
+          "Beacon Point": "Q3 2027"
+        },
+        "source": "https://www.sec.gov/Archives/edgar/data/1964789/000110465926090041/tm2621890d1_ex99-1.htm"
+      }
+    }
+  },
+  "peer_screen_limits": "historical 12:53/54 ET prices; reported capacity has mixed dates/definitions; incomplete project debt, funding gap and dilution reconciliation; subjective scores withdrawn as non-calibrated",
+  "remaining_work": [
+    "B02 append canonical observations through owning ingestion path",
+    "Reconcile peer unfunded completion costs and diluted cash earnings",
+    "No merged main or hosted service claim"
+  ]
+}

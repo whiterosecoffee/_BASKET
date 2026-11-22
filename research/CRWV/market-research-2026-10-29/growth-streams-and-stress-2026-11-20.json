@@ -1,0 +1,521 @@
+{
+  "schema": "crwv.growth_stress_research@1",
+  "method_version": "existing_earnings_to_price_research@1",
+  "observed_at": "2026-11-21T04:44:47.396Z",
+  "available_at": "2026-11-21T04:44:47.396Z",
+  "first_available_at": null,
+  "ingested_at": "2026-11-21T04:44:47.396Z",
+  "currency": "USD",
+  "units": "billions unless noted",
+  "source_cutoff": "2026-11-20 Phoenix; source periods and dates retained separately",
+  "status": "source_verified_opportunities_with_unfunded_sensitivities_not_company_forecast",
+  "ownership": {
+    "issue": 121,
+    "branch": "work/121-neocloud-market-research",
+    "pr": 122,
+    "write_scope": "research/CRWV/market-research-2026-10-29/**",
+    "engine_owner": 86,
+    "no_new_engine": true
+  },
+  "sources": [
+    {
+      "id": "q3",
+      "source_class": "issuer_results",
+      "published_on": "2026-11-10",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Third-Quarter-2026-Results/default.aspx",
+      "observed_at": "2026-11-21T04:44:47.396Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed; current retrieval is a known-by bound"
+    },
+    {
+      "id": "call",
+      "source_class": "management_statement",
+      "published_on": "2026-11-10",
+      "url": "https://s205.q4cdn.com/133937190/files/content_files/CoreWeave-3Q26-Transcript-_1_.pdf",
+      "observed_at": "2026-11-21T04:44:47.396Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed; current retrieval is a known-by bound"
+    },
+    {
+      "id": "filing",
+      "source_class": "issuer_filing",
+      "published_on": "2026-11-12",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "observed_at": "2026-11-21T04:44:47.396Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed; current retrieval is a known-by bound"
+    },
+    {
+      "id": "forge",
+      "source_class": "issuer_product_announcement",
+      "published_on": "2026-09-30",
+      "url": "https://www.coreweave.com/news/coreweave-forge-launches-turning-the-ai-loop-production-run-into-a-better-model-and-agent",
+      "observed_at": "2026-11-21T04:44:47.396Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed; current retrieval is a known-by bound"
+    },
+    {
+      "id": "rubin",
+      "source_class": "issuer_and_customer_benchmark_claim",
+      "published_on": "2026-09-30",
+      "url": "https://www.coreweave.com/news/coreweave-delivers-nvidia-vera-rubin-nvl72-performance-at-production-scale-starting-with-cognition",
+      "observed_at": "2026-11-21T04:44:47.396Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed; current retrieval is a known-by bound"
+    },
+    {
+      "id": "nvda",
+      "source_class": "counterparty_announcement",
+      "published_on": "2026-01-26",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-and-coreweave-strengthen-collaboration-to-accelerate-buildout-of-ai-factories",
+      "observed_at": "2026-11-21T04:44:47.396Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed; current retrieval is a known-by bound"
+    },
+    {
+      "id": "ldos",
+      "source_class": "issuer_collaboration_announcement",
+      "published_on": "2026-07-30",
+      "url": "https://www.coreweave.com/news/leidos-and-coreweave-collaborate-to-accelerate-delivery-of-ai-capabilities-for-defense-national-security-and-intelligence-missions",
+      "observed_at": "2026-11-21T04:44:47.396Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed; current retrieval is a known-by bound"
+    },
+    {
+      "id": "darpa",
+      "source_class": "issuer_deployment_announcement",
+      "published_on": "2026-09-09",
+      "url": "https://investors.coreweave.com/news/news-details/2026/Parallel-Works-and-CoreWeave-to-Accelerate-DARPA-Biological-Research-with-Fully-Managed-AI-Cloud-Environment/default.aspx",
+      "observed_at": "2026-11-21T04:44:47.396Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed; current retrieval is a known-by bound"
+    },
+    {
+      "id": "ssd",
+      "source_class": "issuer_supply_agreement",
+      "published_on": "2026-08-05",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Signs-Multi-Year-Agreement-With-Solidigm-to-Strengthen-Its-Integrated-AI-Cloud-Platform/default.aspx",
+      "observed_at": "2026-11-21T04:44:47.396Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed; current retrieval is a known-by bound"
+    },
+    {
+      "id": "google",
+      "source_class": "counterparty_product_announcement",
+      "published_on": "2026-04-22",
+      "url": "https://cloud.google.com/blog/products/networking/whats-new-in-cloud-networking-at-next26",
+      "observed_at": "2026-11-21T04:44:47.396Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed; current retrieval is a known-by bound"
+    },
+    {
+      "id": "iea",
+      "source_class": "independent_sector_projection",
+      "published_on": "2026",
+      "url": "https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary",
+      "observed_at": "2026-11-21T04:44:47.396Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed; current retrieval is a known-by bound"
+    },
+    {
+      "id": "estimates",
+      "source_class": "third_party_Street_forecast",
+      "published_on": "2026-11-19",
+      "url": "https://tenetinvesting.com/stock/CRWV/analyst",
+      "observed_at": "2026-11-21T04:44:47.396Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed; current retrieval is a known-by bound"
+    },
+    {
+      "id": "nvda_closed",
+      "source_class": "issuer_filing",
+      "published_on": "2026-01-26",
+      "effective_on": "2026-01-23",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000044/crwv-20260123.htm",
+      "observed_at": "2026-11-21T04:46:29.901Z",
+      "available_at": null,
+      "original_publication_time": "Not reconstructed"
+    }
+  ],
+  "price": {
+    "value": 40.9453,
+    "regular_close": 39.51,
+    "date": "2026-11-20",
+    "session": "Massive daily after-hours summary",
+    "exact_trade_timestamp": null,
+    "not_live": true
+  },
+  "financial_reality": {
+    "period_end": "2026-09-30",
+    "source": [
+      "q3",
+      "filing"
+    ],
+    "revenue_Q3": 3.661,
+    "GAAP_OI_Q3": 0.207,
+    "net_interest_Q3": 0.846,
+    "GAAP_net_loss_Q3": -0.709,
+    "one_reportable_segment": true,
+    "committed_revenue_pct": 98,
+    "customer_A_Q3_pct": 24,
+    "customer_B_Q3_pct": 30,
+    "largest_two_Q3_pct": 54,
+    "customer_identity_mapping": "A/B not assigned to named customers without source proof; customer count diversification does not equal revenue diversification",
+    "active_power_GW_over": 1.7,
+    "contracted_power_GW_over": 4.6,
+    "international_contracted_GW_over": 1.3,
+    "billable_MW": null,
+    "power_rule": "Contracted/active/accepted/billable not interchangeable. Both GW disclosures are lower bounds, not precise point estimates; do not multiply fleet-wide $/MW using mixed definitions.",
+    "international_capacity_is_subset": true,
+    "reported_new_contract_pricing": {
+      "source": "call",
+      "annual_long_duration_USD_m_per_MW": [
+        20,
+        25
+      ],
+      "annual_short_duration_USD_m_per_MW_over": 40,
+      "qualification": "Management statements on new offers, not fleet-wide realized revenue; check IT/site power and period definitions before multiplying."
+    }
+  },
+  "revenue_streams": [
+    {
+      "id": "committed_compute",
+      "evidence": "98% of Q3 and nine-month revenue relates to customer commitments, including pre-start deliveries; company one reportable segment",
+      "source": [
+        "filing"
+      ],
+      "maturity": "principal recognized business",
+      "economic_driver": "Deliver and obtain acceptance of financed clusters; renew/profit on time",
+      "risk": "Concentration, delivery terms, working capital and debt service",
+      "falsifier": "Higher active power fails to become accepted/billable capacity and revenue",
+      "double_counting_rule": "OpenAI/Meta/hyperscaler spending is customer budget, not extra revenue beyond contracts already counted"
+    },
+    {
+      "id": "renewals_and_short_duration",
+      "evidence": "Management:130k GPUs off initial contracts2027 and170k2028, approaching4B/10B annualized renewal opportunity at then pricing; outside reported backlog opportunity; not all contracted",
+      "source": [
+        "call"
+      ],
+      "maturity": "Existing fleet; future cohort renewal opportunity",
+      "economic_driver": "Paid-off hardware and eventual depreciation runoff may improve cash/margins; more short-duration price premium",
+      "risk": "Obsolescence, price resets, hardware repair/refresh, uncontracted renewal demand",
+      "falsifier": "Renewal price/life/cash after maintenance fails promised payback",
+      "double_counting_rule": "Do not add4B plus10B or add renewal opportunity on top of consensus without inclusion check; ARR is not annual recognized revenue"
+    },
+    {
+      "id": "Forge_software",
+      "evidence": "Weights & Biases, OpenPipe post-training, marimo, ARIA, Registry, inference, Free/Pro/Enterprise; Canva and MasterClass named.70% of Q3 new cloud customers already Forge users is management customer-count claim.",
+      "source": [
+        "forge",
+        "call"
+      ],
+      "maturity": "Available platform; separately measured standalone economics not disclosed in reviewed filing",
+      "economic_driver": "Paid subscriptions/platform services and cloud expansion; customer acquisition/retention and operating leverage",
+      "risk": "Free-to-paid conversion, competing/open tooling, service costs and acquisitive SBC/intangible costs",
+      "falsifier": "Software users grow without paid conversion, net retention or profitable compute expansion",
+      "double_counting_rule": "Software usage and resulting cloud use may be overlapping billing, not two full independent TAMs;70% new logos is not70% revenue"
+    },
+    {
+      "id": "inference_post_training_agents",
+      "evidence": "Inference, managed deployment, serverlessRL/SFT/distillation and previewRLrollouts in Forge; Cognition reference workloads",
+      "source": [
+        "forge",
+        "rubin"
+      ],
+      "maturity": "Commercial features with some previews; product P&L undisclosed",
+      "economic_driver": "Production agent loops, reasoning, post-training and evaluation increase compute demand and managed-service attachment",
+      "risk": "Lower price/token, hyperscaler/custom silicon competition, serving fragmentation and latency constraints",
+      "falsifier": "Token workloads grow but realized revenue and gross profit per deployed dollar fail to improve",
+      "double_counting_rule": "Per-token price formula applies to token-billed workload economics; total CRWV revenue includes other billing units"
+    },
+    {
+      "id": "Omni",
+      "evidence": "Management says first customer signed; operating CoreWeave stack on customer-owned third-party infrastructure without purchasing those assets",
+      "source": [
+        "call"
+      ],
+      "maturity": "Early signed customer, no quantified economics",
+      "economic_driver": "Potentially less company capex per new managed-capacity dollar; platform economics beyond ownedGPU footprint",
+      "risk": "Unknown fees, support costs, liability/SLA terms and gross-versus-net accounting",
+      "falsifier": "Signed deployment fails to scale or service burden consumes fees",
+      "double_counting_rule": "Customer-owned MW not owned/financed CRWV billable MW; infrastructure spend not automatically CRWV gross revenue"
+    },
+    {
+      "id": "verticals_and_sovereign",
+      "evidence": "Wayve robotics/worldmodels; HippocraticAI health; CZI biology; NVIDIA ecosystem; Leidos intended sovereign/defense offerings; DARPA NODES announced deployment through ParallelWorks; >1.3GW international contracted includes India/Indonesia/Spain",
+      "source": [
+        "q3",
+        "ldos",
+        "darpa",
+        "call"
+      ],
+      "maturity": "Mix of named customers, deployment announcement and planned collaborations; not all funded backlog",
+      "economic_driver": "Broader buyer base and sovereignty/integration/security premium",
+      "risk": "Procurement, accreditation/export rules, FX/energy funding/local execution and specialized support",
+      "falsifier": "Announcements do not become signed/funded/accepted services and contribution profit",
+      "double_counting_rule": "Health/robotics/defense are workloads/customer segments, not additive product revenue on top of same cloud reservations"
+    }
+  ],
+  "partnerships": [
+    {
+      "name": "NVIDIA",
+      "sources": [
+        "nvda",
+        "nvda_closed"
+      ],
+      "verified_completed": "2B equity investment at87.20/share announcedJan26; completion of share issuance documented in Jan23 8K",
+      "forward_collaboration": "Accelerate >5GW AI factories by2030; test software/reference interoperability inclSUNK/MissionControl; Rubin/Vera/BlueField",
+      "benefit_inference": "Engineering access, supply/platform integration, financing credibility and potential software distribution",
+      "limits": "Buildout goal/possible reference inclusion not fully funded capacity; no exclusivity, investor price floor, guaranteed residual/trade-in value or shareholder-return protection inferred"
+    },
+    {
+      "name": "GoogleCloud",
+      "sources": [
+        "google"
+      ],
+      "status": "Announced Partner Cross-Cloud Interconnect private-preview path inApril; reviewed source does not establish current GA scope",
+      "benefit_inference": "Less friction moving/connecting workloads; potential larger reachable market",
+      "limits": "Google is also a competitor with its own accelerator stack; connectivity is not exclusive compute demand or guaranteed sales"
+    },
+    {
+      "name": "Solidigm",
+      "sources": [
+        "ssd"
+      ],
+      "status": "Signed multi-year priority enterpriseSSD capacity agreement",
+      "benefit_inference": "Supply assurance for storage-heavy inference/context/datasets",
+      "limits": "Supplier/procurement agreement, not a customer revenue contract; terms/cost not quantified"
+    },
+    {
+      "name": "Leidos",
+      "sources": [
+        "ldos"
+      ],
+      "status": "Collaboration/intent for secure sovereign/federalAI",
+      "benefit_inference": "Mission integration/accreditation route to higher-barrier government demand",
+      "limits": "Do not count a plan as funded award or achieved accreditation"
+    },
+    {
+      "name": "ParallelWorks/DARPA",
+      "sources": [
+        "darpa"
+      ],
+      "status": "Announced deployed NODES environment using reserved H100 compute",
+      "benefit_inference": "Concrete scientific workload example",
+      "limits": "Contract value, margins and renewal rights not established"
+    },
+    {
+      "name": "OpenAI/Meta/hyperscalers",
+      "sources": [
+        "filing"
+      ],
+      "status": "Named significant contracted customers/relationships in filing; service conditions apply",
+      "benefit_inference": "Large demand and financing anchors",
+      "limits": "Concentration/counterparty/refinancing transmission; do not sum old and expanded contracts or count customer spend twice"
+    },
+    {
+      "name": "Grafana/CrowdStrike/VAST",
+      "sources": [
+        "q3"
+      ],
+      "status": "Partner network integrations announced",
+      "benefit_inference": "Operational/security/storage integration improves full-stack adoption",
+      "limits": "Integration announcements do not establish contracted revenue"
+    }
+  ],
+  "emerging_technology": [
+    {
+      "theme": "Agentic and physicalAI",
+      "route": "More inference steps, longer contexts, simulation and repeated post-training/evaluation; hosted core plus lower-latency edge linkage",
+      "evidence": [
+        "forge",
+        "rubin",
+        "ldos"
+      ],
+      "limitation": "An expanded use case is not a quantified paying market; some workloads stay ondevice/onprem"
+    },
+    {
+      "theme": "Rubin/Vera and networking",
+      "route": "Rack-scale systems, high-speed fabric and full-stack scheduling improve throughput and time-to-market",
+      "evidence": [
+        "rubin",
+        "nvda"
+      ],
+      "specific_claim": "Cognition benchmark up-to4.8x total token throughput vsGB200 for specific SWE2 workload;3.8x RL output-token throughput",
+      "limitation": "Company/customer benchmark, not universal or independent fleet average; efficiency gains are not equal revenue gains and can lower olderGPU rental economics"
+    },
+    {
+      "theme": "Context/storage/disaggregated architectures",
+      "route": "Larger state/checkpoints/data and cache hierarchy raise storage/network requirements and service attachment",
+      "evidence": [
+        "ssd",
+        "nvda"
+      ],
+      "limitation": "Extra infrastructure costs and component spending are not automatically higher net margin; no invented unique HBF/revenue exposure"
+    },
+    {
+      "theme": "Cross-cloud and customer-owned infrastructure",
+      "route": "Omni, software and Interconnect address spend outside CoreWeave-owned fleet",
+      "evidence": [
+        "google",
+        "call"
+      ],
+      "limitation": "Gross revenue could be lower than owning entire infrastructure bill; judge contribution profit and return on incremental capital"
+    }
+  ],
+  "TAM": {
+    "independent_anchor": {
+      "source": "iea",
+      "period": "2025–2030",
+      "total_data_center_electricity_TWh": [
+        485,
+        950
+      ],
+      "AI_focused_electricity_growth_multiple": 3,
+      "metrics_are_not_dollar_TAM": true
+    },
+    "company_hurdle": {
+      "FY2026_revenue_guidance_midpoint": 13.15,
+      "FY2030_provider_revenue": 90.3,
+      "provider_forecast_unqualified": true,
+      "revenue_multiple": 6.866920152091255,
+      "annual_growth_pct": 61.87899495984364,
+      "interpretation": "6.87x sales in4years requires strong delivery, mix, market share and/or monetization beyond broad physical demand. Power2025–30 and revenue2026–30 are different metrics/horizons, not a formal market-share calculation."
+    },
+    "layers": [
+      "Global potentialAIapplications",
+      "Economically adopted and funded workloads",
+      "ExternalGPUcloud/managedplatform market reachable by CRWV",
+      "Signed/financeable customer contracts",
+      "Accepted billable capacity",
+      "Revenue net of service costs/depreciation/interest/SBC/taxes/dilution"
+    ],
+    "inference_price_elasticity": {
+      "illustrative": true,
+      "token_volume_multiple": 5,
+      "realized_token_price_multiple": 0.5,
+      "revenue_multiple": 2.5,
+      "limit": "Generic spend identity, not a CRWV token-pricing forecast or claim all company revenue is token billed"
+    },
+    "no_additive_TAM": "Training, inference, robotics, healthcare and sovereignty overlap existing customer budgets; electricity/GPU-capex/cloud revenue/software revenue are not summed into one market."
+  },
+  "stress_assumptions": {
+    "year": 2028,
+    "scenarios_not_forecasts": true,
+    "full_usage_assumed_for_delivered_contracted_capacity": true,
+    "drivers_varied": [
+      "Commissioning and customer acceptance/revenue",
+      "GAAP margin incl depreciation,SBC and operating costs",
+      "Expensed interest",
+      "Diluted shares"
+    ],
+    "tax_on_positive_income_pct": 25,
+    "loss_tax_benefit": 0,
+    "other_pretax_items_b": 0,
+    "company_specific_other_items_unknown": true,
+    "fully_funded": null,
+    "capex_principal_not_in_current_EPS": true,
+    "formula": "EPS=[(revenue*GAAP_operating_margin - net_expensed_interest + other_pretax)*(1-tax if positive else1)]/dilutedshares",
+    "valuation_outputs": "Conditional EPS and diagnostic price/EPS only; no funded fair-value targets or probability weights",
+    "share_denominator_note": "Loss case700M represents an assumed basic weighted common-share count after issuance, excluding antidilutive options/converts. Positive cases650M are hypothetical weighted diluted shares, not sourced forecasts."
+  },
+  "stress_cases": [
+    {
+      "id": "delivery_and_financing_stress",
+      "year": 2028,
+      "revenue_b": 35,
+      "GAAP_operating_margin": 0.12,
+      "expensed_net_interest_b": 7,
+      "shares_b": 0.7,
+      "other_pretax_b": 0,
+      "GAAP_operating_income_b": 4.2,
+      "pretax_b": -2.8,
+      "GAAP_net_income_b": -2.8,
+      "EPS": -4,
+      "diagnostic_PE": null
+    },
+    {
+      "id": "good_conversion",
+      "year": 2028,
+      "revenue_b": 44.36,
+      "GAAP_operating_margin": 0.18,
+      "expensed_net_interest_b": 5.5,
+      "shares_b": 0.65,
+      "other_pretax_b": 0,
+      "GAAP_operating_income_b": 7.9848,
+      "pretax_b": 2.4848,
+      "GAAP_net_income_b": 1.8636,
+      "EPS": 2.867076923076923,
+      "diagnostic_PE": 14.281200364885171
+    },
+    {
+      "id": "strong_renewals_and_platform_mix",
+      "year": 2028,
+      "revenue_b": 50,
+      "GAAP_operating_margin": 0.25,
+      "expensed_net_interest_b": 5,
+      "shares_b": 0.65,
+      "other_pretax_b": 0,
+      "GAAP_operating_income_b": 12.5,
+      "pretax_b": 7.5,
+      "GAAP_net_income_b": 5.625,
+      "EPS": 8.653846153846153,
+      "diagnostic_PE": 4.731456888888889
+    }
+  ],
+  "outyear_hurdle": {
+    "FY2030_Street_EPS": 19.59,
+    "FY2030_Street_NI_separate_panel": 8.5,
+    "provider_panels_inconsistent": true,
+    "implied_shares_from_provider_ratio_m": 433.8948443083206,
+    "ratio_not_actual_forecast_shares": true,
+    "at650Mshares_required_NI_b": 12.733500000000001,
+    "at750Mshares_required_NI_b": 14.692499999999999,
+    "revenue_scenario_b": 90.3,
+    "net_interest_scenario_b": 8,
+    "tax_scenario_pct": 25,
+    "other_pretax_items_assumed0": true,
+    "required_GAAP_operating_margin_pct_650M": 27.66112956810631,
+    "required_GAAP_operating_margin_pct_750M": 30.55370985603544,
+    "correction": "Prior+1197% EPS expansion was arithmetic on unqualified Street panels, not a verified GAAP trajectory; prior2x–5x milestone years remain conditional and not expected dates."
+  },
+  "monitoring_and_falsifiers": [
+    {
+      "id": "delivery",
+      "required_evidence": "Named site energization, acceptance/billing dates and realized $/billableMW",
+      "positive": "Active power converts to matching revenue and gross cash",
+      "negative": "Power growth with delayed acceptance and higher reserves/refund liabilities"
+    },
+    {
+      "id": "renewals",
+      "required_evidence": "Signed cohort renewals, billed price, remaining useful/economic life and maintenance costs",
+      "positive": "Paid-off cohorts retain demand and cash beyond initial term",
+      "negative": "Lower prices, short contracts, repair/refresh expense or displacement consumes earning life"
+    },
+    {
+      "id": "platform",
+      "required_evidence": "Paid Forge ARR/retention, product margins, Omni fees/capex/liability terms",
+      "positive": "Platform scales contribution profit with lower incremental capital",
+      "negative": "Free logos/integration announcements fail to create paid profitable cohorts"
+    },
+    {
+      "id": "funding",
+      "required_evidence": "Actual deposits/refund terms, drawn principal, eligibility/hedges/mandatory sweeps and unrestricted parent distributions",
+      "positive": "Monthly uses financed on explicit terms with cash retained",
+      "negative": "Announced facilities/expected deposits mask timing gaps or additionaldilution"
+    },
+    {
+      "id": "competition",
+      "required_evidence": "Comparable real prices/TCO/SLA acrossCRWV and alternatives",
+      "positive": "Full-stack reliability and time-to-market retain pricing power",
+      "negative": "Hyperscaler/ASIC/otherNVIDIAcloud price competition erodes retained gross profit"
+    },
+    {
+      "id": "dilution",
+      "required_evidence": "GAAP NI-to-weighted-dilutedshares bridge includingSBC/ATM/converts",
+      "positive": "EPS growth survives actual denominator",
+      "negative": "Revenue grows but finance cost/SBC/shares absorb it"
+    }
+  ],
+  "next_action": "Owner86: qualify the2027–2028 renewed-fleet cash and GAAP profit cohort using actual signed renewals, depreciation/maintenance schedules, receipt/draw restrictions and independent diluted shares; keep new-stream revenues unknown until disclosed."
+}

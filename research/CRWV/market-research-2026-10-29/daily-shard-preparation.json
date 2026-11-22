@@ -1,0 +1,145 @@
+{
+  "source_sha256": "9249539642e10805bcb1a6dfabb53de0bd53f4e5adbea454092f44ecfc55b1ac",
+  "records": 19186,
+  "day_count": 22,
+  "added_files": 22,
+  "byte_identical_reassembly": true,
+  "vwap_outside_ohlc": 2374,
+  "historical_first_available_at": null,
+  "source_retrieved_at": null,
+  "status": "staging_only_pending_B02_acceptance",
+  "shards": [
+    {
+      "name": "2026-10-01.1m.jsonl",
+      "records": 833,
+      "bytes": 51790,
+      "sha256": "13aa63b12601bf44c341b26ae3b319bfd222dbd8a6662bf25629ae81b47da948"
+    },
+    {
+      "name": "2026-10-02.1m.jsonl",
+      "records": 810,
+      "bytes": 50637,
+      "sha256": "2899e6f9aa3c4462102cc5a07a21be09407f491546d5240f51afb36b3a779b2e"
+    },
+    {
+      "name": "2026-10-05.1m.jsonl",
+      "records": 820,
+      "bytes": 51078,
+      "sha256": "5de0318a219c5664329dd9edca500c55c4b65f860cb7846d5593adca66111a14"
+    },
+    {
+      "name": "2026-10-06.1m.jsonl",
+      "records": 787,
+      "bytes": 49329,
+      "sha256": "acdb837739d9668b224349dfd46f6bc92b8ba6b22c46dd25e48a8b7dcfe70731"
+    },
+    {
+      "name": "2026-10-07.1m.jsonl",
+      "records": 834,
+      "bytes": 51813,
+      "sha256": "bbf941aa850b1aca441af107250c60d1b9ab1c6b15740f7841c76ea914355d54"
+    },
+    {
+      "name": "2026-10-08.1m.jsonl",
+      "records": 865,
+      "bytes": 54249,
+      "sha256": "30ce6dc80db6c3ee3db67916cd0832f71ffe4878ed55ed9cfaeb2bde8ee349db"
+    },
+    {
+      "name": "2026-10-09.1m.jsonl",
+      "records": 820,
+      "bytes": 51214,
+      "sha256": "4d7182bb7a0d46b8f06fa244e1e41359e1b4c6a8d5c666accc1c9c9025f1ad36"
+    },
+    {
+      "name": "2026-10-12.1m.jsonl",
+      "records": 777,
+      "bytes": 48754,
+      "sha256": "d1796a3548e0bb4d197282a1d0e4450a198c31fc8849c704c745f07e8a543069"
+    },
+    {
+      "name": "2026-10-13.1m.jsonl",
+      "records": 849,
+      "bytes": 53071,
+      "sha256": "038823cd83e4c48d01922eb0b6059794a5173c66573cabb7cb145612c203a7f9"
+    },
+    {
+      "name": "2026-10-14.1m.jsonl",
+      "records": 944,
+      "bytes": 60915,
+      "sha256": "d731f22aa59313a49539153bd995a882dff120cc436979629aa5849cb20d610e"
+    },
+    {
+      "name": "2026-10-15.1m.jsonl",
+      "records": 959,
+      "bytes": 61784,
+      "sha256": "069b65e2b2ba34e38b341a9cf57c9c97a07488dd14c4997e7860c10d74d5aed4"
+    },
+    {
+      "name": "2026-10-16.1m.jsonl",
+      "records": 952,
+      "bytes": 61075,
+      "sha256": "f88b60ebe54a618c4f36248ce4a8ad6d1d5f7872be527c8105766bdd1f5b849e"
+    },
+    {
+      "name": "2026-10-19.1m.jsonl",
+      "records": 951,
+      "bytes": 61125,
+      "sha256": "fefea4c9f71f9d4c574773d9d0fa57cc600aa6d8063b771aa153d0e3ad003baf"
+    },
+    {
+      "name": "2026-10-20.1m.jsonl",
+      "records": 959,
+      "bytes": 61463,
+      "sha256": "ea26c45c41668cd37dbee548833048cfa2c0442263cfbc2229a99f41435dcbb1"
+    },
+    {
+      "name": "2026-10-21.1m.jsonl",
+      "records": 944,
+      "bytes": 59549,
+      "sha256": "c58c1619c60600fa568cd0f6e30d8b71461c261966c177fff0dfbfd51774e5b9"
+    },
+    {
+      "name": "2026-10-22.1m.jsonl",
+      "records": 956,
+      "bytes": 60769,
+      "sha256": "e9216570af43a02388c43363f869123f34ffbeaa6a3197d79dab7d371f913407"
+    },
+    {
+      "name": "2026-10-23.1m.jsonl",
+      "records": 940,
+      "bytes": 59598,
+      "sha256": "ba40ad0cd1f0f673301fc9b08161c7eb4116d00f1c9a3b026f7a1c097970bfd3"
+    },
+    {
+      "name": "2026-10-26.1m.jsonl",
+      "records": 958,
+      "bytes": 60774,
+      "sha256": "8958f654f637d0d886dc5ea9d5d798ae78595a96b080d94867791cb60e2b766d"
+    },
+    {
+      "name": "2026-10-27.1m.jsonl",
+      "records": 921,
+      "bytes": 57850,
+      "sha256": "bdfed1e12e72a68c6d773d4326039ae97cdcb06019cc38da8f386ec21a567542"
+    },
+    {
+      "name": "2026-10-28.1m.jsonl",
+      "records": 929,
+      "bytes": 58882,
+      "sha256": "3a458044a5840ca35f067b2b1897072053ed227bcb7a0bb48236f9df3caff049"
+    },
+    {
+      "name": "2026-10-29.1m.jsonl",
+      "records": 929,
+      "bytes": 58373,
+      "sha256": "7478247b0e9e05c43ec6f9fc86f930e8e81fd6dbd0beb7125401182c4545d979"
+    },
+    {
+      "name": "2026-10-30.1m.jsonl",
+      "records": 449,
+      "bytes": 27987,
+      "sha256": "23cefdf0067278570c8000a76d9331ac374babb7579cac278615833e58744b92"
+    }
+  ]
+}

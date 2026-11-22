@@ -1,0 +1,30 @@
+{
+  "schema": "market.intraday@1",
+  "entity_id": "CRWV",
+  "source": "Massive",
+  "endpoint": "/v2/aggs/ticker/CRWV/range/1/minute/2026-11-02/2026-11-04",
+  "session_date": "2026-11-04",
+  "timeframe": "1m",
+  "fields": [
+    "timestamp_ms",
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume",
+    "vwap",
+    "transactions"
+  ],
+  "currency": "USD",
+  "timezone": "America/New_York",
+  "adjusted": true,
+  "records": 819,
+  "regular_session_bars": 390,
+  "as_of_last_bar": "2026-11-04T17:43:00-05:00",
+  "ingested_at": "2026-11-04T22:44:32.235851+00:00",
+  "available_at": null,
+  "status": "partial_extended_session",
+  "sha256": "024b4e6f0ae4429f2aeb3ea5dcb9cc1e1d37e59324d255ee3a8dcd74d20caa89",
+  "vwap_outside_ohlc": 27,
+  "note": "Minute aggregates, not individual trades; missing minutes unfilled; gross turnover approximation; first availability unknown; realtime entitlement not inferred."
+}

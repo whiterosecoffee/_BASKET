@@ -1,0 +1,314 @@
+{
+  "ticker": "CRWV",
+  "currency": "USD",
+  "method": "PR99 ticker-patterns@1.0.0 with close-to-close movement, recency half-life 5m; aggregate VWAP times volume",
+  "cutoff": "2026-10-30T12:10:00-04:00",
+  "source": "Massive Advanced Stocks connector historical aggregates; entitlement tier asserted by user; realtime trade/NBBO not verified",
+  "source_sha256": "9249539642e10805bcb1a6dfabb53de0bd53f4e5adbea454092f44ecfc55b1ac",
+  "last": 54.67,
+  "session_low": 54.18,
+  "session_high": 56.9,
+  "range_position": 0.18014705882353022,
+  "session_activity": {
+    "shares": 24446349.673057,
+    "dollars": 1353207568.1198945,
+    "bars": 160,
+    "vwap": 55.354177053734205
+  },
+  "same_clock_20_session_rvol": 0.8816795151818445,
+  "adv20_daily": 58948517.1356511,
+  "session_volume_pct_adv": 41.47067790832053,
+  "windows": {
+    "5": {
+      "net": 0.12000000000000455,
+      "ratio": null,
+      "path": {
+        "signed_efficiency": 0.49586776859505105,
+        "gross_ranges": 0.08897058823529579,
+        "net_ranges": 0.04411764705882522,
+        "state": "observed_close_path"
+      },
+      "activity": {
+        "shares": 442911.028804,
+        "dollars": 24173855.133983452,
+        "bars": 5,
+        "vwap": 54.57948337674163
+      }
+    },
+    "15": {
+      "net": 0.3200000000000003,
+      "ratio": 1.4307754781971609,
+      "path": {
+        "signed_efficiency": 0.3072786633378139,
+        "gross_ranges": 0.3828676470588248,
+        "net_ranges": 0.11764705882352956,
+        "state": "observed_close_path"
+      },
+      "activity": {
+        "shares": 1223070.346604,
+        "dollars": 66599293.09524802,
+        "bars": 15,
+        "vwap": 54.45254500705447
+      }
+    },
+    "30": {
+      "net": 0.35999999999999943,
+      "ratio": 1.2323814615806694,
+      "path": {
+        "signed_efficiency": 0.16503163106261926,
+        "gross_ranges": 0.8019852941176513,
+        "net_ranges": 0.13235294117647042,
+        "state": "observed_close_path"
+      },
+      "activity": {
+        "shares": 2949607.255786,
+        "dollars": 160505661.2184958,
+        "bars": 30,
+        "vwap": 54.415943310298395
+      }
+    },
+    "60": {
+      "net": -0.6700000000000017,
+      "ratio": 1.2174254940512192,
+      "path": {
+        "signed_efficiency": -0.14878969575838322,
+        "gross_ranges": 1.655514705882359,
+        "net_ranges": -0.24632352941176544,
+        "state": "observed_close_path"
+      },
+      "activity": {
+        "shares": 5740006.958088,
+        "dollars": 313742660.3006949,
+        "bars": 60,
+        "vwap": 54.65893379425497
+      }
+    }
+  },
+  "recent_sessions": [
+    {
+      "date": "2026-10-15",
+      "minute_bars": 390,
+      "first": "2026-10-15T09:30:00-04:00",
+      "last": "2026-10-15T16:00:00-04:00",
+      "open": 61.43,
+      "high": 69.76,
+      "low": 59.51,
+      "minute_last": 69.6999,
+      "rth_volume": 117040580.358424,
+      "rth_vwap": 64.45978449908199,
+      "daily_provider_volume": 130537192.584752,
+      "daily_provider_close": 69.69,
+      "rth_vs_daily_volume_ratio": 0.8966071511185193
+    },
+    {
+      "date": "2026-10-16",
+      "minute_bars": 390,
+      "first": "2026-10-16T09:30:00-04:00",
+      "last": "2026-10-16T16:00:00-04:00",
+      "open": 65.195,
+      "high": 65.86,
+      "low": 59.9,
+      "minute_last": 61.4,
+      "rth_volume": 86100832.315552,
+      "rth_vwap": 62.519147432043276,
+      "daily_provider_volume": 95394231.471587,
+      "daily_provider_close": 61.39,
+      "rth_vs_daily_volume_ratio": 0.9025790237766838
+    },
+    {
+      "date": "2026-10-19",
+      "minute_bars": 390,
+      "first": "2026-10-19T09:30:00-04:00",
+      "last": "2026-10-19T16:00:00-04:00",
+      "open": 65.825,
+      "high": 65.92,
+      "low": 59.25,
+      "minute_last": 61.115,
+      "rth_volume": 90155626.42883,
+      "rth_vwap": 61.851858762253855,
+      "daily_provider_volume": 101010688.282355,
+      "daily_provider_close": 61.12,
+      "rth_vs_daily_volume_ratio": 0.8925355124481296
+    },
+    {
+      "date": "2026-10-20",
+      "minute_bars": 390,
+      "first": "2026-10-20T09:30:00-04:00",
+      "last": "2026-10-20T16:00:00-04:00",
+      "open": 59.265,
+      "high": 64.39,
+      "low": 57.235,
+      "minute_last": 62.125,
+      "rth_volume": 83747844.389541,
+      "rth_vwap": 61.504409139695035,
+      "daily_provider_volume": 94778123.799774,
+      "daily_provider_close": 62.13,
+      "rth_vs_daily_volume_ratio": 0.8836199856252134
+    },
+    {
+      "date": "2026-10-21",
+      "minute_bars": 390,
+      "first": "2026-10-21T09:30:00-04:00",
+      "last": "2026-10-21T16:00:00-04:00",
+      "open": 64.36,
+      "high": 64.58,
+      "low": 59.31,
+      "minute_last": 61.82,
+      "rth_volume": 69857757.018642,
+      "rth_vwap": 61.59417522512049,
+      "daily_provider_volume": 76589545.102448,
+      "daily_provider_close": 61.82,
+      "rth_vs_daily_volume_ratio": 0.9121056526083109
+    },
+    {
+      "date": "2026-10-22",
+      "minute_bars": 390,
+      "first": "2026-10-22T09:30:00-04:00",
+      "last": "2026-10-22T16:00:00-04:00",
+      "open": 59.1,
+      "high": 60.4099,
+      "low": 53.5,
+      "minute_last": 55.5878,
+      "rth_volume": 73292567.199603,
+      "rth_vwap": 56.82731705469448,
+      "daily_provider_volume": 81776948.190168,
+      "daily_provider_close": 55.6,
+      "rth_vs_daily_volume_ratio": 0.8962497234448636
+    },
+    {
+      "date": "2026-10-23",
+      "minute_bars": 390,
+      "first": "2026-10-23T09:30:00-04:00",
+      "last": "2026-10-23T16:00:00-04:00",
+      "open": 54.92,
+      "high": 56.11,
+      "low": 54.01,
+      "minute_last": 54.23,
+      "rth_volume": 41701740.973,
+      "rth_vwap": 54.801487065618524,
+      "daily_provider_volume": 46947437.213249,
+      "daily_provider_close": 54.235,
+      "rth_vs_daily_volume_ratio": 0.8882644814791164
+    },
+    {
+      "date": "2026-10-26",
+      "minute_bars": 390,
+      "first": "2026-10-26T09:30:00-04:00",
+      "last": "2026-10-26T16:00:00-04:00",
+      "open": 51.96,
+      "high": 57.8,
+      "low": 51.24,
+      "minute_last": 55.17,
+      "rth_volume": 58601810.860566,
+      "rth_vwap": 55.53766316810012,
+      "daily_provider_volume": 68936437.374765,
+      "daily_provider_close": 55.19,
+      "rth_vs_daily_volume_ratio": 0.8500847025497417
+    },
+    {
+      "date": "2026-10-27",
+      "minute_bars": 390,
+      "first": "2026-10-27T09:30:00-04:00",
+      "last": "2026-10-27T16:00:00-04:00",
+      "open": 56.705,
+      "high": 59.945,
+      "low": 55.36,
+      "minute_last": 59.55,
+      "rth_volume": 46807654.086439,
+      "rth_vwap": 58.581535313156465,
+      "daily_provider_volume": 53548380.07747,
+      "daily_provider_close": 59.57,
+      "rth_vs_daily_volume_ratio": 0.8741189559557359
+    },
+    {
+      "date": "2026-10-28",
+      "minute_bars": 390,
+      "first": "2026-10-28T09:30:00-04:00",
+      "last": "2026-10-28T16:00:00-04:00",
+      "open": 60.55,
+      "high": 64.02,
+      "low": 58.55,
+      "minute_last": 63.9299,
+      "rth_volume": 52290171.912983,
+      "rth_vwap": 61.58187252417522,
+      "daily_provider_volume": 61645734.111004,
+      "daily_provider_close": 63.93,
+      "rth_vs_daily_volume_ratio": 0.8482366649868316
+    },
+    {
+      "date": "2026-10-29",
+      "minute_bars": 390,
+      "first": "2026-10-29T09:30:00-04:00",
+      "last": "2026-10-29T16:00:00-04:00",
+      "open": 61.18,
+      "high": 64.39,
+      "low": 60.1101,
+      "minute_last": 60.72,
+      "rth_volume": 39525138.856467,
+      "rth_vwap": 62.08944483033396,
+      "daily_provider_volume": 47160800.40059,
+      "daily_provider_close": 60.74,
+      "rth_vs_daily_volume_ratio": 0.8380930459350839
+    },
+    {
+      "date": "2026-10-30",
+      "minute_bars": 153,
+      "first": "2026-10-30T09:30:00-04:00",
+      "last": "2026-10-30T12:03:00-04:00",
+      "open": 56.12,
+      "high": 56.9,
+      "low": 54.18,
+      "minute_last": 54.28,
+      "rth_volume": 23822263.899874,
+      "rth_vwap": 55.375981462420825,
+      "daily_provider_volume": 26180611.039051,
+      "daily_provider_close": 54.53,
+      "rth_vs_daily_volume_ratio": 0.9099200879742918
+    }
+  ],
+  "interpretation": {
+    "state": "Short rebound from 54.18; 15-minute score improved to 1.43 and net +0.32, while hour remains down 0.67 and price below session VWAP 55.35",
+    "probabilities": null,
+    "references": {
+      "low_area": [
+        54.01,
+        54.2
+      ],
+      "immediate_obstacles": [
+        54.67,
+        54.88,
+        55.1
+      ],
+      "session_vwap": 55.354177053734205,
+      "prior_low": 53.5,
+      "prior_extreme": 51.24
+    },
+    "reference_status": "descriptive observed levels, not calibrated support or predictions"
+  },
+  "screenshot_status": "Latest screenshot identifies CRWV and Oct30 expiry; earlier $35-45 screenshots still not attributed. Negative GEX is not a resting bid or guaranteed destination.",
+  "scope": "October 2026 only",
+  "screenshot_observations": {
+    "nasdaq": {
+      "timestamp": "2026-10-30T12:08:00-04:00",
+      "last": 54.625,
+      "day_low": 54.18,
+      "day_high": 56.9,
+      "volume": 26379331.149309
+    },
+    "menthorq": {
+      "timestamp": "2026-10-30T12:07:00-04:00",
+      "ticker": "CRWV",
+      "expiry": "2026-10-30",
+      "all_expiry_net_gex": -51900000,
+      "selected_expiry_net_gex": -18100000,
+      "strike_gex": {
+        "55": -10260000,
+        "54": -3260000,
+        "50": -1210000
+      },
+      "strike50_call_oi": 392,
+      "strike50_put_oi": 20600,
+      "status": "user screenshot; vendor-model methodology not independently verified"
+    }
+  }
+}
