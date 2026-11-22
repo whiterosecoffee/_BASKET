@@ -1,0 +1,65 @@
+{
+  "schema": "research.group_instance.state@0.1",
+  "owner": "B17-274",
+  "issue": "https://github.com/whiterosecoffee/_BASKET/issues/274",
+  "branch": "work/274-ai-integrator-group-profile",
+  "recorded_at": "2026-11-19T14:12:48.431Z",
+  "group_id": "ai-services-integrators",
+  "parent": "../state.json",
+  "guidance": "AGENTS.md",
+  "feature_design": "feature-design.md",
+  "status": "first_verified_baseline_partial_coverage",
+  "source_cutoff": "2026-11-19T14:12:48.431Z",
+  "previous_successful_persisted_run": null,
+  "original_baseline_date": "2026-11-19",
+  "canonical_inputs": [
+    "observations.jsonl",
+    "relationships.json",
+    "estimate_research.json"
+  ],
+  "derived_outputs": [
+    "profile.json",
+    "profile.md"
+  ],
+  "model_version": "0.1.0",
+  "members": [
+    "NASDAQ:GDYN",
+    "NASDAQ:EXLS",
+    "NYSE:G",
+    "NYSE:GIB"
+  ],
+  "scheduled_task_id": "Automation_a483b4a397dc8191a995042fc8260915",
+  "scheduling_note": "Existing Monday prompt updated and response verified 2026-11-19T14:16:15Z; next configured occurrence 2026-11-23 08:00 America/Chicago (07:00 America/Phoenix), flexible timing. No updated-task execution, delivery, or Spark attachment verified.",
+  "local_ticker_writer_receipt": null,
+  "theses": [
+    {
+      "claim": "AI delivery can lift productivity and margins",
+      "status": "mixed",
+      "support": "GDYN matched proxy and margins improved",
+      "alternatives": "Pricing/mix/acquisitions/staffing",
+      "falsifier": "Repeated proxy gains without comparable margins/cash"
+    },
+    {
+      "claim": "Upstream AI demand reaches integrators",
+      "status": "partial_issuer_evidence",
+      "support": "EXL partner capabilities; Genpact Mars expansion",
+      "falsifier": "Bookings/activity fail to become organic revenue/cash"
+    },
+    {
+      "claim": "EPS growth reflects operating earnings",
+      "status": "challenged_for_CGI",
+      "support": "Adjusted EPS +8.5%, earnings +0.8%, fewer shares",
+      "falsifier": "Future EPS growth with stable shares and expanding earnings"
+    }
+  ],
+  "next_actions": [
+    "Normalize 2027/2028 EPS",
+    "Recover matched EXLS/G/GIB headcounts and cash-flow bridges",
+    "Compare next real source update with original baseline and last commit",
+    "Independent review and second-segment pilot"
+  ],
+  "input_sha256": "9a652ae029d77d2f904a88f441b83d8664096dc8f2ba2567874d9969dc1d6ddd",
+  "pr": "https://github.com/whiterosecoffee/_BASKET/pull/283",
+  "first_published_revision": "a263a26ab261d91d20ab8637500caca3d01e1173",
+  "run_id": "B17-274-baseline-2026-11-19"
+}
