@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-KIND_PRIORITY = ("consensus", "house", "guidance")
+KIND_PRIORITY = ("actual", "consensus", "house", "guidance")
 EST_FIELDS = ["ticker", "metric", "fiscal_year", "value", "basis", "kind", "source", "as_of", "fye_month", "currency"]
 
 
@@ -91,6 +91,21 @@ def load_bars(path: Path, as_of: date) -> list[dict]:
             continue
         out.append({"date": d(r["date"]), **{k: float(r[k]) for k in ("open", "high", "low", "close", "volume")}})
     return sorted(out, key=lambda b: b["date"])
+
+
+def load_guidance(path: Path, as_of: date) -> dict[tuple[str, str], dict]:
+    """Latest company guidance per (ticker, metric) known at as_of. Per-share values are split-adjusted to today's shares."""
+    out: dict[tuple[str, str], dict] = {}
+    for r in _rows(path):
+        if d(r["as_of"]) > as_of:
+            continue
+        k = (r["ticker"].upper(), r["metric"])
+        if k not in out or r["as_of"] >= out[k]["as_of_s"]:
+            sp = float(r.get("split_factor") or 1) if r["metric"] == "eps" else 1.0
+            lo, hi = float(r["low"]) / sp, float(r["high"]) / sp
+            out[k] = {"period": r["period"], "low": lo, "high": hi, "mid": (lo + hi) / 2, "annualize": float(r["annualize"] or 1),
+                      "basis": r["basis"], "source": r["source"], "as_of": d(r["as_of"]), "as_of_s": r["as_of"]}
+    return out
 
 
 def load_events(path: Path, as_of: date) -> dict[str, date]:

@@ -7,6 +7,7 @@ from engines.valuation.rotation import cli, store
 from engines.valuation.rotation.calendarize import calendarize, extend, ntm
 from engines.valuation.rotation.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
 from engines.valuation.rotation import portfolio as pf
+from engines.valuation.rotation.implied import implied_growth, pv
 from engines.valuation.rotation.macro import equity_duration, multiple_factor
 from engines.valuation.rotation.tape import tape_stats
 from engines.valuation.rotation.rotation import Params, decide
@@ -244,6 +245,35 @@ class P(unittest.TestCase):
         r = pf.simulate_pair(a, b, lookback=30, band=0.05)
         self.assertGreater(r["swaps"], 2)
         self.assertGreater(r["rotator_A_units"], 1.0)                  # oscillating ratio: rotation accumulates A-share units
+
+
+class I(unittest.TestCase):
+    def test_implied_growth_roundtrip(self):
+        mcap = pv(100.0, 0.07, 0.095, 10, 0.03)
+        self.assertAlmostEqual(implied_growth(mcap, 100.0, 0.095, 10, 0.03), 0.07, places=6)
+
+    def test_implied_growth_guards(self):
+        self.assertIsNone(implied_growth(1000, -5.0, 0.095))
+        self.assertIsNone(implied_growth(1000, 10.0, 0.02, g_term=0.03))      # r <= terminal g
+        self.assertIsNone(implied_growth(1e9, 1.0, 0.095))                    # price far above any solvable growth
+
+    def test_guidance_split_adjusts_eps_only_and_is_point_in_time(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "g.csv"
+            p.write_text("ticker,period,metric,low,high,basis,split_factor,annualize,source,as_of\n"
+                         "ZZZ,Q2,eps,55,57,non_gaap,8,4,x,2026-10-29\nZZZ,Q2,revenue,12.2,12.6,gaap,8,4,x,2026-10-29\n"
+                         "ZZZ,Q3,eps,100,100,non_gaap,8,4,x,2027-01-01\n")
+            g = store.load_guidance(p, date(2026, 11, 20))
+            self.assertAlmostEqual(g[("ZZZ", "eps")]["mid"], 7.0)             # 56/8
+            self.assertAlmostEqual(g[("ZZZ", "revenue")]["mid"], 12.4)        # split never applied to revenue
+            self.assertEqual(g[("ZZZ", "eps")]["period"], "Q2")               # later guidance excluded
+
+    def test_actual_kind_outranks_consensus(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "e.csv"
+            p.write_text("ticker,metric,fiscal_year,value,basis,kind,source,as_of,fye_month\n"
+                         "AAA,eps,2026,4.0,non_gaap,consensus,x,2026-06-01,12\nAAA,eps,2026,4.77,non_gaap,actual,x,2026-06-01,12\n")
+            self.assertEqual(store.load_estimates(p, ASOF)[("AAA", "eps")][2026].value, 4.77)
 
 
 if __name__ == "__main__":

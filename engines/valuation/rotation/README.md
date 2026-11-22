@@ -36,13 +36,20 @@ Answers: *"Is it worth rotating from HELD to CANDIDATE, after costs, taxes and c
 - `CONTESTED`: clears hurdle but not in every scenario. `HOLD`: below hurdle.
 Re-ratings you expect at earnings are explicit inputs: `--rerate NVDA=1.10`. Nothing is inferred about earnings outcomes.
 
+## Implied expectations (`implied.py`)
+Reverse DCF on trailing FCF: the constant 10-year FCF growth that justifies today's market cap at `r = 10y yield + ERP` (default 4.5%) and 3% terminal growth. These are assumptions, not facts. Compare with consensus before setting `targets.csv`. Note Massive's TTM FCF can lag the last four reported quarters (NVDA: 127.0B vs 148.6B from releases), which understates the market's pessimism.
+
 ## Data (research/models/rotation/)
 | file | source |
 |---|---|
 | `ratios.csv` | `ingest-ratios` from Massive `/stocks/financials/v1/ratios` CSV (price, market cap, EV) |
 | `prices/<T>.csv` | `ingest-prices` from Massive aggs (`t`,`c`) or `date,close` |
 | `estimates.csv` | `ingest-estimates`: consensus / house / guidance EPS+revenue by fiscal year. **provenance (kind, source, as_of) required**; append-only |
+| `guidance.csv` | company guidance from primary releases (per-share pre-split values carry `split_factor`; `annualize` factor is explicit). Report shows price / annualised guided EPS and EV / annualised guided revenue |
+| `holdings.csv`, `targets.csv`, `ledger.csv` | virtual ETF inputs and paper trades (see above) |
 | `events.csv`, `positions.csv` | earnings dates; entry price for the tax term |
+
+**Estimate sourcing (2026-11-22):** `estimates.csv` and `guidance.csv` now hold figures from company press releases (primary) and, where marked, secondary consensus (CNBC) with the source and date on every row. SNDK and CRWV have no forward-EPS rows: SNDK is covered by quarterly guidance, CRWV is loss-making. Earnings dates in `events.csv` are unconfirmed and SNDK's two sources conflict.
 
 **Entitlement gap (checked 2026-11-22):** Massive Benzinga earnings, guidance and consensus endpoints return NOT_ENTITLED and Quartr requires Pro, so no forward-estimate feed is wired. Ratios, income statements and aggs work. Until an estimate source is entitled, load estimates from any export (or derive `guidance` rows from earnings-call transcripts) via `ingest-estimates`.
 

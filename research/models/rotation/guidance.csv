@@ -1,0 +1,6 @@
+ticker,period,metric,low,high,basis,split_factor,annualize,source,as_of
+SNDK,FQ2 FY2027,eps,55.0,57.0,non_gaap,8,4,Sandisk FQ1 FY27 release 2026-10-29: per-share guidance is PRE-split; 8-for-1 effective 2026-11-19,2026-10-29
+SNDK,FQ2 FY2027,revenue,12.2,12.6,gaap,1,4,Sandisk FQ1 FY27 release 2026-10-29 (USD billions),2026-10-29
+NVDA,Q4 FY2027,revenue,126.1,133.9,gaap,1,3.7143,NVIDIA Q3 FY27 release 2026-11-17: ~130B +/-3%; Q4 has 14 weeks so annualize=52/14 (USD billions),2026-11-17
+CRWV,FY2026,revenue,13.0,13.3,gaap,1,1,CoreWeave Q3 2026 release 2026-11-10 (USD billions),2026-11-10
+CRWV,FY2026,adj_operating_income,1.275,1.375,non_gaap,1,1,"CoreWeave Q3 2026 release 2026-11-10 (USD billions); FY26 capex guide 37-39B, Q4 interest expense 1.05-1.15B",2026-11-10

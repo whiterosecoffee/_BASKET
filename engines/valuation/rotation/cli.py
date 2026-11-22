@@ -9,6 +9,7 @@ from pathlib import Path
 
 from . import portfolio as pf
 from . import store
+from .implied import implied_growth
 from .macro import load_yields, multiple_factor
 from .tape import tape_stats
 from .metrics import YEARS, add_growth_adjusted_residuals, build_view, ratio_stats
@@ -45,11 +46,30 @@ def cmd_report(a) -> int:
         print(f"{v.ticker:<6} {v.price:>7.2f} {_f(v.ntm_pe,7)} " + " ".join(_f(v.pe(y)) for y in YEARS)
               + f" {_f(v.cagr,6,0,True)} {_f(v.peg,5,2)} {_f(v.ev_sales_ntm,5)} {_f(v.resid,6)}  "
               f"{str(earn.get(v.ticker) or '-'):>10}  {' '.join(v.flags)}")
+    guide = store.load_guidance(data / "guidance.csv", asof)
+    if guide:
+        print("\nCOMPANY GUIDANCE (primary sources; per-share split-adjusted; annualized = x factor, NOT a forecast)")
+        print("TICKER  PERIOD       METRIC                  LOW      HIGH     ANNUALIZED  PRICE/ANN_EPS  EV/ANN_REV  BASIS     AS_OF")
+        by = {v.ticker: v for v in views}
+        for (t, m), g in sorted(guide.items()):
+            v, ann = by.get(t), g["mid"] * g["annualize"]
+            pe = f"{v.price / ann:>13.2f}x" if m == "eps" and v and ann > 0 else " " * 14
+            evs = f"{v.ev / 1e9 / ann:>10.2f}x" if m == "revenue" and v and v.ev and ann > 0 else " " * 11
+            print(f"{t:<7} {g['period']:<12} {m:<20} {g['low']:>8.3f} {g['high']:>8.3f} {ann:>12.2f}  {pe} {evs}  {g['basis']:<8}  {g['as_of']}")
     ys = load_yields(data / "macro" / "treasury_yields.csv", asof)
     if ys:
-        (d1, a), (d0, b) = ys[-1], ys[max(0, len(ys) - 6)]
-        print(f"\nRATES {d1}: 2y {a['yield_2_year']}  10y {a['yield_10_year']}  30y {a['yield_30_year']}  "
-              f"(vs {d0}: 10y {float(a['yield_10_year'])-float(b['yield_10_year']):+.2f}pp, 2y {float(a['yield_2_year'])-float(b['yield_2_year']):+.2f}pp)")
+        (d1, y1), (d0, y0) = ys[-1], ys[max(0, len(ys) - 6)]
+        print(f"\nRATES {d1}: 2y {y1['yield_2_year']}  10y {y1['yield_10_year']}  30y {y1['yield_30_year']}  "
+              f"(vs {d0}: 10y {float(y1['yield_10_year'])-float(y0['yield_10_year']):+.2f}pp, 2y {float(y1['yield_2_year'])-float(y0['yield_2_year']):+.2f}pp)")
+    if ys:
+        r_disc = float(ys[-1][1]["yield_10_year"]) / 100 + a.erp
+        print(f"\nIMPLIED EXPECTATIONS (reverse DCF on TTM FCF; r = 10y {ys[-1][1]['yield_10_year']}% + ERP {a.erp:.1%} = {r_disc:.2%}, terminal g {a.g_term:.1%}, {a.years}y)")
+        print("TICKER  MKT_CAP($B)  TTM_FCF($B)  FCF_YIELD  IMPLIED_FCF_CAGR")
+        for v in views:
+            fcf = v.fcf_yield * v.market_cap if v.fcf_yield is not None and v.market_cap else None
+            g = implied_growth(v.market_cap, fcf, r_disc, a.years, a.g_term) if v.market_cap else None
+            print(f"{v.ticker:<6} {v.market_cap/1e9:>11.1f} {(fcf or 0)/1e9:>12.1f} {_f(v.fcf_yield,9,1,True)} "
+                  + (f"{g*100:>15.1f}%" if g is not None else "      n/m (FCF<=0 or outside solvable range)"))
     print("\nRATE SENSITIVITY  (multiple change = -duration x shock; duration ~ 1/FCF yield, capped 3-40y)")
     print("TICKER  FCF_YIELD  DURATION   +25bp   +50bp  +100bp")
     for v in views:
@@ -209,6 +229,8 @@ def main(argv=None) -> int:
     r.add_argument("--asof"); r.add_argument("--hold")
     r.add_argument("--horizon", type=int, default=12); r.add_argument("--hurdle", type=float, default=0.08)
     r.add_argument("--rate-shock-bp", type=float, default=0.0, help="parallel rate shock applied to all multiples via equity duration")
+    r.add_argument("--erp", type=float, default=0.045, help="equity risk premium for the implied-expectations discount rate")
+    r.add_argument("--g-term", type=float, default=0.03); r.add_argument("--years", type=int, default=10)
     r.add_argument("--tax", type=float, default=0.0); r.add_argument("--cost", type=float, default=0.002)
     r.add_argument("--rerate", nargs="*", default=[], help="TICKER=1.10 expected re-rating factor")
     r.set_defaults(fn=cmd_report)

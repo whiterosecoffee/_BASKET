@@ -1,1 +1,5 @@
 ticker,date,fiscal_period,confirmed,source
+NVDA,2027-02-24,Q4 FY27,false,fn2.ai estimate (unconfirmed)
+CRWV,2027-02-25,Q4 2026,false,Zacks earnings calendar (unconfirmed)
+SNDK,2027-01-28,FQ2 2027,false,public.com (unconfirmed; Zacks says 2027-02-04)
+SNDK,2027-02-04,FQ2 2027,false,Zacks earnings calendar (unconfirmed; conflicts with 2027-01-28)
