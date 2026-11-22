@@ -6,6 +6,7 @@ from pathlib import Path
 from engines.valuation.rotation import cli, store
 from engines.valuation.rotation.calendarize import calendarize, extend, ntm
 from engines.valuation.rotation.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
+from engines.valuation.rotation import portfolio as pf
 from engines.valuation.rotation.macro import equity_duration, multiple_factor
 from engines.valuation.rotation.tape import tape_stats
 from engines.valuation.rotation.rotation import Params, decide
@@ -162,6 +163,87 @@ class T(unittest.TestCase):
                 for t, vals in (("HLD", {2026: 4, 2027: 4.4, 2028: 4.8}), ("CND", {2026: 4, 2027: 6, 2028: 8}))
                 for y, v in vals.items()))
             self.assertEqual(cli.main(["--data", str(d), "report", "--asof", "2026-07-01", "--hold", "HLD"]), 0)
+
+
+class P(unittest.TestCase):
+    def nm(self, t, price, bear, base, bull, sigma=0.4, flags=None):
+        ret = {"bear": bear, "base": base, "bull": bull}
+        return pf.Name(t, price, ret, 0.25 * bear + 0.5 * base + 0.25 * bull, sigma, "user_target", flags or [])
+
+    def test_swap_identity_no_costs(self):
+        a, b = self.nm("A", 200, 0.0, 0.10, 0.20), self.nm("B", 100, 0.2, 0.60, 1.0)
+        r = pf.swap(a, b, 10, None, pf.Costs(0.0, 0.0))
+        self.assertAlmostEqual(r["share_multiplier"], 2.0)             # P_A/P_B
+        self.assertAlmostEqual(r["edge_base"], 1.60 / 1.10 - 1)        # (1+rB)/(1+rA)-1
+        self.assertAlmostEqual(r["rich_pct"], r["spot_ratio"] / r["fair_ratio"] - 1)
+        self.assertEqual(r["signal"], "SWAP")
+
+    def test_tax_and_cost_reduce_shares(self):
+        a, b = self.nm("A", 200, 0.0, 0.1, 0.2), self.nm("B", 100, 0.2, 0.6, 1.0)
+        r = pf.swap(a, b, 10, 100.0, pf.Costs(0.002, 0.25))
+        gross = 2000.0
+        fric = gross * 0.002 + 0.25 * (100 * 10)
+        self.assertAlmostEqual(r["shares_b"], (gross - fric) / 100)
+        self.assertLess(r["share_multiplier"], 2.0)
+
+    def test_contested_when_bear_case_loses(self):
+        a, b = self.nm("A", 100, 0.1, 0.2, 0.3), self.nm("B", 100, -0.5, 0.6, 1.5)
+        r = pf.swap(a, b, 1, None, pf.Costs(0, 0))
+        self.assertEqual(r["signal"], "CONTESTED")
+
+    def test_weights_cap_and_sum(self):
+        ns = [self.nm("A", 1, 0, 1.0, 0, 0.3), self.nm("B", 1, 0, 0.2, 0, 0.3), self.nm("C", 1, 0, -0.1, 0, 0.3)]
+        w = pf.target_weights(ns, max_w=0.5)
+        self.assertAlmostEqual(sum(w.values()), 1.0)
+        self.assertLessEqual(max(w.values()), 0.5 + 1e-9)
+        self.assertEqual(w["C"], 0.0)
+
+    def test_propose_self_financing_and_band(self):
+        ns = [self.nm("A", 100, 0, 0.0, 0, 0.3), self.nm("B", 50, 0, 0.5, 0, 0.3)]
+        hold = {"A": {"shares": 10.0, "basis_price": 100.0}, "B": {"shares": 0.0, "basis_price": 50.0}}
+        r = pf.propose(ns, hold, pf.Costs(0.0, 0.0), max_w=1.0, band=0.10)
+        sell = sum(o["shares"] * o["price"] for o in r["orders"] if o["side"] == "SELL")
+        buy = sum(o["shares"] * o["price"] for o in r["orders"] if o["side"] == "BUY")
+        self.assertAlmostEqual(sell, buy)
+        self.assertAlmostEqual(buy, 1000.0)
+        hold2 = {"A": {"shares": 0.05, "basis_price": 100.0}, "B": {"shares": 19.9, "basis_price": 50.0}}
+        self.assertEqual(pf.propose(ns, hold2, pf.Costs(0, 0), max_w=1.0, band=0.10)["orders"], [])
+
+    def test_staging_limits_buy_into_new_low(self):
+        ns = [self.nm("A", 100, 0, 0.0, 0, 0.3), self.nm("B", 50, 0, 0.5, 0, 0.3, ["TAPE:NEW_52W_LOW"])]
+        hold = {"A": {"shares": 10.0, "basis_price": 100.0}, "B": {"shares": 0.0, "basis_price": 50.0}}
+        r = pf.propose(ns, hold, pf.Costs(0, 0), max_w=1.0, band=0.10, stage=0.33)
+        buy = sum(o["shares"] * o["price"] for o in r["orders"] if o["side"] == "BUY")
+        self.assertAlmostEqual(buy, 330.0)
+
+    def test_horizon_normalisation_and_targets_point_in_time(self):
+        row = {s: {"target_price": "121", "horizon_date": "2028-07-01"} for s in pf.SCEN}
+        r = pf.normalise_returns(row, 100.0, date(2026, 7, 1), 12)
+        self.assertAlmostEqual(r["base"], 0.10, places=3)              # 21% over ~2y -> ~10% per 12m
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "t.csv"
+            p.write_text("ticker,scenario,target_price,horizon_date,source,as_of\n"
+                         "AAA,base,150,2027-07-01,me,2026-06-01\nAAA,base,999,2027-07-01,me,2026-09-01\n")
+            tg = pf.load_targets(p, date(2026, 7, 1), 12)
+            self.assertEqual(tg["AAA"]["raw"]["base"]["target_price"], "150")
+            self.assertIn("BEAR_MISSING_USING_BASE", tg["AAA"]["flags"])
+
+    def test_holdings_ledger_replay_average_cost(self):
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            (d / "h.csv").write_text("ticker,shares,basis_price,as_of\nAAA,10,100,2026-01-01\n")
+            (d / "l.csv").write_text("date,ticker,delta_shares,price,fee,reason\n2026-02-01,AAA,10,50,0,x\n2026-03-01,AAA,-5,70,0,x\n2026-12-01,AAA,100,1,0,future\n")
+            h = pf.load_holdings(d / "h.csv", d / "l.csv", date(2026, 6, 1))
+            self.assertAlmostEqual(h["AAA"]["shares"], 15)
+            self.assertAlmostEqual(h["AAA"]["basis_price"], 75.0)
+
+    def test_simulate_pair_runs_and_counts(self):
+        import math
+        a = [(date.fromordinal(738000 + i), 100 * math.exp(0.2 * math.sin(i / 6))) for i in range(300)]
+        b = [(t, 100.0) for t, _ in a]
+        r = pf.simulate_pair(a, b, lookback=30, band=0.05)
+        self.assertGreater(r["swaps"], 2)
+        self.assertGreater(r["rotator_A_units"], 1.0)                  # oscillating ratio: rotation accumulates A-share units
 
 
 if __name__ == "__main__":

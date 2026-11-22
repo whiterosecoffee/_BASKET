@@ -7,6 +7,7 @@ import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
+from . import portfolio as pf
 from . import store
 from .macro import load_yields, multiple_factor
 from .tape import tape_stats
@@ -82,6 +83,91 @@ def cmd_report(a) -> int:
     return 0
 
 
+def _names(a, asof, data):
+    """Build Name objects from targets.csv (preferred) or the EPS x multiple model."""
+    from .rotation import Params, scenarios
+    snaps = store.load_ratios(data / "ratios.csv", asof)
+    ests = store.load_estimates(data / "estimates.csv", asof)
+    probs = (0.25, 0.5, 0.25)
+    tg = pf.load_targets(data / "targets.csv", asof, a.horizon, probs)
+    out = []
+    for t, s in sorted(snaps.items()):
+        v = build_view(t, s, ests, asof)
+        bars = store.load_bars(data / "prices" / f"{t}.csv", asof)
+        tp = tape_stats(bars)
+        flags = v.flags + (tp["flags"] if tp else [])
+        sig = pf.realised_vol(bars, a.horizon)
+        if t in tg:
+            ret = pf.normalise_returns(tg[t]["raw"], s["price"], asof, a.horizon)
+            out.append(pf.Name(t, s["price"], ret, sum(w * ret[k] for w, k in zip(probs, pf.SCEN)), sig, "user_target",
+                               flags + tg[t]["flags"]))
+        elif v.usable and (sc := scenarios(v, Params(horizon_months=a.horizon))):
+            ret = {k: sc[k] for k in pf.SCEN}
+            out.append(pf.Name(t, s["price"], ret, sc["exp"], sig, "model", flags))
+        else:
+            print(f"skip {t}: no targets and model not usable ({','.join(v.flags) or 'no data'})", file=sys.stderr)
+    return out
+
+
+def cmd_swap(a) -> int:
+    data, asof = Path(a.data), date.fromisoformat(a.asof) if a.asof else date.today()
+    names = {n.ticker: n for n in _names(a, asof, data)}
+    hold = pf.load_holdings(data / "holdings.csv", data / "ledger.csv", asof)
+    c = pf.Costs(a.cost, a.tax)
+    if a.src.upper() not in names:
+        print(f"{a.src}: no targets/model; add rows to targets.csv", file=sys.stderr)
+        return 1
+    src = names[a.src.upper()]
+    sh = hold.get(src.ticker, {}).get("shares", 1.0)
+    basis = hold.get(src.ticker, {}).get("basis_price")
+    print(f"Swap from {src.ticker} ({sh:g} sh @ {src.price:.2f}, basis {basis}) | horizon {a.horizon}m | hurdle {a.hurdle:.0%} | cost {c.round_trip:.2%} tax {c.tax_rate:.0%}")
+    print("TO      SIGNAL     SHARES_OUT  MULT   SPOT_R  FAIR_R  RICH%   EDGE_EXP  BEAR   BASE   BULL   TRIG_A>B  TRIG_B>A  BASIS")
+    for t, n in names.items():
+        if t == src.ticker:
+            continue
+        r = pf.swap(src, n, sh, basis, c, a.hurdle)
+        print(f"{t:<7} {r['signal']:<10} {r['shares_b']:>10.3f} {r['share_multiplier']:>5.2f} {r['spot_ratio']:>7.3f} {r['fair_ratio']:>7.3f} "
+              f"{_f(r['rich_pct'],6,1,True)} {_f(r['edge_exp'],8,1,True)} {_f(r['edge_bear'],6,1,True)} {_f(r['edge_base'],6,1,True)} {_f(r['edge_bull'],6,1,True)} "
+              f"{r['trigger_a_to_b']:>8.3f} {r['trigger_b_to_a']:>9.3f}  {n.basis} {' '.join(n.flags)}")
+    return 0
+
+
+def cmd_rebalance(a) -> int:
+    data, asof = Path(a.data), date.fromisoformat(a.asof) if a.asof else date.today()
+    names = _names(a, asof, data)
+    hold = pf.load_holdings(data / "holdings.csv", data / "ledger.csv", asof)
+    if not hold or not names:
+        print("need holdings.csv and at least one name with targets/model", file=sys.stderr)
+        return 1
+    res = pf.propose(names, hold, pf.Costs(a.cost, a.tax), a.max_weight, a.band, a.stage)
+    print(f"Virtual ETF NAV ${res['nav']:,.2f} at {asof}  (horizon {a.horizon}m, band {a.band:.0%}, max weight {a.max_weight:.0%})")
+    print("TICKER  CUR_W   TGT_W   E[RET]   SIGMA   BASIS")
+    for n in names:
+        print(f"{n.ticker:<6} {_f(res['current'][n.ticker],6,1,True)} {_f(res['target'][n.ticker],7,1,True)} {_f(n.exp,8,1,True)} {_f(n.sigma,7,1,True)}  {n.basis}")
+    for o in res["orders"]:
+        print(f"  {o['side']:<4} {o['ticker']:<6} {o['shares']:>12.4f} sh @ {o['price']:.2f}")
+    for note in res["notes"]:
+        print("  note:", note)
+    if a.record and res["orders"]:
+        rows = [{"date": asof.isoformat(), "ticker": o["ticker"], "delta_shares": (o["shares"] if o["side"] == "BUY" else -o["shares"]),
+                 "price": o["price"], "fee": 0, "reason": "rebalance"} for o in res["orders"]]
+        print(f"recorded {store.append_csv(data / 'ledger.csv', pf.LEDGER_FIELDS, rows)} ledger rows (paper trades)")
+    return 0
+
+
+def cmd_simulate(a) -> int:
+    data, asof = Path(a.data), date.fromisoformat(a.asof) if a.asof else date.today()
+    pa, pb = (store.load_prices(data / "prices" / f"{t.upper()}.csv", asof) for t in (a.a, a.b))
+    r = pf.simulate_pair(pa, pb, a.lookback, a.band, a.cost)
+    if not r:
+        print("not enough overlapping history")
+        return 1
+    print(f"{a.a}/{a.b}  {r['start']} -> {r['end']}  lookback {a.lookback}d band {a.band:.0%} cost {a.cost:.2%}  swaps {r['swaps']}  ends in {r['end_holding']}")
+    print(f"  USD multiple: rotator {r['rotator_usd_x']:.2f}x | hold {a.a} {r['hold_A_usd_x']:.2f}x | hold {a.b} {r['hold_B_usd_x']:.2f}x")
+    print(f"  in {a.a}-share units: rotator {r['rotator_A_units']:.2f} | hold {a.a} 1.00 | hold {a.b} {r['hold_B_A_units']:.2f}")
+    return 0
+
+
 def cmd_ingest_ratios(a) -> int:
     now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     with open(a.file, newline="") as f:
@@ -126,6 +212,19 @@ def main(argv=None) -> int:
     r.add_argument("--tax", type=float, default=0.0); r.add_argument("--cost", type=float, default=0.002)
     r.add_argument("--rerate", nargs="*", default=[], help="TICKER=1.10 expected re-rating factor")
     r.set_defaults(fn=cmd_report)
+    for nm, fn in (("swap", cmd_swap), ("rebalance", cmd_rebalance)):
+        s = sub.add_parser(nm); s.set_defaults(fn=fn)
+        s.add_argument("--asof"); s.add_argument("--horizon", type=int, default=12)
+        s.add_argument("--hurdle", type=float, default=0.08); s.add_argument("--tax", type=float, default=0.0)
+        s.add_argument("--cost", type=float, default=0.002)
+        if nm == "swap":
+            s.add_argument("src", help="ticker you hold and are considering selling")
+        else:
+            s.add_argument("--max-weight", type=float, default=0.5); s.add_argument("--band", type=float, default=0.10)
+            s.add_argument("--stage", type=float, default=0.33); s.add_argument("--record", action="store_true", help="append paper trades to ledger.csv")
+    s = sub.add_parser("simulate"); s.set_defaults(fn=cmd_simulate)
+    s.add_argument("a"); s.add_argument("b"); s.add_argument("--asof"); s.add_argument("--lookback", type=int, default=60)
+    s.add_argument("--band", type=float, default=0.10); s.add_argument("--cost", type=float, default=0.002)
     for n, fn in (("ingest-ratios", cmd_ingest_ratios), ("ingest-estimates", cmd_ingest_estimates)):
         s = sub.add_parser(n); s.add_argument("file"); s.set_defaults(fn=fn)
     s = sub.add_parser("ingest-prices"); s.add_argument("ticker"); s.add_argument("file"); s.set_defaults(fn=cmd_ingest_prices)

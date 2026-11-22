@@ -1,5 +1,23 @@
 # Rotation engine (B04: `engines/valuation/rotation`)
 
+## Virtual ETF: spot rotation for share count and expected end value
+A paper portfolio of N names. At spot, sell the name whose price is rich relative to its expected end price and buy the one that is cheap relative to its own; keep rotating where expected return per unit of risk is highest.
+
+- **Swap math** (`portfolio.swap`): `shares_B = shares_A x P_A/P_B` (share-count multiplier = spot ratio), and `end value swap / stay = (1+r_B)/(1+r_A)` where `r = T/P - 1`. Costs and tax on realised gain reduce `shares_B`. `STAY`/`CONTESTED`/`SWAP` requires an edge over the hurdle and, for `SWAP`, a positive edge in bear, base and bull.
+- **Round-trip triggers**: a fair spot ratio `T_A/T_B` gives two thresholds, `TRIG_A>B` and `TRIG_B>A`. Swap A to B only above the first and back only below the second, so you never trade inside the hurdle-plus-friction band.
+- **Weights** (`target_weights`): `w ~ E[ret]/sigma` among names with positive expected return, capped (default 50%), re-weighted only when drift exceeds a no-trade band (default 10pp). Buys into a name making a new 52-week low are staged (default 33% of intended size).
+- **Expected end prices** come from `targets.csv` (your bear/base/bull target prices with a horizon date, normalised to a common horizon) or, if absent, from the EPS x multiple model. Every output says which (`BASIS`).
+- **Virtual ledger**: `holdings.csv` (start) plus append-only `ledger.csv` (paper trades, average-cost basis). `rebalance --record` appends orders.
+- **Price-only sanity test** (`simulate A B`): swaps on ratio vs its rolling mean. It is a mechanics check, not a forecast.
+
+```
+python -m engines.valuation.rotation.cli swap NVDA --tax 0.2
+python -m engines.valuation.rotation.cli rebalance --horizon 12 --record
+python -m engines.valuation.rotation.cli simulate NVDA SNDK
+```
+
+**Warning from the price-only test (2025-26 data, in sample):** rotating on a rolling-mean ratio did not accumulate shares versus holding the stronger name, and starting in SNDK it sold out of a 16x winner early. A ratio anchored to history mean-reverts only if there is no fundamental trend. This is why the engine anchors the fair ratio on *expected end values*, not on past ratios, and why target quality is the whole game.
+
 Answers: *"Is it worth rotating from HELD to CANDIDATE, after costs, taxes and catalyst timing?"* on an apples-to-apples basis.
 
 ## Apples-to-apples rules
