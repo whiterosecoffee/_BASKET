@@ -136,4 +136,12 @@ def ratio_stats(pa: list[tuple[date, float]], pb: list[tuple[date, float]], look
     mu = sum(xs) / len(xs)
     sd = math.sqrt(sum((x - mu) ** 2 for x in xs) / (len(xs) - 1))
     cur = xs[-1]
-    return {"ratio": cur, "z": (cur - mu) / sd if sd else 0.0, "pctile": sum(x <= cur for x in xs) / len(xs), "n": len(xs)}
+    # Mean-reversion speed: AR(1) on log ratio, x_t - x_{t-1} = a + b*x_{t-1}; half-life = ln2 / -ln(1+b).
+    lx = [math.log(x) for x in xs]
+    dx, lag = [lx[i] - lx[i - 1] for i in range(1, len(lx))], lx[:-1]
+    ml, md = sum(lag) / len(lag), sum(dx) / len(dx)
+    var = sum((v - ml) ** 2 for v in lag)
+    b = sum((v - ml) * (w - md) for v, w in zip(lag, dx)) / var if var else 0.0
+    hl = math.log(2) / -math.log(1 + b) if -1 < b < 0 else None
+    return {"ratio": cur, "z": (cur - mu) / sd if sd else 0.0, "pctile": sum(x <= cur for x in xs) / len(xs),
+            "n": len(xs), "half_life_days": hl}

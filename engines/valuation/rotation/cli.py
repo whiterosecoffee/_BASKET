@@ -8,6 +8,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 from . import store
+from .tape import tape_stats
 from .metrics import YEARS, add_growth_adjusted_residuals, build_view, ratio_stats
 from .rotation import Params, decide
 
@@ -30,12 +31,26 @@ def cmd_report(a) -> int:
     pos = store.load_positions(data / "positions.csv")
     views = [build_view(t, s, ests, asof) for t, s in sorted(snaps.items())]
     add_growth_adjusted_residuals(views)
+    tapes = {}
+    for v in views:
+        t = tape_stats(store.load_bars(data / "prices" / f"{v.ticker}.csv", asof))
+        if t:
+            tapes[v.ticker] = t
+            v.flags += t["flags"]
     print(f"As of {asof}  |  prices: Massive ratios snapshot, calendarized USD, forward EPS basis as stored\n")
     print("TICKER   PRICE  NTM_PE " + " ".join(f"PE{y}".rjust(6) for y in YEARS) + "   CAGR   PEG  EV/S  RESID  NEXT_EPS  FLAGS")
     for v in sorted(views, key=lambda v: (v.ntm_pe is None, v.ntm_pe or 0)):
         print(f"{v.ticker:<6} {v.price:>7.2f} {_f(v.ntm_pe,7)} " + " ".join(_f(v.pe(y)) for y in YEARS)
               + f" {_f(v.cagr,6,0,True)} {_f(v.peg,5,2)} {_f(v.ev_sales_ntm,5)} {_f(v.resid,6)}  "
               f"{str(earn.get(v.ticker) or '-'):>10}  {' '.join(v.flags)}")
+    if tapes:
+        print("\nTAPE (daily bars; volume averages exclude the last bar)")
+        print("TICKER  CLOSE  1D%    5D%   10D%  LOW_52W  ON_DATE     VOL_ON_LOW  %>LOW  %<HIGH  LOWEST_LOW  ON_DATE     LAST_VOL  x20D  x50D")
+        for tk, t in tapes.items():
+            print(f"{tk:<6} {t['close']:>7.2f} {_f(t['chg_1d'],6,1,True)} {_f(t['ret_5d'],6,1,True)} {_f(t['ret_10d'],6,1,True)} "
+                  f"{t['low_win']:>8.2f}  {t['low_win_date']}  {t['low_win_vol']/1e6:>8.1f}M {_f(t['pct_above_low'],6,1,True)} "
+                  f"{_f(t['pct_below_high'],7,0,True)} {t['low_ever']:>10.2f}  {t['low_ever_date']}  {t['vol_last']/1e6:>7.1f}M "
+                  f"{t['vol_ratio_20d']:>4.1f}x {t['vol_last']/t['vol_50d']:>4.1f}x")
     if a.hold:
         by = {v.ticker: v for v in views}
         held = by.get(a.hold.upper())

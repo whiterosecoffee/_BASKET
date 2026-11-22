@@ -53,6 +53,10 @@ def decide(held: View, cand: View, p: Params, entry_price: float | None, next_ea
     out.update(held_ret=sh, cand_ret=sc, edge=edge, friction=friction)
     out["robust"] = edge["bear"] > 0 and edge["base"] > 0 and edge["bull"] > 0
     out["resid_gap"] = (held.resid - cand.resid) if held.resid is not None and cand.resid is not None else None
+    for v in (held, cand):
+        tf = [f[5:] for f in v.flags if f.startswith("TAPE:")]
+        if tf:
+            out["notes"].append(f"{v.ticker} tape: {','.join(tf)}")
     he, ce = next_earn.get(held.ticker), next_earn.get(cand.ticker)
     hd = (he - held.as_of).days if he else None
     cd = (ce - held.as_of).days if ce else None

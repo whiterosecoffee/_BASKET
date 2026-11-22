@@ -83,6 +83,16 @@ def load_prices(path: Path, as_of: date) -> list[tuple[date, float]]:
     return sorted(set(out))
 
 
+def load_bars(path: Path, as_of: date) -> list[dict]:
+    """Daily OHLCV bars (date,open,high,low,close,volume) known at as_of, oldest first."""
+    out = []
+    for r in _rows(path):
+        if "low" not in r or d(r["date"]) > as_of:
+            continue
+        out.append({"date": d(r["date"]), **{k: float(r[k]) for k in ("open", "high", "low", "close", "volume")}})
+    return sorted(out, key=lambda b: b["date"])
+
+
 def load_events(path: Path, as_of: date) -> dict[str, date]:
     """Next earnings date on/after as_of per ticker."""
     nxt: dict[str, date] = {}

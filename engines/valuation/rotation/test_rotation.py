@@ -6,6 +6,7 @@ from pathlib import Path
 from engines.valuation.rotation import cli, store
 from engines.valuation.rotation.calendarize import calendarize, extend, ntm
 from engines.valuation.rotation.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
+from engines.valuation.rotation.tape import tape_stats
 from engines.valuation.rotation.rotation import Params, decide
 
 ASOF = date(2026, 7, 1)
@@ -75,6 +76,42 @@ class T(unittest.TestCase):
         s = ratio_stats(a, b)
         self.assertGreater(s["z"], 1.0)
         self.assertEqual(s["pctile"], 1.0)
+
+    def _bars(self, closes, vols=None):
+        vols = vols or [100.0] * len(closes)
+        return [{"date": date.fromordinal(738000 + i), "open": c, "high": c * 1.01, "low": c * 0.99, "close": c, "volume": v}
+                for i, (c, v) in enumerate(zip(closes, vols))]
+
+    def test_tape_new_low_heavy_volume_excludes_last_from_avg(self):
+        closes = [100.0] * 60 + [80.0]
+        vols = [100.0] * 60 + [300.0]
+        t = tape_stats(self._bars(closes, vols))
+        self.assertAlmostEqual(t["vol_ratio_20d"], 3.0)
+        self.assertIn("TAPE:NEW_52W_LOW", t["flags"])
+        self.assertIn("TAPE:HEAVY_VOLUME", t["flags"])
+        self.assertIn("TAPE:GAP_DOWN_10PCT", t["flags"])
+        self.assertAlmostEqual(t["low_win"], 80 * 0.99)
+        self.assertAlmostEqual(t["pct_below_high"], 80 / 101 - 1)
+
+    def test_tape_needs_history_and_lowest_low_is_all_history(self):
+        self.assertIsNone(tape_stats(self._bars([1.0] * 10)))
+        closes = [50.0] * 5 + [100.0] * 300
+        t = tape_stats(self._bars(closes), window=252)
+        self.assertAlmostEqual(t["low_ever"], 50 * 0.99)
+        self.assertAlmostEqual(t["low_win"], 100 * 0.99)
+
+    def test_ratio_half_life_mean_reverting(self):
+        import math
+        import random
+        rng = random.Random(7)
+        a, b, x = [], [], 0.0
+        for i in range(250):
+            x = 0.8 * x + rng.gauss(0, 0.05)
+            a.append((date.fromordinal(738000 + i), 100 * math.exp(x)))
+            b.append((date.fromordinal(738000 + i), 100.0))
+        hl = ratio_stats(a, b)["half_life_days"]
+        self.assertIsNotNone(hl)
+        self.assertTrue(1.5 < hl < 8, hl)  # true AR(0.8) half-life ~3.1 days
 
     def _pair(self, held_eps, cand_eps):
         h = build_view("HLD", snap(100), est("HLD", held_eps), ASOF)

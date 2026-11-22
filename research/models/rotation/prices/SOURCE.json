@@ -1,0 +1,17 @@
+{
+  "source": "Massive REST /v2/aggs/ticker/{T}/range/1/day/2025-01-01/2026-11-20 (adjusted=true, sort=asc) via Massive MCP",
+  "retrieved": "2026-11-22",
+  "columns": "date (UTC date of bar start), open, high, low, close, volume (rounded to integer shares)",
+  "tickers": {
+    "NVDA": {"rows": 474, "first": "2025-01-02", "last": "2026-11-20"},
+    "CRWV": {"rows": 416, "first": "2025-03-28", "last": "2026-11-20"},
+    "SNDK": {"rows": 440, "first": "2025-02-24", "last": "2026-11-20"}
+  },
+  "verification": "Row count, min(low), max(high), sum(volume) and sums of open/high/low/close in each CSV equal the same aggregates computed by Massive's query engine on the fetched table (exact match).",
+  "caveats": [
+    "Prices are split/dividend adjusted as served by Massive; they differ from as-traded prices.",
+    "The 2026-11-20 bar volume was fractional in the source (e.g. NVDA 633418432.84), which suggests a consolidated or still-updating figure; treat that day's volume as provisional.",
+    "CRWV and SNDK history starts at listing/spin-off, so 'lowest low' means lowest since first bar, not since 2025-01-01 for those names.",
+    "Append-only intent: new bars should be appended; re-fetches that revise history must be recorded as a new revision, not overwritten silently."
+  ]
+}
