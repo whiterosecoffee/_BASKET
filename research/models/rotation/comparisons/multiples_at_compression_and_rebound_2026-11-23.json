@@ -1,0 +1,2109 @@
+{
+  "schema": "rotation.multiples/1",
+  "comparison_id": "multiples_at_max_compression_and_peak_rebound__2026-11-23",
+  "definitions": {
+    "max_compression": "fri_low: 2026-11-20 session low (final), the lowest print of the drawdown for the three subjects",
+    "peak_rebound": "mon_high: 2026-11-23 session high at the snapshot (PROVISIONAL)",
+    "pre_compression": "thu_close",
+    "last_final_close": "fri_close"
+  },
+  "as_of_et": "2026-11-23T13:51",
+  "provisional": true,
+  "method": "multiple at a point = point price / fixed EPS (or sales); earnings are held constant so the change between points is price (multiple) only",
+  "bases": {
+    "cohort": "Massive ratios EPS_ttm as of 2026-11-20 (one consistent basis; GAAP-like and can lag the latest quarter)",
+    "subjects_extra": [
+      "split-normalised GAAP TTM from fundamentals/*.csv (includes the latest reported quarter)",
+      "forward: NTM estimate or annualised guidance"
+    ]
+  },
+  "subjects": {
+    "NVDA": {
+      "fifty_two_week_peak_close": {
+        "date": "2026-10-06",
+        "price": 239.24
+      },
+      "points": {
+        "thu_close": 145.98,
+        "fri_close": 125.53,
+        "fri_low": 124.5,
+        "mon_open": 167.035,
+        "mon_high": 171.5,
+        "mon_last": 164.555
+      },
+      "fundamentals_gaap_norm_ttm": {
+        "eps_now": 9.306765534003498,
+        "pe": {
+          "thu_close": 15.68536345593351,
+          "fri_close": 13.488037228547292,
+          "fri_low": 13.377365051813415,
+          "mon_open": 17.947696156061475,
+          "mon_high": 18.427454669767073,
+          "mon_last": 17.681223342177965
+        },
+        "pe_at_52w_peak_point_in_time": 30.242401836070467,
+        "eps_then": 7.910747343971062,
+        "pe_52w_peak_price_on_current_eps": 25.706030642536877,
+        "note": "EPS held at the latest TTM; the 52w-peak P/E is shown both on the EPS known then and on today's EPS",
+        "share_of_52w_peak_multiple_lost_at_low": 0.47960207323190096,
+        "share_of_that_loss_recovered_at_rebound_peak": 0.40962175352971936
+      },
+      "forward": {
+        "eps": 14.52059589041096,
+        "basis": "NTM EPS from estimates.csv (EXTRAPOLATED years flagged in profile)",
+        "pe": {
+          "thu_close": 10.053306427761795,
+          "fri_close": 8.644962021351816,
+          "fri_low": 8.574028293302804,
+          "mon_open": 11.503315790938425,
+          "mon_high": 11.810810058646032,
+          "mon_last": 11.33252390204372
+        },
+        "pe_52w_peak_price": 16.475907862568377
+      },
+      "ev_to_guided_annualised_revenue": {
+        "revenue_usd": 482859000000.00006,
+        "basis": "Q4 FY2027 guidance midpoint x 3.7143; net debt and share count held at 2026-11-20",
+        "ev_s": {
+          "thu_close": 7.322845923965381,
+          "fri_close": 6.300174398737519,
+          "fri_low": 6.248665759569563,
+          "mon_open": 8.375772523655973,
+          "mon_high": 8.599059974029684,
+          "mon_last": 8.251751722552545
+        },
+        "ev_s_52w_peak_price": 11.986628146104762
+      }
+    },
+    "CRWV": {
+      "fifty_two_week_peak_close": {
+        "date": "2026-05-06",
+        "price": 137.98
+      },
+      "points": {
+        "thu_close": 44.91,
+        "fri_close": 39.51,
+        "fri_low": 39.28,
+        "mon_open": 50.97,
+        "mon_high": 51.9,
+        "mon_last": 47.635
+      },
+      "ev_to_guided_annualised_revenue": {
+        "revenue_usd": 13150000000.0,
+        "basis": "FY2026 guidance midpoint x 1.0; net debt and share count held at 2026-11-20",
+        "ev_s": {
+          "thu_close": 5.199665875632487,
+          "fri_close": 4.971294855893536,
+          "fri_low": 4.96156794208984,
+          "mon_open": 5.4559489088950865,
+          "mon_high": 5.495279473405684,
+          "mon_last": 5.314908658741494
+        },
+        "ev_s_52w_peak_price": 9.135682691762879
+      }
+    },
+    "SNDK": {
+      "fifty_two_week_peak_close": {
+        "date": "2026-06-25",
+        "price": 291.875
+      },
+      "points": {
+        "thu_close": 94.395,
+        "fri_close": 79.24,
+        "fri_low": 78.25,
+        "mon_open": 98.585,
+        "mon_high": 99.07,
+        "mon_last": 89.17
+      },
+      "fundamentals_gaap_norm_ttm": {
+        "eps_now": 15.558335390757486,
+        "pe": {
+          "thu_close": 6.067165775078731,
+          "fri_close": 5.093089846043102,
+          "fri_low": 5.029458360081685,
+          "mon_open": 6.336474791420485,
+          "mon_high": 6.367647792118754,
+          "mon_last": 5.7313329325045865
+        },
+        "pe_at_52w_peak_point_in_time": 81.17229969056491,
+        "eps_then": 3.595746345892011,
+        "pe_52w_peak_price_on_current_eps": 18.7600403686753,
+        "note": "EPS held at the latest TTM; the 52w-peak P/E is shown both on the EPS known then and on today's EPS",
+        "share_of_52w_peak_multiple_lost_at_low": 0.7319057815845824,
+        "share_of_that_loss_recovered_at_rebound_peak": 0.09746050321825624
+      },
+      "forward": {
+        "eps": 28.0,
+        "basis": "annualised guided EPS (guidance x factor), run-rate not a forecast",
+        "pe": {
+          "thu_close": 3.37125,
+          "fri_close": 2.8299999999999996,
+          "fri_low": 2.794642857142857,
+          "mon_open": 3.520892857142857,
+          "mon_high": 3.5382142857142855,
+          "mon_last": 3.1846428571428573
+        },
+        "pe_52w_peak_price": 10.424107142857142
+      },
+      "ev_to_guided_annualised_revenue": {
+        "revenue_usd": 49599999999.99999,
+        "basis": "FQ2 FY2027 guidance midpoint x 4.0; net debt and share count held at 2026-11-20",
+        "ev_s": {
+          "thu_close": 2.0628071950330296,
+          "fri_close": 1.7150014971975809,
+          "fri_low": 1.692281098592692,
+          "mon_open": 2.158967265896146,
+          "mon_high": 2.1700979662227837,
+          "mon_last": 1.942893980173893
+        },
+        "ev_s_52w_peak_price": 6.594952969268886
+      }
+    }
+  },
+  "cohort_summary": {
+    "n": 37,
+    "pe_expansion_low_to_peak_median": {
+      "n": 30,
+      "median": 0.2259655353141039,
+      "min": 0.1675034230944774,
+      "max": 0.3815564060506651
+    },
+    "ps_expansion_low_to_peak_median": {
+      "n": 37,
+      "median": 0.2310902451747523,
+      "min": 0.164774951076321,
+      "max": 0.3815564060506651
+    },
+    "pe_at_low": {
+      "n": 30,
+      "median": 28.47086646279307,
+      "min": 4.293,
+      "max": 313.22580645161287
+    },
+    "pe_at_peak": {
+      "n": 30,
+      "median": 34.37713897383622,
+      "min": 5.274,
+      "max": 382.8
+    },
+    "ps_at_low": {
+      "n": 37,
+      "median": 6.23111483309826,
+      "min": 0.2577782909930716,
+      "max": 27.768582799080683
+    },
+    "ps_at_peak": {
+      "n": 37,
+      "median": 7.540229196050776,
+      "min": 0.3166836027713626,
+      "max": 33.947756138865365
+    },
+    "n_pe_not_meaningful": 7
+  },
+  "per_ticker": [
+    {
+      "ticker": "AAOI",
+      "theme": "optical_networking",
+      "price_points": {
+        "thu_close": 39.46,
+        "fri_close": 32.93,
+        "fri_low": 32.62,
+        "mon_open": 42.25,
+        "mon_high": 42.27,
+        "mon_last": 38.18
+      },
+      "eps_ttm_massive": -0.36,
+      "pe_ttm": {
+        "thu_close": null,
+        "fri_close": null,
+        "fri_low": null,
+        "mon_open": null,
+        "mon_high": null,
+        "mon_last": null
+      },
+      "ps": {
+        "thu_close": 4.793197692074097,
+        "fri_close": 4.0,
+        "fri_low": 3.9623443668387486,
+        "mon_open": 5.132098390525357,
+        "mon_high": 5.13452778621318,
+        "mon_last": 4.637716368053447
+      },
+      "ev_to_sales": {
+        "thu_close": 4.282860246707957,
+        "fri_close": 3.4899999999999998,
+        "fri_low": 3.452360386450312,
+        "mon_open": 4.621616768655154,
+        "mon_high": 4.624045130819651,
+        "mon_last": 4.12744506818021
+      },
+      "pe_low_to_peak": null,
+      "ps_low_to_peak": {
+        "at_low": 3.9623443668387486,
+        "at_peak": 5.13452778621318,
+        "turns_added": 1.1721834193744316,
+        "expansion": 0.2958307786633969
+      },
+      "pe_status": "not_meaningful_eps<=0"
+    },
+    {
+      "ticker": "ALAB",
+      "theme": "optical_networking",
+      "price_points": {
+        "thu_close": 211.6,
+        "fri_close": 180.35,
+        "fri_low": 176.78,
+        "mon_open": 216.63,
+        "mon_high": 221.6,
+        "mon_last": 216.135
+      },
+      "eps_ttm_massive": 2.64,
+      "pe_ttm": {
+        "thu_close": 80.15151515151514,
+        "fri_close": 68.31439393939394,
+        "fri_low": 66.9621212121212,
+        "mon_open": 82.05681818181817,
+        "mon_high": 83.93939393939394,
+        "mon_last": 81.86931818181817
+      },
+      "ps": {
+        "thu_close": 23.77053507069587,
+        "fri_close": 20.26,
+        "fri_low": 19.858956473523705,
+        "mon_open": 24.33559079567508,
+        "mon_high": 24.893906293318548,
+        "mon_last": 24.279983920155253
+      },
+      "ev_to_sales": {
+        "thu_close": 23.629590415108975,
+        "fri_close": 20.12,
+        "fri_low": 19.719064390977955,
+        "mon_open": 24.194494088324916,
+        "mon_high": 24.752659347943847,
+        "mon_last": 24.13890217614959
+      },
+      "pe_low_to_peak": {
+        "at_low": 66.9621212121212,
+        "at_peak": 83.93939393939394,
+        "turns_added": 16.977272727272734,
+        "expansion": 0.2535354678131012
+      },
+      "ps_low_to_peak": {
+        "at_low": 19.858956473523705,
+        "at_peak": 24.893906293318548,
+        "turns_added": 5.034949819794843,
+        "expansion": 0.253535467813101
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "BE",
+      "theme": "power_cooling_robotics",
+      "price_points": {
+        "thu_close": 168.11,
+        "fri_close": 142.39,
+        "fri_low": 140.69,
+        "mon_open": 176.04,
+        "mon_high": 177.01,
+        "mon_last": 168.21
+      },
+      "eps_ttm_massive": 1.75,
+      "pe_ttm": {
+        "thu_close": 96.06285714285715,
+        "fri_close": 81.36571428571428,
+        "fri_low": 80.39428571428572,
+        "mon_open": 100.5942857142857,
+        "mon_high": 101.14857142857143,
+        "mon_last": 96.12
+      },
+      "ps": {
+        "thu_close": 12.97513097829904,
+        "fri_close": 10.99,
+        "fri_low": 10.858789943113983,
+        "mon_open": 13.587187302479107,
+        "mon_high": 13.66205421729054,
+        "mon_last": 12.982849216939394
+      },
+      "ev_to_sales": {
+        "thu_close": 13.025919389572001,
+        "fri_close": 11.04,
+        "fri_low": 10.908737831948972,
+        "mon_open": 13.638218797010023,
+        "mon_high": 13.713115445839136,
+        "mon_last": 13.033640693575002
+      },
+      "pe_low_to_peak": {
+        "at_low": 80.39428571428572,
+        "at_peak": 101.14857142857143,
+        "turns_added": 20.754285714285714,
+        "expansion": 0.25815623000924015
+      },
+      "ps_low_to_peak": {
+        "at_low": 10.858789943113983,
+        "at_peak": 13.66205421729054,
+        "turns_added": 2.8032642741765574,
+        "expansion": 0.25815623000924015
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "CBRS",
+      "theme": "foundry_chips_ip",
+      "price_points": {
+        "thu_close": 86.96,
+        "fri_close": 82.67,
+        "fri_low": 82.2806,
+        "mon_open": 95.24,
+        "mon_high": 100.59,
+        "mon_last": 96.795
+      },
+      "eps_ttm_massive": -2.67,
+      "pe_ttm": {
+        "thu_close": null,
+        "fri_close": null,
+        "fri_low": null,
+        "mon_open": null,
+        "mon_high": null,
+        "mon_last": null
+      },
+      "ps": {
+        "thu_close": 29.347816620297564,
+        "fri_close": 27.9,
+        "fri_low": 27.768582799080683,
+        "mon_open": 32.142203943389376,
+        "mon_high": 33.947756138865365,
+        "mon_last": 32.66699528244829
+      },
+      "ev_to_sales": {
+        "thu_close": 26.22774751488425,
+        "fri_close": 24.78,
+        "fri_low": 24.648589071725898,
+        "mon_open": 29.022001459695804,
+        "mon_high": 30.827467474761246,
+        "mon_last": 29.54676775005595
+      },
+      "pe_low_to_peak": null,
+      "ps_low_to_peak": {
+        "at_low": 27.768582799080683,
+        "at_peak": 33.947756138865365,
+        "turns_added": 6.179173339784683,
+        "expansion": 0.2225238999229464
+      },
+      "pe_status": "not_meaningful_eps<=0"
+    },
+    {
+      "ticker": "CIEN",
+      "theme": "optical_networking",
+      "price_points": {
+        "thu_close": 262.63,
+        "fri_close": 234.37,
+        "fri_low": 230.34,
+        "mon_open": 272.75,
+        "mon_high": 274.525,
+        "mon_last": 266.07
+      },
+      "eps_ttm_massive": 4.61,
+      "pe_ttm": {
+        "thu_close": 56.96963123644251,
+        "fri_close": 50.839479392624725,
+        "fri_low": 49.96529284164859,
+        "mon_open": 59.164859002169194,
+        "mon_high": 59.54989154013014,
+        "mon_last": 57.715835140997825
+      },
+      "ps": {
+        "thu_close": 6.185593719332679,
+        "fri_close": 5.52,
+        "fri_low": 5.425083415112855,
+        "mon_open": 6.423945044160941,
+        "mon_high": 6.4657507360157,
+        "mon_last": 6.2666143277723245
+      },
+      "ev_to_sales": {
+        "thu_close": 6.315566112703736,
+        "fri_close": 5.65,
+        "fri_low": 5.555087351939277,
+        "mon_open": 6.553907551506347,
+        "mon_high": 6.595711509399096,
+        "mon_last": 6.396583360676164
+      },
+      "pe_low_to_peak": {
+        "at_low": 49.96529284164859,
+        "at_peak": 59.54989154013014,
+        "turns_added": 9.58459869848155,
+        "expansion": 0.19182512807154617
+      },
+      "ps_low_to_peak": {
+        "at_low": 5.425083415112855,
+        "at_peak": 6.4657507360157,
+        "turns_added": 1.0406673209028448,
+        "expansion": 0.19182512807154617
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "COHR",
+      "theme": "optical_networking",
+      "price_points": {
+        "thu_close": 214.94,
+        "fri_close": 187.22,
+        "fri_low": 180.43,
+        "mon_open": 232.02,
+        "mon_high": 234.83,
+        "mon_last": 214.55
+      },
+      "eps_ttm_massive": 4.88,
+      "pe_ttm": {
+        "thu_close": 44.045081967213115,
+        "fri_close": 38.364754098360656,
+        "fri_low": 36.97336065573771,
+        "mon_open": 47.545081967213115,
+        "mon_high": 48.12090163934427,
+        "mon_last": 43.96516393442623
+      },
+      "ps": {
+        "thu_close": 5.349964747356052,
+        "fri_close": 4.66,
+        "fri_low": 4.490993483602179,
+        "mon_open": 5.775094541181499,
+        "mon_high": 5.845036855036855,
+        "mon_last": 5.340257451127017
+      },
+      "ev_to_sales": {
+        "thu_close": 5.6600588393591655,
+        "fri_close": 4.97,
+        "fri_low": 4.800970435813538,
+        "mon_open": 6.085246609065317,
+        "mon_high": 6.155198461107138,
+        "mon_last": 5.65035021932489
+      },
+      "pe_low_to_peak": {
+        "at_low": 36.97336065573771,
+        "at_peak": 48.12090163934427,
+        "turns_added": 11.14754098360656,
+        "expansion": 0.30150196752203073
+      },
+      "ps_low_to_peak": {
+        "at_low": 4.490993483602179,
+        "at_peak": 5.845036855036855,
+        "turns_added": 1.3540433714346758,
+        "expansion": 0.30150196752203073
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "CRDO",
+      "theme": "optical_networking",
+      "price_points": {
+        "thu_close": 117.76,
+        "fri_close": 99.86,
+        "fri_low": 97.92,
+        "mon_open": 126.12,
+        "mon_high": 126.72,
+        "mon_last": 119.955
+      },
+      "eps_ttm_massive": 2.3,
+      "pe_ttm": {
+        "thu_close": 51.2,
+        "fri_close": 43.41739130434783,
+        "fri_low": 42.573913043478264,
+        "mon_open": 54.83478260869566,
+        "mon_high": 55.095652173913045,
+        "mon_last": 52.15434782608696
+      },
+      "ps": {
+        "thu_close": 16.073190466653315,
+        "fri_close": 13.63,
+        "fri_low": 13.36520729020629,
+        "mon_open": 17.21425595834168,
+        "mon_high": 17.296150610855197,
+        "mon_last": 16.372788403765274
+      },
+      "ev_to_sales": {
+        "thu_close": 15.733014230107413,
+        "fri_close": 13.29,
+        "fri_low": 13.025226390703443,
+        "mon_open": 16.87399741243691,
+        "mon_high": 16.955886157580174,
+        "mon_last": 16.032590556089858
+      },
+      "pe_low_to_peak": {
+        "at_low": 42.573913043478264,
+        "at_peak": 55.095652173913045,
+        "turns_added": 12.521739130434781,
+        "expansion": 0.2941176470588234
+      },
+      "ps_low_to_peak": {
+        "at_low": 13.36520729020629,
+        "at_peak": 17.296150610855197,
+        "turns_added": 3.9309433206489057,
+        "expansion": 0.2941176470588234
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "CRWV",
+      "theme": "ai_cloud_neocloud",
+      "price_points": {
+        "thu_close": 44.91,
+        "fri_close": 39.51,
+        "fri_low": 39.28,
+        "mon_open": 50.97,
+        "mon_high": 51.9,
+        "mon_last": 47.635
+      },
+      "eps_ttm_massive": -4.54,
+      "pe_ttm": {
+        "thu_close": null,
+        "fri_close": null,
+        "fri_low": null,
+        "mon_open": null,
+        "mon_high": null,
+        "mon_last": null
+      },
+      "ps": {
+        "thu_close": 2.523416856492027,
+        "fri_close": 2.22,
+        "fri_low": 2.2070766894457106,
+        "mon_open": 2.863917995444192,
+        "mon_high": 2.9161731207289296,
+        "mon_last": 2.676529992406986
+      },
+      "ev_to_sales": {
+        "thu_close": 6.913649750061574,
+        "fri_close": 6.61,
+        "fri_low": 6.597066769904785,
+        "mon_open": 7.254412247352896,
+        "mon_high": 7.3067074820857245,
+        "mon_last": 7.066880410972277
+      },
+      "pe_low_to_peak": null,
+      "ps_low_to_peak": {
+        "at_low": 2.2070766894457106,
+        "at_peak": 2.9161731207289296,
+        "turns_added": 0.7090964312832191,
+        "expansion": 0.32128309572301395
+      },
+      "pe_status": "not_meaningful_eps<=0"
+    },
+    {
+      "ticker": "DELL",
+      "theme": "servers_hardware_pcb",
+      "price_points": {
+        "thu_close": 312.54,
+        "fri_close": 278.02,
+        "fri_low": 274.35,
+        "mon_open": 377.15,
+        "mon_high": 379.03,
+        "mon_last": 335.73
+      },
+      "eps_ttm_massive": 17.9,
+      "pe_ttm": {
+        "thu_close": 17.460335195530728,
+        "fri_close": 15.531843575418995,
+        "fri_low": 15.326815642458103,
+        "mon_open": 21.06983240223464,
+        "mon_high": 21.174860335195532,
+        "mon_last": 18.755865921787713
+      },
+      "ps": {
+        "thu_close": 1.3152715631968925,
+        "fri_close": 1.17,
+        "fri_low": 1.1545554276670744,
+        "mon_open": 1.5871717862024315,
+        "mon_high": 1.5950834472340119,
+        "mon_last": 1.4128627436875045
+      },
+      "ev_to_sales": {
+        "thu_close": 1.4651010553444632,
+        "fri_close": 1.32,
+        "fri_low": 1.30457355524003,
+        "mon_open": 1.736682144156912,
+        "mon_high": 1.744584519129322,
+        "mon_last": 1.5625776913073282
+      },
+      "pe_low_to_peak": {
+        "at_low": 15.326815642458103,
+        "at_peak": 21.174860335195532,
+        "turns_added": 5.84804469273743,
+        "expansion": 0.3815564060506651
+      },
+      "ps_low_to_peak": {
+        "at_low": 1.1545554276670744,
+        "at_peak": 1.5950834472340119,
+        "turns_added": 0.44052801956693743,
+        "expansion": 0.3815564060506651
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "FLEX",
+      "theme": "servers_hardware_pcb",
+      "price_points": {
+        "thu_close": 74.22,
+        "fri_close": 66.24,
+        "fri_low": 65.73,
+        "mon_open": 75.5,
+        "mon_high": 76.74,
+        "mon_last": 75.39
+      },
+      "eps_ttm_massive": 2.81,
+      "pe_ttm": {
+        "thu_close": 26.412811387900355,
+        "fri_close": 23.572953736654803,
+        "fri_low": 23.391459074733095,
+        "mon_open": 26.868327402135233,
+        "mon_high": 27.309608540925264,
+        "mon_last": 26.82918149466192
+      },
+      "ps": {
+        "thu_close": 0.8851721014492755,
+        "fri_close": 0.79,
+        "fri_low": 0.7839175724637683,
+        "mon_open": 0.9004378019323672,
+        "mon_high": 0.9152264492753625,
+        "mon_last": 0.8991259057971016
+      },
+      "ev_to_sales": {
+        "thu_close": 0.9553098384528131,
+        "fri_close": 0.86,
+        "fri_low": 0.8539087697229406,
+        "mon_open": 0.9705976320893546,
+        "mon_high": 0.985407682174754,
+        "mon_last": 0.9692838373237144
+      },
+      "pe_low_to_peak": {
+        "at_low": 23.391459074733095,
+        "at_peak": 27.309608540925264,
+        "turns_added": 3.918149466192169,
+        "expansion": 0.1675034230944774
+      },
+      "ps_low_to_peak": {
+        "at_low": 0.7839175724637683,
+        "at_peak": 0.9152264492753625,
+        "turns_added": 0.1313088768115942,
+        "expansion": 0.1675034230944774
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "FN",
+      "theme": "optical_networking",
+      "price_points": {
+        "thu_close": 311.71,
+        "fri_close": 285.04,
+        "fri_low": 280.01,
+        "mon_open": 330.54,
+        "mon_high": 335.77,
+        "mon_last": 328.35
+      },
+      "eps_ttm_massive": 13.46,
+      "pe_ttm": {
+        "thu_close": 23.15824665676077,
+        "fri_close": 21.176820208023774,
+        "fri_low": 20.803120356612183,
+        "mon_open": 24.557206537890046,
+        "mon_high": 24.945765230312034,
+        "mon_last": 24.394502228826152
+      },
+      "ps": {
+        "thu_close": 2.1652603143418463,
+        "fri_close": 1.9800000000000002,
+        "fri_low": 1.945059640752175,
+        "mon_open": 2.2960609037328092,
+        "mon_high": 2.3323905416783606,
+        "mon_last": 2.2808483019927026
+      },
+      "ev_to_sales": {
+        "thu_close": 2.1054307535043444,
+        "fri_close": 1.92,
+        "fri_low": 1.885027495683282,
+        "mon_open": 2.236351679206887,
+        "mon_high": 2.272714740355283,
+        "mon_last": 2.221125081900006
+      },
+      "pe_low_to_peak": {
+        "at_low": 20.803120356612183,
+        "at_peak": 24.945765230312034,
+        "turns_added": 4.142644873699851,
+        "expansion": 0.19913574515195887
+      },
+      "ps_low_to_peak": {
+        "at_low": 1.945059640752175,
+        "at_peak": 2.3323905416783606,
+        "turns_added": 0.3873309009261856,
+        "expansion": 0.19913574515195887
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "GLW",
+      "theme": "optical_networking",
+      "price_points": {
+        "thu_close": 105.97,
+        "fri_close": 94.38,
+        "fri_low": 93.49,
+        "mon_open": 107.0,
+        "mon_high": 112.0,
+        "mon_last": 109.045
+      },
+      "eps_ttm_massive": 2.5,
+      "pe_ttm": {
+        "thu_close": 42.388,
+        "fri_close": 37.751999999999995,
+        "fri_low": 37.396,
+        "mon_open": 42.8,
+        "mon_high": 44.8,
+        "mon_last": 43.618
+      },
+      "ps": {
+        "thu_close": 5.1536586141131595,
+        "fri_close": 4.59,
+        "fri_low": 4.546716465352828,
+        "mon_open": 5.203750794659886,
+        "mon_high": 5.446916719643992,
+        "mon_last": 5.303205657978386
+      },
+      "ev_to_sales": {
+        "thu_close": 5.4736904175335255,
+        "fri_close": 4.91,
+        "fri_low": 4.866714023157477,
+        "mon_open": 5.523785424441164,
+        "mon_high": 5.7669650696238755,
+        "mon_last": 5.623245899320892
+      },
+      "pe_low_to_peak": {
+        "at_low": 37.396,
+        "at_peak": 44.8,
+        "turns_added": 7.403999999999996,
+        "expansion": 0.1979890897422183
+      },
+      "ps_low_to_peak": {
+        "at_low": 4.546716465352828,
+        "at_peak": 5.446916719643992,
+        "turns_added": 0.900200254291164,
+        "expansion": 0.19798908974221852
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "HPE",
+      "theme": "servers_hardware_pcb",
+      "price_points": {
+        "thu_close": 45.49,
+        "fri_close": 40.91,
+        "fri_low": 40.48,
+        "mon_open": 51.0,
+        "mon_high": 51.0,
+        "mon_last": 47.72
+      },
+      "eps_ttm_massive": 2.02,
+      "pe_ttm": {
+        "thu_close": 22.51980198019802,
+        "fri_close": 20.25247524752475,
+        "fri_low": 20.03960396039604,
+        "mon_open": 25.247524752475247,
+        "mon_high": 25.247524752475247,
+        "mon_last": 23.62376237623762
+      },
+      "ps": {
+        "thu_close": 1.490017110730873,
+        "fri_close": 1.34,
+        "fri_low": 1.3259154241016868,
+        "mon_open": 1.670496211195307,
+        "mon_high": 1.670496211195307,
+        "mon_last": 1.5630603764360793
+      },
+      "ev_to_sales": {
+        "thu_close": 1.8403608021678641,
+        "fri_close": 1.69,
+        "fri_low": 1.6758831561283447,
+        "mon_open": 2.0212533829418664,
+        "mon_high": 2.0212533829418664,
+        "mon_last": 1.9135714110836581
+      },
+      "pe_low_to_peak": {
+        "at_low": 20.03960396039604,
+        "at_peak": 25.247524752475247,
+        "turns_added": 5.207920792079207,
+        "expansion": 0.25988142292490113
+      },
+      "ps_low_to_peak": {
+        "at_low": 1.3259154241016868,
+        "at_peak": 1.670496211195307,
+        "turns_added": 0.34458078709362017,
+        "expansion": 0.25988142292490113
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "INOD",
+      "theme": "software_other",
+      "price_points": {
+        "thu_close": 30.87,
+        "fri_close": 28.12,
+        "fri_low": 27.84,
+        "mon_open": 32.3,
+        "mon_high": 34.06,
+        "mon_last": 32.3
+      },
+      "eps_ttm_massive": 1.41,
+      "pe_ttm": {
+        "thu_close": 21.893617021276597,
+        "fri_close": 19.94326241134752,
+        "fri_low": 19.74468085106383,
+        "mon_open": 22.907801418439714,
+        "mon_high": 24.156028368794328,
+        "mon_last": 22.907801418439714
+      },
+      "ps": {
+        "thu_close": 3.029914651493599,
+        "fri_close": 2.76,
+        "fri_low": 2.7325177809388332,
+        "mon_open": 3.1702702702702696,
+        "mon_high": 3.3430156472261734,
+        "mon_last": 3.1702702702702696
+      },
+      "ev_to_sales": {
+        "thu_close": 2.589441570375239,
+        "fri_close": 2.32,
+        "fri_low": 2.292565949198157,
+        "mon_open": 2.729551186970363,
+        "mon_high": 2.9019937920105168,
+        "mon_last": 2.729551186970363
+      },
+      "pe_low_to_peak": {
+        "at_low": 19.74468085106383,
+        "at_peak": 24.156028368794328,
+        "turns_added": 4.411347517730498,
+        "expansion": 0.22341954022988508
+      },
+      "ps_low_to_peak": {
+        "at_low": 2.7325177809388332,
+        "at_peak": 3.3430156472261734,
+        "turns_added": 0.6104978662873402,
+        "expansion": 0.22341954022988508
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "INTC",
+      "theme": "foundry_chips_ip",
+      "price_points": {
+        "thu_close": 55.72,
+        "fri_close": 51.28,
+        "fri_low": 51.1,
+        "mon_open": 59.065,
+        "mon_high": 59.52,
+        "mon_last": 58.125
+      },
+      "eps_ttm_massive": -2.26,
+      "pe_ttm": {
+        "thu_close": null,
+        "fri_close": null,
+        "fri_low": null,
+        "mon_open": null,
+        "mon_high": null,
+        "mon_last": null
+      },
+      "ps": {
+        "thu_close": 4.943954758190327,
+        "fri_close": 4.55,
+        "fri_low": 4.534028861154446,
+        "mon_open": 5.240751755070202,
+        "mon_high": 5.281123244929797,
+        "mon_last": 5.157346918876755
+      },
+      "ev_to_sales": {
+        "thu_close": 5.413779083450005,
+        "fri_close": 5.02,
+        "fri_low": 5.004035983103377,
+        "mon_open": 5.710443730778895,
+        "mon_high": 5.750797217934245,
+        "mon_last": 5.627076086985426
+      },
+      "pe_low_to_peak": null,
+      "ps_low_to_peak": {
+        "at_low": 4.534028861154446,
+        "at_peak": 5.281123244929797,
+        "turns_added": 0.7470943837753516,
+        "expansion": 0.164774951076321
+      },
+      "pe_status": "not_meaningful_eps<=0"
+    },
+    {
+      "ticker": "IONQ",
+      "theme": "software_other",
+      "price_points": {
+        "thu_close": 22.71,
+        "fri_close": 20.72,
+        "fri_low": 20.51,
+        "mon_open": 24.145,
+        "mon_high": 24.86,
+        "mon_last": 23.46
+      },
+      "eps_ttm_massive": 0.48,
+      "pe_ttm": {
+        "thu_close": 47.3125,
+        "fri_close": 43.166666666666664,
+        "fri_low": 42.72916666666667,
+        "mon_open": 50.302083333333336,
+        "mon_high": 51.791666666666664,
+        "mon_last": 48.87500000000001
+      },
+      "ps": {
+        "thu_close": 27.6312306949807,
+        "fri_close": 25.209999999999997,
+        "fri_low": 24.95449324324325,
+        "mon_open": 29.377193532818538,
+        "mon_high": 30.247133204633204,
+        "mon_last": 28.54375482625483
+      },
+      "ev_to_sales": {
+        "thu_close": 27.251045263744476,
+        "fri_close": 24.83,
+        "fri_low": 24.574512811363647,
+        "mon_open": 28.996874386092877,
+        "mon_high": 29.866747433116643,
+        "mon_last": 28.1634995088743
+      },
+      "pe_low_to_peak": {
+        "at_low": 42.72916666666667,
+        "at_peak": 51.791666666666664,
+        "turns_added": 9.062499999999993,
+        "expansion": 0.2120916626036078
+      },
+      "ps_low_to_peak": {
+        "at_low": 24.95449324324325,
+        "at_peak": 30.247133204633204,
+        "turns_added": 5.2926399613899555,
+        "expansion": 0.2120916626036078
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "IREN",
+      "theme": "ai_cloud_neocloud",
+      "price_points": {
+        "thu_close": 14.41,
+        "fri_close": 11.82,
+        "fri_low": 11.75,
+        "mon_open": 14.82,
+        "mon_high": 15.995,
+        "mon_last": 14.64
+      },
+      "eps_ttm_massive": -3.18,
+      "pe_ttm": {
+        "thu_close": null,
+        "fri_close": null,
+        "fri_low": null,
+        "mon_open": null,
+        "mon_high": null,
+        "mon_last": null
+      },
+      "ps": {
+        "thu_close": 8.802047377326565,
+        "fri_close": 7.22,
+        "fri_low": 7.177241962774957,
+        "mon_open": 9.05248730964467,
+        "mon_high": 9.770211505922164,
+        "mon_last": 8.94253807106599
+      },
+      "ev_to_sales": {
+        "thu_close": 18.42167434981922,
+        "fri_close": 16.84,
+        "fri_low": 16.79725204459948,
+        "mon_open": 18.672055231450834,
+        "mon_high": 19.38961019710241,
+        "mon_last": 18.562131917563786
+      },
+      "pe_low_to_peak": null,
+      "ps_low_to_peak": {
+        "at_low": 7.177241962774957,
+        "at_peak": 9.770211505922164,
+        "turns_added": 2.5929695431472073,
+        "expansion": 0.36127659574468085
+      },
+      "pe_status": "not_meaningful_eps<=0"
+    },
+    {
+      "ticker": "KLAC",
+      "theme": "semicap_test",
+      "price_points": {
+        "thu_close": 141.48,
+        "fri_close": 126.87,
+        "fri_low": 125.72,
+        "mon_open": 150.1,
+        "mon_high": 150.86,
+        "mon_last": 143.79
+      },
+      "eps_ttm_massive": 4.04,
+      "pe_ttm": {
+        "thu_close": 35.01980198019802,
+        "fri_close": 31.403465346534656,
+        "fri_low": 31.11881188118812,
+        "mon_open": 37.15346534653465,
+        "mon_high": 37.34158415841584,
+        "mon_last": 35.59158415841584
+      },
+      "ps": {
+        "thu_close": 12.712792622369353,
+        "fri_close": 11.399999999999999,
+        "fri_low": 11.296665878458265,
+        "mon_open": 13.48734925514306,
+        "mon_high": 13.55563963111847,
+        "mon_last": 12.920359423031448
+      },
+      "ev_to_sales": {
+        "thu_close": 12.99177668116699,
+        "fri_close": 11.68,
+        "fri_low": 11.576745846451606,
+        "mon_open": 13.765733901677562,
+        "mon_high": 13.833971429239979,
+        "mon_last": 13.199182850468548
+      },
+      "pe_low_to_peak": {
+        "at_low": 31.11881188118812,
+        "at_peak": 37.34158415841584,
+        "turns_added": 6.2227722772277225,
+        "expansion": 0.19996818326439714
+      },
+      "ps_low_to_peak": {
+        "at_low": 11.296665878458265,
+        "at_peak": 13.55563963111847,
+        "turns_added": 2.2589737526602054,
+        "expansion": 0.19996818326439714
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "LITE",
+      "theme": "optical_networking",
+      "price_points": {
+        "thu_close": 535.15,
+        "fri_close": 460.54,
+        "fri_low": 456.09,
+        "mon_open": 563.31,
+        "mon_high": 574.66,
+        "mon_last": 540.45
+      },
+      "eps_ttm_massive": -72.56,
+      "pe_ttm": {
+        "thu_close": null,
+        "fri_close": null,
+        "fri_low": null,
+        "mon_open": null,
+        "mon_high": null,
+        "mon_last": null
+      },
+      "ps": {
+        "thu_close": 12.967981065705475,
+        "fri_close": 11.16,
+        "fri_low": 11.052165718504364,
+        "mon_open": 13.650366091978979,
+        "mon_high": 13.92540409084987,
+        "mon_last": 13.096412906587918
+      },
+      "ev_to_sales": {
+        "thu_close": 12.997328026538023,
+        "fri_close": 11.19,
+        "fri_low": 11.08220466803251,
+        "mon_open": 13.67946657669632,
+        "mon_high": 13.954405232388677,
+        "mon_last": 13.125713478094806
+      },
+      "pe_low_to_peak": null,
+      "ps_low_to_peak": {
+        "at_low": 11.052165718504364,
+        "at_peak": 13.92540409084987,
+        "turns_added": 2.873238372345506,
+        "expansion": 0.25997061983380454
+      },
+      "pe_status": "not_meaningful_eps<=0"
+    },
+    {
+      "ticker": "LRCX",
+      "theme": "semicap_test",
+      "price_points": {
+        "thu_close": 203.68,
+        "fri_close": 183.27,
+        "fri_low": 181.77,
+        "mon_open": 217.17,
+        "mon_high": 217.19,
+        "mon_last": 208.69
+      },
+      "eps_ttm_massive": 6.75,
+      "pe_ttm": {
+        "thu_close": 30.174814814814816,
+        "fri_close": 27.151111111111113,
+        "fri_low": 26.928888888888892,
+        "mon_open": 32.17333333333333,
+        "mon_high": 32.17629629629629,
+        "mon_last": 30.917037037037037
+      },
+      "ps": {
+        "thu_close": 9.757791236972771,
+        "fri_close": 8.78,
+        "fri_low": 8.708138811589457,
+        "mon_open": 10.404062858078243,
+        "mon_high": 10.405021007257051,
+        "mon_last": 9.997807606263981
+      },
+      "ev_to_sales": {
+        "thu_close": 9.617985809012708,
+        "fri_close": 8.64,
+        "fri_low": 8.568124511831503,
+        "mon_open": 10.264386032608074,
+        "mon_high": 10.265344372450324,
+        "mon_last": 9.858049939495494
+      },
+      "pe_low_to_peak": {
+        "at_low": 26.928888888888892,
+        "at_peak": 32.17629629629629,
+        "turns_added": 5.247407407407401,
+        "expansion": 0.19486163833415837
+      },
+      "ps_low_to_peak": {
+        "at_low": 8.708138811589457,
+        "at_peak": 10.405021007257051,
+        "turns_added": 1.6968821956675946,
+        "expansion": 0.1948616383341586
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "LSCC",
+      "theme": "foundry_chips_ip",
+      "price_points": {
+        "thu_close": 110.92,
+        "fri_close": 98.31,
+        "fri_low": 97.1,
+        "mon_open": 112.965,
+        "mon_high": 115.24,
+        "mon_last": 112.55
+      },
+      "eps_ttm_massive": 0.31,
+      "pe_ttm": {
+        "thu_close": 357.80645161290323,
+        "fri_close": 317.1290322580645,
+        "fri_low": 313.22580645161287,
+        "mon_open": 364.40322580645164,
+        "mon_high": 371.741935483871,
+        "mon_last": 363.06451612903226
+      },
+      "ps": {
+        "thu_close": 19.507748957379714,
+        "fri_close": 17.29,
+        "fri_low": 17.077194588546433,
+        "mon_open": 19.867407689960327,
+        "mon_high": 20.267517037941204,
+        "mon_last": 19.79442070999898
+      },
+      "ev_to_sales": {
+        "thu_close": 20.41701126491051,
+        "fri_close": 18.199999999999996,
+        "fri_low": 17.987265374263146,
+        "mon_open": 20.77655036377982,
+        "mon_high": 21.176526622913155,
+        "mon_last": 20.70358766156428
+      },
+      "pe_low_to_peak": {
+        "at_low": 313.22580645161287,
+        "at_peak": 371.741935483871,
+        "turns_added": 58.51612903225811,
+        "expansion": 0.18681771369721956
+      },
+      "ps_low_to_peak": {
+        "at_low": 17.077194588546433,
+        "at_peak": 20.267517037941204,
+        "turns_added": 3.1903224493947704,
+        "expansion": 0.18681771369721933
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "MPWR",
+      "theme": "foundry_chips_ip",
+      "price_points": {
+        "thu_close": 1295.86,
+        "fri_close": 1142.05,
+        "fri_low": 1132.78,
+        "mon_open": 1310.73,
+        "mon_high": 1341.98,
+        "mon_last": 1322.68
+      },
+      "eps_ttm_massive": 18.4,
+      "pe_ttm": {
+        "thu_close": 70.42717391304348,
+        "fri_close": 62.067934782608695,
+        "fri_low": 61.56413043478261,
+        "mon_open": 71.23532608695653,
+        "mon_high": 72.93369565217392,
+        "mon_last": 71.88478260869566
+      },
+      "ps": {
+        "thu_close": 16.90671511755177,
+        "fri_close": 14.899999999999999,
+        "fri_low": 14.779056958977277,
+        "mon_open": 17.100719758329323,
+        "mon_high": 17.508429578389737,
+        "mon_last": 17.256627993520425
+      },
+      "ev_to_sales": {
+        "thu_close": 16.75670969824614,
+        "fri_close": 14.75,
+        "fri_low": 14.629057285594293,
+        "mon_open": 16.950713815097583,
+        "mon_high": 17.358422534102797,
+        "mon_last": 17.106621629245176
+      },
+      "pe_low_to_peak": {
+        "at_low": 61.56413043478261,
+        "at_peak": 72.93369565217392,
+        "turns_added": 11.369565217391312,
+        "expansion": 0.1846784018079417
+      },
+      "ps_low_to_peak": {
+        "at_low": 14.779056958977277,
+        "at_peak": 17.508429578389737,
+        "turns_added": 2.7293726194124606,
+        "expansion": 0.18467840180794148
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "MRVL",
+      "theme": "optical_networking",
+      "price_points": {
+        "thu_close": 138.47,
+        "fri_close": 122.28,
+        "fri_low": 120.56,
+        "mon_open": 145.97,
+        "mon_high": 149.98,
+        "mon_last": 143.47
+      },
+      "eps_ttm_massive": 2.93,
+      "pe_ttm": {
+        "thu_close": 47.25938566552901,
+        "fri_close": 41.73378839590443,
+        "fri_low": 41.14675767918089,
+        "mon_open": 49.81911262798634,
+        "mon_high": 51.1877133105802,
+        "mon_last": 48.96587030716723
+      },
+      "ps": {
+        "thu_close": 13.181148184494603,
+        "fri_close": 11.64,
+        "fri_low": 11.476270853778214,
+        "mon_open": 13.895083415112857,
+        "mon_high": 14.276800785083415,
+        "mon_last": 13.657105004906771
+      },
+      "ev_to_sales": {
+        "thu_close": 13.291281960720884,
+        "fri_close": 11.75,
+        "fri_low": 11.586256641603464,
+        "mon_open": 14.005279163031362,
+        "mon_high": 14.387029667200029,
+        "mon_last": 13.767280095594536
+      },
+      "pe_low_to_peak": {
+        "at_low": 41.14675767918089,
+        "at_peak": 51.1877133105802,
+        "turns_added": 10.040955631399314,
+        "expansion": 0.2440278699402787
+      },
+      "ps_low_to_peak": {
+        "at_low": 11.476270853778214,
+        "at_peak": 14.276800785083415,
+        "turns_added": 2.800529931305201,
+        "expansion": 0.2440278699402787
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "MSFT",
+      "theme": "benchmarks",
+      "price_points": {
+        "thu_close": 498.3,
+        "fri_close": 484.52,
+        "fri_low": 481.03,
+        "mon_open": 506.055,
+        "mon_high": 509.15,
+        "mon_last": 496.19
+      },
+      "eps_ttm_massive": 19.21,
+      "pe_ttm": {
+        "thu_close": 25.939614783966682,
+        "fri_close": 25.222280062467462,
+        "fri_low": 25.04060385216033,
+        "mon_open": 26.343310775637686,
+        "mon_high": 26.50442477876106,
+        "mon_last": 25.82977615825091
+      },
+      "ps": {
+        "thu_close": 10.685496986708497,
+        "fri_close": 10.39,
+        "fri_low": 10.315160777676876,
+        "mon_open": 10.851794456369191,
+        "mon_high": 10.918163336910759,
+        "mon_last": 10.64025035086271
+      },
+      "ev_to_sales": {
+        "thu_close": 10.725386774056302,
+        "fri_close": 10.43,
+        "fri_low": 10.355188690750618,
+        "mon_open": 10.89162221910758,
+        "mon_high": 10.957966345791489,
+        "mon_last": 10.680157014023008
+      },
+      "pe_low_to_peak": {
+        "at_low": 25.04060385216033,
+        "at_peak": 26.50442477876106,
+        "turns_added": 1.4638209266007287,
+        "expansion": 0.05845789243914101
+      },
+      "ps_low_to_peak": {
+        "at_low": 10.315160777676876,
+        "at_peak": 10.918163336910759,
+        "turns_added": 0.6030025592338824,
+        "expansion": 0.058457892439141235
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "MU",
+      "theme": "memory_storage",
+      "price_points": {
+        "thu_close": 690.44,
+        "fri_close": 594.51,
+        "fri_low": 585.2526,
+        "mon_open": 690.72,
+        "mon_high": 720.69,
+        "mon_last": 703.47
+      },
+      "eps_ttm_massive": 75.1,
+      "pe_ttm": {
+        "thu_close": 9.193608521970708,
+        "fri_close": 7.91624500665779,
+        "fri_low": 7.792977363515314,
+        "mon_open": 9.197336884154462,
+        "mon_high": 9.596404793608523,
+        "mon_last": 9.367110519307591
+      },
+      "ps": {
+        "thu_close": 5.864866865149451,
+        "fri_close": 5.05,
+        "fri_low": 4.971364030882576,
+        "mon_open": 5.867245294444164,
+        "mon_high": 6.12182217288187,
+        "mon_last": 5.975548771257002
+      },
+      "ev_to_sales": {
+        "thu_close": 5.614721428940881,
+        "fri_close": 4.8,
+        "fri_low": 4.7213780657116935,
+        "mon_open": 5.617099433737121,
+        "mon_high": 5.871630875677684,
+        "mon_last": 5.725383580708833
+      },
+      "pe_low_to_peak": {
+        "at_low": 7.792977363515314,
+        "at_peak": 9.596404793608523,
+        "turns_added": 1.8034274300932083,
+        "expansion": 0.23141699840376595
+      },
+      "ps_low_to_peak": {
+        "at_low": 4.971364030882576,
+        "at_peak": 6.12182217288187,
+        "turns_added": 1.1504581419992936,
+        "expansion": 0.23141699840376617
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "NVDA",
+      "theme": "foundry_chips_ip",
+      "price_points": {
+        "thu_close": 145.98,
+        "fri_close": 125.53,
+        "fri_low": 124.5,
+        "mon_open": 167.035,
+        "mon_high": 171.5,
+        "mon_last": 164.555
+      },
+      "eps_ttm_massive": 7.99,
+      "pe_ttm": {
+        "thu_close": 18.270337922403,
+        "fri_close": 15.710888610763455,
+        "fri_low": 15.5819774718398,
+        "mon_open": 20.905506883604506,
+        "mon_high": 21.46433041301627,
+        "mon_last": 20.59511889862328
+      },
+      "ps": {
+        "thu_close": 11.629092647175973,
+        "fri_close": 10.0,
+        "fri_low": 9.917947900900183,
+        "mon_open": 13.306380944794073,
+        "mon_high": 13.662072811280172,
+        "mon_last": 13.108818609097428
+      },
+      "ev_to_sales": {
+        "thu_close": 11.66973617291376,
+        "fri_close": 10.04,
+        "fri_low": 9.957915488601408,
+        "mon_open": 13.347687034561643,
+        "mon_high": 13.703519406789512,
+        "mon_last": 13.15004665760193
+      },
+      "pe_low_to_peak": {
+        "at_low": 15.5819774718398,
+        "at_peak": 21.46433041301627,
+        "turns_added": 5.882352941176471,
+        "expansion": 0.3775100401606426
+      },
+      "ps_low_to_peak": {
+        "at_low": 9.917947900900183,
+        "at_peak": 13.662072811280172,
+        "turns_added": 3.7441249103799894,
+        "expansion": 0.3775100401606426
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "ONTO",
+      "theme": "semicap_test",
+      "price_points": {
+        "thu_close": 195.93,
+        "fri_close": 170.16,
+        "fri_low": 166.45,
+        "mon_open": 200.01,
+        "mon_high": 201.42,
+        "mon_last": 192.245
+      },
+      "eps_ttm_massive": 3.08,
+      "pe_ttm": {
+        "thu_close": 63.61363636363637,
+        "fri_close": 55.246753246753244,
+        "fri_low": 54.04220779220779,
+        "mon_open": 64.93831168831169,
+        "mon_high": 65.3961038961039,
+        "mon_last": 62.41720779220779
+      },
+      "ps": {
+        "thu_close": 7.33470909732017,
+        "fri_close": 6.37,
+        "fri_low": 6.23111483309826,
+        "mon_open": 7.487445345557123,
+        "mon_high": 7.540229196050776,
+        "mon_last": 7.196759814292431
+      },
+      "ev_to_sales": {
+        "thu_close": 8.15498158489686,
+        "fri_close": 7.19,
+        "fri_low": 7.051075604192187,
+        "mon_open": 8.307760974356665,
+        "mon_high": 8.36055973394939,
+        "mon_last": 8.016993337308776
+      },
+      "pe_low_to_peak": {
+        "at_low": 54.04220779220779,
+        "at_peak": 65.3961038961039,
+        "turns_added": 11.353896103896105,
+        "expansion": 0.21009312105737465
+      },
+      "ps_low_to_peak": {
+        "at_low": 6.23111483309826,
+        "at_peak": 7.540229196050776,
+        "turns_added": 1.3091143629525153,
+        "expansion": 0.21009312105737465
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "PENG",
+      "theme": "servers_hardware_pcb",
+      "price_points": {
+        "thu_close": 42.51,
+        "fri_close": 36.05,
+        "fri_low": 35.63,
+        "mon_open": 44.1925,
+        "mon_high": 44.7474,
+        "mon_last": 42.4
+      },
+      "eps_ttm_massive": 2.49,
+      "pe_ttm": {
+        "thu_close": 17.072289156626503,
+        "fri_close": 14.477911646586342,
+        "fri_low": 14.309236947791165,
+        "mon_open": 17.747991967871485,
+        "mon_high": 17.970843373493974,
+        "mon_last": 17.028112449799195
+      },
+      "ps": {
+        "thu_close": 1.4857864077669902,
+        "fri_close": 1.26,
+        "fri_low": 1.2453203883495148,
+        "mon_open": 1.544592233009709,
+        "mon_high": 1.563986796116505,
+        "mon_last": 1.4819417475728156
+      },
+      "ev_to_sales": {
+        "thu_close": 1.5654955847711052,
+        "fri_close": 1.34,
+        "fri_low": 1.3253392963461514,
+        "mon_open": 1.624225665479679,
+        "mon_high": 1.6435952475213946,
+        "mon_last": 1.5616558766712876
+      },
+      "pe_low_to_peak": {
+        "at_low": 14.309236947791165,
+        "at_peak": 17.970843373493974,
+        "turns_added": 3.661606425702809,
+        "expansion": 0.25589110300308704
+      },
+      "ps_low_to_peak": {
+        "at_low": 1.2453203883495148,
+        "at_peak": 1.563986796116505,
+        "turns_added": 0.3186664077669903,
+        "expansion": 0.25589110300308726
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "SMCI",
+      "theme": "servers_hardware_pcb",
+      "price_points": {
+        "thu_close": 23.84,
+        "fri_close": 21.65,
+        "fri_low": 21.465,
+        "mon_open": 26.27,
+        "mon_high": 26.37,
+        "mon_last": 24.595
+      },
+      "eps_ttm_massive": 5.0,
+      "pe_ttm": {
+        "thu_close": 4.768,
+        "fri_close": 4.33,
+        "fri_low": 4.293,
+        "mon_open": 5.254,
+        "mon_high": 5.274,
+        "mon_last": 4.919
+      },
+      "ps": {
+        "thu_close": 0.28630023094688223,
+        "fri_close": 0.26,
+        "fri_low": 0.2577782909930716,
+        "mon_open": 0.31548267898383375,
+        "mon_high": 0.3166836027713626,
+        "mon_last": 0.2953672055427252
+      },
+      "ev_to_sales": {
+        "thu_close": 0.3270343917281741,
+        "fri_close": 0.3,
+        "fri_low": 0.2977162728448803,
+        "mon_open": 0.35703145652244944,
+        "mon_high": 0.358265903633325,
+        "mon_last": 0.3363544674152843
+      },
+      "pe_low_to_peak": {
+        "at_low": 4.293,
+        "at_peak": 5.274,
+        "turns_added": 0.9809999999999999,
+        "expansion": 0.22851153039832273
+      },
+      "ps_low_to_peak": {
+        "at_low": 0.2577782909930716,
+        "at_peak": 0.3166836027713626,
+        "turns_added": 0.058905311778291,
+        "expansion": 0.22851153039832295
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "SMTC",
+      "theme": "optical_networking",
+      "price_points": {
+        "thu_close": 101.81,
+        "fri_close": 87.63,
+        "fri_low": 85.59,
+        "mon_open": 104.5,
+        "mon_high": 106.0,
+        "mon_last": 102.0517
+      },
+      "eps_ttm_massive": 1.65,
+      "pe_ttm": {
+        "thu_close": 61.70303030303031,
+        "fri_close": 53.10909090909091,
+        "fri_low": 51.872727272727275,
+        "mon_open": 63.333333333333336,
+        "mon_high": 64.24242424242425,
+        "mon_last": 61.849515151515156
+      },
+      "ps": {
+        "thu_close": 8.0862444368367,
+        "fri_close": 6.959999999999999,
+        "fri_low": 6.79797329681616,
+        "mon_open": 8.299897295446765,
+        "mon_high": 8.41903457719959,
+        "mon_last": 8.105441424169804
+      },
+      "ev_to_sales": {
+        "thu_close": 8.336919570764337,
+        "fri_close": 7.209999999999999,
+        "fri_low": 7.047876168945047,
+        "mon_open": 8.550700504851505,
+        "mon_high": 8.669909204156617,
+        "mon_last": 8.356128065845699
+      },
+      "pe_low_to_peak": {
+        "at_low": 51.872727272727275,
+        "at_peak": 64.24242424242425,
+        "turns_added": 12.369696969696975,
+        "expansion": 0.23846243720060767
+      },
+      "ps_low_to_peak": {
+        "at_low": 6.79797329681616,
+        "at_peak": 8.41903457719959,
+        "turns_added": 1.6210612803834294,
+        "expansion": 0.23846243720060745
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "SNDK",
+      "theme": "memory_storage",
+      "price_points": {
+        "thu_close": 94.395,
+        "fri_close": 79.24,
+        "fri_low": 78.25,
+        "mon_open": 98.585,
+        "mon_high": 99.07,
+        "mon_last": 89.17
+      },
+      "eps_ttm_massive": 17.06,
+      "pe_ttm": {
+        "thu_close": 5.5331184056271985,
+        "fri_close": 4.644783118405627,
+        "fri_low": 4.586752637749121,
+        "mon_open": 5.778722157092615,
+        "mon_high": 5.807151230949589,
+        "mon_last": 5.226846424384526
+      },
+      "ps": {
+        "thu_close": 3.7048012367491165,
+        "fri_close": 3.11,
+        "fri_low": 3.0711446239273097,
+        "mon_open": 3.869249747602221,
+        "mon_high": 3.8882849570923774,
+        "mon_last": 3.499731196365472
+      },
+      "ev_to_sales": {
+        "thu_close": 3.5362378186299703,
+        "fri_close": 2.94,
+        "fri_low": 2.90105077925149,
+        "mon_open": 3.701083510484776,
+        "mon_high": 3.7201646943868236,
+        "mon_last": 3.3306724869017232
+      },
+      "pe_low_to_peak": {
+        "at_low": 4.586752637749121,
+        "at_peak": 5.807151230949589,
+        "turns_added": 1.2203985932004686,
+        "expansion": 0.2660702875399361
+      },
+      "ps_low_to_peak": {
+        "at_low": 3.0711446239273097,
+        "at_peak": 3.8882849570923774,
+        "turns_added": 0.8171403331650677,
+        "expansion": 0.2660702875399359
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "STX",
+      "theme": "memory_storage",
+      "price_points": {
+        "thu_close": 521.39,
+        "fri_close": 457.01,
+        "fri_low": 453.635,
+        "mon_open": 553.0,
+        "mon_high": 554.4,
+        "mon_last": 518.2877
+      },
+      "eps_ttm_massive": 19.15,
+      "pe_ttm": {
+        "thu_close": 27.226631853785904,
+        "fri_close": 23.864751958224545,
+        "fri_low": 23.68851174934726,
+        "mon_open": 28.877284595300264,
+        "mon_high": 28.950391644908617,
+        "mon_last": 27.0646318537859
+      },
+      "ps": {
+        "thu_close": 8.670628651451828,
+        "fri_close": 7.6,
+        "fri_low": 7.543874313472353,
+        "mon_open": 9.196297674011511,
+        "mon_high": 9.21957944027483,
+        "mon_last": 8.619037920395614
+      },
+      "ev_to_sales": {
+        "thu_close": 8.750743122010103,
+        "fri_close": 7.68,
+        "fri_low": 7.6238683125693685,
+        "mon_open": 9.276468348582632,
+        "mon_high": 9.299752604109411,
+        "mon_last": 8.699146874923866
+      },
+      "pe_low_to_peak": {
+        "at_low": 23.68851174934726,
+        "at_peak": 28.950391644908617,
+        "turns_added": 5.261879895561357,
+        "expansion": 0.22212792222822308
+      },
+      "ps_low_to_peak": {
+        "at_low": 7.543874313472353,
+        "at_peak": 9.21957944027483,
+        "turns_added": 1.6757051268024767,
+        "expansion": 0.22212792222822308
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "SYM",
+      "theme": "power_cooling_robotics",
+      "price_points": {
+        "thu_close": 33.16,
+        "fri_close": 31.1,
+        "fri_low": 30.325,
+        "mon_open": 35.23,
+        "mon_high": 38.28,
+        "mon_last": 35.96
+      },
+      "eps_ttm_massive": 0.1,
+      "pe_ttm": {
+        "thu_close": 331.59999999999997,
+        "fri_close": 311.0,
+        "fri_low": 303.25,
+        "mon_open": 352.29999999999995,
+        "mon_high": 382.8,
+        "mon_last": 359.59999999999997
+      },
+      "ps": {
+        "thu_close": 1.631344051446945,
+        "fri_close": 1.53,
+        "fri_low": 1.4918729903536976,
+        "mon_open": 1.7331800643086814,
+        "mon_high": 1.8832282958199358,
+        "mon_last": 1.7690932475884242
+      },
+      "ev_to_sales": {
+        "thu_close": 0.9715255316612693,
+        "fri_close": 0.87,
+        "fri_low": 0.8318047150303476,
+        "mon_open": 1.0735439057092442,
+        "mon_high": 1.223860833654328,
+        "mon_last": 1.1095213999387232
+      },
+      "pe_low_to_peak": {
+        "at_low": 303.25,
+        "at_peak": 382.8,
+        "turns_added": 79.55000000000001,
+        "expansion": 0.26232481450948075
+      },
+      "ps_low_to_peak": {
+        "at_low": 1.4918729903536976,
+        "at_peak": 1.8832282958199358,
+        "turns_added": 0.3913553054662382,
+        "expansion": 0.26232481450948075
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "TER",
+      "theme": "semicap_test",
+      "price_points": {
+        "thu_close": 227.43,
+        "fri_close": 204.775,
+        "fri_low": 201.87,
+        "mon_open": 240.0,
+        "mon_high": 243.445,
+        "mon_last": 232.385
+      },
+      "eps_ttm_massive": 8.79,
+      "pe_ttm": {
+        "thu_close": 25.873720136518774,
+        "fri_close": 23.296359499431176,
+        "fri_low": 22.96587030716724,
+        "mon_open": 27.303754266211605,
+        "mon_high": 27.69567690557452,
+        "mon_last": 26.437428896473268
+      },
+      "ps": {
+        "thu_close": 7.096775564019923,
+        "fri_close": 6.38984397890419,
+        "fri_low": 6.2991957222385,
+        "mon_open": 7.489012598886609,
+        "mon_high": 7.596511133899794,
+        "mon_last": 7.25139246996777
+      },
+      "ev_to_sales": {
+        "thu_close": 7.007009799770873,
+        "fri_close": 6.299843927196519,
+        "fri_low": 6.209165628373809,
+        "mon_open": 7.399376827723185,
+        "mon_high": 7.5069109893218915,
+        "mon_last": 7.161677948020968
+      },
+      "pe_low_to_peak": {
+        "at_low": 22.96587030716724,
+        "at_peak": 27.69567690557452,
+        "turns_added": 4.729806598407279,
+        "expansion": 0.20594937335909247
+      },
+      "ps_low_to_peak": {
+        "at_low": 6.2991957222385,
+        "at_peak": 7.596511133899794,
+        "turns_added": 1.2973154116612937,
+        "expansion": 0.20594937335909225
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "TTMI",
+      "theme": "servers_hardware_pcb",
+      "price_points": {
+        "thu_close": 68.0,
+        "fri_close": 58.85,
+        "fri_low": 57.51,
+        "mon_open": 69.89,
+        "mon_high": 70.8,
+        "mon_last": 68.9
+      },
+      "eps_ttm_massive": 2.55,
+      "pe_ttm": {
+        "thu_close": 26.666666666666668,
+        "fri_close": 23.078431372549023,
+        "fri_low": 22.55294117647059,
+        "mon_open": 27.407843137254904,
+        "mon_high": 27.764705882352942,
+        "mon_last": 27.01960784313726
+      },
+      "ps": {
+        "thu_close": 1.8718776550552252,
+        "fri_close": 1.62,
+        "fri_low": 1.5831129991503823,
+        "mon_open": 1.9239048428207306,
+        "mon_high": 1.9489549702633815,
+        "mon_last": 1.896652506372133
+      },
+      "ev_to_sales": {
+        "thu_close": 2.0718080318174175,
+        "fri_close": 1.8200000000000003,
+        "fri_low": 1.7831231953403999,
+        "mon_open": 2.12382083838954,
+        "mon_high": 2.1488640415538947,
+        "mon_last": 2.0965760349469997
+      },
+      "pe_low_to_peak": {
+        "at_low": 22.55294117647059,
+        "at_peak": 27.764705882352942,
+        "turns_added": 5.211764705882352,
+        "expansion": 0.23109024517475207
+      },
+      "ps_low_to_peak": {
+        "at_low": 1.5831129991503823,
+        "at_peak": 1.9489549702633815,
+        "turns_added": 0.3658419711129992,
+        "expansion": 0.2310902451747523
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "VRT",
+      "theme": "power_cooling_robotics",
+      "price_points": {
+        "thu_close": 184.99,
+        "fri_close": 166.24,
+        "fri_low": 163.57,
+        "mon_open": 199.35,
+        "mon_high": 199.35,
+        "mon_last": 187.515
+      },
+      "eps_ttm_massive": 5.45,
+      "pe_ttm": {
+        "thu_close": 33.94311926605505,
+        "fri_close": 30.50275229357798,
+        "fri_low": 30.012844036697246,
+        "mon_open": 36.57798165137614,
+        "mon_high": 36.57798165137614,
+        "mon_last": 34.40642201834862
+      },
+      "ps": {
+        "thu_close": 5.430409047160731,
+        "fri_close": 4.88,
+        "fri_low": 4.801621751684311,
+        "mon_open": 5.851948989412897,
+        "mon_high": 5.851948989412897,
+        "mon_last": 5.5045307988450425
+      },
+      "ev_to_sales": {
+        "thu_close": 5.390927173357565,
+        "fri_close": 4.84,
+        "fri_low": 4.761547970513882,
+        "mon_open": 5.8128639311930135,
+        "mon_high": 5.8128639311930135,
+        "mon_last": 5.465118699369718
+      },
+      "pe_low_to_peak": {
+        "at_low": 30.012844036697246,
+        "at_peak": 36.57798165137614,
+        "turns_added": 6.565137614678896,
+        "expansion": 0.21874426850889517
+      },
+      "ps_low_to_peak": {
+        "at_low": 4.801621751684311,
+        "at_peak": 5.851948989412897,
+        "turns_added": 1.0503272377285855,
+        "expansion": 0.2187442685088954
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "WDC",
+      "theme": "memory_storage",
+      "price_points": {
+        "thu_close": 296.78,
+        "fri_close": 261.11,
+        "fri_low": 256.88,
+        "mon_open": 303.58,
+        "mon_high": 308.28,
+        "mon_last": 298.12
+      },
+      "eps_ttm_massive": 26.51,
+      "pe_ttm": {
+        "thu_close": 11.195020746887964,
+        "fri_close": 9.849490758204452,
+        "fri_low": 9.689928328932478,
+        "mon_open": 11.451527725386645,
+        "mon_high": 11.628819313466614,
+        "mon_last": 11.245567710298
+      },
+      "ps": {
+        "thu_close": 7.672111370686683,
+        "fri_close": 6.75,
+        "fri_low": 6.640649534678871,
+        "mon_open": 7.847899352763203,
+        "mon_high": 7.969399869786679,
+        "mon_last": 7.706751943625291
+      },
+      "ev_to_sales": {
+        "thu_close": 7.631597291557234,
+        "fri_close": 6.71,
+        "fri_low": 6.60071049780524,
+        "mon_open": 7.807287271444792,
+        "mon_high": 7.928720051661191,
+        "mon_last": 7.666218552299782
+      },
+      "pe_low_to_peak": {
+        "at_low": 9.689928328932478,
+        "at_peak": 11.628819313466614,
+        "turns_added": 1.9388909845341367,
+        "expansion": 0.200093428838368
+      },
+      "ps_low_to_peak": {
+        "at_low": 6.640649534678871,
+        "at_peak": 7.969399869786679,
+        "turns_added": 1.3287503351078085,
+        "expansion": 0.200093428838368
+      },
+      "pe_status": "defined"
+    },
+    {
+      "ticker": "ZS",
+      "theme": "software_other",
+      "price_points": {
+        "thu_close": 205.71,
+        "fri_close": 194.82,
+        "fri_low": 193.1282,
+        "mon_open": 238.01,
+        "mon_high": 247.9,
+        "mon_last": 223.61
+      },
+      "eps_ttm_massive": -0.39,
+      "pe_ttm": {
+        "thu_close": null,
+        "fri_close": null,
+        "fri_low": null,
+        "mon_open": null,
+        "mon_high": null,
+        "mon_last": null
+      },
+      "ps": {
+        "thu_close": 10.009910686787805,
+        "fri_close": 9.48,
+        "fri_low": 9.397676501385895,
+        "mon_open": 11.581638435478904,
+        "mon_high": 12.062888820449647,
+        "mon_last": 10.880930089313214
+      },
+      "ev_to_sales": {
+        "thu_close": 10.229408893811259,
+        "fri_close": 9.7,
+        "fri_low": 9.617754456698817,
+        "mon_open": 11.799648312553561,
+        "mon_high": 12.280442982874348,
+        "mon_last": 11.099603494290738
+      },
+      "pe_low_to_peak": null,
+      "ps_low_to_peak": {
+        "at_low": 9.397676501385895,
+        "at_peak": 12.062888820449647,
+        "turns_added": 2.665212319063752,
+        "expansion": 0.2836033267021596
+      },
+      "pe_status": "not_meaningful_eps<=0"
+    }
+  ],
+  "excluded": [
+    {
+      "ticker": "ARM",
+      "reason": "no ratios row in Massive (ETF, ADR or not covered)"
+    },
+    {
+      "ticker": "HIMX",
+      "reason": "no ratios row in Massive (ETF, ADR or not covered)"
+    },
+    {
+      "ticker": "NBIS",
+      "reason": "no ratios row in Massive (ETF, ADR or not covered)"
+    },
+    {
+      "ticker": "QQQ",
+      "reason": "no ratios row in Massive (ETF, ADR or not covered)"
+    },
+    {
+      "ticker": "SKHY",
+      "reason": "no ratios row in Massive (ETF, ADR or not covered)"
+    },
+    {
+      "ticker": "SMH",
+      "reason": "no ratios row in Massive (ETF, ADR or not covered)"
+    },
+    {
+      "ticker": "TSM",
+      "reason": "no ratios row in Massive (ETF, ADR or not covered)"
+    },
+    {
+      "ticker": "UMC",
+      "reason": "no ratios row in Massive (ETF, ADR or not covered)"
+    }
+  ],
+  "caveats": [
+    "Monday points are provisional",
+    "EPS held fixed, so this isolates the multiple and ignores any earnings revision in the window",
+    "Massive EPS can be GAAP with one-offs (e.g. LITE -72.56) and lags the newest quarter; P/E is blank when EPS <= 0 and P/S is shown instead"
+  ]
+}

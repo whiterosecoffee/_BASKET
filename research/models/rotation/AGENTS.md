@@ -1,5 +1,5 @@
 # AGENTS.md: Two-Point Evaluation and Comparison
-Scope: `research/models/rotation/**` and `engines/valuation/rotation/**` (spark B04). This file adds rules for agents that compare **point A with point B**. It does not override the repository-root `AGENTS.md`; where they conflict the root file wins. Version 1.0.0.
+Scope: `research/models/rotation/**` and `engines/valuation/rotation/**` (spark B04). This file adds rules for agents that compare **point A with point B**. It does not override the repository-root `AGENTS.md`; where they conflict the root file wins. Version 1.1.0.
 Key words MUST, MUST NOT, SHOULD follow RFC 2119.
 
 ## 1. Purpose
@@ -38,6 +38,7 @@ Price track (facts):
 6. Cohort context: rank, median, and the theme median of the same metric.
 Relationship track (facts): ratios `x = P_subject / P_reference` at A and at B for each of NVDA, MSFT, SMH, QQQ, with the change in x and its position in the 250-day band (see `profiles/<T>.json`).
 Valuation track (separate from the price track): if no estimate, guidance or fundamental changed between A and B, the whole `change` is a multiple modifier; otherwise label it mixed and cite the event (`multiple_events.csv`). Never present a mixed move as pure re-rating.
+Multiple track (`cli multiples`, schema `rotation.multiples/1`): record P/E at A and B with EPS held fixed at the latest TTM, so the difference is pure price. P/E is undefined when EPS <= 0; then record P/S and EV/S. State the EPS basis (cohort: Massive ratio EPS; subjects also split-normalised GAAP TTM and a forward basis), and report "max compression" (`fri_low`) and "peak rebound" (`mon_high`) together with `turns_added` and `expansion`. For a 52-week-peak comparison show the P/E on the EPS known then and on today's EPS.
 Zone track: dwell days, visits and volume share of the corridor [A, B] in the prior history, and the number of prior crossings of each level (supports reading a move as passing through an "air pocket" or a heavily traded zone).
 
 ## 6. Interpretation rules
@@ -64,6 +65,7 @@ Snapshot `massive_mon_20261123_1351ET.csv`, pair `fri_close` -> `mon_high`:
 - NVDA 125.53 -> 171.50, change +36.62%; recovered 224.8% of the Friday drop at the peak; last is 4.0% below the peak (15.1% of the move given back).
 - CRWV 39.51 -> 51.90, +31.36%.
 - SNDK 79.24 -> 99.07, +25.03%; gave back 50% of the move by the snapshot.
+- Multiples (EPS held fixed), `fri_low` -> `mon_high`: NVDA trailing P/E 15.6 -> 21.5 on Massive EPS 7.99, and 13.4 -> 18.4 on GAAP-normalised TTM EPS 9.31; SNDK 4.6 -> 5.8 on Massive EPS 17.06.
 Any change to the formulas MUST keep these values or update this section with the reason.
 
 ## 10. Testing and change control

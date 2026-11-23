@@ -8,6 +8,7 @@ from engines.valuation.rotation.calendarize import calendarize, extend, ntm
 from engines.valuation.rotation.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
 from engines.valuation.rotation import portfolio as pf
 from engines.valuation.rotation import cohort as co
+from engines.valuation.rotation import multiplepoints as mpt
 from engines.valuation.rotation import pointcompare as pc
 from engines.valuation.rotation import anchors as an, history as hist, profile as prof, trading as trd
 from engines.valuation.rotation.implied import implied_growth, pv
@@ -449,6 +450,34 @@ class PC(unittest.TestCase):
         s = pc.summarize([{"x": 1.0}, {"x": 3.0}, {}], "x")
         self.assertEqual((s["n"], s["median"], s["max"]), (2, 2.0, 3.0))
         self.assertEqual(pc.summarize([{}], "x"), {})
+
+
+class MP(unittest.TestCase):
+    RAT = {"price": 100.0, "mcap": 1000.0, "eps": 5.0, "pe": 20.0, "ps": 4.0, "evs": 5.0, "ev": 1250.0, "date": "2026-11-20"}
+
+    def test_pe_ps_scale_with_price_and_eps_is_fixed(self):
+        m = mpt.multiples_at({"fri_low": 80.0, "mon_high": 120.0, "fri_close": 100.0}, self.RAT)
+        self.assertAlmostEqual(m["pe"]["fri_low"], 16.0)
+        self.assertAlmostEqual(m["pe"]["mon_high"], 24.0)
+        self.assertAlmostEqual(m["pe"]["fri_close"], 20.0)               # equals the ratio-snapshot P/E at the snapshot price
+        self.assertAlmostEqual(m["ps"]["mon_high"], 4.8)
+
+    def test_ev_to_sales_moves_less_than_price_when_net_debt_exists(self):
+        m = mpt.multiples_at({"fri_low": 50.0, "fri_close": 100.0}, self.RAT)
+        ev_at = 1000 * 0.5 + 250                                          # mcap halves, net debt 250 unchanged
+        self.assertAlmostEqual(m["evs"]["fri_low"], 5.0 * ev_at / 1250)
+        self.assertGreater(m["evs"]["fri_low"] / m["evs"]["fri_close"], 0.5)
+
+    def test_negative_eps_gives_no_pe_but_has_ps(self):
+        m = mpt.multiples_at({"fri_low": 80.0}, dict(self.RAT, eps=-2.0))
+        self.assertIsNone(m["pe"]["fri_low"])
+        self.assertAlmostEqual(m["ps"]["fri_low"], 3.2)
+
+    def test_summarize_pair_turns_and_expansion(self):
+        s = mpt.summarize_pair({"fri_low": 16.0, "mon_high": 24.0})
+        self.assertAlmostEqual(s["turns_added"], 8.0)
+        self.assertAlmostEqual(s["expansion"], 0.5)
+        self.assertIsNone(mpt.summarize_pair({"fri_low": None, "mon_high": 24.0}))
 
 
 if __name__ == "__main__":

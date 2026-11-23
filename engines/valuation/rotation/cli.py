@@ -9,6 +9,7 @@ from pathlib import Path
 
 from . import anchors as an
 from . import cohort as co
+from . import multiplepoints as mp
 from . import pointcompare as pc
 from . import history as hist
 from . import portfolio as pf
@@ -233,6 +234,23 @@ def cmd_compare(a) -> int:
     return 0
 
 
+def cmd_multiples(a) -> int:
+    import json
+    data, asof = Path(a.data), date.fromisoformat(a.asof) if a.asof else date.today()
+    doc = mp.build(data, asof)
+    out = Path(a.out) if a.out else data / "comparisons" / "multiples_at_compression_and_rebound_2026-11-23.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(doc, indent=2, default=str) + "\n")
+    print(f"wrote {out}")
+    for t, s in doc["subjects"].items():
+        f = s.get("fundamentals_gaap_norm_ttm"); fw = s.get("forward"); ev = s.get("ev_to_guided_annualised_revenue")
+        print(f"{t}: low {s['points']['fri_low']:.2f} -> peak {s['points']['mon_high']:.2f}")
+        if f: print(f"   trailing GAAP-norm P/E {f['pe']['fri_low']:.1f} -> {f['pe']['mon_high']:.1f} (52w peak {f['pe_52w_peak_price_on_current_eps']:.1f} on today's EPS; {f['pe_at_52w_peak_point_in_time']:.1f} on EPS then)")
+        if fw: print(f"   forward P/E {fw['pe']['fri_low']:.1f} -> {fw['pe']['mon_high']:.1f} ({fw['basis'][:40]})")
+        if ev: print(f"   EV/guided-annualised revenue {ev['ev_s']['fri_low']:.2f}x -> {ev['ev_s']['mon_high']:.2f}x")
+    return 0
+
+
 def cmd_swap(a) -> int:
     data, asof = Path(a.data), date.fromisoformat(a.asof) if a.asof else date.today()
     names = {n.ticker: n for n in _names(a, asof, data)}
@@ -359,6 +377,7 @@ def main(argv=None) -> int:
     s.add_argument("--hurdle", type=float, default=0.08); s.add_argument("--cost", type=float, default=0.002)
     s = sub.add_parser("cohort"); s.set_defaults(fn=cmd_cohort); s.add_argument("--only", help="comma list of tickers to print")
     s = sub.add_parser("compare"); s.set_defaults(fn=cmd_compare); s.add_argument("--a", default="fri_close"); s.add_argument("--b", default="mon_high"); s.add_argument("--out")
+    s = sub.add_parser("multiples"); s.set_defaults(fn=cmd_multiples); s.add_argument("--asof"); s.add_argument("--out")
     s = sub.add_parser("simulate"); s.set_defaults(fn=cmd_simulate)
     s.add_argument("a"); s.add_argument("b"); s.add_argument("--asof"); s.add_argument("--lookback", type=int, default=60)
     s.add_argument("--band", type=float, default=0.10); s.add_argument("--cost", type=float, default=0.002)
