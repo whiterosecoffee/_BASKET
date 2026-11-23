@@ -1,0 +1,1848 @@
+{
+  "schema": "rotation.compare/1",
+  "comparison_id": "fri_close__vs__mon_high__2026-11-23",
+  "point_a": {
+    "label": "fri_close",
+    "definition": "2026-11-20 regular-session close (final)",
+    "status": "final"
+  },
+  "point_b": {
+    "label": "mon_high",
+    "definition": "2026-11-23 session high so far (PROVISIONAL: can still rise)",
+    "status": "provisional"
+  },
+  "context_points": {
+    "thu_close": "2026-11-19 regular-session close (final)",
+    "fri_low": "2026-11-20 session low (final)",
+    "fri_high": "2026-11-20 session high (final)",
+    "mon_open": "2026-11-23 session open (final once printed)",
+    "mon_low": "2026-11-23 session low so far (PROVISIONAL: can still fall)",
+    "mon_last": "2026-11-23 last price at snapshot time (PROVISIONAL: not a close)"
+  },
+  "as_of_et": "2026-11-23T13:51",
+  "monday_snapshot_file": "massive_mon_20261123_1351ET.csv",
+  "provisional": true,
+  "provisional_note": "Monday values come from a snapshot taken while the session was open; mon_high can still rise and mon_last is not a close.",
+  "adjustment_basis": "Massive adjusted daily aggregates (split/dividend adjusted); screenshots are not used for prices here",
+  "selection_bias_warning": "A session high is a maximum over the path, so change(A->high) overstates what was holdable. Read it with giveback_from_b_to_last and the A->last change.",
+  "subjects": {
+    "NVDA": {
+      "ticker": "NVDA",
+      "theme": "foundry_chips_ip",
+      "points": {
+        "thu_close": 145.98,
+        "fri_low": 124.5,
+        "fri_high": 143.725,
+        "fri_close": 125.53,
+        "mon_open": 167.035,
+        "mon_high": 171.5,
+        "mon_low": 156.93,
+        "mon_last": 164.555
+      },
+      "comparison": {
+        "a": 125.53,
+        "b": 171.5,
+        "change": 0.36620728112801726,
+        "share_of_friday_drop_recovered_at_b": 2.247921760391199,
+        "b_vs_thursday_close": 0.17481846828332648,
+        "b_vs_friday_high": 0.19325100017394337,
+        "b_vs_friday_low": 0.3775100401606426,
+        "giveback_from_b_to_last": -0.04049562682215735,
+        "giveback_share_of_move": 0.15107678921035445,
+        "last_position_in_friday_low_to_b_range": 0.8522340425531917,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    "CRWV": {
+      "ticker": "CRWV",
+      "theme": "ai_cloud_neocloud",
+      "points": {
+        "thu_close": 44.91,
+        "fri_low": 39.28,
+        "fri_high": 43.24,
+        "fri_close": 39.51,
+        "mon_open": 50.97,
+        "mon_high": 51.9,
+        "mon_low": 46.53,
+        "mon_last": 47.635
+      },
+      "comparison": {
+        "a": 39.51,
+        "b": 51.9,
+        "change": 0.31359149582384216,
+        "share_of_friday_drop_recovered_at_b": 2.294444444444445,
+        "b_vs_thursday_close": 0.15564462257849043,
+        "b_vs_friday_high": 0.20027752081406103,
+        "b_vs_friday_low": 0.32128309572301417,
+        "giveback_from_b_to_last": -0.08217726396917147,
+        "giveback_share_of_move": 0.3442292171105731,
+        "last_position_in_friday_low_to_b_range": 0.6620443740095086,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    "SNDK": {
+      "ticker": "SNDK",
+      "theme": "memory_storage",
+      "points": {
+        "thu_close": 94.395,
+        "fri_low": 78.25,
+        "fri_high": 90.67,
+        "fri_close": 79.24,
+        "mon_open": 98.585,
+        "mon_high": 99.07,
+        "mon_low": 88.3,
+        "mon_last": 89.17
+      },
+      "comparison": {
+        "a": 79.24,
+        "b": 99.07,
+        "change": 0.2502523977788995,
+        "share_of_friday_drop_recovered_at_b": 1.3084790498185415,
+        "b_vs_thursday_close": 0.049525928280099496,
+        "b_vs_friday_high": 0.09264365280688192,
+        "b_vs_friday_low": 0.2660702875399361,
+        "giveback_from_b_to_last": -0.09992934288886635,
+        "giveback_share_of_move": 0.49924357034795724,
+        "last_position_in_friday_low_to_b_range": 0.5244956772334296,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": false,
+        "peak_at_open_proxy": false
+      }
+    }
+  },
+  "cohort_summary": {
+    "n_excluding_benchmarks": 43,
+    "change": {
+      "n": 43,
+      "median": 0.21395626117787336,
+      "mean": 0.2285495323472987,
+      "min": 0.15851449275362328,
+      "max": 0.36620728112801726
+    },
+    "share_of_friday_drop_recovered_at_b": {
+      "n": 43,
+      "median": 1.6420260095824801,
+      "mean": 1.8444629433534516,
+      "min": 1.2130384167636779,
+      "max": 4.874196510560141
+    },
+    "giveback_from_b_to_last": {
+      "n": 43,
+      "median": -0.04555158375533708,
+      "mean": -0.05135230936067226,
+      "min": -0.11423897844497788,
+      "max": -0.014381734452078243
+    },
+    "giveback_share_of_move": {
+      "n": 43,
+      "median": 0.254188330444829,
+      "mean": 0.26892552742499926,
+      "min": 0.09653378682538863,
+      "max": 0.49924357034795724
+    },
+    "share_peak_at_open_proxy": 0.11627906976744186,
+    "share_b_above_thursday_close": 1.0,
+    "share_b_above_friday_high": 1.0
+  },
+  "theme_summary": {
+    "optical_networking": {
+      "n": 10,
+      "median_change": 0.22762560332519577,
+      "median_giveback_share_of_move": 0.22497500240739388,
+      "tickers": [
+        "AAOI",
+        "ALAB",
+        "CIEN",
+        "COHR",
+        "CRDO",
+        "FN",
+        "GLW",
+        "LITE",
+        "MRVL",
+        "SMTC"
+      ]
+    },
+    "foundry_chips_ip": {
+      "n": 9,
+      "median_change": 0.20617608409986876,
+      "median_giveback_share_of_move": 0.18166089965397933,
+      "tickers": [
+        "ARM",
+        "CBRS",
+        "HIMX",
+        "INTC",
+        "LSCC",
+        "MPWR",
+        "NVDA",
+        "TSM",
+        "UMC"
+      ]
+    },
+    "power_cooling_robotics": {
+      "n": 3,
+      "median_change": 0.2308681672025723,
+      "median_giveback_share_of_move": 0.32311977715877443,
+      "tickers": [
+        "BE",
+        "SYM",
+        "VRT"
+      ]
+    },
+    "ai_cloud_neocloud": {
+      "n": 3,
+      "median_change": 0.3532148900169203,
+      "median_giveback_share_of_move": 0.3442292171105731,
+      "tickers": [
+        "CRWV",
+        "IREN",
+        "NBIS"
+      ]
+    },
+    "servers_hardware_pcb": {
+      "n": 6,
+      "median_change": 0.22963660940507957,
+      "median_giveback_share_of_move": 0.29748554088695567,
+      "tickers": [
+        "DELL",
+        "FLEX",
+        "HPE",
+        "PENG",
+        "SMCI",
+        "TTMI"
+      ]
+    },
+    "software_other": {
+      "n": 3,
+      "median_change": 0.21123755334281658,
+      "median_giveback_share_of_move": 0.3381642512077291,
+      "tickers": [
+        "INOD",
+        "IONQ",
+        "ZS"
+      ]
+    },
+    "semicap_test": {
+      "n": 4,
+      "median_change": 0.18696176529132968,
+      "median_giveback_share_of_move": 0.28975795239704816,
+      "tickers": [
+        "KLAC",
+        "LRCX",
+        "ONTO",
+        "TER"
+      ]
+    },
+    "memory_storage": {
+      "n": 5,
+      "median_change": 0.21310255793089872,
+      "median_giveback_share_of_move": 0.21539113843544577,
+      "tickers": [
+        "MU",
+        "SKHY",
+        "SNDK",
+        "STX",
+        "WDC"
+      ]
+    }
+  },
+  "ranking_by_change": [
+    {
+      "rank": 1,
+      "ticker": "NVDA",
+      "change": 0.36620728112801726,
+      "giveback_share_of_move": 0.15107678921035445
+    },
+    {
+      "rank": 2,
+      "ticker": "DELL",
+      "change": 0.3633191856700957,
+      "giveback_share_of_move": 0.42867042867042826
+    },
+    {
+      "rank": 3,
+      "ticker": "NBIS",
+      "change": 0.3534620587873569,
+      "giveback_share_of_move": 0.4265831593597771
+    },
+    {
+      "rank": 4,
+      "ticker": "IREN",
+      "change": 0.3532148900169203,
+      "giveback_share_of_move": 0.32455089820359256
+    },
+    {
+      "rank": 5,
+      "ticker": "CRWV",
+      "change": 0.31359149582384216,
+      "giveback_share_of_move": 0.3442292171105731
+    },
+    {
+      "rank": 6,
+      "ticker": "AAOI",
+      "change": 0.28363194655329504,
+      "giveback_share_of_move": 0.4379014989293364
+    },
+    {
+      "rank": 7,
+      "ticker": "ZS",
+      "change": 0.2724566266297095,
+      "giveback_share_of_move": 0.4576111529766388
+    },
+    {
+      "rank": 8,
+      "ticker": "CRDO",
+      "change": 0.2689765671940716,
+      "giveback_share_of_move": 0.25186150409530905
+    },
+    {
+      "rank": 9,
+      "ticker": "COHR",
+      "change": 0.25429975429975427,
+      "giveback_share_of_move": 0.4259609325771896
+    },
+    {
+      "rank": 10,
+      "ticker": "SNDK",
+      "change": 0.2502523977788995,
+      "giveback_share_of_move": 0.49924357034795724
+    },
+    {
+      "rank": 11,
+      "ticker": "LITE",
+      "change": 0.24779606548833955,
+      "giveback_share_of_move": 0.29977216964598613
+    },
+    {
+      "rank": 12,
+      "ticker": "HPE",
+      "change": 0.24663896357858728,
+      "giveback_share_of_move": 0.3250743310208127
+    },
+    {
+      "rank": 13,
+      "ticker": "BE",
+      "change": 0.24313505161879356,
+      "giveback_share_of_move": 0.254188330444829
+    },
+    {
+      "rank": 14,
+      "ticker": "PENG",
+      "change": 0.24125936199722608,
+      "giveback_share_of_move": 0.2698967507530986
+    },
+    {
+      "rank": 15,
+      "ticker": "UMC",
+      "change": 0.24003322259136217,
+      "giveback_share_of_move": 0.18166089965397933
+    },
+    {
+      "rank": 16,
+      "ticker": "SKHY",
+      "change": 0.23684464613305023,
+      "giveback_share_of_move": 0.18385650224215208
+    },
+    {
+      "rank": 17,
+      "ticker": "SYM",
+      "change": 0.2308681672025723,
+      "giveback_share_of_move": 0.32311977715877443
+    },
+    {
+      "rank": 18,
+      "ticker": "ALAB",
+      "change": 0.2287219295813696,
+      "giveback_share_of_move": 0.13248484848484857
+    },
+    {
+      "rank": 19,
+      "ticker": "MRVL",
+      "change": 0.22652927706902193,
+      "giveback_share_of_move": 0.235018050541516
+    },
+    {
+      "rank": 20,
+      "ticker": "SMCI",
+      "change": 0.21801385681293306,
+      "giveback_share_of_move": 0.3760593220338986
+    },
+    {
+      "rank": 21,
+      "ticker": "CBRS",
+      "change": 0.2167654530059271,
+      "giveback_share_of_move": 0.21177455357142866
+    },
+    {
+      "rank": 22,
+      "ticker": "TSM",
+      "change": 0.21395626117787336,
+      "giveback_share_of_move": 0.2980642322921248
+    },
+    {
+      "rank": 23,
+      "ticker": "STX",
+      "change": 0.21310255793089872,
+      "giveback_share_of_move": 0.37080090358353024
+    },
+    {
+      "rank": 24,
+      "ticker": "MU",
+      "change": 0.21224201443205337,
+      "giveback_share_of_move": 0.13647170708511666
+    },
+    {
+      "rank": 25,
+      "ticker": "INOD",
+      "change": 0.21123755334281658,
+      "giveback_share_of_move": 0.2962962962962971
+    },
+    {
+      "rank": 26,
+      "ticker": "SMTC",
+      "change": 0.20963140477005604,
+      "giveback_share_of_move": 0.21493195427327177
+    },
+    {
+      "rank": 27,
+      "ticker": "ARM",
+      "change": 0.20617608409986876,
+      "giveback_share_of_move": 0.23693435309114075
+    },
+    {
+      "rank": 28,
+      "ticker": "TTMI",
+      "change": 0.20305862361937121,
+      "giveback_share_of_move": 0.15899581589958092
+    },
+    {
+      "rank": 29,
+      "ticker": "IONQ",
+      "change": 0.1998069498069499,
+      "giveback_share_of_move": 0.3381642512077291
+    },
+    {
+      "rank": 30,
+      "ticker": "VRT",
+      "change": 0.19916987487969195,
+      "giveback_share_of_move": 0.3574448807006951
+    },
+    {
+      "rank": 31,
+      "ticker": "KLAC",
+      "change": 0.1890911957121464,
+      "giveback_share_of_move": 0.29470612755314796
+    },
+    {
+      "rank": 32,
+      "ticker": "TER",
+      "change": 0.1888414113050909,
+      "giveback_share_of_move": 0.2860098267390744
+    },
+    {
+      "rank": 33,
+      "ticker": "GLW",
+      "change": 0.18669209578300494,
+      "giveback_share_of_move": 0.16770715096481256
+    },
+    {
+      "rank": 34,
+      "ticker": "LRCX",
+      "change": 0.18508211927756846,
+      "giveback_share_of_move": 0.2505896226415095
+    },
+    {
+      "rank": 35,
+      "ticker": "ONTO",
+      "change": 0.18370944992947802,
+      "giveback_share_of_move": 0.29350607805502194
+    },
+    {
+      "rank": 36,
+      "ticker": "WDC",
+      "change": 0.18065183256098938,
+      "giveback_share_of_move": 0.21539113843544577
+    },
+    {
+      "rank": 37,
+      "ticker": "FN",
+      "change": 0.1779750210496771,
+      "giveback_share_of_move": 0.14626453774886586
+    },
+    {
+      "rank": 38,
+      "ticker": "MPWR",
+      "change": 0.17506238781139194,
+      "giveback_share_of_move": 0.09653378682538863
+    },
+    {
+      "rank": 39,
+      "ticker": "HIMX",
+      "change": 0.17338192419825083,
+      "giveback_share_of_move": 0.19707415503615264
+    },
+    {
+      "rank": 40,
+      "ticker": "LSCC",
+      "change": 0.17221035499949133,
+      "giveback_share_of_move": 0.1588895451860602
+    },
+    {
+      "rank": 41,
+      "ticker": "CIEN",
+      "change": 0.17133165507530812,
+      "giveback_share_of_move": 0.2105590835512387
+    },
+    {
+      "rank": 42,
+      "ticker": "INTC",
+      "change": 0.16068642745709827,
+      "giveback_share_of_move": 0.1692961165048547
+    },
+    {
+      "rank": 43,
+      "ticker": "FLEX",
+      "change": 0.15851449275362328,
+      "giveback_share_of_move": 0.12857142857142803
+    }
+  ],
+  "per_ticker": [
+    {
+      "ticker": "AAOI",
+      "theme": "optical_networking",
+      "points": {
+        "thu_close": 39.46,
+        "fri_low": 32.62,
+        "fri_high": 37.6934,
+        "fri_close": 32.93,
+        "mon_open": 42.25,
+        "mon_high": 42.27,
+        "mon_low": 38.1101,
+        "mon_last": 38.18
+      },
+      "comparison": {
+        "a": 32.93,
+        "b": 42.27,
+        "change": 0.28363194655329504,
+        "share_of_friday_drop_recovered_at_b": 1.4303215926493111,
+        "b_vs_thursday_close": 0.07121135326913342,
+        "b_vs_friday_high": 0.121416481399927,
+        "b_vs_friday_low": 0.2958307786633969,
+        "giveback_from_b_to_last": -0.09675893068370012,
+        "giveback_share_of_move": 0.4379014989293364,
+        "last_position_in_friday_low_to_b_range": 0.5761658031088082,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": true
+      }
+    },
+    {
+      "ticker": "ALAB",
+      "theme": "optical_networking",
+      "points": {
+        "thu_close": 211.6,
+        "fri_low": 176.78,
+        "fri_high": 205.9299,
+        "fri_close": 180.35,
+        "mon_open": 216.63,
+        "mon_high": 221.6,
+        "mon_low": 203.65,
+        "mon_last": 216.135
+      },
+      "comparison": {
+        "a": 180.35,
+        "b": 221.6,
+        "change": 0.2287219295813696,
+        "share_of_friday_drop_recovered_at_b": 1.32,
+        "b_vs_thursday_close": 0.047258979206049156,
+        "b_vs_friday_high": 0.07609434084122801,
+        "b_vs_friday_low": 0.253535467813101,
+        "giveback_from_b_to_last": -0.024661552346570415,
+        "giveback_share_of_move": 0.13248484848484857,
+        "last_position_in_friday_low_to_b_range": 0.8780678268630074,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": false,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "ARM",
+      "theme": "foundry_chips_ip",
+      "points": {
+        "thu_close": 177.17,
+        "fri_low": 150.37,
+        "fri_high": 170.675,
+        "fri_close": 152.2,
+        "mon_open": 183.02,
+        "mon_high": 183.58,
+        "mon_low": 171.2001,
+        "mon_last": 176.145
+      },
+      "comparison": {
+        "a": 152.2,
+        "b": 183.58,
+        "change": 0.20617608409986876,
+        "share_of_friday_drop_recovered_at_b": 1.2567080496595926,
+        "b_vs_thursday_close": 0.03617994017045789,
+        "b_vs_friday_high": 0.075611542405156,
+        "b_vs_friday_low": 0.22085522378133948,
+        "giveback_from_b_to_last": -0.04050005447216476,
+        "giveback_share_of_move": 0.23693435309114075,
+        "last_position_in_friday_low_to_b_range": 0.7761216501053899,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "BE",
+      "theme": "power_cooling_robotics",
+      "points": {
+        "thu_close": 168.11,
+        "fri_low": 140.69,
+        "fri_high": 163.51,
+        "fri_close": 142.39,
+        "mon_open": 176.04,
+        "mon_high": 177.01,
+        "mon_low": 165.3,
+        "mon_last": 168.21
+      },
+      "comparison": {
+        "a": 142.39,
+        "b": 177.01,
+        "change": 0.24313505161879356,
+        "share_of_friday_drop_recovered_at_b": 1.3460342146189723,
+        "b_vs_thursday_close": 0.05294152638153582,
+        "b_vs_friday_high": 0.08256375756834444,
+        "b_vs_friday_low": 0.25815623000924015,
+        "giveback_from_b_to_last": -0.04971470538387657,
+        "giveback_share_of_move": 0.254188330444829,
+        "last_position_in_friday_low_to_b_range": 0.757709251101322,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "CBRS",
+      "theme": "foundry_chips_ip",
+      "points": {
+        "thu_close": 86.96,
+        "fri_low": 82.2806,
+        "fri_high": 93.11,
+        "fri_close": 82.67,
+        "mon_open": 95.24,
+        "mon_high": 100.59,
+        "mon_low": 92.68,
+        "mon_last": 96.795
+      },
+      "comparison": {
+        "a": 82.67,
+        "b": 100.59,
+        "change": 0.2167654530059271,
+        "share_of_friday_drop_recovered_at_b": 4.177156177156185,
+        "b_vs_thursday_close": 0.15673873045078213,
+        "b_vs_friday_high": 0.08033508753087748,
+        "b_vs_friday_low": 0.22252389992294663,
+        "giveback_from_b_to_last": -0.037727408291082676,
+        "giveback_share_of_move": 0.21177455357142866,
+        "last_position_in_friday_low_to_b_range": 0.7927294176761662,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": false,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "CIEN",
+      "theme": "optical_networking",
+      "points": {
+        "thu_close": 262.63,
+        "fri_low": 230.34,
+        "fri_high": 257.49,
+        "fri_close": 234.37,
+        "mon_open": 272.75,
+        "mon_high": 274.525,
+        "mon_low": 261.97,
+        "mon_last": 266.07
+      },
+      "comparison": {
+        "a": 234.37,
+        "b": 274.525,
+        "change": 0.17133165507530812,
+        "share_of_friday_drop_recovered_at_b": 1.4209129511677276,
+        "b_vs_thursday_close": 0.04529185546205672,
+        "b_vs_friday_high": 0.06615790904501129,
+        "b_vs_friday_low": 0.1918251280715464,
+        "giveback_from_b_to_last": -0.03079865221746647,
+        "giveback_share_of_move": 0.2105590835512387,
+        "last_position_in_friday_low_to_b_range": 0.8086454679189773,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "COHR",
+      "theme": "optical_networking",
+      "points": {
+        "thu_close": 214.94,
+        "fri_low": 180.43,
+        "fri_high": 209.61,
+        "fri_close": 187.22,
+        "mon_open": 232.02,
+        "mon_high": 234.83,
+        "mon_low": 212.29,
+        "mon_last": 214.55
+      },
+      "comparison": {
+        "a": 187.22,
+        "b": 234.83,
+        "change": 0.25429975429975427,
+        "share_of_friday_drop_recovered_at_b": 1.7175324675324681,
+        "b_vs_thursday_close": 0.09253745231227328,
+        "b_vs_friday_high": 0.12031868708553972,
+        "b_vs_friday_low": 0.30150196752203073,
+        "giveback_from_b_to_last": -0.08636034578205509,
+        "giveback_share_of_move": 0.4259609325771896,
+        "last_position_in_friday_low_to_b_range": 0.6272058823529412,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "CRDO",
+      "theme": "optical_networking",
+      "points": {
+        "thu_close": 117.76,
+        "fri_low": 97.92,
+        "fri_high": 114.18,
+        "fri_close": 99.86,
+        "mon_open": 126.12,
+        "mon_high": 126.72,
+        "mon_low": 118.0,
+        "mon_last": 119.955
+      },
+      "comparison": {
+        "a": 99.86,
+        "b": 126.72,
+        "change": 0.2689765671940716,
+        "share_of_friday_drop_recovered_at_b": 1.5005586592178766,
+        "b_vs_thursday_close": 0.07608695652173902,
+        "b_vs_friday_high": 0.10982658959537561,
+        "b_vs_friday_low": 0.2941176470588236,
+        "giveback_from_b_to_last": -0.05338541666666663,
+        "giveback_share_of_move": 0.25186150409530905,
+        "last_position_in_friday_low_to_b_range": 0.7651041666666666,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "CRWV",
+      "theme": "ai_cloud_neocloud",
+      "points": {
+        "thu_close": 44.91,
+        "fri_low": 39.28,
+        "fri_high": 43.24,
+        "fri_close": 39.51,
+        "mon_open": 50.97,
+        "mon_high": 51.9,
+        "mon_low": 46.53,
+        "mon_last": 47.635
+      },
+      "comparison": {
+        "a": 39.51,
+        "b": 51.9,
+        "change": 0.31359149582384216,
+        "share_of_friday_drop_recovered_at_b": 2.294444444444445,
+        "b_vs_thursday_close": 0.15564462257849043,
+        "b_vs_friday_high": 0.20027752081406103,
+        "b_vs_friday_low": 0.32128309572301417,
+        "giveback_from_b_to_last": -0.08217726396917147,
+        "giveback_share_of_move": 0.3442292171105731,
+        "last_position_in_friday_low_to_b_range": 0.6620443740095086,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "DELL",
+      "theme": "servers_hardware_pcb",
+      "points": {
+        "thu_close": 312.54,
+        "fri_low": 274.35,
+        "fri_high": 303.6,
+        "fri_close": 278.02,
+        "mon_open": 377.15,
+        "mon_high": 379.03,
+        "mon_low": 322.31,
+        "mon_last": 335.73
+      },
+      "comparison": {
+        "a": 278.02,
+        "b": 379.03,
+        "change": 0.3633191856700957,
+        "share_of_friday_drop_recovered_at_b": 2.9261297798377717,
+        "b_vs_thursday_close": 0.2127407691815446,
+        "b_vs_friday_high": 0.24845191040843195,
+        "b_vs_friday_low": 0.3815564060506651,
+        "giveback_from_b_to_last": -0.11423897844497788,
+        "giveback_share_of_move": 0.42867042867042826,
+        "last_position_in_friday_low_to_b_range": 0.5863584256782578,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "FLEX",
+      "theme": "servers_hardware_pcb",
+      "points": {
+        "thu_close": 74.22,
+        "fri_low": 65.73,
+        "fri_high": 74.02,
+        "fri_close": 66.24,
+        "mon_open": 75.5,
+        "mon_high": 76.74,
+        "mon_low": 72.69,
+        "mon_last": 75.39
+      },
+      "comparison": {
+        "a": 66.24,
+        "b": 76.74,
+        "change": 0.15851449275362328,
+        "share_of_friday_drop_recovered_at_b": 1.31578947368421,
+        "b_vs_thursday_close": 0.03395311236863363,
+        "b_vs_friday_high": 0.036746825182383036,
+        "b_vs_friday_low": 0.1675034230944772,
+        "giveback_from_b_to_last": -0.017591868647380715,
+        "giveback_share_of_move": 0.12857142857142803,
+        "last_position_in_friday_low_to_b_range": 0.8773841961852865,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": false,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "FN",
+      "theme": "optical_networking",
+      "points": {
+        "thu_close": 311.71,
+        "fri_low": 280.01,
+        "fri_high": 308.0,
+        "fri_close": 285.04,
+        "mon_open": 330.54,
+        "mon_high": 335.77,
+        "mon_low": 312.3005,
+        "mon_last": 328.35
+      },
+      "comparison": {
+        "a": 285.04,
+        "b": 335.77,
+        "change": 0.1779750210496771,
+        "share_of_friday_drop_recovered_at_b": 1.9021372328458956,
+        "b_vs_thursday_close": 0.07718712906226943,
+        "b_vs_friday_high": 0.0901623376623375,
+        "b_vs_friday_low": 0.19913574515195887,
+        "giveback_from_b_to_last": -0.02209846025553197,
+        "giveback_share_of_move": 0.14626453774886586,
+        "last_position_in_friday_low_to_b_range": 0.8669296987087525,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "GLW",
+      "theme": "optical_networking",
+      "points": {
+        "thu_close": 105.97,
+        "fri_low": 93.49,
+        "fri_high": 103.88,
+        "fri_close": 94.38,
+        "mon_open": 107.0,
+        "mon_high": 112.0,
+        "mon_low": 104.5,
+        "mon_last": 109.045
+      },
+      "comparison": {
+        "a": 94.38,
+        "b": 112.0,
+        "change": 0.18669209578300494,
+        "share_of_friday_drop_recovered_at_b": 1.5202761000862812,
+        "b_vs_thursday_close": 0.05690289704633389,
+        "b_vs_friday_high": 0.0781671159029651,
+        "b_vs_friday_low": 0.19798908974221852,
+        "giveback_from_b_to_last": -0.026383928571428572,
+        "giveback_share_of_move": 0.16770715096481256,
+        "last_position_in_friday_low_to_b_range": 0.8403565640194491,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "HIMX",
+      "theme": "foundry_chips_ip",
+      "points": {
+        "thu_close": 7.58,
+        "fri_low": 6.79,
+        "fri_high": 7.4,
+        "fri_close": 6.86,
+        "mon_open": 7.73,
+        "mon_high": 8.0494,
+        "mon_low": 7.62,
+        "mon_last": 7.815
+      },
+      "comparison": {
+        "a": 6.86,
+        "b": 8.0494,
+        "change": 0.17338192419825083,
+        "share_of_friday_drop_recovered_at_b": 1.651944444444445,
+        "b_vs_thursday_close": 0.061926121372031684,
+        "b_vs_friday_high": 0.08775675675675676,
+        "b_vs_friday_low": 0.18547864506627398,
+        "giveback_from_b_to_last": -0.029120182870773004,
+        "giveback_share_of_move": 0.19707415503615264,
+        "last_position_in_friday_low_to_b_range": 0.813879625218358,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "HPE",
+      "theme": "servers_hardware_pcb",
+      "points": {
+        "thu_close": 45.49,
+        "fri_low": 40.48,
+        "fri_high": 44.84,
+        "fri_close": 40.91,
+        "mon_open": 51.0,
+        "mon_high": 51.0,
+        "mon_low": 45.215,
+        "mon_last": 47.72
+      },
+      "comparison": {
+        "a": 40.91,
+        "b": 51.0,
+        "change": 0.24663896357858728,
+        "share_of_friday_drop_recovered_at_b": 2.20305676855895,
+        "b_vs_thursday_close": 0.12112552209276761,
+        "b_vs_friday_high": 0.13737734165923277,
+        "b_vs_friday_low": 0.25988142292490135,
+        "giveback_from_b_to_last": -0.0643137254901961,
+        "giveback_share_of_move": 0.3250743310208127,
+        "last_position_in_friday_low_to_b_range": 0.688212927756654,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": true
+      }
+    },
+    {
+      "ticker": "INOD",
+      "theme": "software_other",
+      "points": {
+        "thu_close": 30.87,
+        "fri_low": 27.84,
+        "fri_high": 31.3699,
+        "fri_close": 28.12,
+        "mon_open": 32.3,
+        "mon_high": 34.06,
+        "mon_low": 31.78,
+        "mon_last": 32.3
+      },
+      "comparison": {
+        "a": 28.12,
+        "b": 34.06,
+        "change": 0.21123755334281658,
+        "share_of_friday_drop_recovered_at_b": 2.1600000000000006,
+        "b_vs_thursday_close": 0.10333657272432784,
+        "b_vs_friday_high": 0.08575417836843591,
+        "b_vs_friday_low": 0.22341954022988508,
+        "giveback_from_b_to_last": -0.051673517322372464,
+        "giveback_share_of_move": 0.2962962962962971,
+        "last_position_in_friday_low_to_b_range": 0.7170418006430861,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "INTC",
+      "theme": "foundry_chips_ip",
+      "points": {
+        "thu_close": 55.72,
+        "fri_low": 51.1,
+        "fri_high": 56.48,
+        "fri_close": 51.28,
+        "mon_open": 59.065,
+        "mon_high": 59.52,
+        "mon_low": 56.655,
+        "mon_last": 58.125
+      },
+      "comparison": {
+        "a": 51.28,
+        "b": 59.52,
+        "change": 0.16068642745709827,
+        "share_of_friday_drop_recovered_at_b": 1.8558558558558573,
+        "b_vs_thursday_close": 0.06819813352476678,
+        "b_vs_friday_high": 0.05382436260623247,
+        "b_vs_friday_low": 0.164774951076321,
+        "giveback_from_b_to_last": -0.0234375,
+        "giveback_share_of_move": 0.1692961165048547,
+        "last_position_in_friday_low_to_b_range": 0.8343230403800471,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "IONQ",
+      "theme": "software_other",
+      "points": {
+        "thu_close": 22.71,
+        "fri_low": 20.51,
+        "fri_high": 22.7482,
+        "fri_close": 20.72,
+        "mon_open": 24.145,
+        "mon_high": 24.86,
+        "mon_low": 23.14,
+        "mon_last": 23.46
+      },
+      "comparison": {
+        "a": 20.72,
+        "b": 24.86,
+        "change": 0.1998069498069499,
+        "share_of_friday_drop_recovered_at_b": 2.0804020100502494,
+        "b_vs_thursday_close": 0.09467195068251866,
+        "b_vs_friday_high": 0.09283371871181001,
+        "b_vs_friday_low": 0.2120916626036078,
+        "giveback_from_b_to_last": -0.0563153660498793,
+        "giveback_share_of_move": 0.3381642512077291,
+        "last_position_in_friday_low_to_b_range": 0.6781609195402301,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "IREN",
+      "theme": "ai_cloud_neocloud",
+      "points": {
+        "thu_close": 14.41,
+        "fri_low": 11.75,
+        "fri_high": 14.07,
+        "fri_close": 11.82,
+        "mon_open": 14.82,
+        "mon_high": 15.995,
+        "mon_low": 14.54,
+        "mon_last": 14.64
+      },
+      "comparison": {
+        "a": 11.82,
+        "b": 15.995,
+        "change": 0.3532148900169203,
+        "share_of_friday_drop_recovered_at_b": 1.6119691119691117,
+        "b_vs_thursday_close": 0.10999306037473966,
+        "b_vs_friday_high": 0.13681592039800994,
+        "b_vs_friday_low": 0.36127659574468085,
+        "giveback_from_b_to_last": -0.0847139731165989,
+        "giveback_share_of_move": 0.32455089820359256,
+        "last_position_in_friday_low_to_b_range": 0.6808009422850415,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "KLAC",
+      "theme": "semicap_test",
+      "points": {
+        "thu_close": 141.48,
+        "fri_low": 125.72,
+        "fri_high": 139.14,
+        "fri_close": 126.87,
+        "mon_open": 150.1,
+        "mon_high": 150.86,
+        "mon_low": 139.87,
+        "mon_last": 143.79
+      },
+      "comparison": {
+        "a": 126.87,
+        "b": 150.86,
+        "change": 0.1890911957121464,
+        "share_of_friday_drop_recovered_at_b": 1.6420260095824801,
+        "b_vs_thursday_close": 0.06629912355103218,
+        "b_vs_friday_high": 0.08423170907000155,
+        "b_vs_friday_low": 0.19996818326439714,
+        "giveback_from_b_to_last": -0.04686464271510027,
+        "giveback_share_of_move": 0.29470612755314796,
+        "last_position_in_friday_low_to_b_range": 0.7187748607796334,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "LITE",
+      "theme": "optical_networking",
+      "points": {
+        "thu_close": 535.15,
+        "fri_low": 456.09,
+        "fri_high": 515.91,
+        "fri_close": 460.54,
+        "mon_open": 563.31,
+        "mon_high": 574.66,
+        "mon_low": 533.0862,
+        "mon_last": 540.45
+      },
+      "comparison": {
+        "a": 460.54,
+        "b": 574.66,
+        "change": 0.24779606548833955,
+        "share_of_friday_drop_recovered_at_b": 1.5295536791314839,
+        "b_vs_thursday_close": 0.07382976735494728,
+        "b_vs_friday_high": 0.11387645131902846,
+        "b_vs_friday_low": 0.25997061983380476,
+        "giveback_from_b_to_last": -0.05953085302613703,
+        "giveback_share_of_move": 0.29977216964598613,
+        "last_position_in_friday_low_to_b_range": 0.7114784515476097,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "LRCX",
+      "theme": "semicap_test",
+      "points": {
+        "thu_close": 203.68,
+        "fri_low": 181.77,
+        "fri_high": 199.775,
+        "fri_close": 183.27,
+        "mon_open": 217.17,
+        "mon_high": 217.19,
+        "mon_low": 204.6508,
+        "mon_last": 208.69
+      },
+      "comparison": {
+        "a": 183.27,
+        "b": 217.19,
+        "change": 0.18508211927756846,
+        "share_of_friday_drop_recovered_at_b": 1.6619304262616361,
+        "b_vs_thursday_close": 0.06632953652788687,
+        "b_vs_friday_high": 0.08717306970341632,
+        "b_vs_friday_low": 0.19486163833415837,
+        "giveback_from_b_to_last": -0.03913624015838668,
+        "giveback_share_of_move": 0.2505896226415095,
+        "last_position_in_friday_low_to_b_range": 0.7600225861095425,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": true
+      }
+    },
+    {
+      "ticker": "LSCC",
+      "theme": "foundry_chips_ip",
+      "points": {
+        "thu_close": 110.92,
+        "fri_low": 97.1,
+        "fri_high": 107.89,
+        "fri_close": 98.31,
+        "mon_open": 112.965,
+        "mon_high": 115.24,
+        "mon_low": 109.575,
+        "mon_last": 112.55
+      },
+      "comparison": {
+        "a": 98.31,
+        "b": 115.24,
+        "change": 0.17221035499949133,
+        "share_of_friday_drop_recovered_at_b": 1.342585249801744,
+        "b_vs_thursday_close": 0.03894698882077163,
+        "b_vs_friday_high": 0.06812494207062736,
+        "b_vs_friday_low": 0.18681771369721933,
+        "giveback_from_b_to_last": -0.02334258937868794,
+        "giveback_share_of_move": 0.1588895451860602,
+        "last_position_in_friday_low_to_b_range": 0.8517089305402427,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "MPWR",
+      "theme": "foundry_chips_ip",
+      "points": {
+        "thu_close": 1295.86,
+        "fri_low": 1132.78,
+        "fri_high": 1271.13,
+        "fri_close": 1142.05,
+        "mon_open": 1310.73,
+        "mon_high": 1341.98,
+        "mon_low": 1278.2401,
+        "mon_last": 1322.68
+      },
+      "comparison": {
+        "a": 1142.05,
+        "b": 1341.98,
+        "change": 0.17506238781139194,
+        "share_of_friday_drop_recovered_at_b": 1.2998504648592428,
+        "b_vs_thursday_close": 0.035590264380411574,
+        "b_vs_friday_high": 0.055737808092012564,
+        "b_vs_friday_low": 0.18467840180794148,
+        "giveback_from_b_to_last": -0.014381734452078243,
+        "giveback_share_of_move": 0.09653378682538863,
+        "last_position_in_friday_low_to_b_range": 0.9077437858508607,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "MRVL",
+      "theme": "optical_networking",
+      "points": {
+        "thu_close": 138.47,
+        "fri_low": 120.56,
+        "fri_high": 134.1754,
+        "fri_close": 122.28,
+        "mon_open": 145.97,
+        "mon_high": 149.98,
+        "mon_low": 139.26,
+        "mon_last": 143.47
+      },
+      "comparison": {
+        "a": 122.28,
+        "b": 149.98,
+        "change": 0.22652927706902193,
+        "share_of_friday_drop_recovered_at_b": 1.7109326744904256,
+        "b_vs_thursday_close": 0.08312269805734096,
+        "b_vs_friday_high": 0.11779059350670829,
+        "b_vs_friday_low": 0.2440278699402787,
+        "giveback_from_b_to_last": -0.043405787438325016,
+        "giveback_share_of_move": 0.235018050541516,
+        "last_position_in_friday_low_to_b_range": 0.7787219578518018,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "theme": "benchmarks",
+      "points": {
+        "thu_close": 498.3,
+        "fri_low": 481.03,
+        "fri_high": 503.8,
+        "fri_close": 484.52,
+        "mon_open": 506.055,
+        "mon_high": 509.15,
+        "mon_low": 495.22,
+        "mon_last": 496.19
+      },
+      "comparison": {
+        "a": 484.52,
+        "b": 509.15,
+        "change": 0.05083381490960126,
+        "share_of_friday_drop_recovered_at_b": 1.7873730043541323,
+        "b_vs_thursday_close": 0.021774031707806563,
+        "b_vs_friday_high": 0.01061929337038503,
+        "b_vs_friday_low": 0.05845789243914101,
+        "giveback_from_b_to_last": -0.025454188353137508,
+        "giveback_share_of_move": 0.5261875761266741,
+        "last_position_in_friday_low_to_b_range": 0.5391180654338558,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": false,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "MU",
+      "theme": "memory_storage",
+      "points": {
+        "thu_close": 690.44,
+        "fri_low": 585.2526,
+        "fri_high": 669.0,
+        "fri_close": 594.51,
+        "mon_open": 690.72,
+        "mon_high": 720.69,
+        "mon_low": 666.66,
+        "mon_last": 703.47
+      },
+      "comparison": {
+        "a": 594.51,
+        "b": 720.69,
+        "change": 0.21224201443205337,
+        "share_of_friday_drop_recovered_at_b": 1.3153340977796308,
+        "b_vs_thursday_close": 0.043812641214298065,
+        "b_vs_friday_high": 0.07726457399103137,
+        "b_vs_friday_low": 0.23141699840376617,
+        "giveback_from_b_to_last": -0.023893768471881183,
+        "giveback_share_of_move": 0.13647170708511666,
+        "last_position_in_friday_low_to_b_range": 0.8728563897416812,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": false,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "NBIS",
+      "theme": "ai_cloud_neocloud",
+      "points": {
+        "thu_close": 96.92,
+        "fri_low": 80.67,
+        "fri_high": 94.04,
+        "fri_close": 81.31,
+        "mon_open": 110.0,
+        "mon_high": 110.05,
+        "mon_low": 96.7235,
+        "mon_last": 97.79
+      },
+      "comparison": {
+        "a": 81.31,
+        "b": 110.05,
+        "change": 0.3534620587873569,
+        "share_of_friday_drop_recovered_at_b": 1.8411274823830874,
+        "b_vs_thursday_close": 0.13547255468427566,
+        "b_vs_friday_high": 0.1702467035304125,
+        "b_vs_friday_low": 0.3641998264534523,
+        "giveback_from_b_to_last": -0.11140390731485683,
+        "giveback_share_of_move": 0.4265831593597771,
+        "last_position_in_friday_low_to_b_range": 0.5827093260721582,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": true
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "theme": "foundry_chips_ip",
+      "points": {
+        "thu_close": 145.98,
+        "fri_low": 124.5,
+        "fri_high": 143.725,
+        "fri_close": 125.53,
+        "mon_open": 167.035,
+        "mon_high": 171.5,
+        "mon_low": 156.93,
+        "mon_last": 164.555
+      },
+      "comparison": {
+        "a": 125.53,
+        "b": 171.5,
+        "change": 0.36620728112801726,
+        "share_of_friday_drop_recovered_at_b": 2.247921760391199,
+        "b_vs_thursday_close": 0.17481846828332648,
+        "b_vs_friday_high": 0.19325100017394337,
+        "b_vs_friday_low": 0.3775100401606426,
+        "giveback_from_b_to_last": -0.04049562682215735,
+        "giveback_share_of_move": 0.15107678921035445,
+        "last_position_in_friday_low_to_b_range": 0.8522340425531917,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "ONTO",
+      "theme": "semicap_test",
+      "points": {
+        "thu_close": 195.93,
+        "fri_low": 166.45,
+        "fri_high": 188.5,
+        "fri_close": 170.16,
+        "mon_open": 200.01,
+        "mon_high": 201.42,
+        "mon_low": 189.78,
+        "mon_last": 192.245
+      },
+      "comparison": {
+        "a": 170.16,
+        "b": 201.42,
+        "change": 0.18370944992947802,
+        "share_of_friday_drop_recovered_at_b": 1.2130384167636779,
+        "b_vs_thursday_close": 0.028020211299953912,
+        "b_vs_friday_high": 0.06854111405835539,
+        "b_vs_friday_low": 0.21009312105737465,
+        "giveback_from_b_to_last": -0.04555158375533708,
+        "giveback_share_of_move": 0.29350607805502194,
+        "last_position_in_friday_low_to_b_range": 0.7376322562196173,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "PENG",
+      "theme": "servers_hardware_pcb",
+      "points": {
+        "thu_close": 42.51,
+        "fri_low": 35.63,
+        "fri_high": 41.17,
+        "fri_close": 36.05,
+        "mon_open": 44.1925,
+        "mon_high": 44.7474,
+        "mon_low": 40.6472,
+        "mon_last": 42.4
+      },
+      "comparison": {
+        "a": 36.05,
+        "b": 44.7474,
+        "change": 0.24125936199722608,
+        "share_of_friday_drop_recovered_at_b": 1.3463467492260064,
+        "b_vs_thursday_close": 0.0526323218066338,
+        "b_vs_friday_high": 0.08689336895797894,
+        "b_vs_friday_low": 0.25589110300308726,
+        "giveback_from_b_to_last": -0.05245891381398693,
+        "giveback_share_of_move": 0.2698967507530986,
+        "last_position_in_friday_low_to_b_range": 0.7425362493693376,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": false,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "QQQ",
+      "theme": "benchmarks",
+      "points": {
+        "thu_close": 645.04,
+        "fri_low": 606.2293,
+        "fri_high": 643.28,
+        "fri_close": 608.45,
+        "mon_open": 655.98,
+        "mon_high": 657.53,
+        "mon_low": 641.9501,
+        "mon_last": 649.97
+      },
+      "comparison": {
+        "a": 608.45,
+        "b": 657.53,
+        "change": 0.08066398224997928,
+        "share_of_friday_drop_recovered_at_b": 1.3413500956545514,
+        "b_vs_thursday_close": 0.019363140270370893,
+        "b_vs_friday_high": 0.022152095510508563,
+        "b_vs_friday_low": 0.08462260072220196,
+        "giveback_from_b_to_last": -0.011497574255166954,
+        "giveback_share_of_move": 0.15403422982884998,
+        "last_position_in_friday_low_to_b_range": 0.8526335897950721,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": false,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "SKHY",
+      "theme": "memory_storage",
+      "points": {
+        "thu_close": 119.2,
+        "fri_low": 102.45,
+        "fri_high": 117.89,
+        "fri_close": 103.57,
+        "mon_open": 127.11,
+        "mon_high": 128.1,
+        "mon_low": 120.815,
+        "mon_last": 123.59
+      },
+      "comparison": {
+        "a": 103.57,
+        "b": 128.1,
+        "change": 0.23684464613305023,
+        "share_of_friday_drop_recovered_at_b": 1.5694177863083805,
+        "b_vs_thursday_close": 0.07466442953020125,
+        "b_vs_friday_high": 0.08660615828314522,
+        "b_vs_friday_low": 0.25036603221083453,
+        "giveback_from_b_to_last": -0.03520686963309905,
+        "giveback_share_of_move": 0.18385650224215208,
+        "last_position_in_friday_low_to_b_range": 0.8241715399610139,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "SMCI",
+      "theme": "servers_hardware_pcb",
+      "points": {
+        "thu_close": 23.84,
+        "fri_low": 21.465,
+        "fri_high": 23.52,
+        "fri_close": 21.65,
+        "mon_open": 26.27,
+        "mon_high": 26.37,
+        "mon_low": 24.335,
+        "mon_last": 24.595
+      },
+      "comparison": {
+        "a": 21.65,
+        "b": 26.37,
+        "change": 0.21801385681293306,
+        "share_of_friday_drop_recovered_at_b": 2.1552511415525113,
+        "b_vs_thursday_close": 0.1061241610738255,
+        "b_vs_friday_high": 0.12117346938775508,
+        "b_vs_friday_low": 0.22851153039832295,
+        "giveback_from_b_to_last": -0.06731133864239669,
+        "giveback_share_of_move": 0.3760593220338986,
+        "last_position_in_friday_low_to_b_range": 0.6381243628950047,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "SMH",
+      "theme": "benchmarks",
+      "points": {
+        "thu_close": 447.48,
+        "fri_low": 396.85,
+        "fri_high": 438.44,
+        "fri_close": 400.06,
+        "mon_open": 469.02,
+        "mon_high": 469.35,
+        "mon_low": 449.64,
+        "mon_last": 457.82
+      },
+      "comparison": {
+        "a": 400.06,
+        "b": 469.35,
+        "change": 0.17319902014697797,
+        "share_of_friday_drop_recovered_at_b": 1.46119780683256,
+        "b_vs_thursday_close": 0.04887369267900232,
+        "b_vs_friday_high": 0.07049995438372414,
+        "b_vs_friday_low": 0.18268867330225524,
+        "giveback_from_b_to_last": -0.024565888995419227,
+        "giveback_share_of_move": 0.16640207822196604,
+        "last_position_in_friday_low_to_b_range": 0.8409655172413789,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": true
+      }
+    },
+    {
+      "ticker": "SMTC",
+      "theme": "optical_networking",
+      "points": {
+        "thu_close": 101.81,
+        "fri_low": 85.59,
+        "fri_high": 98.0,
+        "fri_close": 87.63,
+        "mon_open": 104.5,
+        "mon_high": 106.0,
+        "mon_low": 99.7316,
+        "mon_last": 102.0517
+      },
+      "comparison": {
+        "a": 87.63,
+        "b": 106.0,
+        "change": 0.20963140477005604,
+        "share_of_friday_drop_recovered_at_b": 1.295486600846262,
+        "b_vs_thursday_close": 0.04115509281995866,
+        "b_vs_friday_high": 0.08163265306122458,
+        "b_vs_friday_low": 0.23846243720060745,
+        "giveback_from_b_to_last": -0.03724811320754717,
+        "giveback_share_of_move": 0.21493195427327177,
+        "last_position_in_friday_low_to_b_range": 0.8065507104360605,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "SNDK",
+      "theme": "memory_storage",
+      "points": {
+        "thu_close": 94.395,
+        "fri_low": 78.25,
+        "fri_high": 90.67,
+        "fri_close": 79.24,
+        "mon_open": 98.585,
+        "mon_high": 99.07,
+        "mon_low": 88.3,
+        "mon_last": 89.17
+      },
+      "comparison": {
+        "a": 79.24,
+        "b": 99.07,
+        "change": 0.2502523977788995,
+        "share_of_friday_drop_recovered_at_b": 1.3084790498185415,
+        "b_vs_thursday_close": 0.049525928280099496,
+        "b_vs_friday_high": 0.09264365280688192,
+        "b_vs_friday_low": 0.2660702875399361,
+        "giveback_from_b_to_last": -0.09992934288886635,
+        "giveback_share_of_move": 0.49924357034795724,
+        "last_position_in_friday_low_to_b_range": 0.5244956772334296,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": false,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "STX",
+      "theme": "memory_storage",
+      "points": {
+        "thu_close": 521.39,
+        "fri_low": 453.635,
+        "fri_high": 506.09,
+        "fri_close": 457.01,
+        "mon_open": 553.0,
+        "mon_high": 554.4,
+        "mon_low": 510.1401,
+        "mon_last": 518.2877
+      },
+      "comparison": {
+        "a": 457.01,
+        "b": 554.4,
+        "change": 0.21310255793089872,
+        "share_of_friday_drop_recovered_at_b": 1.5127368748058403,
+        "b_vs_thursday_close": 0.06331153263392086,
+        "b_vs_friday_high": 0.09545732972396226,
+        "b_vs_friday_low": 0.22212792222822308,
+        "giveback_from_b_to_last": -0.06513762626262631,
+        "giveback_share_of_move": 0.37080090358353024,
+        "last_position_in_friday_low_to_b_range": 0.641618617575547,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "SYM",
+      "theme": "power_cooling_robotics",
+      "points": {
+        "thu_close": 33.16,
+        "fri_low": 30.325,
+        "fri_high": 32.6992,
+        "fri_close": 31.1,
+        "mon_open": 35.23,
+        "mon_high": 38.28,
+        "mon_low": 34.2454,
+        "mon_last": 35.96
+      },
+      "comparison": {
+        "a": 31.1,
+        "b": 38.28,
+        "change": 0.2308681672025723,
+        "share_of_friday_drop_recovered_at_b": 3.4854368932038917,
+        "b_vs_thursday_close": 0.1544028950542824,
+        "b_vs_friday_high": 0.17067084210011263,
+        "b_vs_friday_low": 0.26232481450948075,
+        "giveback_from_b_to_last": -0.06060606060606066,
+        "giveback_share_of_move": 0.32311977715877443,
+        "last_position_in_friday_low_to_b_range": 0.7083595223130107,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "TER",
+      "theme": "semicap_test",
+      "points": {
+        "thu_close": 227.43,
+        "fri_low": 201.87,
+        "fri_high": 222.62,
+        "fri_close": 204.775,
+        "mon_open": 240.0,
+        "mon_high": 243.445,
+        "mon_low": 230.29,
+        "mon_last": 232.385
+      },
+      "comparison": {
+        "a": 204.775,
+        "b": 243.445,
+        "change": 0.1888414113050909,
+        "share_of_friday_drop_recovered_at_b": 1.7069079673361283,
+        "b_vs_thursday_close": 0.07041727124829622,
+        "b_vs_friday_high": 0.09354505435270855,
+        "b_vs_friday_low": 0.20594937335909247,
+        "giveback_from_b_to_last": -0.04543120622727925,
+        "giveback_share_of_move": 0.2860098267390744,
+        "last_position_in_friday_low_to_b_range": 0.733974744437763,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "TSM",
+      "theme": "foundry_chips_ip",
+      "points": {
+        "thu_close": 352.09,
+        "fri_low": 318.481,
+        "fri_high": 343.75,
+        "fri_close": 318.71,
+        "mon_open": 385.49,
+        "mon_high": 386.9,
+        "mon_low": 362.04,
+        "mon_last": 366.575
+      },
+      "comparison": {
+        "a": 318.71,
+        "b": 386.9,
+        "change": 0.21395626117787336,
+        "share_of_friday_drop_recovered_at_b": 2.042840023966447,
+        "b_vs_thursday_close": 0.09886676701979602,
+        "b_vs_friday_high": 0.1255272727272727,
+        "b_vs_friday_low": 0.21482914208382908,
+        "giveback_from_b_to_last": -0.052532954251744646,
+        "giveback_share_of_move": 0.2980642322921248,
+        "last_position_in_friday_low_to_b_range": 0.7029333956941786,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "TTMI",
+      "theme": "servers_hardware_pcb",
+      "points": {
+        "thu_close": 68.0,
+        "fri_low": 57.51,
+        "fri_high": 66.0,
+        "fri_close": 58.85,
+        "mon_open": 69.89,
+        "mon_high": 70.8,
+        "mon_low": 66.56,
+        "mon_last": 68.9
+      },
+      "comparison": {
+        "a": 58.85,
+        "b": 70.8,
+        "change": 0.20305862361937121,
+        "share_of_friday_drop_recovered_at_b": 1.3060109289617483,
+        "b_vs_thursday_close": 0.04117647058823515,
+        "b_vs_friday_high": 0.07272727272727275,
+        "b_vs_friday_low": 0.2310902451747523,
+        "giveback_from_b_to_last": -0.026836158192090287,
+        "giveback_share_of_move": 0.15899581589958092,
+        "last_position_in_friday_low_to_b_range": 0.8570353649360428,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "UMC",
+      "theme": "foundry_chips_ip",
+      "points": {
+        "thu_close": 13.4,
+        "fri_low": 11.965,
+        "fri_high": 12.87,
+        "fri_close": 12.04,
+        "mon_open": 14.76,
+        "mon_high": 14.93,
+        "mon_low": 14.215,
+        "mon_last": 14.405
+      },
+      "comparison": {
+        "a": 12.04,
+        "b": 14.93,
+        "change": 0.24003322259136217,
+        "share_of_friday_drop_recovered_at_b": 2.1249999999999987,
+        "b_vs_thursday_close": 0.11417910447761193,
+        "b_vs_friday_high": 0.16006216006216012,
+        "b_vs_friday_low": 0.24780610112829082,
+        "giveback_from_b_to_last": -0.03516409912926999,
+        "giveback_share_of_move": 0.18166089965397933,
+        "last_position_in_friday_low_to_b_range": 0.8229342327150083,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "VRT",
+      "theme": "power_cooling_robotics",
+      "points": {
+        "thu_close": 184.99,
+        "fri_low": 163.57,
+        "fri_high": 181.92,
+        "fri_close": 166.24,
+        "mon_open": 199.35,
+        "mon_high": 199.35,
+        "mon_low": 182.95,
+        "mon_last": 187.515
+      },
+      "comparison": {
+        "a": 166.24,
+        "b": 199.35,
+        "change": 0.19916987487969195,
+        "share_of_friday_drop_recovered_at_b": 1.7658666666666658,
+        "b_vs_thursday_close": 0.07762581761176279,
+        "b_vs_friday_high": 0.095811345646438,
+        "b_vs_friday_low": 0.2187442685088954,
+        "giveback_from_b_to_last": -0.05936794582392779,
+        "giveback_share_of_move": 0.3574448807006951,
+        "last_position_in_friday_low_to_b_range": 0.6692286193404134,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": true
+      }
+    },
+    {
+      "ticker": "WDC",
+      "theme": "memory_storage",
+      "points": {
+        "thu_close": 296.78,
+        "fri_low": 256.88,
+        "fri_high": 288.56,
+        "fri_close": 261.11,
+        "mon_open": 303.58,
+        "mon_high": 308.28,
+        "mon_low": 290.3428,
+        "mon_last": 298.12
+      },
+      "comparison": {
+        "a": 261.11,
+        "b": 308.28,
+        "change": 0.18065183256098938,
+        "share_of_friday_drop_recovered_at_b": 1.3223997757218955,
+        "b_vs_thursday_close": 0.038749241862659156,
+        "b_vs_friday_high": 0.06833934017188792,
+        "b_vs_friday_low": 0.200093428838368,
+        "giveback_from_b_to_last": -0.03295705203062138,
+        "giveback_share_of_move": 0.21539113843544577,
+        "last_position_in_friday_low_to_b_range": 0.802334630350195,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    },
+    {
+      "ticker": "ZS",
+      "theme": "software_other",
+      "points": {
+        "thu_close": 205.71,
+        "fri_low": 193.1282,
+        "fri_high": 206.2,
+        "fri_close": 194.82,
+        "mon_open": 238.01,
+        "mon_high": 247.9,
+        "mon_low": 218.88,
+        "mon_last": 223.61
+      },
+      "comparison": {
+        "a": 194.82,
+        "b": 247.9,
+        "change": 0.2724566266297095,
+        "share_of_friday_drop_recovered_at_b": 4.874196510560141,
+        "b_vs_thursday_close": 0.20509455058091497,
+        "b_vs_friday_high": 0.20223084384093126,
+        "b_vs_friday_low": 0.2836033267021596,
+        "giveback_from_b_to_last": -0.09798305768455018,
+        "giveback_share_of_move": 0.4576111529766388,
+        "last_position_in_friday_low_to_b_range": 0.55652361251593,
+        "monday_low_held_above_friday_low": true,
+        "gap_unfilled": true,
+        "peak_at_open_proxy": false
+      }
+    }
+  ]
+}

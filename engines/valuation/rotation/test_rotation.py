@@ -8,6 +8,7 @@ from engines.valuation.rotation.calendarize import calendarize, extend, ntm
 from engines.valuation.rotation.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
 from engines.valuation.rotation import portfolio as pf
 from engines.valuation.rotation import cohort as co
+from engines.valuation.rotation import pointcompare as pc
 from engines.valuation.rotation import anchors as an, history as hist, profile as prof, trading as trd
 from engines.valuation.rotation.implied import implied_growth, pv
 from engines.valuation.rotation.macro import equity_duration, multiple_factor
@@ -420,6 +421,34 @@ class C(unittest.TestCase):
         tt = {r["theme"]: r for r in co.theme_table(ms)}
         self.assertEqual(tt["g1"]["n"], 2)
         self.assertIn("other", tt)
+
+
+class PC(unittest.TestCase):
+    PTS = {"thu_close": 145.98, "fri_low": 124.5, "fri_high": 143.725, "fri_close": 125.53, "mon_open": 167.035, "mon_high": 171.5, "mon_low": 156.93, "mon_last": 164.555}
+
+    def test_golden_nvda_fri_close_to_mon_high(self):
+        c = pc.compare_one(self.PTS, "fri_close", "mon_high")
+        self.assertAlmostEqual(c["change"], 171.5 / 125.53 - 1)
+        self.assertAlmostEqual(c["share_of_friday_drop_recovered_at_b"], (171.5 - 125.53) / (145.98 - 125.53))
+        self.assertAlmostEqual(c["giveback_from_b_to_last"], 164.555 / 171.5 - 1)
+        self.assertAlmostEqual(c["giveback_share_of_move"], (171.5 - 164.555) / (171.5 - 125.53))
+        self.assertTrue(c["gap_unfilled"])
+        self.assertTrue(c["monday_low_held_above_friday_low"])
+        self.assertFalse(c["peak_at_open_proxy"])
+
+    def test_missing_point_returns_none_and_provisional_labels(self):
+        self.assertIsNone(pc.compare_one({"fri_close": 1.0}, "fri_close", "mon_high"))
+        self.assertIn("mon_high", pc.PROVISIONAL)
+        self.assertNotIn("fri_close", pc.PROVISIONAL)
+
+    def test_peak_at_open_proxy_true_when_open_equals_high(self):
+        p = dict(self.PTS, mon_open=171.45, mon_high=171.5)
+        self.assertTrue(pc.compare_one(p, "fri_close", "mon_high")["peak_at_open_proxy"])
+
+    def test_summarize_handles_missing(self):
+        s = pc.summarize([{"x": 1.0}, {"x": 3.0}, {}], "x")
+        self.assertEqual((s["n"], s["median"], s["max"]), (2, 2.0, 3.0))
+        self.assertEqual(pc.summarize([{}], "x"), {})
 
 
 if __name__ == "__main__":

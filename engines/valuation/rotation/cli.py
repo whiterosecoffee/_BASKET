@@ -9,6 +9,7 @@ from pathlib import Path
 
 from . import anchors as an
 from . import cohort as co
+from . import pointcompare as pc
 from . import history as hist
 from . import portfolio as pf
 from . import profile as prof
@@ -219,6 +220,19 @@ def cmd_cohort(a) -> int:
     return 0
 
 
+def cmd_compare(a) -> int:
+    d_ = Path(a.data) / "cohort"
+    out = Path(a.out) if a.out else Path(a.data) / "comparisons" / f"{a.a}__vs__{a.b}__2026-11-23.json"
+    doc = pc.write(d_, out, a.a, a.b)
+    cs = doc["cohort_summary"]
+    print(f"wrote {out}  ({cs['n_excluding_benchmarks']} names, as of {doc['as_of_et']} ET, provisional={doc['provisional']})")
+    for t, s in doc["subjects"].items():
+        c = s["comparison"]
+        print(f"  {t}: {c['a']:.2f} -> {c['b']:.2f} ({c['change']:+.1%}); recovered {c.get('share_of_friday_drop_recovered_at_b', float('nan')):.0%} of Fri drop at peak; "
+              f"last is {c.get('giveback_from_b_to_last', float('nan')):+.1%} from peak (gave back {c.get('giveback_share_of_move', float('nan')):.0%} of the move)")
+    return 0
+
+
 def cmd_swap(a) -> int:
     data, asof = Path(a.data), date.fromisoformat(a.asof) if a.asof else date.today()
     names = {n.ticker: n for n in _names(a, asof, data)}
@@ -344,6 +358,7 @@ def main(argv=None) -> int:
     s.add_argument("--asof"); s.add_argument("--no-provisional", action="store_true")
     s.add_argument("--hurdle", type=float, default=0.08); s.add_argument("--cost", type=float, default=0.002)
     s = sub.add_parser("cohort"); s.set_defaults(fn=cmd_cohort); s.add_argument("--only", help="comma list of tickers to print")
+    s = sub.add_parser("compare"); s.set_defaults(fn=cmd_compare); s.add_argument("--a", default="fri_close"); s.add_argument("--b", default="mon_high"); s.add_argument("--out")
     s = sub.add_parser("simulate"); s.set_defaults(fn=cmd_simulate)
     s.add_argument("a"); s.add_argument("b"); s.add_argument("--asof"); s.add_argument("--lookback", type=int, default=60)
     s.add_argument("--band", type=float, default=0.10); s.add_argument("--cost", type=float, default=0.002)
