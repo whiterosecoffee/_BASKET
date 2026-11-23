@@ -1,0 +1,136 @@
+{
+  "schema": "rotation.model/1",
+  "ticker": "ARM",
+  "theme": "foundry_chips_ip",
+  "provisional_monday": true,
+  "monday_snapshot_et": "2026-11-23T13:51",
+  "window_52w": {
+    "basis": "daily bars 2025-11-21..2026-11-19 plus Friday low; n=250",
+    "low": 100.02,
+    "low_date": "2026-02-05",
+    "high": 452.7,
+    "high_date": "2026-06-18",
+    "hit_52w_low_on_friday": false,
+    "prior_52w_low_before_friday": 100.02,
+    "range_log_width": 1.5098594884511551
+  },
+  "anchor_moments": {
+    "a0_52w_high": {
+      "price": 452.7,
+      "date": "2026-06-18"
+    },
+    "a1_pre_compression_thu_close": 177.17,
+    "a2_stress_low_fri_low": 150.37,
+    "a2_fri_close": 152.2,
+    "a3_rebound_peak_mon_high": 183.58,
+    "a4_last_snapshot": 176.145,
+    "mon_open": 183.02,
+    "mon_low": 171.2001
+  },
+  "stress_relativity": {
+    "drawdown_52w_high_to_fri_low": -0.6678374199248951,
+    "drawdown_52w_high_to_fri_close": -0.6637950077313894,
+    "fri_close_vs_52w_low": 0.5216956608678265,
+    "rebound_fri_low_to_peak": 0.22085522378133948,
+    "rebound_fri_close_to_last": 0.15732588699080163,
+    "recovery_of_friday_drop_at_peak": 1.2567080496595926,
+    "recovery_of_friday_drop_at_last": 0.9589507408890678,
+    "recovery_of_52w_range_at_peak": 0.10984685608441111,
+    "recovery_of_52w_range_at_last": 0.08525452320312243,
+    "position_in_52w_log_range": {
+      "fri_low": 0.2700441734228712,
+      "fri_close": 0.27805586059368564,
+      "mon_high": 0.4022098602189455,
+      "mon_last": 0.37482782856499225,
+      "thu_close": 0.3786707054496113
+    }
+  },
+  "relativity": {
+    "NVDA": {
+      "unit": "1 ARM = x NVDA",
+      "x": {
+        "fri_low": 1.2077911646586346,
+        "fri_close": 1.2124591731060304,
+        "mon_high": 1.0704373177842565,
+        "mon_last": 1.070432378232202
+      },
+      "x_change_fri_close_to_last": -0.11713944520704123,
+      "x_change_fri_low_to_peak": -0.11372317573891111
+    },
+    "MSFT": {
+      "unit": "1 ARM = x MSFT",
+      "x": {
+        "fri_low": 0.31260004573519323,
+        "fri_close": 0.3141253199042351,
+        "mon_high": 0.3605617205145832,
+        "mon_last": 0.3549950623752998
+      },
+      "x_change_fri_close_to_last": 0.13010648897556032,
+      "x_change_fri_low_to_peak": 0.15342823980268627
+    },
+    "SMH": {
+      "unit": "1 ARM = x SMH",
+      "x": {
+        "fri_low": 0.37890890764772583,
+        "fri_close": 0.380442933559966,
+        "mon_high": 0.39113667838500055,
+        "mon_last": 0.3847472805906252
+      },
+      "x_change_fri_close_to_last": 0.011314041216067716,
+      "x_change_fri_low_to_peak": 0.0322710036382754
+    },
+    "QQQ": {
+      "unit": "1 ARM = x QQQ",
+      "x": {
+        "fri_low": 0.24804145890012247,
+        "fri_close": 0.2501438080368148,
+        "mon_high": 0.2791963864766627,
+        "mon_last": 0.27100481560687417
+      },
+      "x_change_fri_close_to_last": 0.08339605818661378,
+      "x_change_fri_low_to_peak": 0.1256037104228016
+    }
+  },
+  "eps_state": {
+    "basis": null,
+    "note": "no earnings basis in the loaded data; price-only tiers"
+  },
+  "bands": {
+    "tiers_basis": "price_only",
+    "bounds": [
+      100.02,
+      135.27937217924182,
+      182.9684916737635,
+      247.46913299549655,
+      334.70774790413986,
+      452.6999999999999
+    ],
+    "tier_at_points": {
+      "thu_close": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.8933535272480562
+      },
+      "fri_low": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.35022086711435635
+      },
+      "fri_close": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.3902793029684287
+      },
+      "mon_high": {
+        "tier": 3,
+        "label": "T3_mid",
+        "position_in_tier": 0.011049301094727003
+      },
+      "mon_last": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.874139142824961
+      }
+    }
+  }
+}

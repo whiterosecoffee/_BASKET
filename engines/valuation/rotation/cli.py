@@ -9,6 +9,7 @@ from pathlib import Path
 
 from . import anchors as an
 from . import cohort as co
+from . import models as mdl
 from . import multiplepoints as mp
 from . import pointcompare as pc
 from . import history as hist
@@ -251,6 +252,16 @@ def cmd_multiples(a) -> int:
     return 0
 
 
+def cmd_models(a) -> int:
+    res = mdl.write_all(Path(a.data))
+    rel = res["relativity"]
+    print(f"wrote {res['models']} models to models/ and the relativity tracker to relativity/")
+    print(f"hit a new 52-week low on Friday: {len(rel['hit_52w_low_on_friday'])}/{rel['n_equities']} -> {' '.join(rel['hit_52w_low_on_friday'])}")
+    for k, v in rel["group_stats"].items():
+        print(f"  {k}: recovery of Fri drop (median) {v['recovery_of_friday_drop_at_last'].get('median', float('nan')):.0%}, of 52w range {v['recovery_of_52w_range_at_last'].get('median', float('nan')):.1%}, rebound {v['rebound_fri_close_to_last'].get('median', float('nan')):+.1%}")
+    return 0
+
+
 def cmd_swap(a) -> int:
     data, asof = Path(a.data), date.fromisoformat(a.asof) if a.asof else date.today()
     names = {n.ticker: n for n in _names(a, asof, data)}
@@ -378,6 +389,7 @@ def main(argv=None) -> int:
     s = sub.add_parser("cohort"); s.set_defaults(fn=cmd_cohort); s.add_argument("--only", help="comma list of tickers to print")
     s = sub.add_parser("compare"); s.set_defaults(fn=cmd_compare); s.add_argument("--a", default="fri_close"); s.add_argument("--b", default="mon_high"); s.add_argument("--out")
     s = sub.add_parser("multiples"); s.set_defaults(fn=cmd_multiples); s.add_argument("--asof"); s.add_argument("--out")
+    s = sub.add_parser("models"); s.set_defaults(fn=cmd_models)
     s = sub.add_parser("simulate"); s.set_defaults(fn=cmd_simulate)
     s.add_argument("a"); s.add_argument("b"); s.add_argument("--asof"); s.add_argument("--lookback", type=int, default=60)
     s.add_argument("--band", type=float, default=0.10); s.add_argument("--cost", type=float, default=0.002)

@@ -8,6 +8,8 @@ from engines.valuation.rotation.calendarize import calendarize, extend, ntm
 from engines.valuation.rotation.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
 from engines.valuation.rotation import portfolio as pf
 from engines.valuation.rotation import cohort as co
+from engines.valuation.rotation import bands as bnd
+from engines.valuation.rotation import models as mdl
 from engines.valuation.rotation import multiplepoints as mpt
 from engines.valuation.rotation import pointcompare as pc
 from engines.valuation.rotation import anchors as an, history as hist, profile as prof, trading as trd
@@ -478,6 +480,53 @@ class MP(unittest.TestCase):
         self.assertAlmostEqual(s["turns_added"], 8.0)
         self.assertAlmostEqual(s["expansion"], 0.5)
         self.assertIsNone(mpt.summarize_pair({"fri_low": None, "mon_high": 24.0}))
+
+
+class B(unittest.TestCase):
+    def test_tier_bounds_are_log_equal_and_span_the_range(self):
+        b = bnd.tier_bounds(10.0, 100.0)
+        self.assertEqual(len(b), 6)
+        self.assertAlmostEqual(b[0], 10.0); self.assertAlmostEqual(b[-1], 100.0)
+        ratios = [b[i + 1] / b[i] for i in range(5)]
+        self.assertAlmostEqual(max(ratios), min(ratios))
+        with self.assertRaises(ValueError):
+            bnd.tier_bounds(10.0, 10.0)
+
+    def test_tier_of_edges_and_outside(self):
+        b = bnd.tier_bounds(10.0, 100.0)
+        self.assertEqual(bnd.tier_of(10.0, b)["tier"], 1)
+        self.assertEqual(bnd.tier_of(100.0, b)["tier"], 5)
+        self.assertEqual(bnd.tier_of(9.0, b)["tier"], 0)
+        self.assertEqual(bnd.tier_of(120.0, b)["tier"], 6)
+
+    def test_price_bands_scale_with_eps_and_keep_equal_pct_spread(self):
+        b = bnd.tier_bounds(10.0, 100.0)
+        pb1, pb2 = bnd.price_bands(5.0, b), bnd.price_bands(6.0, b)
+        for x, y in zip(pb1, pb2):
+            self.assertAlmostEqual(y["price_low"] / x["price_low"], 1.2)
+            self.assertAlmostEqual(y["spread_abs"] / x["spread_abs"], 1.2)       # dollar spreads widen with EPS
+            self.assertAlmostEqual(y["spread_pct_of_low"], x["spread_pct_of_low"])  # percentage spreads do not
+
+    def test_eps_update_moves_unchanged_price_to_lower_tier(self):
+        b = bnd.tier_bounds(10.0, 100.0)
+        eff = bnd.eps_update_effect(50.0, 2.0, 4.0, b)                       # multiple 25 -> 12.5
+        self.assertEqual(eff["tier_before"], 2)                 # 25 sits just under the 25.1 boundary
+        self.assertEqual(eff["tier_after"], 1)
+        self.assertAlmostEqual(eff["band_shift_pct"], 1.0)
+        self.assertEqual(len(bnd.scenario_grid(50.0, 2.0, b)), 5)
+
+    def test_log_position_and_relativity_tiers(self):
+        self.assertAlmostEqual(mdl._log_pos(10.0, 10.0, 1000.0), 0.0)
+        self.assertAlmostEqual(mdl._log_pos(100.0, 10.0, 1000.0), 0.5)
+        mk = lambda hit, rr, rb: {"theme": "x", "window_52w": {"hit_52w_low_on_friday": hit},
+                                  "stress_relativity": {"recovery_of_52w_range_at_last": rr, "rebound_fri_close_to_last": rb, "recovery_of_friday_drop_at_last": 1.0},
+                                  "relativity": {r: {"x_change_fri_close_to_last": rb} for r in mdl.REFS}}
+        models = {"A": mk(True, 0.1, 0.30), "B": mk(False, 0.2, 0.20), "C": mk(False, 0.3, 0.10)}
+        rel = mdl.relativity(models, {"as_of_et": "t"})
+        self.assertEqual(rel["hit_52w_low_on_friday"], ["A"])
+        self.assertEqual(rel["rebound_order_by_change_fri_close_to_last"][0]["ticker"], "A")
+        self.assertEqual(rel["recovery_tiers_by_52w_range_terciles"], {"A": "laggard", "B": "middle", "C": "leader"})
+        self.assertAlmostEqual(rel["share_hit_52w_low_on_friday"], 1 / 3)
 
 
 if __name__ == "__main__":

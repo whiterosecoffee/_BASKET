@@ -1,0 +1,136 @@
+{
+  "schema": "rotation.model/1",
+  "ticker": "UMC",
+  "theme": "foundry_chips_ip",
+  "provisional_monday": true,
+  "monday_snapshot_et": "2026-11-23T13:51",
+  "window_52w": {
+    "basis": "daily bars 2025-11-21..2026-11-19 plus Friday low; n=250",
+    "low": 7.105,
+    "low_date": "2025-11-21",
+    "high": 28.96,
+    "high_date": "2026-06-25",
+    "hit_52w_low_on_friday": false,
+    "prior_52w_low_before_friday": 7.105,
+    "range_log_width": 1.4051168059684516
+  },
+  "anchor_moments": {
+    "a0_52w_high": {
+      "price": 28.96,
+      "date": "2026-06-25"
+    },
+    "a1_pre_compression_thu_close": 13.4,
+    "a2_stress_low_fri_low": 11.965,
+    "a2_fri_close": 12.04,
+    "a3_rebound_peak_mon_high": 14.93,
+    "a4_last_snapshot": 14.405,
+    "mon_open": 14.76,
+    "mon_low": 14.215
+  },
+  "stress_relativity": {
+    "drawdown_52w_high_to_fri_low": -0.5868439226519337,
+    "drawdown_52w_high_to_fri_close": -0.5842541436464088,
+    "fri_close_vs_52w_low": 0.694581280788177,
+    "rebound_fri_low_to_peak": 0.24780610112829082,
+    "rebound_fri_close_to_last": 0.1964285714285714,
+    "recovery_of_friday_drop_at_peak": 2.1249999999999987,
+    "recovery_of_friday_drop_at_last": 1.7389705882352928,
+    "recovery_of_52w_range_at_peak": 0.17446307737569872,
+    "recovery_of_52w_range_at_last": 0.14357163871726975,
+    "position_in_52w_log_range": {
+      "fri_low": 0.37092073598255326,
+      "fri_close": 0.3753678527587499,
+      "mon_high": 0.5284783776322631,
+      "mon_last": 0.5030020308527265,
+      "thu_close": 0.4515325293333988
+    }
+  },
+  "relativity": {
+    "NVDA": {
+      "unit": "1 UMC = x NVDA",
+      "x": {
+        "fri_low": 0.09610441767068273,
+        "fri_close": 0.0959133274914363,
+        "mon_high": 0.08705539358600584,
+        "mon_last": 0.0875391206587463
+      },
+      "x_change_fri_close_to_last": -0.08731014814846971,
+      "x_change_fri_low_to_peak": -0.09415825311678006
+    },
+    "MSFT": {
+      "unit": "1 UMC = x MSFT",
+      "x": {
+        "fri_low": 0.024873708500509326,
+        "fri_close": 0.024849335424750266,
+        "mon_high": 0.02932338210743396,
+        "mon_last": 0.029031217880247484
+      },
+      "x_change_fri_close_to_last": 0.16828950891507577,
+      "x_change_fri_low_to_peak": 0.17889063895854207
+    },
+    "SMH": {
+      "unit": "1 UMC = x SMH",
+      "x": {
+        "fri_low": 0.03014993070429633,
+        "fri_close": 0.030095485677148426,
+        "mon_high": 0.031809949930755296,
+        "mon_last": 0.03146433095976585
+      },
+      "x_change_fri_close_to_last": 0.0454834089504923,
+      "x_change_fri_low_to_peak": 0.05505880735647639
+    },
+    "QQQ": {
+      "unit": "1 UMC = x QQQ",
+      "x": {
+        "fri_low": 0.019736756372547484,
+        "fri_close": 0.01978798586572438,
+        "mon_high": 0.022706188310799506,
+        "mon_last": 0.022162561348985334
+      },
+      "x_change_fri_close_to_last": 0.12000086817193756,
+      "x_change_fri_low_to_peak": 0.15045187173624464
+    }
+  },
+  "eps_state": {
+    "basis": null,
+    "note": "no earnings basis in the loaded data; price-only tiers"
+  },
+  "bands": {
+    "tiers_basis": "price_only",
+    "bounds": [
+      7.105,
+      9.410462693033853,
+      12.46401239929373,
+      16.508391792971853,
+      21.865109794475416,
+      28.96
+    ],
+    "tier_at_points": {
+      "thu_close": {
+        "tier": 3,
+        "label": "T3_mid",
+        "position_in_tier": 0.25766264666699357
+      },
+      "fri_low": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.854603679912766
+      },
+      "fri_close": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.8768392637937492
+      },
+      "mon_high": {
+        "tier": 3,
+        "label": "T3_mid",
+        "position_in_tier": 0.6423918881613154
+      },
+      "mon_last": {
+        "tier": 3,
+        "label": "T3_mid",
+        "position_in_tier": 0.5150101542636322
+      }
+    }
+  }
+}

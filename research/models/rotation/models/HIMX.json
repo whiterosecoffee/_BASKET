@@ -1,0 +1,136 @@
+{
+  "schema": "rotation.model/1",
+  "ticker": "HIMX",
+  "theme": "foundry_chips_ip",
+  "provisional_monday": true,
+  "monday_snapshot_et": "2026-11-23T13:51",
+  "window_52w": {
+    "basis": "daily bars 2025-11-21..2026-11-19 plus Friday low; n=250",
+    "low": 6.79,
+    "low_date": "2026-11-20",
+    "high": 25.09,
+    "high_date": "2026-06-02",
+    "hit_52w_low_on_friday": true,
+    "prior_52w_low_before_friday": 6.85,
+    "range_log_width": 1.307018418807726
+  },
+  "anchor_moments": {
+    "a0_52w_high": {
+      "price": 25.09,
+      "date": "2026-06-02"
+    },
+    "a1_pre_compression_thu_close": 7.58,
+    "a2_stress_low_fri_low": 6.79,
+    "a2_fri_close": 6.86,
+    "a3_rebound_peak_mon_high": 8.0494,
+    "a4_last_snapshot": 7.815,
+    "mon_open": 7.73,
+    "mon_low": 7.62
+  },
+  "stress_relativity": {
+    "drawdown_52w_high_to_fri_low": -0.7293742526903149,
+    "drawdown_52w_high_to_fri_close": -0.726584296532483,
+    "fri_close_vs_52w_low": 0.010309278350515427,
+    "rebound_fri_low_to_peak": 0.18547864506627398,
+    "rebound_fri_close_to_last": 0.13921282798833823,
+    "recovery_of_friday_drop_at_peak": 1.651944444444445,
+    "recovery_of_friday_drop_at_last": 1.3263888888888895,
+    "recovery_of_52w_range_at_peak": 0.06881967213114755,
+    "recovery_of_52w_range_at_last": 0.056010928961748654,
+    "position_in_52w_log_range": {
+      "fri_low": 0.0,
+      "fri_close": 0.007847249908341257,
+      "mon_high": 0.1301792005928864,
+      "mon_last": 0.10756850881343093,
+      "thu_close": 0.08420865115586926
+    }
+  },
+  "relativity": {
+    "NVDA": {
+      "unit": "1 HIMX = x NVDA",
+      "x": {
+        "fri_low": 0.054538152610441766,
+        "fri_close": 0.05464829124512069,
+        "mon_high": 0.04693527696793003,
+        "mon_last": 0.04749172009358573
+      },
+      "x_change_fri_close_to_last": -0.13095690621751943,
+      "x_change_fri_low_to_peak": -0.1394047153892063
+    },
+    "MSFT": {
+      "unit": "1 HIMX = x MSFT",
+      "x": {
+        "fri_low": 0.014115543729081347,
+        "fri_close": 0.014158342276892597,
+        "mon_high": 0.01580948639890013,
+        "mon_last": 0.015750015115177655
+      },
+      "x_change_fri_close_to_last": 0.11241943492797035,
+      "x_change_fri_low_to_peak": 0.12000548489881124
+    },
+    "SMH": {
+      "unit": "1 HIMX = x SMH",
+      "x": {
+        "fri_low": 0.017109739196169836,
+        "fri_close": 0.017147427885817128,
+        "mon_high": 0.01715010120379248,
+        "mon_last": 0.017070027521733432
+      },
+      "x_change_fri_close_to_last": -0.00451381773401216,
+      "x_change_fri_low_to_peak": 0.002359007765102561
+    },
+    "QQQ": {
+      "unit": "1 HIMX = x QQQ",
+      "x": {
+        "fri_low": 0.011200382429552647,
+        "fri_close": 0.011274550086284823,
+        "mon_high": 0.012241874895442035,
+        "mon_last": 0.012023631859931997
+      },
+      "x_change_fri_close_to_last": 0.06644005906350192,
+      "x_change_fri_low_to_peak": 0.09298722364527201
+    }
+  },
+  "eps_state": {
+    "basis": null,
+    "note": "no earnings basis in the loaded data; price-only tiers"
+  },
+  "bands": {
+    "tiers_basis": "price_only",
+    "bounds": [
+      6.79,
+      8.818525025208917,
+      11.453075643628265,
+      14.874703119137934,
+      19.31854811467909,
+      25.09000000000001
+    ],
+    "tier_at_points": {
+      "thu_close": {
+        "tier": 1,
+        "label": "T1_compression_floor",
+        "position_in_tier": 0.421043255779346
+      },
+      "fri_low": {
+        "tier": 1,
+        "label": "T1_compression_floor",
+        "position_in_tier": 0.0
+      },
+      "fri_close": {
+        "tier": 1,
+        "label": "T1_compression_floor",
+        "position_in_tier": 0.03923624954170626
+      },
+      "mon_high": {
+        "tier": 1,
+        "label": "T1_compression_floor",
+        "position_in_tier": 0.6508960029644315
+      },
+      "mon_last": {
+        "tier": 1,
+        "label": "T1_compression_floor",
+        "position_in_tier": 0.5378425440671543
+      }
+    }
+  }
+}
