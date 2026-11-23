@@ -1,0 +1,4294 @@
+{
+  "schema": "rotation.basket_rebound/1",
+  "as_of_et": "2026-11-23T13:51",
+  "provisional": true,
+  "universe": {
+    "manifest_symbols": 291,
+    "additions_not_in_manifest": [
+      "CXMT-USD",
+      "FLEX",
+      "HIMX",
+      "IBIDY",
+      "INOD",
+      "TTMI"
+    ],
+    "total_identifiers": 297,
+    "by_type": {
+      "equity_or_depositary_receipt": 204,
+      "fund_or_etp": 59,
+      "futures_contract": 3,
+      "fx_pair": 1,
+      "index": 30
+    },
+    "with_massive_daily_bars": 243,
+    "tradable_but_no_massive_bars": [
+      "688825.SS",
+      "ABBNY",
+      "ARKVX",
+      "ATEYY",
+      "CXMT-USD",
+      "DASTY",
+      "DTEGY",
+      "FANUY",
+      "FJTSY",
+      "FNTN",
+      "GTCRX",
+      "IBIDY",
+      "KDDIY",
+      "KYCCF",
+      "OMRNY",
+      "SFTBY",
+      "SIEGY",
+      "TCS",
+      "TIIAY",
+      "YASKY"
+    ],
+    "not_priced_here": "indices, futures and the FX pair are not covered by the stock grouped-daily file; they need their own feed"
+  },
+  "friday_52w_low": {
+    "n_hit": 39,
+    "n_priced": 243,
+    "share_hit": 0.16049382716049382,
+    "tickers": [
+      "APLD",
+      "ARKQ",
+      "ARKX",
+      "BWXT",
+      "CARR",
+      "CAT",
+      "CCJ",
+      "CINT",
+      "CMI",
+      "CRWV",
+      "DAVA",
+      "ETN",
+      "FN",
+      "GDX",
+      "GLD",
+      "GOOG",
+      "GOOGL",
+      "HIMX",
+      "HOOD",
+      "HUBB",
+      "HYG",
+      "INOD",
+      "IONQ",
+      "IREN",
+      "JNK",
+      "LEU",
+      "LUMN",
+      "NVDA",
+      "ORCL",
+      "QBTS",
+      "QNT",
+      "RGTI",
+      "RMBS",
+      "RXRX",
+      "SKHY",
+      "SLV",
+      "SMR",
+      "SYM",
+      "URA"
+    ],
+    "method": "stage 1: sampled grouped-daily lows eliminated names whose sampled low was clearly below Friday low; stage 2: exact daily bars for remaining candidates (QNT: since listing, 118 bars)",
+    "rebound_hit_vs_not": {
+      "hit": {
+        "n": 39,
+        "median": 0.07835820895522394,
+        "mean": 0.0999596033840843,
+        "min": 0.0,
+        "max": 0.3108818609097428
+      },
+      "not_hit": {
+        "n": 204,
+        "median": 0.059083864965773,
+        "mean": 0.06419890894105912,
+        "min": -0.6172862200956937,
+        "max": 0.20757499460470474
+      }
+    }
+  },
+  "equities": {
+    "n": 186,
+    "fri_change": {
+      "n": 186,
+      "median": -0.06545373408213762,
+      "mean": -0.06674926934199779,
+      "min": -0.17973629424011106,
+      "max": 0.041270635317659066
+    },
+    "mon_change": {
+      "n": 186,
+      "median": 0.07625821226208929,
+      "mean": 0.08460065917870864,
+      "min": -0.1104864016736401,
+      "max": 0.3108818609097428
+    },
+    "recovery_of_friday_drop": {
+      "n": 168,
+      "median": 1.123812849162011,
+      "mean": 1.432696876200639,
+      "min": -1.8081312410841637,
+      "max": 23.967916666665722
+    },
+    "share_above_thursday_close": 0.7096774193548387,
+    "share_gap_unfilled": 0.34946236559139787
+  },
+  "funds_etps": {
+    "n": 57,
+    "fri_change": {
+      "n": 57,
+      "median": -0.029513289609941373,
+      "mean": -0.02432525841501089,
+      "min": -0.10597121659068565,
+      "max": 0.27594627594627585
+    },
+    "mon_change": {
+      "n": 57,
+      "median": 0.03349334497054346,
+      "mean": 0.022092620152904245,
+      "min": -0.6172862200956937,
+      "max": 0.14437834324851262
+    },
+    "recovery_of_friday_drop": {
+      "n": 47,
+      "median": 1.1749999999999805,
+      "mean": 1.6266415935223038,
+      "min": -0.7105263157894585,
+      "max": 19.500000000003908
+    },
+    "share_above_thursday_close": 0.7017543859649122,
+    "share_gap_unfilled": 0.2807017543859649
+  },
+  "cross_section_equities": {
+    "n": 186,
+    "pearson_fri_vs_mon": -0.7922403247763316,
+    "slope_mon_on_fri": -0.9709005093357893,
+    "spearman_fri_vs_mon": -0.8205838061625538,
+    "median_fri": -0.06493193591133595,
+    "median_mon": 0.07724270189644145,
+    "share_above_thursday_close": 0.7096774193548387,
+    "share_gap_unfilled": 0.34946236559139787
+  },
+  "by_basket_group_equities": {
+    "convexity": {
+      "n": 95,
+      "fri_change": {
+        "n": 95,
+        "median": -0.07530279790553751,
+        "mean": -0.07353346712853327,
+        "min": -0.17973629424011106,
+        "max": 0.03170731707317076
+      },
+      "mon_change": {
+        "n": 95,
+        "median": 0.08629232778205109,
+        "mean": 0.09634736280375851,
+        "min": -0.1104864016736401,
+        "max": 0.3108818609097428
+      },
+      "recovery_of_friday_drop": {
+        "n": 87,
+        "median": 1.1581108829568791,
+        "mean": 1.2777287243230224,
+        "min": -1.8081312410841637,
+        "max": 3.6900230946882115
+      },
+      "share_above_thursday_close": 0.7368421052631579,
+      "share_gap_unfilled": 0.4631578947368421
+    },
+    "previous": {
+      "n": 65,
+      "fri_change": {
+        "n": 65,
+        "median": -0.05758646184178107,
+        "mean": -0.06298067106933572,
+        "min": -0.16548403446528137,
+        "max": 0.031077961285739697
+      },
+      "mon_change": {
+        "n": 65,
+        "median": 0.06571969696969715,
+        "mean": 0.08270813342071343,
+        "min": -0.1104864016736401,
+        "max": 0.3108818609097428
+      },
+      "recovery_of_friday_drop": {
+        "n": 56,
+        "median": 1.1737299976914577,
+        "mean": 1.1791971193077448,
+        "min": -1.8081312410841637,
+        "max": 3.3015873015872854
+      },
+      "share_above_thursday_close": 0.7538461538461538,
+      "share_gap_unfilled": 0.38461538461538464
+    },
+    "general": {
+      "n": 64,
+      "fri_change": {
+        "n": 64,
+        "median": -0.056845577699377425,
+        "mean": -0.05759493122922406,
+        "min": -0.17652329749103934,
+        "max": 0.041270635317659066
+      },
+      "mon_change": {
+        "n": 64,
+        "median": 0.06884726720299261,
+        "mean": 0.07182326566255337,
+        "min": -0.014079857065175116,
+        "max": 0.1832769844073272
+      },
+      "recovery_of_friday_drop": {
+        "n": 55,
+        "median": 1.0439560439560431,
+        "mean": 1.8323431910781949,
+        "min": -0.4073033707865121,
+        "max": 23.967916666665722
+      },
+      "share_above_thursday_close": 0.625,
+      "share_gap_unfilled": 0.1875
+    },
+    "screenshots": {
+      "n": 23,
+      "fri_change": {
+        "n": 23,
+        "median": -0.07425441265976862,
+        "mean": -0.07188119341905343,
+        "min": -0.15196424370736306,
+        "max": -0.0017929179740027168
+      },
+      "mon_change": {
+        "n": 23,
+        "median": 0.08366206443129531,
+        "mean": 0.08351593967620716,
+        "min": 0.0026109660574411553,
+        "max": 0.1761442441054093
+      },
+      "recovery_of_friday_drop": {
+        "n": 23,
+        "median": 1.037313432835808,
+        "mean": 2.626126143949429,
+        "min": 0.3088235294117648,
+        "max": 23.967916666665722
+      },
+      "share_above_thursday_close": 0.5652173913043478,
+      "share_gap_unfilled": 0.30434782608695654
+    },
+    "user_approved_additions_2026_11_03": {
+      "n": 8,
+      "fri_change": {
+        "n": 8,
+        "median": -0.07002853472520676,
+        "mean": -0.07051694831778577,
+        "min": -0.12019003976009157,
+        "max": -0.014464632210266393
+      },
+      "mon_change": {
+        "n": 8,
+        "median": 0.07562000688305048,
+        "mean": 0.08041325137543143,
+        "min": 0.020484060219159606,
+        "max": 0.1417410286852283
+      },
+      "recovery_of_friday_drop": {
+        "n": 8,
+        "median": 1.0719032690380574,
+        "mean": 1.1050573162193136,
+        "min": 0.55363321799308,
+        "max": 1.4192439862542956
+      },
+      "share_above_thursday_close": 0.875,
+      "share_gap_unfilled": 0.375
+    },
+    "financial": {
+      "n": 6,
+      "fri_change": {
+        "n": 6,
+        "median": -0.041540265409342136,
+        "mean": -0.0425774830774456,
+        "min": -0.06706547260863915,
+        "max": -0.030013822734436202
+      },
+      "mon_change": {
+        "n": 6,
+        "median": 0.042133757392693316,
+        "mean": 0.043418502534355786,
+        "min": 0.03841059602649022,
+        "max": 0.050467794170564906
+      },
+      "recovery_of_friday_drop": {
+        "n": 6,
+        "median": 1.047747016867795,
+        "mean": 1.0421355126182332,
+        "min": 0.5907811400422234,
+        "max": 1.3508360222939297
+      },
+      "share_above_thursday_close": 0.6666666666666666,
+      "share_gap_unfilled": 0.0
+    },
+    "frontier": {
+      "n": 6,
+      "fri_change": {
+        "n": 6,
+        "median": -0.09635270187591893,
+        "mean": -0.0983849281420451,
+        "min": -0.11166253101736978,
+        "max": -0.08762659621312208
+      },
+      "mon_change": {
+        "n": 6,
+        "median": 0.10536340302992353,
+        "mean": 0.09921478133889246,
+        "min": 0.03418230563002678,
+        "max": 0.16410614525139677
+      },
+      "recovery_of_friday_drop": {
+        "n": 6,
+        "median": 0.90225035161744,
+        "mean": 0.892628709889599,
+        "min": 0.34459459459459474,
+        "max": 1.3768844221105523
+      },
+      "share_above_thursday_close": 0.5,
+      "share_gap_unfilled": 0.3333333333333333
+    },
+    "robotics": {
+      "n": 5,
+      "fri_change": {
+        "n": 5,
+        "median": -0.05525972330984086,
+        "mean": -0.04837381661456726,
+        "min": -0.0692404532102392,
+        "max": -0.020110991061781713
+      },
+      "mon_change": {
+        "n": 5,
+        "median": 0.0630232365374519,
+        "mean": 0.0822359871961015,
+        "min": 0.03871068788372378,
+        "max": 0.1562700964630226
+      },
+      "recovery_of_friday_drop": {
+        "n": 5,
+        "median": 1.6775956284152993,
+        "mean": 1.6476614937328082,
+        "min": 1.077468115257439,
+        "max": 2.359223300970879
+      },
+      "share_above_thursday_close": 1.0,
+      "share_gap_unfilled": 0.4
+    },
+    "added_2026_11_23_from_user_screenshots": {
+      "n": 4,
+      "fri_change": {
+        "n": 4,
+        "median": -0.10125249827760158,
+        "mean": -0.10653676810829335,
+        "min": -0.13455882352941173,
+        "max": -0.08908325234855852
+      },
+      "mon_change": {
+        "n": 4,
+        "median": 0.14393073831849335,
+        "mean": 0.14919217167239118,
+        "min": 0.13813405797101463,
+        "max": 0.1707731520815634
+      },
+      "recovery_of_friday_drop": {
+        "n": 4,
+        "median": 1.2365027151211365,
+        "mean": 1.2728415214949944,
+        "min": 1.0983606557377055,
+        "max": 1.5199999999999987
+      },
+      "share_above_thursday_close": 1.0,
+      "share_gap_unfilled": 0.75
+    },
+    "solutions": {
+      "n": 3,
+      "fri_change": {
+        "n": 3,
+        "median": 0.013359242166626206,
+        "mean": 0.012939779801788287,
+        "min": 0.011849208527769939,
+        "max": 0.013610888710968716
+      },
+      "mon_change": {
+        "n": 3,
+        "median": 0.015819750719079595,
+        "mean": 0.015106927631051259,
+        "min": -0.004069267983903724,
+        "max": 0.033570300157977906
+      },
+      "recovery_of_friday_drop": {},
+      "share_above_thursday_close": 1.0,
+      "share_gap_unfilled": 0.0
+    },
+    "signals": {
+      "n": 1,
+      "fri_change": {
+        "n": 1,
+        "median": -0.009908609908609867,
+        "mean": -0.009908609908609867,
+        "min": -0.009908609908609867,
+        "max": -0.009908609908609867
+      },
+      "mon_change": {
+        "n": 1,
+        "median": 0.023707734162456306,
+        "mean": 0.023707734162456306,
+        "min": 0.023707734162456306,
+        "max": 0.023707734162456306
+      },
+      "recovery_of_friday_drop": {
+        "n": 1,
+        "median": 2.368932038834947,
+        "mean": 2.368932038834947,
+        "min": 2.368932038834947,
+        "max": 2.368932038834947
+      },
+      "share_above_thursday_close": 1.0,
+      "share_gap_unfilled": 0.0
+    }
+  },
+  "top_rebound_equities": [
+    {
+      "ticker": "NVDA",
+      "mon_change": 0.3108818609097428,
+      "recovery_of_friday_drop": 1.9083129584352092,
+      "fri_change": -0.14008768324428
+    },
+    {
+      "ticker": "IREN",
+      "mon_change": 0.23857868020304562,
+      "recovery_of_friday_drop": 1.088803088803089,
+      "fri_change": -0.17973629424011106
+    },
+    {
+      "ticker": "APLD",
+      "mon_change": 0.21061792863359452,
+      "recovery_of_friday_drop": 0.9718875502008031,
+      "fri_change": -0.17811158798283266
+    },
+    {
+      "ticker": "DELL",
+      "mon_change": 0.20757499460470474,
+      "recovery_of_friday_drop": 1.6717844727694082,
+      "fri_change": -0.11044986241761068
+    },
+    {
+      "ticker": "CRWV",
+      "mon_change": 0.20564414072386739,
+      "recovery_of_friday_drop": 1.50462962962963,
+      "fri_change": -0.12024048096192386
+    },
+    {
+      "ticker": "NBIS",
+      "mon_change": 0.20268109703603487,
+      "recovery_of_friday_drop": 1.0557335041639977,
+      "fri_change": -0.16106066859265378
+    },
+    {
+      "ticker": "CRDO",
+      "mon_change": 0.2012317244141799,
+      "recovery_of_friday_drop": 1.122625698324022,
+      "fri_change": -0.15200407608695654
+    },
+    {
+      "ticker": "ALAB",
+      "mon_change": 0.19841973939561952,
+      "recovery_of_friday_drop": 1.14512,
+      "fri_change": -0.1476843100189036
+    },
+    {
+      "ticker": "UMC",
+      "mon_change": 0.1964285714285714,
+      "recovery_of_friday_drop": 1.7389705882352928,
+      "fri_change": -0.10149253731343288
+    },
+    {
+      "ticker": "SKHY",
+      "mon_change": 0.1932992179202473,
+      "recovery_of_friday_drop": 1.2808701215611002,
+      "fri_change": -0.13112416107382563
+    },
+    {
+      "ticker": "MU",
+      "mon_change": 0.1832769844073272,
+      "recovery_of_friday_drop": 1.1358282080683828,
+      "fri_change": -0.13894038584091317
+    },
+    {
+      "ticker": "BE",
+      "mon_change": 0.18133295877519506,
+      "recovery_of_friday_drop": 1.003888024883359,
+      "fri_change": -0.15299506275652863
+    },
+    {
+      "ticker": "PENG",
+      "mon_change": 0.1761442441054093,
+      "recovery_of_friday_drop": 0.9829721362229104,
+      "fri_change": -0.15196424370736306
+    },
+    {
+      "ticker": "LITE",
+      "mon_change": 0.17351370130716126,
+      "recovery_of_friday_drop": 1.0710360541482384,
+      "fri_change": -0.13941885452676817
+    },
+    {
+      "ticker": "MRVL",
+      "mon_change": 0.17329080798168128,
+      "recovery_of_friday_drop": 1.3088326127239036,
+      "fri_change": -0.116920632628006
+    }
+  ],
+  "bottom_rebound_equities": [
+    {
+      "ticker": "MDT",
+      "mon_change": 0.0084550730438262,
+      "recovery_of_friday_drop": 1.2611940298507414,
+      "fri_change": -0.006659377795447785
+    },
+    {
+      "ticker": "TYL",
+      "mon_change": 0.007442389476807421,
+      "recovery_of_friday_drop": null,
+      "fri_change": 0.0006927949326998029
+    },
+    {
+      "ticker": "SLAB",
+      "mon_change": 0.006312156577811923,
+      "recovery_of_friday_drop": 1.037313432835808,
+      "fri_change": -0.006048296095689465
+    },
+    {
+      "ticker": "G",
+      "mon_change": 0.005060240963855378,
+      "recovery_of_friday_drop": null,
+      "fri_change": 0.01616062683643471
+    },
+    {
+      "ticker": "CACI",
+      "mon_change": 0.004312618022830561,
+      "recovery_of_friday_drop": 0.14477441462022084,
+      "fri_change": -0.02892684860900041
+    },
+    {
+      "ticker": "CCC",
+      "mon_change": 0.0026109660574411553,
+      "recovery_of_friday_drop": 0.666666666666647,
+      "fri_change": -0.0039011703511053764
+    },
+    {
+      "ticker": "JNJ",
+      "mon_change": 0.0013679890560873709,
+      "recovery_of_friday_drop": null,
+      "fri_change": 0.01246537396121905
+    },
+    {
+      "ticker": "CTSH",
+      "mon_change": 0.0012056493282810443,
+      "recovery_of_friday_drop": null,
+      "fri_change": 0.031077961285739697
+    },
+    {
+      "ticker": "TRI",
+      "mon_change": 0.000984639621898431,
+      "recovery_of_friday_drop": null,
+      "fri_change": 0.010145215834493682
+    },
+    {
+      "ticker": "DAVA",
+      "mon_change": 0.0,
+      "recovery_of_friday_drop": 0.0,
+      "fri_change": -0.03389830508474578
+    },
+    {
+      "ticker": "ACN",
+      "mon_change": -0.004069267983903724,
+      "recovery_of_friday_drop": null,
+      "fri_change": 0.011849208527769939
+    },
+    {
+      "ticker": "TMUS",
+      "mon_change": -0.00646135265700476,
+      "recovery_of_friday_drop": null,
+      "fri_change": 0.018888820525441385
+    },
+    {
+      "ticker": "CCI",
+      "mon_change": -0.011650485436893288,
+      "recovery_of_friday_drop": null,
+      "fri_change": 0.005859375
+    },
+    {
+      "ticker": "CHTR",
+      "mon_change": -0.014079857065175116,
+      "recovery_of_friday_drop": -0.4073033707865121,
+      "fri_change": -0.033413425439255295
+    },
+    {
+      "ticker": "CRWD",
+      "mon_change": -0.1104864016736401,
+      "recovery_of_friday_drop": -1.8081312410841637,
+      "fri_change": -0.05758646184178107
+    }
+  ],
+  "biggest_friday_drops_equities": [
+    {
+      "ticker": "IREN",
+      "fri_change": -0.17973629424011106,
+      "mon_change": 0.23857868020304562
+    },
+    {
+      "ticker": "APLD",
+      "fri_change": -0.17811158798283266,
+      "mon_change": 0.21061792863359452
+    },
+    {
+      "ticker": "HUT",
+      "fri_change": -0.17652329749103934,
+      "mon_change": 0.13340587595212172
+    },
+    {
+      "ticker": "AAOI",
+      "fri_change": -0.16548403446528137,
+      "mon_change": 0.15942909201336164
+    },
+    {
+      "ticker": "CIFR",
+      "fri_change": -0.16126543209876554,
+      "mon_change": 0.15639374425023012
+    },
+    {
+      "ticker": "NBIS",
+      "fri_change": -0.16106066859265378,
+      "mon_change": 0.20268109703603487
+    },
+    {
+      "ticker": "SNDK",
+      "fri_change": -0.16054875787912493,
+      "mon_change": 0.12531549722362456
+    },
+    {
+      "ticker": "BE",
+      "fri_change": -0.15299506275652863,
+      "mon_change": 0.18133295877519506
+    },
+    {
+      "ticker": "CRDO",
+      "fri_change": -0.15200407608695654,
+      "mon_change": 0.2012317244141799
+    },
+    {
+      "ticker": "PENG",
+      "fri_change": -0.15196424370736306,
+      "mon_change": 0.1761442441054093
+    },
+    {
+      "ticker": "CORZ",
+      "fri_change": -0.15194610778443107,
+      "mon_change": 0.10988526037069724
+    },
+    {
+      "ticker": "WULF",
+      "fri_change": -0.1493955094991365,
+      "mon_change": 0.11928934010152292
+    },
+    {
+      "ticker": "ALAB",
+      "fri_change": -0.1476843100189036,
+      "mon_change": 0.19841973939561952
+    },
+    {
+      "ticker": "ARM",
+      "fri_change": -0.14093808206807024,
+      "mon_change": 0.15732588699080163
+    },
+    {
+      "ticker": "NVDA",
+      "fri_change": -0.14008768324428,
+      "mon_change": 0.3108818609097428
+    }
+  ],
+  "equities_below_thursday_close_now": [
+    "AAOI",
+    "AAPL",
+    "ADI",
+    "AKAM",
+    "AMBA",
+    "AMD",
+    "ANET",
+    "APLD",
+    "ARM",
+    "AVGO",
+    "BWXT",
+    "CACI",
+    "CCC",
+    "CCI",
+    "CCJ",
+    "CDNS",
+    "CEG",
+    "CHTR",
+    "CIFR",
+    "COHR",
+    "CORZ",
+    "CRWD",
+    "DAVA",
+    "DLR",
+    "DNA",
+    "EQIX",
+    "FAST",
+    "FTNT",
+    "GS",
+    "HOOD",
+    "HUT",
+    "KKR",
+    "KLIC",
+    "KMI",
+    "LEU",
+    "LUMN",
+    "MSFT",
+    "OKTA",
+    "OLED",
+    "ONTO",
+    "PANW",
+    "PENG",
+    "RMBS",
+    "RXRX",
+    "SMR",
+    "SNDK",
+    "SNPS",
+    "STM",
+    "STX",
+    "SWKS",
+    "TDG",
+    "TEM",
+    "WCC",
+    "WULF"
+  ],
+  "per_ticker": [
+    {
+      "ticker": "AAOI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.16548403446528137,
+      "mon_change": 0.15942909201336164,
+      "recovery_of_fri_drop": 0.8039816232771821,
+      "fri_close_location": 0.061103007844838235,
+      "gap_unfilled": true,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "AAON",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.02426050856253248,
+      "mon_change": 0.07033639143730896,
+      "recovery_of_fri_drop": 2.8288770053475902,
+      "fri_close_location": 0.4654867256637155,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "AAPL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.019042982732453195,
+      "mon_change": 0.01804063521718824,
+      "recovery_of_fri_drop": 0.9293233082706809,
+      "fri_close_location": 0.1451378809869379,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ACN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "solutions"
+      ],
+      "fri_change": 0.011849208527769939,
+      "mon_change": -0.004069267983903724,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.06894370651486242,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "ADBE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.017908697221219794,
+      "mon_change": 0.023517523310826238,
+      "recovery_of_fri_drop": 1.289672544080606,
+      "fri_close_location": 0.06003159557662068,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ADI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.08350996184824078,
+      "mon_change": 0.08857539315448659,
+      "recovery_of_fri_drop": 0.9720812182741118,
+      "fri_close_location": 0.06534653465346592,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ADSK",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": 0.004230848223454542,
+      "mon_change": 0.03517670157068076,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.19019532418686164,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "AIQ",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.06247703050349129,
+      "mon_change": 0.07457859662877309,
+      "recovery_of_fri_drop": 1.119117647058824,
+      "fri_close_location": 0.07462686567164192,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "AKAM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.07196597971867835,
+      "mon_change": 0.05398895546939264,
+      "recovery_of_fri_drop": 0.6962121212121216,
+      "fri_close_location": 0.03289977046671814,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ALAB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.1476843100189036,
+      "mon_change": 0.19841973939561952,
+      "recovery_of_fri_drop": 1.14512,
+      "fri_close_location": 0.12247040298594482,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "AMAT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.10710176142566319,
+      "mon_change": 0.1350163566070779,
+      "recovery_of_fri_drop": 1.1256198347107438,
+      "fri_close_location": 0.0672690763052206,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "AMBA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.09944001357542842,
+      "mon_change": 0.05935556811758058,
+      "recovery_of_fri_drop": 0.5375426621160407,
+      "fri_close_location": 0.09761721752498055,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "AMD",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.1324638688444163,
+      "mon_change": 0.06496383043898302,
+      "recovery_of_fri_drop": 0.42546296296296277,
+      "fri_close_location": 0.1004818847046224,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "AMZN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.040991568558884195,
+      "mon_change": 0.04543797099100577,
+      "recovery_of_fri_drop": 1.063033175355452,
+      "fri_close_location": 0.10300136425647942,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ANET",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.11588163932696871,
+      "mon_change": 0.06908483474525706,
+      "recovery_of_fri_drop": 0.52708238507055,
+      "fri_close_location": 0.10828025477707047,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "APH",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.07789974871048799,
+      "mon_change": 0.10384394721744106,
+      "recovery_of_fri_drop": 1.229202037351442,
+      "fri_close_location": 0.08242950108459772,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "APLD",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.17811158798283266,
+      "mon_change": 0.21061792863359452,
+      "recovery_of_fri_drop": 0.9718875502008031,
+      "fri_close_location": 0.08571428571428559,
+      "gap_unfilled": true,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "APO",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "financial",
+        "previous"
+      ],
+      "fri_change": -0.04411385329779005,
+      "mon_change": 0.050467794170564906,
+      "recovery_of_fri_drop": 1.093567251461986,
+      "fri_close_location": 0.09243697478991544,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ARKG",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.056369505835609734,
+      "mon_change": 0.07657894736842086,
+      "recovery_of_fri_drop": 1.281938325991186,
+      "fri_close_location": 0.12857142857142997,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ARKK",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.06833019004787477,
+      "mon_change": 0.08034880099657427,
+      "recovery_of_fri_drop": 1.0955414012738827,
+      "fri_close_location": 0.040650406504063395,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ARKQ",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.0772431993503857,
+      "mon_change": 0.0875591244087559,
+      "recovery_of_fri_drop": 1.0459921156373204,
+      "fri_close_location": 0.05718270571827008,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ARKW",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.06298434888314852,
+      "mon_change": 0.07443444417416689,
+      "recovery_of_fri_drop": 1.107358262967429,
+      "fri_close_location": 0.07980652962515078,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ARKX",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.06503759398496245,
+      "mon_change": 0.07076799356654595,
+      "recovery_of_fri_drop": 1.0173410404624263,
+      "fri_close_location": 0.08333333333333448,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ARM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.14093808206807024,
+      "mon_change": 0.15732588699080163,
+      "recovery_of_fri_drop": 0.9589507408890678,
+      "fri_close_location": 0.09012558483132152,
+      "gap_unfilled": true,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ASML",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.06634714643857842,
+      "mon_change": 0.08939204877509432,
+      "recovery_of_fri_drop": 1.257946210268949,
+      "fri_close_location": 0.0983017698153494,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "AVGO",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.12185201211596697,
+      "mon_change": 0.01971025918990832,
+      "recovery_of_fri_drop": 0.1420454545454547,
+      "fri_close_location": 0.08073350797809103,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "BE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.15299506275652863,
+      "mon_change": 0.18133295877519506,
+      "recovery_of_fri_drop": 1.003888024883359,
+      "fri_close_location": 0.07449605609114764,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "BLK",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "financial",
+        "previous"
+      ],
+      "fri_change": -0.030013822734436202,
+      "mon_change": 0.04179827905456923,
+      "recovery_of_fri_drop": 1.3508360222939297,
+      "fri_close_location": 0.13478349257979472,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "BN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "financial",
+        "previous"
+      ],
+      "fri_change": -0.030559835644581312,
+      "mon_change": 0.03841059602649022,
+      "recovery_of_fri_drop": 1.218487394957988,
+      "fri_close_location": 0.08970099667773981,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "BNO",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals",
+        "screenshots"
+      ],
+      "fri_change": 0.00305914343983682,
+      "mon_change": -0.033039647577092546,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.9333333333333355,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "BWXT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.07278318810866224,
+      "mon_change": 0.07250783121429882,
+      "recovery_of_fri_drop": 0.9237089201877927,
+      "fri_close_location": 0.04190260475651241,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "BX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "financial",
+        "previous"
+      ],
+      "fri_change": -0.04474523665833263,
+      "mon_change": 0.04693140794223827,
+      "recovery_of_fri_drop": 1.001926782273604,
+      "fri_close_location": 0.05912162162162064,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CACI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.02892684860900041,
+      "mon_change": 0.004312618022830561,
+      "recovery_of_fri_drop": 0.14477441462022084,
+      "fri_close_location": 0.055464544816285745,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CARR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "fri_change": -0.030279503105590133,
+      "mon_change": 0.03943154523618886,
+      "recovery_of_fri_drop": 1.2628205128205103,
+      "fri_close_location": 0.07333333333333296,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CAT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.05009583713270194,
+      "mon_change": 0.07064354980899212,
+      "recovery_of_fri_drop": 1.3395245170876664,
+      "fri_close_location": 0.07461734693877468,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CBRS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "convexity"
+      ],
+      "fri_change": -0.0493330266789328,
+      "mon_change": 0.17086004596588844,
+      "recovery_of_fri_drop": 3.2925407925407986,
+      "fri_close_location": 0.0359576707850846,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CCC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.0039011703511053764,
+      "mon_change": 0.0026109660574411553,
+      "recovery_of_fri_drop": 0.666666666666647,
+      "fri_close_location": 0.24999999999999445,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CCI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": 0.005859375,
+      "mon_change": -0.011650485436893288,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.07079646017699412,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "CCJ",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.05568218821230875,
+      "mon_change": 0.05629310344827587,
+      "recovery_of_fri_drop": 0.9546783625730991,
+      "fri_close_location": 0.034060837896612885,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CDNS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.07642351088953037,
+      "mon_change": 0.07724270189644145,
+      "recovery_of_fri_drop": 0.933476394849785,
+      "fri_close_location": 0.10419261104192559,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CEG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.0580089671864461,
+      "mon_change": 0.052735773556294996,
+      "recovery_of_fri_drop": 0.8563611491108075,
+      "fri_close_location": 0.047805642633227716,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CGNX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "fri_change": -0.0692404532102392,
+      "mon_change": 0.09208746618575292,
+      "recovery_of_fri_drop": 1.2378787878787891,
+      "fri_close_location": 0.11290322580645203,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CHKP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.0039871382636655905,
+      "mon_change": 0.024470557851239638,
+      "recovery_of_fri_drop": 6.112903225806394,
+      "fri_close_location": 0.26553909430478023,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CHTR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "previous"
+      ],
+      "fri_change": -0.033413425439255295,
+      "mon_change": -0.014079857065175116,
+      "recovery_of_fri_drop": -0.4073033707865121,
+      "fri_close_location": 0.03280757097791678,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "CIBR",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.051162308011623026,
+      "mon_change": 0.033304167122388595,
+      "recovery_of_fri_drop": 0.6176470588235278,
+      "fri_close_location": 0.0883534136546208,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CIEN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.10760385332977951,
+      "mon_change": 0.13525621879933425,
+      "recovery_of_fri_drop": 1.121726822363765,
+      "fri_close_location": 0.14843462246777164,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CIFR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.16126543209876554,
+      "mon_change": 0.15639374425023012,
+      "recovery_of_fri_drop": 0.8133971291866028,
+      "fri_close_location": 0.09045226130653251,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CINT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.0662020905923345,
+      "mon_change": 0.07835820895522394,
+      "recovery_of_fri_drop": 1.105263157894737,
+      "fri_close_location": 0.0,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CMI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.04173888268952253,
+      "mon_change": 0.06254800426153961,
+      "recovery_of_fri_drop": 1.436006825938568,
+      "fri_close_location": 0.1261304140885306,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "COHR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.12896622313203687,
+      "mon_change": 0.14597799380408083,
+      "recovery_of_fri_drop": 0.9859307359307364,
+      "fri_close_location": 0.23269362577107575,
+      "gap_unfilled": true,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "COHU",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.08531502819318448,
+      "mon_change": 0.1265076387027606,
+      "recovery_of_fri_drop": 1.3563218390804606,
+      "fri_close_location": 0.23157894736842224,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CORZ",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.15194610778443107,
+      "mon_change": 0.10988526037069724,
+      "recovery_of_fri_drop": 0.6133004926108373,
+      "fri_close_location": 0.04057971014492771,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CRAK",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "fri_change": -0.024590163934426257,
+      "mon_change": 0.0049656226126812975,
+      "recovery_of_fri_drop": 0.1969696969696954,
+      "fri_close_location": 0.09836065573770097,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "CRDO",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.15200407608695654,
+      "mon_change": 0.2012317244141799,
+      "recovery_of_fri_drop": 1.122625698324022,
+      "fri_close_location": 0.11931119311193095,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CRWD",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.05758646184178107,
+      "mon_change": -0.1104864016736401,
+      "recovery_of_fri_drop": -1.8081312410841637,
+      "fri_close_location": 0.15712187958883922,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "CRWV",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.12024048096192386,
+      "mon_change": 0.20564414072386739,
+      "recovery_of_fri_drop": 1.50462962962963,
+      "fri_close_location": 0.05808080808080728,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CSCO",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.04287222808870117,
+      "mon_change": 0.06156222418358337,
+      "recovery_of_fri_drop": 1.3743842364532008,
+      "fri_close_location": 0.1263259402121506,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CSGP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": 0.03170731707317076,
+      "mon_change": 0.009625126646403137,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.6217948717948716,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "CTSH",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "previous"
+      ],
+      "fri_change": 0.031077961285739697,
+      "mon_change": 0.0012056493282810443,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.3724247226624418,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "DAVA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.03389830508474578,
+      "mon_change": 0.0,
+      "recovery_of_fri_drop": 0.0,
+      "fri_close_location": 0.3999999999999987,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "DDOG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.054607713564820415,
+      "mon_change": 0.06659464955201111,
+      "recovery_of_fri_drop": 1.1529152915291514,
+      "fri_close_location": 0.10962566844919922,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "DE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.02502840499927983,
+      "mon_change": 0.041140746819860574,
+      "recovery_of_fri_drop": 1.602621483375964,
+      "fri_close_location": 0.2389975550122228,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "DELL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.11044986241761068,
+      "mon_change": 0.20757499460470474,
+      "recovery_of_fri_drop": 1.6717844727694082,
+      "fri_close_location": 0.12547008547008406,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "DLR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "fri_change": -0.06642914607516381,
+      "mon_change": 0.03939431244614067,
+      "recovery_of_fri_drop": 0.55363321799308,
+      "fri_close_location": 0.022845538773956953,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "DNA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "frontier"
+      ],
+      "fri_change": -0.09024390243902436,
+      "mon_change": 0.03418230563002678,
+      "recovery_of_fri_drop": 0.34459459459459474,
+      "fri_close_location": 0.08791208791208806,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "DXC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": 0.02550637659414856,
+      "mon_change": 0.019385515727871283,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.628597957288765,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "EMB",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.004428697962798878,
+      "mon_change": 0.007339857651245563,
+      "recovery_of_fri_drop": 1.6500000000000266,
+      "fri_close_location": 0.17021276595744358,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "EME",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.051502955603068834,
+      "mon_change": 0.07296293840747858,
+      "recovery_of_fri_drop": 1.3437118437118436,
+      "fri_close_location": 0.09415148117398538,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "EPAM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": 0.018612071257644303,
+      "mon_change": 0.01951187679457056,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.2452830188679247,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "EQIX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.04894651539708261,
+      "mon_change": 0.03868955402697716,
+      "recovery_of_fri_drop": 0.7517559702990162,
+      "fri_close_location": 0.08065826899634346,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ERIC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.03933136676499516,
+      "mon_change": 0.04350051177072678,
+      "recovery_of_fri_drop": 1.0625000000000009,
+      "fri_close_location": 0.08108108108107952,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ESTC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.020175553517620792,
+      "mon_change": 0.09667067789811457,
+      "recovery_of_fri_drop": 4.6948051948052125,
+      "fri_close_location": 0.38294314381270983,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ETN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.05820249871434191,
+      "mon_change": 0.08205119969164554,
+      "recovery_of_fri_drop": 1.3277027027027029,
+      "fri_close_location": 0.15730905412240564,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "EXLS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "solutions",
+        "previous"
+      ],
+      "fri_change": 0.013359242166626206,
+      "mon_change": 0.015819750719079595,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.44566544566544425,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "FAST",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.039293849658314395,
+      "mon_change": 0.02874925903971537,
+      "recovery_of_fri_drop": 0.7028985507246368,
+      "fri_close_location": 0.031620553359683105,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "FFIV",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.04432707724228979,
+      "mon_change": 0.05276489358202552,
+      "recovery_of_fri_drop": 1.1375886524822696,
+      "fri_close_location": 0.11978821972203843,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "FIX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.06422685409597673,
+      "mon_change": 0.11500964056519614,
+      "recovery_of_fri_drop": 1.675668763102726,
+      "fri_close_location": 0.3275437545750989,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "FLEX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "added_2026_11_23_from_user_screenshots"
+      ],
+      "fri_change": -0.10751818916734035,
+      "mon_change": 0.13813405797101463,
+      "recovery_of_fri_drop": 1.1466165413533835,
+      "fri_close_location": 0.06151990349818955,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "FN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.08556029642937335,
+      "mon_change": 0.15194358686500142,
+      "recovery_of_fri_drop": 1.623922009748784,
+      "fri_close_location": 0.17970703822793954,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "FORM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.10831603370374898,
+      "mon_change": 0.12188441522870463,
+      "recovery_of_fri_drop": 1.003382187147689,
+      "fri_close_location": 0.11651728553136957,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "FTNT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.0524874486535829,
+      "mon_change": 0.041827231856133684,
+      "recovery_of_fri_drop": 0.7550724637681164,
+      "fri_close_location": 0.07166200918865112,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "G",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "previous"
+      ],
+      "fri_change": 0.01616062683643471,
+      "mon_change": 0.005060240963855378,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.2328767123287682,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "GDX",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.04999999999999993,
+      "mon_change": 0.06637426900584775,
+      "recovery_of_fri_drop": 1.2611111111111108,
+      "fri_close_location": 0.10372340425531955,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GDYN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "solutions",
+        "previous"
+      ],
+      "fri_change": 0.013610888710968716,
+      "mon_change": 0.033570300157977906,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.2857142857142862,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.02903913697942795,
+      "mon_change": 0.03478457463988116,
+      "recovery_of_fri_drop": 1.1630669546436276,
+      "fri_close_location": 0.15577190542420097,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GEV",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.07530279790553751,
+      "mon_change": 0.08209286030915308,
+      "recovery_of_fri_drop": 1.008077260755049,
+      "fri_close_location": 0.14179243525246915,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GFS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.08680020544427314,
+      "mon_change": 0.1130483689538806,
+      "recovery_of_fri_drop": 1.189349112426036,
+      "fri_close_location": 0.16279069767441937,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GIB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "previous"
+      ],
+      "fri_change": 0.013162939297124643,
+      "mon_change": 0.02005549949545915,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.3267813267813281,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GLD",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.03672653499612144,
+      "mon_change": 0.036023476941183796,
+      "recovery_of_fri_drop": 0.9448334687246137,
+      "fri_close_location": 0.2509803921568637,
+      "gap_unfilled": true,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GLOB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": 0.041270635317659066,
+      "mon_change": 0.06293538313716063,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.4335060449050096,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GLW",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.10937057657827687,
+      "mon_change": 0.1553824962915873,
+      "recovery_of_fri_drop": 1.2653149266609147,
+      "fri_close_location": 0.08565928777670842,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GOOG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.025902147442993018,
+      "mon_change": 0.06571969696969715,
+      "recovery_of_fri_drop": 2.471509971509981,
+      "fri_close_location": 0.0947945205479462,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GOOGL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "previous"
+      ],
+      "fri_change": -0.027030000733514248,
+      "mon_change": 0.06981039617022877,
+      "recovery_of_fri_drop": 2.5128900949796433,
+      "fri_close_location": 0.05652403592181701,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GRID",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.04579451515549138,
+      "mon_change": 0.06040291529152908,
+      "recovery_of_fri_drop": 1.2585959885386833,
+      "fri_close_location": 0.11492537313432959,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "financial",
+        "screenshots",
+        "previous"
+      ],
+      "fri_change": -0.06706547260863915,
+      "mon_change": 0.0424692357308174,
+      "recovery_of_fri_drop": 0.5907811400422234,
+      "fri_close_location": 0.0977325087910776,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "GWRE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.0017929179740027168,
+      "mon_change": 0.04304969315970664,
+      "recovery_of_fri_drop": 23.967916666665722,
+      "fri_close_location": 0.1424581005586607,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "HACK",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.04899373144176833,
+      "mon_change": 0.04006938421509121,
+      "recovery_of_fri_drop": 0.7777777777777788,
+      "fri_close_location": 0.12222222222222165,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "HIMX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "added_2026_11_23_from_user_screenshots"
+      ],
+      "fri_change": -0.0949868073878628,
+      "mon_change": 0.13921282798833823,
+      "recovery_of_fri_drop": 1.3263888888888895,
+      "fri_close_location": 0.11475409836065614,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "HON",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "previous"
+      ],
+      "fri_change": -0.023870730811604957,
+      "mon_change": 0.041948833709556155,
+      "recovery_of_fri_drop": 1.7153846153846128,
+      "fri_close_location": 0.11471861471861212,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "HOOD",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "convexity",
+        "screenshots"
+      ],
+      "fri_change": -0.09439184268026224,
+      "mon_change": 0.08331992922631493,
+      "recovery_of_fri_drop": 0.799382716049381,
+      "fri_close_location": 0.06043165467625922,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "HP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.02065351418002459,
+      "mon_change": 0.03541076487252126,
+      "recovery_of_fri_drop": 1.6791044776119501,
+      "fri_close_location": 0.16012084592145073,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "HPE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.10068146845460557,
+      "mon_change": 0.16646296748961142,
+      "recovery_of_fri_drop": 1.486899563318776,
+      "fri_close_location": 0.09862385321100896,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "HUBB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.03601280030567888,
+      "mon_change": 0.06800277461229753,
+      "recovery_of_fri_drop": 1.82029177718833,
+      "fri_close_location": 0.09995285242810026,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "HUT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.17652329749103934,
+      "mon_change": 0.13340587595212172,
+      "recovery_of_fri_drop": 0.6223350253807105,
+      "fri_close_location": 0.05202312138728357,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "HYG",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.002613354240167287,
+      "mon_change": 0.0030787370627538557,
+      "recovery_of_fri_drop": 1.1749999999999805,
+      "fri_close_location": 0.20000000000000948,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IBM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": 0.0025013400035733824,
+      "mon_change": 0.03909730885760121,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.10926118626430904,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IEF",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": 0.009138956177053625,
+      "mon_change": -0.0011456628477904962,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.8103448275862073,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IGV",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "signals"
+      ],
+      "fri_change": -0.04620187304890733,
+      "mon_change": 0.03349334497054346,
+      "recovery_of_fri_drop": 0.6914414414414435,
+      "fri_close_location": 0.11608961303462191,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "INOD",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "added_2026_11_23_from_user_screenshots"
+      ],
+      "fri_change": -0.08908325234855852,
+      "mon_change": 0.14864864864864846,
+      "recovery_of_fri_drop": 1.5199999999999987,
+      "fri_close_location": 0.07932236040681068,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "INTC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.07968413496051685,
+      "mon_change": 0.13348283931357252,
+      "recovery_of_fri_drop": 1.5416666666666672,
+      "fri_close_location": 0.033457249070631946,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IONQ",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "frontier",
+        "screenshots"
+      ],
+      "fri_change": -0.08762659621312208,
+      "mon_change": 0.13223938223938236,
+      "recovery_of_fri_drop": 1.3768844221105523,
+      "fri_close_location": 0.09382539540702234,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IREN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.17973629424011106,
+      "mon_change": 0.23857868020304562,
+      "recovery_of_fri_drop": 1.088803088803089,
+      "fri_close_location": 0.030172413793103568,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ISRG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "fri_change": -0.020110991061781713,
+      "mon_change": 0.03871068788372378,
+      "recovery_of_fri_drop": 1.8861416361416357,
+      "fri_close_location": 0.10384300899427938,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "previous"
+      ],
+      "fri_change": 0.012710388856645327,
+      "mon_change": 0.008653791048197634,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.07462686567164263,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IWB",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.03448011842172427,
+      "mon_change": 0.044011524939864044,
+      "recovery_of_fri_drop": 1.23242042931162,
+      "fri_close_location": 0.12699350265800258,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IWD",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.016340648854961892,
+      "mon_change": 0.019886019158481982,
+      "recovery_of_fri_drop": 1.1970802919708028,
+      "fri_close_location": 0.14285714285714285,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IWL",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.03829426715617057,
+      "mon_change": 0.048628648616902526,
+      "recovery_of_fri_drop": 1.2212389380530972,
+      "fri_close_location": 0.11698113207547273,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IWM",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "signals",
+        "screenshots"
+      ],
+      "fri_change": -0.028801756112330712,
+      "mon_change": 0.03234480339815282,
+      "recovery_of_fri_drop": 1.0906701708278577,
+      "fri_close_location": 0.030430220356770152,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IWN",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.020091594031614646,
+      "mon_change": 0.020453791647821573,
+      "recovery_of_fri_drop": 0.9975735294117677,
+      "fri_close_location": 0.07142857142857419,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IWV",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.034180047704527095,
+      "mon_change": 0.04382972222929449,
+      "recovery_of_fri_drop": 1.2384892086330928,
+      "fri_close_location": 0.12848484848484876,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IWY",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.060842006416777616,
+      "mon_change": 0.0781985585135192,
+      "recovery_of_fri_drop": 1.2070739549839227,
+      "fri_close_location": 0.07527579493835151,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "IYW",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.06502837268899875,
+      "mon_change": 0.08310900102784968,
+      "recovery_of_fri_drop": 1.1949331456720604,
+      "fri_close_location": 0.11235279555822811,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "JCI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "fri_change": -0.04279411764705876,
+      "mon_change": 0.06345060685205084,
+      "recovery_of_fri_drop": 1.4192439862542956,
+      "fri_close_location": 0.21742260619150677,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "JNJ",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": 0.01246537396121905,
+      "mon_change": 0.0013679890560873709,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.330033003300333,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "JNK",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.0033750680457266258,
+      "mon_change": 0.0031680139829581844,
+      "recovery_of_fri_drop": 0.9354838709677523,
+      "fri_close_location": 0.16438356164384416,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "KEYS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.07074834766541116,
+      "mon_change": 0.10875301135711823,
+      "recovery_of_fri_drop": 1.4284279256654928,
+      "fri_close_location": 0.04375497215592548,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "KKR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "financial",
+        "previous"
+      ],
+      "fri_change": -0.03896667752089422,
+      "mon_change": 0.04043370228145471,
+      "recovery_of_fri_drop": 0.9972144846796682,
+      "fri_close_location": 0.1029082774049235,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "KLAC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.10326547921967755,
+      "mon_change": 0.13336486166942518,
+      "recovery_of_fri_drop": 1.1581108829568791,
+      "fri_close_location": 0.08569299552906161,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "KLIC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.11156219551802526,
+      "mon_change": 0.1148784500091391,
+      "recovery_of_fri_drop": 0.9148471615720523,
+      "fri_close_location": 0.10989010989011026,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "KMI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.023480218719845625,
+      "mon_change": 0.014328063241106692,
+      "recovery_of_fri_drop": 0.5958904109589068,
+      "fri_close_location": 0.11881188118811961,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "LEU",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.09219620958751384,
+      "mon_change": 0.06969175979368769,
+      "recovery_of_fri_drop": 0.6862152357920194,
+      "fri_close_location": 0.05668449197860978,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "LIN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "fri_change": -0.014464632210266393,
+      "mon_change": 0.020484060219159606,
+      "recovery_of_fri_drop": 1.3956639566395688,
+      "fri_close_location": 0.158985462418806,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "LITE",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.13941885452676817,
+      "mon_change": 0.17351370130716126,
+      "recovery_of_fri_drop": 1.0710360541482384,
+      "fri_close_location": 0.07438983617519301,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "LQD",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": 0.005917733798991076,
+      "mon_change": 0.001253737100973984,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.7017543859649057,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "LRCX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.10020620581304007,
+      "mon_change": 0.13870246085011173,
+      "recovery_of_fri_drop": 1.2454679078882898,
+      "fri_close_location": 0.08331019161344073,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "LSCC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.11368553912729895,
+      "mon_change": 0.14484793001729224,
+      "recovery_of_fri_drop": 1.129262490087232,
+      "fri_close_location": 0.11214087117701643,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "LUMN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "fri_change": -0.08153477218225413,
+      "mon_change": 0.02741514360313313,
+      "recovery_of_fri_drop": 0.3088235294117648,
+      "fri_close_location": 0.06250000000000046,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "MAGS",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "previous"
+      ],
+      "fri_change": -0.05182223589112722,
+      "mon_change": 0.08011676938047363,
+      "recovery_of_fri_drop": 1.4658753709198786,
+      "fri_close_location": 0.07566204287515685,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "MANH",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.007960808328230207,
+      "mon_change": 0.013353909465020575,
+      "recovery_of_fri_drop": 1.6641025641025762,
+      "fri_close_location": 0.023129251700678588,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "MCHP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.051821446895844,
+      "mon_change": 0.09235209235209241,
+      "recovery_of_fri_drop": 1.6897689768976907,
+      "fri_close_location": 0.1267217630853996,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "MDB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.03740614794114683,
+      "mon_change": 0.09562784190276341,
+      "recovery_of_fri_drop": 2.4608460846084608,
+      "fri_close_location": 0.22142667727393067,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "MDT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.006659377795447785,
+      "mon_change": 0.0084550730438262,
+      "recovery_of_fri_drop": 1.2611940298507414,
+      "fri_close_location": 0.11608623548921866,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "MDY",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.02643733573861251,
+      "mon_change": 0.03219494273437373,
+      "recovery_of_fri_drop": 1.185588235294116,
+      "fri_close_location": 0.06683567642313602,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "META",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.059340511891583625,
+      "mon_change": 0.06550887953783602,
+      "recovery_of_fri_drop": 1.0384397964951955,
+      "fri_close_location": 0.0719760079973367,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "MKSI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "fri_change": -0.10025355958650284,
+      "mon_change": 0.11451333188814217,
+      "recovery_of_fri_drop": 1.02772373540856,
+      "fri_close_location": 0.10215664018161243,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "MOD",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.07349881093935795,
+      "mon_change": 0.09232373465950117,
+      "recovery_of_fri_drop": 1.163801820020223,
+      "fri_close_location": 0.2755976544880477,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "MPWR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.11869337737101227,
+      "mon_change": 0.15816295258526347,
+      "recovery_of_fri_drop": 1.1743709771796382,
+      "fri_close_location": 0.06700397542464744,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "MRNA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.021722771283800846,
+      "mon_change": 0.08193743589743585,
+      "recovery_of_fri_drop": 3.6900230946882115,
+      "fri_close_location": 0.19093414743337295,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "MRVL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.116920632628006,
+      "mon_change": 0.17329080798168128,
+      "recovery_of_fri_drop": 1.3088326127239036,
+      "fri_close_location": 0.12632754087283515,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "MSFT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.02765402368051384,
+      "mon_change": 0.02408569305704611,
+      "recovery_of_fri_drop": 0.8468795355587801,
+      "fri_close_location": 0.15327184892402299,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "MTSI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.1081674673987646,
+      "mon_change": 0.16523010620286294,
+      "recovery_of_fri_drop": 1.3623096446700504,
+      "fri_close_location": 0.09276962053928813,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "MU",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.13894038584091317,
+      "mon_change": 0.1832769844073272,
+      "recovery_of_fri_drop": 1.1358282080683828,
+      "fri_close_location": 0.11053955107860022,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "NBIS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.16106066859265378,
+      "mon_change": 0.20268109703603487,
+      "recovery_of_fri_drop": 1.0557335041639977,
+      "fri_close_location": 0.047868362004487686,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "NDAQ",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.009908609908609867,
+      "mon_change": 0.023707734162456306,
+      "recovery_of_fri_drop": 2.368932038834947,
+      "fri_close_location": 0.08587257617728596,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "NOK",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "screenshots"
+      ],
+      "fri_change": -0.08266666666666667,
+      "mon_change": 0.09883720930232553,
+      "recovery_of_fri_drop": 1.0967741935483863,
+      "fri_close_location": 0.13820335636722664,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "NOW",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.014178012827725905,
+      "mon_change": 0.04748316402237185,
+      "recovery_of_fri_drop": 3.3015873015872854,
+      "fri_close_location": 0.047250859106530124,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "NRG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.06446457112413428,
+      "mon_change": 0.09646924829157166,
+      "recovery_of_fri_drop": 1.4000000000000006,
+      "fri_close_location": 0.08438193930421814,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "NTAP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "fri_change": -0.0736279233752497,
+      "mon_change": 0.08778940691405013,
+      "recovery_of_fri_drop": 1.1045490822027138,
+      "fri_close_location": 0.09023789991796509,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "NVD",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "screenshots"
+      ],
+      "fri_change": 0.27594627594627585,
+      "mon_change": -0.6172862200956937,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.9211136890951276,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "NVDA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.14008768324428,
+      "mon_change": 0.3108818609097428,
+      "recovery_of_fri_drop": 1.9083129584352092,
+      "fri_close_location": 0.05357607282184663,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "NXPI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.06597553225293928,
+      "mon_change": 0.07950244524771422,
+      "recovery_of_fri_drop": 1.1255267910897055,
+      "fri_close_location": 0.0722057368941646,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "OIH",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.04616853250021691,
+      "mon_change": 0.025111454826676205,
+      "recovery_of_fri_drop": 0.5187969924812019,
+      "fri_close_location": 0.10467138250637387,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "OKLO",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.047504798464491294,
+      "mon_change": 0.05591939546599489,
+      "recovery_of_fri_drop": 1.1212121212121224,
+      "fri_close_location": 0.10045662100456726,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "OKTA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.07440174039158809,
+      "mon_change": 0.07181656742922793,
+      "recovery_of_fri_drop": 0.8934372969460697,
+      "fri_close_location": 0.09715909090909139,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "OLED",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.06493193591133595,
+      "mon_change": 0.058812161813965425,
+      "recovery_of_fri_drop": 0.8469387755102036,
+      "fri_close_location": 0.09759358288770101,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ON",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.07425441265976862,
+      "mon_change": 0.08366206443129531,
+      "recovery_of_fri_drop": 1.0430327868852476,
+      "fri_close_location": 0.267831837505905,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ONTO",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.13152656561016696,
+      "mon_change": 0.12978960977903164,
+      "recovery_of_fri_drop": 0.8570042685292976,
+      "fri_close_location": 0.16825396825396852,
+      "gap_unfilled": true,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ORCL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.08483313737903586,
+      "mon_change": 0.11315347366340545,
+      "recovery_of_fri_drop": 1.2206823027718559,
+      "fri_close_location": 0.10750042908633173,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "PANW",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.050894313438199834,
+      "mon_change": 0.02583595479436096,
+      "recovery_of_fri_drop": 0.48180336773492627,
+      "fri_close_location": 0.07192850646526211,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "PATH",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "convexity"
+      ],
+      "fri_change": -0.024042742653606397,
+      "mon_change": 0.07527372262773713,
+      "recovery_of_fri_drop": 3.0555555555555576,
+      "fri_close_location": 0.1311475409836068,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "PAVE",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.03767660910518056,
+      "mon_change": 0.04547308319738996,
+      "recovery_of_fri_drop": 1.1614583333333344,
+      "fri_close_location": 0.08675799086757896,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "PENG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.15196424370736306,
+      "mon_change": 0.1761442441054093,
+      "recovery_of_fri_drop": 0.9829721362229104,
+      "fri_close_location": 0.07581227436823008,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "PI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.09398212262369388,
+      "mon_change": 0.1115820190370318,
+      "recovery_of_fri_drop": 1.0756865371734758,
+      "fri_close_location": 0.19309729247247862,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "PLTR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.06630661114003122,
+      "mon_change": 0.09540734545961382,
+      "recovery_of_fri_drop": 1.3434739941118745,
+      "fri_close_location": 0.11827956989247401,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "PSQ",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals",
+        "screenshots"
+      ],
+      "fri_change": 0.05459668897499115,
+      "mon_change": -0.0651302605210422,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.8950617283950629,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "PWR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.04834618592853612,
+      "mon_change": 0.08629232778205109,
+      "recovery_of_fri_drop": 1.6985915492957764,
+      "fri_close_location": 0.3382472055726531,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "QBTS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "frontier"
+      ],
+      "fri_change": -0.10807113543091651,
+      "mon_change": 0.13113496932515334,
+      "recovery_of_fri_drop": 1.0822784810126587,
+      "fri_close_location": 0.07251631617113805,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "QNT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.007868383404864177,
+      "mon_change": 0.09949531362653219,
+      "recovery_of_fri_drop": 12.545454545454415,
+      "fri_close_location": 0.2643985622335533,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "QQQ",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals",
+        "previous"
+      ],
+      "fri_change": -0.05672516433089403,
+      "mon_change": 0.06823896786917572,
+      "recovery_of_fri_drop": 1.1347362667395484,
+      "fri_close_location": 0.059936789318422556,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "QQQD",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": 0.05513016845329233,
+      "mon_change": -0.08199564586357033,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 1.0,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "QQQM",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.05424634844149978,
+      "mon_change": 0.0653584364924571,
+      "recovery_of_fri_drop": 1.139486467730742,
+      "fri_close_location": 0.10469314079422366,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "RGTI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "frontier"
+      ],
+      "fri_change": -0.11166253101736978,
+      "mon_change": 0.16410614525139677,
+      "recovery_of_fri_drop": 1.3055555555555558,
+      "fri_close_location": 0.0784313725490197,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "RMBS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.12915080719254501,
+      "mon_change": 0.1419743782969103,
+      "recovery_of_fri_drop": 0.9573170731707316,
+      "fri_close_location": 0.08257918552036093,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ROK",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "fri_change": -0.05525972330984086,
+      "mon_change": 0.0630232365374519,
+      "recovery_of_fri_drop": 1.077468115257439,
+      "fri_close_location": 0.06451612903225717,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "RSP",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.01979870528753014,
+      "mon_change": 0.02424797531816436,
+      "recovery_of_fri_drop": 1.2004773269689746,
+      "fri_close_location": 0.08618255843325834,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "RXRX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "frontier"
+      ],
+      "fri_change": -0.09926470588235292,
+      "mon_change": 0.07959183673469372,
+      "recovery_of_fri_drop": 0.7222222222222215,
+      "fri_close_location": 0.031250000000000736,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SAP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.021158293559021768,
+      "mon_change": 0.02176645051022974,
+      "recovery_of_fri_drop": 1.0069767441860469,
+      "fri_close_location": 0.09302325581395657,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SHOP",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.06251420777449423,
+      "mon_change": 0.08228257355318469,
+      "recovery_of_fri_drop": 1.2339393939393948,
+      "fri_close_location": 0.07453998777209189,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SHY",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": 0.00282624723519298,
+      "mon_change": -0.0009190050238941927,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.7855611150821892,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "SKHY",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.13112416107382563,
+      "mon_change": 0.1932992179202473,
+      "recovery_of_fri_drop": 1.2808701215611002,
+      "fri_close_location": 0.07253886010362633,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SLAB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.006048296095689465,
+      "mon_change": 0.006312156577811923,
+      "recovery_of_fri_drop": 1.037313432835808,
+      "fri_close_location": 0.11794871794872624,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SLV",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.0673562058526741,
+      "mon_change": 0.054638896402488646,
+      "recovery_of_fri_drop": 0.7565543071161056,
+      "fri_close_location": 0.0958083832335312,
+      "gap_unfilled": true,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SMCI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.09186241610738255,
+      "mon_change": 0.13602771362586608,
+      "recovery_of_fri_drop": 1.344748858447488,
+      "fri_close_location": 0.0900243309002427,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SMH",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.10597121659068565,
+      "mon_change": 0.14437834324851262,
+      "recovery_of_fri_drop": 1.2180514550822432,
+      "fri_close_location": 0.07718201490742922,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SMR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.11811023622047245,
+      "mon_change": 0.0535714285714286,
+      "recovery_of_fri_drop": 0.4000000000000002,
+      "fri_close_location": 0.1250000000000001,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SMTC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.13927904920931156,
+      "mon_change": 0.16457491726577667,
+      "recovery_of_fri_drop": 1.017045133991537,
+      "fri_close_location": 0.16438356164383502,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SNDK",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.16054875787912493,
+      "mon_change": 0.12531549722362456,
+      "recovery_of_fri_drop": 0.6552292972616303,
+      "fri_close_location": 0.07971014492753581,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SNOW",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.051267731486652424,
+      "mon_change": 0.06447688564476883,
+      "recovery_of_fri_drop": 1.1931735657225875,
+      "fri_close_location": 0.11736288718385873,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SNPS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.08062008307999347,
+      "mon_change": 0.08001615468107115,
+      "recovery_of_fri_drop": 0.9124928036845129,
+      "fri_close_location": 0.037313432835821767,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SPY",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals",
+        "previous"
+      ],
+      "fri_change": -0.03640325757469942,
+      "mon_change": 0.04672301068410145,
+      "recovery_of_fri_drop": 1.2367613200306964,
+      "fri_close_location": 0.09701965757767753,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "STM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.10666971219735044,
+      "mon_change": 0.11020199437484024,
+      "recovery_of_fri_drop": 0.922912205567452,
+      "fri_close_location": 0.11023622047244133,
+      "gap_unfilled": true,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "STRL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.09269899359560851,
+      "mon_change": 0.11166908680219434,
+      "recovery_of_fri_drop": 1.0929727595736287,
+      "fri_close_location": 0.11502938706968856,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "STX",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.1234776271121425,
+      "mon_change": 0.13408393689415976,
+      "recovery_of_fri_drop": 0.951812674743709,
+      "fri_close_location": 0.0643408635973692,
+      "gap_unfilled": true,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SWKS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general",
+        "screenshots"
+      ],
+      "fri_change": -0.06038647342995174,
+      "mon_change": 0.043837099174671934,
+      "recovery_of_fri_drop": 0.6821052631578967,
+      "fri_close_location": 0.08994708994708854,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "SYK",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.009837741152421087,
+      "mon_change": 0.013580645161290317,
+      "recovery_of_fri_drop": 1.3668831168831173,
+      "fri_close_location": 0.0971193415637863,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "SYM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "fri_change": -0.062123039806996294,
+      "mon_change": 0.1562700964630226,
+      "recovery_of_fri_drop": 2.359223300970879,
+      "fri_close_location": 0.3264257434083071,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "TDG",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.03230483752643165,
+      "mon_change": 0.017226770838907557,
+      "recovery_of_fri_drop": 0.5160299225220417,
+      "fri_close_location": 0.07692307692307833,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "TEL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.05321717721698782,
+      "mon_change": 0.06323448517277597,
+      "recovery_of_fri_drop": 1.125,
+      "fri_close_location": 0.11488049344641552,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "TEM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "frontier"
+      ],
+      "fri_change": -0.09344069786948495,
+      "mon_change": 0.0540340488527018,
+      "recovery_of_fri_drop": 0.524236983842011,
+      "fri_close_location": 0.1532416502946956,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "TER",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.0996130677571121,
+      "mon_change": 0.1348309119765596,
+      "recovery_of_fri_drop": 1.2187155153387765,
+      "fri_close_location": 0.14000000000000004,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "TLN",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.06459498187744095,
+      "mon_change": 0.09358104049020777,
+      "recovery_of_fri_drop": 1.3551544149630257,
+      "fri_close_location": 0.3521581282775317,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "TLT",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": 0.013690105787181217,
+      "mon_change": 0.0012277470841006721,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.7463414634146409,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "TMUS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": 0.018888820525441385,
+      "mon_change": -0.00646135265700476,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.34366925064599285,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "TRI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": 0.010145215834493682,
+      "mon_change": 0.000984639621898431,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.2174840085287839,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "TRMB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.026351221388728696,
+      "mon_change": 0.05412880284472554,
+      "recovery_of_fri_drop": 1.999999999999995,
+      "fri_close_location": 0.10313901345291354,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "TSM",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity",
+        "previous"
+      ],
+      "fri_change": -0.09480530546167176,
+      "mon_change": 0.15018355244579706,
+      "recovery_of_fri_drop": 1.4339424805272623,
+      "fri_close_location": 0.00906248763306759,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "TTMI",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "added_2026_11_23_from_user_screenshots"
+      ],
+      "fri_change": -0.13455882352941173,
+      "mon_change": 0.1707731520815634,
+      "recovery_of_fri_drop": 1.0983606557377055,
+      "fri_close_location": 0.15783274440518294,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "TYL",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": 0.0006927949326998029,
+      "mon_change": 0.007442389476807421,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.18512658227848072,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "UMC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.10149253731343288,
+      "mon_change": 0.1964285714285714,
+      "recovery_of_fri_drop": 1.7389705882352928,
+      "fri_close_location": 0.08287292817679486,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "URA",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.06557377049180335,
+      "mon_change": 0.0606569615528183,
+      "recovery_of_fri_drop": 0.8643617021276584,
+      "fri_close_location": 0.04087193460490422,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "USO",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals",
+        "screenshots"
+      ],
+      "fri_change": 0.01115214715040902,
+      "mon_change": -0.03860201962329002,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.9656283566058009,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "UUP",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.0003374957813027102,
+      "mon_change": 0.006583389601620526,
+      "recovery_of_fri_drop": 19.500000000003908,
+      "fri_close_location": 0.6000000000000284,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "VICR",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "fri_change": -0.11609666478236291,
+      "mon_change": 0.13650171876249084,
+      "recovery_of_fri_drop": 1.0392574558734011,
+      "fri_close_location": 0.1641025641025647,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "VRT",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.10135683009892427,
+      "mon_change": 0.12797762271414803,
+      "recovery_of_fri_drop": 1.1346666666666654,
+      "fri_close_location": 0.1455040871934614,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "VST",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.07168747482883608,
+      "mon_change": 0.08494577006507598,
+      "recovery_of_fri_drop": 1.1,
+      "fri_close_location": 0.04566210045662163,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "WCC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.08181137480873779,
+      "mon_change": 0.08224010778612967,
+      "recovery_of_fri_drop": 0.9230003979307599,
+      "fri_close_location": 0.0876025726325137,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "WDC",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "user_approved_additions_2026_11_03"
+      ],
+      "fri_change": -0.12019003976009157,
+      "mon_change": 0.1417410286852283,
+      "recovery_of_fri_drop": 1.0375665825623783,
+      "fri_close_location": 0.13352272727272782,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "WMB",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.02752154846514432,
+      "mon_change": 0.029544394339915847,
+      "recovery_of_fri_drop": 1.0439560439560431,
+      "fri_close_location": 0.12337730799687062,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "WULF",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "general"
+      ],
+      "fri_change": -0.1493955094991365,
+      "mon_change": 0.11928934010152292,
+      "recovery_of_fri_drop": 0.6791907514450869,
+      "fri_close_location": 0.07491856677524443,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "XBI",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.02733832917013601,
+      "mon_change": 0.04433585390212591,
+      "recovery_of_fri_drop": 1.577411167512692,
+      "fri_close_location": 0.05506216696270027,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "XLB",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.02185350060704161,
+      "mon_change": 0.027513446421183252,
+      "recovery_of_fri_drop": 1.2314814814814818,
+      "fri_close_location": 0.07449856733524512,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "XLC",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.026566757493188042,
+      "mon_change": 0.03408977306807959,
+      "recovery_of_fri_drop": 1.249084249084246,
+      "fri_close_location": 0.06682577565632489,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "XLE",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals",
+        "screenshots"
+      ],
+      "fri_change": -0.00624076202988999,
+      "mon_change": -0.004462072384729732,
+      "recovery_of_fri_drop": -0.7105263157894585,
+      "fri_close_location": 0.1502145922746758,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "XLF",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.018172004318099955,
+      "mon_change": 0.020157595748579782,
+      "recovery_of_fri_drop": 1.0891089108910927,
+      "fri_close_location": 0.09062500000000187,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "XLI",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.030924640555280214,
+      "mon_change": 0.03753916991750339,
+      "recovery_of_fri_drop": 1.1763527054108205,
+      "fri_close_location": 0.09985096870342998,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "XLK",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.07268653929927194,
+      "mon_change": 0.08616871350916044,
+      "recovery_of_fri_drop": 1.0993150684931503,
+      "fri_close_location": 0.0842490842490832,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "XLP",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": 0.006677053193857141,
+      "mon_change": -0.0007738226840591222,
+      "recovery_of_fri_drop": null,
+      "fri_close_location": 0.08211143695014636,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": false
+    },
+    {
+      "ticker": "XLRE",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.009794776119403048,
+      "mon_change": 0.007536504945831357,
+      "recovery_of_fri_drop": 0.7619047619047595,
+      "fri_close_location": 0.05911330049261304,
+      "gap_unfilled": false,
+      "above_thu_close": false,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "XLU",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.0074401302022785165,
+      "mon_change": 0.011829468259545672,
+      "recovery_of_fri_drop": 1.5781250000000067,
+      "fri_close_location": 0.07317073170731116,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "XLV",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.0012397159923362988,
+      "mon_change": 0.01122771383434884,
+      "recovery_of_fri_drop": 9.045454545454504,
+      "fri_close_location": 0.13486005089058628,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "XLY",
+      "instrument_type": "fund_or_etp",
+      "basket_groups": [
+        "signals"
+      ],
+      "fri_change": -0.029513289609941373,
+      "mon_change": 0.04308198470567315,
+      "recovery_of_fri_drop": 1.4166666666666698,
+      "fri_close_location": 0.08708708708708486,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ZBRA",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "robotics"
+      ],
+      "fri_change": -0.03513487568397822,
+      "mon_change": 0.061088448910556314,
+      "recovery_of_fri_drop": 1.6775956284152993,
+      "fri_close_location": 0.18701837581505465,
+      "gap_unfilled": false,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    },
+    {
+      "ticker": "ZS",
+      "instrument_type": "equity_or_depositary_receipt",
+      "basket_groups": [
+        "convexity"
+      ],
+      "fri_change": -0.05293860288756025,
+      "mon_change": 0.14777743558156264,
+      "recovery_of_fri_drop": 2.643709825528006,
+      "fri_close_location": 0.12942364479260707,
+      "gap_unfilled": true,
+      "above_thu_close": true,
+      "mon_low_above_fri_low": true
+    }
+  ],
+  "caveats": [
+    "Monday values are intraday (13:51 ET) and provisional",
+    "The universe manifest is a draft snapshot from branch work/146 (identity classes provisional)",
+    "Missing names are mostly OTC ADRs and foreign listings that the stock daily file does not carry"
+  ]
+}

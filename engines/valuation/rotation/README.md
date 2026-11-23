@@ -66,3 +66,9 @@ python -m engines.valuation.rotation.cli ingest-estimates my_estimates.csv
 python -m engines.valuation.rotation.cli report --hold NVDA --tax 0.2 --rerate AAOI=1.1
 python -m unittest engines.valuation.rotation.test_rotation
 ```
+
+## Basket universe (300+ names)
+`cli basket` runs the stress/rebound statistics over the full tracked universe: the draft manifest snapshot from branch `work/146-basket-universe-taxonomy`
+(291 symbols, read-only copy in `research/models/rotation/universe/`) plus 6 additions = 297 identifiers; 243 have Massive daily bars.
+`low52w_friday_classification.csv` holds the exact Friday 52-week-low flag (39 of 243 hit). Gaps: 20 tradable names without Massive bars
+(mostly OTC ADRs), plus indices/futures/FX, which need their own feed. Names still missing from the manifest must be added to `ADDITIONS` in `basket.py`.

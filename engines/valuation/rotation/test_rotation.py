@@ -529,5 +529,21 @@ class B(unittest.TestCase):
         self.assertAlmostEqual(rel["share_hit_52w_low_on_friday"], 1 / 3)
 
 
+class TestBasket(unittest.TestCase):
+    def test_universe_and_low52(self):
+        from pathlib import Path
+        from . import basket
+        udir = Path(__file__).resolve().parents[3] / "research/models/rotation/universe"
+        uni = basket.load_universe(udir)
+        self.assertGreaterEqual(len(uni), 290)
+        self.assertIn("FLEX", uni)
+        low = basket.load_low52(udir / "low52w_friday_classification.csv")
+        self.assertTrue(low["NVDA"] and low["ORCL"])
+        self.assertFalse(low["EMB"] or low["XLC"])
+        out = basket.run(udir)
+        self.assertEqual(out["friday_52w_low"]["n_hit"], sum(low.values()))
+        self.assertEqual(out["universe"]["total_identifiers"], len(uni))
+
+
 if __name__ == "__main__":
     unittest.main()

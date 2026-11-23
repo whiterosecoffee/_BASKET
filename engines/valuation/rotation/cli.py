@@ -8,6 +8,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from . import anchors as an
+from . import basket as bk
 from . import cohort as co
 from . import models as mdl
 from . import multiplepoints as mp
@@ -262,6 +263,25 @@ def cmd_models(a) -> int:
     return 0
 
 
+def cmd_basket(a) -> int:
+    import json
+    d_ = Path(a.data)
+    res = bk.run(d_ / "universe")
+    out = d_ / "relativity" / "basket_rebound_2026-11-23.json"
+    out.parent.mkdir(exist_ok=True)
+    out.write_text(json.dumps(res, indent=2, default=str) + "\n")
+    u = res["universe"]
+    print(f"universe: {u['total_identifiers']} identifiers ({u['manifest_symbols']} in the work/146 manifest + {len(u['additions_not_in_manifest'])} added); priced here: {u['with_massive_daily_bars']}; tradable without Massive bars: {len(u['tradable_but_no_massive_bars'])}")
+    for k in ("equities", "funds_etps"):
+        b = res[k]
+        print(f"{k}: n {b['n']}  Fri median {b['fri_change']['median']:+.1%}  Mon median {b['mon_change']['median']:+.1%}  recovery median {b['recovery_of_friday_drop']['median']:.0%}  above Thu close {b['share_above_thursday_close']:.0%}  gap unfilled {b['share_gap_unfilled']:.0%}")
+    cs = res["cross_section_equities"]
+    print(f"cross-section (equities): corr(Fri, Mon) {cs['pearson_fri_vs_mon']:.2f}, Spearman {cs['spearman_fri_vs_mon']:.2f}")
+    print("top:", " ".join(f"{x['ticker']}{x['mon_change']:+.0%}" for x in res["top_rebound_equities"][:10]))
+    print("bottom:", " ".join(f"{x['ticker']}{x['mon_change']:+.0%}" for x in res["bottom_rebound_equities"][-10:]))
+    return 0
+
+
 def cmd_swap(a) -> int:
     data, asof = Path(a.data), date.fromisoformat(a.asof) if a.asof else date.today()
     names = {n.ticker: n for n in _names(a, asof, data)}
@@ -390,6 +410,7 @@ def main(argv=None) -> int:
     s = sub.add_parser("compare"); s.set_defaults(fn=cmd_compare); s.add_argument("--a", default="fri_close"); s.add_argument("--b", default="mon_high"); s.add_argument("--out")
     s = sub.add_parser("multiples"); s.set_defaults(fn=cmd_multiples); s.add_argument("--asof"); s.add_argument("--out")
     s = sub.add_parser("models"); s.set_defaults(fn=cmd_models)
+    s = sub.add_parser("basket"); s.set_defaults(fn=cmd_basket)
     s = sub.add_parser("simulate"); s.set_defaults(fn=cmd_simulate)
     s.add_argument("a"); s.add_argument("b"); s.add_argument("--asof"); s.add_argument("--lookback", type=int, default=60)
     s.add_argument("--band", type=float, default=0.10); s.add_argument("--cost", type=float, default=0.002)
