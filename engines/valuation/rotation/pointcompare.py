@@ -123,7 +123,7 @@ def build(dirpath: Path, themes: dict, a: str, b: str, subjects=("NVDA", "CRWV",
 
 
 def write(dirpath: Path, out: Path, a: str, b: str) -> dict:
-    themes = json.loads((dirpath / "themes.json").read_text())
+    themes = json.loads((dirpath / "peer_groups_by_industry.json").read_text())
     doc = build(dirpath, themes, a, b)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(doc, indent=2) + "\n")

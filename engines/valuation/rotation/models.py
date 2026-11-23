@@ -164,7 +164,7 @@ def build_all(data: Path) -> tuple[dict[str, dict], dict]:
     pts, meta = pc.load_points(cdir)
     rat = mp.load_ratios(cdir / "ratios_20261120_massive.csv")
     rng = load_ranges(cdir / "range52w_through_20261119.csv")
-    themes = json.loads((cdir / "themes.json").read_text())
+    themes = json.loads((cdir / "peer_groups_by_industry.json").read_text())
     models = {t: m for t in sorted(pts) if (m := build_one(t, data, pts, rat, rng, themes, meta))}
     return models, meta
 

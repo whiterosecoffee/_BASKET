@@ -1,5 +1,5 @@
 # AGENTS.md: Two-Point Evaluation and Comparison
-Scope: `research/models/rotation/**` and `engines/valuation/rotation/**` (spark B04). This file adds rules for agents that compare **point A with point B**. It does not override the repository-root `AGENTS.md`; where they conflict the root file wins. Version 1.2.0.
+Scope: `research/models/rotation/**` and `engines/valuation/rotation/**` (spark B04). This file adds rules for agents that compare **point A with point B**. It does not override the repository-root `AGENTS.md`; where they conflict the root file wins. Version 1.2.1.
 Key words MUST, MUST NOT, SHOULD follow RFC 2119.
 
 ## 1. Purpose
@@ -67,7 +67,7 @@ Snapshot `massive_mon_20261123_1351ET.csv`, pair `fri_close` -> `mon_high`:
 - CRWV 39.51 -> 51.90, +31.36%.
 - SNDK 79.24 -> 99.07, +25.03%; gave back 50% of the move by the snapshot.
 - Multiples (EPS held fixed), `fri_low` -> `mon_high`: NVDA trailing P/E 15.6 -> 21.5 on Massive EPS 7.99, and 13.4 -> 18.4 on GAAP-normalised TTM EPS 9.31; SNDK 4.6 -> 5.8 on Massive EPS 17.06.
-- Tiers (point-in-time): NVDA multiple range 13.4 to 48.1 on E 9.31; Friday low and close in T1, Monday last in T2; the 2026-11-17 EPS update (+18%) moved the unchanged price from T2 to T1. Relativity: 9 of 43 equities set a new 52-week low on 2026-11-20.
+- Tiers (point-in-time): NVDA multiple range 13.4 to 48.1 on E 9.31; Friday low and close in T1, Monday last in T2; the 2026-11-17 EPS update (+18%) moved the unchanged price from T2 to T1. Relativity: 9 of 43 cohort equities set a new 52-week low on 2026-11-20 (the cohort is a selection-biased screenshot list); across the 243 priced basket names 39 did (`universe/low52w_friday_classification.csv`).
 Any change to the formulas MUST keep these values or update this section with the reason.
 
 ## 10. Testing and change control

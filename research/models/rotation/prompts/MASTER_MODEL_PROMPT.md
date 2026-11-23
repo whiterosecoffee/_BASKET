@@ -1,5 +1,5 @@
 # MASTER MODEL PROMPT: per-stock models, tiered price bands and relativity at anchor moments
-PROMPT_VERSION: 2.0.0  |  owner: B04  |  supersedes the top level of RELATIVE_ROTATION_PROFILE_PROMPT.md (that file stays as the profile sub-prompt)  |  status: draft for review
+PROMPT_VERSION: 2.0.1  |  owner: B04  |  supersedes the top level of RELATIVE_ROTATION_PROFILE_PROMPT.md (that file stays as the profile sub-prompt)  |  status: draft for review
 Load this first in any session on this universe. Facts live in repository files; this prompt tells you how to build, refresh and read them.
 
 ## 0. Stance
@@ -25,7 +25,7 @@ Governing contract for any two-point reading: `AGENTS.md` in the same directory 
 | a3 | rebound peak | Monday session high (PROVISIONAL while the session is open) |
 | a4 | snapshot last | last price at the snapshot (PROVISIONAL) |
 | e_k | EPS update k | the date a new TTM EPS (or sales per share) became known: a report, a revision or a guidance change |
-`hit_52w_low_on_friday` = Friday low <= the lowest low of the prior 52 weeks. Measure it; do not assume it. For the current cohort 9 of 43 equities hit it (CRWV, FN, HIMX, INOD, IONQ, IREN, NVDA, SKHY, SYM), not most of them; many others fell hard but were still far above their 52-week lows.
+`hit_52w_low_on_friday` = Friday low <= the lowest low of the prior 52 weeks. Measure it; do not assume it. For the cohort 9 of 43 equities hit it (CRWV, FN, HIMX, INOD, IONQ, IREN, NVDA, SKHY, SYM) and across the 243 priced basket names 39 did (16%), not most of them; many others fell hard but were still far above their 52-week lows.
 
 ## 3. Price-band tiers (the core idea)
 Let `E` = TTM EPS, or TTM sales per share when EPS <= 0, and `M = price / E`.
@@ -61,7 +61,7 @@ For each equity, at the stress moment and after it, record: drawdown from a0; Fr
 Breakpoint/quantile sorting as the method for tiers (Fama and French portfolio sorts); the 52-week-high anchoring effect (George and Hwang 2004) and reference-price behaviour (Grinblatt and Han 2005); short-term reversal and overreaction (Jegadeesh 1990; De Bondt and Thaler 1985); volume and returns (Gervais, Kaniel and Mingelgrin 2001); event-study logic for EPS updates (Ball and Brown 1968; Bernard and Thomas 1989); relative strength and industry momentum (Levy 1967; Moskowitz and Grinblatt 1999); practitioner multiple-band charts (valuation band analysis, evidence grade C); selection-bias and multiple-testing hygiene (Bailey and Lopez de Prado 2014).
 
 ## 8. Known limits (state them when relevant)
-Cohort EPS comes from Massive ratios (can lag the newest quarter or include one-offs); only three names have reported-quarter histories; eight tickers lack ratios and use price-only tiers; the cohort was assembled from a user watchlist and is not a market sample; themes are hand-assigned; headline-sourced news is unverified.
+Cohort EPS comes from Massive ratios (can lag the newest quarter or include one-offs); only three names have reported-quarter histories; eight tickers lack ratios and use price-only tiers; the cohort was assembled from a user watchlist and is not a market sample; peer groups (`cohort/peer_groups_by_industry.json`, formerly themes.json) are hand-assigned; headline-sourced news is unverified.
 
 ## 9. Change control
-Write only under B04 paths. Bump PROMPT_VERSION when this text changes and note the reason here. v2.0.0: introduces models, tiers, relativity tracker and the anchor-moment registry.
+Write only under B04 paths. Bump PROMPT_VERSION when this text changes and note the reason here. v2.0.1: scope coverage statements to cohort versus basket; rename themes file. v2.0.0: introduces models, tiers, relativity tracker and the anchor-moment registry.

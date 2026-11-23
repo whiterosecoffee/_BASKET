@@ -263,6 +263,14 @@ def cmd_models(a) -> int:
     return 0
 
 
+def cmd_history_export(a) -> int:
+    from . import histexport
+    d_ = Path(a.data)
+    n = histexport.export(d_ / "prices", d_ / "history")
+    print("history/*.jsonl:", n)
+    return 0
+
+
 def cmd_basket(a) -> int:
     import json
     d_ = Path(a.data)
@@ -411,6 +419,7 @@ def main(argv=None) -> int:
     s = sub.add_parser("multiples"); s.set_defaults(fn=cmd_multiples); s.add_argument("--asof"); s.add_argument("--out")
     s = sub.add_parser("models"); s.set_defaults(fn=cmd_models)
     s = sub.add_parser("basket"); s.set_defaults(fn=cmd_basket)
+    s = sub.add_parser("history-export"); s.set_defaults(fn=cmd_history_export)
     s = sub.add_parser("simulate"); s.set_defaults(fn=cmd_simulate)
     s.add_argument("a"); s.add_argument("b"); s.add_argument("--asof"); s.add_argument("--lookback", type=int, default=60)
     s.add_argument("--band", type=float, default=0.10); s.add_argument("--cost", type=float, default=0.002)

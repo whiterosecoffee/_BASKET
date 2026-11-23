@@ -26,7 +26,7 @@ def load(dirpath: Path) -> tuple[list[dict], dict, dict]:
             rows.append({"ticker": r["ticker"], "thu": float(r["thu_close_1119"]), "f_low": float(r["fri_low_1120"]), "f_high": float(r["fri_high_1120"]),
                          "f_close": float(r["fri_close_1120"]), "m_open": float(r["mon_open_1123"]), "m_high": float(r["mon_high_1123"]),
                          "m_low": float(r["mon_low_1123"]), "m_last": float(r["mon_last_1123"])})
-    themes = json.loads((dirpath / "themes.json").read_text())
+    themes = json.loads((dirpath / "peer_groups_by_industry.json").read_text())
     return rows, shots, themes
 
 

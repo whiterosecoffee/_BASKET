@@ -64,7 +64,7 @@ def build(data: Path, asof) -> dict:
 
     cdir = data / "cohort"
     pts, meta = pc.load_points(cdir)
-    themes = json.loads((cdir / "themes.json").read_text())
+    themes = json.loads((cdir / "peer_groups_by_industry.json").read_text())
     rat = load_ratios(cdir / "ratios_20261120_massive.csv")
     tick, excluded = [], []
     for t, p in sorted(pts.items()):

@@ -545,5 +545,16 @@ class TestBasket(unittest.TestCase):
         self.assertEqual(out["universe"]["total_identifiers"], len(uni))
 
 
+class TestSympathy(unittest.TestCase):
+    def test_icc_extremes(self):
+        from . import sympathy as sy
+        self.assertGreater(sy.icc1([[1.0, 1.01, 0.99], [5.0, 5.02, 4.98], [9.0, 9.01, 8.99]]), 0.99)
+        self.assertLess(sy.icc1([[1, 5, 9], [1.1, 5.1, 9.1], [0.9, 4.9, 8.9]]), 0)
+
+    def test_loo_excludes_self(self):
+        from . import sympathy as sy
+        self.assertEqual(sy.loo_mean({"A": 1.0, "B": 3.0, "C": 5.0}, ["A", "B", "C"], "A"), 4.0)
+
+
 if __name__ == "__main__":
     unittest.main()

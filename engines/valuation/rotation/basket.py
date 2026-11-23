@@ -42,6 +42,15 @@ def load_low52(path: Path) -> dict[str, bool]:
         return {r["ticker"]: r["hit"] == "1" for r in csv.DictReader(f)}
 
 
+def sympathy(ms: list[dict], cdir: Path) -> dict:
+    from . import sympathy as sy
+    groups = {k: v for k, v in json.loads((cdir / "peer_groups_by_industry.json").read_text()).items() if not k.startswith("_") and k != "benchmarks"}
+    out = {}
+    for key in ("fri_change", "mon_change"):
+        out[key] = sy.analyse({m["ticker"]: m[key] for m in ms}, groups)
+    return out
+
+
 def _stat(xs):
     xs = [x for x in xs if x is not None]
     return {"n": len(xs), "median": statistics.median(xs), "mean": sum(xs) / len(xs), "min": min(xs), "max": max(xs)} if xs else {}
@@ -84,6 +93,7 @@ def run(udir: Path) -> dict:
         "friday_52w_low": {"n_hit": len(hits), "n_priced": len(ms), "share_hit": len(hits) / len(ms), "tickers": hits,
                            "method": "stage 1: sampled grouped-daily lows eliminated names whose sampled low was clearly below Friday low; stage 2: exact daily bars for remaining candidates (QNT: since listing, 118 bars)",
                            "rebound_hit_vs_not": {("hit" if k else "not_hit"): _stat([m["mon_change"] for m in ms if (m["ticker"] in hits) == k]) for k in (True, False)}},
+        "sympathy_peer_groups": sympathy(ms, udir.parent / "cohort"),
         "equities": block(eq), "funds_etps": block(fd), "cross_section_equities": cs,
         "by_basket_group_equities": {g: block(v) for g, v in sorted(by_group.items(), key=lambda kv: -len(kv[1]))},
         "top_rebound_equities": [{"ticker": m["ticker"], "mon_change": m["mon_change"], "recovery_of_friday_drop": m["recovery_of_fri_drop"], "fri_change": m["fri_change"]} for m in order[:15]],
