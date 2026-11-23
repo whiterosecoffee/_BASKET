@@ -1,0 +1,71 @@
+{
+ "optical_networking": [
+  "CIEN",
+  "COHR",
+  "LITE",
+  "AAOI",
+  "CRDO",
+  "ALAB",
+  "FN",
+  "MRVL",
+  "GLW",
+  "SMTC"
+ ],
+ "memory_storage": [
+  "MU",
+  "SKHY",
+  "WDC",
+  "STX",
+  "SNDK",
+  "CXMT-USD"
+ ],
+ "semicap_test": [
+  "KLAC",
+  "LRCX",
+  "ONTO",
+  "TER",
+  "ATEYY"
+ ],
+ "foundry_chips_ip": [
+  "TSM",
+  "UMC",
+  "INTC",
+  "ARM",
+  "LSCC",
+  "MPWR",
+  "HIMX",
+  "NVDA",
+  "CBRS"
+ ],
+ "ai_cloud_neocloud": [
+  "CRWV",
+  "NBIS",
+  "IREN"
+ ],
+ "servers_hardware_pcb": [
+  "DELL",
+  "SMCI",
+  "HPE",
+  "FLEX",
+  "TTMI",
+  "PENG",
+  "IBIDY"
+ ],
+ "power_cooling_robotics": [
+  "VRT",
+  "BE",
+  "SYM"
+ ],
+ "software_other": [
+  "ZS",
+  "INOD",
+  "IONQ",
+  "SFTBY"
+ ],
+ "benchmarks": [
+  "SMH",
+  "MSFT",
+  "QQQ"
+ ],
+ "_doc": "Hand-assigned buckets for grouping only; edit freely. They are classifications, not claims about business mix."
+}

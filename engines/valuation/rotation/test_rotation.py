@@ -7,6 +7,7 @@ from engines.valuation.rotation import cli, store
 from engines.valuation.rotation.calendarize import calendarize, extend, ntm
 from engines.valuation.rotation.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
 from engines.valuation.rotation import portfolio as pf
+from engines.valuation.rotation import cohort as co
 from engines.valuation.rotation import anchors as an, history as hist, profile as prof, trading as trd
 from engines.valuation.rotation.implied import implied_growth, pv
 from engines.valuation.rotation.macro import equity_duration, multiple_factor
@@ -385,6 +386,40 @@ class T2(unittest.TestCase):
         self.assertAlmostEqual(m["modifier"], 1.10)
         m2 = prof._react(cl, date.fromordinal(738003), "INTRADAY")
         self.assertAlmostEqual(m2["modifier"], 1.10)
+
+
+class C(unittest.TestCase):
+    def _rows(self):
+        mk = lambda t, thu, fl, fh, fc, mo, mh, ml, ml_last: {"ticker": t, "thu": thu, "f_low": fl, "f_high": fh, "f_close": fc, "m_open": mo, "m_high": mh, "m_low": ml, "m_last": ml_last}
+        return [mk("AAA", 100, 80, 100, 85, 95, 105, 90, 102), mk("BBB", 100, 90, 100, 92, 94, 96, 91, 95),
+                mk("CCC", 100, 70, 100, 75, 90, 100, 85, 100), mk("DDD", 100, 95, 100, 97, 98, 99, 96, 98),
+                mk("EEE", 100, 60, 100, 65, 90, 100, 80, 98), mk("QQQ", 100, 95, 100, 96, 97, 99, 95, 98)]
+
+    def test_recovery_and_flags(self):
+        ms = {m["ticker"]: m for m in co.metrics(self._rows(), {}, {"benchmarks": ["QQQ"]})}
+        a = ms["AAA"]
+        self.assertAlmostEqual(a["fri_change"], -0.15)
+        self.assertAlmostEqual(a["recovery_of_fri_drop"], (102 - 85) / (100 - 85))   # 113%: above Thursday's close
+        self.assertTrue(a["above_thu_close"])
+        self.assertFalse(a["gap_unfilled"])                                            # session low 90 <= Friday high 100
+        self.assertEqual(ms["QQQ"]["theme"], "benchmarks")
+
+    def test_user_snapshot_overrides_massive_last_and_sets_order(self):
+        shots = {"AAA": {"order": 1, "name": "x", "price": 90.0, "pct": 0.0588}}
+        m = {x["ticker"]: x for x in co.metrics(self._rows(), shots, {})}["AAA"]
+        self.assertAlmostEqual(m["mon_change"], 0.0588)
+        self.assertAlmostEqual(m["recovery_of_fri_drop"], (90 - 85) / 15)
+        self.assertEqual(m["snapshot_order"], 1)
+        self.assertEqual(m["theme"], "other")
+
+    def test_cross_section_sign_and_theme_table(self):
+        ms = co.metrics(self._rows(), {}, {"g1": ["AAA", "BBB"], "benchmarks": ["QQQ"]})
+        cs = co.cross_section(ms)
+        self.assertEqual(cs["n"], 5)
+        self.assertIsNotNone(cs["pearson_fri_vs_mon"])
+        tt = {r["theme"]: r for r in co.theme_table(ms)}
+        self.assertEqual(tt["g1"]["n"], 2)
+        self.assertIn("other", tt)
 
 
 if __name__ == "__main__":

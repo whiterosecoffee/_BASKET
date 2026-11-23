@@ -8,6 +8,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from . import anchors as an
+from . import cohort as co
 from . import history as hist
 from . import portfolio as pf
 from . import profile as prof
@@ -199,6 +200,25 @@ def cmd_profile(a) -> int:
     return 0
 
 
+def cmd_cohort(a) -> int:
+    d_ = Path(a.data) / "cohort"
+    rows, shots, themes = co.load(d_)
+    ms = co.metrics(rows, shots, themes)
+    cs = co.cross_section(ms)
+    print("CROSS-SECTION (benchmarks excluded; Monday intraday, provisional)")
+    print(f"  n {cs['n']}  corr(Fri change, Mon change) {cs['pearson_fri_vs_mon']:.2f}  Spearman {cs['spearman_fri_vs_mon']:.2f}  slope {cs['slope_mon_on_fri']:.2f}  "
+          f"median Fri {cs['median_fri']:+.1%} Mon {cs['median_mon']:+.1%}  above Thursday close {cs['share_above_thu_close' if False else 'share_above_thursday_close']:.0%}  gap unfilled {cs['share_gap_unfilled']:.0%}\n")
+    print("THEME            N  MEAN_FRI  MEAN_MON  MEAN_RECOVERY")
+    for t in co.theme_table(ms):
+        print(f"{t['theme']:<22}{t['n']:>2}  {t['mean_fri']:+8.1%}  {t['mean_mon']:+8.1%}  {t['mean_recovery']:>8.0%}   {' '.join(t['tickers'])}")
+    print("\nTICKER   THEME                 FRI      MON    RECOVERY  FRI_CLOSE_LOC  GAP_UNFILLED  ABOVE_THU")
+    for m in sorted(ms, key=lambda m: -m["mon_change"]):
+        if a.only and m["ticker"] not in a.only.upper().split(","):
+            continue
+        print(f"{m['ticker']:<8} {m['theme']:<20} {m['fri_change']:+7.1%} {m['mon_change']:+8.1%} {m['recovery_of_fri_drop'] or 0:>9.0%} {m['fri_close_location'] or 0:>13.2f}  {str(m['gap_unfilled']):<12}  {m['above_thu_close']}")
+    return 0
+
+
 def cmd_swap(a) -> int:
     data, asof = Path(a.data), date.fromisoformat(a.asof) if a.asof else date.today()
     names = {n.ticker: n for n in _names(a, asof, data)}
@@ -323,6 +343,7 @@ def main(argv=None) -> int:
     s = sub.add_parser("profile"); s.set_defaults(fn=cmd_profile)
     s.add_argument("--asof"); s.add_argument("--no-provisional", action="store_true")
     s.add_argument("--hurdle", type=float, default=0.08); s.add_argument("--cost", type=float, default=0.002)
+    s = sub.add_parser("cohort"); s.set_defaults(fn=cmd_cohort); s.add_argument("--only", help="comma list of tickers to print")
     s = sub.add_parser("simulate"); s.set_defaults(fn=cmd_simulate)
     s.add_argument("a"); s.add_argument("b"); s.add_argument("--asof"); s.add_argument("--lookback", type=int, default=60)
     s.add_argument("--band", type=float, default=0.10); s.add_argument("--cost", type=float, default=0.002)
