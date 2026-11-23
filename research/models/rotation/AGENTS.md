@@ -1,5 +1,5 @@
 # AGENTS.md: Two-Point Evaluation and Comparison
-Scope: `research/models/rotation/**` and `engines/valuation/rotation/**` (spark B04). This file adds rules for agents that compare **point A with point B**. It does not override the repository-root `AGENTS.md`; where they conflict the root file wins. Version 1.2.1.
+Scope: `research/models/rotation/**` and `engines/valuation/rotation/**` (spark B04). This file adds rules for agents that compare **point A with point B**. It does not override the repository-root `AGENTS.md`; where they conflict the root file wins. Version 1.3.0.
 Key words MUST, MUST NOT, SHOULD follow RFC 2119.
 
 ## 1. Purpose
@@ -75,3 +75,6 @@ Any change to the formulas MUST keep these values or update this section with th
 - Generated JSON is regenerated, never hand-edited. Input snapshots are append-only; new snapshots get a new file name with the time in it.
 - Write only under B04 paths. Changes to shared schemas or the root `AGENTS.md` go through B00.
 - Bump the version in this file for any change to definitions, validity checks or required metrics.
+
+## 11. Skills
+The procedures in this file for the two-point track are packaged as `skills/rotation-two-point-compare`; the other tracks live in the sibling skills listed in `skills/README.md`. This file remains the contract (definitions, V1-V8, output schema, goldens); the skills are the short procedures an agent loads on demand.

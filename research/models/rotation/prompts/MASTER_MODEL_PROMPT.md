@@ -1,5 +1,5 @@
 # MASTER MODEL PROMPT: per-stock models, tiered price bands and relativity at anchor moments
-PROMPT_VERSION: 2.0.1  |  owner: B04  |  supersedes the top level of RELATIVE_ROTATION_PROFILE_PROMPT.md (that file stays as the profile sub-prompt)  |  status: draft for review
+PROMPT_VERSION: 3.0.0  |  owner: B04  |  supersedes the top level of RELATIVE_ROTATION_PROFILE_PROMPT.md (that file stays as the profile sub-prompt)  |  status: draft for review
 Load this first in any session on this universe. Facts live in repository files; this prompt tells you how to build, refresh and read them.
 
 ## 0. Stance
@@ -64,4 +64,19 @@ Breakpoint/quantile sorting as the method for tiers (Fama and French portfolio s
 Cohort EPS comes from Massive ratios (can lag the newest quarter or include one-offs); only three names have reported-quarter histories; eight tickers lack ratios and use price-only tiers; the cohort was assembled from a user watchlist and is not a market sample; peer groups (`cohort/peer_groups_by_industry.json`, formerly themes.json) are hand-assigned; headline-sourced news is unverified.
 
 ## 9. Change control
-Write only under B04 paths. Bump PROMPT_VERSION when this text changes and note the reason here. v2.0.1: scope coverage statements to cohort versus basket; rename themes file. v2.0.0: introduces models, tiers, relativity tracker and the anchor-moment registry.
+Write only under B04 paths. Bump PROMPT_VERSION when this text changes and note the reason here. v3.0.0: adds the skill router (section 10); detailed procedures move into `skills/`, this file stays the persistent top level. v2.0.1: scope coverage statements to cohort versus basket; rename themes file. v2.0.0: introduces models, tiers, relativity tracker and the anchor-moment registry.
+
+## 10. Skill router (persistent top level; load a skill only when its trigger matches)
+Skills follow the Agent Skills format (folder with `SKILL.md`, name and description advertised, body loaded on demand, detail in `references/`). Index and validator: `skills/README.md`, `skills/validate_skills.py`.
+| Trigger in the request | Load skill |
+|---|---|
+| add or refresh prices, ratios, estimates, history; splits; provisional data | rotation-data-steward |
+| tickers, basket size, groups, hierarchy | rotation-universe-hierarchy |
+| move between two named points; recovery of a drop | rotation-two-point-compare |
+| EPS, forward multiples, P/E at points, tiers, bands | rotation-valuation-tiers |
+| 1:x ratios, weights to NVDA/MSFT/SMH/QQQ, price zones | rotation-relativity-ratios |
+| did the group move together, who led, residuals | rotation-group-sympathy |
+| should I swap A for B, share count, weights | rotation-swap-decision |
+| why did it move, guidance, news, industry forecast | rotation-evidence-curator |
+| score, review, verify before commit | rotation-audit-qa |
+Rules for every session: state the universe (cohort 43 or basket 243) and status (final or provisional) of each number; run `rotation-audit-qa` before reporting; chain skills in this order when several apply: data-steward, universe-hierarchy, valuation-tiers, relativity-ratios, group-sympathy, two-point-compare, swap-decision; evidence-curator may run at any step. Keep at most two skills loaded at once.

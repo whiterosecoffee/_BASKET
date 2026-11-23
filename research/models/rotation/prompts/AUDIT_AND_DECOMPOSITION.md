@@ -18,15 +18,15 @@ Main defects: (1) one file per concern is violated everywhere, (2) coverage stat
 ## 2. Separate purposes (explode into independent prompts or agents)
 | # | Purpose | Inputs -> outputs | Today lives in | Proposed home |
 |---|---|---|---|---|
-| P1 | Data steward: ingest, split-normalise, provenance, provisional versus final | vendor bars, filings -> `history/<T>.jsonl`, `fundamentals/*` | scattered | `agents/DATA_STEWARD.md` |
-| P2 | Universe and taxonomy: identifiers, groups, nesting | manifest (read only, spark work/146) -> `universe/*` | basket.py only | `agents/UNIVERSE.md` (consumer rules; manifest stays with its owner) |
-| P3 | Two-point comparison | points -> `rotation.compare/1` | AGENTS.md | keep AGENTS.md, trimmed to this |
-| P4 | Valuation: calendarisation, multiples, tiers, EPS-update bands | E, M, bounds -> `rotation.model/1` | MASTER section 3 | `prompts/VALUATION_TIERS.md` |
-| P5 | Relativity: 1:x ratios, ratio statistics, weights to NVDA/MSFT/SMH/QQQ | prices -> profiles | PROFILE prompt | keep PROFILE prompt, trimmed to this |
-| P6 | Group dynamics and sympathy (nested) | returns, hierarchy -> betas, ICC, residuals | none (new, `sympathy.py`) | `prompts/GROUP_SYMPATHY.md` |
-| P7 | Rotation decision: swap identity, triggers, friction | views -> scenarios | PROFILE sections 5-6 | `prompts/ROTATION_DECISION.md` |
-| P8 | Evidence curator: news, guidance, consensus with provenance | web, filings -> csv with source and class | PROFILE | `agents/EVIDENCE.md` |
-| P9 | Auditor: validity gates, goldens, change control, scoring | all artifacts -> pass/fail report | AGENTS.md section 4, 9, 10 | `agents/AUDITOR.md` |
+| P1 | Data steward: ingest, split-normalise, provenance, provisional versus final | vendor bars, filings -> `history/<T>.jsonl`, `fundamentals/*` | scattered | `skills/rotation-data-steward` |
+| P2 | Universe and taxonomy: identifiers, groups, nesting | manifest (read only, spark work/146) -> `universe/*` | basket.py only | `skills/rotation-universe-hierarchy` |
+| P3 | Two-point comparison | points -> `rotation.compare/1` | AGENTS.md | `skills/rotation-two-point-compare` (AGENTS.md stays the contract) |
+| P4 | Valuation: calendarisation, multiples, tiers, EPS-update bands | E, M, bounds -> `rotation.model/1` | MASTER section 3 | `skills/rotation-valuation-tiers` |
+| P5 | Relativity: 1:x ratios, ratio statistics, weights to NVDA/MSFT/SMH/QQQ | prices -> profiles | PROFILE prompt | `skills/rotation-relativity-ratios` |
+| P6 | Group dynamics and sympathy (nested) | returns, hierarchy -> betas, ICC, residuals | none (new, `sympathy.py`) | `skills/rotation-group-sympathy` |
+| P7 | Rotation decision: swap identity, triggers, friction | views -> scenarios | PROFILE sections 5-6 | `skills/rotation-swap-decision` |
+| P8 | Evidence curator: news, guidance, consensus with provenance | web, filings -> csv with source and class | PROFILE | `skills/rotation-evidence-curator` |
+| P9 | Auditor: validity gates, goldens, change control, scoring | all artifacts -> pass/fail report | AGENTS.md section 4, 9, 10 | `skills/rotation-audit-qa` |
 Rule: each agent file states one input set, one output schema, its stop rules, and which other agent's output it may read. P9 reads everything and writes only reports.
 
 ## 3. Skills that must cooperate to get the formulas and ratios right
@@ -66,6 +66,6 @@ Measured on 2026-11-20 and 2026-11-23 (43 equities in 8 peer groups, Monday prov
 ## 6. Required changes (tracked, not yet applied unless marked done)
 1. Done: `themes.json` renamed to `cohort/peer_groups_by_industry.json`; code reads the new name. JSON schemas still say `theme`; keep the key for compatibility and read it as "peer group".
 2. Done: coverage statements in AGENTS.md and MASTER prompt scoped to cohort versus basket.
-3. Open: split the files per section 2; add a history contract (`history/<T>.jsonl`, fields t, date, open, high, low, close, volume; adjusted basis stated in SOURCE.json) and extend it to every priced basket name (about 243 per-ticker fetches; not yet done).
+3. Done: split into nine skills (Agent Skills format, `skills/`). Open: add a history contract (`history/<T>.jsonl`, fields t, date, open, high, low, close, volume; adjusted basis stated in SOURCE.json) and extend it to every priced basket name (about 243 per-ticker fetches; not yet done).
 4. Open: hierarchy file (market > sector > peer group > name) for all 297 identifiers; today only 46 names have a peer group and the manifest's `basket_groups` (convexity, general, previous, signals, screenshots) are list buckets, not economic groups.
 5. Open: rolling-beta, lead-lag and down/up-beta code (needs history).

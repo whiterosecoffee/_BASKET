@@ -556,5 +556,15 @@ class TestSympathy(unittest.TestCase):
         self.assertEqual(sy.loo_mean({"A": 1.0, "B": 3.0, "C": 5.0}, ["A", "B", "C"], "A"), 4.0)
 
 
+class TestSkills(unittest.TestCase):
+    def test_skills_valid(self):
+        from pathlib import Path
+        import importlib.util
+        root = Path(__file__).resolve().parents[3] / "research/models/rotation/skills"
+        spec = importlib.util.spec_from_file_location("validate_skills", root / "validate_skills.py")
+        m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+        self.assertEqual(m.main(root), 0)
+
+
 if __name__ == "__main__":
     unittest.main()
