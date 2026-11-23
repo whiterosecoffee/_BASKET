@@ -1,0 +1,18 @@
+ticker,date,timing,type,status,eps_changed,description,source,analog_date
+*,2026-11-05,INTRADAY,policy_shock,realized,no,Post-midterm selloff: AI-returns reassessment and fear of data-center regulation (new governors in TX/OH/GA/MI),"Motley Fool via Massive news (secondary, unverified)",
+*,2026-11-12,INTRADAY,leadership,realized,no,NVDA CEO Jensen Huang resigns (CFO Kress interim) amid reported relationship/export-control allegations; yields >5%,"Motley Fool/Zacks via Massive news (secondary, unverified)",
+NVDA,2026-11-17,AMC,earnings,realized,yes,"Q3 FY27: revenue $115.8B, non-GAAP EPS $2.68, Q4 guide ~$130B +/-3%",NVIDIA release 2026-11-17 (primary),
+CRWV,2026-11-10,AMC,earnings,realized,yes,"Q3 2026: revenue $3.66B (+168%), FY26 revenue guide raised to $13.0-13.3B, backlog ~$133B",CoreWeave release 2026-11-10 (primary),
+CRWV,2026-11-13,INTRADAY,financing,realized,no,Reported $4B loan talks; Microsoft news read as negative for neoclouds,Motley Fool via Massive news (secondary),
+SNDK,2026-10-29,AMC,earnings,realized,yes,"FQ1 FY27: revenue $11.0B, non-GAAP EPS $49.51 pre-split, FQ2 guide $55-57 pre-split, 8-for-1 split announced",Sandisk release 2026-10-29 (primary),
+*,2026-11-19,INTRADAY,ipo_supply,realized,no,Anthropic IPO prices above range; profit-taking in AI names,Motley Fool via Massive news (secondary),
+NVDA,2026-11-20,INTRADAY,probe,realized,no,"Reports of SEC accounting probe; AI trade unwinds (S&P -3.7%, Nasdaq -5.3%)","Motley Fool via Massive news (secondary, unverified)",
+SNDK,2026-11-20,INTRADAY,industry_data,realized,no,"TrendForce: NAND contract prices to fall from 1Q27, Chinese CSP orders cut; MU -12.6%",TrendForce 2026-11-19; Motley Fool (secondary),
+*,2026-11-23,INTRADAY,leadership,realized_provisional,no,NVDA reports Jensen Huang reinstated as CEO; Nasdaq +6.8% midday,Motley Fool via Massive news (secondary); session still open at 13:42 ET,
+NVDA,2027-02-24,AMC,earnings,scheduled,,Q4 FY27 report (date unconfirmed),fn2.ai estimate,
+CRWV,2027-02-25,AMC,earnings,scheduled,,Q4 2026 report (date unconfirmed),Zacks calendar,
+SNDK,2027-01-28,AMC,earnings,scheduled,,FQ2 FY27 report (unconfirmed; Zacks says 2027-02-04),public.com,
+NVDA,,,probe,hypothetical,no,SEC/state probe escalates to enforcement,analog: the 2026-11-20 probe-headline day,2026-11-20
+NVDA,,,probe,hypothetical,no,Probe closes without action (reverse of the headline shock),analog: inverse of 2026-11-20,2026-11-20
+SNDK,,,industry_data,hypothetical,no,NAND contract prices turn negative in 2Q27 and decline widens,analog: the 2026-11-20 TrendForce day,2026-11-20
+CRWV,,,financing,hypothetical,no,Financing stress: debt raise at wider spreads,analog: 2026-11-13 loan-talk day,2026-11-13

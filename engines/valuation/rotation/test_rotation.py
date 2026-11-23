@@ -7,7 +7,7 @@ from engines.valuation.rotation import cli, store
 from engines.valuation.rotation.calendarize import calendarize, extend, ntm
 from engines.valuation.rotation.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
 from engines.valuation.rotation import portfolio as pf
-from engines.valuation.rotation import anchors as an, history as hist
+from engines.valuation.rotation import anchors as an, history as hist, profile as prof, trading as trd
 from engines.valuation.rotation.implied import implied_growth, pv
 from engines.valuation.rotation.macro import equity_duration, multiple_factor
 from engines.valuation.rotation.tape import tape_stats
@@ -330,6 +330,61 @@ class A(unittest.TestCase):
         b = pf.Name("B", 1, {"bear": 0, "base": .1, "bull": .2}, 0.1, 0.3, "auto_anchors", [])
         w = pf.target_weights([a, b], max_w=0.8)
         self.assertAlmostEqual(w["A"], 0.4)
+
+
+class T2(unittest.TestCase):
+    def _cl(self, vals, start=738000):
+        return [(date.fromordinal(start + i), v) for i, v in enumerate(vals)]
+
+    def test_zone_dwell_visits_and_entry_direction(self):
+        vals = [100, 100.5, 120, 100.2, 120.5, 119.8]
+        z = {(round(x["low"]), round(x["high"])): x for x in trd.zones(self._cl(vals), [1.0] * 6, top=10)}
+        lo = next(v for v in z.values() if v["low"] <= 100 < v["high"])
+        self.assertEqual(lo["dwell_days"], 3)
+        self.assertEqual(lo["visits"], 2)
+        self.assertEqual(lo["entries_from_above"], 1)
+        self.assertAlmostEqual(sum(x["volume_share"] for x in z.values()), 1.0)
+
+    def test_level_crossings_counts_sign_changes(self):
+        r = trd.level_crossings(self._cl([90, 110, 90, 110, 110, 90]), 100)
+        self.assertEqual(r["crossings"], 4)
+
+    def _bars(self, n=30, last=None):
+        bars = [{"date": date.fromordinal(738000 + i), "open": 100.0, "high": 101.0, "low": 99.0, "close": 100.0, "volume": 10.0} for i in range(n)]
+        if last:
+            bars[-1] = {"date": bars[-1]["date"], **last}
+        return bars
+
+    def test_extremes_flags_new_low_and_volume_multiple(self):
+        bars = self._bars(last={"open": 90.0, "high": 92.0, "low": 80.0, "close": 81.0, "volume": 30.0})
+        e = trd.extremes_and_rebound(bars, None)
+        self.assertTrue(e["last_final_bar"]["made_52w_low"])
+        self.assertAlmostEqual(e["last_final_bar"]["volume_vs_prior20d"], 3.0)
+        self.assertAlmostEqual(e["last_final_bar"]["close_location_in_range"], (81 - 80) / (92 - 80))
+
+    def test_provisional_gap_unfilled_only_when_session_low_clears_prior_high(self):
+        bars = self._bars(last={"open": 90.0, "high": 92.0, "low": 80.0, "close": 81.0, "volume": 30.0})
+        filled = trd.extremes_and_rebound(bars, {"open": 95.0, "high": 99.0, "low": 90.0, "close": 98.0})["provisional_next_session"]
+        self.assertTrue(filled["session_low_above_prior_low"])
+        self.assertFalse(filled["gap_unfilled_vs_prior_high"])             # session low 90 <= prior high 92
+        full = trd.extremes_and_rebound(bars, {"open": 95.0, "high": 99.0, "low": 93.0, "close": 98.0})["provisional_next_session"]
+        self.assertTrue(full["gap_unfilled_vs_prior_high"])                # session low 93 > prior high 92
+        self.assertAlmostEqual(full["last_vs_prior_close"], 98 / 81 - 1)
+
+    def test_relationship_x_and_relative_return(self):
+        a = self._cl([100.0 + i for i in range(80)])
+        b = self._cl([50.0] * 80)
+        r = trd.relationship(a, b)
+        self.assertAlmostEqual(r["x_now"], 179.0 / 50.0)
+        self.assertGreater(r["relative_return"]["20d"], 0)
+
+    def test_event_reaction_amc_uses_next_day(self):
+        cl = self._cl([100, 100, 110, 121])
+        m = prof._react(cl, date.fromordinal(738001), "AMC")
+        self.assertEqual(m["day"], date.fromordinal(738002))
+        self.assertAlmostEqual(m["modifier"], 1.10)
+        m2 = prof._react(cl, date.fromordinal(738003), "INTRADAY")
+        self.assertAlmostEqual(m2["modifier"], 1.10)
 
 
 if __name__ == "__main__":

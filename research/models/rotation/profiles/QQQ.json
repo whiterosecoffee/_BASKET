@@ -1,0 +1,259 @@
+{
+  "schema": "rotation.profile/1",
+  "ticker": "QQQ",
+  "generated_for_asof": "2026-11-23",
+  "final_data_through": "2026-11-20",
+  "provisional_included": true,
+  "provisional_note": "intraday bar at 2026-11-23 13:42 ET; not a close",
+  "identity": {
+    "name": "Invesco QQQ (Nasdaq-100)",
+    "kind": "etf",
+    "role": "broad growth/tech market benchmark",
+    "sector": "broad market",
+    "currency": "USD",
+    "drivers": [
+      "rates",
+      "mega-cap earnings",
+      "risk appetite"
+    ]
+  },
+  "valuation": {
+    "track": "valuation",
+    "status": "not_modeled",
+    "reason": "benchmark: no estimates/guidance loaded; subject-only modeling",
+    "ratios_snapshot": null
+  },
+  "trading": {
+    "as_of_final": "2026-11-20",
+    "last_final_close": 608.45,
+    "relationships": {
+      "NVDA": {
+        "unit": "1 subject share = x reference shares",
+        "x_now": 4.847049,
+        "reference_per_subject_inverse": 0.206311,
+        "as_of": "2026-11-20",
+        "median_250d": 3.324138,
+        "p10": 3.20337,
+        "p90": 3.515473,
+        "min": {
+          "x": 3.053321,
+          "date": "2026-05-14"
+        },
+        "max": {
+          "x": 4.847049,
+          "date": "2026-11-20"
+        },
+        "z_250d": 6.847687,
+        "percentile_250d": 1.0,
+        "half_life_days": null,
+        "relative_return": {
+          "1d": 0.096943,
+          "5d": 0.160985,
+          "20d": 0.451637,
+          "60d": 0.532402
+        },
+        "corr_250d": 0.693864,
+        "beta_250d": 0.376002,
+        "corr_60d": 0.73488,
+        "beta_60d": 0.413339
+      },
+      "MSFT": {
+        "unit": "1 subject share = x reference shares",
+        "x_now": 1.255779,
+        "reference_per_subject_inverse": 0.796319,
+        "as_of": "2026-11-20",
+        "median_250d": 1.480673,
+        "p10": 1.279223,
+        "p90": 1.792586,
+        "min": {
+          "x": 1.207341,
+          "date": "2026-11-05"
+        },
+        "max": {
+          "x": 2.030383,
+          "date": "2026-06-25"
+        },
+        "z_250d": -1.355732,
+        "percentile_250d": 0.02,
+        "half_life_days": 48.741202,
+        "relative_return": {
+          "1d": -0.029898,
+          "5d": -0.032377,
+          "20d": -0.064922,
+          "60d": -0.120462
+        },
+        "corr_250d": 0.361798,
+        "beta_250d": 0.237088,
+        "corr_60d": 0.567661,
+        "beta_60d": 0.535851
+      },
+      "SMH": {
+        "unit": "1 subject share = x reference shares",
+        "x_now": 1.520897,
+        "reference_per_subject_inverse": 0.657507,
+        "as_of": "2026-11-20",
+        "median_250d": 1.321537,
+        "p10": 1.197662,
+        "p90": 1.677653,
+        "min": {
+          "x": 1.103213,
+          "date": "2026-06-22"
+        },
+        "max": {
+          "x": 1.7908,
+          "date": "2025-11-25"
+        },
+        "z_250d": 0.778585,
+        "percentile_250d": 0.768,
+        "half_life_days": 41.59296,
+        "relative_return": {
+          "1d": 0.055083,
+          "5d": 0.088848,
+          "20d": 0.138298,
+          "60d": 0.208517
+        },
+        "corr_250d": 0.917416,
+        "beta_250d": 0.462669,
+        "corr_60d": 0.933441,
+        "beta_60d": 0.498264
+      }
+    },
+    "relationship_weights": {
+      "method": "250d R^2 of daily returns vs each reference, normalised",
+      "values": {
+        "NVDA": 0.33112,
+        "MSFT": 0.090026,
+        "SMH": 0.578854
+      }
+    },
+    "weighted_relative_return": {
+      "5d": 0.10182,
+      "20d": 0.223756,
+      "60d": 0.286145
+    },
+    "provisional_ratios_vs_refs": {
+      "NVDA": {
+        "x_provisional": 3.952717,
+        "x_final": 4.847049,
+        "change": -0.184511,
+        "within_p10_p90": false
+      },
+      "MSFT": {
+        "x_provisional": 1.309181,
+        "x_final": 1.255779,
+        "change": 0.042525,
+        "within_p10_p90": true
+      },
+      "SMH": {
+        "x_provisional": 1.420651,
+        "x_final": 1.520897,
+        "change": -0.065912,
+        "within_p10_p90": true
+      }
+    },
+    "zones_top": [
+      {
+        "low": 597.6326,
+        "high": 621.5379,
+        "dwell_days": 85,
+        "visits": 18,
+        "volume_share": null,
+        "entries_from_above": 10,
+        "entries_from_below": 8,
+        "first": "2025-09-19",
+        "last": "2026-11-20",
+        "role_vs_spot": "contains_spot"
+      },
+      {
+        "low": 699.1457,
+        "high": 727.1115,
+        "dwell_days": 76,
+        "visits": 10,
+        "volume_share": null,
+        "entries_from_above": 6,
+        "entries_from_below": 4,
+        "first": "2026-05-08",
+        "last": "2026-10-29",
+        "role_vs_spot": "resistance_side"
+      },
+      {
+        "low": 510.8589,
+        "high": 531.2932,
+        "dwell_days": 48,
+        "visits": 8,
+        "volume_share": null,
+        "entries_from_above": 4,
+        "entries_from_below": 4,
+        "first": "2025-01-03",
+        "last": "2025-06-20",
+        "role_vs_spot": "support_side"
+      },
+      {
+        "low": 552.545,
+        "high": 574.6468,
+        "dwell_days": 38,
+        "visits": 5,
+        "volume_share": null,
+        "entries_from_above": 3,
+        "entries_from_below": 2,
+        "first": "2025-07-03",
+        "last": "2026-03-30",
+        "role_vs_spot": "support_side"
+      },
+      {
+        "low": 574.6468,
+        "high": 597.6326,
+        "dwell_days": 38,
+        "visits": 11,
+        "volume_share": null,
+        "entries_from_above": 7,
+        "entries_from_below": 4,
+        "first": "2025-08-12",
+        "last": "2026-04-07",
+        "role_vs_spot": "support_side"
+      },
+      {
+        "low": 621.5379,
+        "high": 646.3995,
+        "dwell_days": 38,
+        "visits": 12,
+        "volume_share": null,
+        "entries_from_above": 2,
+        "entries_from_below": 10,
+        "first": "2025-10-27",
+        "last": "2026-11-19",
+        "role_vs_spot": "resistance_side"
+      }
+    ],
+    "key_levels": {
+      "final_close": {
+        "price": 608.45,
+        "zone_low": 597.6326,
+        "zone_high": 621.5379,
+        "dwell_days": 85,
+        "visits": 18,
+        "volume_share": null,
+        "last_visit_before_now": "2026-11-20",
+        "level": 608.45,
+        "crossings": 23,
+        "last_cross": "2026-04-09"
+      }
+    },
+    "provisional_session": {
+      "open": 655.98,
+      "high": 657.53,
+      "low": 641.9501,
+      "last": 649.55,
+      "last_vs_final_close": 0.067549,
+      "status": "INTRADAY_NOT_FINAL"
+    }
+  },
+  "reconciliation": null,
+  "fair_value_exchange": null,
+  "provenance": {
+    "prices": "Massive /v2/aggs (adjusted)",
+    "fundamentals": "Massive income statements, split-normalised",
+    "estimates": "estimates.csv/guidance.csv (sourced per row)",
+    "events": "multiple_events.csv (headline sources are secondary and unverified)"
+  }
+}

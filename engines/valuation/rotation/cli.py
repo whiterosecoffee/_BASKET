@@ -10,6 +10,7 @@ from pathlib import Path
 from . import anchors as an
 from . import history as hist
 from . import portfolio as pf
+from . import profile as prof
 from . import store
 from .implied import implied_growth
 from .macro import load_yields, multiple_factor
@@ -190,6 +191,14 @@ def cmd_anchors(a) -> int:
     return 0
 
 
+def cmd_profile(a) -> int:
+    data, asof = Path(a.data), date.fromisoformat(a.asof) if a.asof else date.today()
+    paths = prof.write_all(data, asof, not a.no_provisional, a.hurdle, a.cost)
+    for p in paths:
+        print(f"wrote {p.relative_to(data.parent.parent.parent) if data.parent.parent.parent in p.parents else p}")
+    return 0
+
+
 def cmd_swap(a) -> int:
     data, asof = Path(a.data), date.fromisoformat(a.asof) if a.asof else date.today()
     names = {n.ticker: n for n in _names(a, asof, data)}
@@ -311,6 +320,9 @@ def main(argv=None) -> int:
     s.add_argument("--rerate", type=float, default=0.0, help="fraction of the way multiples move toward their historical TRAILING P/E quartiles (default 0 = off)")
     s.add_argument("--band", type=float, default=None, help="multiple compression/expansion band; default auto = realised horizon vol clamped to 15-50%%"); s.add_argument("--lam", type=float, default=0.25, help="ratio reversion fraction")
     s.add_argument("--write", action="store_true", help="append blended targets to targets.csv")
+    s = sub.add_parser("profile"); s.set_defaults(fn=cmd_profile)
+    s.add_argument("--asof"); s.add_argument("--no-provisional", action="store_true")
+    s.add_argument("--hurdle", type=float, default=0.08); s.add_argument("--cost", type=float, default=0.002)
     s = sub.add_parser("simulate"); s.set_defaults(fn=cmd_simulate)
     s.add_argument("a"); s.add_argument("b"); s.add_argument("--asof"); s.add_argument("--lookback", type=int, default=60)
     s.add_argument("--band", type=float, default=0.10); s.add_argument("--cost", type=float, default=0.002)

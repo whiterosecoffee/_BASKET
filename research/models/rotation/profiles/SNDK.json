@@ -1,0 +1,811 @@
+{
+  "schema": "rotation.profile/1",
+  "ticker": "SNDK",
+  "generated_for_asof": "2026-11-23",
+  "final_data_through": "2026-11-20",
+  "provisional_included": true,
+  "provisional_note": "intraday bar at 2026-11-23 13:42 ET; not a close",
+  "identity": {
+    "name": "Sandisk",
+    "kind": "stock",
+    "role": "NAND memory supplier; cyclical, priced on contract-price direction",
+    "sector": "memory/storage",
+    "fye_month": 6,
+    "currency": "USD",
+    "split": {
+      "ratio": "8-for-1",
+      "effective": "2026-11-20",
+      "note": "Massive history mixes split-adjusted and unadjusted share counts"
+    },
+    "drivers": [
+      "NAND contract prices (TrendForce)",
+      "enterprise SSD demand incl. China CSP orders",
+      "AI storage demand"
+    ]
+  },
+  "valuation": {
+    "basis": "estimates, guidance and reported fundamentals only; no price-action inputs",
+    "track": "valuation",
+    "growth_path": {
+      "fiscal_year_path": [],
+      "consecutive_growth_years_in_path": 0,
+      "quarterly_actuals_gaap_norm": [
+        {
+          "period_end": "2025-06-27",
+          "eps_gaap_norm": -0.019828,
+          "revenue": 1901000000.0,
+          "qoq_eps": null,
+          "split_k_applied": 8.0
+        },
+        {
+          "period_end": "2025-10-03",
+          "eps_gaap_norm": 0.09396,
+          "revenue": 2308000000.0,
+          "qoq_eps": null,
+          "split_k_applied": 1.0
+        },
+        {
+          "period_end": "2026-01-02",
+          "eps_gaap_norm": 0.643429,
+          "revenue": 3025000000.0,
+          "qoq_eps": 5.847928,
+          "split_k_applied": 1.0
+        },
+        {
+          "period_end": "2026-04-03",
+          "eps_gaap_norm": 2.878185,
+          "revenue": 5950000000.0,
+          "qoq_eps": 3.473194,
+          "split_k_applied": 1.0
+        },
+        {
+          "period_end": "2026-07-03",
+          "eps_gaap_norm": 5.461234,
+          "revenue": 8965000000.0,
+          "qoq_eps": 0.897458,
+          "split_k_applied": 8.0
+        },
+        {
+          "period_end": "2026-10-02",
+          "eps_gaap_norm": 6.575487,
+          "revenue": 11031000000.0,
+          "qoq_eps": 0.204029,
+          "split_k_applied": 1.0
+        }
+      ],
+      "guidance": [
+        {
+          "metric": "eps",
+          "period": "FQ2 FY2027",
+          "low": 6.875,
+          "high": 7.125,
+          "annualized_mid": 28.0,
+          "basis": "non_gaap",
+          "source": "Sandisk FQ1 FY27 release 2026-10-29: per-share guidance is PRE-split; 8-for-1 effective 2026-11-19"
+        },
+        {
+          "metric": "revenue",
+          "period": "FQ2 FY2027",
+          "low": 12.2,
+          "high": 12.6,
+          "annualized_mid": 49.6,
+          "basis": "gaap",
+          "source": "Sandisk FQ1 FY27 release 2026-10-29 (USD billions)"
+        }
+      ]
+    },
+    "weighted_metric": {
+      "metric": "eps",
+      "components": {
+        "ttm": 15.558335,
+        "ntm": 28.0
+      },
+      "weights_used": {
+        "ttm": 0.333333,
+        "ntm": 0.666667
+      },
+      "weighted_value": 23.852778,
+      "price_to_weighted": 3.322045,
+      "price_to_each": {
+        "ttm": 5.09309,
+        "ntm": 2.83
+      }
+    },
+    "multiple_modifier_events": {
+      "realized": [
+        {
+          "date": "2026-11-05",
+          "type": "policy_shock",
+          "description": "Post-midterm selloff: AI-returns reassessment and fear of data-center regulation (new governors in TX/OH/GA/MI)",
+          "source": "Motley Fool via Massive news (secondary, unverified)",
+          "eps_changed": "no",
+          "reaction_day": "2026-11-05",
+          "multiple_modifier": 0.777356,
+          "market_adjusted_modifier": 0.831299,
+          "provisional": false,
+          "attribution": "multiple (estimates unchanged that day)"
+        },
+        {
+          "date": "2026-11-12",
+          "type": "leadership",
+          "description": "NVDA CEO Jensen Huang resigns (CFO Kress interim) amid reported relationship/export-control allegations; yields >5%",
+          "source": "Motley Fool/Zacks via Massive news (secondary, unverified)",
+          "eps_changed": "no",
+          "reaction_day": "2026-11-12",
+          "multiple_modifier": 0.958852,
+          "market_adjusted_modifier": 0.961931,
+          "provisional": false,
+          "attribution": "multiple (estimates unchanged that day)"
+        },
+        {
+          "date": "2026-10-29",
+          "type": "earnings",
+          "description": "FQ1 FY27: revenue $11.0B, non-GAAP EPS $49.51 pre-split, FQ2 guide $55-57 pre-split, 8-for-1 split announced",
+          "source": "Sandisk release 2026-10-29 (primary)",
+          "eps_changed": "yes",
+          "reaction_day": "2026-10-30",
+          "multiple_modifier": 0.865298,
+          "market_adjusted_modifier": 0.89644,
+          "provisional": false,
+          "attribution": "mix of EPS revision and multiple"
+        },
+        {
+          "date": "2026-11-19",
+          "type": "ipo_supply",
+          "description": "Anthropic IPO prices above range; profit-taking in AI names",
+          "source": "Motley Fool via Massive news (secondary)",
+          "eps_changed": "no",
+          "reaction_day": "2026-11-19",
+          "multiple_modifier": 0.972869,
+          "market_adjusted_modifier": 0.994693,
+          "provisional": false,
+          "attribution": "multiple (estimates unchanged that day)"
+        },
+        {
+          "date": "2026-11-20",
+          "type": "industry_data",
+          "description": "TrendForce: NAND contract prices to fall from 1Q27, Chinese CSP orders cut; MU -12.6%",
+          "source": "TrendForce 2026-11-19; Motley Fool (secondary)",
+          "eps_changed": "no",
+          "reaction_day": "2026-11-20",
+          "multiple_modifier": 0.839451,
+          "market_adjusted_modifier": 0.889933,
+          "provisional": false,
+          "attribution": "multiple (estimates unchanged that day)"
+        },
+        {
+          "date": "2026-11-23",
+          "type": "leadership",
+          "description": "NVDA reports Jensen Huang reinstated as CEO; Nasdaq +6.8% midday",
+          "source": "Motley Fool via Massive news (secondary); session still open at 13:42 ET",
+          "eps_changed": "no",
+          "reaction_day": "2026-11-23",
+          "multiple_modifier": 1.127443,
+          "market_adjusted_modifier": 1.056105,
+          "provisional": true,
+          "attribution": "multiple (estimates unchanged that day)"
+        }
+      ],
+      "scheduled": [
+        {
+          "date": "2027-01-28",
+          "type": "earnings",
+          "description": "FQ2 FY27 report (unconfirmed; Zacks says 2027-02-04)",
+          "source": "public.com",
+          "eps_changed": null,
+          "modifier": null,
+          "note": "unknown until the print; use earnings_reaction_history for scale"
+        }
+      ],
+      "hypothetical": [
+        {
+          "date": null,
+          "type": "industry_data",
+          "description": "NAND contract prices turn negative in 2Q27 and decline widens",
+          "source": "analog: the 2026-11-20 TrendForce day",
+          "eps_changed": "no",
+          "modifier_from_analog": 0.839451,
+          "analog_date": "2026-11-20",
+          "kind": "assumption: scale borrowed from a past tape event"
+        }
+      ],
+      "earnings_reaction_history": {
+        "n": 1,
+        "mean_abs_move": 0.134702,
+        "moves": [
+          -0.134702
+        ]
+      }
+    },
+    "flags": [
+      "NO_ESTIMATES"
+    ],
+    "scenario_targets_12m": {
+      "returns": {
+        "bear": -0.368592,
+        "base": -0.021396,
+        "bull": 0.33746
+      },
+      "prices": {
+        "bear": 50.032807,
+        "base": 77.54456,
+        "bull": 105.98031
+      },
+      "source": "auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R"
+    }
+  },
+  "trading": {
+    "as_of_final": "2026-11-20",
+    "last_final_close": 79.24,
+    "relationships": {
+      "NVDA": {
+        "unit": "1 subject share = x reference shares",
+        "x_now": 0.631244,
+        "reference_per_subject_inverse": 1.584175,
+        "as_of": "2026-11-20",
+        "median_250d": 0.703455,
+        "p10": 0.165739,
+        "p90": 1.007682,
+        "min": {
+          "x": 0.135294,
+          "date": "2025-12-03"
+        },
+        "max": {
+          "x": 1.491136,
+          "date": "2026-06-25"
+        },
+        "z_250d": -0.118157,
+        "percentile_250d": 0.44,
+        "half_life_days": 46.232173,
+        "relative_return": {
+          "1d": -0.023794,
+          "5d": -0.070763,
+          "20d": -0.13949,
+          "60d": -0.224697
+        },
+        "corr_250d": 0.418345,
+        "beta_250d": 1.150412,
+        "corr_60d": 0.692942,
+        "beta_60d": 1.406571
+      },
+      "MSFT": {
+        "unit": "1 subject share = x reference shares",
+        "x_now": 0.163543,
+        "reference_per_subject_inverse": 6.114589,
+        "as_of": "2026-11-20",
+        "median_250d": 0.306975,
+        "p10": 0.064055,
+        "p90": 0.513865,
+        "min": {
+          "x": 0.05086,
+          "date": "2025-12-03"
+        },
+        "max": {
+          "x": 0.82724,
+          "date": "2026-06-25"
+        },
+        "z_250d": -0.874433,
+        "percentile_250d": 0.188,
+        "half_life_days": 50.264615,
+        "relative_return": {
+          "1d": -0.136674,
+          "5d": -0.225527,
+          "20d": -0.4457,
+          "60d": -0.555006
+        },
+        "corr_250d": 0.046522,
+        "beta_250d": 0.154705,
+        "corr_60d": 0.18898,
+        "beta_60d": 0.643793
+      },
+      "SMH": {
+        "unit": "1 subject share = x reference shares",
+        "x_now": 0.19807,
+        "reference_per_subject_inverse": 5.048713,
+        "as_of": "2026-11-20",
+        "median_250d": 0.271571,
+        "p10": 0.085432,
+        "p90": 0.368274,
+        "min": {
+          "x": 0.066684,
+          "date": "2025-12-03"
+        },
+        "max": {
+          "x": 0.458289,
+          "date": "2026-06-25"
+        },
+        "z_250d": -0.622598,
+        "percentile_250d": 0.288,
+        "half_life_days": 46.574707,
+        "relative_return": {
+          "1d": -0.061047,
+          "5d": -0.128501,
+          "20d": -0.325234,
+          "60d": -0.388563
+        },
+        "corr_250d": 0.723768,
+        "beta_250d": 1.852284,
+        "corr_60d": 0.861881,
+        "beta_60d": 1.660332
+      },
+      "QQQ": {
+        "unit": "1 subject share = x reference shares",
+        "x_now": 0.130233,
+        "reference_per_subject_inverse": 7.678571,
+        "as_of": "2026-11-20",
+        "median_250d": 0.208347,
+        "p10": 0.050099,
+        "p90": 0.30252,
+        "min": {
+          "x": 0.038968,
+          "date": "2025-12-03"
+        },
+        "max": {
+          "x": 0.40743,
+          "date": "2026-06-25"
+        },
+        "z_250d": -0.74505,
+        "percentile_250d": 0.268,
+        "half_life_days": 48.721402,
+        "relative_return": {
+          "1d": -0.110067,
+          "5d": -0.199613,
+          "20d": -0.407214,
+          "60d": -0.49406
+        },
+        "corr_250d": 0.633417,
+        "beta_250d": 3.214349,
+        "corr_60d": 0.786352,
+        "beta_60d": 2.837867
+      }
+    },
+    "relationship_weights": {
+      "method": "250d R^2 of daily returns vs each reference, normalised",
+      "values": {
+        "NVDA": 0.15878,
+        "MSFT": 0.001964,
+        "SMH": 0.475253,
+        "QQQ": 0.364003
+      }
+    },
+    "weighted_relative_return": {
+      "5d": -0.145409,
+      "20d": -0.325819,
+      "60d": -0.401272
+    },
+    "provisional_ratios_vs_refs": {
+      "NVDA": {
+        "x_provisional": 0.543654,
+        "x_final": 0.631244,
+        "change": -0.138758,
+        "within_p10_p90": true
+      },
+      "MSFT": {
+        "x_provisional": 0.180064,
+        "x_final": 0.163543,
+        "change": 0.101015,
+        "within_p10_p90": true
+      },
+      "SMH": {
+        "x_provisional": 0.195395,
+        "x_final": 0.19807,
+        "change": -0.013506,
+        "within_p10_p90": true
+      },
+      "QQQ": {
+        "x_provisional": 0.137539,
+        "x_final": 0.130233,
+        "change": 0.056105,
+        "within_p10_p90": true
+      }
+    },
+    "extremes_and_rebound": {
+      "last_final_bar": {
+        "date": "2026-11-20",
+        "open": 89.98,
+        "high": 90.67,
+        "low": 78.25,
+        "close": 79.24,
+        "volume": 127860865.0,
+        "volume_vs_prior20d": 1.218134,
+        "close_location_in_range": 0.07971,
+        "made_52w_low": false
+      },
+      "window_52w": {
+        "low": 22.875,
+        "low_date": "2025-11-21",
+        "high": 294.2987,
+        "high_date": "2026-06-22",
+        "drawdown_close_vs_high": -0.73075,
+        "low_to_high_range": 11.865517
+      },
+      "lowest_low_in_data": {
+        "low": 3.4856,
+        "date": "2025-04-07",
+        "first_bar": "2025-02-24"
+      },
+      "dd_peak_to_low": -0.922273,
+      "provisional_next_session": {
+        "status": "INTRADAY_NOT_FINAL",
+        "open": 98.585,
+        "high": 99.07,
+        "low": 88.3,
+        "last": 89.3386,
+        "gap_open_vs_prior_close": 0.244132,
+        "last_vs_prior_close": 0.127443,
+        "last_vs_prior_low": 0.141707,
+        "session_low_above_prior_low": true,
+        "gap_unfilled_vs_prior_high": false,
+        "retrace_of_peak_to_low_drop": 0.24487,
+        "session_range_pct": 0.121971
+      }
+    },
+    "zones_top": [
+      {
+        "low": 215.5597,
+        "high": 224.182,
+        "dwell_days": 17,
+        "visits": 10,
+        "volume_share": 0.041,
+        "entries_from_above": 3,
+        "entries_from_below": 7,
+        "first": "2026-06-01",
+        "last": "2026-10-01",
+        "role_vs_spot": "resistance_side"
+      },
+      {
+        "low": 199.297,
+        "high": 207.2689,
+        "dwell_days": 15,
+        "visits": 11,
+        "volume_share": 0.0407,
+        "entries_from_above": 5,
+        "entries_from_below": 6,
+        "first": "2026-05-28",
+        "last": "2026-10-08",
+        "role_vs_spot": "resistance_side"
+      },
+      {
+        "low": 191.6318,
+        "high": 199.297,
+        "dwell_days": 14,
+        "visits": 9,
+        "volume_share": 0.0404,
+        "entries_from_above": 4,
+        "entries_from_below": 5,
+        "first": "2026-05-08",
+        "last": "2026-10-09",
+        "role_vs_spot": "resistance_side"
+      },
+      {
+        "low": 71.8843,
+        "high": 74.7597,
+        "dwell_days": 7,
+        "visits": 4,
+        "volume_share": 0.0379,
+        "entries_from_above": 2,
+        "entries_from_below": 2,
+        "first": "2026-01-30",
+        "last": "2026-03-09",
+        "role_vs_spot": "support_side"
+      },
+      {
+        "low": 170.3599,
+        "high": 177.1743,
+        "dwell_days": 14,
+        "visits": 8,
+        "volume_share": 0.0372,
+        "entries_from_above": 3,
+        "entries_from_below": 5,
+        "first": "2026-05-05",
+        "last": "2026-10-28",
+        "role_vs_spot": "resistance_side"
+      },
+      {
+        "low": 74.7597,
+        "high": 77.75,
+        "dwell_days": 9,
+        "visits": 7,
+        "volume_share": 0.0368,
+        "entries_from_above": 3,
+        "entries_from_below": 4,
+        "first": "2026-02-11",
+        "last": "2026-03-27",
+        "role_vs_spot": "support_side"
+      }
+    ],
+    "key_levels": {
+      "final_low": {
+        "price": 78.25,
+        "zone_low": 77.75,
+        "zone_high": 80.86,
+        "dwell_days": 7,
+        "visits": 5,
+        "volume_share": 0.0327,
+        "last_visit_before_now": "2026-11-20",
+        "level": 78.25,
+        "crossings": 11,
+        "last_cross": "2026-03-31"
+      },
+      "final_close": {
+        "price": 79.24,
+        "zone_low": 77.75,
+        "zone_high": 80.86,
+        "dwell_days": 7,
+        "visits": 5,
+        "volume_share": 0.0327,
+        "last_visit_before_now": "2026-11-20",
+        "level": 79.24,
+        "crossings": 11,
+        "last_cross": "2026-03-31"
+      },
+      "52w_high": {
+        "price": 294.2987,
+        "zone_low": 283.6618,
+        "zone_high": 295.0083,
+        "dwell_days": 3,
+        "visits": 3,
+        "volume_share": 0.0079,
+        "last_visit_before_now": "2026-06-30",
+        "level": 294.2987,
+        "crossings": 0,
+        "last_cross": null
+      },
+      "provisional_open": {
+        "price": 98.585,
+        "zone_low": 98.3786,
+        "zone_high": 102.3138,
+        "dwell_days": 3,
+        "visits": 2,
+        "volume_share": 0.0128,
+        "last_visit_before_now": "2026-11-17",
+        "level": 98.585,
+        "crossings": 2,
+        "last_cross": "2026-11-18"
+      },
+      "provisional_last": {
+        "price": 89.3386,
+        "zone_low": 87.4582,
+        "zone_high": 90.9566,
+        "dwell_days": 8,
+        "visits": 3,
+        "volume_share": 0.0304,
+        "last_visit_before_now": "2026-04-07",
+        "level": 89.3386,
+        "crossings": 6,
+        "last_cross": "2026-11-20"
+      }
+    }
+  },
+  "reconciliation": {
+    "basis": "ttm_gaap_eps_norm",
+    "peak_date": "2026-06-25",
+    "price_peak": 291.875,
+    "price_now": 79.24,
+    "ttm_then": 3.595746,
+    "ttm_now": 15.558335,
+    "trailing_multiple_then": 81.1723,
+    "trailing_multiple_now": 5.09309,
+    "price_change": -0.728514,
+    "fundamental_component": 3.326872,
+    "multiple_component": -0.937256,
+    "identity_check": -0.728514,
+    "provisional": {
+      "price": 89.3386,
+      "price_change_vs_peak": -0.693915,
+      "trailing_multiple": 5.74217,
+      "multiple_recovered_of_decline": 0.008532
+    }
+  },
+  "fair_value_exchange": {
+    "subject_returns_from_targets": {
+      "bear": -0.368592,
+      "base": -0.021396,
+      "bull": 0.33746,
+      "exp": -0.018481
+    },
+    "targets_source": "auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R",
+    "hurdle": 0.08,
+    "round_trip_cost": 0.002,
+    "vs": {
+      "NVDA": {
+        "spot_x": 0.631244,
+        "reading": "holding REF instead of SUBJECT is profitable only if the SUBJECT return clears breakeven; cells show whether each subject scenario clears it for each assumed REF return",
+        "grid_by_ref_return": {
+          "-20%": {
+            "breakeven_subject_return": -0.134269,
+            "bear": false,
+            "base": true,
+            "bull": true,
+            "exp": true
+          },
+          "-10%": {
+            "breakeven_subject_return": -0.026052,
+            "bear": false,
+            "base": true,
+            "bull": true,
+            "exp": true
+          },
+          "+0%": {
+            "breakeven_subject_return": 0.082164,
+            "bear": false,
+            "base": false,
+            "bull": true,
+            "exp": false
+          },
+          "+10%": {
+            "breakeven_subject_return": 0.190381,
+            "bear": false,
+            "base": false,
+            "bull": true,
+            "exp": false
+          },
+          "+20%": {
+            "breakeven_subject_return": 0.298597,
+            "bear": false,
+            "base": false,
+            "bull": true,
+            "exp": false
+          },
+          "+30%": {
+            "breakeven_subject_return": 0.406814,
+            "bear": false,
+            "base": false,
+            "bull": false,
+            "exp": false
+          }
+        }
+      },
+      "MSFT": {
+        "spot_x": 0.163543,
+        "reading": "holding REF instead of SUBJECT is profitable only if the SUBJECT return clears breakeven; cells show whether each subject scenario clears it for each assumed REF return",
+        "grid_by_ref_return": {
+          "-20%": {
+            "breakeven_subject_return": -0.134269,
+            "bear": false,
+            "base": true,
+            "bull": true,
+            "exp": true
+          },
+          "-10%": {
+            "breakeven_subject_return": -0.026052,
+            "bear": false,
+            "base": true,
+            "bull": true,
+            "exp": true
+          },
+          "+0%": {
+            "breakeven_subject_return": 0.082164,
+            "bear": false,
+            "base": false,
+            "bull": true,
+            "exp": false
+          },
+          "+10%": {
+            "breakeven_subject_return": 0.190381,
+            "bear": false,
+            "base": false,
+            "bull": true,
+            "exp": false
+          },
+          "+20%": {
+            "breakeven_subject_return": 0.298597,
+            "bear": false,
+            "base": false,
+            "bull": true,
+            "exp": false
+          },
+          "+30%": {
+            "breakeven_subject_return": 0.406814,
+            "bear": false,
+            "base": false,
+            "bull": false,
+            "exp": false
+          }
+        }
+      },
+      "SMH": {
+        "spot_x": 0.19807,
+        "reading": "holding REF instead of SUBJECT is profitable only if the SUBJECT return clears breakeven; cells show whether each subject scenario clears it for each assumed REF return",
+        "grid_by_ref_return": {
+          "-20%": {
+            "breakeven_subject_return": -0.134269,
+            "bear": false,
+            "base": true,
+            "bull": true,
+            "exp": true
+          },
+          "-10%": {
+            "breakeven_subject_return": -0.026052,
+            "bear": false,
+            "base": true,
+            "bull": true,
+            "exp": true
+          },
+          "+0%": {
+            "breakeven_subject_return": 0.082164,
+            "bear": false,
+            "base": false,
+            "bull": true,
+            "exp": false
+          },
+          "+10%": {
+            "breakeven_subject_return": 0.190381,
+            "bear": false,
+            "base": false,
+            "bull": true,
+            "exp": false
+          },
+          "+20%": {
+            "breakeven_subject_return": 0.298597,
+            "bear": false,
+            "base": false,
+            "bull": true,
+            "exp": false
+          },
+          "+30%": {
+            "breakeven_subject_return": 0.406814,
+            "bear": false,
+            "base": false,
+            "bull": false,
+            "exp": false
+          }
+        }
+      },
+      "QQQ": {
+        "spot_x": 0.130233,
+        "reading": "holding REF instead of SUBJECT is profitable only if the SUBJECT return clears breakeven; cells show whether each subject scenario clears it for each assumed REF return",
+        "grid_by_ref_return": {
+          "-20%": {
+            "breakeven_subject_return": -0.134269,
+            "bear": false,
+            "base": true,
+            "bull": true,
+            "exp": true
+          },
+          "-10%": {
+            "breakeven_subject_return": -0.026052,
+            "bear": false,
+            "base": true,
+            "bull": true,
+            "exp": true
+          },
+          "+0%": {
+            "breakeven_subject_return": 0.082164,
+            "bear": false,
+            "base": false,
+            "bull": true,
+            "exp": false
+          },
+          "+10%": {
+            "breakeven_subject_return": 0.190381,
+            "bear": false,
+            "base": false,
+            "bull": true,
+            "exp": false
+          },
+          "+20%": {
+            "breakeven_subject_return": 0.298597,
+            "bear": false,
+            "base": false,
+            "bull": true,
+            "exp": false
+          },
+          "+30%": {
+            "breakeven_subject_return": 0.406814,
+            "bear": false,
+            "base": false,
+            "bull": false,
+            "exp": false
+          }
+        }
+      }
+    }
+  },
+  "provenance": {
+    "prices": "Massive /v2/aggs (adjusted)",
+    "fundamentals": "Massive income statements, split-normalised",
+    "estimates": "estimates.csv/guidance.csv (sourced per row)",
+    "events": "multiple_events.csv (headline sources are secondary and unverified)"
+  }
+}
