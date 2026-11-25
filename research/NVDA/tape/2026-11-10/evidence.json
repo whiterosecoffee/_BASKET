@@ -1,0 +1,159 @@
+{
+  "record_type": "dated_research_evidence",
+  "task": "B14-211",
+  "ticker": "NVDA",
+  "currency": "USD",
+  "session_date": "2026-11-10",
+  "timezone": "America/New_York",
+  "window_start": "2026-11-10T09:30:00-05:00",
+  "window_end_exclusive": "2026-11-10T12:14:00-05:00",
+  "source": {
+    "provider": "Massive",
+    "endpoint": "/v2/aggs/ticker/NVDA/range/1/minute/2026-11-09/2026-11-10",
+    "params": {
+      "adjusted": true,
+      "sort": "asc",
+      "limit": 50000
+    },
+    "representation": "CSV export of stored connector table, not original HTTP bytes",
+    "export_query": "SELECT * FROM nvda_bars ORDER BY t",
+    "export_filename": "massive_nvda_2026-11-09_10_export.csv",
+    "sha256": "77cebeaeb49974aa19eee404b78025be290d4b4b92e3f9215892f924039b2aa3",
+    "bytes": 109265,
+    "rows": 1454,
+    "original_retrieved_at": null,
+    "historical_available_at": null,
+    "raw_publication": false,
+    "canonical_imported": false,
+    "coverage": [
+      {
+        "date": "2026-11-09",
+        "first_minute_et": "04:00",
+        "last_minute_et": "19:59",
+        "rows": 960
+      },
+      {
+        "date": "2026-11-10",
+        "first_minute_et": "04:00",
+        "last_minute_et": "12:13",
+        "rows": 494
+      }
+    ]
+  },
+  "measurements": {
+    "regular_window_minutes": 164,
+    "current_volume_shares": "220719364.532490",
+    "prior_date": "2026-11-09",
+    "prior_matched_volume_shares": "245068667.339687",
+    "current_over_prior_ratio": "0.9006429378691373155591789818",
+    "change_percent": "-9.935706213086268444082101820",
+    "minute_derived_vwap_usd": "170.3460435396018703886687533",
+    "opening_price_usd": "173.97",
+    "last_minute_close_usd": "167.275",
+    "open_to_last_close_percent": "-3.848364660573662125653848360",
+    "last_close_vs_approx_vwap_percent": "-1.802826455953417780583468860",
+    "regular_high_usd": "174.69",
+    "regular_low_usd": "166.52",
+    "low_minute_et": "12:03",
+    "break_minute_et": "10:44",
+    "break_minute_volume_shares": "5363393.786128",
+    "preceding_10_minute_mean_volume_shares": "906587.8572136",
+    "break_over_preceding_mean_ratio": "5.916022085948077818167258530",
+    "time_windows": [
+      {
+        "start_et": "09:30",
+        "last_minute_et": "09:59",
+        "minutes": 30,
+        "volume_shares": "68777814.513610",
+        "first_open_usd": "173.97",
+        "last_close_usd": "173.17"
+      },
+      {
+        "start_et": "10:00",
+        "last_minute_et": "10:29",
+        "minutes": 30,
+        "volume_shares": "35280291.589020",
+        "first_open_usd": "173.15",
+        "last_close_usd": "171.415"
+      },
+      {
+        "start_et": "10:30",
+        "last_minute_et": "10:59",
+        "minutes": 30,
+        "volume_shares": "43317789.860411",
+        "first_open_usd": "171.42",
+        "last_close_usd": "168.61"
+      },
+      {
+        "start_et": "11:00",
+        "last_minute_et": "11:29",
+        "minutes": 30,
+        "volume_shares": "32173942.341579",
+        "first_open_usd": "168.615",
+        "last_close_usd": "169.0299"
+      },
+      {
+        "start_et": "11:30",
+        "last_minute_et": "11:59",
+        "minutes": 30,
+        "volume_shares": "27881945.162436",
+        "first_open_usd": "169.0308",
+        "last_close_usd": "166.8084"
+      },
+      {
+        "start_et": "12:00",
+        "last_minute_et": "12:13",
+        "minutes": 14,
+        "volume_shares": "13287581.065434",
+        "first_open_usd": "166.8",
+        "last_close_usd": "167.275"
+      }
+    ]
+  },
+  "formulas": {
+    "volume": "sum(v) over inclusive minute labels; preserve decimal shares",
+    "approx_vwap": "sum(v * vw) / sum(v), using rounded provider minute VWAP",
+    "volume_ratio": "Nov10 09:30-12:13 sum(v) / Nov9 09:30-12:13 sum(v)",
+    "burst_ratio": "10:44 v / mean(v for 10:34-10:43)",
+    "all_price_and_volume_attribution": "Minute bars or time windows only; no exact volume-at-price or aggressor-side inference"
+  },
+  "validation": {
+    "mode": "local Python Decimal recomputation and assertions; not independent CI",
+    "source_checks": [
+      "1454 unique increasing minute timestamps",
+      "960 consecutive Nov9 timestamps and 494 consecutive Nov10 timestamps",
+      "164 consecutive regular-session comparison timestamps per date",
+      "finite numeric fields, nonnegative shares and transaction count, valid positive OHLC",
+      "same adjusted=true capture for both comparison windows",
+      "six time-window totals reassemble regular volume exactly",
+      "selected chronology and previously reported rounded metrics independently reproduced",
+      "task payload validates against pinned main worker-task schema"
+    ],
+    "fractional_volume_rows": 1454,
+    "outside_ohlc_vwap_rows": 23,
+    "nov10_regular_outside_ohlc_vwap_rows": 1,
+    "source_mutated": false,
+    "independent_trade_reconciliation": false,
+    "domain_ci_executed": false
+  },
+  "ownership": {
+    "baseline_main_sha": "b4910122a4c3f6ade747f2e4d59bd2d2e84b3c95",
+    "open_pr_changed_file_lists_checked": 64,
+    "conflicting_target_paths": [],
+    "existing_nvda_research_issue": 185,
+    "existing_nvda_research_pr": 187,
+    "existing_nvda_research_head_sha": "3d148ba1c94c861a45b184e00a697add41fa57ef",
+    "existing_owner_files_modified": false,
+    "method_code_added": false,
+    "canonical_daily_store_verified": false
+  },
+  "limitations": [
+    "Partial regular session and one prior-day baseline; no predictive odds",
+    "Original retrieval/first-availability and revision timestamps unknown",
+    "Raw table export retained only outside Git; not a verified durable canonical store",
+    "Minute-derived VWAP has rounding and source-eligibility limitations",
+    "No exact-price volume profile, aggressor side, dealer inventory or causal proof",
+    "User-supplied HIRO and untimestamped snapshot excluded",
+    "No merge, deployment, live service or canonical-data promotion"
+  ]
+}
