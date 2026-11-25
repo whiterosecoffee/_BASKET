@@ -1,0 +1,57 @@
+{
+  "purpose": "AVGO FY2027–2030 EPS growth and valuation",
+  "tiered_objectives": [
+    "Preserve single-source annual series",
+    "Reproduce cumulative growth/multiples",
+    "Qualify customer and GAAP economics next"
+  ],
+  "status": "draft_research",
+  "owner": "B04-306",
+  "issue": 306,
+  "branch": "work/306-avgo-cumulative-growth",
+  "parent": "orchestration/sparks.json#B04",
+  "dependencies": [
+    "B02",
+    "B03"
+  ],
+  "evidence": [
+    "inputs-results.json",
+    "REPORT.md",
+    "https://github.com/whiterosecoffee/_BASKET/issues/291",
+    "REPORT.md#competitive-moat",
+    "competitive-paths-2030.json"
+  ],
+  "feature_design": "feature-design.md",
+  "planned_nodes": [
+    {
+      "id": "customer-margin-stress",
+      "status": "research_sensitivity_recorded",
+      "input": "FY2027/2028 reference EPS/revenue; hypothetical affected revenue share, product cuts, contribution margin, additional operating-margin pressure, tax and dilution",
+      "output": "EPS deltas, P/E and hypothetical valuation sensitivity; no customer-specific forecast"
+    },
+    {
+      "id": "competitive-paths-2030",
+      "status": "modeled_illustrative",
+      "input": "Scenario revenue growth, gross margin, R&D/other expense, tax, financing and post-merger shares",
+      "output": "Separate AVGO and MRVL+ earnings paths and required economics for 4x MRVL share price"
+    }
+  ],
+  "next_actions": [
+    "Continue common-horizon recurring earnings/cash qualification in semiconductor_vetf; preserve original AVGO corrections"
+  ],
+  "limitations": [
+    "No operational market feed",
+    "No GAAP forecast bridge",
+    "Sparse distant consensus",
+    "Hosted CI pending",
+    "Customer exposures and stress inputs hypothetical"
+  ],
+  "related_components": [
+    {
+      "id": "SEMICONDUCTOR_VETF",
+      "path": "research/models/semiconductor_vetf/state.json",
+      "status": "initial_partial_evidence_snapshot",
+      "same_conversation_issue": 306
+    }
+  ]
+}

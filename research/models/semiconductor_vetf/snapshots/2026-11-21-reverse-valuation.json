@@ -1,0 +1,491 @@
+{
+  "schema": "basket.research.reverse_valuation@1",
+  "as_of": "2026-11-21",
+  "horizon": "2028-12-31",
+  "source_snapshot": {
+    "commit": "871bcf3db52c2b8ad840635331ab04f383862e98",
+    "path": "research/models/semiconductor_vetf/snapshots/2026-11-21.json"
+  },
+  "classification": "historical_price_reverse_sensitivity_not_forecast",
+  "dividend_assumption": "zero only for this price-return sensitivity; no assertion issuers pay none",
+  "PE_grid": "20/30/40 arithmetic lenses only, not issuer justified values or allocation multiples",
+  "cash_yield_assumption": "5% terminal sustainable annual economic FCF/equity price; not current FCF yield",
+  "formulas": {
+    "required_price": "P0*(1+price_return)",
+    "required_EPS": "required_price/exit_PE",
+    "required_FCF": "required_price*terminal_FCF_yield",
+    "actual_total_return": "(EPS_H*PE_H+eligible_dividends)/P0-1",
+    "relative_EPS_condition": "EPS_A/EPS_B <= [R/(1+h)]*(PE_B/PE_A) for A->B, zero dividends; historical mid-price only"
+  },
+  "rows": [
+    {
+      "ticker": "NVDA",
+      "historical_close": 125.53,
+      "required_price_for_50pct_gain": 188.29500000000002,
+      "required_eps_at_PE20": 9.414750000000002,
+      "required_eps_at_PE30": 6.2765,
+      "required_eps_at_PE40": 4.707375000000001,
+      "required_economic_FCF_per_share_at_5pct_terminal_yield": 9.414750000000002
+    },
+    {
+      "ticker": "AMD",
+      "historical_close": 424.39,
+      "required_price_for_50pct_gain": 636.585,
+      "required_eps_at_PE20": 31.829250000000002,
+      "required_eps_at_PE30": 21.2195,
+      "required_eps_at_PE40": 15.914625000000001,
+      "required_economic_FCF_per_share_at_5pct_terminal_yield": 31.829250000000002
+    },
+    {
+      "ticker": "INTC",
+      "historical_close": 51.28,
+      "required_price_for_50pct_gain": 76.92,
+      "required_eps_at_PE20": 3.846,
+      "required_eps_at_PE30": 2.564,
+      "required_eps_at_PE40": 1.923,
+      "required_economic_FCF_per_share_at_5pct_terminal_yield": 3.846
+    },
+    {
+      "ticker": "AVGO",
+      "historical_close": 304.41,
+      "required_price_for_50pct_gain": 456.615,
+      "required_eps_at_PE20": 22.830750000000002,
+      "required_eps_at_PE30": 15.2205,
+      "required_eps_at_PE40": 11.415375000000001,
+      "required_economic_FCF_per_share_at_5pct_terminal_yield": 22.830750000000002
+    },
+    {
+      "ticker": "MRVL",
+      "historical_close": 122.28,
+      "required_price_for_50pct_gain": 183.42000000000002,
+      "required_eps_at_PE20": 9.171000000000001,
+      "required_eps_at_PE30": 6.114000000000001,
+      "required_eps_at_PE40": 4.585500000000001,
+      "required_economic_FCF_per_share_at_5pct_terminal_yield": 9.171000000000001
+    }
+  ],
+  "scenarios": [
+    {
+      "ticker": "NVDA",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 125.53,
+      "required_recurring_EPS": 6.2765,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 6.2765
+    },
+    {
+      "ticker": "NVDA",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 125.53,
+      "required_recurring_EPS": 4.184333333333333,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 6.2765
+    },
+    {
+      "ticker": "NVDA",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 125.53,
+      "required_recurring_EPS": 3.13825,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 6.2765
+    },
+    {
+      "ticker": "NVDA",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 188.29500000000002,
+      "required_recurring_EPS": 9.414750000000002,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 9.414750000000002
+    },
+    {
+      "ticker": "NVDA",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 188.29500000000002,
+      "required_recurring_EPS": 6.2765,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 9.414750000000002
+    },
+    {
+      "ticker": "NVDA",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 188.29500000000002,
+      "required_recurring_EPS": 4.707375000000001,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 9.414750000000002
+    },
+    {
+      "ticker": "NVDA",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 251.06,
+      "required_recurring_EPS": 12.553,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 12.553
+    },
+    {
+      "ticker": "NVDA",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 251.06,
+      "required_recurring_EPS": 8.368666666666666,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 12.553
+    },
+    {
+      "ticker": "NVDA",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 251.06,
+      "required_recurring_EPS": 6.2765,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 12.553
+    },
+    {
+      "ticker": "AMD",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 424.39,
+      "required_recurring_EPS": 21.2195,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 21.2195
+    },
+    {
+      "ticker": "AMD",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 424.39,
+      "required_recurring_EPS": 14.146333333333333,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 21.2195
+    },
+    {
+      "ticker": "AMD",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 424.39,
+      "required_recurring_EPS": 10.60975,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 21.2195
+    },
+    {
+      "ticker": "AMD",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 636.585,
+      "required_recurring_EPS": 31.829250000000002,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 31.829250000000002
+    },
+    {
+      "ticker": "AMD",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 636.585,
+      "required_recurring_EPS": 21.2195,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 31.829250000000002
+    },
+    {
+      "ticker": "AMD",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 636.585,
+      "required_recurring_EPS": 15.914625000000001,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 31.829250000000002
+    },
+    {
+      "ticker": "AMD",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 848.78,
+      "required_recurring_EPS": 42.439,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 42.439
+    },
+    {
+      "ticker": "AMD",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 848.78,
+      "required_recurring_EPS": 28.292666666666666,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 42.439
+    },
+    {
+      "ticker": "AMD",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 848.78,
+      "required_recurring_EPS": 21.2195,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 42.439
+    },
+    {
+      "ticker": "INTC",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 51.28,
+      "required_recurring_EPS": 2.564,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 2.564
+    },
+    {
+      "ticker": "INTC",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 51.28,
+      "required_recurring_EPS": 1.7093333333333334,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 2.564
+    },
+    {
+      "ticker": "INTC",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 51.28,
+      "required_recurring_EPS": 1.282,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 2.564
+    },
+    {
+      "ticker": "INTC",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 76.92,
+      "required_recurring_EPS": 3.846,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 3.846
+    },
+    {
+      "ticker": "INTC",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 76.92,
+      "required_recurring_EPS": 2.564,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 3.846
+    },
+    {
+      "ticker": "INTC",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 76.92,
+      "required_recurring_EPS": 1.923,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 3.846
+    },
+    {
+      "ticker": "INTC",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 102.56,
+      "required_recurring_EPS": 5.128,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 5.128
+    },
+    {
+      "ticker": "INTC",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 102.56,
+      "required_recurring_EPS": 3.4186666666666667,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 5.128
+    },
+    {
+      "ticker": "INTC",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 102.56,
+      "required_recurring_EPS": 2.564,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 5.128
+    },
+    {
+      "ticker": "AVGO",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 304.41,
+      "required_recurring_EPS": 15.220500000000001,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 15.220500000000001
+    },
+    {
+      "ticker": "AVGO",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 304.41,
+      "required_recurring_EPS": 10.147,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 15.220500000000001
+    },
+    {
+      "ticker": "AVGO",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 304.41,
+      "required_recurring_EPS": 7.610250000000001,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 15.220500000000001
+    },
+    {
+      "ticker": "AVGO",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 456.615,
+      "required_recurring_EPS": 22.830750000000002,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 22.830750000000002
+    },
+    {
+      "ticker": "AVGO",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 456.615,
+      "required_recurring_EPS": 15.2205,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 22.830750000000002
+    },
+    {
+      "ticker": "AVGO",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 456.615,
+      "required_recurring_EPS": 11.415375000000001,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 22.830750000000002
+    },
+    {
+      "ticker": "AVGO",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 608.82,
+      "required_recurring_EPS": 30.441000000000003,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 30.441000000000003
+    },
+    {
+      "ticker": "AVGO",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 608.82,
+      "required_recurring_EPS": 20.294,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 30.441000000000003
+    },
+    {
+      "ticker": "AVGO",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 608.82,
+      "required_recurring_EPS": 15.220500000000001,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 30.441000000000003
+    },
+    {
+      "ticker": "MRVL",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 122.28,
+      "required_recurring_EPS": 6.114,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 6.114000000000001
+    },
+    {
+      "ticker": "MRVL",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 122.28,
+      "required_recurring_EPS": 4.076,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 6.114000000000001
+    },
+    {
+      "ticker": "MRVL",
+      "target_price_return": 0,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 122.28,
+      "required_recurring_EPS": 3.057,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 6.114000000000001
+    },
+    {
+      "ticker": "MRVL",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 183.42000000000002,
+      "required_recurring_EPS": 9.171000000000001,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 9.171000000000001
+    },
+    {
+      "ticker": "MRVL",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 183.42000000000002,
+      "required_recurring_EPS": 6.114000000000001,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 9.171000000000001
+    },
+    {
+      "ticker": "MRVL",
+      "target_price_return": 0.5,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 183.42000000000002,
+      "required_recurring_EPS": 4.585500000000001,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 9.171000000000001
+    },
+    {
+      "ticker": "MRVL",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 20,
+      "dividends": 0,
+      "required_price": 244.56,
+      "required_recurring_EPS": 12.228,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 12.228000000000002
+    },
+    {
+      "ticker": "MRVL",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 30,
+      "dividends": 0,
+      "required_price": 244.56,
+      "required_recurring_EPS": 8.152,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 12.228000000000002
+    },
+    {
+      "ticker": "MRVL",
+      "target_price_return": 1,
+      "exit_PE_sensitivity": 40,
+      "dividends": 0,
+      "required_price": 244.56,
+      "required_recurring_EPS": 6.114,
+      "required_annual_economic_FCF_per_share_at_5pct_terminal_yield": 12.228000000000002
+    }
+  ],
+  "checks": {
+    "rows": 5,
+    "scenarios": 45,
+    "identity_max_error": 2.842170943040401e-14
+  },
+  "admission": {
+    "qualified_wealth_vector": false,
+    "allocation_change": false,
+    "executable_quote": false
+  },
+  "falsifiers": [
+    "Required earnings fail SBC/R&D/depreciation retention",
+    "FCF depends on advances, grants or partner financing instead of recurring cash",
+    "Exit multiple lacks growth/FCF/durability support",
+    "Combined MRVL EPS uses pre-transaction share count",
+    "Deployment slowdown reduces earnings and multiples together"
+  ]
+}
