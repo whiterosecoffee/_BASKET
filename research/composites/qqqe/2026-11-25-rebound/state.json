@@ -1,1 +1,245 @@
-ewogICJwdXJwb3NlIjogIk1lYXN1cmUgUVFRRSByZWJvdW5kIHBvdGVudGlhbCBhbmQgZGlzdGluZ3Vpc2ggYWJzb2x1dGUgcmVjb3ZlcnkgZnJvbSByZWxhdGl2ZSBkZWZlbnNpdmUgbGVhZGVyc2hpcC4iLAogICJvd25lciI6ICJCMTciLAogICJicmFuY2giOiAid29yay8zMTgtcXFxZS1yZWJvdW5kIiwKICAiaXNzdWUiOiAzMTgsCiAgInBhcmVudCI6ICIuLi8uLi8uLi8uLi9BR0VOVFMubWQiLAogICJkZXBlbmRlbmNpZXMiOiBbCiAgICAiQjAyIHNvdXJjZSBvYnNlcnZhdGlvbnMiCiAgXSwKICAic3RhdHVzIjogIkRhdGVkIHJlc2VhcmNoIHNuYXBzaG90OyBjdXJyZW50LXVzZSBleHBpcnkgcmVxdWlyZXMgYSBmcmVzaCBxdW90ZSIsCiAgIm9iamVjdGl2ZXMiOiBbCiAgICAiVmVyaWZ5IGNvbW1vbi1kYXRlIGRyYXdkb3duIiwKICAgICJDb21wYXJlIGNvbmNlbnRyYXRpb24gYW5kIGJyZWFkdGggcHJveGllcyIsCiAgICAiVHJhY2sgb2JzZXJ2YWJsZSByZWJvdW5kIGFuZCBmYWlsdXJlIGxldmVscyIKICBdLAogICJldmlkZW5jZSI6ICJmZWF0dXJlLWRlc2lnbi5tZCIsCiAgIm1ldGhvZF92ZXJzaW9uIjogInFxcWUtcmVib3VuZCByZXNlYXJjaCB2MSIsCiAgImNhcHR1cmVkX2F0IjogIjIwMjYtMTEtMjVUMTY6NTU6MDlaIiwKICAibmV4dF9hY3Rpb25zIjogWwogICAgIkNvbmZpcm0gcG9pbnQtaW4tdGltZSBOYXNkYXEtMTAwIGFkdmFuY2UvZGVjbGluZSBjb3VudHMgYW5kIHJhbmstYmFzZWQgcGFydGljaXBhdGlvbiIsCiAgICAiUmVhc3Nlc3MgcmF0aW8sIGFic29sdXRlIHJldHVybnMgYW5kIGJyZWFkdGggYWZ0ZXIgdGhlIGNsb3NlIgogIF0sCiAgInByaWNlcyI6IHsKICAgICJRUVFFIjogewogICAgICAiMjAyNi0xMC0wNiI6IDEyMi45OSwKICAgICAgIjIwMjYtMTEtMTMiOiAxMTUuODQsCiAgICAgICIyMDI2LTExLTE5IjogMTA5Ljg5LAogICAgICAiMjAyNi0xMS0yMCI6IDEwNS40MSwKICAgICAgIjIwMjYtMTEtMjMiOiAxMTAuNjIsCiAgICAgICIyMDI2LTExLTI0IjogMTA5LjU4CiAgICB9LAogICAgIlFRUSI6IHsKICAgICAgIjIwMjYtMTAtMDYiOiA3NTkuNjYsCiAgICAgICIyMDI2LTExLTEzIjogNjc5Ljg5LAogICAgICAiMjAyNi0xMS0xOSI6IDY0NS4wNCwKICAgICAgIjIwMjYtMTEtMjAiOiA2MDguNDUsCiAgICAgICIyMDI2LTExLTIzIjogNjUxLjAzLAogICAgICAiMjAyNi0xMS0yNCI6IDYzOC4xCiAgICB9LAogICAgIkFBUEwiOiB7CiAgICAgICIyMDI2LTEwLTA2IjogMzMzLjYzLAogICAgICAiMjAyNi0xMS0xMyI6IDM1Ni4yNywKICAgICAgIjIwMjYtMTEtMTkiOiAzNDkuMjEsCiAgICAgICIyMDI2LTExLTIwIjogMzQyLjU2LAogICAgICAiMjAyNi0xMS0yMyI6IDM0OS4wOCwKICAgICAgIjIwMjYtMTEtMjQiOiAzNTQuMDcKICAgIH0sCiAgICAiTVNGVCI6IHsKICAgICAgIjIwMjYtMTAtMDYiOiA1MjkuMywKICAgICAgIjIwMjYtMTEtMTMiOiA1MjMuODgsCiAgICAgICIyMDI2LTExLTE5IjogNDk4LjMsCiAgICAgICIyMDI2LTExLTIwIjogNDg0LjUyLAogICAgICAiMjAyNi0xMS0yMyI6IDQ5Mi41LAogICAgICAiMjAyNi0xMS0yNCI6IDQ5Ni4xMwogICAgfSwKICAgICJOVkRBIjogewogICAgICAiMjAyNi0xMC0wNiI6IDIzOS4yNCwKICAgICAgIjIwMjYtMTEtMTMiOiAxNjIuODUsCiAgICAgICIyMDI2LTExLTE5IjogMTQ1Ljk4LAogICAgICAiMjAyNi0xMS0yMCI6IDEyNS41MywKICAgICAgIjIwMjYtMTEtMjMiOiAxNjUuMDUsCiAgICAgICIyMDI2LTExLTI0IjogMTU1LjM4CiAgICB9LAogICAgIkFNWk4iOiB7CiAgICAgICIyMDI2LTEwLTA2IjogMjU2LjI5LAogICAgICAiMjAyNi0xMS0xMyI6IDI2Ni42NiwKICAgICAgIjIwMjYtMTEtMTkiOiAyNTcuMzcsCiAgICAgICIyMDI2LTExLTIwIjogMjQ2LjgyLAogICAgICAiMjAyNi0xMS0yMyI6IDI1NS4zOSwKICAgICAgIjIwMjYtMTEtMjQiOiAyNTIuMjkKICAgIH0sCiAgICAiQU1EIjogewogICAgICAiMjAyNi0xMC0wNiI6IDY0OS40MiwKICAgICAgIjIwMjYtMTEtMTMiOiA1MzQuMDYsCiAgICAgICIyMDI2LTExLTE5IjogNDg5LjE5LAogICAgICAiMjAyNi0xMS0yMCI6IDQyNC4zOSwKICAgICAgIjIwMjYtMTEtMjMiOiA0NTMuNDYsCiAgICAgICIyMDI2LTExLTI0IjogNDEzLjI3CiAgICB9LAogICAgIk1VIjogewogICAgICAiMjAyNi0xMC0wNiI6IDEwNDUuNTYsCiAgICAgICIyMDI2LTExLTEzIjogNzc4LjMxLAogICAgICAiMjAyNi0xMS0xOSI6IDY5MC40NCwKICAgICAgIjIwMjYtMTEtMjAiOiA1OTQuNTEsCiAgICAgICIyMDI2LTExLTIzIjogNzA3LjcsCiAgICAgICIyMDI2LTExLTI0IjogNjI5Ljc5CiAgICB9LAogICAgIlRTTEEiOiB7CiAgICAgICIyMDI2LTEwLTA2IjogMzgwLjY4LAogICAgICAiMjAyNi0xMS0xMyI6IDM5MC4yMiwKICAgICAgIjIwMjYtMTEtMTkiOiAzNzQuNDEsCiAgICAgICIyMDI2LTExLTIwIjogMzQ1LjgyLAogICAgICAiMjAyNi0xMS0yMyI6IDM4NS40NiwKICAgICAgIjIwMjYtMTEtMjQiOiAzODQuNjgKICAgIH0sCiAgICAiV01UIjogewogICAgICAiMjAyNi0xMC0wNiI6IDEwNy4yLAogICAgICAiMjAyNi0xMS0xMyI6IDEyOC4wOSwKICAgICAgIjIwMjYtMTEtMTkiOiAxMjYuMDQsCiAgICAgICIyMDI2LTExLTIwIjogMTI3Ljk1LAogICAgICAiMjAyNi0xMS0yMyI6IDEyOS41OCwKICAgICAgIjIwMjYtMTEtMjQiOiAxMzIuMzEKICAgIH0sCiAgICAiTUVUQSI6IHsKICAgICAgIjIwMjYtMTAtMDYiOiA3MzguODgsCiAgICAgICIyMDI2LTExLTEzIjogNjQxLjY5LAogICAgICAiMjAyNi0xMS0xOSI6IDU5Ni4yMiwKICAgICAgIjIwMjYtMTEtMjAiOiA1NjAuODQsCiAgICAgICIyMDI2LTExLTIzIjogNTk3LjYsCiAgICAgICIyMDI2LTExLTI0IjogNTg5LjgyCiAgICB9LAogICAgIkdPT0dMIjogewogICAgICAiMjAyNi0xMC0wNiI6IDM0Ny42OCwKICAgICAgIjIwMjYtMTEtMTMiOiAyOTUuNzcsCiAgICAgICIyMDI2LTExLTE5IjogMjcyLjY2LAogICAgICAiMjAyNi0xMS0yMCI6IDI2NS4yOSwKICAgICAgIjIwMjYtMTEtMjMiOiAyODIuMSwKICAgICAgIjIwMjYtMTEtMjQiOiAyNzkuMDUKICAgIH0sCiAgICAiU1BZIjogewogICAgICAiMjAyNi0xMC0wNiI6IDc3OS4wOSwKICAgICAgIjIwMjYtMTEtMTMiOiA3NTQuMzcsCiAgICAgICIyMDI2LTExLTE5IjogNzE1Ljg3LAogICAgICAiMjAyNi0xMS0yMCI6IDY4OS44MSwKICAgICAgIjIwMjYtMTEtMjMiOiA3MjIuMjksCiAgICAgICIyMDI2LTExLTI0IjogNzE4Ljc4CiAgICB9LAogICAgIlJTUCI6IHsKICAgICAgIjIwMjYtMTAtMDYiOiAyMTIuMzMsCiAgICAgICIyMDI2LTExLTEzIjogMjIxLjE2LAogICAgICAiMjAyNi0xMS0xOSI6IDIxMS42MywKICAgICAgIjIwMjYtMTEtMjAiOiAyMDcuNDQsCiAgICAgICIyMDI2LTExLTIzIjogMjEyLjgyLAogICAgICAiMjAyNi0xMS0yNCI6IDIxMy45NgogICAgfSwKICAgICJTTUgiOiB7CiAgICAgICIyMDI2LTEwLTA2IjogNjMyLjUsCiAgICAgICIyMDI2LTExLTEzIjogNDg2Ljc1LAogICAgICAiMjAyNi0xMS0xOSI6IDQ0Ny40OCwKICAgICAgIjIwMjYtMTEtMjAiOiA0MDAuMDYsCiAgICAgICIyMDI2LTExLTIzIjogNDYwLjE4LAogICAgICAiMjAyNi0xMS0yNCI6IDQyNi43NQogICAgfQogIH0sCiAgIm9ic2VydmVkX3NuYXBzaG90IjogewogICAgIlFRUUUiOiB7CiAgICAgICJsYXN0IjogMTA2LjgwMTQsCiAgICAgICJvYnNlcnZlZF9hdCI6ICIyMDI2LTExLTI1VDE2OjU0OjM1Ljk5NVoiLAogICAgICAibG93IjogMTA1Ljg5NSwKICAgICAgImJpZCI6IDEwNi42NiwKICAgICAgImFzayI6IDEwNi43MgogICAgfSwKICAgICJRUVEiOiB7CiAgICAgICJsYXN0IjogNjExLjUxOTksCiAgICAgICJvYnNlcnZlZF9hdCI6ICIyMDI2LTExLTI1VDE2OjU1OjA4LjkxMFoiLAogICAgICAibG93IjogNjA3Ljc0LAogICAgICAiYmlkIjogNjExLjUsCiAgICAgICJhc2siOiA2MTEuNTQKICAgIH0sCiAgICAiU1BZIjogewogICAgICAibGFzdCI6IDY5OS42NTczLAogICAgICAib2JzZXJ2ZWRfYXQiOiAiMjAyNi0xMS0yNVQxNjo1NTowOC44NjlaIiwKICAgICAgImxvdyI6IDY5NS40NSwKICAgICAgImJpZCI6IDY5OS42NSwKICAgICAgImFzayI6IDY5OS43MQogICAgfSwKICAgICJSU1AiOiB7CiAgICAgICJsYXN0IjogMjEyLjI0MTQsCiAgICAgICJvYnNlcnZlZF9hdCI6ICIyMDI2LTExLTI1VDE2OjU1OjA4LjE3MFoiLAogICAgICAibG93IjogMjEwLjU0LAogICAgICAiYmlkIjogMjEyLjIxLAogICAgICAiYXNrIjogMjEyLjI0CiAgICB9LAogICAgIlNNSCI6IHsKICAgICAgImxhc3QiOiAzOTYuMDU1LAogICAgICAib2JzZXJ2ZWRfYXQiOiAiMjAyNi0xMS0yNVQxNjo1NTowOC41NTVaIiwKICAgICAgImxvdyI6IDM5My44OCwKICAgICAgImJpZCI6IDM5NiwKICAgICAgImFzayI6IDM5Ni4xMQogICAgfSwKICAgICJOVkRBIjogewogICAgICAibGFzdCI6IDE0MS43MiwKICAgICAgIm9ic2VydmVkX2F0IjogIjIwMjYtMTEtMjVUMTY6NTU6MDguOTE5WiIsCiAgICAgICJsb3ciOiAxNDEuMTcsCiAgICAgICJiaWQiOiAxNDEuNzEsCiAgICAgICJhc2siOiAxNDEuNzMKICAgIH0sCiAgICAiTVNGVCI6IHsKICAgICAgImxhc3QiOiA0ODEuNzQxNywKICAgICAgIm9ic2VydmVkX2F0IjogIjIwMjYtMTEtMjVUMTY6NTU6MDguODcwWiIsCiAgICAgICJsb3ciOiA0NzcuMzksCiAgICAgICJiaWQiOiA0ODEuNTcsCiAgICAgICJhc2siOiA0ODEuNzcKICAgIH0sCiAgICAiQUFQTCI6IHsKICAgICAgImxhc3QiOiAzNDguMTg0MywKICAgICAgIm9ic2VydmVkX2F0IjogIjIwMjYtMTEtMjVUMTY6NTU6MDguODU0WiIsCiAgICAgICJsb3ciOiAzNDUuMTMsCiAgICAgICJiaWQiOiAzNDguMTUsCiAgICAgICJhc2siOiAzNDguMTkKICAgIH0sCiAgICAiQU1aTiI6IHsKICAgICAgImxhc3QiOiAyMzguOCwKICAgICAgIm9ic2VydmVkX2F0IjogIjIwMjYtMTEtMjVUMTY6NTU6MDguODU4WiIsCiAgICAgICJsb3ciOiAyMzUuOTYsCiAgICAgICJiaWQiOiAyMzguNzgsCiAgICAgICJhc2siOiAyMzguODIKICAgIH0sCiAgICAiQVZHTyI6IHsKICAgICAgImxhc3QiOiAyODIuMzM4NiwKICAgICAgIm9ic2VydmVkX2F0IjogIjIwMjYtMTEtMjVUMTY6NTU6MDguODczWiIsCiAgICAgICJsb3ciOiAyNzgsCiAgICAgICJiaWQiOiAyODIuMDMsCiAgICAgICJhc2siOiAyODIuMwogICAgfSwKICAgICJHT09HTCI6IHsKICAgICAgImxhc3QiOiAyNjUuMDQsCiAgICAgICJvYnNlcnZlZF9hdCI6ICIyMDI2LTExLTI1VDE2OjU1OjA4LjQ4NloiLAogICAgICAibG93IjogMjYyLjczLAogICAgICAiYmlkIjogMjY1LAogICAgICAiYXNrIjogMjY1LjA2CiAgICB9LAogICAgIk1FVEEiOiB7CiAgICAgICJsYXN0IjogNTgxLjQ5ODIsCiAgICAgICJvYnNlcnZlZF9hdCI6ICIyMDI2LTExLTI1VDE2OjU1OjA4LjY4NloiLAogICAgICAibG93IjogNTY3Ljc1LAogICAgICAiYmlkIjogNTgyLAogICAgICAiYXNrIjogNTgyLjM4CiAgICB9LAogICAgIlRTTEEiOiB7CiAgICAgICJsYXN0IjogMzY0LjM3NDUsCiAgICAgICJvYnNlcnZlZF9hdCI6ICIyMDI2LTExLTI1VDE2OjU1OjA4LjY0MloiLAogICAgICAibG93IjogMzU3LjY0LAogICAgICAiYmlkIjogMzY0LjI0LAogICAgICAiYXNrIjogMzY0LjQKICAgIH0sCiAgICAiTVUiOiB7CiAgICAgICJsYXN0IjogNTUxLjA3NSwKICAgICAgIm9ic2VydmVkX2F0IjogIjIwMjYtMTEtMjVUMTY6NTU6MDguODQxWiIsCiAgICAgICJsb3ciOiA1NDguMTMsCiAgICAgICJiaWQiOiA1NTAuOTgsCiAgICAgICJhc2siOiA1NTEuMTcKICAgIH0KICB9Cn0K
+{
+  "purpose": "Measure QQQE rebound potential and distinguish absolute recovery from relative defensive leadership.",
+  "owner": "B17",
+  "branch": "work/318-qqqe-rebound",
+  "issue": 318,
+  "parent": "../../../../AGENTS.md",
+  "dependencies": [
+    "B02 source observations"
+  ],
+  "status": "Dated research snapshot; current-use expiry requires a fresh quote",
+  "objectives": [
+    "Verify common-date drawdown",
+    "Compare concentration and breadth proxies",
+    "Track observable rebound and failure levels"
+  ],
+  "evidence": "feature-design.md",
+  "method_version": "qqqe-rebound research v1",
+  "captured_at": "2026-11-25T16:55:09Z",
+  "next_actions": [
+    "Confirm point-in-time Nasdaq-100 advance/decline counts and rank-based participation",
+    "Reassess ratio, absolute returns and breadth after the close"
+  ],
+  "prices": {
+    "QQQE": {
+      "2026-10-06": 122.99,
+      "2026-11-13": 115.84,
+      "2026-11-19": 109.89,
+      "2026-11-20": 105.41,
+      "2026-11-23": 110.62,
+      "2026-11-24": 109.58
+    },
+    "QQQ": {
+      "2026-10-06": 759.66,
+      "2026-11-13": 679.89,
+      "2026-11-19": 645.04,
+      "2026-11-20": 608.45,
+      "2026-11-23": 651.03,
+      "2026-11-24": 638.1
+    },
+    "AAPL": {
+      "2026-10-06": 333.63,
+      "2026-11-13": 356.27,
+      "2026-11-19": 349.21,
+      "2026-11-20": 342.56,
+      "2026-11-23": 349.08,
+      "2026-11-24": 354.07
+    },
+    "MSFT": {
+      "2026-10-06": 529.3,
+      "2026-11-13": 523.88,
+      "2026-11-19": 498.3,
+      "2026-11-20": 484.52,
+      "2026-11-23": 492.5,
+      "2026-11-24": 496.13
+    },
+    "NVDA": {
+      "2026-10-06": 239.24,
+      "2026-11-13": 162.85,
+      "2026-11-19": 145.98,
+      "2026-11-20": 125.53,
+      "2026-11-23": 165.05,
+      "2026-11-24": 155.38
+    },
+    "AMZN": {
+      "2026-10-06": 256.29,
+      "2026-11-13": 266.66,
+      "2026-11-19": 257.37,
+      "2026-11-20": 246.82,
+      "2026-11-23": 255.39,
+      "2026-11-24": 252.29
+    },
+    "AMD": {
+      "2026-10-06": 649.42,
+      "2026-11-13": 534.06,
+      "2026-11-19": 489.19,
+      "2026-11-20": 424.39,
+      "2026-11-23": 453.46,
+      "2026-11-24": 413.27
+    },
+    "MU": {
+      "2026-10-06": 1045.56,
+      "2026-11-13": 778.31,
+      "2026-11-19": 690.44,
+      "2026-11-20": 594.51,
+      "2026-11-23": 707.7,
+      "2026-11-24": 629.79
+    },
+    "TSLA": {
+      "2026-10-06": 380.68,
+      "2026-11-13": 390.22,
+      "2026-11-19": 374.41,
+      "2026-11-20": 345.82,
+      "2026-11-23": 385.46,
+      "2026-11-24": 384.68
+    },
+    "WMT": {
+      "2026-10-06": 107.2,
+      "2026-11-13": 128.09,
+      "2026-11-19": 126.04,
+      "2026-11-20": 127.95,
+      "2026-11-23": 129.58,
+      "2026-11-24": 132.31
+    },
+    "META": {
+      "2026-10-06": 738.88,
+      "2026-11-13": 641.69,
+      "2026-11-19": 596.22,
+      "2026-11-20": 560.84,
+      "2026-11-23": 597.6,
+      "2026-11-24": 589.82
+    },
+    "GOOGL": {
+      "2026-10-06": 347.68,
+      "2026-11-13": 295.77,
+      "2026-11-19": 272.66,
+      "2026-11-20": 265.29,
+      "2026-11-23": 282.1,
+      "2026-11-24": 279.05
+    },
+    "SPY": {
+      "2026-10-06": 779.09,
+      "2026-11-13": 754.37,
+      "2026-11-19": 715.87,
+      "2026-11-20": 689.81,
+      "2026-11-23": 722.29,
+      "2026-11-24": 718.78
+    },
+    "RSP": {
+      "2026-10-06": 212.33,
+      "2026-11-13": 221.16,
+      "2026-11-19": 211.63,
+      "2026-11-20": 207.44,
+      "2026-11-23": 212.82,
+      "2026-11-24": 213.96
+    },
+    "SMH": {
+      "2026-10-06": 632.5,
+      "2026-11-13": 486.75,
+      "2026-11-19": 447.48,
+      "2026-11-20": 400.06,
+      "2026-11-23": 460.18,
+      "2026-11-24": 426.75
+    }
+  },
+  "observed_snapshot": {
+    "QQQE": {
+      "last": 106.8014,
+      "observed_at": "2026-11-25T16:54:35.995Z",
+      "low": 105.895,
+      "bid": 106.66,
+      "ask": 106.72
+    },
+    "QQQ": {
+      "last": 611.5199,
+      "observed_at": "2026-11-25T16:55:08.910Z",
+      "low": 607.74,
+      "bid": 611.5,
+      "ask": 611.54
+    },
+    "SPY": {
+      "last": 699.6573,
+      "observed_at": "2026-11-25T16:55:08.869Z",
+      "low": 695.45,
+      "bid": 699.65,
+      "ask": 699.71
+    },
+    "RSP": {
+      "last": 212.2414,
+      "observed_at": "2026-11-25T16:55:08.170Z",
+      "low": 210.54,
+      "bid": 212.21,
+      "ask": 212.24
+    },
+    "SMH": {
+      "last": 396.055,
+      "observed_at": "2026-11-25T16:55:08.555Z",
+      "low": 393.88,
+      "bid": 396,
+      "ask": 396.11
+    },
+    "NVDA": {
+      "last": 141.72,
+      "observed_at": "2026-11-25T16:55:08.919Z",
+      "low": 141.17,
+      "bid": 141.71,
+      "ask": 141.73
+    },
+    "MSFT": {
+      "last": 481.7417,
+      "observed_at": "2026-11-25T16:55:08.870Z",
+      "low": 477.39,
+      "bid": 481.57,
+      "ask": 481.77
+    },
+    "AAPL": {
+      "last": 348.1843,
+      "observed_at": "2026-11-25T16:55:08.854Z",
+      "low": 345.13,
+      "bid": 348.15,
+      "ask": 348.19
+    },
+    "AMZN": {
+      "last": 238.8,
+      "observed_at": "2026-11-25T16:55:08.858Z",
+      "low": 235.96,
+      "bid": 238.78,
+      "ask": 238.82
+    },
+    "AVGO": {
+      "last": 282.3386,
+      "observed_at": "2026-11-25T16:55:08.873Z",
+      "low": 278,
+      "bid": 282.03,
+      "ask": 282.3
+    },
+    "GOOGL": {
+      "last": 265.04,
+      "observed_at": "2026-11-25T16:55:08.486Z",
+      "low": 262.73,
+      "bid": 265,
+      "ask": 265.06
+    },
+    "META": {
+      "last": 581.4982,
+      "observed_at": "2026-11-25T16:55:08.686Z",
+      "low": 567.75,
+      "bid": 582,
+      "ask": 582.38
+    },
+    "TSLA": {
+      "last": 364.3745,
+      "observed_at": "2026-11-25T16:55:08.642Z",
+      "low": 357.64,
+      "bid": 364.24,
+      "ask": 364.4
+    },
+    "MU": {
+      "last": 551.075,
+      "observed_at": "2026-11-25T16:55:08.841Z",
+      "low": 548.13,
+      "bid": 550.98,
+      "ask": 551.17
+    }
+  }
+}
