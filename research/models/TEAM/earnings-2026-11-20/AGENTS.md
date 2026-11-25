@@ -1,0 +1,3 @@
+# TEAM earnings research
+
+Inherit standing repository guidance from ../../../../AGENTS.md and B04 scope from ../../../../orchestration/sparks.json. This node owns only this subtree, issue293, branch work/293-team-earnings-2026-2030. Read state.json, then the one relevant feature-design.md. inputs-results.json preserves sources and scenarios; report.md is the human view. Review with review.md. Find existing sources/decisions before new work. Keep GAAP, issuer non-GAAP, provider normalized EPS and scenarios distinct. Dates are fiscal unless explicitly calendar. Do not mutate shared data, quote/event ledgers, schemas or another active worker. State is a record, not an executable controller. Never merge without authorization.

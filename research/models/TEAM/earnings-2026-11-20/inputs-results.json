@@ -1,0 +1,1047 @@
+{
+  "version": "0.1.0",
+  "ticker": "TEAM",
+  "currency": "USD",
+  "retrieved_local_date": "2026-11-20",
+  "retrieved_timezone": "America/Phoenix",
+  "available_at": null,
+  "ingested_at": null,
+  "market_reference": {
+    "price": 134.65,
+    "effective_at": "2026-11-20T16:00:00-05:00",
+    "source": "https://stockanalysis.com/stocks/team/forecast/",
+    "class": "dated_public_reference",
+    "fetch_receipt": null,
+    "current_canonical_verified": false
+  },
+  "consensus": {
+    "vintage": "2026-11-16",
+    "source": "https://www.qddresearch.com/int/team/",
+    "basis": "normalized EPS consistent with issuer non-GAAP historical series; future constituent reconciliations unavailable",
+    "rows": [
+      {
+        "fiscal_year": 2026,
+        "period_end": "2026-06-30",
+        "eps": 5.85,
+        "yoy_pct": 58.96739130434781,
+        "price_over_year_eps": 23.01709401709402,
+        "status": "issuer_actual"
+      },
+      {
+        "fiscal_year": 2027,
+        "period_end": "2027-06-30",
+        "eps": 5.52,
+        "yoy_pct": -5.641025641025643,
+        "price_over_year_eps": 24.393115942028988,
+        "status": "dated_consensus_2026-11-16"
+      },
+      {
+        "fiscal_year": 2028,
+        "period_end": "2028-06-30",
+        "eps": 6.66,
+        "yoy_pct": 20.65217391304348,
+        "price_over_year_eps": 20.21771771771772,
+        "status": "dated_consensus_2026-11-16"
+      },
+      {
+        "fiscal_year": 2029,
+        "period_end": "2029-06-30",
+        "eps": 8.25,
+        "yoy_pct": 23.873873873873876,
+        "price_over_year_eps": 16.32121212121212,
+        "status": "dated_consensus_2026-11-16"
+      },
+      {
+        "fiscal_year": 2030,
+        "period_end": "2030-06-30",
+        "eps": 9.9,
+        "yoy_pct": 19.999999999999996,
+        "price_over_year_eps": 13.6010101010101,
+        "status": "scenario_20pct_extension"
+      }
+    ]
+  },
+  "alternative_provider": {
+    "source": "https://stockanalysis.com/stocks/team/forecast/",
+    "fy2027": 5.48,
+    "fy2028": 6.7,
+    "used_in_primary_series": false
+  },
+  "quarantined_2030": {
+    "eps": 6.1,
+    "analysts": 3,
+    "source": "https://tradeonpurpose.com/stock/team/calendar",
+    "reason": "Sparse cohort; GAAP/adjusted basis and comparability not established. Not used as a verified earnings decline or valuation input.",
+    "verified_eps": null
+  },
+  "gaap_scenario": {
+    "assumptions": "FY27 revenue 6.57B*1.1375; net margin 3%,+3pp/year; revenue +18%/year; initial diluted shares256.85M,+1%/year. Net margin includes compensation and taxes by assumption, not an instrument-level cost bridge.",
+    "rows": [
+      {
+        "fiscal_year": 2026,
+        "eps": -0.21,
+        "yoy_pct": null,
+        "price_over_year_eps": null,
+        "status": "issuer_actual_loss"
+      },
+      {
+        "fiscal_year": 2027,
+        "revenue_bn": 7.473375,
+        "net_margin": 0.03,
+        "shares_bn": 0.25685,
+        "eps": 0.8728878722990071,
+        "yoy_pct": null,
+        "price_over_year_eps": 154.25807171012653,
+        "status": "conditional_scenario_not_consensus"
+      },
+      {
+        "fiscal_year": 2028,
+        "revenue_bn": 8.8185825,
+        "net_margin": 0.06,
+        "shares_bn": 0.25941850000000005,
+        "eps": 2.0396191867580757,
+        "yoy_pct": 133.66336633663366,
+        "price_over_year_eps": 66.01722560475754,
+        "status": "conditional_scenario_not_consensus"
+      },
+      {
+        "fiscal_year": 2029,
+        "revenue_bn": 10.405927349999999,
+        "net_margin": 0.09,
+        "shares_bn": 0.262012685,
+        "eps": 3.574382139170093,
+        "yoy_pct": 75.24752475247524,
+        "price_over_year_eps": 37.67084624904244,
+        "status": "conditional_scenario_not_consensus"
+      },
+      {
+        "fiscal_year": 2030,
+        "revenue_bn": 12.278994272999999,
+        "net_margin": 0.12,
+        "shares_bn": 0.26463281185000004,
+        "eps": 5.568014421413478,
+        "yoy_pct": 55.775577557755774,
+        "price_over_year_eps": 24.182767825126824,
+        "status": "conditional_scenario_not_consensus"
+      }
+    ]
+  },
+  "report_calendar": [
+    {
+      "period": "FY2026",
+      "period_end": "2026-06-30",
+      "report_date": "2026-08-06",
+      "status": "issuer_confirmed"
+    },
+    {
+      "period": "Q1 FY2027",
+      "period_end": "2026-09-30",
+      "report_date": "2026-11-05",
+      "status": "issuer_confirmed"
+    },
+    {
+      "period": "Q2 FY2027",
+      "period_end": "2026-12-31",
+      "report_date": "2027-02-04",
+      "status": "third_party_estimate_not_announced"
+    },
+    {
+      "period": "Q3 FY2027",
+      "period_end": "2027-03-31",
+      "report_date": null,
+      "window": "late April/early May2027",
+      "status": "historical_cadence_estimate"
+    },
+    {
+      "period": "FY2027",
+      "period_end": "2027-06-30",
+      "report_date": null,
+      "window": "August2027",
+      "status": "historical_cadence_estimate"
+    },
+    {
+      "period": "FY2028–2030",
+      "report_date": null,
+      "window": "August of each fiscal year ending June30",
+      "status": "historical_cadence_estimate"
+    }
+  ],
+  "return_scenarios": [
+    {
+      "assumptions": {
+        "name": "slow",
+        "g": 0.14,
+        "late": 0.1,
+        "cap": 0.12,
+        "step": 0.015,
+        "pe": 25
+      },
+      "first_full_fy_supporting_target": [
+        {
+          "price_multiple": 2,
+          "target": 269.3,
+          "first_fiscal_year": 2039
+        },
+        {
+          "price_multiple": 3,
+          "target": 403.95000000000005,
+          "first_fiscal_year": 2043
+        },
+        {
+          "price_multiple": 4,
+          "target": 538.6,
+          "first_fiscal_year": 2047
+        },
+        {
+          "price_multiple": 5,
+          "target": 673.25,
+          "first_fiscal_year": 2049
+        }
+      ],
+      "rows": [
+        {
+          "fiscal_year": 2027,
+          "revenue_bn": 7.473375,
+          "net_margin": 0.03,
+          "shares_bn": 0.25685,
+          "eps": 0.8728878722990071,
+          "price": 21.822196807475176
+        },
+        {
+          "fiscal_year": 2028,
+          "revenue_bn": 8.519647500000001,
+          "net_margin": 0.045,
+          "shares_bn": 0.25941850000000005,
+          "eps": 1.4778596649814875,
+          "price": 36.94649162453719
+        },
+        {
+          "fiscal_year": 2029,
+          "revenue_bn": 9.712398150000002,
+          "net_margin": 0.06,
+          "shares_bn": 0.262012685,
+          "eps": 2.2241056344275854,
+          "price": 55.60264086068963
+        },
+        {
+          "fiscal_year": 2030,
+          "revenue_bn": 11.072133891000004,
+          "net_margin": 0.075,
+          "shares_bn": 0.26463281185000004,
+          "eps": 3.1379708208508013,
+          "price": 78.44927052127004
+        },
+        {
+          "fiscal_year": 2031,
+          "revenue_bn": 12.622232635740005,
+          "net_margin": 0.09,
+          "shares_bn": 0.26727913996850006,
+          "eps": 4.250241666261283,
+          "price": 106.25604165653209
+        },
+        {
+          "fiscal_year": 2032,
+          "revenue_bn": 14.389345204743607,
+          "net_margin": 0.105,
+          "shares_bn": 0.26995193136818507,
+          "eps": 5.596852887254958,
+          "price": 139.92132218137394
+        },
+        {
+          "fiscal_year": 2033,
+          "revenue_bn": 15.82827972521797,
+          "net_margin": 0.12,
+          "shares_bn": 0.2726514506818669,
+          "eps": 6.966379831378166,
+          "price": 174.15949578445415
+        },
+        {
+          "fiscal_year": 2034,
+          "revenue_bn": 17.41110769773977,
+          "net_margin": 0.12,
+          "shares_bn": 0.27537796518868557,
+          "eps": 7.5871463510059245,
+          "price": 189.6786587751481
+        },
+        {
+          "fiscal_year": 2035,
+          "revenue_bn": 19.152218467513748,
+          "net_margin": 0.12,
+          "shares_bn": 0.27813174484057246,
+          "eps": 8.263228699115365,
+          "price": 206.58071747788412
+        },
+        {
+          "fiscal_year": 2036,
+          "revenue_bn": 21.067440314265124,
+          "net_margin": 0.12,
+          "shares_bn": 0.2809130622889781,
+          "eps": 8.999556008937526,
+          "price": 224.98890022343815
+        },
+        {
+          "fiscal_year": 2037,
+          "revenue_bn": 23.17418434569164,
+          "net_margin": 0.12,
+          "shares_bn": 0.2837221929118679,
+          "eps": 9.801496643397309,
+          "price": 245.03741608493272
+        },
+        {
+          "fiscal_year": 2038,
+          "revenue_bn": 25.491602780260806,
+          "net_margin": 0.12,
+          "shares_bn": 0.28655941484098657,
+          "eps": 10.67489733439311,
+          "price": 266.87243335982777
+        },
+        {
+          "fiscal_year": 2039,
+          "revenue_bn": 28.04076305828689,
+          "net_margin": 0.12,
+          "shares_bn": 0.28942500898939644,
+          "eps": 11.62612580973507,
+          "price": 290.65314524337674
+        },
+        {
+          "fiscal_year": 2040,
+          "revenue_bn": 30.84483936411558,
+          "net_margin": 0.12,
+          "shares_bn": 0.29231925907929046,
+          "eps": 12.66211721852334,
+          "price": 316.5529304630835
+        },
+        {
+          "fiscal_year": 2041,
+          "revenue_bn": 33.92932330052714,
+          "net_margin": 0.12,
+          "shares_bn": 0.2952424516700834,
+          "eps": 13.790424693441262,
+          "price": 344.76061733603154
+        },
+        {
+          "fiscal_year": 2042,
+          "revenue_bn": 37.32225563057985,
+          "net_margin": 0.12,
+          "shares_bn": 0.2981948761867842,
+          "eps": 15.019274418599398,
+          "price": 375.48186046498495
+        },
+        {
+          "fiscal_year": 2043,
+          "revenue_bn": 41.05448119363784,
+          "net_margin": 0.12,
+          "shares_bn": 0.30117682494865206,
+          "eps": 16.357625604415183,
+          "price": 408.9406401103796
+        },
+        {
+          "fiscal_year": 2044,
+          "revenue_bn": 45.159929313001626,
+          "net_margin": 0.12,
+          "shares_bn": 0.3041885931981385,
+          "eps": 17.81523580678882,
+          "price": 445.3808951697205
+        },
+        {
+          "fiscal_year": 2045,
+          "revenue_bn": 49.675922244301795,
+          "net_margin": 0.12,
+          "shares_bn": 0.3072304791301199,
+          "eps": 19.402732066799707,
+          "price": 485.0683016699927
+        },
+        {
+          "fiscal_year": 2046,
+          "revenue_bn": 54.64351446873198,
+          "net_margin": 0.12,
+          "shares_bn": 0.31030278392142113,
+          "eps": 21.131688389583836,
+          "price": 528.2922097395959
+        },
+        {
+          "fiscal_year": 2047,
+          "revenue_bn": 60.10786591560518,
+          "net_margin": 0.12,
+          "shares_bn": 0.31340581176063537,
+          "eps": 23.014710127269527,
+          "price": 575.3677531817382
+        },
+        {
+          "fiscal_year": 2048,
+          "revenue_bn": 66.1186525071657,
+          "net_margin": 0.12,
+          "shares_bn": 0.31653986987824173,
+          "eps": 25.065525881184634,
+          "price": 626.6381470296159
+        },
+        {
+          "fiscal_year": 2049,
+          "revenue_bn": 72.73051775788228,
+          "net_margin": 0.12,
+          "shares_bn": 0.31970526857702414,
+          "eps": 27.299087593369407,
+          "price": 682.4771898342352
+        },
+        {
+          "fiscal_year": 2050,
+          "revenue_bn": 80.00356953367051,
+          "net_margin": 0.12,
+          "shares_bn": 0.3229023212627944,
+          "eps": 29.731679557134996,
+          "price": 743.2919889283748
+        },
+        {
+          "fiscal_year": 2051,
+          "revenue_bn": 88.00392648703757,
+          "net_margin": 0.12,
+          "shares_bn": 0.32613134447542236,
+          "eps": 32.381037141434156,
+          "price": 809.525928535854
+        },
+        {
+          "fiscal_year": 2052,
+          "revenue_bn": 96.80431913574134,
+          "net_margin": 0.12,
+          "shares_bn": 0.3293926579201765,
+          "eps": 35.26647609463127,
+          "price": 881.6619023657818
+        },
+        {
+          "fiscal_year": 2053,
+          "revenue_bn": 106.48475104931548,
+          "net_margin": 0.12,
+          "shares_bn": 0.3326865844993783,
+          "eps": 38.40903337039049,
+          "price": 960.2258342597622
+        },
+        {
+          "fiscal_year": 2054,
+          "revenue_bn": 117.13322615424704,
+          "net_margin": 0.12,
+          "shares_bn": 0.33601345034437213,
+          "eps": 41.831620502405485,
+          "price": 1045.7905125601371
+        },
+        {
+          "fiscal_year": 2055,
+          "revenue_bn": 128.84654876967176,
+          "net_margin": 0.12,
+          "shares_bn": 0.3393735848478158,
+          "eps": 45.5591906461842,
+          "price": 1138.979766154605
+        },
+        {
+          "fiscal_year": 2056,
+          "revenue_bn": 141.73120364663893,
+          "net_margin": 0.12,
+          "shares_bn": 0.342767320696294,
+          "eps": 49.61892050574516,
+          "price": 1240.4730126436289
+        },
+        {
+          "fiscal_year": 2057,
+          "revenue_bn": 155.90432401130283,
+          "net_margin": 0.12,
+          "shares_bn": 0.346194993903257,
+          "eps": 54.04040847160365,
+          "price": 1351.0102117900913
+        }
+      ]
+    },
+    {
+      "assumptions": {
+        "name": "middle",
+        "g": 0.18,
+        "late": 0.12,
+        "cap": 0.2,
+        "step": 0.03,
+        "pe": 30
+      },
+      "first_full_fy_supporting_target": [
+        {
+          "price_multiple": 2,
+          "target": 269.3,
+          "first_fiscal_year": 2032
+        },
+        {
+          "price_multiple": 3,
+          "target": 403.95000000000005,
+          "first_fiscal_year": 2033
+        },
+        {
+          "price_multiple": 4,
+          "target": 538.6,
+          "first_fiscal_year": 2036
+        },
+        {
+          "price_multiple": 5,
+          "target": 673.25,
+          "first_fiscal_year": 2038
+        }
+      ],
+      "rows": [
+        {
+          "fiscal_year": 2027,
+          "revenue_bn": 7.473375,
+          "net_margin": 0.03,
+          "shares_bn": 0.25685,
+          "eps": 0.8728878722990071,
+          "price": 26.186636168970214
+        },
+        {
+          "fiscal_year": 2028,
+          "revenue_bn": 8.8185825,
+          "net_margin": 0.06,
+          "shares_bn": 0.25941850000000005,
+          "eps": 2.0396191867580757,
+          "price": 61.188575602742276
+        },
+        {
+          "fiscal_year": 2029,
+          "revenue_bn": 10.405927349999999,
+          "net_margin": 0.09,
+          "shares_bn": 0.262012685,
+          "eps": 3.574382139170093,
+          "price": 107.2314641751028
+        },
+        {
+          "fiscal_year": 2030,
+          "revenue_bn": 12.278994272999999,
+          "net_margin": 0.12,
+          "shares_bn": 0.26463281185000004,
+          "eps": 5.568014421413478,
+          "price": 167.04043264240434
+        },
+        {
+          "fiscal_year": 2031,
+          "revenue_bn": 14.489213242139998,
+          "net_margin": 0.15,
+          "shares_bn": 0.26727913996850006,
+          "eps": 8.131506209489979,
+          "price": 243.94518628469936
+        },
+        {
+          "fiscal_year": 2032,
+          "revenue_bn": 17.097271625725195,
+          "net_margin": 0.18,
+          "shares_bn": 0.26995193136818507,
+          "eps": 11.40021068578001,
+          "price": 342.00632057340033
+        },
+        {
+          "fiscal_year": 2033,
+          "revenue_bn": 19.148944220812222,
+          "net_margin": 0.2,
+          "shares_bn": 0.2726514506818669,
+          "eps": 14.046464211302105,
+          "price": 421.39392633906317
+        },
+        {
+          "fiscal_year": 2034,
+          "revenue_bn": 21.44681752730969,
+          "net_margin": 0.2,
+          "shares_bn": 0.27537796518868557,
+          "eps": 15.576277145206296,
+          "price": 467.2883143561889
+        },
+        {
+          "fiscal_year": 2035,
+          "revenue_bn": 24.020435630586856,
+          "net_margin": 0.2,
+          "shares_bn": 0.27813174484057246,
+          "eps": 17.272703368941638,
+          "price": 518.1811010682492
+        },
+        {
+          "fiscal_year": 2036,
+          "revenue_bn": 26.90288790625728,
+          "net_margin": 0.2,
+          "shares_bn": 0.2809130622889781,
+          "eps": 19.15388888437093,
+          "price": 574.6166665311279
+        },
+        {
+          "fiscal_year": 2037,
+          "revenue_bn": 30.13123445500816,
+          "net_margin": 0.2,
+          "shares_bn": 0.2837221929118679,
+          "eps": 21.239955990589547,
+          "price": 637.1986797176864
+        },
+        {
+          "fiscal_year": 2038,
+          "revenue_bn": 33.74698258960914,
+          "net_margin": 0.2,
+          "shares_bn": 0.28655941484098657,
+          "eps": 23.553218524218114,
+          "price": 706.5965557265434
+        },
+        {
+          "fiscal_year": 2039,
+          "revenue_bn": 37.79662050036224,
+          "net_margin": 0.2,
+          "shares_bn": 0.28942500898939644,
+          "eps": 26.11842054170722,
+          "price": 783.5526162512166
+        },
+        {
+          "fiscal_year": 2040,
+          "revenue_bn": 42.33221496040571,
+          "net_margin": 0.2,
+          "shares_bn": 0.29231925907929046,
+          "eps": 28.96300099674463,
+          "price": 868.8900299023388
+        },
+        {
+          "fiscal_year": 2041,
+          "revenue_bn": 47.412080755654394,
+          "net_margin": 0.2,
+          "shares_bn": 0.2952424516700834,
+          "eps": 32.117387243914834,
+          "price": 963.521617317445
+        },
+        {
+          "fiscal_year": 2042,
+          "revenue_bn": 53.10153044633292,
+          "net_margin": 0.2,
+          "shares_bn": 0.2981948761867842,
+          "eps": 35.615320508103586,
+          "price": 1068.4596152431077
+        },
+        {
+          "fiscal_year": 2043,
+          "revenue_bn": 59.47371409989288,
+          "net_margin": 0.2,
+          "shares_bn": 0.30117682494865206,
+          "eps": 39.49421680106536,
+          "price": 1184.826504031961
+        },
+        {
+          "fiscal_year": 2044,
+          "revenue_bn": 66.61055979188004,
+          "net_margin": 0.2,
+          "shares_bn": 0.3041885931981385,
+          "eps": 43.795567145735866,
+          "price": 1313.867014372076
+        },
+        {
+          "fiscal_year": 2045,
+          "revenue_bn": 74.60382696690564,
+          "net_margin": 0.2,
+          "shares_bn": 0.3072304791301199,
+          "eps": 48.56538138933086,
+          "price": 1456.9614416799259
+        },
+        {
+          "fiscal_year": 2046,
+          "revenue_bn": 83.55628620293433,
+          "net_margin": 0.2,
+          "shares_bn": 0.31030278392142113,
+          "eps": 53.854680352525314,
+          "price": 1615.6404105757595
+        },
+        {
+          "fiscal_year": 2047,
+          "revenue_bn": 93.58304054728646,
+          "net_margin": 0.2,
+          "shares_bn": 0.31340581176063537,
+          "eps": 59.720041579037975,
+          "price": 1791.6012473711392
+        },
+        {
+          "fiscal_year": 2048,
+          "revenue_bn": 104.81300541296085,
+          "net_margin": 0.2,
+          "shares_bn": 0.31653986987824173,
+          "eps": 66.22420452328964,
+          "price": 1986.7261356986892
+        },
+        {
+          "fiscal_year": 2049,
+          "revenue_bn": 117.39056606251616,
+          "net_margin": 0.2,
+          "shares_bn": 0.31970526857702414,
+          "eps": 73.43674164958851,
+          "price": 2203.102249487655
+        },
+        {
+          "fiscal_year": 2050,
+          "revenue_bn": 131.4774339900181,
+          "net_margin": 0.2,
+          "shares_bn": 0.3229023212627944,
+          "eps": 81.43480262132589,
+          "price": 2443.0440786397767
+        },
+        {
+          "fiscal_year": 2051,
+          "revenue_bn": 147.2547260688203,
+          "net_margin": 0.2,
+          "shares_bn": 0.32613134447542236,
+          "eps": 90.3039395404802,
+          "price": 2709.118186214406
+        },
+        {
+          "fiscal_year": 2052,
+          "revenue_bn": 164.92529319707876,
+          "net_margin": 0.2,
+          "shares_bn": 0.3293926579201765,
+          "eps": 100.13902206469095,
+          "price": 3004.1706619407287
+        },
+        {
+          "fiscal_year": 2053,
+          "revenue_bn": 184.7163283807282,
+          "net_margin": 0.2,
+          "shares_bn": 0.3326865844993783,
+          "eps": 111.04525219054835,
+          "price": 3331.3575657164506
+        },
+        {
+          "fiscal_year": 2054,
+          "revenue_bn": 206.88228778641562,
+          "net_margin": 0.2,
+          "shares_bn": 0.33601345034437213,
+          "eps": 123.13928955783581,
+          "price": 3694.1786867350743
+        },
+        {
+          "fiscal_year": 2055,
+          "revenue_bn": 231.7081623207855,
+          "net_margin": 0.2,
+          "shares_bn": 0.3393735848478158,
+          "eps": 136.55049931165954,
+          "price": 4096.514979349786
+        },
+        {
+          "fiscal_year": 2056,
+          "revenue_bn": 259.51314179927977,
+          "net_margin": 0.2,
+          "shares_bn": 0.342767320696294,
+          "eps": 151.4223358703551,
+          "price": 4542.670076110653
+        },
+        {
+          "fiscal_year": 2057,
+          "revenue_bn": 290.65471881519335,
+          "net_margin": 0.2,
+          "shares_bn": 0.346194993903257,
+          "eps": 167.91387740078983,
+          "price": 5037.416322023695
+        }
+      ]
+    },
+    {
+      "assumptions": {
+        "name": "aggressive",
+        "g": 0.25,
+        "late": 0.15,
+        "cap": 0.25,
+        "step": 0.044,
+        "pe": 40
+      },
+      "first_full_fy_supporting_target": [
+        {
+          "price_multiple": 2,
+          "target": 269.3,
+          "first_fiscal_year": 2030
+        },
+        {
+          "price_multiple": 3,
+          "target": 403.95000000000005,
+          "first_fiscal_year": 2031
+        },
+        {
+          "price_multiple": 4,
+          "target": 538.6,
+          "first_fiscal_year": 2031
+        },
+        {
+          "price_multiple": 5,
+          "target": 673.25,
+          "first_fiscal_year": 2032
+        }
+      ],
+      "rows": [
+        {
+          "fiscal_year": 2027,
+          "revenue_bn": 7.473375,
+          "net_margin": 0.03,
+          "shares_bn": 0.25685,
+          "eps": 0.8728878722990071,
+          "price": 34.915514891960285
+        },
+        {
+          "fiscal_year": 2028,
+          "revenue_bn": 9.34171875,
+          "net_margin": 0.074,
+          "shares_bn": 0.25941850000000005,
+          "eps": 2.6647567058633053,
+          "price": 106.5902682345322
+        },
+        {
+          "fiscal_year": 2029,
+          "revenue_bn": 11.6771484375,
+          "net_margin": 0.118,
+          "shares_bn": 0.262012685,
+          "eps": 5.258919107771441,
+          "price": 210.35676431085764
+        },
+        {
+          "fiscal_year": 2030,
+          "revenue_bn": 14.596435546875,
+          "net_margin": 0.162,
+          "shares_bn": 0.26463281185000004,
+          "eps": 8.935485142840385,
+          "price": 357.4194057136154
+        },
+        {
+          "fiscal_year": 2031,
+          "revenue_bn": 18.24554443359375,
+          "net_margin": 0.206,
+          "shares_bn": 0.26727913996850006,
+          "eps": 14.062384942436124,
+          "price": 562.4953976974449
+        },
+        {
+          "fiscal_year": 2032,
+          "revenue_bn": 22.806930541992188,
+          "net_margin": 0.24999999999999997,
+          "shares_bn": 0.26995193136818507,
+          "eps": 21.121288544224203,
+          "price": 844.8515417689681
+        },
+        {
+          "fiscal_year": 2033,
+          "revenue_bn": 26.227970123291012,
+          "net_margin": 0.25,
+          "shares_bn": 0.2726514506818669,
+          "eps": 24.048991906789936,
+          "price": 961.9596762715975
+        },
+        {
+          "fiscal_year": 2034,
+          "revenue_bn": 30.16216564178466,
+          "net_margin": 0.25,
+          "shares_bn": 0.27537796518868557,
+          "eps": 27.382515537434085,
+          "price": 1095.3006214973634
+        },
+        {
+          "fiscal_year": 2035,
+          "revenue_bn": 34.68649048805236,
+          "net_margin": 0.25,
+          "shares_bn": 0.27813174484057246,
+          "eps": 31.178111750543753,
+          "price": 1247.12447002175
+        },
+        {
+          "fiscal_year": 2036,
+          "revenue_bn": 39.889464061260206,
+          "net_margin": 0.25,
+          "shares_bn": 0.2809130622889781,
+          "eps": 35.49983021101517,
+          "price": 1419.9932084406068
+        },
+        {
+          "fiscal_year": 2037,
+          "revenue_bn": 45.872883670449234,
+          "net_margin": 0.25,
+          "shares_bn": 0.2837221929118679,
+          "eps": 40.42059875511628,
+          "price": 1616.8239502046513
+        },
+        {
+          "fiscal_year": 2038,
+          "revenue_bn": 52.75381622101661,
+          "net_margin": 0.25,
+          "shares_bn": 0.28655941484098657,
+          "eps": 46.02345402810269,
+          "price": 1840.9381611241076
+        },
+        {
+          "fiscal_year": 2039,
+          "revenue_bn": 60.6668886541691,
+          "net_margin": 0.25,
+          "shares_bn": 0.28942500898939644,
+          "eps": 52.40294270526543,
+          "price": 2096.1177082106174
+        },
+        {
+          "fiscal_year": 2040,
+          "revenue_bn": 69.76692195229445,
+          "net_margin": 0.25,
+          "shares_bn": 0.29231925907929046,
+          "eps": 59.66671694163884,
+          "price": 2386.6686776655533
+        },
+        {
+          "fiscal_year": 2041,
+          "revenue_bn": 80.23196024513861,
+          "net_margin": 0.25,
+          "shares_bn": 0.2952424516700834,
+          "eps": 67.93735097315312,
+          "price": 2717.4940389261246
+        },
+        {
+          "fiscal_year": 2042,
+          "revenue_bn": 92.2667542819094,
+          "net_margin": 0.25,
+          "shares_bn": 0.2981948761867842,
+          "eps": 77.35440952388721,
+          "price": 3094.1763809554886
+        },
+        {
+          "fiscal_year": 2043,
+          "revenue_bn": 106.1067674241958,
+          "net_margin": 0.25,
+          "shares_bn": 0.30117682494865206,
+          "eps": 88.0768029232379,
+          "price": 3523.072116929516
+        },
+        {
+          "fiscal_year": 2044,
+          "revenue_bn": 122.02278253782515,
+          "net_margin": 0.25,
+          "shares_bn": 0.3041885931981385,
+          "eps": 100.28546867497387,
+          "price": 4011.4187469989547
+        },
+        {
+          "fiscal_year": 2045,
+          "revenue_bn": 140.3261999184989,
+          "net_margin": 0.25,
+          "shares_bn": 0.3072304791301199,
+          "eps": 114.18642472893062,
+          "price": 4567.456989157225
+        },
+        {
+          "fiscal_year": 2046,
+          "revenue_bn": 161.3751299062737,
+          "net_margin": 0.25,
+          "shares_bn": 0.31030278392142113,
+          "eps": 130.01424597848532,
+          "price": 5200.569839139413
+        },
+        {
+          "fiscal_year": 2047,
+          "revenue_bn": 185.58139939221476,
+          "net_margin": 0.25,
+          "shares_bn": 0.31340581176063537,
+          "eps": 148.0360226487704,
+          "price": 5921.440905950816
+        },
+        {
+          "fiscal_year": 2048,
+          "revenue_bn": 213.41860930104696,
+          "net_margin": 0.25,
+          "shares_bn": 0.31653986987824173,
+          "eps": 168.55586737236231,
+          "price": 6742.234694894492
+        },
+        {
+          "fiscal_year": 2049,
+          "revenue_bn": 245.43140069620398,
+          "net_margin": 0.25,
+          "shares_bn": 0.31970526857702414,
+          "eps": 191.9200470081353,
+          "price": 7676.801880325412
+        },
+        {
+          "fiscal_year": 2050,
+          "revenue_bn": 282.24611080063454,
+          "net_margin": 0.25,
+          "shares_bn": 0.3229023212627944,
+          "eps": 218.52282580134215,
+          "price": 8740.913032053686
+        },
+        {
+          "fiscal_year": 2051,
+          "revenue_bn": 324.5830274207297,
+          "net_margin": 0.25,
+          "shares_bn": 0.32613134447542236,
+          "eps": 248.81311848667667,
+          "price": 9952.524739467066
+        },
+        {
+          "fiscal_year": 2052,
+          "revenue_bn": 373.27048153383913,
+          "net_margin": 0.25,
+          "shares_bn": 0.3293926579201765,
+          "eps": 283.3020656036418,
+          "price": 11332.08262414567
+        },
+        {
+          "fiscal_year": 2053,
+          "revenue_bn": 429.26105376391496,
+          "net_margin": 0.25,
+          "shares_bn": 0.3326865844993783,
+          "eps": 322.57165885563165,
+          "price": 12902.866354225265
+        },
+        {
+          "fiscal_year": 2054,
+          "revenue_bn": 493.65021182850217,
+          "net_margin": 0.25,
+          "shares_bn": 0.33601345034437213,
+          "eps": 367.28456206334295,
+          "price": 14691.382482533718
+        },
+        {
+          "fiscal_year": 2055,
+          "revenue_bn": 567.6977436027775,
+          "net_margin": 0.25,
+          "shares_bn": 0.3393735848478158,
+          "eps": 418.19529343845977,
+          "price": 16727.81173753839
+        },
+        {
+          "fiscal_year": 2056,
+          "revenue_bn": 652.852405143194,
+          "net_margin": 0.25,
+          "shares_bn": 0.342767320696294,
+          "eps": 476.1629578754739,
+          "price": 19046.518315018955
+        },
+        {
+          "fiscal_year": 2057,
+          "revenue_bn": 750.780265914673,
+          "net_margin": 0.25,
+          "shares_bn": 0.346194993903257,
+          "eps": 542.1657441156385,
+          "price": 21686.62976462554
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1650372/000165037226000031/ex991q4fy26.htm",
+      "class": "issuer_filing",
+      "available_date": "2026-08-06"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1650372/000165037226000049/ex991q1fy27.htm",
+      "class": "issuer_filing",
+      "available_date": "2026-11-05"
+    },
+    {
+      "url": "https://www.qddresearch.com/int/team/",
+      "class": "third_party_consensus",
+      "vintage": "2026-11-16"
+    },
+    {
+      "url": "https://www.tipranks.com/stocks/team/earnings",
+      "class": "third_party_calendar_estimate"
+    },
+    {
+      "url": "https://earnings.fru.dev/companies/atlassian",
+      "class": "third_party_calendar_estimate"
+    },
+    {
+      "url": "https://s206.q4cdn.com/270053503/files/content_files/TEAM-Q1-2027-Shareholder-Letter.pdf",
+      "class": "issuer_statement",
+      "available_date": "2026-11-05"
+    }
+  ]
+}
