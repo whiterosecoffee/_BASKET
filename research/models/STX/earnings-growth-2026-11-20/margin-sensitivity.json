@@ -1,0 +1,70 @@
+{
+  "model_version": "stx-adjusted-margin-sensitivity/0.1.0",
+  "record_class": "scenario_not_forecast",
+  "retrieval_local_date": "2026-11-20",
+  "timezone": "America/Phoenix",
+  "currency": "USD",
+  "source_urls": [
+    "https://s24.q4cdn.com/101481333/files/content_files/STX-US-CORRECTED-TRANSCRIPT-Seagate-Technology-Holdings-PlcSTXUS-Q1-2027-Earnings-Call-27-ET-PM-26-10-2026-2026-10-26-0.pdf",
+    "https://www.chartmill.com/stock/quote/STX/estimates"
+  ],
+  "observed_at": "2026-11-21T04:29:52.496Z",
+  "available_at": null,
+  "expires_at": null,
+  "input_status": "Issuer quarterly assumptions annualized for sensitivity; long-horizon vendor revenue/EPS provisional",
+  "assumptions": {
+    "opex_b": 1.2,
+    "net_other_expense_b": 0.1,
+    "tax": 0.16,
+    "shares_b": 0.233,
+    "latest_gross_margin": 0.578
+  },
+  "formula": "EPS=(revenue_b*gross_margin-opex_b-net_other_expense_b)*(1-tax)/shares_b",
+  "rows": [
+    {
+      "fy": 2027,
+      "revenue_b": 20.447,
+      "target_eps": 40.6,
+      "vendor_gross_margin": 0.555,
+      "vendor_operating_margin": 0.5537731696581406,
+      "required_gross_margin": 0.6143525537568675,
+      "eps_at_current_gm": 37.92028944206008,
+      "eps_at_65pct_gm": 43.2277339055794,
+      "eps_at_vendor_gm": 36.224855793991416
+    },
+    {
+      "fy": 2028,
+      "revenue_b": 28.888,
+      "target_eps": 66.5,
+      "vendor_gross_margin": 0.556,
+      "vendor_operating_margin": 0.6307117142065909,
+      "required_gross_margin": 0.6835306470968338,
+      "eps_at_current_gm": 55.509449613733906,
+      "eps_at_65pct_gm": 63.0079313304721,
+      "eps_at_vendor_gm": 53.218246866952796
+    },
+    {
+      "fy": 2029,
+      "revenue_b": 35.169,
+      "target_eps": 90.37,
+      "vendor_gross_margin": 0.591,
+      "vendor_operating_margin": 0.6498620944581877,
+      "required_gross_margin": 0.7497203976987311,
+      "eps_at_current_gm": 68.59765184549353,
+      "eps_at_65pct_gm": 77.72649785407724,
+      "eps_at_vendor_gm": 70.24591570815448
+    }
+  ],
+  "finding": "FY2028/29 vendor operating margins exceed gross margins; consensus components not accepted as one income statement",
+  "checks": {
+    "python_roundtrip_cases": 3,
+    "max_absolute_error": 1e-10,
+    "result": "pass"
+  },
+  "limitations": [
+    "Adjusted sensitivity only, not GAAP EPS",
+    "Constant shares/opex/tax are explicit scenarios",
+    "No forecast confidence or fair value",
+    "No raw licensed captures or canonical ingestion"
+  ]
+}

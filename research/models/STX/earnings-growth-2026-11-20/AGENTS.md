@@ -1,0 +1,3 @@
+# STX earnings-growth research
+
+Inherit standing guidance from ../../../../AGENTS.md and B04 scope in ../../../../orchestration/sparks.json. State is a record, not a controller. Read state.json and feature-design.md before acting. Scope is this subtree only; other domains retain their existing ownership. Reuse #291 as historical input and preserve source disagreements. Do not label dated forecasts or search-indexed cells live. Next action is selected from state.json. Review against the feature contract; distinguish guidance, reported adjusted/GAAP and consensus; replay arithmetic and retain missing data. No merge authorized.

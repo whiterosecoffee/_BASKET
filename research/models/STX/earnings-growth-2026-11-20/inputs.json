@@ -1,0 +1,152 @@
+{
+  "record_class": "dated_public_research_summary",
+  "model_version": "stx-eps-growth/1.0.0",
+  "ticker": "STX",
+  "currency": "USD",
+  "retrieval_local_date": "2026-11-20",
+  "timezone": "America/Phoenix",
+  "observed_at": "2026-11-21T04:26:44.470Z",
+  "available_at": null,
+  "ingested_at": null,
+  "effective_at": null,
+  "expires_at": null,
+  "validity_status": "Reported facts historical; dated estimates are not certified current executable inputs",
+  "sources": {
+    "annual": {
+      "url": "https://investors.seagate.com/news/news-details/2026/Seagate-Technology-Reports-Fiscal-Fourth-Quarter-and-Fiscal-Year-2026-Financial-Results/",
+      "source_class": "issuer_release",
+      "published_date": "2026-07-28",
+      "period_end": "2026-07-03"
+    },
+    "quarter": {
+      "url": "https://investors.seagate.com/news/news-details/2026/Seagate-Technology-Reports-Fiscal-First-Quarter-2027-Financial-Results/",
+      "source_class": "issuer_release",
+      "published_date": "2026-10-27",
+      "period_end": "2026-10-02"
+    },
+    "chartmill": {
+      "url": "https://www.chartmill.com/stock/quote/STX/estimates",
+      "source_class": "third_party_consensus",
+      "snapshot_date": "2026-11-14",
+      "retrieval": "FY2027 direct page; FY2028/FY2029 public indexed search evidence; direct page cells locked",
+      "eps_basis": "Not fully reconciled to issuer adjusted EPS; must not describe as GAAP forecasts",
+      "analysts_fy2027": 31,
+      "analysts_fy2028": null,
+      "analysts_fy2029": null
+    },
+    "stockanalysis": {
+      "url": "https://stockanalysis.com/stocks/stx/forecast/",
+      "source_class": "third_party_consensus",
+      "upstream": "S&P Global Market Intelligence",
+      "snapshot_date": "2026-11-12",
+      "eps_basis": "Explicitly non-GAAP adjusted"
+    },
+    "transcript": {
+      "url": "https://s24.q4cdn.com/101481333/files/content_files/STX-US-CORRECTED-TRANSCRIPT-Seagate-Technology-Holdings-PlcSTXUS-Q1-2027-Earnings-Call-27-ET-PM-26-10-2026-2026-10-26-0.pdf",
+      "source_class": "issuer_hosted_call_transcript",
+      "published_date": "2026-10-27"
+    }
+  },
+  "issuer": {
+    "source": "annual",
+    "fy2025": {
+      "gaap_eps": 6.77,
+      "adjusted_eps": 8.1
+    },
+    "fy2026": {
+      "gaap_eps": 13.9,
+      "adjusted_eps": 15.58,
+      "revenue_millions": 12195
+    },
+    "q1fy2026": {
+      "gaap_eps": 2.43,
+      "adjusted_eps": 2.61,
+      "revenue_millions": 2629,
+      "adjusted_gross_margin_pct": 40.1
+    },
+    "q1fy2027": {
+      "source": "quarter",
+      "gaap_eps": 7.59,
+      "adjusted_eps": 7.68,
+      "revenue_millions": 4233,
+      "adjusted_gross_margin_pct": 57.8,
+      "free_cash_flow_millions": 1479
+    },
+    "q2fy2027_guidance": {
+      "source": "quarter",
+      "record_class": "company_guidance",
+      "adjusted_eps_mid": 9.2,
+      "adjusted_eps_half_range": 0.2,
+      "revenue_millions_mid": 4800,
+      "revenue_millions_half_range": 100
+    }
+  },
+  "series": {
+    "chartmill": {
+      "2025": 8.1,
+      "2026": 15.53,
+      "2027": 40.6,
+      "2028": 66.5,
+      "2029": 90.37
+    },
+    "stockanalysis": {
+      "2026": 15.58,
+      "2027": 39.98,
+      "2028": 65.34,
+      "2029": null
+    }
+  },
+  "derived": {
+    "formula": "growth_pct = (later_eps / earlier_eps - 1) * 100",
+    "issuer_adjusted_fy2026_growth_pct": 92.3456790123457,
+    "q1fy2027_adjusted_growth_pct": 194.25287356321837,
+    "q1fy2027_gaap_growth_pct": 212.34567901234564,
+    "q1fy2027_revenue_growth_pct": 61.011791555724606,
+    "q2_guided_sequential_eps_growth_pct": 19.79166666666665,
+    "chartmill_internal_growth_pct": {
+      "2027": 161.42949130714746,
+      "2028": 63.793103448275865,
+      "2029": 35.89473684210527
+    },
+    "issuer_baseline_chartmill_forecasts_growth_pct": {
+      "2027": 160.5905006418485,
+      "2028": 63.793103448275865,
+      "2029": 35.89473684210527
+    },
+    "stockanalysis_internal_growth_pct": {
+      "2027": 156.61103979460847,
+      "2028": 63.43171585792899
+    },
+    "fy2026_to_fy2029_chartmill_forecast_over_issuer_actual_multiple": 5.8003851091142495,
+    "fy2026_to_fy2029_chartmill_forecast_over_issuer_actual_cagr_pct": 79.67415441382883
+  },
+  "discrepancies": [
+    {
+      "field": "FY2026 adjusted EPS",
+      "issuer": 15.58,
+      "chartmill": 15.53,
+      "resolution": "Use issuer actual for displayed baseline; retain vendor series separately. Corrected FY2027 growth 160.6%, compared with vendor internal 161.4%."
+    },
+    {
+      "field": "FY2027/FY2028 forecasts",
+      "chartmill": [
+        40.6,
+        66.5
+      ],
+      "stockanalysis": [
+        39.98,
+        65.34
+      ],
+      "resolution": "Different provider snapshots, not established analyst revisions. Never splice forecasts between providers."
+    }
+  ],
+  "limitations": [
+    "Fiscal years end around June; exact future dates not primary-verified. FY2027 is approximately July2026–June2027, not calendar2027.",
+    "No current quote consumed or requested; no market JSONL read, canonical FETCH run or duplicate writer.",
+    "Small Q1 GAAP-adjusted difference includes a tax adjustment that offsets SBC/debt charges; does not demonstrate zero dilution or future identical GAAP/adjusted earnings.",
+    "No normalized-cycle fair value, return probability or trading signal.",
+    "Prior comparison #291 remains historical; this does not overwrite the basket-wide screen."
+  ],
+  "main_commit_read": "433d3574033a35f24910dc1ffee21ecbf27702dc",
+  "related_issue": 291
+}
