@@ -36,7 +36,7 @@ Spark B02 | issue #151 | research record, 2026-11-25. Docs were read from massiv
 | 6 | Calendar | docs give only upcoming holidays; `gap_analysis.py` hard-codes holidays | One calendar module, checked against zero-result days; refreshed from `/v1/marketstatus/upcoming` | QC app owner |
 | 7 | Corporate actions | `/stocks/v1/splits` exists; data stored unadjusted | Split ledger for the continuity check and for consumers | _FETCH owner |
 | 8 | Bulk path unused | flat files hold one file per day for all tickers | Evaluate for backfill and gap fill; needs plan, separate S3 keys and a check of the basis | B00 and owner |
-| 9 | Key handling differs from the task-start rule | task text: key only from `MASSIVE_API_KEY`; local code: key files | Decide one rule; keep key out of URLs, logs and archived responses in any case | owner decision |
+| 9 | Key handling differs from the task-start rule | task text: key only from `MASSIVE_API_KEY`; local code: key files | **Resolved 2026-11-25 by the owner:** local key file outside any repository; the env-only rule is superseded. Keep the key out of repositories, URLs, logs and archived responses | resolved |
 | 10 | Arrow responses | optional | Not needed at about 960 rows per day | none |
 
 ## 4. Not verified
