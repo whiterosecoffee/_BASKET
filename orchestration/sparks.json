@@ -1,7 +1,7 @@
 {
   "project": "_BASKET",
   "repository": "whiterosecoffee/_BASKET",
-  "catalog_version": "1.6.0",
+  "catalog_version": "1.6.1",
   "as_of": "2026-10-16",
   "source_coverage": "Partial reconstruction from accessible conversation excerpts, memory, historical MRIE workstream artifacts and GitHub source tree. No complete raw ChatGPT transcript export. Repo audited on 2026-10-16; CI failure identified in relationships schema mismatch.",
   "bootstrap_policy": "Each launched NEW conversation creates its own issue then unique branch. Dormant sparks do NOT have pre-created issues or branches. Project instructions should direct ChatGPT to read AGENTS.md and this catalog.",
@@ -365,7 +365,8 @@
         "architecture/**",
         "schemas/**",
         "README.md",
-        "CHANGELOG.md"
+        "CHANGELOG.md",
+        "copier.yml"
       ],
       "read_paths": [
         "architecture/**",
@@ -375,7 +376,7 @@
       "dependencies": [],
       "first_task": "Audit open issues, identify collision risks, maintain issue→branch→owner registry and contract change requests.",
       "acceptance": "Every workstream has disjoint write permissions, linked issues and an explicit integration sequence.",
-      "launch_prompt": "Launch _BASKET Spark B00: Orchestrator & Contracts. Read AGENTS.md and orchestration/sparks.json from current main after PR #2 merges; until then READ them from work/1-conversation-sparks-orchestration (PR #2), while creating YOUR own issue and branch from current main. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: AGENTS.md, orchestration/**, architecture/**, schemas/**, README.md, CHANGELOG.md. Your READ scope: architecture/**, schemas/**, .github/workflows/**. Objective: Coordinate issue/branch lifecycle, file ownership, interfaces, integration sequencing, and dependency handoffs. First task: Audit open issues, identify collision risks, maintain issue→branch→owner registry and contract change requests. Acceptance: Every workstream has disjoint write permissions, linked issues and an explicit integration sequence. Dependencies: none. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
+      "launch_prompt": "Launch _BASKET Spark B00: Orchestrator & Contracts. Read AGENTS.md and orchestration/sparks.json from current main after PR #2 merges; until then READ them from work/1-conversation-sparks-orchestration (PR #2), while creating YOUR own issue and branch from current main. Inspect open issues, active PRs, branches, and path ownership. Create a NEW GitHub issue for THIS conversation and a UNIQUE branch work/<issue-number>-<objective-slug> from latest main before edits. Your WRITE scope: copier.yml, AGENTS.md, orchestration/**, architecture/**, schemas/**, README.md, CHANGELOG.md. Your READ scope: architecture/**, schemas/**, .github/workflows/**. Objective: Coordinate issue/branch lifecycle, file ownership, interfaces, integration sequencing, and dependency handoffs. First task: Audit open issues, identify collision risks, maintain issue→branch→owner registry and contract change requests. Acceptance: Every workstream has disjoint write permissions, linked issues and an explicit integration sequence. Dependencies: none. If another worker already owns a file, narrow scope or open a linked handoff issue with a ready-to-paste receiving prompt. No direct edits outside owned paths, no unsourced current quotes, no stale financial computation, USD-first. Commit on your branch, run relevant checks, open draft PR, never auto-merge."
     },
     {
       "id": "B01",

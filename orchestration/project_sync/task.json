@@ -1,0 +1,119 @@
+{
+  "schema": "basket.worker_task@1",
+  "task_id": "B00-134",
+  "spark_id": "B00",
+  "issue": {
+    "number": 134,
+    "url": "https://github.com/whiterosecoffee/_BASKET/issues/134"
+  },
+  "branch": {
+    "name": "work/134-github-project-control-plane",
+    "base": "main"
+  },
+  "objective": "GitHub Projects synchronization and shared Copier engineering bootstrap, preserving domain ownership and independently verifiable evidence",
+  "write_paths": [
+    "orchestration/project_sync/**",
+    "copier.yml",
+    "orchestration/bootstrap/**",
+    "orchestration/sparks.json",
+    "architecture/version-manifest.json",
+    "orchestration/planner/worker-scopes.json"
+  ],
+  "acceptance": [
+    {
+      "id": "A1",
+      "criterion": "Paginated permission-aware API transport",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A2",
+      "criterion": "Idempotent project item and field synchronization",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A3",
+      "criterion": "Existing contract validation and conservative status gates",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A4",
+      "criterion": "Execute mocked and existing B00 regression tests",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A5",
+      "criterion": "Verify actual live Project configuration and synchronization",
+      "evidence_class": "source",
+      "mandatory": true
+    },
+    {
+      "id": "A6",
+      "criterion": "Commit isolated implementation and open draft PR",
+      "evidence_class": "source",
+      "mandatory": true
+    },
+    {
+      "id": "A7",
+      "criterion": "Actual Copier generation records a pinned remote source revision",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A8",
+      "criterion": "Actual versioned Copier update preserves local edits and rejects invalid input",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A9",
+      "criterion": "Deterministic template generation and existing B00 regression tests pass",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A10",
+      "criterion": "Explicit native Project ordering preflights the full request, preserves unselected items, repeats without position writes and stops on uncertain writes or observed drift",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A11",
+      "criterion": "Ordering and repeated sync preserve dependency/review gates without asserting readiness, completion or dispatch",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A12",
+      "criterion": "Explicit existing-Project number or ID selection is owner-scoped, title-independent, fully paginated and fail-closed without fallback or creation; prior modes and unchanged-repeat behavior remain compatible",
+      "evidence_class": "test",
+      "mandatory": true
+    },
+    {
+      "id": "A13",
+      "criterion": "Explicit order-only CLI requires an existing target and canonical issue order, skips all configuration/import/field updates, rejects missing members before writes and retains no-op repeat, uncertainty and observed-drift guards",
+      "evidence_class": "test",
+      "mandatory": true
+    }
+  ],
+  "dependencies": [
+    {
+      "issue_number": 132,
+      "kind": "upstream_pr",
+      "blocks_completion": false,
+      "reason": "Preserve reducer; adapter is independent"
+    },
+    {
+      "issue_number": 108,
+      "kind": "handoff",
+      "blocks_completion": false,
+      "reason": "B06 reversal engine remains separate"
+    }
+  ],
+  "claimed_at": "2026-10-31T02:19:58Z",
+  "state": "building",
+  "note": "2026-11-10 controller-approved continuation: one exclusive B00-134 writer for orchestration/project_sync/{control.py,README.md,test_order_only.py,task.json}, starting at 743641f825dd7e5b7fe6b1e1958f634301cdcec4. Transfer: issuecomment-6776913881. Existing owner identity and all prior obligations remain. No live Project, workflow, credential, catalog or queue changes in this increment. Publish expected-head/non-force only; full live acceptance and integration gates remain separate."
+}
