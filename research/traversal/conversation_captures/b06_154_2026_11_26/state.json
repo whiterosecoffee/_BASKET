@@ -7,7 +7,7 @@
     "branch": "main",
     "sha": "7eb29bbae71614559f41ec283908753e9a677a55"
   },
-  "status": "archive_branch_writes_in_progress",
+  "status": "source_preservation_published_verified_partial_chat_coverage",
   "instructions_ref": "AGENTS.md",
   "source_issue": "https://github.com/whiterosecoffee/_BASKET/issues/154",
   "source_pr": "https://github.com/whiterosecoffee/_BASKET/pull/160",
@@ -63,13 +63,18 @@
   ],
   "artifacts_included": [
     "AGENTS.md",
-    "state.json",
     "INDEX.md",
+    "state.json",
     "PURPOSES.json",
     "EVIDENCE_LEDGER.md",
     "UI_PROVENANCE.md",
     "EXTRACTION_PROTOCOL.md",
-    "HANDOFF.md"
+    "HANDOFF.md",
+    "purpose/P01_HISTORICAL_STATE.md",
+    "purpose/P02_RANGE_VISUALIZATION.md",
+    "purpose/P03_DATA_CUSTODY.md",
+    "purpose/P04_EVENT_VALIDATION.md",
+    "purpose/P05_PATTERNS_COMPOSITION.md"
   ],
   "coverage": {
     "conversation_visible_messages": "analyzed_from_available_context",
@@ -85,7 +90,17 @@
     "Use one clean preservation branch distinct from existing product development",
     "Do not claim a verbatim conversation scrape absent native export"
   ],
-  "archive_readiness": "preserved_available_sources; original_chat_and_widget_completeness_unverified",
+  "archive_readiness": "research_intelligence_and_cross_links_preserved; full_native_chat_and_rendered_widgets_NOT_VERIFIED",
   "active_editor": null,
-  "next_action": "Future pickup reviews this branch and a full native conversation export if obtained, verifies original visual identity, then routes independently missing obligations through their existing owners"
+  "next_action": "Read index and purpose registry in this branch; recover full native transcript or visual export only if needed to prove absolute completeness; owners adopt individual gaps through their existing branches",
+  "verification": {
+    "git_remote_file_readback_count": 13,
+    "all_json_parsed": true,
+    "ui_exact_source_at_pr145": true,
+    "source_pr160_ui_artifacts": false,
+    "source_export_available": false,
+    "ui_identity_with_original_chat": "not_verified",
+    "new_branch_checkout_claim": false,
+    "branch_unmerged": true
+  }
 }
