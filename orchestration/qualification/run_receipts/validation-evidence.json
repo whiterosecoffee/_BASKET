@@ -1,0 +1,62 @@
+{
+  "classification": "actual_local_test_execution_on_synthetic_inputs",
+  "base_revision": "74d913e8913d630d85451344689e093aeea07efc",
+  "recorded_at": null,
+  "python": "3.12.14",
+  "jsonschema": "4.26.0",
+  "attempts": [
+    {
+      "id": "focused-1",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s orchestration/qualification/run_receipts -p 'test_*.py' -v",
+      "tests": 10,
+      "failures": 0,
+      "errors": 4,
+      "result": "fail",
+      "diagnosis": "Optional RFC3339 checker absent; malformed timestamps reached datetime comparison.",
+      "correction": "Register explicit offline date-time checker; preserve negative fixtures."
+    },
+    {
+      "id": "focused-2",
+      "retry_of": "focused-1",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s orchestration/qualification/run_receipts -p 'test_*.py' -v",
+      "tests": 10,
+      "corpus_cases": 46,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "result": "pass"
+    },
+    {
+      "id": "regression-1",
+      "command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s orchestration/tests -p 'test_*.py' -q",
+      "tests": 242,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "result": "pass"
+    },
+    {
+      "id": "cli-1",
+      "command": "python -B orchestration/qualification/run_receipts/validate.py orchestration/qualification/run_receipts/specimen.json",
+      "exit_code": 0,
+      "result": "pass",
+      "claims_verified": false
+    }
+  ],
+  "tested_file_sha256": {
+    "README.md": "1c2f75519efa60083dba74cbfea7baefba03c48f9d77ad88cfd7113853ad7c60",
+    "cases.json": "b5f526d62bdd0477a4f44e48b9d196d5b655e79f309d20e49f8093464cff2a11",
+    "mapping.json": "852e35abe8ec065298ab91dc7dfb7121492307f32919d641da02a9296f1886d8",
+    "receipt.schema.json": "04ae02f4e5d52f309a743a2793fb48987c67a83e16ed63e4d6ba393b7f05215b",
+    "specimen.json": "88f454b87e2314e6c7ce31ce1e2ccea5d8aed04c5bfe61f4b955e5b154abfe2b",
+    "test_validate.py": "e4ec0364d6f13a19c5acf6206286632063d54244f5c980d6bcd418facf260c3c",
+    "validate.py": "3af3b3323c2f4f6dfc8503cb370639deb61727ed218356ea254292ca21f847c2"
+  },
+  "limits": [
+    "Synthetic receipt assertions are not authenticated.",
+    "No independent review or real operational receipt acceptance.",
+    "Shared CI does not discover this focused suite.",
+    "No canonical schema, controller, schedule, queue or owner record changed.",
+    "Publication and current CI status are reported separately in the GitHub resolution."
+  ]
+}
