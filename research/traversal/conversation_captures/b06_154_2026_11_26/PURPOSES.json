@@ -1,0 +1,69 @@
+{
+  "id": "B06_154_PURPOSE_EXPLOSION",
+  "status": "planned_addressable_nodes_not_active_workers",
+  "nodes": [
+    {
+      "id": "P01",
+      "title": "Historical self-relative state",
+      "design": "purpose/P01_HISTORICAL_STATE.md",
+      "owner": "B06 #154 / future adoption #108",
+      "source_prs": [
+        160,
+        109
+      ],
+      "contract": "completed-session as-of descriptive state",
+      "status": "research_implemented_not_production"
+    },
+    {
+      "id": "P02",
+      "title": "Range visualization and participation matrices",
+      "design": "purpose/P02_RANGE_VISUALIZATION.md",
+      "owner": "B06 #144",
+      "source_prs": [
+        145,
+        150,
+        109,
+        99
+      ],
+      "contract": "offline eight-view UI, source and unit qualified",
+      "status": "offline_implemented_draft"
+    },
+    {
+      "id": "P03",
+      "title": "Canonical data custody and ticker-home outputs",
+      "design": "purpose/P03_DATA_CUSTODY.md",
+      "owner": "B02 via B00 #148/#183; B14 via #136",
+      "source_prs": [
+        160,
+        145
+      ],
+      "contract": "local-first durable per-session storage and manifest",
+      "status": "owner_handoff_pending"
+    },
+    {
+      "id": "P04",
+      "title": "Episode recognition and incremental validation",
+      "design": "purpose/P04_EVENT_VALIDATION.md",
+      "owner": "B06 #144 / B07 #93",
+      "source_prs": [
+        145,
+        160,
+        109
+      ],
+      "contract": "frozen independent events and same-cohort A/B",
+      "status": "research_spec_not_empirical"
+    },
+    {
+      "id": "P05",
+      "title": "Reusable system patterns and Microsoft methods",
+      "design": "purpose/P05_PATTERNS_COMPOSITION.md",
+      "owner": "B00 / _PATTERNS _SYSTEM_DESIGN",
+      "source_prs": [
+        160
+      ],
+      "contract": "inherited evidence-to-decision, owner routing and verification",
+      "status": "design_pending"
+    }
+  ],
+  "branch_policy": "One preservation branch holding references to five purpose candidates; any future code branch requires separate authorized owner claim"
+}
