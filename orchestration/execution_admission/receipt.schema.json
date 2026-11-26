@@ -1,0 +1,134 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "policy_version",
+    "request_sha256",
+    "observation_sha256",
+    "trusted_sha256",
+    "evaluated_at",
+    "decision",
+    "reasons",
+    "execution_authorized",
+    "evidence_truth_verified",
+    "permitted_next"
+  ],
+  "properties": {
+    "schema": {
+      "const": "basket.execution_admission_receipt@1"
+    },
+    "policy_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "request_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "observation_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "trusted_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "evaluated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "decision": {
+      "enum": [
+        "eligible",
+        "rejected",
+        "parked"
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "execution_authorized": {
+      "const": false
+    },
+    "evidence_truth_verified": {
+      "const": false
+    },
+    "permitted_next": {
+      "enum": [
+        "executor_recheck",
+        "repair_evidence",
+        "park_only"
+      ]
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "eligible"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "permitted_next": {
+            "const": "executor_recheck"
+          },
+          "reasons": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "rejected"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "permitted_next": {
+            "const": "repair_evidence"
+          },
+          "reasons": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "parked"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "permitted_next": {
+            "const": "park_only"
+          },
+          "reasons": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

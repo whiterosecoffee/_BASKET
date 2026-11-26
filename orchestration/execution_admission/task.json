@@ -1,0 +1,171 @@
+{
+  "schema": "basket.local_candidate@1",
+  "task_id": "local-20261112-execution-admission",
+  "spark_id": "B00",
+  "owner": "delegated-admission-worker",
+  "purpose": "Bounded pure execution-admission contracts and validation on WORKSTATION-A",
+  "issue": null,
+  "branch": "work/local-20261112-execution-admission-portable",
+  "base": "74d913e8913d630d85451344689e093aeea07efc",
+  "worktree": "admission-isolated-worktree",
+  "state": "portable_component_review_pending_integration",
+  "write_paths": [
+    "orchestration/execution_admission/**"
+  ],
+  "authority": "B00 delegated bounded implementation; subsequent user direction authorizes scoped portable branch publication subject to permission review. Prior public issue creation denial remains in force.",
+  "dependencies": [
+    134,
+    136,
+    207,
+    201,
+    32,
+    78,
+    34,
+    169
+  ],
+  "permitted_effects": [
+    "local_owned_source_changes",
+    "local_tests",
+    "local_branch_commit",
+    "review_gated_portable_branch_publication"
+  ],
+  "excluded_effects": [
+    "runtime_activation",
+    "market_data_changes",
+    "merge",
+    "deployment",
+    "denied_publication_retry"
+  ],
+  "acceptance": [
+    "Strict reusable request and receipt schemas",
+    "Declared intent separate from observed proof and trusted controller pins",
+    "Reject identity, scope, inputs, writer, prerequisites and uncertain effects failures",
+    "Continuation preserves ownership; transfer requires cessation and record",
+    "Offline parking only; deterministic repeat and negative tests",
+    "Durable purpose/scope/authority README and explicit integration boundary"
+  ],
+  "next_action": "Review the existing component through its draft PR while the controller supplies one authentic lease/run-binding integration seam; permit only a labelled disposable dry-run until then",
+  "integration": {
+    "canonical_queue": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+    "independent_recheck_reported_at": "2026-11-12T22:31:39.570660+00:00",
+    "implementation_revision": "baba85f89ed90116345754bc2e457354e1f2f26b",
+    "evidence_class": "retrieved_controller_report_plus_local_exact_head_tests",
+    "local_component_status": "48_admission_10_protocol_and_negative_probes_reported_by_controller",
+    "system_integration_status": "not_enforced_in_session_launch",
+    "publication_status": "baba85f_remote_verified_2026-11-13",
+    "plan_steps_supported": [
+      1,
+      2,
+      5
+    ],
+    "plan_steps_requiring_other_owners": [
+      3,
+      4,
+      6
+    ],
+    "handoff_status": "prepared_for_parent_return_not_a_verified_launch_or_queue_update",
+    "next_owner": "Dot/B00 controller with existing #32 controller and #78 adapter owners; runtime/scheduler boundary remains B08",
+    "integration_gates": [
+      "Bind authentic controller authority and actual executor observations to the reviewed validator",
+      "Acquire exclusive session lease and recheck inputs/head/ownership immediately before effects",
+      "Demonstrate blocked launch produces no effects",
+      "Qualify one existing data-worker continuation and one code worker on WORKSTATION-A",
+      "Resolve the separate denied-publication gate before any public issue creation",
+      "Reconcile template/policy adoption through existing owners; preserve _FETCH/_MAP/_TICKER responsibilities"
+    ]
+  },
+  "methodology_handoff": {
+    "source": "https://github.com/whiterosecoffee/_BASKET/blob/de49f7b71334830648d94a211696a2d9cb2325ff/orchestration/handoff_loop/methodology-gaps.json",
+    "source_revision": "de49f7b71334830648d94a211696a2d9cb2325ff",
+    "source_blob": "931b785fd83945167750d723267bd5e3f3549fc1",
+    "source_status": "proposed_owner_handoff_not_accepted",
+    "authority": "Existing delegated admission-folder scope only; proposals do not expand authority",
+    "dispositions": [
+      {
+        "id": "launch-enforcement",
+        "status": "existing_pure_checks_integration_open",
+        "observation": "Host/OS pins and offline parking validated; no actual environment collector or launcher enforcement",
+        "receiver": "existing executor/launch-path owner",
+        "acceptance_pending": "Wrong-host and offline real launch probes denied before execution"
+      },
+      {
+        "id": "atomic-ownership",
+        "status": "existing_pure_checks_integration_open",
+        "observation": "Scope/observed isolation/lease checks implemented; no atomic lock or dependency dispatcher",
+        "receiver": "existing controller and launcher owners",
+        "acceptance_pending": "Concurrent launches cannot create two writers; dirty work and ancestry survive; out-of-scope dependencies routed"
+      },
+      {
+        "id": "privacy-boundary",
+        "status": "portable_baseline_observed_no_runtime_enforcement",
+        "observation": "Baseline 52466d0 remote verified; sanitized history and targeted scan; no permanent automated publication enforcement",
+        "receiver": "existing publication owner",
+        "acceptance_pending": "Exact candidate diff/history scan before each publication; private registries never included"
+      },
+      {
+        "id": "durable-resume",
+        "status": "bounded_transfer_acknowledgement_implemented_other_gates_open",
+        "observation": "Replacement owner and positive acknowledgement must match exact request hash; no checkpoint or scheduler implementation",
+        "receiver": "existing controller/scheduler/launch-path owners",
+        "acceptance_pending": "Restart rereads checkpoint; exact persistent schedule target; duplicate wakes coalesce; stale writer fenced; real retirement and replacement acknowledgement"
+      },
+      {
+        "id": "trusted-observation-adapter",
+        "status": "adapter_not_implemented",
+        "observation": "Pure evaluator does not authenticate observations, even when structurally valid",
+        "receiver": "existing trusted-observation adapter owner via controller",
+        "acceptance_pending": "Forged or stale observations and session-start-only acceptance fail real integration probe"
+      }
+    ],
+    "end_to_end_acceptance": "not_claimed",
+    "next_action": "Controller assigns the existing observation/launch-path owner one bounded real probe using this candidate; preserve scheduler and denied-public-issue gates"
+  },
+  "blocker_reconciliation": {
+    "as_of": "2026-11-13",
+    "resolved": [
+      {
+        "id": "branch_publication",
+        "evidence": "Remote ref verified at baba85f89ed90116345754bc2e457354e1f2f26b"
+      },
+      {
+        "id": "acknowledgement_logic_review",
+        "evidence": "Controller reported 48 admission + 10 protocol tests and independent negative probes passed on the updated branch; receipt retained privately, not a new independent run by this worker"
+      }
+    ],
+    "open": [
+      {
+        "id": "live_controller_interfaces",
+        "kind": "capability",
+        "owner": "Dot/B00 controller; #32/#78 interface owners",
+        "missing": "Authentic exclusive worker lease and scheduler-run-to-session binding",
+        "exit": "Existing owner supplies actual bindings; wrong-host/offline/concurrent/uncertain-effect probes reject before effects",
+        "blocks": "live or autonomous admission; does not block code review or explicitly disposable dry-run"
+      },
+      {
+        "id": "public_task_registration",
+        "kind": "approval",
+        "owner": "controller",
+        "missing": "Approval for previously denied public issue creation",
+        "exit": "Specific denied action is resolved by controller; this worker does not retry",
+        "blocks": "new worker issue registration, not the separately authorized branch publication"
+      },
+      {
+        "id": "review_and_integration",
+        "kind": "review",
+        "owner": "B00/B01 existing reviewers",
+        "missing": "Repository review and integration disposition at exact PR head",
+        "exit": "Review exact source and tests; retain launcher limitations; merge requires separate authorization",
+        "blocks": "main integration"
+      },
+      {
+        "id": "scheduler_acceptance",
+        "kind": "operational",
+        "owner": "existing scheduler/runtime owner, B08 boundary and Handoff #169",
+        "missing": "Real checkpoint reread, target binding, duplicate-wake coalescing, restart and stale-writer fencing",
+        "exit": "Actual scheduled run plus recovery evidence",
+        "blocks": "recurring autonomous operation"
+      }
+    ],
+    "next_action": "Review the existing component through its draft PR while the controller supplies one authentic lease/run-binding integration seam; permit only a labelled disposable dry-run until then"
+  }
+}
