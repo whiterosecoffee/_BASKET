@@ -23,8 +23,8 @@
   "adjustment_basis": "split_adjusted",
   "interval": "1d",
   "start": "2025-10-01",
-  "end": "2026-10-15",
-  "records": 262,
+  "end": "2026-10-29",
+  "records": 272,
   "record_status": "completed_daily_bars",
-  "notes": "Source provider timestamp interpreted as market-session date; source request retrieved 2026-10-16. Provider may revise records."
+  "notes": "Source provider timestamp interpreted as market-session date; source request retrieved 2026-10-16. Provider may revise records. Rows 2026-10-16..2026-10-29 appended 2026-10-29 after the close (issue #110); the 2026-10-29 bar may be revised."
 }
