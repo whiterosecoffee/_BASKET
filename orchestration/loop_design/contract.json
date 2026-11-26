@@ -1,0 +1,244 @@
+{
+  "schema": "basket.loop_design@1",
+  "issue": 232,
+  "branch": "work/232-scoped-loop-contracts",
+  "scope": [
+    "orchestration/loop_design/**",
+    "orchestration/tests/test_loop_design_bridge.py"
+  ],
+  "authority": {
+    "queue": "https://github.com/whiterosecoffee/_BASKET/issues/136",
+    "intake": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6807011593",
+    "map": {
+      "issue": 230,
+      "candidate_commit": "5c74c8ea4b6644272d5c7186ab7e1090b66a3a8f",
+      "status": "unmerged_read_only"
+    },
+    "existing_controller_owners": [
+      24,
+      32
+    ],
+    "spec_is_not_scheduler": true,
+    "configured_schedule": null,
+    "runtime_activation": "separate_authorized_verified_gate",
+    "private_configuration": "excluded"
+  },
+  "sources": [
+    {
+      "path": "orchestration/EXECUTION_LOOP.md",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "ecc609556b400438f95f749f0ab43be10e637f4f45e9c85332e7d92cd6c79739"
+    },
+    {
+      "path": "orchestration/execution_loop.py",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "bf0866c7cc1016a82ffa818b5563a80db0027fe1997f8ec5aa5df19fbd04d592"
+    },
+    {
+      "path": "orchestration/WORKER_PROTOCOL.md",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "667887a1dd8bb04f44219567367d34208968329d915399145ba15724ac77baf7"
+    },
+    {
+      "path": "orchestration/agentic/manager.py",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "ef6807803d9dca7fc58a596d8c613bcf8dbeae578c74a4a41d45ec3551689487"
+    },
+    {
+      "path": "orchestration/planner.py",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "sha256": "409828e9b3ea8042a943d84611b8e4883b35d361b132dedcb6ec654dfaf8c6dc"
+    }
+  ],
+  "roles": [
+    {
+      "id": "audit",
+      "owner_role": "B00",
+      "trigger": "source_change_or_before_selection",
+      "inputs": [
+        "fresh_queue",
+        "claims",
+        "source_revisions",
+        "prior_checkpoint"
+      ],
+      "outputs": [
+        "coverage_delta",
+        "unresolved_questions",
+        "evidence_gaps"
+      ],
+      "responsibility": "Reconcile intent and actual evidence; never infer completion from narrative."
+    },
+    {
+      "id": "advance",
+      "owner_role": "current_scoped_owner",
+      "trigger": "after_audit_and_before_one_bounded_action",
+      "inputs": [
+        "audit_result",
+        "candidate_options",
+        "ownership",
+        "authorization"
+      ],
+      "outputs": [
+        "action_proposal",
+        "checkpoint"
+      ],
+      "responsibility": "Choose one smallest eligible outcome. Blocked work does not occupy a writer."
+    },
+    {
+      "id": "review",
+      "owner_role": "independent_reviewer",
+      "trigger": "after_candidate_change_before_acceptance",
+      "inputs": [
+        "candidate_revision",
+        "test_receipts",
+        "acceptance_criteria"
+      ],
+      "outputs": [
+        "review_verdict",
+        "rework_or_acceptance_proposal"
+      ],
+      "responsibility": "Reviewer identity must differ from producer; exact revision evidence is mandatory."
+    },
+    {
+      "id": "outer",
+      "owner_role": "B00",
+      "trigger": "after_completed_cycle_or_material_goal_change",
+      "inputs": [
+        "accepted_results",
+        "failures",
+        "measurements",
+        "coverage_delta"
+      ],
+      "outputs": [
+        "method_change_proposal",
+        "next_horizon_delta"
+      ],
+      "responsibility": "Compare outcome quality, rework and effort; improve one method under existing owner scope."
+    }
+  ],
+  "ports": {
+    "fresh_queue": "Fresh issue body/comments plus observation time and digest; source failure blocks selection.",
+    "claims": "Actual exclusive scope claim, branch head, expiry/fence and writer identity; open PR alone is not activity.",
+    "source_revisions": "Exact immutable source/dependency commits and input hashes.",
+    "prior_checkpoint": "Latest durable verified checkpoint or explicit null.",
+    "audit_result": "Canonical task IDs and coverage delta; no second ledger.",
+    "candidate_options": "Benefit, effort, risk, reversibility, downstream unlock and evidence confidence with unknowns preserved.",
+    "ownership": "Permission ceiling distinct from current reservation; exact and glob/subtree overlaps checked.",
+    "authorization": "Concrete allowed action and limits, never inferred from score.",
+    "candidate_revision": "Exact code/input identities tested and reviewed.",
+    "test_receipts": "Pass/fail/not_run, nonzero counts, required suite identities and source revision.",
+    "acceptance_criteria": "Stable criterion IDs with proof requirements.",
+    "accepted_results": "Verified component vs integrated-main vs operational states kept separate.",
+    "failures": "Append-only failed attempts and retry lineage.",
+    "measurements": "Actual active time/wall time, cost and rework with unknowns null.",
+    "coverage_delta": "Source-backed added/changed/missing requirements; preserve unrelated obligations."
+  },
+  "cadence": {
+    "kind": "event_driven_design",
+    "periodic_fallback": "May be configured separately; this artifact makes no scheduled-run claim.",
+    "overlap": "Coalesce duplicate triggers by task and input digest; one live writer per overlapping scope.",
+    "budget": {
+      "max_actions_per_cycle": 1,
+      "max_same_failure_retries": 1,
+      "max_method_changes_per_cycle": 1
+    },
+    "idle": "No eligible delta means no-op checkpoint, not fabricated work.",
+    "staleness": "Refresh queue, scope and authorization immediately before any actual write."
+  },
+  "selection": {
+    "hard_gates": [
+      "fresh_snapshot",
+      "capacity_known",
+      "scope_clear",
+      "dependencies_met",
+      "authorized",
+      "inputs_valid"
+    ],
+    "ranking": [
+      "highest_source_supported_benefit",
+      "lowest_risk",
+      "lowest_effort",
+      "stable_canonical_task_id"
+    ],
+    "unknown_score": "Unknown ranking inputs require a bounded investigation or decision, never zero-cost defaults.",
+    "tie": "Deterministic task ID tie-break only among equivalent eligible options.",
+    "choice_output": [
+      "chosen_option",
+      "rejected_options_with_reasons",
+      "evidence",
+      "next_action"
+    ],
+    "queue_horizon": "Maintain at least 25 concrete scoped next actions in the existing queue, not duplicate entries here.",
+    "candidate_gates": [
+      "scope_clear",
+      "dependencies_met",
+      "authorized",
+      "inputs_valid"
+    ],
+    "eligibility": "Global freshness/capacity gates are necessary but insufficient: filter each candidate by its own scope/dependency/authority/input gates before ranking."
+  },
+  "checkpoints": {
+    "stages": [
+      "observed",
+      "proposed",
+      "prepared",
+      "effect_uncertain",
+      "effect_confirmed",
+      "reviewed",
+      "accepted",
+      "blocked",
+      "no_op"
+    ],
+    "required_fields": [
+      "task_id",
+      "run_id",
+      "input_digest",
+      "source_revision",
+      "owner",
+      "scope",
+      "fence",
+      "attempt",
+      "stage",
+      "action_key",
+      "expected_target_revision",
+      "receipt",
+      "next_action"
+    ],
+    "persistence": "Spec only: runner must persist before effects and after readback; crash/restart storage is not implemented here.",
+    "recovery": {
+      "matching_readback": "Record confirmed once, never repeat the effect.",
+      "absent_readback": "Retry only when known not executed, action still authorized and bounded budget remains.",
+      "unavailable_readback": "Block and recheck later; never blind retry.",
+      "conflicting_readback": "Stop, reconcile current target and seek a fresh scoped decision.",
+      "stale_fence": "Reject before any write."
+    },
+    "validation_limit": "Only checkpoint shape and bounded recovery decisions are tested here, not durable persistence or stage-transition execution."
+  },
+  "review": {
+    "independent_required": true,
+    "same_revision_required": true,
+    "required_checks_must_pass": true,
+    "acceptance_is_merge_authorization": false,
+    "failed_or_missing": "Return to same issue and owner; no duplicate worker.",
+    "post_merge": "Independent current-main CI/replay is separate from component acceptance."
+  },
+  "improvement": {
+    "measure": [
+      "time_to_first_useful_output",
+      "rework_count",
+      "accepted_outcome_count",
+      "active_work_seconds",
+      "wall_seconds",
+      "cost"
+    ],
+    "compare": "Only comparable cycles; missing data remains null.",
+    "method_change": "One hypothesis, source evidence, expected benefit, test, rollback and owner scope.",
+    "questions": "Rank unresolved questions by blocking impact, uncertainty, reversibility and cost; useful answer ends in the smallest permitted next action.",
+    "promotion": "A design score cannot establish runtime health or authorization."
+  },
+  "limitations": [
+    "Pure local design validation and synthetic traces do not establish durable operation.",
+    "No private schedule inventory is scored or published.",
+    "Actual freshness, leases, permissions, persistence and integration require owner implementation and real acceptance."
+  ]
+}
