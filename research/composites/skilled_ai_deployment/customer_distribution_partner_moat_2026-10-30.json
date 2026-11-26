@@ -1,0 +1,117 @@
+{
+  "schema": "basket.customer_distribution_partner_moat@1-provisional",
+  "as_of": "2026-10-30",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "currency": "USD",
+  "method": "Compare existing account distribution and vendor co-selling route, not inferred referrals; observations from issuer annual filings and official vendor/issuer partner pages; different periods and denominators",
+  "definitions": {
+    "customer_critical_mass": "Client count, account depth, retention, share of revenue from longstanding accounts and ability to upsell within installed base",
+    "referral_base": "Measured partner-sourced leads, co-sell qualified pipeline and partner-originated booked revenue; publicly unverified unless quantified",
+    "partner_preference": "Tier designation, vendor-led joint GTM, co-designed solutions, active projects and contractual exclusivity are distinct categories; do not infer referrals or favored sourcing from badges"
+  },
+  "companies": [
+    {
+      "ticker": "ACN",
+      "clients_count_lower_bound": 9000,
+      "client_period": "FY2026",
+      "top_ten_revenue_pct": null,
+      "installed_base_evidence": "~75% Fortune Global 100/500, 317 Diamond clients, 85% top 200 commercial relationships 20+ years",
+      "nvidia": "Joint NVIDIA Business Group; NVIDIA AI Refinery; issuer reports >45k professionals trained on NVIDIA technology",
+      "microsoft": "Avanade joint venture and 20 Global SI Partner of Year wins; Microsoft alliance says 176k+ specialists includes Accenture, Avanade and Microsoft; NOT Accenture-alone staff",
+      "commercial_preference": "deep joint delivery confirmed; exclusive preferred customer referral terms not verified",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1467373/000146737326000049/acn-20260831.htm",
+        "https://www.accenture.com/en/services/ecosystem-partners/nvidia",
+        "https://www.accenture.com/en/services/ecosystem-partners/microsoft"
+      ]
+    },
+    {
+      "ticker": "EPAM",
+      "clients_count": null,
+      "top_ten_revenue_pct": 21.6,
+      "top_ten_period": "FY2025",
+      "long_tenure_revenue_pct_5plus": 64.4,
+      "long_tenure_revenue_pct_10plus": 35.7,
+      "microsoft_professionals_lower_bound": 23000,
+      "active_azure_projects_lower_bound": 800,
+      "microsoft_specializations": 17,
+      "microsoft": "Globally managed enterprise systems integrator, 2025 Microsoft Innovate with Azure AI Platform award",
+      "nvidia": "comparable tier not independently verified",
+      "commercial_preference": "Global-managed tier verified; quantifiable vendor-originated leads unverified",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1352010/000135201026000015/epam-20251231.htm",
+        "https://www.epam.com/services/partners/microsoft"
+      ]
+    },
+    {
+      "ticker": "EXLS",
+      "clients_count_approx": 590,
+      "clients_period": "FY2025 >$50k annual revenue",
+      "new_clients": 65,
+      "top_ten_revenue_pct": 34,
+      "top_ten_period": "FY2025",
+      "microsoft": "Solutions Partner Data & AI (since 2025)",
+      "nvidia": "NVIDIA Center of Excellence, NVIDIA stack integrations and transaction foundation model",
+      "commercial_preference": "joint product solution evidence; partner-sourced bookings unverified",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1297989/000129798926000008/exls-20251231.htm",
+        "https://www.exlservice.com/about/partnerships/nvidia",
+        "https://ir.exlservice.com/news-releases/news-release-details/exl-named-microsoft-solutions-partner-data-and-ai"
+      ]
+    },
+    {
+      "ticker": "GLOB",
+      "clients_over_100k_count": 944,
+      "clients_period": "FY2025",
+      "clients_over_5m_count": 92,
+      "top_ten_revenue_pct": 29.2,
+      "top_ten_period": "FY2025",
+      "existing_prior_year_client_revenue_pct": 96,
+      "top_ten_avg_tenure_years": 11,
+      "microsoft": "Microsoft Digital Agency & AI Inner Circle Partner issuer listed",
+      "nvidia": "issuer listed partnership; tier/referral volume unverified",
+      "commercial_preference": "vendor referral volume unverified; proven installed-base persistence",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1557860/000162828026012910/glob-20251231.htm",
+        "https://www.globant.com/about/partners"
+      ]
+    },
+    {
+      "ticker": "GDYN",
+      "clients_count": 222,
+      "clients_period": "9M Sep 2026",
+      "top_ten_revenue_pct": 63.3,
+      "top_ten_period": "Q3 2026",
+      "top_one_revenue_pct": 17.9,
+      "nvidia": "official Solution Advisor Partner, joint NVIDIA use cases",
+      "microsoft": "Microsoft cloud consulting partner, Azure marketplace",
+      "commercial_preference": "partner-influenced revenue disclosed at $21.5m Q3 but vendor-specific attribution not verified",
+      "sources": [
+        "https://www.stocktitan.net/sec-filings/GDYN/10-q-grid-dynamics-holdings-inc-quarterly-earnings-report-a83e13ff4de4.html",
+        "https://www.griddynamics.com/partnerships/nvidia",
+        "https://www.griddynamics.com/partnerships/microsoft"
+      ]
+    }
+  ],
+  "conclusions": [
+    "ACN strongest established joint partner distribution but enterprise scale dilutes pure AI upside",
+    "EPAM strongest specialist platform with Microsoft account/referral access evidence; organic acceleration remains uncertain",
+    "EXLS strongest domain installed-base plus NVIDIA/MSFT implementation evidence; vendor lead volume unknown",
+    "GLOB strong client persistence but weak current earnings conversion relative to narrative",
+    "GDYN highest productivity leverage but high customer concentration; NVIDIA Solution Advisor not proven preferred sourcing"
+  ],
+  "required_next_metrics": [
+    "partner_sourced_pipeline_usd",
+    "partner_originated_bookings_usd",
+    "vendor_co_sell_registration_count",
+    "qualified_referred_leads",
+    "client_AI_cross_sell_penetration",
+    "client_expansion_net_revenue_retention",
+    "top_1_5_10_customer_concentration",
+    "revenue_5plus_year_accounts",
+    "certified_production_delivery_teams",
+    "joint_vendor_case_studies",
+    "vendor_paid_capacity_or_exclusive_terms"
+  ],
+  "epistemic_rule": "No partner preference or exclusivity asserted without documented vendor-side commercial contract or sourcing data"
+}

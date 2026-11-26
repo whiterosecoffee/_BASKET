@@ -1,0 +1,74 @@
+{
+  "schema": "basket.issuer_research_reference@1-provisional",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "ticker": "EPAM",
+  "venue": "NYSE",
+  "as_of": "2026-10-30",
+  "scope": "basket-linked company research profile; canonical issuer folder controlled separately",
+  "basket_member": true,
+  "classification": "core",
+  "skill_base": "complex software/product engineering, Microsoft enterprise deployment",
+  "capabilities": "mass-scale enterprise digital/product engineers and modernization",
+  "partnerships": {
+    "nvidia": "not verified to comparable partner tier",
+    "microsoft": "Global Systems Integrator and Azure AI partner",
+    "partner_sources": [
+      "https://www.epam.com/services/partners/microsoft"
+    ],
+    "partner_attributable_revenue": null
+  },
+  "price_observation": {
+    "usd": 140.51,
+    "day_pct": 4.31,
+    "as_of": "2026-10-30 screenshot",
+    "verified_close": false
+  },
+  "earnings": {
+    "latest_reported": "2026-Q2",
+    "revenue_growth_yoy_pct": 4.5,
+    "gaap_eps": 1.97,
+    "adjusted_eps": 3.38,
+    "adjusted_eps_growth_yoy_pct": 22,
+    "reported_extra": {},
+    "guidance": {
+      "period": "FY2026",
+      "gaap_eps": [
+        8.22,
+        8.38
+      ],
+      "adjusted_eps": [
+        13.08,
+        13.24
+      ],
+      "organic_constant_currency_revenue_growth_pct": [
+        2,
+        3
+      ]
+    },
+    "adjusted_annual_guidance_midpoint_eps": 13.16,
+    "price_to_guided_adjusted_eps": 10.68,
+    "forward_2027_eps": null,
+    "forward_2027_pe": null,
+    "forward_2028_eps": null,
+    "forward_2028_pe": null,
+    "missing_reason": "Fresh date-matched 2027/28 forecasts not verified"
+  },
+  "forward_earnings_status": "2027/2028 consensus not independently verified",
+  "sources": [
+    "https://investors.epam.com/news/news-details/2026/EPAM-Reports-Results-for-Second-Quarter-2026/default.aspx",
+    "https://www.epam.com/services/partners/microsoft"
+  ],
+  "data_quality": {
+    "company_guidance": "only if issuer sourced",
+    "screenshot_price_not_verified_close": true,
+    "unconfirmed_values": null,
+    "validation_status": "research_pending_independent_validation"
+  },
+  "research_tasks": [
+    "Verify most recent quarterly issuer release, GAAP and non-GAAP reconciliation",
+    "Verify 2027/2028 forward EPS estimates and source timestamp",
+    "Verify current price and calculate dated same-basis forward P/E",
+    "Verify NVIDIA/Microsoft partnership tier and commercial contribution",
+    "Score organic growth, skilled deployment capacity, margin expansion and operating cash conversion"
+  ]
+}

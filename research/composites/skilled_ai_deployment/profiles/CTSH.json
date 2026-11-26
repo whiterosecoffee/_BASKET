@@ -1,0 +1,55 @@
+{
+  "schema": "basket.issuer_research_reference@1-provisional",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "ticker": "CTSH",
+  "venue": "NASDAQ",
+  "as_of": "2026-10-30",
+  "scope": "basket-linked company research profile; canonical issuer folder controlled separately",
+  "basket_member": true,
+  "classification": "core",
+  "skill_base": "enterprise AI implementations at scale",
+  "capabilities": "scaled enterprise AI implementation",
+  "partnerships": {
+    "nvidia": "needs exact tier verification",
+    "microsoft": "needs current tier verification",
+    "partner_sources": [],
+    "partner_attributable_revenue": null
+  },
+  "price_observation": {
+    "usd": 65.11,
+    "day_pct": 4.14,
+    "as_of": "2026-10-30 screenshot",
+    "verified_close": false
+  },
+  "earnings": {
+    "latest_reported": null,
+    "revenue_growth_yoy_pct": null,
+    "gaap_eps": null,
+    "adjusted_eps": null,
+    "adjusted_eps_growth_yoy_pct": null,
+    "reported_extra": {},
+    "guidance": null,
+    "adjusted_annual_guidance_midpoint_eps": null,
+    "price_to_guided_adjusted_eps": null,
+    "forward_2027_eps": null,
+    "forward_2027_pe": null,
+    "forward_2028_eps": null,
+    "forward_2028_pe": null,
+    "missing_reason": "Fresh date-matched 2027/28 forecasts not verified"
+  },
+  "forward_earnings_status": "2027/2028 consensus not independently verified",
+  "sources": [],
+  "data_quality": {
+    "company_guidance": "only if issuer sourced",
+    "screenshot_price_not_verified_close": true,
+    "unconfirmed_values": null,
+    "validation_status": "research_pending_independent_validation"
+  },
+  "research_tasks": [
+    "Verify most recent quarterly issuer release, GAAP and non-GAAP reconciliation",
+    "Verify 2027/2028 forward EPS estimates and source timestamp",
+    "Verify current price and calculate dated same-basis forward P/E",
+    "Verify NVIDIA/Microsoft partnership tier and commercial contribution",
+    "Score organic growth, skilled deployment capacity, margin expansion and operating cash conversion"
+  ]
+}

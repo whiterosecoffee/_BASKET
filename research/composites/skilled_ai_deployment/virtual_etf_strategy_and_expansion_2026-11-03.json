@@ -1,0 +1,313 @@
+{
+  "schema": "basket.virtual_etf_research@0.1-provisional",
+  "as_of": "2026-11-03",
+  "spark": "B17",
+  "issue": 118,
+  "branch": "work/118-skilled-ai-deployment-basket",
+  "not_a_live_fund": true,
+  "universe_policy": {
+    "exchange": "US-listed ordinary shares/ADRs",
+    "exclude": [
+      "private",
+      "delisted",
+      "fraud_or_unreconciled_restatements"
+    ],
+    "categories": [
+      "pure_play_integration",
+      "platformized_vertical_agents",
+      "data_model_evaluation",
+      "embedded_vertical_ai_software",
+      "enterprise_modernization",
+      "AI_governance_security"
+    ],
+    "flag_adjacent_vs_pure": true
+  },
+  "weighting_policy": {
+    "cadence": "monthly and on material filed earnings; checkpoints snapshot and research replay",
+    "initial": "eligible securities only; do not allocate on unverified price or EPS",
+    "signal_components": {
+      "expected_2027_2028_total_return": 0.35,
+      "downside_and_valuation_risk": 0.2,
+      "recurring_product_profit_conversion": 0.2,
+      "earnings_quality_and_cash_flow": 0.15,
+      "diversification_liquidity_execution": 0.1
+    },
+    "guardrails": {
+      "max_single_ticker_weight_pct": 15,
+      "max_issuer_group_weight_pct": 20,
+      "max_segment_weight_pct": 35,
+      "min_full_liquidity_and_quotes": true,
+      "max_annual_turnover_target_pct": 100,
+      "not_an_optimization_result": true
+    },
+    "rebalance_method": "Freeze eligibility, reports and price/FX as known at rebalance cutoff; exclude stale; compute price and return scenarios; rank; cap; renormalize; apply costs and trade constraints; persist alternatives and triggers.",
+    "performance_accounting": "Frozen holdings, dividends, splits, FX, transaction costs, slippage; separate price-return and total-return vs benchmarks",
+    "no_double_counting": "Classify issuer by primary revenue economics; overlapping downstream end-market demand factors constrained across sleeves"
+  },
+  "rubric_pe_ranges_hypothesis": [
+    {
+      "class": "slow_labor_services",
+      "forward_pe": [
+        8,
+        13
+      ],
+      "criteria": "organic growth <=5%, no margin acceleration, low intellectual property/recurring income"
+    },
+    {
+      "class": "profitable_repeatable_services",
+      "forward_pe": [
+        12,
+        18
+      ],
+      "criteria": "organic growth 5-10%, positive FCF and stable operating margin >=12%, client retention and diversification"
+    },
+    {
+      "class": "fast_growing_ai_integration",
+      "forward_pe": [
+        16,
+        24
+      ],
+      "criteria": "organic growth 10-20%, EPS/FCF growth 15%+, operating margins >=15% or credible expansion, balanced concentration"
+    },
+    {
+      "class": "platformized_vertical_agent_operations",
+      "forward_pe": [
+        20,
+        30
+      ],
+      "criteria": "recurring revenue >30%, organic growth 15%+, repeat implementations, gross profit/FTE growing, GAAP/FCF corroborate"
+    },
+    {
+      "class": "durable_embedded_ai_software",
+      "forward_pe": [
+        25,
+        40
+      ],
+      "criteria": "growth 20%+, retention >110%, software gross margin >65%, substantial recurring licenses, FCF positive, low concentration"
+    }
+  ],
+  "multiple_application_rule": "Do not assign top range from AI branding, total contract value, adjusted margin alone; use equivalent earnings basis; if GAAP earnings negative use EV/FCF or EV/GP with explicit capital structure not fictitious PE.",
+  "stocks": [
+    {
+      "ticker": "INOD",
+      "segment": "ai_data_model_training",
+      "rev_yoy_pct": 58,
+      "profit_margin_pct": 27.5,
+      "margin_basis": "adjusted_ebitda",
+      "risk": "concentration_high",
+      "price_usd": null,
+      "source": "https://investor.innodata.com/news/news-details/2026/Innodata-Reports-Record-Second-Quarter-2026-Results/default.aspx",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    },
+    {
+      "ticker": "EXLS",
+      "segment": "vertical_ai_operations",
+      "rev_yoy_pct": 19.7,
+      "profit_margin_pct": 19.3,
+      "margin_basis": "adjusted_operating",
+      "risk": "lower_than_INOD",
+      "price_usd": null,
+      "source": "https://exlserviceholdingsinc.gcs-web.com/news-releases/news-release-details/exl-reports-2026-third-quarter-results",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    },
+    {
+      "ticker": "GDYN",
+      "segment": "ai_data_engineering",
+      "rev_yoy_pct": 9.7,
+      "profit_margin_pct": 20,
+      "margin_basis": "adjusted_ebitda",
+      "risk": "top10_clients_63pct",
+      "price_usd": null,
+      "source": "https://www.sec.gov/Archives/edgar/data/1743725/000174372526000029/grid-20260930xex991.htm",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    },
+    {
+      "ticker": "CLBT",
+      "segment": "adjacent_embedded_software",
+      "rev_yoy_pct": 16,
+      "profit_margin_pct": 24.2,
+      "margin_basis": "adjusted_ebitda",
+      "risk": "acquisition_integration",
+      "price_usd": null,
+      "source": "https://www.sec.gov/Archives/edgar/data/1854587/000121390026088681/ea030188001ex99-1.htm",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    },
+    {
+      "ticker": "HCKT",
+      "segment": "platform_enabled_consulting",
+      "rev_yoy_pct": null,
+      "profit_margin_pct": null,
+      "margin_basis": "unknown",
+      "risk": "platform_contract_recognition",
+      "price_usd": null,
+      "source": "https://www.sec.gov/Archives/edgar/data/1057379/000119312526332885/hckt-ex99_1.htm",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    },
+    {
+      "ticker": "III",
+      "segment": "tech_sourcing_ai_advisory",
+      "rev_yoy_pct": 6.4,
+      "profit_margin_pct": 14.35,
+      "margin_basis": "adjusted_ebitda",
+      "risk": "small_cap_liquidity",
+      "price_usd": null,
+      "source": "https://ir.isg-one.com/news-market-information/press-releases/news-details/2026/Information-Services-Group-Announces-Second-Quarter-2026-Results/default.aspx",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    },
+    {
+      "ticker": "G",
+      "segment": "agentic_vertical_operations",
+      "rev_yoy_pct": 7.1,
+      "profit_margin_pct": 17.4,
+      "margin_basis": "adjusted_operating",
+      "risk": "legacy_exposure",
+      "price_usd": null,
+      "source": "https://media.genpact.com/2026-08-06-Genpact-Reports-Second-Quarter-2026-Results",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    },
+    {
+      "ticker": "CINT",
+      "segment": "ai_engineering",
+      "rev_yoy_pct": 21.9,
+      "profit_margin_pct": 13.3,
+      "margin_basis": "adjusted_ebitda",
+      "risk": "margin_declining",
+      "price_usd": null,
+      "source": "https://investors.ciandt.com/financials/quarterly-results/",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    },
+    {
+      "ticker": "TASK",
+      "segment": "ai_enabled_operations",
+      "rev_yoy_pct": 5,
+      "profit_margin_pct": 18.7,
+      "margin_basis": "adjusted_ebitda",
+      "risk": "slower_revenue_growth",
+      "price_usd": null,
+      "source": "https://ir.taskus.com/news-releases/news-release-details/taskus-announces-fiscal-second-quarter-2026-results",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    },
+    {
+      "ticker": "GLOB",
+      "segment": "ai_pods",
+      "rev_yoy_pct": 0,
+      "profit_margin_pct": 13.2,
+      "margin_basis": "adjusted_operating",
+      "risk": "platform_revenue_small",
+      "price_usd": null,
+      "source": "https://investors.globant.com/2026-08-13-Globant-Reports-2026-Second-Quarter-Financial-Results",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    },
+    {
+      "ticker": "KD",
+      "segment": "enterprise_ai_managed_services",
+      "rev_yoy_pct": -3,
+      "profit_margin_pct": null,
+      "margin_basis": "fy2026_cc_revenue_decline",
+      "risk": "low_margin_legacy",
+      "price_usd": null,
+      "source": "https://investors.kyndryl.com/news-releases/news-release-details/kyndryl-reports-fourth-quarter-and-full-year-2026-results",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    },
+    {
+      "ticker": "GIB",
+      "segment": "enterprise_ai_modernization",
+      "rev_yoy_pct": 1.3,
+      "profit_margin_pct": 16.3,
+      "margin_basis": "adjusted_ebit",
+      "risk": "slow_organic_growth",
+      "price_usd": null,
+      "source": "https://www.cgi.com/en/cgi-reports-third-quarter-f2026-results",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    },
+    {
+      "ticker": "DAVA",
+      "segment": "digital_engineering",
+      "rev_yoy_pct": null,
+      "profit_margin_pct": null,
+      "margin_basis": "unreliable_due_restatement",
+      "risk": "2026_restatement_active",
+      "price_usd": null,
+      "source": "https://investors.endava.com/news-events/press-releases/detail/123/endava-provides-update-on-audit-committee-investigation",
+      "forward_eps_2027_usd": null,
+      "forward_eps_2028_usd": null,
+      "modeled_share_value_2026_usd": null,
+      "modeled_share_value_2027_usd": null,
+      "modeled_share_value_2028_usd": null
+    }
+  ],
+  "sector_hypothesis": {
+    "evidence": "AI scaling blocked by data quality, orchestration, governance and integration; managed service spend far slower than hyperscaler spend",
+    "sources": [
+      "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+      "https://www.gartner.com/en/documents/8117397",
+      "https://ir.isg-one.com/news-market-information/press-releases/news-details/2026/Infrastructure-Spending-More-Than-Doubles-in-Q3-on-Growing-AI-Momentum-ISG-Index-Finds/default.aspx"
+    ],
+    "falsifiers": [
+      "model vendors standardize integrations and capture value",
+      "engineers replaced by agentic coding faster than provider pricing shifts",
+      "deployment cycles and regulatory oversight shrink paid addressable market"
+    ]
+  },
+  "quality_gates": [
+    "No forecast prices without same-date share price and FY2026-2028 EPS/FCF source or explicit modeled driver inputs",
+    "Archive date, currency and assumption sources per security",
+    "B04 valuation engine #126 schema alignment via B00; B01 validation #129 pending",
+    "Provisional shortlisting is not backtest, alpha, realized return or recommendation"
+  ],
+  "tests": {
+    "unique_tickers": true,
+    "all_have_sources": true,
+    "numeric_margin_when_present": true,
+    "weights_sum_to_one": true,
+    "all_unverified_price_targets_null": true
+  }
+}

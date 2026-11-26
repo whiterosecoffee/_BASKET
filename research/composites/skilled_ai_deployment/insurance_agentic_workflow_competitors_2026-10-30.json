@@ -1,0 +1,125 @@
+{
+  "schema": "basket.vertical_agentic_insurance_benchmark@1-provisional",
+  "as_of": "2026-10-30",
+  "reporting_currency": "USD",
+  "basket_id": "us-tradable-ai-deployment-service-options",
+  "hypothesis": "Embedded vertical workflow ownership, customer distribution and audited business outcome may dominate generic preferred-model partnerships as durable AI deployment moats.",
+  "candidates": [
+    {
+      "ticker": "EXLS",
+      "basket_role": "member",
+      "vertical": "life insurance; health payment integrity",
+      "deployed_product": "LifePRO Agentic Suite; Payment Integrity",
+      "evidence": {
+        "issuer_reported_product_launch_weeks_min": 16,
+        "baseline_months": [
+          8,
+          10
+        ],
+        "configuration_testing_reduction_pct": [
+          30,
+          40
+        ],
+        "clinical_auditor_productivity_gain_pct_approx": 50,
+        "health_plan_savings_growth_pct": [
+          15,
+          20
+        ]
+      },
+      "commercial_outcomes_status": "issuer client outcomes, no independent auditing",
+      "relative_moat": "Deep domain delivery + embedded workflow + OpenAI Select Partner; not guaranteed referral or exclusive preferred tier",
+      "source": "https://exlserviceholdingsinc.gcs-web.com/news-releases/news-release-details/exl-transforms-client-workflows-integration-agentic-ai-core"
+    },
+    {
+      "ticker": "CTSH",
+      "basket_role": "member",
+      "vertical": "health plan claims administration",
+      "deployed_product": "TriZetto Facets/QNXT Workflow Agentic Processing",
+      "evidence": {
+        "availability": "generally_available_2026-09-28",
+        "agent_scope": "eligible routine pended claims, with human escalation",
+        "quantified_client_productivity": null
+      },
+      "relative_moat": "Core installed platform distribution; commercially significant if adoption increases; quant ROI not yet verified",
+      "source": "https://news.cognizant.com/2026-09-28-Cognizant-Brings-Agentic-AI-and-MCP-tool-library-to-Core-Claims-Operations-with-Workflow-Agentic-Processing-for-TriZetto"
+    },
+    {
+      "ticker": "GWRE",
+      "basket_role": "proposed_platform_benchmark_not_admitted",
+      "vertical": "P&C insurance core policy, claims, billing and underwriting",
+      "deployed_product": "Qusar Agentic Framework; Guidewire-developed claims/underwriting agents",
+      "evidence": {
+        "availability": "launched_2026-08-03",
+        "developer_productivity_claim_pct_greater_than": 40,
+        "client_production_adoption_count": null
+      },
+      "relative_moat": "Controls policy/claims/billing data and software access; greater software distribution moat than project services, but not like-for-like EPS model",
+      "source": "https://ir.guidewire.com/news-releases/news-release-details/guidewire-introduces-qusar-release-help-insurers-build-and"
+    },
+    {
+      "ticker": "CCC",
+      "basket_role": "acquisition_pending_platform_benchmark_do_not_admit_as_growing_public_long_term_equity",
+      "vertical": "auto P&C claims and insurer repair ecosystem",
+      "deployed_product": "Claims AI and Medhub Auto Casualty",
+      "evidence": {
+        "annualized_ai_revenue_usd_m_q3_2026": 130,
+        "ai_revenue_growth_yoy_pct": 40,
+        "adjusted_ebitda_margin_pct_q3_2026": 44,
+        "connected_businesses_lower_bound": 35000,
+        "definitive_take_private_price_usd": 7.75,
+        "expected_close": "2027-Q1"
+      },
+      "relative_moat": "Embedded network, 40-year data and proven AI revenue monetization; planned delisting imposes event-driven merger deal mechanics",
+      "source": [
+        "https://ir.cccis.com/news-releases/news-release-details/ccc-intelligent-solutions-holdings-inc-announces-third-quarter-4",
+        "https://ir.cccis.com/news-releases/news-release-details/ccc-intelligent-solutions-signs-definitive-agreement-be-acquired"
+      ]
+    },
+    {
+      "ticker": "G",
+      "basket_role": "member",
+      "vertical": "insurance underwriting, policy admin and claims",
+      "deployed_product": "Genpact Insurance Policy Suite",
+      "evidence": {
+        "product_exists": true,
+        "client_production_productivity_outcome": null,
+        "partner_attributable_revenue": null
+      },
+      "relative_moat": "Deep regulated insurance process teams; productivity evidence and attributable sales weaker than EXLS public disclosure",
+      "source": "https://www.genpact.com/industries/insurance"
+    },
+    {
+      "ticker": "ACN",
+      "basket_role": "benchmark",
+      "vertical": "insurance underwriting operations",
+      "deployed_product": "Multi-agent underwriting redesign case study",
+      "evidence": {
+        "underwriting_decision_criteria_before": 130,
+        "after": 70,
+        "review_cycle": "days to hours",
+        "issuer_claim_revenue_growth_pct_greater_than": 50
+      },
+      "relative_moat": "Installed account access and complex organizational redesign; example case outcome is not whole-company growth",
+      "source": "https://www.accenture.com/content/dam/accenture/final/accenture-com/document-fy26/q3/Accenture-The-dawn-of-the-agentic-deal.pdf"
+    }
+  ],
+  "new_discovery": {
+    "microsoft_customer_self_build": "State Farm reports 41 production builds and 3,000+ agents using Microsoft Copilot Studio; risk that insurer self-build bypasses service integrator over time",
+    "source": "https://enablement.microsoft.com/en-us/agent-transformation-stories/"
+  },
+  "selection_rules": [
+    "Separate policy/claims vertical software platform from services company EPS and P/E",
+    "Track vendor adoption and monetized recurring AI revenue, not just launch claims",
+    "Acquisition-pending CCC must not be scored as normal independent long-term public compounder",
+    "Partner designation not necessarily preferred sourcing or exclusive referrals",
+    "Client outcome announcements are issuer claims until independently validated"
+  ],
+  "follow_up": [
+    "Add GWRE platform benchmark under B17 only after review",
+    "Verify EXLS vs TriZetto overlapping health claims client installed base and attrition",
+    "Reconcile core platform AI take-rate and policy/claim volumes",
+    "Compare gross profit/employee and deployment repeatability",
+    "Check actual client case samples, paid production contracts and recurring revenue mix"
+  ],
+  "source_class": "primary issuer releases/vendor product announcements; vendor case studies not independent measurements"
+}
