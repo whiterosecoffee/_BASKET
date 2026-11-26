@@ -32,7 +32,7 @@ class PlannerTests(unittest.TestCase):
 
     def test_library_and_queue_have_valid_references(self):
         self.assertEqual(planner.validate_plan(self.queue, self.library, self.catalog), [])
-        self.assertEqual(len(self.queue["tasks"]), 11)
+        self.assertEqual(len(self.queue["tasks"]), 14)
         self.assertEqual(self.queue["active_worker_limit"], 3)
 
     def test_task_queue_is_not_a_live_status_claim(self):
