@@ -1,0 +1,146 @@
+{
+  "snapshot_id": "macro_backdrop.snapshot.2026-11-26",
+  "append_only": true,
+  "spark_id": "B17",
+  "issue": 141,
+  "registers": ["macros.v1.json", "resources.v1.json"],
+  "retrieved_on": "2026-11-26",
+  "market_data_as_of": "2026-11-25 regular-session close (ET)",
+  "market_status_at_retrieval": "US equity markets closed 2026-11-26 (Thanksgiving); early close 1:00 p.m. ET on 2026-11-27.",
+  "comparison_dates": { "prior_snapshot_anchor": "2026-10-30 close", "second_anchor": "2026-11-02 close" },
+  "evidence_note": "evidence_class names the type of claim. access_status says how well it was verified. A figure is actionable only when access_status is verified or cross_checked and its TTD has not expired.",
+  "ttd": { "market_levels": "Expire at the 2026-11-27 session close.", "weekly_statistics": "Expire at the next scheduled release.", "event_reports": "Expire when superseded; recheck within one session." },
+  "contrast_board": {
+    "method": "macros.v1.json conventions.ratio_z21. z is computed with each pair's own 30-calendar-day sigma ending 2026-11-25, so z at the earlier anchors uses today's sigma and is comparable only within this snapshot, not with earlier boards.",
+    "source": "Massive /v2/aggs daily, adjusted, 2026-09-15 to 2026-11-25",
+    "evidence_class": "verified_observation",
+    "access_status": "verified",
+    "rows": [
+      { "id": "C01", "pair": "RSP/SPY", "level": 0.3010, "day_pct": 1.12, "vs21_pct": 2.60, "z_now": 2.7, "z_1030": 3.8, "z_1102": 4.8, "chg_since_1030_pct": 4.20 },
+      { "id": "C02", "pair": "IWM/SPY", "level": 0.3751, "day_pct": 0.94, "vs21_pct": 1.30, "z_now": 1.9, "z_1030": 3.8, "z_1102": 4.3, "chg_since_1030_pct": 1.50 },
+      { "id": "C03", "pair": "QQQ/SPY", "level": 0.8845, "day_pct": -0.37, "vs21_pct": -1.96, "z_now": -1.7, "z_1030": -3.1, "z_1102": -3.5, "chg_since_1030_pct": -3.19 },
+      { "id": "C04", "pair": "SMH/SPY", "level": 0.5895, "day_pct": -0.72, "vs21_pct": -8.94, "z_now": -2.2, "z_1030": -1.7, "z_1102": -2.0, "chg_since_1030_pct": -14.74 },
+      { "id": "C05", "pair": "SPY/IEF", "level": 7.7851, "day_pct": -0.74, "vs21_pct": -4.30, "z_now": -2.1, "z_1030": -1.8, "z_1102": -1.7, "chg_since_1030_pct": -5.47 },
+      { "id": "C06", "pair": "XLY/XLP", "level": 1.2729, "day_pct": -0.65, "vs21_pct": -2.20, "z_now": -1.2, "z_1030": -1.4, "z_1102": -0.8, "chg_since_1030_pct": -1.35 },
+      { "id": "C07", "pair": "HYG/LQD", "level": 0.7337, "day_pct": -0.36, "vs21_pct": -1.09, "z_now": -3.7, "z_1030": -2.5, "z_1102": -2.7, "chg_since_1030_pct": -1.19, "note": "Duration-weighted; IEF and LQD rose while HYG fell since 2026-10-30." },
+      { "id": "C08", "pair": "GLD/SPY", "level": 0.4569, "day_pct": 0.91, "vs21_pct": -4.48, "z_now": -2.4, "z_1030": -1.9, "z_1102": -0.7, "chg_since_1030_pct": -2.95 },
+      { "id": "C09", "pair": "XLE/SPY", "level": 0.0850, "day_pct": 1.04, "vs21_pct": -0.87, "z_now": -0.3, "z_1030": 2.6, "z_1102": 1.0, "chg_since_1030_pct": -8.29 }
+    ]
+  },
+  "etf_closes": {
+    "source": "Massive /v2/aggs daily",
+    "evidence_class": "verified_observation",
+    "access_status": "verified",
+    "unit": "USD per share",
+    "rows": [
+      { "ticker": "SPY", "close": 716.70, "day_pct": -0.29, "vs_1030_pct": -5.16, "from_window_high_pct": -8.01 },
+      { "ticker": "QQQ", "close": 633.93, "day_pct": -0.65, "vs_1030_pct": -8.19, "from_window_high_pct": -16.55 },
+      { "ticker": "SMH", "close": 422.46, "day_pct": -1.01, "vs_1030_pct": -19.14, "from_window_high_pct": -33.36 },
+      { "ticker": "RSP", "close": 215.74, "day_pct": 0.83, "vs_1030_pct": -1.18, "from_window_high_pct": -3.40 },
+      { "ticker": "IWM", "close": 268.87, "day_pct": 0.65, "vs_1030_pct": -3.74, "from_window_high_pct": -6.39 },
+      { "ticker": "IEF", "close": 92.06, "day_pct": 0.46, "vs_1030_pct": 0.33, "from_window_high_pct": 0.0 },
+      { "ticker": "XLE", "close": 60.90, "day_pct": 0.74, "vs_1030_pct": -13.02, "from_window_high_pct": -13.02 },
+      { "ticker": "GLD", "close": 327.45, "day_pct": 0.61, "vs_1030_pct": -7.96, "from_window_high_pct": -18.38 },
+      { "ticker": "XLY", "close": 117.49, "day_pct": -0.20, "vs_1030_pct": 1.83, "from_window_high_pct": -3.96 },
+      { "ticker": "XLP", "close": 92.30, "day_pct": 0.46, "vs_1030_pct": 3.22, "from_window_high_pct": -0.32 },
+      { "ticker": "HYG", "close": 76.52, "day_pct": 0.12, "vs_1030_pct": -1.18, "from_window_high_pct": -2.79 },
+      { "ticker": "LQD", "close": 104.29, "day_pct": 0.48, "vs_1030_pct": 0.02, "from_window_high_pct": -0.83 }
+    ],
+    "window_note": "from_window_high is measured against the highest close in the pulled window, 2026-09-15 to 2026-11-25."
+  },
+  "tape": {
+    "source": "Closing Look, 2026-11-25 (Substack); Brent and WTI also match Nation Thailand's 2026-11-24 settles plus the stated daily changes",
+    "evidence_class": "verified_observation",
+    "access_status": "unverified",
+    "rows": [
+      { "measure": "S&P 500", "id": "IX01", "value": 7182.78, "unit": "index points", "day_pct": -0.25, "vs_1030_pct": -5.24, "access_status": "unverified" },
+      { "measure": "Nasdaq Composite", "id": "IX01", "value": 23585.80, "unit": "index points", "day_pct": -0.62, "vs_1030_pct": -7.28, "access_status": "unverified" },
+      { "measure": "Dow Jones Industrial Average", "id": "IX01", "value": 50182.95, "unit": "index points", "day_pct": 0.33, "vs_1030_pct": -3.07, "access_status": "unverified" },
+      { "measure": "Russell 2000", "id": "IX01", "value": 2704.06, "unit": "index points", "day_pct": 0.71, "vs_1030_pct": -3.83, "access_status": "unverified" },
+      { "measure": "VIX", "id": "V01", "value": 28.29, "unit": "index points", "day_pct": 7.32, "access_status": "unverified" },
+      { "measure": "US 10-year yield", "id": "R01", "value": 4.85, "unit": "percent", "day_bp": -6, "access_status": "unverified" },
+      { "measure": "US dollar index", "id": "D01", "value": 103.71, "unit": "index points", "day_pct": -0.10, "access_status": "unverified" },
+      { "measure": "Brent front month", "id": "E01", "value": 94.61, "unit": "USD per barrel", "day_pct": 3.51, "access_status": "cross_checked" },
+      { "measure": "WTI front month", "id": "E02", "value": 83.68, "unit": "USD per barrel", "day_pct": 1.99, "access_status": "cross_checked" },
+      { "measure": "Gold spot", "value": 3534.70, "unit": "USD per troy ounce", "day_pct": -0.71, "access_status": "unverified", "note": "Not tracked by a register measure; GLD is used in C08." }
+    ],
+    "index_vs_1030_basis": "Computed here against the 2026-10-30 closes recorded in the 2026-11-02 pre-open snapshot: S&P 7,580.07; Nasdaq 25,437.00; Dow 51,770.31; Russell 2000 2,811.84.",
+    "intraday_range_note": "The same source reports the S&P 500 fell as much as 3.2% and the Nasdaq as much as 4.6% intraday on 2026-11-25 before recovering most of it. Single source."
+  },
+  "policy_and_inflation": {
+    "evidence_class": "verified_observation",
+    "access_status": "unverified",
+    "rows": [
+      { "measure": "Core PCE inflation, year over year", "value": 3.3, "unit": "percent", "consensus": 3.2, "source": "Closing Look, 2026-11-25" },
+      { "measure": "December FOMC rate hike pricing", "id": "R07", "value": "described as nearly certain", "unit": "text, no figure", "source": "Closing Look, 2026-11-25", "note": "The fed funds range of 3.75 to 4.00 percent in R06 and the 2026-12-08/09 meeting date are unchanged from the register." }
+    ]
+  },
+  "diesel_and_scarce_resources": {
+    "rows": [
+      { "id": "S01", "measure": "ULSD futures (HO)", "value": 3.703, "unit": "USD per gallon", "as_of": "2026-11-24 settle", "evidence_class": "verified_observation", "access_status": "unverified", "source": "worldoilmonitor.com" },
+      { "id": "S02", "measure": "Diesel crack versus Brent", "value": 64.13, "unit": "USD per barrel", "as_of": "2026-11-24", "evidence_class": "verified_observation", "access_status": "unverified", "source": "worldoilmonitor.com", "note": "Above the 50 USD hypothesis easing marker S02-T1. MoatPeak's NY Harbor series averaged about 84 in October; definitions differ (KC-R1)." },
+      { "id": "S03", "measure": "US retail diesel", "value": 5.937, "unit": "USD per gallon", "as_of": "2026-11-16 survey", "evidence_class": "verified_observation", "access_status": "cross_checked", "prior": { "value": 6.172, "as_of": "2026-11-09", "source": "AAA via Energy News Beat" } },
+      { "id": "S04", "measure": "US distillate stocks", "value": 104.9, "unit": "million barrels", "as_of": "week ending 2026-11-13", "evidence_class": "verified_observation", "access_status": "cross_checked", "vs_five_year_avg_pct": -7.0, "weekly_change": 1.57, "prior_points": [ { "as_of": "2026-10-30", "value": 99.3, "note": "first reading under 100 million since 2003" }, { "as_of": "2026-11-06", "value": 103.3, "note": "derived: 104.9 minus 1.57" } ], "note": "Below the 110 million hypothesis easing marker S04-T1. The week ending 2026-11-20 was not retrieved." },
+      { "id": "S05", "measure": "US distillate days of supply", "value": 26.5, "unit": "days", "as_of": "week ending 2026-11-13", "evidence_class": "verified_observation", "access_status": "unverified", "note": "Record low is 21.8 days (February 2003) per the source." },
+      { "id": "S06", "measure": "East Coast distillate stocks", "value": 24.4, "unit": "million barrels", "as_of": "week ending 2026-11-13", "evidence_class": "verified_observation", "access_status": "unverified", "vs_five_year_avg_pct": -19.0, "note": "Record low 19.3 million barrels, set August 2026, per the source." },
+      { "id": "S11", "measure": "Hormuz oil clearance (Kpler)", "value": 8.64, "unit": "million barrels per day", "as_of": "7 days to 2026-11-15", "evidence_class": "verified_observation", "access_status": "unverified", "pre_war": 17.15, "note": "Preliminary; usually revised upward." },
+      { "id": "S11", "measure": "Hormuz crossings (hormuz.now)", "value": 7.3, "unit": "crossings per day", "as_of": "2026-11-01 to 2026-11-24", "evidence_class": "verified_observation", "access_status": "unverified", "pre_war": 84.8 },
+      { "id": "S07", "measure": "Jet fuel", "value": null, "evidence_class": "unknown", "access_status": "unknown" },
+      { "id": "S08", "measure": "European diesel stocks", "value": null, "evidence_class": "unknown", "access_status": "unknown" }
+    ],
+    "inference": {
+      "evidence_class": "inference",
+      "text": "Brent fell about 17% from roughly 110 on 2026-11-02 to 91.40 on 2026-11-24, while distillate stocks are still about 7% below the five-year average and the diesel crack is above its easing marker. The shortage is in product, not crude. Basis: S01, S02, S04 and the Brent settles above."
+    }
+  },
+  "events": [
+    { "date": "2026-11-02", "evidence_class": "verified_observation", "access_status": "unverified", "text": "US strike on Qeshm Island near Hormuz, described by US officials as limited and defensive after IRGC fire on a US aircraft. Source: CBS live updates." },
+    { "date": "2026-11-20", "evidence_class": "company_statement", "access_status": "unverified", "text": "Trump said he would discuss new major strikes 'after the beginning of the year' and 'we've got time'. Source: Time." },
+    { "date": "2026-11-22", "evidence_class": "verified_observation", "access_status": "unverified", "text": "UKMTO warnings record five vessels struck by unknown projectiles in the strait. Source: MarketCalls." },
+    { "date": "2026-11-24", "evidence_class": "company_statement", "access_status": "unverified", "text": "IRGC claims three tankers hit mines; no authority confirmed; CENTCOM previously called such claims false. Source: MarketCalls, ABC." },
+    { "date": "2026-11-24", "evidence_class": "verified_observation", "access_status": "unverified", "text": "A tower in Riyadh's financial district was hit, the second hit on that complex in a week, per a Saudi military spokesman. Source: ABC." },
+    { "date": "2026-11-25", "evidence_class": "company_statement", "access_status": "unverified", "text": "Houthi strike on Ras Tanura reported by one market note as lifting oil. Houthi claims of Ras Tanura strikes also date from 2026-10-27; the 2026-11-25 event is not confirmed." }
+  ],
+  "permission_state_read": {
+    "rule_set": "macros.v1.json permission_rules (hypothesis)",
+    "state": "CONDITIONAL",
+    "basis": [
+      "R01 4.85 is at or below the 5.0 hypothesis threshold (R01-T1).",
+      "E01 94.61 is below the 110 hypothesis threshold (E01-T1).",
+      "C03 and C04 are below their 21-session averages and both fell on 2026-11-25. The 'not making new lows' test was not computed.",
+      "C01 is rising, so the incoherence flag (C01 and C03 both falling) is not set."
+    ],
+    "evidence_class": "inference",
+    "caveat": "Descriptive classification only; no forecast and no trade instruction."
+  },
+  "flags": [
+    "E01-T1 (Brent below 110) is no longer informative at a price near 95; the register's hypothesis threshold needs a reset proposal (B17 change, next minor version).",
+    "The Nvidia move and the S&P Global credit-watch item in the same tape source are single-source and are not recorded as observations here.",
+    "Section 301 tariff proposals on 14 trading partners are single-source and not recorded here."
+  ],
+  "scenario_ordering": {
+    "evidence_class": "scenario",
+    "status": "hypothesis",
+    "horizon": "through January 2027",
+    "ordinal_only": true,
+    "ordered": [
+      "Grinding stalemate: ship strikes and limited US responses continue, no major campaign.",
+      "A major US-Israel campaign in January or later if talks stay stalled.",
+      "An interim Hormuz arrangement through mediators."
+    ],
+    "note": "For the B07 ledger as unresolved hypotheses. No numeric probabilities."
+  },
+  "sources": [
+    "https://www.nationthailand.com/news/world/40073886",
+    "https://cappnotes.substack.com/p/closing-look-wednesday-november-25",
+    "https://worldoilmonitor.com/diesel-market",
+    "https://energynewsbeat.co/crude-oil/oil-crashed-your-diesel-didnt/",
+    "https://thevaultreport.com/oil/distillate",
+    "https://finscans.com/news/2026/11/25/diesel-remains-594-per-gallon-as-refiners-prioritize",
+    "https://www.marketcalls.in/commodities/strait-of-hormuz-november-2026.html",
+    "https://abcnews.com/International/live-updates/iran-live-updates-tehran-strait-hormuz-safe-demands/?id=138369648",
+    "https://time.com/article/2026/11/20/iran-war-trump-strikes-major-decision-january-2027/",
+    "https://www.cbsnews.com/live-updates/iran-war-us-trump-negotiations-midterms/",
+    "https://enterpriseam.com/logistics/2026/10/07/hormuzs-crude-recovery-hides-a-slower-one-for-lng-fertilizer-helium-and-aluminum/"
+  ]
+}

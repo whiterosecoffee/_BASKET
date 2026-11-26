@@ -1,0 +1,274 @@
+{
+  "schema_hint": "unregistered; proposed basket.resource_register@1. B00 owns schemas/**; registration is not requested by this change.",
+  "register_id": "macro_backdrop.resources",
+  "version": "1.0.0",
+  "created_on": "2026-11-26",
+  "spark_id": "B17",
+  "issue": 141,
+  "status": "draft",
+  "purpose": "Static register of scarce and chokepoint-exposed physical resources tracked beside the macro register. It names each resource, the measure that tracks it, the exposure that makes it scarce, the source, access status and TTD. It holds no dated observations; those belong in snapshots/.",
+  "doctrine": [
+    "Crude and refined products can diverge. A crude price does not stand in for diesel, jet fuel, LNG, fertilizer or metals; each is tracked on its own measure.",
+    "Exposure shares describe a structural dependency and carry the date of their source. They are not observations of current flow.",
+    "Unretrieved measures stay unknown. Never infer a price from another series.",
+    "Easing and tightening markers taken from third parties are recorded as hypotheses with their author and date, not as validated thresholds.",
+    "Report USD with the original unit alongside (gallon, barrel, million tons per year).",
+    "No probabilities, forecasts or trade instructions."
+  ],
+  "partition": {
+    "logic": "Same split as macros.v1.json: register (what and how) versus snapshot (what was observed when). Physical-resource measures sit in their own register because their sources, units, release cadence (weekly or monthly, not daily) and TTD rules differ from market-price measures.",
+    "naming": "resources.v<MAJOR>.json. Measure ids use prefix S and are stable."
+  },
+  "access_status_vocabulary": {
+    "verified": "Retrieved from an entitled or official source on evidence_date.",
+    "cross_checked": "Two or more independent web sources agree; no official or entitled source.",
+    "unverified": "Single web source, missing timestamp, or conflicting sources.",
+    "not_entitled": "Provider refused the series.",
+    "failed_fetch": "Source page failed to load.",
+    "unknown": "Not retrieved or not tested."
+  },
+  "chokepoint": {
+    "id": "HORMUZ",
+    "name": "Strait of Hormuz",
+    "status_series": "S11",
+    "note": "Most measures below are exposed to this chokepoint. A second exposure, the Red Sea and Bab el-Mandeb route, is raised in news coverage (Houthi attacks on Saudi targets) but is not yet a measure here."
+  },
+  "measures": [
+    {
+      "id": "S01",
+      "name": "NYMEX ULSD futures (HO), front month",
+      "group": "diesel",
+      "kind": "futures",
+      "instruments": ["HO"],
+      "unit": "USD per gallon",
+      "role": "Wholesale diesel price. Leads retail by roughly a week or more.",
+      "reads_as": { "up": "Tighter distillate", "down": "Looser distillate" },
+      "cadence": "daily",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "provider": "worldoilmonitor.com diesel dashboard", "evidence_date": "2026-11-25", "evidence_note": "Single page; 11/24 settle. Provider entitlement for NYMEX energy futures not tested." },
+      "ttd": { "rule": "Expires at the next regular-session settle." },
+      "thresholds": []
+    },
+    {
+      "id": "S02",
+      "name": "Diesel crack versus Brent",
+      "group": "diesel",
+      "kind": "spread",
+      "instruments": ["HO", "BRENT"],
+      "unit": "USD per barrel",
+      "formula": "HO price x 42 gallons per barrel minus Brent price, USD per barrel",
+      "role": "Measures the distillate shortage premium separately from crude. A falling crude price with a flat crack means the shortage is in product, not crude.",
+      "reads_as": { "up": "Wider product premium", "down": "Premium narrowing" },
+      "cadence": "daily",
+      "source_class": "derived",
+      "access": { "status": "unverified", "provider": "worldoilmonitor.com (figure as published); NY Harbor series cited by MoatPeak via Energy News Beat", "evidence_date": "2026-11-25", "evidence_note": "Two sources use different definitions (Brent-based vs NY Harbor diesel-crude) and different periods. See known_conflicts KC-R1." },
+      "ttd": { "rule": "Expires at the next regular-session settle." },
+      "thresholds": [
+        { "id": "S02-T1", "op": "<", "value": 50, "unit": "USD per barrel, sustained", "status": "hypothesis", "set_on": "2026-11-26", "author": "MoatPeak, cited by Energy News Beat", "rationale": "Third-party easing marker for the NY Harbor diesel-crude spread; not validated here." }
+      ]
+    },
+    {
+      "id": "S03",
+      "name": "US retail diesel, national average",
+      "group": "diesel",
+      "kind": "retail_price",
+      "instruments": ["US_DIESEL_RETAIL"],
+      "unit": "USD per gallon",
+      "role": "Pass-through to freight, agriculture and construction costs.",
+      "reads_as": { "up": "Higher pass-through cost", "down": "Cost easing" },
+      "cadence": "weekly",
+      "source_class": "web_aggregator",
+      "access": { "status": "cross_checked", "provider": "AAA (via Energy News Beat) and weekly survey (via FinScans, worldoilmonitor)", "evidence_date": "2026-11-25", "evidence_note": "Two series at different dates agree on direction and level. A separate claim of 5.82 attributed to the Energy Secretary is unverified." },
+      "ttd": { "rule": "Expires at the next weekly survey." },
+      "thresholds": []
+    },
+    {
+      "id": "S04",
+      "name": "US distillate fuel oil stocks (EIA weekly)",
+      "group": "diesel",
+      "kind": "inventory",
+      "instruments": ["EIA_WDISTUS1"],
+      "unit": "million barrels",
+      "role": "Inventory buffer. Pairs with S05 for days of supply and with S06 for regional stress.",
+      "reads_as": { "up": "Buffer rebuilding", "down": "Buffer drawing" },
+      "cadence": "weekly",
+      "source_class": "official_statistic",
+      "access": { "status": "cross_checked", "provider": "EIA weekly petroleum status report via The Vault Report, Newsquawk and Energy News Beat", "evidence_date": "2026-11-25", "evidence_note": "Week ending 2026-11-13 retrieved. The EIA page itself was not fetched, and the week ending 2026-11-20 release was not retrieved." },
+      "ttd": { "rule": "Expires at the next EIA weekly release." },
+      "thresholds": [
+        { "id": "S04-T1", "op": ">", "value": 110, "unit": "million barrels", "status": "hypothesis", "set_on": "2026-11-26", "author": "MoatPeak, cited by Energy News Beat", "rationale": "Third-party easing marker for US distillate stocks; not validated here." }
+      ]
+    },
+    {
+      "id": "S05",
+      "name": "US distillate days of supply",
+      "group": "diesel",
+      "kind": "derived",
+      "instruments": ["EIA_WDISTUS1"],
+      "unit": "days",
+      "formula": "stocks divided by implied demand, as published",
+      "role": "Buffer in time rather than volume.",
+      "reads_as": { "up": "More cover", "down": "Less cover" },
+      "cadence": "weekly",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "provider": "The Vault Report; Energy News Beat", "evidence_date": "2026-11-25", "evidence_note": "Two sources use different bases (26.5 days at 11/13, 23.8 days at 10/30); definitions are not stated." },
+      "ttd": { "rule": "Expires at the next EIA weekly release." },
+      "thresholds": []
+    },
+    {
+      "id": "S06",
+      "name": "East Coast (PADD 1) distillate stocks",
+      "group": "diesel",
+      "kind": "inventory",
+      "instruments": ["EIA_WDISTP11"],
+      "unit": "million barrels",
+      "role": "Regional stress; PADD 1 depends on imports and pipeline supply.",
+      "reads_as": { "up": "Regional buffer rebuilding", "down": "Regional buffer drawing" },
+      "cadence": "weekly",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "provider": "The Vault Report", "evidence_date": "2026-11-25", "evidence_note": "Single source; week ending 2026-11-13." },
+      "ttd": { "rule": "Expires at the next EIA weekly release." },
+      "thresholds": []
+    },
+    {
+      "id": "S07",
+      "name": "Jet fuel",
+      "group": "distillate",
+      "kind": "price",
+      "instruments": ["JET_FUEL"],
+      "unit": "USD per gallon",
+      "role": "Sibling distillate to diesel; refiners are shifting yield between them.",
+      "reads_as": { "up": "Tighter", "down": "Looser" },
+      "cadence": "weekly",
+      "source_class": "unknown",
+      "access": { "status": "unknown", "provider": "none", "evidence_date": "2026-11-26", "evidence_note": "Not retrieved. Coverage of jet fuel was reported in April; no current figure was found." },
+      "ttd": { "rule": "Not applicable until retrieved." },
+      "thresholds": []
+    },
+    {
+      "id": "S08",
+      "name": "European diesel stocks and gasoil",
+      "group": "diesel",
+      "kind": "inventory",
+      "instruments": ["ARA_GASOIL"],
+      "unit": "million barrels",
+      "role": "Second major diesel pool; import competition for US East Coast.",
+      "reads_as": { "up": "Buffer rebuilding", "down": "Buffer drawing" },
+      "cadence": "weekly",
+      "source_class": "unknown",
+      "access": { "status": "unknown", "provider": "none", "evidence_date": "2026-11-26", "evidence_note": "The diesel dashboard consulted does not report European stocks. Not retrieved." },
+      "ttd": { "rule": "Not applicable until retrieved." },
+      "thresholds": []
+    },
+    {
+      "id": "S09",
+      "name": "Liquefied natural gas (Qatar and Gulf supply)",
+      "group": "gas",
+      "kind": "supply_exposure",
+      "instruments": ["LNG"],
+      "unit": "million tons per year",
+      "role": "Gas-fired power and industrial feedstock exposure. Two Ras Laffan trains offline.",
+      "reads_as": { "up": "More supply", "down": "Less supply" },
+      "cadence": "event",
+      "source_class": "web_aggregator",
+      "exposure": { "chokepoint": "HORMUZ", "share_note": "Qatar exported about 77 to 80 million tons per year, roughly one fifth of global supply. Two trains hit by strikes are offline, removing 12.8 million tons per year (about 17% of Qatari capacity); repair estimate three to five years.", "evidence_date": "2026-10-07", "source": "Enterprise AM logistics article of 2026-10-07" },
+      "access": { "status": "unverified", "provider": "Enterprise AM", "evidence_date": "2026-10-07", "evidence_note": "Single source and 50 days old at this register date. No LNG spot price (JKM, TTF, Henry Hub) retrieved." },
+      "ttd": { "rule": "Structural share valid until a published restart or damage assessment changes it. Price series: not applicable until retrieved." },
+      "thresholds": []
+    },
+    {
+      "id": "S10",
+      "name": "Urea, ammonia and sulfur (fertilizer inputs)",
+      "group": "fertilizer",
+      "kind": "supply_exposure",
+      "instruments": ["UREA", "AMMONIA", "SULFUR"],
+      "unit": "vessels per month; share of seaborne trade",
+      "role": "Food-chain input exposure. Sulfur constrains phosphate output.",
+      "reads_as": { "up": "More supply", "down": "Less supply" },
+      "cadence": "monthly",
+      "source_class": "web_aggregator",
+      "exposure": { "chokepoint": "HORMUZ", "share_note": "About one third of seaborne fertilizer trade crossed Hormuz before the war. Gulf countries supply about 44% of seaborne sulfur exports. Eight urea vessels left Gulf waters in September versus two in August; ammonia shipments had nearly stopped.", "evidence_date": "2026-10-07", "source": "Enterprise AM logistics article of 2026-10-07" },
+      "access": { "status": "unverified", "provider": "Enterprise AM; S&P Global press release of 2026-10-19 listed but not read", "evidence_date": "2026-10-07", "evidence_note": "Single source and 50 days old. No fertilizer price retrieved." },
+      "ttd": { "rule": "Structural share valid until a published normalization signal. Price series: not applicable until retrieved." },
+      "thresholds": []
+    },
+    {
+      "id": "S11",
+      "name": "Hormuz transit and flow",
+      "group": "chokepoint",
+      "kind": "flow",
+      "instruments": ["HORMUZ_TRANSITS", "HORMUZ_OIL_CLEARANCE"],
+      "unit": "crossings per day; million barrels per day",
+      "role": "Measures the chokepoint itself. Separates a price move from a flow change.",
+      "reads_as": { "up": "More flow", "down": "Less flow" },
+      "cadence": "daily",
+      "source_class": "web_aggregator",
+      "access": { "status": "unverified", "provider": "hormuz.now, Kpler, Vortexa and IEA as cited by MarketCalls", "evidence_date": "2026-11-25", "evidence_note": "Figures are preliminary, revise upward, and miss vessels running dark per the source. Tracker figures disagree by more than a factor of three." },
+      "ttd": { "rule": "Expires after seven days." },
+      "thresholds": []
+    },
+    {
+      "id": "S12",
+      "name": "Primary aluminum (Gulf smelter output)",
+      "group": "metals",
+      "kind": "supply_exposure",
+      "instruments": ["ALUMINUM"],
+      "unit": "share of world primary output",
+      "role": "Industrial metal exposure.",
+      "reads_as": { "up": "More supply", "down": "Less supply" },
+      "cadence": "event",
+      "source_class": "web_aggregator",
+      "exposure": { "chokepoint": "HORMUZ", "share_note": "Gulf smelters supply roughly 9% of world primary aluminum. Emirates Global Aluminium had restarted 25% of reduction cells at Al Taweelah by late August; pre-incident hot metal output expected in the first quarter of 2027, with shipments tied to Hormuz.", "evidence_date": "2026-10-07", "source": "Enterprise AM logistics article of 2026-10-07" },
+      "access": { "status": "unverified", "provider": "Enterprise AM", "evidence_date": "2026-10-07", "evidence_note": "Single source. No LME price retrieved." },
+      "ttd": { "rule": "Structural share valid until a published restart milestone." },
+      "thresholds": []
+    },
+    {
+      "id": "S13",
+      "name": "Helium",
+      "group": "industrial_gas",
+      "kind": "supply_exposure",
+      "instruments": ["HELIUM"],
+      "unit": "import share by buyer",
+      "role": "Semiconductor and medical-imaging input exposure.",
+      "reads_as": { "up": "More diversified supply", "down": "More concentrated supply" },
+      "cadence": "event",
+      "source_class": "web_aggregator",
+      "exposure": { "chokepoint": "HORMUZ", "share_note": "Qatar's share of Taiwan's helium imports fell from nearly 88% to about 30% in the first half of 2026, with US supply rising to nearly 60%. Qatar's share of South Korea's imports fell from 55% to about 34%. Global Gulf share is not stated by the source.", "evidence_date": "2026-10-07", "source": "Enterprise AM logistics article of 2026-10-07" },
+      "access": { "status": "unverified", "provider": "Enterprise AM", "evidence_date": "2026-10-07", "evidence_note": "Single source. No helium price retrieved." },
+      "ttd": { "rule": "Structural share valid until a later import-share release." },
+      "thresholds": []
+    }
+  ],
+  "known_conflicts": [
+    {
+      "id": "KC-R1",
+      "subject": "Diesel crack level",
+      "detail": "worldoilmonitor.com shows 64.13 USD per barrel versus Brent on 2026-11-24. Energy News Beat, citing MoatPeak, put the NY Harbor diesel-crude spread near 84 USD per barrel as the October average, 93.5 in September, and about 82 after the early-November crude drop. The two use different definitions and periods.",
+      "resolution": "Open. Do not read the two as a trend until one definition is fixed."
+    },
+    {
+      "id": "KC-R2",
+      "subject": "Retail diesel level",
+      "detail": "AAA 6.172 USD per gallon on 2026-11-09; weekly survey 5.937 on 2026-11-16; a claim of 5.82 attributed to the Energy Secretary, with no date or series.",
+      "resolution": "Open. Use the dated surveys; treat 5.82 as unverified."
+    },
+    {
+      "id": "KC-R3",
+      "subject": "Hormuz flow trackers",
+      "detail": "Kpler measured 8.64 million barrels per day of oil clearance against 17.15 pre-war (about half), while hormuz.now counted crossings at about 9% of pre-crisis. Different units (volume versus vessel count).",
+      "resolution": "Open. Report both with units and do not combine."
+    }
+  ],
+  "unknowns": [
+    "Jet fuel, European gasoil and diesel stocks were not retrieved.",
+    "No LNG, urea, sulfur, aluminum or helium price was retrieved; only structural exposure.",
+    "EIA week ending 2026-11-20 was not retrieved.",
+    "NYMEX energy futures entitlement on the data provider was not tested.",
+    "No Red Sea or Bab el-Mandeb measure exists yet."
+  ],
+  "prior_art": [
+    { "pointer": "research/composites/macro_backdrop/macros.v1.json", "use": "Macro register; E01 and E02 track Brent and WTI. This register adds product and physical-supply measures." },
+    { "pointer": "GitHub issue 94", "use": "Names USO among the macro set for live scoring; no diesel proxy is named there." }
+  ]
+}

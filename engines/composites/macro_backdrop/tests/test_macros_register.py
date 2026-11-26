@@ -127,5 +127,121 @@ class MacroRegisterTest(unittest.TestCase):
         self.assertIsNotNone(re.search(r"macros\.v(\d+|<MAJOR>)\.json", self.data["partition"]["naming"]))
 
 
+PARTITION_DIR = REGISTER.parent
+EVIDENCE_CLASSES = {"verified_observation", "company_statement", "inference", "scenario", "unknown"}
+RESOURCE_REQUIRED_FIELDS = (
+    "id",
+    "name",
+    "group",
+    "kind",
+    "instruments",
+    "unit",
+    "role",
+    "reads_as",
+    "cadence",
+    "source_class",
+    "access",
+    "ttd",
+    "thresholds",
+)
+
+
+def _collect(node, key):
+    """Yield every value stored under `key` anywhere in a JSON tree."""
+    if isinstance(node, dict):
+        for k, v in node.items():
+            if k == key:
+                yield v
+            yield from _collect(v, key)
+    elif isinstance(node, list):
+        for item in node:
+            yield from _collect(item, key)
+
+
+class ResourceRegisterTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.data = json.loads((PARTITION_DIR / "resources.v1.json").read_text(encoding="utf-8"))
+        cls.measures = cls.data["measures"]
+
+    def test_unique_ids_prefix_and_required_fields(self):
+        ids = [m["id"] for m in self.measures]
+        self.assertEqual(len(ids), len(set(ids)), "duplicate resource ids")
+        for m in self.measures:
+            self.assertRegex(m["id"], r"^S[0-9]{2}$")
+            for field in RESOURCE_REQUIRED_FIELDS:
+                self.assertIn(field, m, f"{m['id']} missing {field}")
+
+    def test_access_ttd_and_hypothesis_labels(self):
+        for m in self.measures:
+            access = m["access"]
+            self.assertIn(access["status"], ACCESS_STATUSES, m["id"])
+            self.assertRegex(access["evidence_date"], r"^\d{4}-\d{2}-\d{2}$", m["id"])
+            self.assertTrue(access.get("evidence_note"), m["id"])
+            self.assertTrue(m["ttd"].get("rule"), m["id"])
+            for t in m["thresholds"]:
+                self.assertEqual(t["status"], "hypothesis", t["id"])
+            if "exposure" in m:
+                self.assertRegex(m["exposure"]["evidence_date"], r"^\d{4}-\d{2}-\d{2}$", m["id"])
+
+    def test_no_forecast_keys(self):
+        self.assertFalse(FORBIDDEN_KEYS.intersection(_walk_keys(self.data)))
+
+    def test_chokepoint_status_series_resolves(self):
+        ids = {m["id"] for m in self.measures}
+        self.assertIn(self.data["chokepoint"]["status_series"], ids)
+
+
+class SnapshotAndAgentsTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.macros = json.loads(REGISTER.read_text(encoding="utf-8"))
+        cls.resources = json.loads((PARTITION_DIR / "resources.v1.json").read_text(encoding="utf-8"))
+        cls.known_ids = {m["id"] for m in cls.macros["measures"]} | {m["id"] for m in cls.resources["measures"]}
+        cls.snapshots = sorted((PARTITION_DIR / "snapshots").glob("*.json"))
+
+    def test_snapshots_exist_and_are_dated(self):
+        self.assertTrue(self.snapshots, "no snapshots found")
+        for path in self.snapshots:
+            self.assertRegex(path.name, r"^\d{4}-\d{2}-\d{2}\.json$")
+
+    def test_snapshot_labels_and_references(self):
+        for path in self.snapshots:
+            snap = json.loads(path.read_text(encoding="utf-8"))
+            self.assertTrue(snap["append_only"], path.name)
+            self.assertTrue(snap["ttd"], path.name)
+            classes = set(_collect(snap, "evidence_class"))
+            self.assertTrue(classes <= EVIDENCE_CLASSES, f"{path.name}: {sorted(classes - EVIDENCE_CLASSES)}")
+            statuses = set(_collect(snap, "access_status"))
+            self.assertTrue(statuses <= ACCESS_STATUSES, f"{path.name}: {sorted(statuses - ACCESS_STATUSES)}")
+            for ref in _collect(snap, "id"):
+                if isinstance(ref, str) and re.match(r"^[A-Z]{1,2}[0-9]{2}$", ref):
+                    self.assertIn(ref, self.known_ids, f"{path.name} references unknown id {ref}")
+            self.assertFalse(FORBIDDEN_KEYS.intersection(_walk_keys(snap)), path.name)
+
+    def test_snapshot_scenarios_are_ordinal_hypotheses(self):
+        for path in self.snapshots:
+            snap = json.loads(path.read_text(encoding="utf-8"))
+            scenario = snap.get("scenario_ordering")
+            if scenario:
+                self.assertEqual(scenario["status"], "hypothesis")
+                self.assertTrue(scenario["ordinal_only"])
+                for item in scenario["ordered"]:
+                    self.assertIsInstance(item, str)
+
+    def test_unknown_values_are_null(self):
+        for path in self.snapshots:
+            snap = json.loads(path.read_text(encoding="utf-8"))
+            for row in _collect(snap, "rows"):
+                for item in row:
+                    if isinstance(item, dict) and item.get("evidence_class") == "unknown":
+                        self.assertIsNone(item.get("value"), f"{path.name} {item.get('id')}")
+
+    def test_local_agents_contract_states_scope(self):
+        text = (PARTITION_DIR / "AGENTS.md").read_text(encoding="utf-8")
+        for needle in ("B17", "issue #141", "append-only", "hypothesis", "macros.v1.json", "resources.v1.json", "snapshots/"):
+            self.assertIn(needle.lower(), text.lower(), f"AGENTS.md missing {needle}")
+
+
 if __name__ == "__main__":
     unittest.main()
