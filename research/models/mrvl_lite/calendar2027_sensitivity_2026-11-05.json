@@ -1,0 +1,101 @@
+{
+  "as_of": "2026-11-05",
+  "model_version": "calendar-annual-weighting-sensitivity-v1",
+  "status": "provisional_not_quarter_aligned_consensus",
+  "price_basis": "Nov5 user screenshot AH prices; no live refresh; not low-touch anchors",
+  "sources": [
+    {
+      "url": "https://stockanalysis.com/stocks/mrvl/forecast/",
+      "updated": "2026-11-03",
+      "fy2027_eps": 4.22,
+      "fy2028_eps": 7.34
+    },
+    {
+      "url": "https://stockanalysis.com/stocks/lite/forecast/",
+      "updated": "2026-11-04",
+      "fy2027_eps": 24.77,
+      "fy2028_eps": 38.54
+    }
+  ],
+  "method": {
+    "MRVL": "1/12 FY2027 + 11/12 FY2028",
+    "LITE": "1/2 FY2027 + 1/2 FY2028"
+  },
+  "limitations": [
+    "Uniform earnings allocation within fiscal years assumed; strong ramps and seasonality can bias results",
+    "Quarterly source vintages inconsistent; exact CY2027 comparison remains blocked",
+    "20x/25x are arbitrary sensitivities not justified fair multiples or forecasts",
+    "Standalone earnings; excludes unverified merger adjustments",
+    "Updated LITE estimate supersedes 23.87 Trefis for this sensitivity only; original observation retained"
+  ],
+  "rows": [
+    {
+      "ticker": "MRVL",
+      "price": 132.27,
+      "calendar2027_proxy_eps": 7.079999999999999,
+      "scenarios": [
+        {
+          "earnings_fraction": 1,
+          "eps": 7.079999999999999,
+          "pe": 18.682203389830512,
+          "price_at_20x": 141.6,
+          "return_at_20x": 0.07053753685642983,
+          "price_at_25x": 176.99999999999997,
+          "return_at_25x": 0.3381719210705372
+        },
+        {
+          "earnings_fraction": 0.9,
+          "eps": 6.371999999999999,
+          "pe": 20.758003766478346,
+          "price_at_20x": 127.43999999999998,
+          "return_at_20x": -0.03651621682921313,
+          "price_at_25x": 159.29999999999998,
+          "return_at_25x": 0.2043547289634835
+        },
+        {
+          "earnings_fraction": 0.8,
+          "eps": 5.664,
+          "pe": 23.35275423728814,
+          "price_at_20x": 113.28,
+          "return_at_20x": -0.14356997051485598,
+          "price_at_25x": 141.6,
+          "return_at_25x": 0.07053753685642983
+        }
+      ]
+    },
+    {
+      "ticker": "LITE",
+      "price": 505.74,
+      "calendar2027_proxy_eps": 31.655,
+      "scenarios": [
+        {
+          "earnings_fraction": 1,
+          "eps": 31.655,
+          "pe": 15.976622966356025,
+          "price_at_20x": 633.1,
+          "return_at_20x": 0.25182900304504297,
+          "price_at_25x": 791.375,
+          "return_at_25x": 0.5647862538063035
+        },
+        {
+          "earnings_fraction": 0.9,
+          "eps": 28.489500000000003,
+          "pe": 17.751803295951138,
+          "price_at_20x": 569.7900000000001,
+          "return_at_20x": 0.12664610274053878,
+          "price_at_25x": 712.2375000000001,
+          "return_at_25x": 0.4083076284256735
+        },
+        {
+          "earnings_fraction": 0.8,
+          "eps": 25.324,
+          "pe": 19.97077870794503,
+          "price_at_20x": 506.48,
+          "return_at_20x": 0.001463202436034372,
+          "price_at_25x": 633.1,
+          "return_at_25x": 0.25182900304504297
+        }
+      ]
+    }
+  ]
+}

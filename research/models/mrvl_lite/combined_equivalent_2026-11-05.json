@@ -1,0 +1,32 @@
+{
+  "as_of": "2026-11-05",
+  "status": "illustrative_not_verified_pro_forma",
+  "terms_source": "https://www.sec.gov/Archives/edgar/data/1835632/000119312526442717/d352474d8k.htm",
+  "ownership_source": "https://investor.lumentum.com/financial-news-releases/news-details/2026/Marvell-and-Lumentum-to-Combine-Creating-a-Category-Leader-in-AI-Connectivity/default.aspx",
+  "exchange_ratio": 4.5,
+  "ownership_approx": [
+    0.67,
+    0.33
+  ],
+  "expected_close": "first half calendar2028",
+  "prices": {
+    "source": "user Nov5 AH screenshots not live",
+    "MRVL": 132.27,
+    "LITE": 505.74
+  },
+  "calendar2027": {
+    "basis": "hypothetical full-year combined equivalent using prior annual proration, constant diluted shares, approximate ownership; no synergies or transaction adjustments",
+    "formula": "0.67*7.08+0.33*(31.655/4.5)",
+    "eps": 7.064966666666668
+  },
+  "calendar2028": {
+    "eps": null,
+    "status": "blocked: inconsistent FY2029 MRVL estimates; sparse LITE coverage; exact diluted denominator and closing adjustments unresolved"
+  },
+  "limitations": [
+    "2027 is pre-close; not reported parent EPS",
+    "Approximate ownership not exact diluted forecast",
+    "Standalone estimates not confirmed deal-excluded",
+    "Spread compensation includes completion risk timing and market moves"
+  ]
+}
