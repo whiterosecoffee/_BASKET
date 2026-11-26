@@ -1,0 +1,84 @@
+{
+  "as_of": "2026-10-22",
+  "currency": "USD",
+  "units": "financial amounts billions; per-share amounts USD",
+  "kind": "analyst_sensitivity_not_guidance",
+  "tax_rate": 0.2,
+  "discount_rate": 0.12,
+  "discount_years": 2.2,
+  "scenarios": [
+    {
+      "name": "Slower conversion",
+      "rev": 28,
+      "margin": 0.2,
+      "interest": 4.8,
+      "shares": 0.675,
+      "pe": [
+        18,
+        22
+      ],
+      "ebit": 5.6000000000000005,
+      "net": 0.6400000000000006,
+      "eps": 0.948148148148149,
+      "discount": 1.2831565638316926,
+      "now": [
+        13.300533347001029,
+        16.256207424112368
+      ],
+      "marketcap": [
+        8.977860009225694,
+        10.972940011275849
+      ]
+    },
+    {
+      "name": "Base",
+      "rev": 34,
+      "margin": 0.26,
+      "interest": 4.5,
+      "shares": 0.65,
+      "pe": [
+        22,
+        26
+      ],
+      "ebit": 8.84,
+      "net": 3.472,
+      "eps": 5.341538461538462,
+      "discount": 1.2831565638316926,
+      "now": [
+        91.58184547872527,
+        108.23309011122078
+      ],
+      "marketcap": [
+        59.52819956117143,
+        70.35150857229351
+      ]
+    },
+    {
+      "name": "Strong execution",
+      "rev": 40,
+      "margin": 0.3,
+      "interest": 4.8,
+      "shares": 0.675,
+      "pe": [
+        26,
+        30
+      ],
+      "ebit": 12,
+      "net": 5.760000000000001,
+      "eps": 8.533333333333333,
+      "discount": 1.2831565638316926,
+      "now": [
+        172.90693351101322,
+        199.50800020501526
+      ],
+      "marketcap": [
+        116.71218011993393,
+        134.6679001383853
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000429/crwv2026convertpresentat.htm",
+    "https://s205.q4cdn.com/133937190/files/doc_financials/2025/q4/CoreWeave-4Q25-Outlook-Presentation-vF.pdf"
+  ]
+}
