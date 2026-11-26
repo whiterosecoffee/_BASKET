@@ -1,0 +1,2401 @@
+{
+  "format": "b06.experimental-domain-projection@0.1",
+  "status": "experimental_domain_projection",
+  "snapshot_date": "2026-11-13",
+  "purpose": "Evidence-backed continuation snapshot; no authoritative queue or shared schema replacement.",
+  "authority": {
+    "issue": 108,
+    "branch": "work/108-canonical-traversal-takeover",
+    "base_revision": "74d913e8913d630d85451344689e093aeea07efc",
+    "original_branch_revision": "a235ff05bcb649e82fc97e3bd86db7645d49246d",
+    "source_conversation": "6ae387d4-7418-83e9-8deb-d4cf13609e63",
+    "routing": "Original conversation readable; CloudThreadNotFoundError reported by controller; workstation continuation authorized."
+  },
+  "contract_decision": {
+    "reused_principles": [
+      "stable IDs",
+      "typed links",
+      "pinned provenance",
+      "mandatory nonaveraged gates",
+      "reference-only owner boundaries"
+    ],
+    "inspected": [
+      "map_shape",
+      "template",
+      "worker_protocol",
+      "method"
+    ],
+    "conclusion": "Neither map.design nor clean_seed is a compatible domain maturity contract. Experimental local projection; no shared schema registered."
+  },
+  "status_semantics": {
+    "dimensions": [
+      "proposed",
+      "implemented",
+      "tested",
+      "independently_accepted",
+      "published",
+      "integrated",
+      "operational"
+    ],
+    "states": [
+      "established",
+      "not_claimed"
+    ],
+    "rule": "Each dimension is independent and requires evidence. Source existence is not execution, independent acceptance, integration or operation.",
+    "ghost": "Desired feature: proposed only. No implicit execution, publication, integration or operational claim.",
+    "parent_rule": "A failed, blocked or not-run mandatory gate anywhere below a node prevents readiness; no averaging.",
+    "snapshot_rule": "External states are attributed observations, not mutable copies of owner authority; re-read exact heads before work.",
+    "gate_evidence_rule": "A passing acceptance gate requires a passing execution/qualification report bound to its exact criterion ID. Source inspection, unrelated passing tests and contradictory failed evidence cannot establish a pass. Metadata shape alone cannot authenticate the external reviewer."
+  },
+  "workstation_receipt": {
+    "hostname": "withheld from public archive",
+    "workspace": "withheld from public archive",
+    "worktree": "withheld from public archive",
+    "repository": "withheld from public archive",
+    "branch": "work/108-canonical-traversal-takeover",
+    "resume_method": "Existing remote a235ff05 checked out in isolated worktree; ff-only to verified main 74d913e8.",
+    "checks": [
+      "hostname",
+      "git worktree list --porcelain",
+      "git branch -avv",
+      "git status --short in registered worktrees and independent checkouts",
+      "git ls-remote origin refs/heads/main refs/heads/work/108-canonical-traversal-takeover",
+      "gh pr list --state open --limit 100 --json number,headRefName,headRefOid,files",
+      "gh issue view 108 --json state,comments",
+      "Win32_Process inspection; local thread-writer-locks directory"
+    ],
+    "result": "No identified competing #108 checkout/writer or active PR touching the three packet paths.",
+    "limits": "Process inventory does not authenticate every remote/cloud session; controller supplied account-session collision checks. No global runtime lease claimed.",
+    "preserved_dirty_work": [
+      "basket-243 untracked receiver.py/caches",
+      "basket-clean-templates untracked component/schema/test work",
+      "admission-repository staged deletions; left untouched",
+      "acceptance checkout caches"
+    ],
+    "sibling_prs": [
+      58,
+      150,
+      182
+    ],
+    "raw_data_effects": "none"
+  },
+  "sources": {
+    "metrics": {
+      "revision": "a235ff05bcb649e82fc97e3bd86db7645d49246d",
+      "path": "engines/traversal/metrics.py",
+      "sha256": "1887093987ee40919b1ad852a2397d54ae5973c80cc1019ca0d02d859e0ca1f2",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/a235ff05bcb649e82fc97e3bd86db7645d49246d/engines/traversal/metrics.py",
+      "state": "integrated",
+      "verification": "repository_bytes_read"
+    },
+    "metrics_readme": {
+      "revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "path": "engines/traversal/README.md",
+      "sha256": "fa107a5a162500fb5d2e59697edf5b9beb48c11c7789b003bbcb86d9177b7d84",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/engines/traversal/README.md",
+      "state": "integrated",
+      "verification": "repository_bytes_read"
+    },
+    "producer": {
+      "revision": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+      "path": "research/CRWV/trading-tool/README.md",
+      "sha256": "1c5592153cc3e414d627ca12bf3d127bcfbc3f27c5a3af5af27e64fb9f5af532",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/f8e83f440023bcbf123687fc6c24248f1baf88c9/research/CRWV/trading-tool/README.md",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "journal": {
+      "revision": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+      "path": "research/CRWV/trading-tool/store.py",
+      "sha256": "1c904036c239092bffda7a7a4b8519f60318b975b948c5edb606fd2dcf7393e3",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/f8e83f440023bcbf123687fc6c24248f1baf88c9/research/CRWV/trading-tool/store.py",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "battle": {
+      "revision": "ea6dcb656fc6c853add9e4906dc4761f64d04813",
+      "path": "research/traversal/october_2026_compression_stress/README.md",
+      "sha256": "eb2402b76debaaf38d3ceacb1c5fdd0f62ef8109d0b6cb7a665deeb82bb558b3",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/ea6dcb656fc6c853add9e4906dc4761f64d04813/research/traversal/october_2026_compression_stress/README.md",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "battle_cases": {
+      "revision": "ea6dcb656fc6c853add9e4906dc4761f64d04813",
+      "path": "research/traversal/october_2026_compression_stress/ACCEPTANCE_CASES.md",
+      "sha256": "1df84f94a6c1890645585c90acf54f360b4bf6bba0d6631e36c2dbe1fc34a186",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/ea6dcb656fc6c853add9e4906dc4761f64d04813/research/traversal/october_2026_compression_stress/ACCEPTANCE_CASES.md",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "prior_art": {
+      "revision": "ea6dcb656fc6c853add9e4906dc4761f64d04813",
+      "path": "research/traversal/october_2026_compression_stress/PRIOR_ART_SIGNAL_MODEL.md",
+      "sha256": "45fff8a7d0ad4914b7d647c4f0faf1d0b2400b16bbc2f58fc8a33b04a7c3807a",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/ea6dcb656fc6c853add9e4906dc4761f64d04813/research/traversal/october_2026_compression_stress/PRIOR_ART_SIGNAL_MODEL.md",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "geometry": {
+      "revision": "eade884d4423e5f7e6a899387e5f62bc3b24045a",
+      "path": "engines/traversal/market_geometry/core.py",
+      "sha256": "8cac3b884da27203b65db0045bec2d987ad8a4dc7c70a754946d8f35fd2eb0d5",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/eade884d4423e5f7e6a899387e5f62bc3b24045a/engines/traversal/market_geometry/core.py",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "daily": {
+      "revision": "62e41633434602fd481b8a3ed7a1a92f3f628fcb",
+      "path": "research/traversal/self_relative_state/README.md",
+      "sha256": "ce750fdc1ec50f27d2e17434a83a2e76225bf518626a7cab2e68c455d114d815",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/62e41633434602fd481b8a3ed7a1a92f3f628fcb/research/traversal/self_relative_state/README.md",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "daily_plan": {
+      "revision": "62e41633434602fd481b8a3ed7a1a92f3f628fcb",
+      "path": "research/traversal/self_relative_state/IMPROVEMENT_ROADMAP.md",
+      "sha256": "fc049f750b113bf30f74b88d61a465f2bdfc404eed2033b06daedc20b29534c9",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/62e41633434602fd481b8a3ed7a1a92f3f628fcb/research/traversal/self_relative_state/IMPROVEMENT_ROADMAP.md",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "tape": {
+      "revision": "3d148ba1c94c861a45b184e00a697add41fa57ef",
+      "path": "research/NVDA/data-recovery/2026-11-04/tape_matrix.py",
+      "sha256": "5c0056dc492c8b05eb75360639fa4686d5c3a56f55f5ff84b582122ac2557365",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/3d148ba1c94c861a45b184e00a697add41fa57ef/research/NVDA/data-recovery/2026-11-04/tape_matrix.py",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "tape_runbook": {
+      "revision": "3d148ba1c94c861a45b184e00a697add41fa57ef",
+      "path": "research/NVDA/data-recovery/2026-11-04/BATTLE_RANGE_RUNBOOK.md",
+      "sha256": "953dfd682f4cb6e92196cdd822492e8caba1992f09a0b4054df6ba8e3e6fdc0d",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/3d148ba1c94c861a45b184e00a697add41fa57ef/research/NVDA/data-recovery/2026-11-04/BATTLE_RANGE_RUNBOOK.md",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "map": {
+      "revision": "1a9fdb7952676d026e92d001f88f62de67f103e0",
+      "path": "_MAP/README.md",
+      "sha256": "3b5892a74c4e7b8b2c005e40b475dc44cb6297fd4ba39fcba30fadfb7d69a1e1",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/1a9fdb7952676d026e92d001f88f62de67f103e0/_MAP/README.md",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "map_shape": {
+      "revision": "1a9fdb7952676d026e92d001f88f62de67f103e0",
+      "path": "_MAP/map.schema.json",
+      "sha256": "2b35a49c13d3d2a45cf29ab1ef32c11d07974bc24b8de9620d80fa072c206d7c",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/1a9fdb7952676d026e92d001f88f62de67f103e0/_MAP/map.schema.json",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "template": {
+      "revision": "6f5e39cd8590a6431bec56cd62af086bb28d6326",
+      "path": "orchestration/clean_templates/seed.schema.json",
+      "sha256": "52aec170f84077c80f9f8af155412aa17622702378870151c18ce8390bb25757",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/6f5e39cd8590a6431bec56cd62af086bb28d6326/orchestration/clean_templates/seed.schema.json",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "template_readme": {
+      "revision": "6f5e39cd8590a6431bec56cd62af086bb28d6326",
+      "path": "orchestration/clean_templates/README.md",
+      "sha256": "6953cd9f9bea5f2584ee2d4e405c3e3b5f86d8a0411c2850ce0991fa70bb11da",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/6f5e39cd8590a6431bec56cd62af086bb28d6326/orchestration/clean_templates/README.md",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "method": {
+      "revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "path": "architecture/BLOCK_ENGINEERING_METHOD.md",
+      "sha256": "0bb06277ae37a627918d227a44cebb1080e7699224d799ad8cfee48d4e032ebe",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/BLOCK_ENGINEERING_METHOD.md",
+      "state": "integrated",
+      "verification": "repository_bytes_read"
+    },
+    "branch_plan": {
+      "revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "path": "architecture/BRANCH_PLAN.md",
+      "sha256": "71fcf189e3a942dee2e8ae3689b59bc61c839a88d986b8c3404f33459e7d4137",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/BRANCH_PLAN.md",
+      "state": "integrated",
+      "verification": "repository_bytes_read"
+    },
+    "worker_protocol": {
+      "revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "path": "orchestration/WORKER_PROTOCOL.md",
+      "sha256": "667887a1dd8bb04f44219567367d34208968329d915399145ba15724ac77baf7",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/WORKER_PROTOCOL.md",
+      "state": "integrated",
+      "verification": "repository_bytes_read"
+    },
+    "context": {
+      "revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "path": "engines/composites/market_context/README.md",
+      "sha256": "f4b7ec1bd8c5133ee612e6f48e675a09188772b6cdfeaa5291d6766ca21ba804",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/engines/composites/market_context/README.md",
+      "state": "integrated",
+      "verification": "repository_bytes_read"
+    },
+    "producer_core": {
+      "revision": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+      "path": "research/CRWV/trading-tool/patterns.py",
+      "sha256": "7b82b8de6d3f0e577cee63451a528fcadda4c5e588344fb83518dbfe68fca9c1",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/f8e83f440023bcbf123687fc6c24248f1baf88c9/research/CRWV/trading-tool/patterns.py",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    },
+    "resolver_contract": {
+      "revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "path": "runtime/TICKER_DATA.md",
+      "sha256": "7d386b75f2cf5a75b3104824c86cc335713a84fd56f9fba5163962799bd22d2b",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/runtime/TICKER_DATA.md",
+      "state": "integrated",
+      "verification": "repository_bytes_read"
+    },
+    "presentation_20261119": {
+      "revision": "feaff2a6a72c09a36f425d309bcb8859c971aab4",
+      "path": "research/traversal/october_2026_compression_stress/presentation/README.md",
+      "sha256": "d32434970f727353bebb515bf128487150319b2a9ae5c14cf2a665d66ddfd8af",
+      "url": "https://github.com/whiterosecoffee/_BASKET/blob/feaff2a6a72c09a36f425d309bcb8859c971aab4/research/traversal/october_2026_compression_stress/presentation/README.md",
+      "state": "draft_unmerged",
+      "verification": "repository_bytes_read"
+    }
+  },
+  "evidence": {
+    "metrics_read": {
+      "source": "metrics",
+      "source_revision": "a235ff05bcb649e82fc97e3bd86db7645d49246d",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/a235ff05bcb649e82fc97e3bd86db7645d49246d/engines/traversal/metrics.py"
+    },
+    "metrics_readme_read": {
+      "source": "metrics_readme",
+      "source_revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/engines/traversal/README.md"
+    },
+    "producer_read": {
+      "source": "producer",
+      "source_revision": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/f8e83f440023bcbf123687fc6c24248f1baf88c9/research/CRWV/trading-tool/README.md"
+    },
+    "journal_read": {
+      "source": "journal",
+      "source_revision": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/f8e83f440023bcbf123687fc6c24248f1baf88c9/research/CRWV/trading-tool/store.py"
+    },
+    "battle_read": {
+      "source": "battle",
+      "source_revision": "ea6dcb656fc6c853add9e4906dc4761f64d04813",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/ea6dcb656fc6c853add9e4906dc4761f64d04813/research/traversal/october_2026_compression_stress/README.md"
+    },
+    "battle_cases_read": {
+      "source": "battle_cases",
+      "source_revision": "ea6dcb656fc6c853add9e4906dc4761f64d04813",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/ea6dcb656fc6c853add9e4906dc4761f64d04813/research/traversal/october_2026_compression_stress/ACCEPTANCE_CASES.md"
+    },
+    "prior_art_read": {
+      "source": "prior_art",
+      "source_revision": "ea6dcb656fc6c853add9e4906dc4761f64d04813",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/ea6dcb656fc6c853add9e4906dc4761f64d04813/research/traversal/october_2026_compression_stress/PRIOR_ART_SIGNAL_MODEL.md"
+    },
+    "geometry_read": {
+      "source": "geometry",
+      "source_revision": "eade884d4423e5f7e6a899387e5f62bc3b24045a",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/eade884d4423e5f7e6a899387e5f62bc3b24045a/engines/traversal/market_geometry/core.py"
+    },
+    "daily_read": {
+      "source": "daily",
+      "source_revision": "62e41633434602fd481b8a3ed7a1a92f3f628fcb",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/62e41633434602fd481b8a3ed7a1a92f3f628fcb/research/traversal/self_relative_state/README.md"
+    },
+    "daily_plan_read": {
+      "source": "daily_plan",
+      "source_revision": "62e41633434602fd481b8a3ed7a1a92f3f628fcb",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/62e41633434602fd481b8a3ed7a1a92f3f628fcb/research/traversal/self_relative_state/IMPROVEMENT_ROADMAP.md"
+    },
+    "tape_read": {
+      "source": "tape",
+      "source_revision": "3d148ba1c94c861a45b184e00a697add41fa57ef",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/3d148ba1c94c861a45b184e00a697add41fa57ef/research/NVDA/data-recovery/2026-11-04/tape_matrix.py"
+    },
+    "tape_runbook_read": {
+      "source": "tape_runbook",
+      "source_revision": "3d148ba1c94c861a45b184e00a697add41fa57ef",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/3d148ba1c94c861a45b184e00a697add41fa57ef/research/NVDA/data-recovery/2026-11-04/BATTLE_RANGE_RUNBOOK.md"
+    },
+    "map_read": {
+      "source": "map",
+      "source_revision": "1a9fdb7952676d026e92d001f88f62de67f103e0",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/1a9fdb7952676d026e92d001f88f62de67f103e0/_MAP/README.md"
+    },
+    "map_shape_read": {
+      "source": "map_shape",
+      "source_revision": "1a9fdb7952676d026e92d001f88f62de67f103e0",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/1a9fdb7952676d026e92d001f88f62de67f103e0/_MAP/map.schema.json"
+    },
+    "template_read": {
+      "source": "template",
+      "source_revision": "6f5e39cd8590a6431bec56cd62af086bb28d6326",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/6f5e39cd8590a6431bec56cd62af086bb28d6326/orchestration/clean_templates/seed.schema.json"
+    },
+    "template_readme_read": {
+      "source": "template_readme",
+      "source_revision": "6f5e39cd8590a6431bec56cd62af086bb28d6326",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/6f5e39cd8590a6431bec56cd62af086bb28d6326/orchestration/clean_templates/README.md"
+    },
+    "method_read": {
+      "source": "method",
+      "source_revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/BLOCK_ENGINEERING_METHOD.md"
+    },
+    "branch_plan_read": {
+      "source": "branch_plan",
+      "source_revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/architecture/BRANCH_PLAN.md"
+    },
+    "worker_protocol_read": {
+      "source": "worker_protocol",
+      "source_revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/orchestration/WORKER_PROTOCOL.md"
+    },
+    "context_read": {
+      "source": "context",
+      "source_revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/engines/composites/market_context/README.md"
+    },
+    "metrics_independent": {
+      "source": "metrics",
+      "source_revision": "a235ff05bcb649e82fc97e3bd86db7645d49246d",
+      "kind": "independent_test_report",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/actions/runs/42891455401/job/130093368463",
+      "runner_revision": "56fb55cf3119a52c87ea40fce214d03c51d04425",
+      "result": "pass",
+      "tests": 13,
+      "verification": "run success and issue108 exact-source report retrieved; not rerun",
+      "report": "https://github.com/whiterosecoffee/_BASKET/issues/108#issuecomment-6778010715"
+    },
+    "metrics_integrated": {
+      "source": "metrics",
+      "source_revision": "a235ff05bcb649e82fc97e3bd86db7645d49246d",
+      "kind": "integration_report",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/pull/109",
+      "integration_revision": "519b122d1f4a0a1bced8d0630b90396be42f7f7b",
+      "postmerge_run": "https://github.com/whiterosecoffee/_BASKET/actions/runs/42891796822",
+      "result": "pass"
+    },
+    "geometry_tests": {
+      "source": "geometry",
+      "source_revision": "eade884d4423e5f7e6a899387e5f62bc3b24045a",
+      "kind": "independent_test_report",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/pull/150",
+      "tests": 8,
+      "result": "pass",
+      "verification": "reported independent local run; no domain Actions URL; not rerun"
+    },
+    "producer_core_read": {
+      "source": "producer_core",
+      "source_revision": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/f8e83f440023bcbf123687fc6c24248f1baf88c9/research/CRWV/trading-tool/patterns.py"
+    },
+    "resolver_contract_read": {
+      "source": "resolver_contract",
+      "source_revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/74d913e8913d630d85451344689e093aeea07efc/runtime/TICKER_DATA.md"
+    },
+    "presentation_20261119_read": {
+      "source": "presentation_20261119",
+      "source_revision": "feaff2a6a72c09a36f425d309bcb8859c971aab4",
+      "kind": "source_inspection",
+      "locator": "https://github.com/whiterosecoffee/_BASKET/blob/feaff2a6a72c09a36f425d309bcb8859c971aab4/research/traversal/october_2026_compression_stress/presentation/README.md"
+    }
+  },
+  "objective": {
+    "id": "B06.108",
+    "title": "Canonical traversal continuation",
+    "purpose": "Recover and compose existing Traversal Ranges and Battle Zones without a competing engine.",
+    "outcome": "Source-backed hierarchy and bounded qualification plan for existing objective #108.",
+    "ghost": false,
+    "owner": "B06 #108",
+    "branch": "work/108-canonical-traversal-takeover",
+    "scope": [
+      "engines/traversal/maturity.json",
+      "engines/traversal/CONTINUATION.md",
+      "engines/traversal/tests/test_maturity.py"
+    ],
+    "dependencies": [],
+    "source_refs": [
+      "method",
+      "worker_protocol"
+    ],
+    "status": {
+      "proposed": {
+        "state": "established",
+        "evidence": [
+          "method_read",
+          "worker_protocol_read"
+        ]
+      },
+      "implemented": {
+        "state": "not_claimed",
+        "evidence": []
+      },
+      "tested": {
+        "state": "not_claimed",
+        "evidence": []
+      },
+      "independently_accepted": {
+        "state": "not_claimed",
+        "evidence": []
+      },
+      "published": {
+        "state": "not_claimed",
+        "evidence": []
+      },
+      "integrated": {
+        "state": "not_claimed",
+        "evidence": []
+      },
+      "operational": {
+        "state": "not_claimed",
+        "evidence": []
+      }
+    },
+    "acceptance": [
+      {
+        "id": "B06.108.ACCEPTANCE",
+        "purpose": "Full continuation outcome remains gated.",
+        "mandatory": true,
+        "status": "not_run",
+        "evidence": [],
+        "children": [
+          {
+            "id": "B06.108.INPUT",
+            "purpose": "Canonical source qualification.",
+            "mandatory": true,
+            "status": "blocked",
+            "evidence": [],
+            "children": []
+          },
+          {
+            "id": "B06.108.COMPOSE",
+            "purpose": "Canonical source-to-journal replay.",
+            "mandatory": true,
+            "status": "not_run",
+            "evidence": [],
+            "children": []
+          },
+          {
+            "id": "B06.108.INDEPENDENT",
+            "purpose": "B01 exact-head independent packet/composition acceptance.",
+            "mandatory": true,
+            "status": "not_run",
+            "evidence": [],
+            "children": []
+          }
+        ]
+      }
+    ],
+    "readiness": "blocked",
+    "next_action": "B01 reviews the latest packet commit; parent routes the proposed adapter contract to existing _FETCH, B10/B06 and trajectory owners.",
+    "unknowns": [
+      "This packet is not a verified detector or authoritative cross-owner status ledger."
+    ],
+    "children": [
+      {
+        "id": "B06.INPUT",
+        "title": "Input qualification",
+        "purpose": "Consume _FETCH-qualified local data by purpose, coverage, vintage and availability.",
+        "outcome": "Accepted source manifest and resolver binding; historical validity separate from current-use latency.",
+        "ghost": true,
+        "owner": "B06 #108",
+        "branch": "work/108-canonical-traversal-takeover",
+        "scope": [
+          "engines/traversal/**"
+        ],
+        "dependencies": [
+          "EXT.FETCH"
+        ],
+        "source_refs": [
+          "metrics_readme",
+          "battle"
+        ],
+        "status": {
+          "proposed": {
+            "state": "established",
+            "evidence": [
+              "metrics_readme_read",
+              "battle_read"
+            ]
+          },
+          "implemented": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "tested": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "independently_accepted": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "published": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "integrated": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "operational": {
+            "state": "not_claimed",
+            "evidence": []
+          }
+        },
+        "acceptance": [
+          {
+            "id": "B06.INPUT.MANIFEST",
+            "purpose": "Verify source IDs, hashes, revisions, calendar, adjustments, availability and coverage.",
+            "mandatory": true,
+            "status": "blocked",
+            "evidence": [],
+            "children": [
+              {
+                "id": "B06.INPUT.CRWV",
+                "purpose": "Qualify required CRWV intervals.",
+                "mandatory": true,
+                "status": "blocked",
+                "evidence": [],
+                "children": []
+              },
+              {
+                "id": "B06.INPUT.ORCL",
+                "purpose": "Qualify required ORCL intervals.",
+                "mandatory": true,
+                "status": "blocked",
+                "evidence": [],
+                "children": []
+              }
+            ]
+          }
+        ],
+        "readiness": "blocked",
+        "next_action": "Request missing range/coverage receipts from existing _FETCH owner 6af629d6-45e0-8191-a5ea-c0041adda006; no refetch here.",
+        "unknowns": [
+          "356 placed archives do not prove historical coverage or current qualification.",
+          "NVDA archive through October 8 is a placement report, not complete October coverage."
+        ],
+        "children": [
+          {
+            "id": "B06.INPUT.HISTORICAL",
+            "title": "Historical range/vintage/session qualification",
+            "purpose": "Admit records available at historical decision time, with exact requested coverage.",
+            "outcome": "Purpose-qualified PRE/RTH/AH manifests, revision lineage and explicit gaps.",
+            "ghost": true,
+            "owner": "B06 #108",
+            "branch": "work/108-canonical-traversal-takeover",
+            "scope": [
+              "engines/traversal/**"
+            ],
+            "dependencies": [
+              "EXT.FETCH"
+            ],
+            "source_refs": [
+              "battle_cases"
+            ],
+            "status": {
+              "proposed": {
+                "state": "established",
+                "evidence": [
+                  "battle_cases_read"
+                ]
+              },
+              "implemented": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "tested": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "independently_accepted": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "published": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "integrated": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "operational": {
+                "state": "not_claimed",
+                "evidence": []
+              }
+            },
+            "acceptance": [
+              {
+                "id": "B06.INPUT.HISTORICAL.PIT",
+                "purpose": "Prove effective, available and ingestion times; reject late-arrival/revision leakage; preserve unknown/no-trade distinctions.",
+                "mandatory": true,
+                "status": "blocked",
+                "evidence": [],
+                "children": []
+              }
+            ],
+            "readiness": "blocked",
+            "next_action": "Specify the smallest owner-scoped qualification step.",
+            "unknowns": [
+              "User-mentioned contraction around approximately $169 has no verified instrument/time interval or qualified replay here."
+            ],
+            "children": []
+          },
+          {
+            "id": "B06.INPUT.CURRENT",
+            "title": "Current all-basket feed qualification",
+            "purpose": "Require actual refresh and QA receipts for current analysis through the existing _FETCH owner.",
+            "outcome": "Per-instrument latest eligible completed record, measured lag, freshness budget, coverage and recovery receipt.",
+            "ghost": true,
+            "owner": "B06 #108",
+            "branch": "work/108-canonical-traversal-takeover",
+            "scope": [
+              "engines/traversal/**"
+            ],
+            "dependencies": [
+              "EXT.FETCH"
+            ],
+            "source_refs": [
+              "metrics_readme"
+            ],
+            "status": {
+              "proposed": {
+                "state": "established",
+                "evidence": [
+                  "metrics_readme_read"
+                ]
+              },
+              "implemented": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "tested": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "independently_accepted": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "published": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "integrated": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "operational": {
+                "state": "not_claimed",
+                "evidence": []
+              }
+            },
+            "acceptance": [
+              {
+                "id": "B06.INPUT.CURRENT.REFRESH",
+                "purpose": "Actual all-basket refresh and QA receipts, explicit missing instruments/intervals, latency and restart evidence; a schedule/request is insufficient.",
+                "mandatory": true,
+                "status": "blocked",
+                "evidence": [],
+                "children": []
+              }
+            ],
+            "readiness": "blocked",
+            "next_action": "Specify the smallest owner-scoped qualification step.",
+            "unknowns": [
+              "No all-basket refresh or measured feed lag proven by archive placement."
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "B06.RANGES",
+        "title": "_TOOL Traversal Ranges",
+        "purpose": "Answer position and movement across simultaneous observed and frozen ranges.",
+        "outcome": "Qualified descriptive range objects consumed locally by ticker components.",
+        "ghost": false,
+        "owner": "B06 #108",
+        "branch": "work/108-canonical-traversal-takeover",
+        "scope": [
+          "engines/traversal/**"
+        ],
+        "dependencies": [
+          "B06.INPUT"
+        ],
+        "source_refs": [
+          "metrics_readme",
+          "battle"
+        ],
+        "status": {
+          "proposed": {
+            "state": "established",
+            "evidence": [
+              "metrics_readme_read",
+              "battle_read"
+            ]
+          },
+          "implemented": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "tested": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "independently_accepted": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "published": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "integrated": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "operational": {
+            "state": "not_claimed",
+            "evidence": []
+          }
+        },
+        "acceptance": [
+          {
+            "id": "B06.RANGES.COMPOSITION",
+            "purpose": "Qualify observed/frozen composition.",
+            "mandatory": true,
+            "status": "not_run",
+            "evidence": [],
+            "children": [
+              {
+                "id": "B06.RANGES.ORIGIN",
+                "purpose": "Reconcile first-open versus preceding-close origin.",
+                "mandatory": true,
+                "status": "not_run",
+                "evidence": [],
+                "children": []
+              },
+              {
+                "id": "B06.RANGES.OVERLAP",
+                "purpose": "Deduplicate shared source IDs when aggregating turnover.",
+                "mandatory": true,
+                "status": "not_run",
+                "evidence": [],
+                "children": []
+              }
+            ]
+          }
+        ],
+        "readiness": "blocked",
+        "next_action": "Specify the smallest owner-scoped qualification step.",
+        "unknowns": [],
+        "children": [
+          {
+            "id": "B06.RANGES.OBSERVED",
+            "title": "Simultaneous observed ranges",
+            "purpose": "Describe position and movement on complete 5/15/60/390-minute windows.",
+            "outcome": "Read-only metrics with explicit nulls and sampled path origin.",
+            "ghost": false,
+            "owner": "B06 #108",
+            "branch": "work/108-canonical-traversal-takeover",
+            "scope": [
+              "engines/traversal/**"
+            ],
+            "dependencies": [],
+            "source_refs": [
+              "metrics",
+              "metrics_readme"
+            ],
+            "status": {
+              "proposed": {
+                "state": "established",
+                "evidence": [
+                  "metrics_read",
+                  "metrics_readme_read"
+                ]
+              },
+              "implemented": {
+                "state": "established",
+                "evidence": [
+                  "metrics_read"
+                ]
+              },
+              "tested": {
+                "state": "established",
+                "evidence": [
+                  "metrics_independent"
+                ]
+              },
+              "independently_accepted": {
+                "state": "established",
+                "evidence": [
+                  "metrics_independent"
+                ]
+              },
+              "published": {
+                "state": "established",
+                "evidence": [
+                  "metrics_read"
+                ]
+              },
+              "integrated": {
+                "state": "established",
+                "evidence": [
+                  "metrics_integrated"
+                ]
+              },
+              "operational": {
+                "state": "not_claimed",
+                "evidence": []
+              }
+            },
+            "acceptance": [
+              {
+                "id": "B06.RANGES.OBSERVED.CURRENT_INPUT",
+                "purpose": "Qualified current source is required only for current-use claims.",
+                "mandatory": true,
+                "status": "blocked",
+                "evidence": [],
+                "children": []
+              }
+            ],
+            "readiness": "blocked",
+            "next_action": "Reuse the integrated primitive; do not repeat the completed repair.",
+            "unknowns": [
+              "source_quality remains not_attested; structural events null; no alerts.",
+              "First-open sampled path is not intrabar travel or preceding-close tape origin."
+            ],
+            "children": []
+          },
+          {
+            "id": "B06.RANGES.FROZEN",
+            "title": "Prospectively frozen ranges",
+            "purpose": "Keep discovery-time boundaries and parent/overlap identities immutable.",
+            "outcome": "Adapter to existing B10 events, distinct from rolling extrema.",
+            "ghost": true,
+            "owner": "B06 #108",
+            "branch": "work/108-canonical-traversal-takeover",
+            "scope": [
+              "engines/traversal/**"
+            ],
+            "dependencies": [
+              "B06.PRODUCER",
+              "B06.INPUT"
+            ],
+            "source_refs": [
+              "producer",
+              "battle"
+            ],
+            "status": {
+              "proposed": {
+                "state": "established",
+                "evidence": [
+                  "producer_read",
+                  "battle_read"
+                ]
+              },
+              "implemented": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "tested": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "independently_accepted": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "published": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "integrated": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "operational": {
+                "state": "not_claimed",
+                "evidence": []
+              }
+            },
+            "acceptance": [
+              {
+                "id": "B06.RANGES.FROZEN.PREFIX",
+                "purpose": "Frozen prefix/batch identity, no hindsight movement.",
+                "mandatory": true,
+                "status": "not_run",
+                "evidence": [],
+                "children": []
+              }
+            ],
+            "readiness": "blocked",
+            "next_action": "Specify the smallest owner-scoped qualification step.",
+            "unknowns": [
+              "Adapter unimplemented; B10 pivot and two-close + $0.02 rules are unfitted heuristics."
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "B06.ZONES",
+        "title": "_TOOL Battle Zones",
+        "purpose": "Answer historical activity concentration and repeated contests using shared qualified records and traversal primitives.",
+        "outcome": "Traceable zones and contest episodes with method tiers and explicit unknowns.",
+        "ghost": false,
+        "owner": "B06 #108",
+        "branch": "work/108-canonical-traversal-takeover",
+        "scope": [
+          "engines/traversal/**"
+        ],
+        "dependencies": [
+          "B06.RANGES",
+          "B06.INPUT"
+        ],
+        "source_refs": [
+          "battle",
+          "prior_art"
+        ],
+        "status": {
+          "proposed": {
+            "state": "established",
+            "evidence": [
+              "battle_read",
+              "prior_art_read"
+            ]
+          },
+          "implemented": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "tested": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "independently_accepted": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "published": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "integrated": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "operational": {
+            "state": "not_claimed",
+            "evidence": []
+          }
+        },
+        "acceptance": [
+          {
+            "id": "B06.ZONES.RECOGNITION",
+            "purpose": "Activity does not establish a contest or absorption.",
+            "mandatory": true,
+            "status": "blocked",
+            "evidence": [],
+            "children": []
+          }
+        ],
+        "readiness": "blocked",
+        "next_action": "Specify the smallest owner-scoped qualification step.",
+        "unknowns": [],
+        "children": [
+          {
+            "id": "B06.ZONES.APPROXIMATE",
+            "title": "Approximate volume zones",
+            "purpose": "Estimate historical activity concentration from OHLCV while labeling allocation assumptions.",
+            "outcome": "Close-bucket and uniform-range estimates separately named, never true trade bins.",
+            "ghost": true,
+            "owner": "B06 #108",
+            "branch": "work/108-canonical-traversal-takeover",
+            "scope": [
+              "engines/traversal/**"
+            ],
+            "dependencies": [
+              "B06.INPUT"
+            ],
+            "source_refs": [
+              "prior_art",
+              "tape_runbook"
+            ],
+            "status": {
+              "proposed": {
+                "state": "established",
+                "evidence": [
+                  "prior_art_read",
+                  "tape_runbook_read"
+                ]
+              },
+              "implemented": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "tested": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "independently_accepted": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "published": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "integrated": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "operational": {
+                "state": "not_claimed",
+                "evidence": []
+              }
+            },
+            "acceptance": [
+              {
+                "id": "B06.ZONES.APPROXIMATE.METHOD",
+                "purpose": "Freeze allocation and bin edges; conserve gross volume; deduplicate overlaps.",
+                "mandatory": true,
+                "status": "not_run",
+                "evidence": [],
+                "children": []
+              }
+            ],
+            "readiness": "blocked",
+            "next_action": "Specify the smallest owner-scoped qualification step.",
+            "unknowns": [
+              "No implemented allocation method is established by these references."
+            ],
+            "children": []
+          },
+          {
+            "id": "B06.ZONES.TRADE_BINS",
+            "title": "True trade bins and optional quote evidence",
+            "purpose": "Separate paginated reported trades from estimates and quote-derived order flow.",
+            "outcome": "Eligible trade-bin coverage and optional quote alignment, each independently qualified.",
+            "ghost": true,
+            "owner": "B06 #108",
+            "branch": "work/108-canonical-traversal-takeover",
+            "scope": [
+              "engines/traversal/**"
+            ],
+            "dependencies": [
+              "B06.INPUT"
+            ],
+            "source_refs": [
+              "tape_runbook"
+            ],
+            "status": {
+              "proposed": {
+                "state": "established",
+                "evidence": [
+                  "tape_runbook_read"
+                ]
+              },
+              "implemented": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "tested": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "independently_accepted": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "published": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "integrated": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "operational": {
+                "state": "not_claimed",
+                "evidence": []
+              }
+            },
+            "acceptance": [
+              {
+                "id": "B06.ZONES.TRADE_BINS.ENTITLEMENT",
+                "purpose": "Prove trade coverage, decimal sizes, pagination, corrections and quote eligibility.",
+                "mandatory": true,
+                "status": "blocked",
+                "evidence": [],
+                "children": []
+              }
+            ],
+            "readiness": "blocked",
+            "next_action": "Specify the smallest owner-scoped qualification step.",
+            "unknowns": [
+              "Runbook example is not an implemented trade-bin CLI or verified current entitlement."
+            ],
+            "children": []
+          },
+          {
+            "id": "B06.ZONES.CONTESTS",
+            "title": "Actual contest episodes",
+            "purpose": "Require contacts and repeated outcomes at frozen boundaries, not activity alone.",
+            "outcome": "battle_transition@0.1 candidate/defense/failure/continuation/reversal/unresolved records.",
+            "ghost": true,
+            "owner": "B06 #108",
+            "branch": "work/108-canonical-traversal-takeover",
+            "scope": [
+              "engines/traversal/**"
+            ],
+            "dependencies": [
+              "B06.RANGES.FROZEN",
+              "B06.PRODUCER"
+            ],
+            "source_refs": [
+              "battle",
+              "battle_cases"
+            ],
+            "status": {
+              "proposed": {
+                "state": "established",
+                "evidence": [
+                  "battle_read",
+                  "battle_cases_read"
+                ]
+              },
+              "implemented": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "tested": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "independently_accepted": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "published": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "integrated": {
+                "state": "not_claimed",
+                "evidence": []
+              },
+              "operational": {
+                "state": "not_claimed",
+                "evidence": []
+              }
+            },
+            "acceptance": [
+              {
+                "id": "B06.ZONES.CONTESTS.A1_A8",
+                "purpose": "Satisfy research acceptance separately.",
+                "mandatory": true,
+                "status": "not_run",
+                "evidence": [],
+                "children": [
+                  {
+                    "id": "B06.ZONES.CONTESTS.A1",
+                    "purpose": "Prefix replay and frozen discovery boundaries (T01,T08,T09).",
+                    "mandatory": true,
+                    "status": "not_run",
+                    "evidence": [],
+                    "children": []
+                  },
+                  {
+                    "id": "B06.ZONES.CONTESTS.A2",
+                    "purpose": "Failed defense, recovery, unresolved and intrabar ambiguity (T02,T04,T05,T14,T15).",
+                    "mandatory": true,
+                    "status": "not_run",
+                    "evidence": [],
+                    "children": []
+                  },
+                  {
+                    "id": "B06.ZONES.CONTESTS.A3",
+                    "purpose": "Arithmetic, path and same-clock nulls (T03,T10).",
+                    "mandatory": true,
+                    "status": "not_run",
+                    "evidence": [],
+                    "children": []
+                  },
+                  {
+                    "id": "B06.ZONES.CONTESTS.A4",
+                    "purpose": "Nested scales and overlap identity (T06,T07).",
+                    "mandatory": true,
+                    "status": "not_run",
+                    "evidence": [],
+                    "children": []
+                  },
+                  {
+                    "id": "B06.ZONES.CONTESTS.A5",
+                    "purpose": "As-of sessions and cutoff (T12,T16).",
+                    "mandatory": true,
+                    "status": "not_run",
+                    "evidence": [],
+                    "children": []
+                  },
+                  {
+                    "id": "B06.ZONES.CONTESTS.A6",
+                    "purpose": "Fractional volume, VWAP anomalies and correction qualification (T11).",
+                    "mandatory": true,
+                    "status": "not_run",
+                    "evidence": [],
+                    "children": []
+                  },
+                  {
+                    "id": "B06.ZONES.CONTESTS.A7",
+                    "purpose": "All-candidate falsification and controls (T13).",
+                    "mandatory": true,
+                    "status": "not_run",
+                    "evidence": [],
+                    "children": []
+                  },
+                  {
+                    "id": "B06.ZONES.CONTESTS.A8",
+                    "purpose": "No duplicate data; independent exact-head evidence.",
+                    "mandatory": true,
+                    "status": "not_run",
+                    "evidence": [],
+                    "children": []
+                  }
+                ]
+              }
+            ],
+            "readiness": "blocked",
+            "next_action": "Specify the smallest owner-scoped qualification step.",
+            "unknowns": [
+              "T01–T16 are specifications, not passed tests; all A1–A8 remain unverified here."
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "B06.PRODUCER",
+        "title": "Producer journal/replay adapter",
+        "purpose": "Reuse B10 append-only journal and revision replay through a qualified local-input adapter.",
+        "outcome": "One canonical event composition; acquisition remains _FETCH.",
+        "ghost": true,
+        "owner": "B06 #108",
+        "branch": "work/108-canonical-traversal-takeover",
+        "scope": [
+          "engines/traversal/**"
+        ],
+        "dependencies": [
+          "EXT.B10",
+          "B06.INPUT"
+        ],
+        "source_refs": [
+          "producer",
+          "journal",
+          "producer_core"
+        ],
+        "status": {
+          "proposed": {
+            "state": "established",
+            "evidence": [
+              "producer_read",
+              "journal_read"
+            ]
+          },
+          "implemented": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "tested": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "independently_accepted": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "published": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "integrated": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "operational": {
+            "state": "not_claimed",
+            "evidence": []
+          }
+        },
+        "acceptance": [
+          {
+            "id": "B06.PRODUCER.REPLAY",
+            "purpose": "Two-ticker full-prefix, restart, duplicate and correction replay with source fingerprints.",
+            "mandatory": true,
+            "status": "not_run",
+            "evidence": [],
+            "children": []
+          }
+        ],
+        "readiness": "blocked",
+        "next_action": "Review B06.ADAPTER.LOCAL_INPUT.DRAFT1 and obtain existing-owner dispositions before implementation.",
+        "unknowns": [
+          "B10 stores full input prefixes/raw observation payloads: adapter must not create a duplicate raw archive.",
+          "B10 poller.py must not be activated; adaptation/disposition of journal raw payload retention is unresolved.",
+          "Direct B10 reuse silently excludes PRE/AH; calendar/session adaptation is not implemented.",
+          "Per-record historical availability/ingestion must be qualified outside the current B10 flag."
+        ],
+        "children": []
+      },
+      {
+        "id": "B06.FALSIFICATION",
+        "title": "Historical falsification",
+        "purpose": "Compare all eligible episodes, including failures, excluded-quality and censored outcomes.",
+        "outcome": "H0 price-only versus H1 turnover/path and H2 boundary persistence on the same cohort.",
+        "ghost": true,
+        "owner": "B06 #108",
+        "branch": "work/108-canonical-traversal-takeover",
+        "scope": [
+          "engines/traversal/**"
+        ],
+        "dependencies": [
+          "B06.ZONES.CONTESTS",
+          "B06.INPUT",
+          "EXT.DAILY"
+        ],
+        "source_refs": [
+          "battle_cases",
+          "daily_plan"
+        ],
+        "status": {
+          "proposed": {
+            "state": "established",
+            "evidence": [
+              "battle_cases_read",
+              "daily_plan_read"
+            ]
+          },
+          "implemented": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "tested": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "independently_accepted": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "published": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "integrated": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "operational": {
+            "state": "not_claimed",
+            "evidence": []
+          }
+        },
+        "acceptance": [
+          {
+            "id": "B06.FALSIFICATION.COHORT",
+            "purpose": "Frozen cohort, chronological availability, clustering, counts and delay; no tuning on observed Nov2/3.",
+            "mandatory": true,
+            "status": "not_run",
+            "evidence": [],
+            "children": []
+          }
+        ],
+        "readiness": "blocked",
+        "next_action": "Specify the smallest owner-scoped qualification step.",
+        "unknowns": [
+          "M0–M5 daily incremental benchmarks are not intraday detector validation; B07 calibration is separate."
+        ],
+        "children": []
+      },
+      {
+        "id": "B06.DELIVERY.LOCAL",
+        "title": "Component-local delivery",
+        "purpose": "Let ticker components consume qualified local derived objects from both tools.",
+        "outcome": "Compact display plus machine-readable provenance and null reasons.",
+        "ghost": true,
+        "owner": "B06 #108",
+        "branch": "work/108-canonical-traversal-takeover",
+        "scope": [
+          "engines/traversal/**"
+        ],
+        "dependencies": [
+          "B06.RANGES",
+          "B06.ZONES",
+          "EXT.MAP",
+          "EXT.TEMPLATE",
+          "EXT.TRAJECTORY"
+        ],
+        "source_refs": [
+          "battle",
+          "tape_runbook"
+        ],
+        "status": {
+          "proposed": {
+            "state": "established",
+            "evidence": [
+              "battle_read",
+              "tape_runbook_read"
+            ]
+          },
+          "implemented": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "tested": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "independently_accepted": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "published": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "integrated": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "operational": {
+            "state": "not_claimed",
+            "evidence": []
+          }
+        },
+        "acceptance": [
+          {
+            "id": "B06.DELIVERY.LOCAL.CONTRACT",
+            "purpose": "Approve consumer contract, derived destination and discovery without copying owner catalogs.",
+            "mandatory": true,
+            "status": "not_run",
+            "evidence": [],
+            "children": []
+          },
+          {
+            "id": "B06.DELIVERY.LOCAL.TRAJECTORY",
+            "purpose": "Consumer accepts manifest identity, bounds, interval, frozen range version, activity-versus-contest type and missingness, with separate PRE/RTH/AH windows.",
+            "mandatory": true,
+            "status": "not_run",
+            "evidence": [],
+            "children": []
+          }
+        ],
+        "readiness": "blocked",
+        "next_action": "Specify the smallest owner-scoped qualification step.",
+        "unknowns": [],
+        "children": []
+      },
+      {
+        "id": "B06.DELIVERY.OPERATIONAL",
+        "title": "Operational alerts and delivery",
+        "purpose": "Deliver only after current qualified input and observed latency/recovery acceptance.",
+        "outcome": "Qualified runtime/delivery with measured source-to-consumer latency.",
+        "ghost": true,
+        "owner": "B06 #108",
+        "branch": "work/108-canonical-traversal-takeover",
+        "scope": [
+          "engines/traversal/**"
+        ],
+        "dependencies": [
+          "B06.DELIVERY.LOCAL",
+          "EXT.B01",
+          "EXT.FETCH"
+        ],
+        "source_refs": [
+          "metrics_readme",
+          "producer"
+        ],
+        "status": {
+          "proposed": {
+            "state": "established",
+            "evidence": [
+              "metrics_readme_read",
+              "producer_read"
+            ]
+          },
+          "implemented": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "tested": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "independently_accepted": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "published": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "integrated": {
+            "state": "not_claimed",
+            "evidence": []
+          },
+          "operational": {
+            "state": "not_claimed",
+            "evidence": []
+          }
+        },
+        "acceptance": [
+          {
+            "id": "B06.DELIVERY.OPERATIONAL.PROOF",
+            "purpose": "Current source, entitlement, measured latency and actual delivery evidence.",
+            "mandatory": true,
+            "status": "blocked",
+            "evidence": [],
+            "children": []
+          }
+        ],
+        "readiness": "blocked",
+        "next_action": "Specify the smallest owner-scoped qualification step.",
+        "unknowns": [
+          "No service, schedule, alert, deployment or live detector enabled."
+        ],
+        "children": []
+      }
+    ]
+  },
+  "external_owners": [
+    {
+      "id": "EXT.FETCH",
+      "owner": "_FETCH",
+      "conversation": "6af629d6-45e0-8191-a5ea-c0041adda006",
+      "branch": "work/local-20261112-massive-maintainer",
+      "scope": "_TICKERS/**",
+      "revision": "8cf8897689cc69f41fe9b68a8125e6592d84d653",
+      "observed_state": "existing acquisition owner; placement is not qualification",
+      "authority": "reference_only",
+      "next_action": "Route proposed changes to this existing owner."
+    },
+    {
+      "id": "EXT.B10",
+      "owner": "B10 #95 / PR99",
+      "conversation": null,
+      "branch": "work/95-incremental-ticker-patterns",
+      "scope": "research/CRWV/trading-tool/**",
+      "revision": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+      "observed_state": "draft; journal/event adapter candidate; old poller disabled for this composition",
+      "authority": "reference_only",
+      "next_action": "Route proposed changes to this existing owner."
+    },
+    {
+      "id": "EXT.BATTLE",
+      "owner": "B06 #144 / PR145",
+      "conversation": null,
+      "branch": "work/144-october-compression-stress",
+      "scope": "research/traversal/october_2026_compression_stress/**",
+      "revision": "ea6dcb656fc6c853add9e4906dc4761f64d04813",
+      "observed_state": "draft research specification; no verified detector",
+      "authority": "reference_only",
+      "next_action": "Route proposed changes to this existing owner."
+    },
+    {
+      "id": "EXT.GEOMETRY",
+      "owner": "B06 #149 / PR150",
+      "conversation": null,
+      "branch": "work/149-market-geometry-core",
+      "scope": "engines/traversal/market_geometry/**",
+      "revision": "eade884d4423e5f7e6a899387e5f62bc3b24045a",
+      "observed_state": "draft; eight reported independent local tests; integration blocked",
+      "authority": "reference_only",
+      "next_action": "Route proposed changes to this existing owner."
+    },
+    {
+      "id": "EXT.DAILY",
+      "owner": "B06 #154 / PR160",
+      "conversation": null,
+      "branch": "work/154-self-relative-historical-state",
+      "scope": "research/traversal/self_relative_state/**",
+      "revision": "62e41633434602fd481b8a3ed7a1a92f3f628fcb",
+      "observed_state": "draft daily reference; M0–M5 not an intraday detector",
+      "authority": "reference_only",
+      "next_action": "Route proposed changes to this existing owner."
+    },
+    {
+      "id": "EXT.NVDA",
+      "owner": "B14 #185 / PR187; handoff #204",
+      "conversation": null,
+      "branch": "work/185-nvda-daily-history-recovery",
+      "scope": "research/NVDA/data-recovery/2026-11-04/**",
+      "revision": "3d148ba1c94c861a45b184e00a697add41fa57ef",
+      "observed_state": "draft bar-only prototype; PR body says eight files, actual metadata lists eleven",
+      "authority": "reference_only",
+      "next_action": "Route proposed changes to this existing owner."
+    },
+    {
+      "id": "EXT.CONTEXT",
+      "owner": "B17 #100 / PR101",
+      "conversation": null,
+      "branch": "work/100-basket-market-context",
+      "scope": "engines/composites/market_context/**",
+      "revision": "74d913e8913d630d85451344689e093aeea07efc",
+      "observed_state": "integrated separate contextual input; intrinsic traversal composition unverified",
+      "authority": "reference_only",
+      "next_action": "Route proposed changes to this existing owner."
+    },
+    {
+      "id": "EXT.MAP",
+      "owner": "B00 #230",
+      "conversation": null,
+      "branch": "work/230-map-system-planning",
+      "scope": "_MAP/**",
+      "revision": "1a9fdb7952676d026e92d001f88f62de67f103e0",
+      "observed_state": "read-only discoverability/pattern contract; domain mapping not accepted",
+      "authority": "reference_only",
+      "next_action": "Route proposed changes to this existing owner."
+    },
+    {
+      "id": "EXT.TEMPLATE",
+      "owner": "Template owner #243",
+      "conversation": null,
+      "branch": "work/243-clean-template-boundary",
+      "scope": "orchestration/clean_templates/**",
+      "revision": "6f5e39cd8590a6431bec56cd62af086bb28d6326",
+      "observed_state": "clean seed schema is not a nested maturity schema",
+      "authority": "reference_only",
+      "next_action": "Route proposed changes to this existing owner."
+    },
+    {
+      "id": "EXT.SOP",
+      "owner": "_SOP",
+      "conversation": null,
+      "branch": null,
+      "scope": null,
+      "revision": null,
+      "observed_state": "repeatable execution pattern owner; concrete contract unresolved",
+      "authority": "reference_only",
+      "next_action": "Route proposed changes to this existing owner."
+    },
+    {
+      "id": "EXT.B01",
+      "owner": "B01 #98",
+      "conversation": null,
+      "branch": null,
+      "scope": "tests/integration/**; .github/workflows/**",
+      "revision": null,
+      "observed_state": "independent acceptance owner; no new packet acceptance claimed",
+      "authority": "reference_only",
+      "next_action": "Route proposed changes to this existing owner."
+    },
+    {
+      "id": "EXT.TRAJECTORY",
+      "owner": "existing trajectory consumer",
+      "conversation": "6af642ae-e840-8191-9a89-f25a7214400c",
+      "branch": "work/local-20261113-trajectory-task6",
+      "scope": "_TICKERS/_TRAJECTORY/**",
+      "revision": null,
+      "authority": "reference_only",
+      "observed_state": "existing owner; local worktree observed; consumer acceptance not established",
+      "next_action": "Parent routes proposed qualified summaries; never write consumer files."
+    }
+  ],
+  "relationships": [
+    {
+      "from_id": "B06.108",
+      "type": "contains",
+      "to_id": "B06.INPUT",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.108",
+      "type": "contains",
+      "to_id": "B06.RANGES",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.RANGES",
+      "type": "contains",
+      "to_id": "B06.RANGES.OBSERVED",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.RANGES",
+      "type": "contains",
+      "to_id": "B06.RANGES.FROZEN",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.108",
+      "type": "contains",
+      "to_id": "B06.ZONES",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.ZONES",
+      "type": "contains",
+      "to_id": "B06.ZONES.APPROXIMATE",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.ZONES",
+      "type": "contains",
+      "to_id": "B06.ZONES.TRADE_BINS",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.ZONES",
+      "type": "contains",
+      "to_id": "B06.ZONES.CONTESTS",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.108",
+      "type": "contains",
+      "to_id": "B06.PRODUCER",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.108",
+      "type": "contains",
+      "to_id": "B06.FALSIFICATION",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.108",
+      "type": "contains",
+      "to_id": "B06.DELIVERY.LOCAL",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.108",
+      "type": "contains",
+      "to_id": "B06.DELIVERY.OPERATIONAL",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.INPUT",
+      "type": "requires",
+      "to_id": "EXT.FETCH",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.RANGES",
+      "type": "requires",
+      "to_id": "B06.INPUT",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.RANGES.FROZEN",
+      "type": "requires",
+      "to_id": "B06.PRODUCER",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.RANGES.FROZEN",
+      "type": "requires",
+      "to_id": "B06.INPUT",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.ZONES",
+      "type": "requires",
+      "to_id": "B06.RANGES",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.ZONES",
+      "type": "requires",
+      "to_id": "B06.INPUT",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.ZONES.APPROXIMATE",
+      "type": "requires",
+      "to_id": "B06.INPUT",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.ZONES.TRADE_BINS",
+      "type": "requires",
+      "to_id": "B06.INPUT",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.ZONES.CONTESTS",
+      "type": "requires",
+      "to_id": "B06.RANGES.FROZEN",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.ZONES.CONTESTS",
+      "type": "requires",
+      "to_id": "B06.PRODUCER",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.PRODUCER",
+      "type": "requires",
+      "to_id": "EXT.B10",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.PRODUCER",
+      "type": "requires",
+      "to_id": "B06.INPUT",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.FALSIFICATION",
+      "type": "requires",
+      "to_id": "B06.ZONES.CONTESTS",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.FALSIFICATION",
+      "type": "requires",
+      "to_id": "B06.INPUT",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.FALSIFICATION",
+      "type": "requires",
+      "to_id": "EXT.DAILY",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.DELIVERY.LOCAL",
+      "type": "requires",
+      "to_id": "B06.RANGES",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.DELIVERY.LOCAL",
+      "type": "requires",
+      "to_id": "B06.ZONES",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.DELIVERY.LOCAL",
+      "type": "requires",
+      "to_id": "EXT.MAP",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.DELIVERY.LOCAL",
+      "type": "requires",
+      "to_id": "EXT.TEMPLATE",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.DELIVERY.OPERATIONAL",
+      "type": "requires",
+      "to_id": "B06.DELIVERY.LOCAL",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.DELIVERY.OPERATIONAL",
+      "type": "requires",
+      "to_id": "EXT.B01",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.DELIVERY.OPERATIONAL",
+      "type": "requires",
+      "to_id": "EXT.FETCH",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.RANGES",
+      "type": "reuses",
+      "to_id": "EXT.GEOMETRY",
+      "status": "proposed_handoff"
+    },
+    {
+      "from_id": "B06.ZONES",
+      "type": "specified_by",
+      "to_id": "EXT.BATTLE",
+      "status": "proposed_handoff"
+    },
+    {
+      "from_id": "B06.ZONES",
+      "type": "informed_by",
+      "to_id": "EXT.NVDA",
+      "status": "proposed_handoff"
+    },
+    {
+      "from_id": "B06.RANGES",
+      "type": "optional_context",
+      "to_id": "EXT.CONTEXT",
+      "status": "proposed_handoff"
+    },
+    {
+      "from_id": "B06.108",
+      "type": "discoverable_through",
+      "to_id": "EXT.MAP",
+      "status": "proposed_handoff"
+    },
+    {
+      "from_id": "B06.108",
+      "type": "contract_review_by",
+      "to_id": "EXT.TEMPLATE",
+      "status": "proposed_handoff"
+    },
+    {
+      "from_id": "B06.108",
+      "type": "execution_pattern_by",
+      "to_id": "EXT.SOP",
+      "status": "proposed_handoff"
+    },
+    {
+      "from_id": "B06.108",
+      "type": "independent_acceptance_by",
+      "to_id": "EXT.B01",
+      "status": "proposed_handoff"
+    },
+    {
+      "from_id": "B06.INPUT",
+      "type": "contains",
+      "to_id": "B06.INPUT.HISTORICAL",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.INPUT",
+      "type": "contains",
+      "to_id": "B06.INPUT.CURRENT",
+      "status": "design"
+    },
+    {
+      "from_id": "B06.INPUT.HISTORICAL",
+      "type": "requires",
+      "to_id": "EXT.FETCH",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.INPUT.CURRENT",
+      "type": "requires",
+      "to_id": "EXT.FETCH",
+      "status": "proposed_composition"
+    },
+    {
+      "from_id": "B06.DELIVERY.LOCAL",
+      "type": "provides_to",
+      "to_id": "EXT.TRAJECTORY",
+      "status": "proposed_handoff"
+    }
+  ],
+  "fetch_receipt": {
+    "classification": "controller-reported placement; not independently qualified here",
+    "owner": "6af629d6-45e0-8191-a5ea-c0041adda006",
+    "code_revision": "8cf8897689cc69f41fe9b68a8125e6592d84d653",
+    "archives_reported": 356,
+    "nvda_path": "_BASKET/_TICKERS/NVDA/NVDA.jsonl",
+    "nvda_sha256": "51ed6a7b5373d55169fbbbba980549881ce518f67582a772112e04183ba9dd3c",
+    "archive_through": "2026-10-08",
+    "coverage_qualified": false,
+    "current_input_qualified": false
+  },
+  "invariants": [
+    "Minute OHLCV does not establish exact volume-at-price, signed order flow or intrabar ordering.",
+    "Close-bucket and uniform-range estimates must remain distinct from true trade bins.",
+    "Gross volume is turnover, not unique shares or directional buying/selling.",
+    "High activity alone is not a contest, passive absorption or reversal.",
+    "Historical validity depends on purpose, coverage and vintage; age alone does not invalidate history.",
+    "Current alerts require current qualified inputs and measured latency proof.",
+    "Price near an upper range is not a known future top.",
+    "Deduplicate shared source IDs before summing overlapping range turnover.",
+    "Rolling observed extrema are not prospectively frozen boundaries.",
+    "PR187 5 bp floor, six-slot opposite pair and twenty-session median are pilot conventions, not calibrated inference.",
+    "PR150 endpoint returns can exist despite interior gaps; bounded extrema require explicit range_start and full minute coverage.",
+    "B10 full-prefix raw payload storage requires an explicit adapter disposition to avoid a second raw archive.",
+    "PRE, RTH and AH contraction, width and participation use separate comparable session windows and session-normalized baselines.",
+    "Do not fabricate bars for no-trade intervals or unknown gaps; retain the distinction.",
+    "Late-arriving or revised observations cannot leak into historical decision-time replay.",
+    "Configured schedules and filed requests do not establish actual refresh, recovery or current all-basket coverage."
+  ],
+  "prior_art": {
+    "source": "prior_art",
+    "verification": "repository-cited; external publications not independently reverified in this increment",
+    "families": [
+      "volume profile",
+      "Kaufman efficiency",
+      "Amihud/Kyle impact proxies",
+      "Cont/Kukanov/Stoikov order flow",
+      "Hasbrouck impact persistence",
+      "change points",
+      "bitemporal event sourcing"
+    ]
+  },
+  "proposed_handoffs": [
+    {
+      "owner": "EXT.FETCH",
+      "request": "Return purpose-specific CRWV/ORCL coverage, revision and availability manifests for local replay; missing intervals only. No raw transfer requested here."
+    },
+    {
+      "owner": "EXT.B10",
+      "request": "Review local-input journal adapter and raw-payload retention disposition; never activate old poller."
+    },
+    {
+      "owner": "EXT.MAP",
+      "request": "Add pointer to B06 hierarchy after review; no shadow catalog or implied full-domain mapping."
+    },
+    {
+      "owner": "EXT.TEMPLATE",
+      "request": "Assess experimental maturity projection for future reusable contract; no schema promotion now."
+    },
+    {
+      "owner": "EXT.SOP",
+      "request": "Bind repeatable qualified-input -> replay -> evidence -> independent acceptance pattern."
+    },
+    {
+      "owner": "EXT.B01",
+      "request": "Independently test exact committed packet and source pins; do not infer acceptance from local tests."
+    },
+    {
+      "owner": "EXT.TRAJECTORY",
+      "request": "Accept qualified range/zone summaries with provenance, interval/session, bounds/version, activity/contest classification and missingness; parent coordinates routing."
+    }
+  ],
+  "next_action": "B01 reviews the latest packet commit; parent routes the proposed adapter contract to existing _FETCH, B10/B06 and trajectory owners.",
+  "user_replay_request": {
+    "status": "awaiting_timestamp_resolution_and_qualified_inputs",
+    "context": "User reports missed PRE/AH contraction around approximately $169; price and interpretation unverified.",
+    "required": [
+      "instrument identity",
+      "exchange date and precise interval",
+      "PRE/RTH/AH classification",
+      "decision-time cutoff",
+      "qualified local source manifest",
+      "session-normalized width/participation baseline",
+      "late-arrival and revision exclusions"
+    ],
+    "effect": "Preserve a timestamp-resolved replay request; no new fetch, detector or schedule."
+  },
+  "continuation_updates": [
+    {
+      "date": "2026-11-19",
+      "previous_packet_revision": "194e896067ea860ca6b28a39f99216b67c4b8bb2",
+      "main_observed": "74d913e8913d630d85451344689e093aeea07efc",
+      "remote_branch_observed": "a235ff05bcb649e82fc97e3bd86db7645d49246d",
+      "local_worktree": "clean on existing #108 branch before this increment; no second #108 worktree in registered inventory",
+      "overlapping_open_pr_paths": "PR58/150/182 remain separate; no open PR lists the three packet paths",
+      "acceptance": "Latest #98 comments concern PR145; no independent acceptance of packet194e896 established.",
+      "research_update": {
+        "pr": 145,
+        "head": "feaff2a6a72c09a36f425d309bcb8859c971aab4",
+        "state": "open_draft",
+        "source": "presentation_20261119",
+        "old_pins_retained": true,
+        "disposition": "Separate presentation research; supplied-bar views and approximate participation do not pass original A1–A8 or canonical source qualification."
+      },
+      "scope": "Preparatory adapter specification and maturity-validation repairs only; execution remains blocked."
+    }
+  ],
+  "adapter_specification": {
+    "id": "B06.ADAPTER.LOCAL_INPUT.DRAFT1",
+    "status": "proposed",
+    "implemented": false,
+    "source_refs": [
+      "producer_core",
+      "journal",
+      "resolver_contract",
+      "metrics",
+      "tape",
+      "presentation_20261119"
+    ],
+    "purpose": "Define the smallest source-reference-only composition before any new core implementation.",
+    "options": [
+      {
+        "id": "direct_store_capture",
+        "decision": "reject_for_composition",
+        "reason": "store.capture persists raw prefix payloads and invokes RTH-only producer semantics; violates no-second-raw-archive and PRE/AH requirements."
+      },
+      {
+        "id": "pure_update_then_derived_journal",
+        "decision": "candidate_subject_to_owner_acceptance",
+        "reason": "Reuse existing producer behavior through a qualified ephemeral prefix; derived-only journal references canonical inputs. Session/calendar and availability gaps still require separately scoped work."
+      },
+      {
+        "id": "new_poller_or_engine",
+        "decision": "reject",
+        "reason": "_FETCH owns acquisition; existing canonical B06 owns computation."
+      }
+    ],
+    "input_contract": {
+      "resolver_owner": "EXT.FETCH",
+      "access": "read_only",
+      "fields": [
+        "instrument_id",
+        "venue",
+        "currency",
+        "adjustment_basis",
+        "interval",
+        "session_type",
+        "calendar_revision",
+        "range_start_inclusive",
+        "range_end_exclusive",
+        "decision_as_of",
+        "source_manifest_id",
+        "source_manifest_sha256",
+        "record_ids_and_revisions",
+        "observation_completion",
+        "available_at",
+        "ingested_at",
+        "coverage_and_gap_classification",
+        "qualification_purpose",
+        "quality_status",
+        "quality_reasons"
+      ],
+      "admission": [
+        "Input manifest and every selected revision must match their declared hashes.",
+        "Each bar must be complete, available and locally ingested by decision_as_of; unknown timing cannot pass strict replay.",
+        "Select only eligible nonretracted revisions at the decision cutoff, including baseline records.",
+        "Distinguish no-trade intervals from unknown missing data; neither becomes a fabricated bar.",
+        "Calendar and PRE/RTH/AH session assignment are explicit; no implicit standard-session or elapsed-time inference.",
+        "Current use additionally requires actual refresh/QA receipts and measured lag within an explicit budget; historical use does not inherit an age-only rejection."
+      ]
+    },
+    "incompatibilities": [
+      {
+        "id": "RTH_FILTER",
+        "source": "producer_core",
+        "finding": "update filters bars with 570 <= minute(t) < 960.",
+        "consequence": "Do not silently drop PRE/AH; return unsupported session until explicit calendar/session adaptation is implemented and accepted."
+      },
+      {
+        "id": "COARSE_AVAILABILITY",
+        "source": "producer_core",
+        "finding": "Batch available_at influences point_in_time_verified; rows are selected by completion and RTH, not per-record availability/ingestion.",
+        "consequence": "Qualified upstream revision selection is mandatory; do not trust the producer flag as canonical decision-time proof."
+      },
+      {
+        "id": "DUPLICATE_RAW_STORE",
+        "source": "journal",
+        "finding": "capture writes inputs.payload and observations.payload as raw prefix content.",
+        "consequence": "Do not call capture on canonical raw archives; retain canonical references and derived state/events only in a separately approved destination."
+      },
+      {
+        "id": "ORIGIN_MISMATCH",
+        "source": "metrics",
+        "finding": "Canonical metrics use first-open sampled path; NVDA tape normally uses preceding close.",
+        "consequence": "Declare origin per output; do not substitute formulas or compare quantities with different origins."
+      },
+      {
+        "id": "SUPPLIED_BAR_CLOCK",
+        "source": "presentation_20261119",
+        "finding": "Presentation models explicitly use supplied-bar counts and retrospective or approximate profiles.",
+        "consequence": "Do not adopt bars as elapsed minutes/sessions or visual participation as actual contests."
+      },
+      {
+        "id": "PROVENANCE_IDENTITY",
+        "source": "producer_core",
+        "finding": "signal_id excludes source, retrieval lag and freshness although input_hash is retained.",
+        "consequence": "Bind emitted derived records to the canonical manifest, source revision and method/config; any change requires explicit replay identity policy."
+      }
+    ],
+    "output_contract": {
+      "consumer": "EXT.TRAJECTORY",
+      "destination": null,
+      "destination_status": "owner_acceptance_required",
+      "fields": [
+        "instrument_id",
+        "session_type",
+        "interval",
+        "source_manifest_id",
+        "source_manifest_sha256",
+        "input_record_revision_refs",
+        "decision_as_of",
+        "source_coverage_end",
+        "range_start",
+        "range_end",
+        "range_id",
+        "range_version",
+        "boundary_basis",
+        "window_origin",
+        "method_revision",
+        "config_hash",
+        "evidence_tier",
+        "activity_summary",
+        "contest_status",
+        "missingness",
+        "qualification_purpose",
+        "qualification_status",
+        "supersedes"
+      ],
+      "boundary_basis": [
+        "observed_rolling",
+        "prospectively_frozen"
+      ],
+      "evidence_tier": [
+        "bar_estimate",
+        "qualified_trade_bins",
+        "qualified_quotes"
+      ],
+      "effects": [
+        "Read canonical inputs through approved local resolver only.",
+        "Proposed writes are derived events/checkpoints and immutable input references, never raw bars or full input payloads.",
+        "No consumer file writes until destination and ownership allocation are accepted.",
+        "No network fetch, credentials, polling, schedule, alert, trade or deployment."
+      ]
+    },
+    "replay_policy": [
+      "Identical full eligible prefix and method/config produce zero new events on repeat.",
+      "An unavailable referenced input blocks reconstruction; never substitute current rows.",
+      "Changed processed source/context/method halts the active generation; an explicit new generation links superseded events and preserves the old lineage.",
+      "A checkpoint binds prefix fingerprint, source manifest, method/config, session/calendar, qualification purpose and decision cutoff.",
+      "Crash/restart must neither lose committed derived events nor append duplicates; destination transaction semantics remain a design gate."
+    ],
+    "acceptance_cases": [
+      {
+        "id": "AD01",
+        "scenario": "Revision available after historical decision cutoff",
+        "expected": "Reject late revision; choose eligible earlier revision or explicit unavailable.",
+        "result": "not_run",
+        "evidence": []
+      },
+      {
+        "id": "AD02",
+        "scenario": "Old complete archive requested historically and then as current state",
+        "expected": "Historical purpose may qualify; current request fails absent refresh/lag proof.",
+        "result": "not_run",
+        "evidence": []
+      },
+      {
+        "id": "AD03",
+        "scenario": "PRE/RTH/AH records reach RTH-only producer",
+        "expected": "Reject unsupported PRE/AH rather than silently filtering; keep separate baselines.",
+        "result": "not_run",
+        "evidence": []
+      },
+      {
+        "id": "AD04",
+        "scenario": "Known no-trade interval and unknown gap",
+        "expected": "Preserve distinct reasons, do not fabricate; reject required contiguous-window metric.",
+        "result": "not_run",
+        "evidence": []
+      },
+      {
+        "id": "AD05",
+        "scenario": "Repeated prefix, restart and crash around derived-event commit",
+        "expected": "No duplicate events and no loss after committed checkpoint; source IDs unchanged.",
+        "result": "not_run",
+        "evidence": []
+      },
+      {
+        "id": "AD06",
+        "scenario": "Processed bar or context corrected",
+        "expected": "Halt current generation; explicit new generation with supersedes and immutable predecessor.",
+        "result": "not_run",
+        "evidence": []
+      },
+      {
+        "id": "AD07",
+        "scenario": "Two overlapping ranges share bar IDs",
+        "expected": "Union source IDs for combined volume, retain separate range attribution.",
+        "result": "not_run",
+        "evidence": []
+      },
+      {
+        "id": "AD08",
+        "scenario": "First-open versus preceding-close path",
+        "expected": "Declare origins; compare only compatible quantities; missing prior close is explicit.",
+        "result": "not_run",
+        "evidence": []
+      },
+      {
+        "id": "AD09",
+        "scenario": "High allocated activity without boundary contact",
+        "expected": "Activity only; contest/absorption/reversal unconfirmed.",
+        "result": "not_run",
+        "evidence": []
+      },
+      {
+        "id": "AD10",
+        "scenario": "Trajectory consumer receives missing history or unsupported session",
+        "expected": "Output qualified missingness with manifest and bounds; no neutral zero or fresh-state claim.",
+        "result": "not_run",
+        "evidence": []
+      },
+      {
+        "id": "AD11",
+        "scenario": "Baseline observation arrives after decision time",
+        "expected": "Exclude from same-clock baseline; insufficient sample stays null.",
+        "result": "not_run",
+        "evidence": []
+      },
+      {
+        "id": "AD12",
+        "scenario": "Raw prefix storage requested by legacy capture API",
+        "expected": "Block that composition; no canonical raw payload copied into a second journal.",
+        "result": "not_run",
+        "evidence": []
+      },
+      {
+        "id": "AD13",
+        "scenario": "Supplied-bar view spans missing minutes or session boundary",
+        "expected": "Do not label count as elapsed minutes; reject unsupported comparison.",
+        "result": "not_run",
+        "evidence": []
+      }
+    ],
+    "execution_gate": {
+      "status": "blocked",
+      "required": [
+        "B01 exact-commit packet review",
+        "_FETCH qualified historical/current input contracts",
+        "B10/B06 accepted session and revision adapter decisions",
+        "B00 accepted derived-only destination",
+        "trajectory consumer acceptance"
+      ],
+      "note": "Specification and source review can progress; no implementation or replay execution claimed."
+    }
+  },
+  "local_review_findings": [
+    {
+      "id": "B06.PACKET.GATE_PROOF.001",
+      "affected_revision": "857773a75ec35416b7e0bf850bd49d0377a34d03",
+      "finding": "Validator accepted observed current-input gate as pass using metrics_read source inspection, and reported that node ready.",
+      "reproduction": "Set B06.RANGES.OBSERVED.CURRENT_INPUT to pass with evidence [metrics_read], then node readiness to ready; validate returned True.",
+      "correction": "Require exact criterion_ids and a passing proof report; reject conflicting failed/blocked/not-run/skipped evidence.",
+      "classification": "owner-local validator defect; no actual source qualification or independent acceptance occurred"
+    }
+  ]
+}
