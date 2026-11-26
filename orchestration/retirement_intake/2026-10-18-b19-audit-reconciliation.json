@@ -1,0 +1,91 @@
+{
+  "record_version": 1,
+  "source_issue": 41,
+  "source_body": "## Retirement handoff — B00 orchestrator\nSource: completed read-only conversation audit of #17 / PR #18 and #21 / PR #23. This is a handoff, not a new implementation worker or authorization to duplicate existing work. Source thread may retire after this record is saved.\n\n## Evidence retained\nPR metadata refreshed 2026-10-18 UTC: #18 and #23 remain open drafts at 109bbd9e76c29db24b19b74654221de5fb1b5133 and 3d12d2182717011981667725dd3df1467ddbe33e respectively. #25 remains an open B00 draft, now at 09ab8ed317d1b7244718976c24fa06205794b1c6; its implementation has changed since the audit, so inspect current files before applying this handoff.\n\nAudit of #18: exactly seven added files under research/themes/supply-chain/**; all six JSON resources independently parsed from complete added-file patches. 68 unique watchlist IDs; earnings_unverified list exactly matches. All 19 pools have null amounts and empty evidence refs. Quarterly proposals, gateway hypotheses and unresolved allocations are empty. Valid scaffold, not completed basket-wide revenue evidence.\nIndependently retrieved successful PR-head CI run: https://github.com/whiterosecoffee/_BASKET/actions/runs/39000871032 at 109bbd9e76c29db24b19b74654221de5fb1b5133. Executed checks cover canonical stores, relationship regression, version metadata and spark ownership; they do not establish B19 pool/reconciliation correctness. No post-merge validation claimed.\n#23 contains 42 unique candidates across 11 layers, no overlap with #18 watchlist, 21 P0 candidates, and 38 entries without evidence. Source claims were not independently verified by this audit. Do not restart #21 or label it integrated.\n\n## Exact next batch\n1. B00 existing #24 / PR #25: map this handoff to T-010 acceptance and proposed T-012 inventory; inspect current queue and scopes first. Amend through the current owner only—no competing queue branch. Explicitly exclude research/themes/supply-chain/coverage/underrepresented-2026-10-17.json from #17's broad subtree scope while #21 owns it. Keep one owner per file.\n2. B00 T-012: reconcile the 68 watchlist IDs and 42 candidates against a pinned main SHA and branch-only changes. Flag MANH missing from both research lists despite the established basket; resolve PAYP issuer/listing identity; classify QQQ/SMH as fund exposure separately from issuer revenue. No canonical registration by B19.\n3. B19 existing #17 / T-010: source a bounded MSFT → CRWV → NVDA commercial-path pilot as hypotheses until verified. Use latest available quarterly disclosures at a declared cutoff; distinguish fiscal periods, segment scope, reported vs AI-attributable revenue, capex, financing, RPO/backlog and cash flow. Populate only evidence-supported proposals and research reconciliation. Preserve nulls where allocation is undisclosed.\n4. B19 existing #21 / #23: independently verify and narrow the first expansion tranche AMKR/ASX, PWR/MOD/NVT, STX/PSTG, SNOW/MDB; MANH omission handled separately. Rank by disclosed economic materiality, evidence quality and incremental coverage. Recheck all four existing evidence entries. Exact reserved file only; no edits to #18 resources by this worker.\n5. B19 domain checker in explicitly allocated owned paths; B01 handles shared integration tests/workflows. Validate parse, unique IDs, references, provenance, fiscal/temporal consistency, USD/original-currency/FX basis, noncanonical status and accounting categories. Negative fixtures must reject dangling refs, unsupported financial amounts, fabricated timestamps, backlog-as-revenue and additive intermediate-revenue double counting. Do not alter shared schemas as part of this batch.\n6. Route sourced earnings proposals to existing B03 #12 / T-005 and edge proposals to B05 through existing scopes. Canonical promotion waits for owner acceptance; source research does not need to wait for canonical registration or #18 merge.\n\n## Boundaries and acceptance\nB00 owns queue/scopes/contracts; B01 owns shared CI; B03 owns canonical events; B05 owns canonical edges; B19 owns derived research only. Read PR #22 economic-flow architecture as provisional; do not create a second shared ontology. Do not duplicate T-012 or existing B19/B03 tasks.\nBefore disposition, refresh PR heads/files/runs; record exact commands, outcomes, missing checks, acceptance IDs, handoffs and one next action using the current worker-resolution schema. Green scaffold CI is not domain evidence completeness or integrated main.\nNo shared schemas, ticker records, branches or PRs were changed by the source audit. This handoff creates no claim that receiver work has started.\n\n## Ready-to-run orchestrator spark\nRetrieve this issue, #17/#21/#24 and PRs #18/#23/#25/#22. Read current AGENTS.md, worker protocol, queue and scopes. Reconcile evidence above against current heads. In existing B00 #24 ownership, register these actions as T-010 acceptance amendments and T-012 inventory checks without racing PR #25, then dispatch only the smallest unblocked existing-owner batch. First action: resolve the #17 subtree versus #21 exact-file reservation and identity exceptions. Report accepted task mapping, exact scopes, validation commands, evidence and the next owner action; keep incomplete implementation issues open.",
+  "source_update": "## Archive-ready audit handoff #41 — refreshed cross-worker reconciliation\nSource conversation completed its read-only PR #18 / issues #17/#21 audit. No code, schema, ticker, workflow, queue or worker branch mutations were made. This comment updates #41 without creating another worker.\n\n### Live work checked\n- B19 #17 / PR #18 remains at 109bbd9e76c29db24b19b74654221de5fb1b5133; scaffold findings in #41 remain applicable. Latest #17 triage already asks original worker to source pools, OEM pass-through and LITE/COHR nested optical content; do not duplicate it.\n- B19 #21 / PR #23 advanced to 6af9a5f221a760139c86e85f3f5da0b05fb206ba. Actual changed-file list remains ONLY coverage/underrepresented-2026-10-17.json under supply-chain. Independently parsed current JSON: 42 candidates, 42 unique, 36 without per-candidate evidence (supersedes prior count of 38). Persisted reconciliation still pins #18's 68 identifiers, zero candidate overlap, 110 research identifiers—not canonical issuers. Source verification was not repeated by this audit.\n- PR #23 exact-head shared run 39094518384 reports SUCCESS: https://github.com/whiterosecoffee/_BASKET/actions/runs/39094518384 . This supersedes a blanket claim that no CI exists; domain-specific source/graph checks are still not established by that result.\n- Current #23 adds research-only graph/query design, with receiver handoffs #50 B00, #51 B05, #52 B01. Reuse these; do not open duplicate graph tasks. Its integration_sequence wording must not turn B00 registration/B03/B05 acceptance into a blocker for independent source research.\n- Actual PR #43 change is only architecture/TICKER_FIRST_RESEARCH_ARCHITECTURE.md; #49 changes only orchestration/capture_dispatch/{README.md,plan.py,test_plan.py}. Both exist already; no new architecture/dispatcher implementation from this audit.\n- B01 #44 / PR #47 changes validate.yml and test_ci_contract.py/test_worker_qc.py. B01 #45 / PR #46 changes openai-research.yml and openai_research_acceptance.py. Actual current files are disjoint, despite broad #44 test/workflow scope; preserve explicit reservations. #52 is a receiver request, not proof of a third active B01 implementation.\n- B21 #37 / PR #38 already preserves cross-support evidence. Do not duplicate Exol narrative retention.\n\n### Priority correction and exact receiver action\n1. Existing B00 #24 owner: address B01 #44's FOUR real failing regressions first (active-task redispatch, missing mandatory CI accepted, ownership breach still yielding verified phase, self-retry accepted). Real failed run https://github.com/whiterosecoffee/_BASKET/actions/runs/39093689898 at 4b1e8c4f895e544216cf5df1b964d6501b390318. Preserve assertions; allocate planner.py, worker_protocol.py, validate_worker_attempts.py through current ownership before edits. This is a manager/QC gate, not a prerequisite for read-only B19 research.\n2. Reconcile #41 under T-010 and T-012 in existing #24/PR #25 ownership, alongside #43/#49/#50. Exclude #21 exact coverage path from #17's broad subtree reservation. Resolve MANH omission, PAYP identity and fund-vs-issuer distinctions in inventory; do not silently create ticker records.\n3. Resume existing #17 B19 owner for sourced quarterly MSFT→CRWV→NVDA pilot (research hypothesis until evidence), plus already requested optics nesting checks. Produce coverage denominator, unknown allocations, separate final demand/intermediate sales/capex/RPO/financing, and B03/B05 proposals. Do not await full graph service for this bounded pilot.\n4. Existing #21 owner retains exclusive coverage file; current research already covers broader roles/contracts and should be reviewed rather than rebuilt. B00 #50 contract arbitration → B05 #51 bounded query MVP → B01 #52 negative validation is a separate dependency chain; retain PR #22 provisional architecture and #43 ticker-first boundaries.\n5. B01 #44 retests corrected B00 code plus unchanged independent tests at exact heads. B01 #45 already has B13 repaired source 316dbea500591806e8f68fd8f1f66e17484772c9 to repin/retest; no B00/B04/B09 prerequisite for offline tests. Do not steal its CI paths.\n6. Record task/acceptance mapping, actual failed/passed tests, current SHA/run URLs and one next action. Refresh heads before integration; successful shared CI is not proof of sourced pools, continuous ingestion, graph runtime or integrated main.\n\n### Ready-to-run orchestrator prompt\nConsume #41 and this update in existing B00 #24 ownership. Refresh current heads and changed paths for #25/#47/#49/#43/#23/#18. Fix the four B01-reproduced manager defects within allocated B00 paths, retain negative tests, and obtain B01 exact-head retesting. Map remaining B19 actions to T-010/T-012 without racing the queue owner, enforce #21's exact-file reservation, and resume the existing #17 evidence pilot. Reuse #50/#51/#52 graph handoffs. Continue independent unblocked work; report verified acceptance and concrete blockers, not another generic planning handoff.\n\nGitHub activity was inspected; active chat capacity remains unknown. Source audit thread can be archived; #17/#21 and implementation gates remain open.",
+  "verified_correction": {
+    "four_defects": "repaired in merged #54; no repeat implementation required",
+    "PR47": {
+      "merged": true,
+      "head": "7641bec4e1980df3aff4c654be144934272c6488",
+      "head_run": 39095981742,
+      "head_result": "success",
+      "main_sha": "4f3f048ac577331b90b61084fee3a83d8165517d",
+      "main_run": 39096012685,
+      "main_result": "success",
+      "mandatory_jobs": "worker-qc, stores, validate all success",
+      "counts": "B01 reports 57 orchestration/22 integration; retrieved job steps all executed successfully"
+    },
+    "T009_M002": "integrated current-main QC baseline; excludes unmerged #25/#33/#49 features",
+    "failed_evidence_preserved": 39093689898
+  },
+  "B19": {
+    "T010": {
+      "owner_issue": 17,
+      "pr": 18,
+      "sha": "f3951a5f9305369b16abdcd6a0bc35af5217001d",
+      "acceptance": [
+        "source-supported quarterly MSFT→CRWV→NVDA flow pilot",
+        "source/effective/available times, USD/original currency and revision IDs",
+        "denominator and unknown allocations",
+        "final demand vs intermediate/OEM sales vs capex/RPO/financing separated",
+        "LITE/COHR content nested within optical/module economics, no additive double counting",
+        "B03/B05 proposals, not canonical writes"
+      ],
+      "independent_checks": {
+        "structure_checker": "pass at exact source",
+        "limitation": "checker rejects nonempty hypotheses/proposals pending separate review; pass proves scaffold only"
+      }
+    },
+    "T012": {
+      "owner": "B00 #24 queue reservation",
+      "acceptance": [
+        "reconcile 68 baseline +42 candidates =110 research IDs against canonical admission",
+        "MANH omission, PAYP identity, fund-vs-issuer distinctions",
+        "explicit admitted/excluded/unregistered status and denominator"
+      ],
+      "independent_checks": {
+        "PR23_sha": "a19aa809e31f441c0aec3e976474a0666c281c0c",
+        "tests_passed": 9,
+        "registry_comparison": {
+          "baseline": 68,
+          "candidates": 42,
+          "overlap": 0,
+          "combined": 110,
+          "canonical_promotion": false
+        }
+      }
+    },
+    "exclusive_reservation": {
+      "owner": 21,
+      "paths": [
+        "research/themes/supply-chain/coverage/check_coverage.py",
+        "research/themes/supply-chain/coverage/test_check_coverage.py",
+        "research/themes/supply-chain/coverage/underrepresented-2026-10-17.json"
+      ],
+      "exclude_from_issue17": true
+    },
+    "unblocked": "#17 may source pilot now, independently of graph completion and B00 QC bookkeeping"
+  },
+  "reuse_handoffs": {
+    "architecture": [
+      22,
+      43,
+      50
+    ],
+    "dispatcher": 49,
+    "graph": [
+      51,
+      52
+    ],
+    "cross_support": 38
+  },
+  "queue": {
+    "PR25_sha": "09ab8ed317d1b7244718976c24fa06205794b1c6",
+    "state": "still unmerged; goals/scopes drift independent of now-passing main QC",
+    "write_performed": false,
+    "existing_owner": 24
+  },
+  "parallel_progress_policy": "No upstream branch rewritten; dated intake supersedes historical statuses only; source/test failures retained; exact-source local checks do not substitute for B01 CI.",
+  "next_action": "B00 #24 reconcile T-010/T-012 and queue scopes/goals; B19 #17 execute sourced pilot in disjoint paths; B01 verify current B19 revisions without duplicating workers."
+}

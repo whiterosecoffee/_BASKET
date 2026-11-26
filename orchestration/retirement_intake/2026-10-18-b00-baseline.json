@@ -1,0 +1,244 @@
+{
+  "record_version": 1,
+  "source": "https://github.com/whiterosecoffee/_BASKET/issues/24#issuecomment-6245348774",
+  "observed_at": "2026-10-18T03:53:08Z",
+  "issue": 59,
+  "spark": "B00",
+  "branch": "work/59-orchestrator-retirement-intake",
+  "main_sha": "1a9e08bd0842bd63708159936b0aceaa4b67300b",
+  "disposition": "integration_blocked",
+  "handoff_text": "## B01 #44 retirement handoff — executable next batch\n\nSource worker PR #47 remains draft at 4b1e8c4f895e544216cf5df1b964d6501b390318. Real runner https://github.com/whiterosecoffee/_BASKET/actions/runs/39093689898 FAILED: 50 orchestration tests pass, 6 validators pass, strict stores pass; B01 integration 15/19 passes, four B00 defects remain. Resolution/attempt history: #44 comment 6245192484.\n\n### Fresh independent progress\nRead live open PR changed-file inventories: #46 owns only `.github/workflows/openai-research.yml` and `tests/integration/openai_research_acceptance.py`; #47 owns validate.yml, test_ci_contract.py, test_worker_qc.py. NO exact-file collision. Preserve that reservation; broad B01 subtree access is not permission to overwrite #46. #25 owns queue/execution_loop and their tests/readme; #33 owns orchestration/agentic/** plus audits; #49 owns orchestration/capture_dispatch/**; #43 architecture design. PR activity is not proof of active-chat capacity.\n\nExecuted READ-ONLY isolated snapshots (no upstream source edits):\n- #25 head 09ab8ed317d1b7244718976c24fa06205794b1c6: validators versions/sparks/planner/attempts PASS; goals FAIL `unmapped tasks: T-012,T-013,T-014`; worker scopes FAIL `missing or duplicate scope`, `queue version mismatch`. Orchestration 54/56 PASS, failures test_complete_goal_milestone_task_mapping and test_valid (worker scopes). Overlay of the three unchanged #47 files yields independent integration 15/19 PASS, same four failures. This is local combined-snapshot evidence, NOT a new CI run.\n- #33 snapshot 5f933c532c6dd9580877ff10dea4c5ab26b78712: `python -m unittest discover -s orchestration/agentic/tests -p 'test_*.py' -v` => 22/23 PASS; test_failed_attempt_requeues_original_step expects retry_original_step but receives resume_original_worker. Fresh owner head may have advanced; retest current commit.\n- #49 snapshot 92986aac1e9170ddccd31dd4a9ee85eb75991641: `python -m unittest discover -s orchestration/capture_dispatch -p 'test_*.py' -v` => 5/5 PASS. Offline compiler only; no full-basket live capture implied.\n\n### Exact dependency order / ready-to-run orchestrator prompt\nResume owning B00 #24 / PR #25 conversation; read #44/#47 and handoff comment 6245180669. Do not create a duplicate queue worker. First reconcile goals.json and worker-scopes.json with queue v1.3.0 and T-012/T-013/T-014 through B00 ownership, preserving IDs and meaningful milestone criteria. Then fix active task redispatch in planner.py; missing mandatory CI and error/verified-phase contradiction in worker_protocol.py; self-retry acceptance in validate_worker_attempts.py. Explicitly allocate newly added B00 paths before edits. All four B01 assertions must remain unchanged.\n\nRoute manager retry defect to existing B00 #32 / PR #33 owner; do not duplicate or edit its agentic files from #24. Keep #49 capture compiler separately reviewed. Existing B01 #45/PR #46 retains OpenAI CI ownership.\n\nAfter B00 corrected commits exist, commission independent B01 revalidation: six validators, all orchestration tests, unchanged 19 integration tests, strict stores, historical protocol fixture; separately run manager and capture suites at exact candidate commits (existing top-level discovery does not recurse into those new suites). Require real exact-head CI, preserve failures and retries, then integrate in dependency order and verify main CI. Do not cherry-pick B00-owned source into B01 PR or merge any known failing candidate. Advance M-002 only after all mandatory integrated-main proof exists.\n\nConversation #44 can archive as integration_blocked, NOT completed milestone. Keep #44/#6/#47 open; receiver handoff is requested, not accepted. If this chat is retired, a new B01 conversation must use a new issue/branch and document narrow transfer of the three #47 files before replacing/superseding it; never silently reuse this worker branch. One next action: B00 #24 accepts and executes this bounded repair batch.",
+  "open_pr_inventory": [
+    {
+      "pr": 58,
+      "branch": "work/57-b06-oct16-traversal-stress-fixture",
+      "head_sha": "35acdfb01ce8b4d28371df54b3917a066798fde0",
+      "paths": [
+        "research/traversal/2026-10-16-ai-infrastructure-stress.json"
+      ]
+    },
+    {
+      "pr": 55,
+      "branch": "work/53-b08-snapshot-service",
+      "head_sha": "24d77045575926be5499355f9d26de499ed2b5ae",
+      "paths": [
+        "deployment/mrie_snapshot/README.md",
+        "services/mrie_snapshot/app.py",
+        "services/mrie_snapshot/test_app.py"
+      ]
+    },
+    {
+      "pr": 49,
+      "branch": "work/48-full-basket-capture-dispatch",
+      "head_sha": "4c8cff6a00f89ab7be036efeee7864bb04a11405",
+      "paths": [
+        "orchestration/capture_dispatch/README.md",
+        "orchestration/capture_dispatch/plan.py",
+        "orchestration/capture_dispatch/test_plan.py"
+      ]
+    },
+    {
+      "pr": 47,
+      "branch": "work/44-b01-worker-qc",
+      "head_sha": "4b1e8c4f895e544216cf5df1b964d6501b390318",
+      "paths": [
+        ".github/workflows/validate.yml",
+        "tests/integration/test_ci_contract.py",
+        "tests/integration/test_worker_qc.py"
+      ]
+    },
+    {
+      "pr": 46,
+      "branch": "work/45-b01-openai-ci",
+      "head_sha": "8b2f7404bcfd13934674c080d4f668501718449d",
+      "paths": [
+        ".github/workflows/openai-research.yml",
+        "tests/integration/openai_research_acceptance.py"
+      ]
+    },
+    {
+      "pr": 43,
+      "branch": "work/42-ticker-first-worker-contract",
+      "head_sha": "f7701d597d0a751415f5603745cfc666906ebbb5",
+      "paths": [
+        "architecture/TICKER_FIRST_RESEARCH_ARCHITECTURE.md"
+      ]
+    },
+    {
+      "pr": 38,
+      "branch": "work/37-cross-support-evidence",
+      "head_sha": "7b21d01c1ec63f1482cafe274ab89f13aae1ec30",
+      "paths": [
+        "research/narrative/cross-support/exol-network-thesis-2026-10-17.md"
+      ]
+    },
+    {
+      "pr": 33,
+      "branch": "work/32-mrie-agentic-readiness-audit",
+      "head_sha": "5f933c532c6dd9580877ff10dea4c5ab26b78712",
+      "paths": [
+        "orchestration/agentic/README.md",
+        "orchestration/agentic/__init__.py",
+        "orchestration/agentic/cli.py",
+        "orchestration/agentic/github_adapter.py",
+        "orchestration/agentic/manager.py",
+        "orchestration/agentic/massive_worker_contract.py",
+        "orchestration/agentic/tests/test_manager.py",
+        "orchestration/audits/mrie-dispatch-readiness-2026-10-17.json",
+        "orchestration/audits/mrie-implementation-readiness-2026-10-17.json"
+      ]
+    },
+    {
+      "pr": 31,
+      "branch": "work/26-openai-preipo-valuation-sftby",
+      "head_sha": "316dbea500591806e8f68fd8f1f66e17484772c9",
+      "paths": [
+        "research/OPENAI/README.md",
+        "research/OPENAI/RESOURCE_STRATEGY.md",
+        "research/OPENAI/assumption-register.json",
+        "research/OPENAI/check.py",
+        "research/OPENAI/ipo2027-news.json",
+        "research/OPENAI/ipo2027-policy.json",
+        "research/OPENAI/ipo2027.py",
+        "research/OPENAI/resource-registry.json",
+        "research/OPENAI/resource_audit.py",
+        "research/OPENAI/sftby-interface.json",
+        "research/OPENAI/test_ipo2027.py",
+        "research/OPENAI/test_resource_audit.py",
+        "research/OPENAI/valuation-register.json",
+        "tickers/OPENAI/entity.json"
+      ]
+    },
+    {
+      "pr": 25,
+      "branch": "work/24-register-coverage-research-milestones",
+      "head_sha": "09ab8ed317d1b7244718976c24fa06205794b1c6",
+      "paths": [
+        "orchestration/execution_loop.py",
+        "orchestration/planner/README.md",
+        "orchestration/planner/queue.json",
+        "orchestration/tests/test_execution_loop.py",
+        "orchestration/tests/test_planner.py"
+      ]
+    },
+    {
+      "pr": 23,
+      "branch": "work/21-underrepresented-ticker-coverage",
+      "head_sha": "27958c9563334a1b81e242f17af9be7dbb1cd277",
+      "paths": [
+        "research/themes/supply-chain/coverage/underrepresented-2026-10-17.json"
+      ]
+    },
+    {
+      "pr": 22,
+      "branch": "work/20-capital-profit-graph",
+      "head_sha": "330c0eb2904e1d750d1f489d121455be4f0ce082",
+      "paths": [
+        "architecture/ECONOMIC_FLOW_GRAPH.md"
+      ]
+    },
+    {
+      "pr": 18,
+      "branch": "work/17-mrie-revenue-pool-resources",
+      "head_sha": "109bbd9e76c29db24b19b74654221de5fb1b5133",
+      "paths": [
+        "research/themes/supply-chain/README.md",
+        "research/themes/supply-chain/coverage/missing.json",
+        "research/themes/supply-chain/earnings/quarterly-intake.json",
+        "research/themes/supply-chain/reconciliation/rules.json",
+        "research/themes/supply-chain/registry/pools.json",
+        "research/themes/supply-chain/registry/tickers.json",
+        "research/themes/supply-chain/relationships/gateway-model.json"
+      ]
+    },
+    {
+      "pr": 15,
+      "branch": "work/11-market-fx-observation-replay",
+      "head_sha": "68146c1443dc485d2e5f7e811dbfcd6d76b9ed77",
+      "paths": [
+        "runtime/observations.py",
+        "runtime/test_observations.py",
+        "tests/test_ttd.py"
+      ]
+    },
+    {
+      "pr": 14,
+      "branch": "work/12-b03-canonical-issuer-events",
+      "head_sha": "63f7cf68d2c3d72afe4b0beb841c03867289a51c",
+      "paths": [
+        "research/events/README.md",
+        "research/events/SFTBY/2026-10-16-initial-ledger.json",
+        "research/events/validate.py",
+        "tickers/SFTBY/events.json"
+      ]
+    }
+  ],
+  "verification": {
+    "heads_and_changed_files": "independently_fetched",
+    "historical_test_results": "reported_by_source_not_rerun",
+    "active_conversation_capacity": "unknown",
+    "pagination": "15 open PRs returned; all file lists below 100 entries"
+  },
+  "reservations": {
+    "25": [
+      "orchestration/execution_loop.py",
+      "orchestration/planner/README.md",
+      "orchestration/planner/queue.json",
+      "orchestration/tests/test_execution_loop.py",
+      "orchestration/tests/test_planner.py"
+    ],
+    "33": [
+      "orchestration/agentic/README.md",
+      "orchestration/agentic/__init__.py",
+      "orchestration/agentic/cli.py",
+      "orchestration/agentic/github_adapter.py",
+      "orchestration/agentic/manager.py",
+      "orchestration/agentic/massive_worker_contract.py",
+      "orchestration/agentic/tests/test_manager.py",
+      "orchestration/audits/mrie-dispatch-readiness-2026-10-17.json",
+      "orchestration/audits/mrie-implementation-readiness-2026-10-17.json"
+    ],
+    "46": [
+      ".github/workflows/openai-research.yml",
+      "tests/integration/openai_research_acceptance.py"
+    ],
+    "47": [
+      ".github/workflows/validate.yml",
+      "tests/integration/test_ci_contract.py",
+      "tests/integration/test_worker_qc.py"
+    ],
+    "49": [
+      "orchestration/capture_dispatch/README.md",
+      "orchestration/capture_dispatch/plan.py",
+      "orchestration/capture_dispatch/test_plan.py"
+    ]
+  },
+  "next_steps": [
+    {
+      "order": 1,
+      "owner": "B00",
+      "action": "Document narrow successor transfer from archived #24; reconcile candidate queue v1.3.0 goals and scopes; fix four QC defects without changing B01 assertions."
+    },
+    {
+      "order": 2,
+      "owner": "B00",
+      "action": "Obtain #32 retirement/ownership transfer before manager retry fix; preserve prior failure."
+    },
+    {
+      "order": 3,
+      "owner": "B01",
+      "action": "Independently rerun corrected exact candidates, unchanged #47 tests, six validators, strict stores and protocol fixture; separately manager/capture suites."
+    },
+    {
+      "order": 4,
+      "owner": "B00",
+      "action": "Require exact-head real CI, explicit merge authorization and successful post-merge main validation before M-002 closure."
+    }
+  ],
+  "keep_open": [
+    44,
+    6,
+    47
+  ],
+  "milestone": "M-002 blocked"
+}
