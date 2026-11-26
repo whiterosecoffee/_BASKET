@@ -17,8 +17,8 @@
   "method_version": "qqqe-rebound research v1",
   "captured_at": "2026-11-25T16:55:09Z",
   "next_actions": [
-    "Confirm point-in-time Nasdaq-100 advance/decline counts and rank-based participation",
-    "Reassess ratio, absolute returns and breadth after the close"
+    "Verify comparable forward recurring EPS, cash-flow yields and justified multiples before changing paper weights",
+    "Track fixed starting holdings versus QQQ and QQQE after baseline and record sector contributions"
   ],
   "prices": {
     "QQQE": {
@@ -240,6 +240,29 @@
       "low": 548.13,
       "bid": 550.98,
       "ask": 551.17
+    }
+  },
+  "follow_up": {
+    "as_of": "2026-11-25T21:00:00Z",
+    "status": "Paper baseline defined; forward returns and earnings validation pending",
+    "design": "feature-design-qqq-subbasket.md",
+    "evidence": "holdings-ranges-2026-11-25.csv",
+    "benchmark": [
+      "QQQ",
+      "QQQE"
+    ],
+    "nav_baseline": 100,
+    "target_pct": {
+      "CDNS": 10,
+      "FTNT": 10,
+      "MELI": 10,
+      "ODFL": 10,
+      "ISRG": 10,
+      "MRVL": 10,
+      "LITE": 10,
+      "AMAT": 10,
+      "CPRT": 10,
+      "GOOG": 10
     }
   }
 }
