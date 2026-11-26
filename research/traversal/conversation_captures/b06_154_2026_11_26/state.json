@@ -1,0 +1,91 @@
+{
+  "id": "B06_154_CONVERSATION_PURPOSE_CAPTURE_2026_11_26",
+  "purpose": "Independent purpose index and source-backed archive of B06 moving-average research and linked range visualization",
+  "owner": "B06 (same conversation; issue #154)",
+  "branch": "work/154-conversation-purpose-preservation-20261126",
+  "base": {
+    "branch": "main",
+    "sha": "7eb29bbae71614559f41ec283908753e9a677a55"
+  },
+  "status": "archive_branch_writes_in_progress",
+  "instructions_ref": "AGENTS.md",
+  "source_issue": "https://github.com/whiterosecoffee/_BASKET/issues/154",
+  "source_pr": "https://github.com/whiterosecoffee/_BASKET/pull/160",
+  "write_paths": [
+    "research/traversal/conversation_captures/b06_154_2026_11_26/**"
+  ],
+  "links": {
+    "index": "INDEX.md",
+    "purposes": "PURPOSES.json",
+    "evidence": "EVIDENCE_LEDGER.md",
+    "ui": "UI_PROVENANCE.md",
+    "extraction": "EXTRACTION_PROTOCOL.md",
+    "handoff": "HANDOFF.md"
+  },
+  "source_revisions": {
+    "historical_state": {
+      "pr": 160,
+      "sha": "bbf8bc777c413d936a7c4e4c07489035980de997",
+      "state": "draft_unmerged"
+    },
+    "range_ui": {
+      "pr": 145,
+      "sha": "feaff2a6a72c09a36f425d309bcb8859c971aab4",
+      "state": "draft_unmerged"
+    },
+    "geometry": {
+      "pr": 150,
+      "sha": "eade884d4423e5f7e6a899387e5f62bc3b24045a",
+      "state": "draft_unmerged"
+    },
+    "traversal_core": {
+      "pr": 109,
+      "sha": "a235ff05bcb649e82fc97e3bd86db7645d49246d",
+      "state": "merged"
+    },
+    "pattern_matrix": {
+      "pr": 99,
+      "sha": "f8e83f440023bcbf123687fc6c24248f1baf88c9",
+      "state": "draft_unmerged"
+    },
+    "traversal_tool": {
+      "pr": 282,
+      "sha": "94c3c472197c4853ccb2cf0dffbc73b69ae1fbf7",
+      "state": "draft_unmerged"
+    }
+  },
+  "purposes": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05"
+  ],
+  "artifacts_included": [
+    "AGENTS.md",
+    "state.json",
+    "INDEX.md",
+    "PURPOSES.json",
+    "EVIDENCE_LEDGER.md",
+    "UI_PROVENANCE.md",
+    "EXTRACTION_PROTOCOL.md",
+    "HANDOFF.md"
+  ],
+  "coverage": {
+    "conversation_visible_messages": "analyzed_from_available_context",
+    "prior_turn_summary": "used_but_not_verbatim",
+    "native_full_chat_export": "not_available",
+    "rich_chat_widgets_and_screenshots": "not_available",
+    "range_ui_source": "verified_pr145",
+    "raw_market_data": "not_copied"
+  },
+  "decisions": [
+    "Link PR145 UI; do not copy it into PR160",
+    "Explode five logical purposes but do not start five workers",
+    "Use one clean preservation branch distinct from existing product development",
+    "Do not claim a verbatim conversation scrape absent native export"
+  ],
+  "archive_readiness": "preserved_available_sources; original_chat_and_widget_completeness_unverified",
+  "active_editor": null,
+  "next_action": "Future pickup reviews this branch and a full native conversation export if obtained, verifies original visual identity, then routes independently missing obligations through their existing owners"
+}
