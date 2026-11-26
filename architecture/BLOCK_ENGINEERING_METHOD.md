@@ -114,3 +114,7 @@ Codex owns orchestration decisions and complete authorized cycles; GitHub owns d
 This method assembles established requirements engineering, Kanban/pull, Design by Contract, ports/adapters, consumer-driven testing, architecture decision records, scenario review and PDCA. Existing research is linked from the [queue](https://github.com/whiterosecoffee/_BASKET/issues/136). It is not a novel foundational framework.
 
 [Concise project map](PROJECT_MAP.md) · [Detailed map](https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6546147461)
+
+## Conversation intelligence and retirement
+
+Use the independent [conversation extractor](../orchestration/worker_bridge/CONVERSATION_EXTRACTION.md) to produce a self-contained handoff, then the [master integration contract](../orchestration/worker_bridge/CONVERSATION_INTEGRATION.md) for authorized repository reconciliation and execution. The [MRIE continuity record](../orchestration/worker_bridge/CONVERSATION_CONTINUITY.md) preserves source limitations, fourteen reusable principles, owner dispositions and the archive gate for #136 comment 6620988985. These reuse the existing control plane and do not create another knowledge store or authorize merges.
