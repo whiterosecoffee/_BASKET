@@ -7,11 +7,19 @@ import os
 import sys
 from pathlib import Path
 from urllib.request import Request, urlopen
-from .manager import GuardError, evaluate, load_events, run_safe_checks
-from .github_adapter import collect
 
-def main():
-    p=argparse.ArgumentParser(description=__doc__)
+def main(argv=None):
+    argv = list(sys.argv[1:] if argv is None else argv)
+    # Offline reports bypass queue/evidence collection and all controller actions.
+    if argv[:1] == ["closeout"]:
+        from orchestration.conversation_closeout.__main__ import main as closeout
+        return closeout(argv[1:])
+    from .manager import GuardError, evaluate, load_events, run_safe_checks
+    from .github_adapter import collect
+
+    p=argparse.ArgumentParser(description=__doc__, epilog=(
+        "Offline command: python -m orchestration.agentic.cli closeout "
+        "--input evidence.json [--output report.md]; use closeout --help for details."))
     p.add_argument("--queue", type=Path, required=True)
     source=p.add_mutually_exclusive_group(required=True)
     source.add_argument("--live-github", action="store_true")
@@ -21,7 +29,7 @@ def main():
     p.add_argument("--check", action="append", default=[])
     p.add_argument("--root", type=Path, default=Path.cwd())
     p.add_argument("--max-evidence-age", type=int, default=900)
-    args=p.parse_args()
+    args=p.parse_args(argv)
     try:
         now=dt.datetime.now(dt.timezone.utc)
         queue=json.loads(args.queue.read_text(encoding="utf-8"))

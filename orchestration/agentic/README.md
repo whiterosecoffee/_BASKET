@@ -6,6 +6,15 @@ It validates a dependency DAG and complete, fresh GitHub PR/issue/CI evidence; c
 
 ## Commands
 
+Offline conversation closeout uses this existing CLI and bypasses scheduling:
+
+    python -m orchestration.agentic.cli closeout --input evidence.json --output report.md
+
+Use `closeout --help` for options and see the [input and output contract](../conversation_closeout/README.md).
+No queue, live GitHub evidence, lease or worker claim is required for this report.
+Worker task/resolution payloads remain authoritative. Existing scheduling options
+below retain their behavior.
+
 From repository root, with the GitHub token stored only as an environment secret:
 
     GITHUB_TOKEN=... python -m orchestration.agentic.cli --queue orchestration/planner/queue.json --live-github --events /persistent/worker-events.jsonl --decision-log /persistent/decisions.jsonl
