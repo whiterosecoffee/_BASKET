@@ -1,0 +1,109 @@
+{
+  "model_version": "crus-readiness@0.1.0",
+  "input_sha256": "9bf742489cdb294d653b7fb721e4465c8a9a67254dd65e646c4b0f22482fde0f",
+  "implementation_sha256": "3a6e85410b1c4b148497cb3e8f87a60cba5e264fad778b8ad758bc96b40a40f6",
+  "as_of": "2026-11-04T23:33:21Z",
+  "status": "blocked",
+  "metrics": {
+    "product_role": "blocked",
+    "commercial_scale": "blocked",
+    "customer_concentration": "blocked",
+    "margin_bridge": "blocked",
+    "eps_fy2027": "blocked",
+    "eps_fy2028": "blocked",
+    "quote": "blocked",
+    "capital_structure": "blocked"
+  },
+  "records": [
+    {
+      "id": "CRUS-Q1FY27-purpose-v1",
+      "metric": "product_role",
+      "flags": [
+        "historical_only",
+        "unknown_current_validity",
+        "unknown_point_in_time"
+      ],
+      "eligible": false
+    },
+    {
+      "id": "CRUS-Q1FY27-scale-v1",
+      "metric": "commercial_scale",
+      "flags": [
+        "historical_only",
+        "unknown_current_validity",
+        "unknown_point_in_time"
+      ],
+      "eligible": false
+    },
+    {
+      "id": "CRUS-Q1FY27-concentration-v1",
+      "metric": "customer_concentration",
+      "flags": [
+        "historical_only",
+        "unknown_current_validity",
+        "unknown_point_in_time"
+      ],
+      "eligible": false
+    },
+    {
+      "id": "CRUS-Q1FY27-margin-v1",
+      "metric": "margin_bridge",
+      "flags": [
+        "historical_only",
+        "unknown_current_validity",
+        "unknown_point_in_time"
+      ],
+      "eligible": false
+    },
+    {
+      "id": "CRUS-missing-eps_fy2027-v1",
+      "metric": "eps_fy2027",
+      "flags": [
+        "missing",
+        "pending",
+        "unknown_current_validity",
+        "unknown_point_in_time"
+      ],
+      "eligible": false
+    },
+    {
+      "id": "CRUS-missing-eps_fy2028-v1",
+      "metric": "eps_fy2028",
+      "flags": [
+        "missing",
+        "pending",
+        "unknown_current_validity",
+        "unknown_point_in_time"
+      ],
+      "eligible": false
+    },
+    {
+      "id": "CRUS-missing-quote-v1",
+      "metric": "quote",
+      "flags": [
+        "missing",
+        "pending",
+        "unknown_current_validity",
+        "unknown_point_in_time"
+      ],
+      "eligible": false
+    },
+    {
+      "id": "CRUS-missing-capital_structure-v1",
+      "metric": "capital_structure",
+      "flags": [
+        "missing",
+        "pending",
+        "unknown_current_validity",
+        "unknown_point_in_time"
+      ],
+      "eligible": false
+    }
+  ],
+  "valuation": null,
+  "investment_score": null,
+  "limitations": [
+    "Eligibility is not verified economic truth or a valuation.",
+    "No source retrieval, canonical promotion, probabilities or trading output."
+  ]
+}

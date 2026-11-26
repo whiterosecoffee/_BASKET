@@ -1,0 +1,59 @@
+{
+  "contract": "crus-earnings-research@1",
+  "ticker": "CRUS",
+  "classification": "issuer_reported_unaudited",
+  "currency": "USD",
+  "money_unit": "USD_thousand",
+  "source_url": "https://investor.cirrus.com/news-and-events/investor-news/news-details/2026/Cirrus-Logic-Reports-Fiscal-Second-Quarter-Revenue-of-559-5-Million/default.aspx",
+  "published_on": "2026-11-04",
+  "available_at": null,
+  "observed_at": "2026-11-04T23:52:12Z",
+  "ingested_at": "2026-11-04T23:52:12Z",
+  "period_end": "2026-09-26",
+  "period": "Q2 FY2027",
+  "prior_period_end": "2025-09-27",
+  "prior_period": "Q2 FY2026",
+  "current_use": "historical_comparison_only",
+  "rows": {
+    "revenue": [
+      559462,
+      560960
+    ],
+    "gross_profit": [
+      300553,
+      294374
+    ],
+    "operating_expenses": [
+      168181,
+      149610
+    ],
+    "operating_income": [
+      132372,
+      144764
+    ]
+  },
+  "derived": {
+    "revenue": {
+      "delta_usd_thousand": -1498,
+      "change_pct": -0.267
+    },
+    "gross_profit": {
+      "delta_usd_thousand": 6179,
+      "change_pct": 2.099
+    },
+    "operating_expenses": {
+      "delta_usd_thousand": 18571,
+      "change_pct": 12.4129
+    },
+    "operating_income": {
+      "delta_usd_thousand": -12392,
+      "change_pct": -8.5601
+    }
+  },
+  "limitations": [
+    "Not independently reconciled to SEC filing",
+    "No attributed AI revenue",
+    "No annualized EPS or current valuation"
+  ],
+  "derivation": "change_pct=(current/prior-1)*100; delta=current-prior; operating_income=gross_profit-operating_expenses"
+}
