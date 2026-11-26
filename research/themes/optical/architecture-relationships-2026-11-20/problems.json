@@ -1,0 +1,141 @@
+{
+  "id": "RELATIONSHIPS_RELATIVE_VALUE_OVER_TIME",
+  "status": "design_proposed",
+  "parent_problem": "FLOATING_RELATIVE_VALUE_ROTATION",
+  "purpose": "Distinguish actionable net-value improvement from economic repricing, common factor movement and evidence/model error.",
+  "non_goals": [
+    "Automatic trades or schedules",
+    "Assumed mean reversion or fixed-calendar rotation",
+    "Parallel ticker forecasts or ingestion"
+  ],
+  "tiers": [
+    {
+      "id": "L0",
+      "title": "Evidence and comparability",
+      "question": "Can these observations be compared at this decision time?",
+      "owner_route": "B02/B03",
+      "status": "planned_contract",
+      "depends_on": [],
+      "output": "Immutable instrument/time/source manifest; stale/invalid exclusions",
+      "acceptance": "Reject future-known inputs, stale quotes, wrong split/ADR/FX and different return conventions."
+    },
+    {
+      "id": "L1",
+      "title": "Economic relationship graph",
+      "question": "Why could one company affect another?",
+      "owner_route": "B05 with ticker/B19 proposals",
+      "status": "planned_contract",
+      "depends_on": [
+        "L0"
+      ],
+      "output": "Directed typed edges with exposure, terms, effective dates and evidence",
+      "acceptance": "Separate verified contract/ownership from shared-customer exposure or hypothesized pass-through; avoid spend double counting."
+    },
+    {
+      "id": "L2",
+      "title": "Business economics and normalization",
+      "question": "What earnings and cash does each business actually retain?",
+      "owner_route": "Ticker owners / B04",
+      "status": "planned_contract",
+      "depends_on": [
+        "L0",
+        "L1"
+      ],
+      "output": "Segment demand→capacity→revenue→margin→cash→diluted recurring EPS",
+      "acceptance": "Reconcile reported to recurring earnings, SBC, financing and economic reinvestment; no P/E ranking for negative EPS."
+    },
+    {
+      "id": "L3",
+      "title": "Market relationship and attribution",
+      "question": "Which movement is common exposure and which is issuer-specific?",
+      "owner_route": "B06/B04/B07",
+      "status": "planned_contract",
+      "depends_on": [
+        "L0"
+      ],
+      "output": "Multiwindow return correlation, beta, downside dependence, factor residual and stability flags",
+      "acceptance": "Use synchronized returns not correlated trending price levels; separate sessions; report estimation error and effective sample."
+    },
+    {
+      "id": "L4",
+      "title": "Comparable valuation and relative-value change",
+      "question": "Did market price change, economics change, or the valuation convention change?",
+      "owner_route": "B04",
+      "status": "planned_contract",
+      "depends_on": [
+        "L0",
+        "L2"
+      ],
+      "output": "Common-horizon value ranges, discount ratios, current/frozen baseline index and revision attribution",
+      "acceptance": "Separate fixed-endpoint from rolling NTM views; company-specific multiples under common macro assumptions; reconcile revision/FX/horizon effects."
+    },
+    {
+      "id": "L5",
+      "title": "Persistence, regime and event diagnosis",
+      "question": "Is divergence temporary, structural, or not identifiable?",
+      "owner_route": "B06/B07/B21",
+      "status": "planned_contract",
+      "depends_on": [
+        "L1",
+        "L3",
+        "L4"
+      ],
+      "output": "Event-aligned residual paths, break flags, competing explanations and falsifiers",
+      "acceptance": "No mean-reversion or lead-lag claim without stability and out-of-sample evidence; lagged association is not causation."
+    },
+    {
+      "id": "L6",
+      "title": "Net portfolio decision",
+      "question": "Does a feasible action improve the account relative to holding?",
+      "owner_route": "B04/B17",
+      "status": "planned_contract",
+      "depends_on": [
+        "L4",
+        "L5"
+      ],
+      "output": "Hold/cash/partial/full action frontier, net wealth ranges and two-way price thresholds",
+      "acceptance": "Include both legs, cash, distributions, tax timing, financing, concentration and pathwise margin; no action from incomplete required inputs."
+    },
+    {
+      "id": "L7",
+      "title": "Evaluation and controlled maturation",
+      "question": "Does the method work beyond the examples used to design it?",
+      "owner_route": "B07/B01",
+      "status": "planned_contract",
+      "depends_on": [
+        "L0",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "output": "Point-in-time walk-forward results, rejected signals, benchmark comparison and acceptance receipt",
+      "acceptance": "Include delisted/failed cases, missed fills, costs, multiple-testing control and untouched holdout; synthetic checks do not demonstrate trading advantage."
+    }
+  ],
+  "design_ref": "feature-design-temporal-relationships.md",
+  "implementation_refs": [
+    {
+      "issue": 297,
+      "role": "existing pairwise engine"
+    },
+    {
+      "issue": 311,
+      "role": "shared-engine extension request"
+    },
+    {
+      "issue": 312,
+      "pr": 313,
+      "role": "review and tested candidate patch; adoption unverified"
+    }
+  ],
+  "success_metrics": [
+    "All decisions replay from then-available input revisions",
+    "Price/fundamental/FX/horizon deltas reconcile",
+    "Rejected/incomparable states retained",
+    "Net risk/wealth and turnover improve against declared benchmark on held-out data, or absence of advantage reported"
+  ],
+  "next_action": "Qualify input/cash boundary with B04, then build one common-endpoint revision ledger.",
+  "ownership_note": "Design-only pointers; owner allocation and independent evidence required before implementation."
+}

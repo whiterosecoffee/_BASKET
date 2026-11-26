@@ -1,0 +1,377 @@
+{
+  "qc": {
+    "SNDK": {
+      "excluded_bars": 0,
+      "total": 3196
+    },
+    "CRWV": {
+      "excluded_bars": 0,
+      "total": 3146
+    }
+  },
+  "latest_common": {
+    "t": 1795616100000,
+    "date": "2026-11-25",
+    "time": "09:15",
+    "S": 71.12,
+    "C": 38.53,
+    "ratio": 1.8458344147417598
+  },
+  "metrics": {
+    "SNDK": {
+      "price": 71.12,
+      "from_friday_low_pct": -9.111821086261973,
+      "from_window_peak_pct": -28.212375088321384,
+      "from_prevclose_pct": -8.709325460496753,
+      "friday_low_to_monday_high_pct": 26.60702875399361
+    },
+    "CRWV": {
+      "price": 38.53,
+      "from_friday_low_pct": -1.9093686354378803,
+      "from_window_peak_pct": -25.761078998073216,
+      "from_prevclose_pct": -9.554202924406274,
+      "friday_low_to_monday_high_pct": 32.12830957230142
+    }
+  },
+  "daily": {
+    "SNDK": {
+      "2026-11-20": {
+        "regular_low": 78.25,
+        "regular_high": 90.67,
+        "regular_close": 79.28,
+        "premarket_low": 86.41,
+        "premarket_high": 94.395
+      },
+      "2026-11-23": {
+        "regular_low": 86.96,
+        "regular_high": 99.07,
+        "regular_close": 87.38,
+        "premarket_low": 82.55,
+        "premarket_high": 100.76
+      },
+      "2026-11-24": {
+        "regular_low": 74.83,
+        "regular_high": 83.82,
+        "regular_close": 77.905,
+        "premarket_low": 81.19,
+        "premarket_high": 88.45
+      },
+      "2026-11-25": {
+        "regular_low": null,
+        "regular_high": null,
+        "regular_close": null,
+        "premarket_low": 70.77,
+        "premarket_high": 75.24
+      }
+    },
+    "CRWV": {
+      "2026-11-20": {
+        "regular_low": 39.28,
+        "regular_high": 43.24,
+        "regular_close": 39.51,
+        "premarket_low": 41.95,
+        "premarket_high": 44.06
+      },
+      "2026-11-23": {
+        "regular_low": 46.53,
+        "regular_high": 51.9,
+        "regular_close": 48.35,
+        "premarket_low": 41.29,
+        "premarket_high": 54.88
+      },
+      "2026-11-24": {
+        "regular_low": 41.22,
+        "regular_high": 47.04,
+        "regular_close": 42.6001,
+        "premarket_low": 45.0,
+        "premarket_high": 48.43
+      },
+      "2026-11-25": {
+        "regular_low": null,
+        "regular_high": null,
+        "regular_close": null,
+        "premarket_low": 38.31,
+        "premarket_high": 41.16
+      }
+    }
+  },
+  "ratios": {
+    "2026-11-20": {
+      "first": {
+        "t": 1795165200000,
+        "date": "2026-11-20",
+        "time": "04:00",
+        "S": 90.19,
+        "C": 43.8144,
+        "ratio": 2.058455667543091
+      },
+      "last": {
+        "t": 1795222740000,
+        "date": "2026-11-20",
+        "time": "19:59",
+        "S": 81.4,
+        "C": 40.9453,
+        "ratio": 1.9880181608145502
+      },
+      "min": {
+        "t": 1795217880000,
+        "date": "2026-11-20",
+        "time": "18:38",
+        "S": 81.1129,
+        "C": 41.2,
+        "ratio": 1.9687597087378639
+      },
+      "max": {
+        "t": 1795185060000,
+        "date": "2026-11-20",
+        "time": "09:31",
+        "S": 89.875,
+        "C": 42.0447,
+        "ratio": 2.137605928928022
+      },
+      "regular_last": {
+        "t": 1795208340000,
+        "date": "2026-11-20",
+        "time": "15:59",
+        "S": 79.28,
+        "C": 39.51,
+        "ratio": 2.0065806125031638
+      }
+    },
+    "2026-11-23": {
+      "first": {
+        "t": 1795424400000,
+        "date": "2026-11-23",
+        "time": "04:00",
+        "S": 85.17,
+        "C": 42.5,
+        "ratio": 2.004
+      },
+      "last": {
+        "t": 1795481940000,
+        "date": "2026-11-23",
+        "time": "19:59",
+        "S": 88.7295,
+        "C": 49.0,
+        "ratio": 1.8108061224489795
+      },
+      "min": {
+        "t": 1795442580000,
+        "date": "2026-11-23",
+        "time": "09:03",
+        "S": 91.7,
+        "C": 53.81,
+        "ratio": 1.704144211113176
+      },
+      "max": {
+        "t": 1795424640000,
+        "date": "2026-11-23",
+        "time": "04:04",
+        "S": 85.77,
+        "C": 42.7589,
+        "ratio": 2.00589818727797
+      },
+      "regular_last": {
+        "t": 1795467540000,
+        "date": "2026-11-23",
+        "time": "15:59",
+        "S": 87.38,
+        "C": 48.35,
+        "ratio": 1.8072388831437434
+      }
+    },
+    "2026-11-24": {
+      "first": {
+        "t": 1795510800000,
+        "date": "2026-11-24",
+        "time": "04:00",
+        "S": 84.11,
+        "C": 46.07,
+        "ratio": 1.8257000217060995
+      },
+      "last": {
+        "t": 1795568340000,
+        "date": "2026-11-24",
+        "time": "19:59",
+        "S": 76.5,
+        "C": 41.7903,
+        "ratio": 1.8305683376285884
+      },
+      "min": {
+        "t": 1795534920000,
+        "date": "2026-11-24",
+        "time": "10:42",
+        "S": 75.515,
+        "C": 42.8972,
+        "ratio": 1.7603713062857251
+      },
+      "max": {
+        "t": 1795545600000,
+        "date": "2026-11-24",
+        "time": "13:40",
+        "S": 78.53,
+        "C": 42.34,
+        "ratio": 1.8547472838923003
+      },
+      "regular_last": {
+        "t": 1795553940000,
+        "date": "2026-11-24",
+        "time": "15:59",
+        "S": 77.905,
+        "C": 42.6001,
+        "ratio": 1.8287515757005266
+      }
+    },
+    "2026-11-25": {
+      "first": {
+        "t": 1795597200000,
+        "date": "2026-11-25",
+        "time": "04:00",
+        "S": 73.71,
+        "C": 40.12,
+        "ratio": 1.8372382851445663
+      },
+      "last": {
+        "t": 1795616100000,
+        "date": "2026-11-25",
+        "time": "09:15",
+        "S": 71.12,
+        "C": 38.53,
+        "ratio": 1.8458344147417598
+      },
+      "min": {
+        "t": 1795599360000,
+        "date": "2026-11-25",
+        "time": "04:36",
+        "S": 73.06,
+        "C": 40.35,
+        "ratio": 1.8106567534076827
+      },
+      "max": {
+        "t": 1795615440000,
+        "date": "2026-11-25",
+        "time": "09:04",
+        "S": 71.3,
+        "C": 38.38,
+        "ratio": 1.8577384054194892
+      },
+      "regular_last": null
+    }
+  },
+  "paired_regular_minute_return_correlation": 0.7343888555097862,
+  "paired_samples": 1167,
+  "snapshot": {
+    "SNDK": {
+      "ticker": "SNDK",
+      "todaysChangePerc": "-8.69788325849904",
+      "todaysChange": "-6.780000000000001",
+      "updated": "1795616207304732926",
+      "day_o": "0",
+      "day_h": "0",
+      "day_l": "0",
+      "day_c": "0",
+      "day_v": "0",
+      "day_vw": "0",
+      "lastQuote_P": "71.23",
+      "lastQuote_S": "80",
+      "lastQuote_p": "71.17",
+      "lastQuote_s": "10",
+      "lastQuote_t": "1795616207304732836",
+      "lastTrade_c": "[12]",
+      "lastTrade_i": "31983",
+      "lastTrade_p": "71.17",
+      "lastTrade_s": "29",
+      "lastTrade_t": "1795616207304732926",
+      "lastTrade_x": "12",
+      "lastTrade_ds": "29.0",
+      "min_dv": "28936.055346",
+      "min_dav": "8527349.800478",
+      "min_av": "8527349",
+      "min_t": "1795616100000",
+      "min_n": "551",
+      "min_o": "71.25",
+      "min_h": "71.26",
+      "min_l": "71.0701",
+      "min_c": "71.12",
+      "min_v": "28936",
+      "min_vw": "71.1569",
+      "prevDay_o": "82.715",
+      "prevDay_h": "83.82",
+      "prevDay_l": "74.83",
+      "prevDay_c": "77.95",
+      "prevDay_v": "97538187.26815",
+      "prevDay_vw": "78.1626"
+    },
+    "CRWV": {
+      "ticker": "CRWV",
+      "todaysChangePerc": "-9.259476587255017",
+      "todaysChange": "-3.9450000000000003",
+      "updated": "1795616203021046465",
+      "day_o": "0",
+      "day_h": "0",
+      "day_l": "0",
+      "day_c": "0",
+      "day_v": "0",
+      "day_vw": "0",
+      "lastQuote_P": "38.69",
+      "lastQuote_S": "700",
+      "lastQuote_p": "38.63",
+      "lastQuote_s": "100",
+      "lastQuote_t": "1795616203739773876",
+      "lastTrade_c": "[12]",
+      "lastTrade_i": "1409",
+      "lastTrade_p": "38.66",
+      "lastTrade_s": "144",
+      "lastTrade_t": "1795616203021046465",
+      "lastTrade_x": "19",
+      "lastTrade_ds": "144.0",
+      "min_dv": "36174.630000",
+      "min_dav": "4077077.951251",
+      "min_av": "4077077",
+      "min_t": "1795616100000",
+      "min_n": "278",
+      "min_o": "38.54",
+      "min_h": "38.641",
+      "min_l": "38.51",
+      "min_c": "38.53",
+      "min_v": "36174",
+      "min_vw": "38.5613",
+      "prevDay_o": "46.65",
+      "prevDay_h": "47.04",
+      "prevDay_l": "41.22",
+      "prevDay_c": "42.605",
+      "prevDay_v": "61531675.94631",
+      "prevDay_vw": "43.0941"
+    }
+  },
+  "executable_ratio_reference": 1.8394934091496513,
+  "crwv_shares_per100_sndk": 183.94934091496512,
+  "gross_hurdle10_terminal_ratio_ceiling": 1.672266735590592,
+  "same_minute_purchasing_power_change_vs_friday_close_pct": -8.010951404582578,
+  "scenarios": [
+    {
+      "SNDK": 75,
+      "CRWV": 45,
+      "terminal_ratio": 1.6666666666666667,
+      "switch_vs_hold_pct": 10.369604548979083
+    },
+    {
+      "SNDK": 80,
+      "CRWV": 45,
+      "terminal_ratio": 1.7777777777777777,
+      "switch_vs_hold_pct": 3.4715042646678906
+    },
+    {
+      "SNDK": 80,
+      "CRWV": 40,
+      "terminal_ratio": 2.0,
+      "switch_vs_hold_pct": -8.025329542517435
+    },
+    {
+      "SNDK": 87.38,
+      "CRWV": 48.35,
+      "terminal_ratio": 1.8072388831437434,
+      "switch_vs_hold_pct": 1.7847405955432105
+    }
+  ]
+}
