@@ -1,0 +1,173 @@
+{
+  "version": "0.1.0",
+  "status": "provisional_parallel_design",
+  "evidence_class": "design_specification",
+  "owner_issue": 228,
+  "canonical_queue_issue": 136,
+  "authority": "Read-only projection, not a queue, registry, permission grant, shared schema or executable runtime. Existing source authorities remain authoritative.",
+  "upstream_acceptance": "L1 prerequisites and broader L1 completion are not established by this bounded specimen.",
+  "record_type": "option_decision_projection",
+  "requirements_ref": {
+    "ref": "requirements.json",
+    "sha256": "ca08a11cbd273b8ac11cf50f1116d81c56c21441fe0c41067af36aac2a3cdb1c"
+  },
+  "hard_gate_order": [
+    "scope_allowed",
+    "effect_allowed",
+    "source_resolved",
+    "contract_compatible"
+  ],
+  "unknown_gate_result": "blocked_unknown; never treat as pass",
+  "ranking": "Only eligible options: compare unique unmet requirement coverage, then lower qualitative adaptation cost and dependency risk. Equal or unknown tradeoffs return needs_decision; never use a false precise score.",
+  "coverage_matrix": [
+    {
+      "primitive": "reference_resolution",
+      "requirements": [
+        "identity",
+        "pins"
+      ],
+      "implementation": "reuse owner sources or propose smallest missing seam; not a new module",
+      "cost": "unmeasured",
+      "risk": "requires_owner_review",
+      "relationship_definition_ids": [
+        "resolve_validate"
+      ],
+      "binding_status": "proposed_design_responsibility"
+    },
+    {
+      "primitive": "contract_validation",
+      "requirements": [
+        "contracts",
+        "pins"
+      ],
+      "implementation": "reuse owner sources or propose smallest missing seam; not a new module",
+      "cost": "unmeasured",
+      "risk": "requires_owner_review",
+      "relationship_definition_ids": [
+        "resolve_validate"
+      ],
+      "binding_status": "proposed_design_responsibility"
+    },
+    {
+      "primitive": "composition_binding",
+      "requirements": [
+        "separation",
+        "nested"
+      ],
+      "implementation": "reuse owner sources or propose smallest missing seam; not a new module",
+      "cost": "unmeasured",
+      "risk": "requires_owner_review",
+      "relationship_definition_ids": [
+        "research"
+      ],
+      "binding_status": "proposed_design_responsibility"
+    },
+    {
+      "primitive": "trace_evidence",
+      "requirements": [
+        "evidence"
+      ],
+      "implementation": "reuse owner sources or propose smallest missing seam; not a new module",
+      "cost": "unmeasured",
+      "risk": "requires_owner_review",
+      "relationship_definition_ids": [],
+      "binding_status": "unresolved_definition_binding"
+    },
+    {
+      "primitive": "inventory_projection",
+      "requirements": [
+        "breadth"
+      ],
+      "implementation": "reuse owner sources or propose smallest missing seam; not a new module",
+      "cost": "unmeasured",
+      "risk": "requires_owner_review",
+      "relationship_definition_ids": [],
+      "binding_status": "unresolved_definition_binding"
+    },
+    {
+      "primitive": "option_selection",
+      "requirements": [
+        "hard_gates",
+        "coverage",
+        "selection"
+      ],
+      "implementation": "reuse owner sources or propose smallest missing seam; not a new module",
+      "cost": "unmeasured",
+      "risk": "requires_owner_review",
+      "relationship_definition_ids": [
+        "analysis"
+      ],
+      "binding_status": "proposed_design_responsibility"
+    }
+  ],
+  "recommended_design_sequence": [
+    "reference_resolution",
+    "contract_validation",
+    "composition_binding",
+    "trace_evidence",
+    "inventory_projection",
+    "option_selection"
+  ],
+  "rationale": "Identity and contract evidence unblock composition; traces falsify the composition; projection and selection reuse the same evidence. This is dependency ordering, not measured performance ranking.",
+  "sensitivity": [
+    {
+      "assumption": "Existing checker cannot represent domain semantics",
+      "consequence": "Keep domain schema gap blocked; do not rank broad adapter work as cheap."
+    },
+    {
+      "assumption": "Nested seed compatibility remains unknown",
+      "consequence": "No suitable verified seed; retain reference-only design instead of cloning."
+    },
+    {
+      "assumption": "Two candidates have equal coverage and unknown effort",
+      "consequence": "needs_decision; no arbitrary winner."
+    }
+  ],
+  "actual_seed_decision": {
+    "selected_seed": null,
+    "status": "blocked_pending_existing_owner_inventory",
+    "candidate_ref": "https://github.com/whiterosecoffee/_BASKET/pull/135",
+    "candidate_pin": null,
+    "reason": "L1-15 inventory and L1-14 reviewed shape are unaccepted; no seed inspected or selected by this increment."
+  },
+  "design_alternatives": [
+    {
+      "id": "reuse_pinned_projection",
+      "disposition": "recommended_for_design_only",
+      "reason": "Reuses PR225 pointers and PR227 record vocabulary; preserves existing authorities."
+    },
+    {
+      "id": "new_registry_and_runtime",
+      "disposition": "excluded",
+      "reason": "Conflicts with JSON-only research scope and duplicates existing authorities."
+    },
+    {
+      "id": "import_legacy_workflows",
+      "disposition": "excluded",
+      "reason": "Prior intent is context, not authorization for legacy integration."
+    }
+  ],
+  "metrics": {
+    "measured_duration": null,
+    "measured_savings": null,
+    "coverage": "10 distinct design requirements represented; not implementation coverage or queue completion"
+  },
+  "coverage_counting": {
+    "relationship_model_ref": {
+      "ref": "relationships.json",
+      "sha256": "0433a7b5f695b50d9d8284e0185dbfafd3142c78e5c945c3dc622893e085a321"
+    },
+    "distinct_linked_definition_ids": [
+      "analysis",
+      "research",
+      "resolve_validate"
+    ],
+    "distinct_linked_definition_count": 3,
+    "counting_rule": "Set union of linked definition IDs; never add instance or containment-parent totals. Shared resolve_validate appears in two primitive rows but counts once.",
+    "unbound_primitives": [
+      "trace_evidence",
+      "inventory_projection"
+    ],
+    "limit": "Proposed design responsibility only, not implemented coverage. Two primitives lack a bound relationship definition, so L1-18 full component coverage is not accepted."
+  }
+}
