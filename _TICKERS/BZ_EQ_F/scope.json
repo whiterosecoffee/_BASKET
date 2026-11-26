@@ -1,0 +1,12 @@
+{
+  "symbol": "BZ=F",
+  "instrument_type": "futures_contract",
+  "basket_groups": [
+    "screenshots"
+  ],
+  "tracking_status": "watchlist",
+  "price_data_status": "not_migrated",
+  "canonical_data_path": "tickers/BZ=F/",
+  "review_status": "identity_listing_and_history_unverified",
+  "first_scope_as_of": "2026-11-03"
+}
