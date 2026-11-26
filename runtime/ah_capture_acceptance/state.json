@@ -1,0 +1,58 @@
+{
+  "version": "1.0.0",
+  "purpose": "Retain and qualify the Nov5 NVDA/SMH AH capture for existing FETCH adoption.",
+  "status": "archive_verified_owner_adoption_pending",
+  "owner": {
+    "spark": "B02",
+    "issue": 199,
+    "branch": "work/199-nvda-smh-ah-persistence",
+    "write_paths": [
+      "runtime/ah_capture_acceptance/**"
+    ]
+  },
+  "parents": [
+    "../../AGENTS.md",
+    "../../architecture/COMPONENT_QUICKSTART.md"
+  ],
+  "feature_designs": [
+    "feature-design.md"
+  ],
+  "review": "review.md",
+  "evidence": [
+    "evidence.json"
+  ],
+  "main_reviewed": "433d3574033a35f24910dc1ffee21ecbf27702dc",
+  "tiered_objectives": {
+    "now": "Publish reviewed metadata and exact archive verification.",
+    "next": "Existing FETCH owner resolves canonical NVDA.jsonl/SMH archive mappings and accepts or rejects these observations.",
+    "later": "Qualified owner refresh and read-only consumer replay."
+  },
+  "dependencies": [
+    {
+      "issue": 207,
+      "owner": "existing FETCH maintainer",
+      "status": "requested"
+    },
+    {
+      "issue": 183,
+      "owner": "B00/B02",
+      "status": "R1 ruling exists; implementation not certified here"
+    }
+  ],
+  "children": [
+    {
+      "id": "canonical_consumer_binding",
+      "status": "planned",
+      "input": "FETCH authenticated host/path and import receipt",
+      "output": "Read-only qualified source mapping; no duplicate store"
+    }
+  ],
+  "next_actions": [
+    {
+      "owner": "existing FETCH maintainer #207",
+      "action": "Return canonical archive/day-partition mapping and inserted/revised/unchanged receipt for the retained Nov5 package."
+    }
+  ],
+  "integrated": false,
+  "operational": false
+}
