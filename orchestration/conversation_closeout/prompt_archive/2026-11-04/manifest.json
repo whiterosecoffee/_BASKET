@@ -1,0 +1,239 @@
+{
+  "archive": "conversation-handoff-prompt-evolution",
+  "repository": "whiterosecoffee/_BASKET",
+  "issue": 184,
+  "branch": "work/184-handoff-prompt-evolution-archive",
+  "base_main_sha": "74d913e8913d630d85451344689e093aeea07efc",
+  "source_lineage_date": "2026-11-04",
+  "policy_status": "not_adopted",
+  "default_invocation_changed": false,
+  "files": [
+    {
+      "file": "01-repository-v1.md",
+      "kind": "full_candidate_or_contract",
+      "bytes": 7619,
+      "sha256": "ccff1f6a80cc52b994a523040e99ba0acef500f7468908859e03bdaf2efe2371",
+      "git_blob_sha1": "988138c25876573cdb9c1dfbd671b4f03839d952",
+      "origin": {
+        "kind": "repository",
+        "path": "orchestration/conversation_closeout/HANDOFF_PROMPT.md",
+        "revision": "377b6b41191846ece69ed9a1e39c4e9ac73f8257",
+        "blob_sha": "988138c25876573cdb9c1dfbd671b4f03839d952",
+        "url": "https://github.com/whiterosecoffee/_BASKET/blob/377b6b41191846ece69ed9a1e39c4e9ac73f8257/orchestration/conversation_closeout/HANDOFF_PROMPT.md",
+        "capture": "exact UTF-8 bytes returned at pinned revision"
+      }
+    },
+    {
+      "file": "02-repository-v2.md",
+      "kind": "full_candidate_or_contract",
+      "bytes": 12483,
+      "sha256": "3ebe721d1398cca3eba01255dfeb033ba4f2bbb74f39b1bed494c84d92a72d1f",
+      "git_blob_sha1": "f3e6c4b8a656b27feeed4ea32b86792faa1a7be2",
+      "origin": {
+        "kind": "repository",
+        "path": "orchestration/conversation_closeout/HANDOFF_PROMPT.md",
+        "revision": "53fb357ef119fca7634f453a41da9dd511dfb47f",
+        "blob_sha": "f3e6c4b8a656b27feeed4ea32b86792faa1a7be2",
+        "url": "https://github.com/whiterosecoffee/_BASKET/blob/53fb357ef119fca7634f453a41da9dd511dfb47f/orchestration/conversation_closeout/HANDOFF_PROMPT.md",
+        "capture": "exact UTF-8 bytes returned at pinned revision"
+      }
+    },
+    {
+      "file": "03-repository-v3-original.md",
+      "kind": "full_candidate_or_contract",
+      "bytes": 16497,
+      "sha256": "08a5cb7d1779b738105657f172607aa6d5fd49e3ec9c6fb938249df53a3f0b9e",
+      "git_blob_sha1": "df167a1a25a90a5ff427bdbb4ca0efda6eb8b3e7",
+      "origin": {
+        "kind": "repository",
+        "path": "orchestration/conversation_closeout/versions/HANDOFF_PROMPT.v3-candidate.md",
+        "revision": "e949f402b84471dca89ba78f2a442573b0c8db39",
+        "blob_sha": "df167a1a25a90a5ff427bdbb4ca0efda6eb8b3e7",
+        "url": "https://github.com/whiterosecoffee/_BASKET/blob/e949f402b84471dca89ba78f2a442573b0c8db39/orchestration/conversation_closeout/versions/HANDOFF_PROMPT.v3-candidate.md",
+        "capture": "exact UTF-8 bytes returned at pinned revision"
+      }
+    },
+    {
+      "file": "04-user-execution-candidate.md",
+      "kind": "full_candidate_or_contract",
+      "bytes": 22146,
+      "sha256": "f78ad3350d90ca211be1984556b564f6e7bd688aa8ef39058cb24c60cb1238bc",
+      "git_blob_sha1": "0503a6e0a360bc4bf875987cfad231cb796233c6",
+      "origin": {
+        "kind": "available_conversation",
+        "capture": "manual transcription/reconstruction; outer fences omitted; terminal newline; not raw platform export"
+      }
+    },
+    {
+      "file": "05-deliverable-first-candidate.md",
+      "kind": "full_candidate_or_contract",
+      "bytes": 29782,
+      "sha256": "34e8d1a4421dd7f45786cd597f5ef78e79fcfcb33b88b1433cc92e3da8d53e20",
+      "git_blob_sha1": "ac213799735ee1396ab8e3b61c2a4e3a39afdab0",
+      "origin": {
+        "kind": "available_conversation",
+        "capture": "manual transcription/reconstruction; outer fences omitted; terminal newline; not raw platform export"
+      }
+    },
+    {
+      "file": "06-portable-dispatch-candidate.md",
+      "kind": "full_candidate_or_contract",
+      "bytes": 16067,
+      "sha256": "93c774e6ff3ba9c315af1f17b3bdf8e2afd79ec07f3cb22183a33ea50e30d63d",
+      "git_blob_sha1": "b2a1d293885b17e9a2cf741d0c642544a4cf3869",
+      "origin": {
+        "kind": "available_conversation",
+        "capture": "manual transcription/reconstruction; outer fences omitted; terminal newline; not raw platform export"
+      }
+    },
+    {
+      "file": "07-index-decompose-dispatch-amendment.md",
+      "kind": "amendment",
+      "bytes": 4207,
+      "sha256": "c83a075b0e09646a024fe6223ac0c469bf2d80599c0ecae8627f5973e98f4d68",
+      "git_blob_sha1": "6f6e057744828922404a855045610c2f637d28e8",
+      "origin": {
+        "kind": "available_conversation",
+        "capture": "manual transcription/reconstruction; outer fences omitted; terminal newline; not raw platform export"
+      }
+    },
+    {
+      "file": "08-initial-execution-amendment.md",
+      "kind": "amendment",
+      "bytes": 3341,
+      "sha256": "b797c4dde8421f32f8cda2edf714be8011f2bdd6a33e6b41865b152ef6559537",
+      "git_blob_sha1": "24d83f475264fb4dbc71a99dad58f2829b95382b",
+      "origin": {
+        "kind": "available_conversation",
+        "capture": "manual transcription/reconstruction; outer fences omitted; terminal newline; not raw platform export"
+      }
+    },
+    {
+      "file": "09-repository-v3-current.md",
+      "kind": "full_candidate_or_contract",
+      "bytes": 26640,
+      "sha256": "f240e45415b63800233f0f09644772b4d937b535e86e68cf44322a9aac2f158d",
+      "git_blob_sha1": "175a85b93fb64c9a736cb9174c9da40c473f21ef",
+      "origin": {
+        "kind": "repository",
+        "path": "orchestration/conversation_closeout/versions/HANDOFF_PROMPT.v3-candidate.md",
+        "revision": "0a020f22cf9b6bcf756fe7a439cd6ffe875bcc44",
+        "blob_sha": "175a85b93fb64c9a736cb9174c9da40c473f21ef",
+        "url": "https://github.com/whiterosecoffee/_BASKET/blob/0a020f22cf9b6bcf756fe7a439cd6ffe875bcc44/orchestration/conversation_closeout/versions/HANDOFF_PROMPT.v3-candidate.md",
+        "capture": "exact UTF-8 bytes returned at pinned revision"
+      }
+    },
+    {
+      "file": "10-intermediate-amendments.md",
+      "kind": "amendment",
+      "bytes": 4749,
+      "sha256": "a9bec155aae9b8a2cf933b7afe81b694c99416882e4aa6e5c5bb6140e137e3c8",
+      "git_blob_sha1": "c51dbfed7e702d9d2f70433798d6c3b3336e14e4",
+      "origin": {
+        "kind": "available_conversation",
+        "capture": "manual transcription/reconstruction; outer fences omitted; terminal newline; not raw platform export"
+      }
+    },
+    {
+      "file": "COMPARISON.md",
+      "kind": "archive_document",
+      "bytes": 11793,
+      "sha256": "0c1a8373339023eca88a245f96d6184a44c9f8b2ba985aaa0d07d2f333d77efc",
+      "git_blob_sha1": "3c217fc8530646cccdfe62762ec2e9e17c4a4894",
+      "origin": {
+        "kind": "archive_authored",
+        "capture": "new index, comparison, owner packet or validation report"
+      }
+    },
+    {
+      "file": "HANDOFF.md",
+      "kind": "archive_document",
+      "bytes": 2804,
+      "sha256": "81b72212278ffc230365581f0f1f7f72d8f6dbf5545fa0e77331a0204d9f968c",
+      "git_blob_sha1": "529a4d1dc5d902e412ba4e3a4b47856034bddee6",
+      "origin": {
+        "kind": "archive_authored",
+        "capture": "new index, comparison, owner packet or validation report"
+      }
+    },
+    {
+      "file": "README.md",
+      "kind": "archive_document",
+      "bytes": 3994,
+      "sha256": "1791afa6b4ddd2683531a48b4f281417f2a348ea42e1d40c238632d61187aa91",
+      "git_blob_sha1": "4d0ea48d1b982a2711696754e4a82861fb2a46e9",
+      "origin": {
+        "kind": "archive_authored",
+        "capture": "new index, comparison, owner packet or validation report"
+      }
+    },
+    {
+      "file": "VALIDATION.md",
+      "kind": "archive_document",
+      "bytes": 2977,
+      "sha256": "d6f2e10477a52c6471c8b4dd016822b558ed75edd6792ec9c84ae026bdf8ea78",
+      "git_blob_sha1": "e91cda176d9694fd20c05e5a1102f3b001ed86be",
+      "origin": {
+        "kind": "archive_authored",
+        "capture": "new index, comparison, owner packet or validation report"
+      }
+    },
+    {
+      "file": "related-extraction-contract.md",
+      "kind": "full_candidate_or_contract",
+      "bytes": 3646,
+      "sha256": "018c420e68e32fbc77cf4817d02f6593e13f89a9849874b0a6a5af2a4c3a45c5",
+      "git_blob_sha1": "4d3b982c946658bf8c5eaa2f13aa0a8a2bc6e377",
+      "origin": {
+        "kind": "repository",
+        "path": "orchestration/worker_bridge/CONVERSATION_EXTRACTION.md",
+        "revision": "76aaf2f9e4ac9ef433734feaeef232501591d4a7",
+        "blob_sha": "4d3b982c946658bf8c5eaa2f13aa0a8a2bc6e377",
+        "url": "https://github.com/whiterosecoffee/_BASKET/blob/76aaf2f9e4ac9ef433734feaeef232501591d4a7/orchestration/worker_bridge/CONVERSATION_EXTRACTION.md",
+        "capture": "exact UTF-8 bytes returned at pinned revision"
+      }
+    },
+    {
+      "file": "related-integration-contract.md",
+      "kind": "full_candidate_or_contract",
+      "bytes": 5023,
+      "sha256": "4159f6a9460aa4558386a5dbf6d5df9120602ec6d74f529d451ed64a91cb1586",
+      "git_blob_sha1": "f54a952f3eec6eb700536ec58f0912a744940413",
+      "origin": {
+        "kind": "repository",
+        "path": "orchestration/worker_bridge/CONVERSATION_INTEGRATION.md",
+        "revision": "76aaf2f9e4ac9ef433734feaeef232501591d4a7",
+        "blob_sha": "f54a952f3eec6eb700536ec58f0912a744940413",
+        "url": "https://github.com/whiterosecoffee/_BASKET/blob/76aaf2f9e4ac9ef433734feaeef232501591d4a7/orchestration/worker_bridge/CONVERSATION_INTEGRATION.md",
+        "capture": "exact UTF-8 bytes returned at pinned revision"
+      }
+    },
+    {
+      "file": "related-recovery-prompt.md",
+      "kind": "full_candidate_or_contract",
+      "bytes": 18599,
+      "sha256": "2664b2b4855032a5c2df66949aac4fa76f5d365ccecaa2580b3cb5b25a113a53",
+      "git_blob_sha1": "ce0dbd5a619a178fef72f7224e89e20292487c02",
+      "origin": {
+        "kind": "repository",
+        "path": "research/traversal/handoffs/108-consolidated/ORCHESTRATOR_PROMPT.md",
+        "revision": "b0950b2513cdcf108c786f47950c0abfdd54603a",
+        "blob_sha": "ce0dbd5a619a178fef72f7224e89e20292487c02",
+        "url": "https://github.com/whiterosecoffee/_BASKET/blob/b0950b2513cdcf108c786f47950c0abfdd54603a/research/traversal/handoffs/108-consolidated/ORCHESTRATOR_PROMPT.md",
+        "capture": "exact UTF-8 bytes returned at pinned revision"
+      }
+    }
+  ],
+  "coverage": {
+    "duplicate_user_quote": "04 supplied twice; identical candidate stored once",
+    "latest_partial": "07 is a partial amendment, not a historical complete successor to 06",
+    "gaps": [
+      "Original historical pilot JSON unavailable",
+      "Full pre-handoff transcript unavailable",
+      "No census of all private/project conversations claimed"
+    ],
+    "exclusions": "Generated handoffs are outputs, not reusable prompt versions; material failure/evaluation context retained in COMPARISON.md"
+  },
+  "verification_boundary": "archive integrity only; no semantic superiority, model pilot, adoption or operational benefit claimed",
+  "manifest_note": "All other archive files inventoried; manifest does not hash itself"
+}
