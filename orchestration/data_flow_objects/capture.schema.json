@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "bar": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "t",
+        "o",
+        "h",
+        "l",
+        "c",
+        "v",
+        "vw",
+        "n"
+      ],
+      "properties": {
+        "o": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "h": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "l": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "c": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "v": {
+          "type": "number",
+          "minimum": 0
+        },
+        "vw": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "t": {
+          "type": "integer",
+          "multipleOf": 60000
+        },
+        "n": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "capture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "format",
+        "source_mode",
+        "provider",
+        "endpoint",
+        "params",
+        "ticker",
+        "session",
+        "captured_at",
+        "rows"
+      ],
+      "properties": {
+        "format": {
+          "const": "basket.data_capture@1"
+        },
+        "source_mode": {
+          "enum": [
+            "connector_projection",
+            "synthetic"
+          ]
+        },
+        "provider": {
+          "const": "massive"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "params": {
+          "const": {
+            "adjusted": true,
+            "sort": "asc",
+            "limit": 50000
+          }
+        },
+        "ticker": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9.]{0,15}$"
+        },
+        "session": {
+          "type": "string",
+          "format": "date"
+        },
+        "captured_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/bar"
+          }
+        }
+      }
+    }
+  },
+  "$ref": "#/$defs/capture"
+}

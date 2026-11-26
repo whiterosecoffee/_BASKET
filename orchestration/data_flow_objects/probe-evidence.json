@@ -1,0 +1,48 @@
+{
+  "format": "basket.data_flow_probe_evidence@1",
+  "mode": "actual_connector_projection_local_execution",
+  "source_capture": {
+    "provider": "massive",
+    "endpoint": "/v2/aggs/ticker/NVDA/range/1/minute/2026-11-10/2026-11-10",
+    "params": {
+      "adjusted": true,
+      "sort": "asc",
+      "limit": 50000
+    },
+    "session": "2026-11-10",
+    "captured_at": "2026-11-11T23:48:55.137753+00:00",
+    "transport": "Massive call_api store_as then query_data JSON projection; not original API envelope",
+    "historical_first_available_at": null
+  },
+  "write_disposition": "created",
+  "repeat_disposition": "unchanged",
+  "repeat_bytes_and_mtimes_unchanged": true,
+  "input_unchanged": true,
+  "separate_process_consumer": {
+    "claim": "historical observed bars; not live or complete-session certification",
+    "first_t": 1794301200000,
+    "format": "basket.partition_summary@1",
+    "fractional_volume_rows": 960,
+    "last_t": 1794358740000,
+    "partition_sha256": "85ea897c3bfc6d00021da97bfb8add536b814a9d51f46c77396ff8b4847013d0",
+    "rows": 960,
+    "session": "2026-11-10",
+    "source_mode": "connector_projection",
+    "source_sha256": "ee8a43b8c9099013b3015d014ef45c92d7cdceaf2c3df578918d02168a914600",
+    "ticker": "NVDA"
+  },
+  "limitations": [
+    "Transient test root, not persistent local-authoritative storage",
+    "No actual B02 FETCH entrypoint or production QC integration",
+    "No complete-session, real-time entitlement, historical PIT, calendar or independent market-truth verification",
+    "Provider API request ID/envelope unavailable in connector projection",
+    "Single-writer reference; no multiwriter or crash-durability certification",
+    "No full-standard PROV/OpenLineage implementation"
+  ],
+  "verification_identity": {
+    "schema_sha256": "bc8f7ac55276c5dbd0985d43a8bdab6d9f15822ab15601a2e378c901eb45b93f",
+    "transform_sha256": "f43d7b6357a5548c8c47195ca6ec5ea9e823b9add25792d9998847857b475821",
+    "contract_sha256": "6a1a347e962ba44d4e76656cb33795288ed1deaa862d10de79b2c512f4b57afd"
+  },
+  "previous_artifact": "Original weaker-identity probe remains unchanged; this proof used a new isolated temporary root and the same capture bytes."
+}
