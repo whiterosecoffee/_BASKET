@@ -1,0 +1,201 @@
+{
+  "schema": "mrvl.gaap_bridge_research@1",
+  "model_version": "0.1.0",
+  "as_of_date": "2026-11-20",
+  "currency": "USD",
+  "classification": "research_sensitivity_not_verified_gaap_forecast",
+  "timestamps": {
+    "observed_at": null,
+    "available_at": null,
+    "ingested_at": null,
+    "reason": "Source publication/price dates retained separately; exact retrieval instants not recorded."
+  },
+  "price_reference": {
+    "usd": 125.75,
+    "observed_at": "2026-11-20T19:59:00-05:00",
+    "source": "S3",
+    "status": "dated_public_reference_not_FETCH_verified",
+    "live": false
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "class": "issuer_statement",
+      "url": "https://investor.marvell.com/news-events/press-releases/detail/1031/marvell-technology-inc-reports-second-quarter-of-fiscal-year-2027-financial-results",
+      "published_date": "2026-08-27",
+      "period_end": "2026-08-01",
+      "use": "Q2/H1 reconciliation and Q3 guidance"
+    },
+    {
+      "id": "S2",
+      "class": "issuer_filing",
+      "url": "https://investor.marvell.com/sec-filings/all-sec-filings/content/0001835632-26-000025/mrvl-20260801.htm",
+      "published_date": "2026-08-28",
+      "period_end": "2026-08-01",
+      "use": "Note5 amortization and IPR&D; preferred shares; R&D/tax evidence"
+    },
+    {
+      "id": "S3",
+      "class": "third_party_consensus",
+      "url": "https://stockanalysis.com/stocks/mrvl/forecast/",
+      "published_date": null,
+      "estimate_vintage": "2026-11-20",
+      "use": "FY27 EPS4.22; FY28 EPS7.37/revenue19840M; dated AH price"
+    },
+    {
+      "id": "S4",
+      "class": "third_party_claim",
+      "url": "https://en.arincen.com/instruments/MRVL/forecast",
+      "published_date": null,
+      "observed_date": "2026-11-20",
+      "use": "FMP-sourced FY29 EPS12.60/revenue31760M; FY28 EPS7.30; no complete constituent audit"
+    },
+    {
+      "id": "S5",
+      "class": "third_party_claim",
+      "url": "https://www.qddresearch.com/us/mrvl/",
+      "published_date": "2026-11-19",
+      "use": "Normalized FY28 EPS7.39/revenue20835M; FY29 EPS12.73/revenue33302M; basic/normalized label retained"
+    },
+    {
+      "id": "S6",
+      "class": "stale_third_party_claim",
+      "url": "https://mrtnz.com/markets/sp500/mrvl",
+      "published_date": "2026-07-30",
+      "use": "FY29 EPS7.25 is stale-vintage comparison, not current competing consensus"
+    },
+    {
+      "id": "S7",
+      "class": "issuer_statement",
+      "url": "https://investor.marvell.com/news-events/press-releases/detail/1040/marvell-and-lumentum-to-combine-creating-a-category-leader-in-ai-connectivity",
+      "published_date": "2026-11-02",
+      "use": "4.5 exchange ratio, expected1H2028 close, approximate67/33 ownership; no GAAP pro forma"
+    }
+  ],
+  "historical_m": [
+    {
+      "period": "Q2_FY2027",
+      "adjusted_income": 865.9,
+      "sbc": 326.2,
+      "amort": 214.9,
+      "restructuring": -3,
+      "contingent_fair_value_net": 52,
+      "other": 4.5,
+      "tax_adjustment": -36.7,
+      "reported_gaap_income": 308,
+      "diluted_shares": 921.2,
+      "reported_gaap_eps": 0.33,
+      "reported_adjusted_eps": 0.94
+    },
+    {
+      "period": "H1_FY2027",
+      "adjusted_income": 1583.9,
+      "sbc": 533.8,
+      "amort": 440.1,
+      "restructuring": 5.7,
+      "contingent_fair_value_net": 302.7,
+      "other": 35.8,
+      "tax_adjustment": -76.7,
+      "reported_gaap_income": 342.5,
+      "diluted_shares": 907.1,
+      "reported_gaap_eps": 0.38,
+      "reported_adjusted_eps": 1.75
+    }
+  ],
+  "q3_guidance": {
+    "adjusted_eps": 1.1,
+    "sbc": 0.34,
+    "amort": 0.21,
+    "tax_adjustment": -0.03,
+    "other": 0.05,
+    "reported_gaap_eps": 0.53,
+    "source": "S1",
+    "status": "issuer_guidance_not_reported_result"
+  },
+  "adjusted_tax_assumption": 0.11,
+  "periods": [
+    {
+      "fy": 2028,
+      "period_start_approx": "2027-02-01",
+      "period_end_approx": "2028-01-31",
+      "calendar_proxy_for": 2027,
+      "adjusted_eps": 7.37,
+      "revenue_m": 19840,
+      "reference_diluted_shares_m": 950,
+      "scheduled_amort_m": 292.7,
+      "estimate_source": "S3",
+      "status": "assumed_standalone_for_sensitivity"
+    },
+    {
+      "fy": 2029,
+      "period_start_approx": "2028-02-01",
+      "period_end_approx": "2029-01-31",
+      "calendar_proxy_for": 2028,
+      "adjusted_eps": 12.6,
+      "revenue_m": 31760,
+      "reference_diluted_shares_m": 980,
+      "scheduled_amort_m": 139.6,
+      "estimate_source": "S4",
+      "status": "assumed_standalone_for_sensitivity_not_verified_consensus_basis"
+    }
+  ],
+  "cases": [
+    {
+      "name": "lower_cost",
+      "sbc_revenue_rate": 0.08,
+      "gaap_tax_rate": 0.15,
+      "new_iprd_amort_m": 0,
+      "other_exclusions_m": 50
+    },
+    {
+      "name": "reference",
+      "sbc_revenue_rate": 0.1,
+      "gaap_tax_rate": 0.18,
+      "new_iprd_amort_m": 162.125,
+      "other_exclusions_m": 100
+    },
+    {
+      "name": "higher_cost",
+      "sbc_revenue_rate": 0.12,
+      "gaap_tax_rate": 0.21,
+      "new_iprd_amort_m": 216.16666666666666,
+      "other_exclusions_m": 200
+    }
+  ],
+  "iprd": {
+    "balance_m": 1297,
+    "expected_useful_life_years": [
+      6,
+      13
+    ],
+    "source": "S2",
+    "start_date": null,
+    "recognition_status": "Not amortizing at Aug1; assumed immediate full-year start only in specified scenarios, not issuer schedule"
+  },
+  "gates": {
+    "verified_forward_gaap_eps": null,
+    "verified_calendar_2028_eps": null,
+    "verified_combined_eps": null,
+    "verified_forward_pe": null,
+    "reason": "No issuer GAAP forecast, precise quarterly/monthly bridge or verified constituent EPS/share/deal basis; merger purchase accounting and closing weights missing."
+  },
+  "assumptions": [
+    "Adjusted forecast EPS times assumed reference diluted shares reconstructs a scenario profit numerator, not verified consensus net income.",
+    "11% adjusted tax held from current disclosure; GAAP15/18/21% are scenario assumptions.",
+    "All common-equivalent shares, including preferred if relevant, assumed inside reference950/980M; do not add21.8M again.",
+    "Ordinary cash R&D, depreciation and interest already embedded in adjusted earnings; no second deduction.",
+    "Revenue assumptions from different aggregate providers are retained and not averaged.",
+    "No new Lumentum shares, synergies, purchase accounting or costs included; no merged calendar2028 EPS claim.",
+    "Other exclusions include a bounded allowance; future contingent fair-value changes are unknown and may exceed cases.",
+    "Source refresh required after new filing/guidance; historical facts remain historical. Market reference is not live."
+  ],
+  "prior_work": {
+    "issue": 189,
+    "handoff": 190,
+    "pr": 191,
+    "commit": "9727f90125a46fe0966c0f746a891ef2aa4cb536",
+    "path": "research/models/mrvl_lite",
+    "decision": "Read-only reuse of source/basis gates; no combined-model edits."
+  }
+}
+
