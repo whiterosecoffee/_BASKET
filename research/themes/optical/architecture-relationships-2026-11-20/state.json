@@ -11,7 +11,7 @@
       "Five reusable child launch prompts"
     ],
     "next": [
-      "Formalize multi-ticker rotation extension using B04 #297 rather than creating another engine"
+      "Qualify the existing rotation input/cash boundary; add a common-horizon value-revision ledger before further optimization."
     ]
   },
   "status": "draft_research_with_rotation_design_owner_execution_pending",
@@ -88,6 +88,14 @@
       "input": "Validated quotes, common-date valuation scenarios and private account constraints",
       "output": "Directed rotation matrix, threshold surfaces and feasible action frontier",
       "feature_design": "feature-design-rotation.md"
+    },
+    {
+      "id": "temporal-relationships-relative-value",
+      "status": "planned_contract",
+      "input": "Point-in-time source references, typed economic links, forecasts and matched returns",
+      "output": "Attributable valuation deltas, changing relation states and net rotation alternatives",
+      "problem_ref": "problems.json",
+      "feature_design": "feature-design-temporal-relationships.md"
     }
   ],
   "next_action": "B04 owner evaluates multi-ticker rotation extension acceptance and implements within its existing scope.",
@@ -97,5 +105,7 @@
     "financial_model": "not_created",
     "live_market_data": "not_requested",
     "ci": "pending"
-  }
+  },
+  "problem_ref": "problems.json",
+  "relationship_tracking_design": "feature-design-temporal-relationships.md"
 }
