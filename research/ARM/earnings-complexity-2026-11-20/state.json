@@ -1,0 +1,98 @@
+{
+  "id": "ARM_EARNINGS_COMPLEXITY_20261120",
+  "parent": {
+    "role": "../../../AGENTS.md",
+    "registry": "../../../orchestration/sparks.json",
+    "spark": "B12"
+  },
+  "purpose": "Explain complexity monetization, EPS growth and compression with reproducible arithmetic",
+  "objectives": {
+    "minimum": "Source verified quarter and EPS calendar",
+    "next": "Evaluate per-share valuation sensitivity to the back-loaded EPS ramp and terminal multiple"
+  },
+  "status": "research_draft",
+  "owner": "B12-287",
+  "issue": "https://github.com/whiterosecoffee/_BASKET/issues/287",
+  "branch": "work/287-arm-complexity-eps",
+  "base_commit": "433d3574033a35f24910dc1ffee21ecbf27702dc",
+  "feature_designs": [
+    "feature-design.md",
+    "feature-design-gaap-bridge.md",
+    "feature-design-assumptions-review.md",
+    "feature-design-growth-upside.md",
+    "feature-design-market-stress.md"
+  ],
+  "evidence": [
+    "inputs.json",
+    "observations.jsonl",
+    "results.json",
+    "gaap-inputs.json",
+    "gaap-results.json",
+    "gaap-validation.json",
+    "GAAP_BRIDGE.md",
+    "gaap-bridge.csv",
+    "ASSUMPTIONS_REVIEW.md",
+    "growth-upside-inputs.json",
+    "growth-upside-results.json",
+    "EPS_FIVE_YEAR.md",
+    "EPS_FIVE_YEAR.csv",
+    "EPS_2026_2030.md",
+    "EPS_2026_2030.csv",
+    "market-stress-inputs.json",
+    "market-stress-results.json",
+    "market-stress.csv",
+    "MARKET_STRESS.md"
+  ],
+  "dependencies": [
+    {
+      "spark": "B09",
+      "blocking": false,
+      "reason": "No SoftBank NAV computed"
+    }
+  ],
+  "children": [],
+  "planned_nodes": [
+    {
+      "id": "ARM_FORWARD_GAAP_BRIDGE",
+      "kind": "feature_variant",
+      "status": "implemented_research_variant",
+      "input": "Filed H1 reconciliation; dated adjusted consensus; explicit exclusions, tax and diluted-share assumptions",
+      "output": "FY27/FY28 conditional GAAP EPS and cost/valuation sensitivities",
+      "design": "feature-design-gaap-bridge.md"
+    },
+    {
+      "id": "ARM_GAAP_ASSUMPTION_REVIEW",
+      "kind": "feature_variant",
+      "status": "implemented_second_method_review",
+      "input": "Annual and interim award disclosures; actual SBC tax effect; dated GAAP net-income forecasts",
+      "output": "Compensation growth, tax sensitivity and GAAP consensus reference through FY29",
+      "design": "feature-design-assumptions-review.md"
+    },
+    {
+      "id": "ARM_GROWTH_UPSIDE",
+      "kind": "feature_variant",
+      "status": "implemented_research_variant",
+      "input": "Published long-term management model, current growth split and contractual royalty accounting",
+      "output": "Identified growth vs unproven consensus omissions; horizon-aware sensitivity",
+      "design": "feature-design-growth-upside.md"
+    },
+    {
+      "id": "ARM_MARKET_REVENUE_STRESS",
+      "kind": "feature_variant",
+      "status": "implemented_research_variant",
+      "input": "Issuer revenue streams, partner evidence, nonadditive TAM and explicit FY2031 cost/margin/share assumptions",
+      "output": "Revenue-to-GAAP-EPS stress scenarios, sensitivities and falsifiers",
+      "design": "feature-design-market-stress.md"
+    }
+  ],
+  "next_action": "Check commercial chip revenue recognition, hardware margin and recurring compensation/development costs at the next earnings report.",
+  "integration_status": "unmerged",
+  "ci_status": "new_revision_pending_external_verification",
+  "model_versions": {
+    "complexity_sensitivity": "0.1.0",
+    "forward_gaap_bridge": "0.2.0",
+    "growth_upside": "0.3.0",
+    "market_stress": "0.1.0"
+  },
+  "previous_model_revision": "0149fb341f6c106bbcbf556206f22a5c2b17a95d"
+}

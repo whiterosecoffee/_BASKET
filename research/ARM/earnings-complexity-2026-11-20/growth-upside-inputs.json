@@ -1,0 +1,213 @@
+{
+  "model_version": "arm-growth-upside/0.3.0",
+  "reference_date": "2026-11-20",
+  "currency": "USD",
+  "observed_at": "2026-11-21T03:36:22.816617+00:00",
+  "reference_price": 152.2,
+  "reference_price_status": "historical_regular_close",
+  "management_target": {
+    "period_end": "2031-03-31",
+    "classification": "issuer_long_term_target_not_guidance_or_consensus",
+    "ip_revenue_b": 10,
+    "chip_revenue_b": 15,
+    "total_revenue_b": 25,
+    "adjusted_eps_lower_reference": 9,
+    "actual_statement": "more than $9 non-GAAP EPS power",
+    "ip_adjusted_operating_margin_lower_reference": 0.65,
+    "chip_adjusted_operating_margin_lower_reference": 0.3,
+    "chip_gross_margin_lower_reference": 0.5,
+    "royalty_cagr_target": 0.2,
+    "core_count_per_chip_growth_assumption": 0.2,
+    "status": "published_March_2026_model_referenced_in_later_materials"
+  },
+  "near_term_estimates": {
+    "period_end": "2028-03-31",
+    "adjusted_eps": 3.09,
+    "revenue_b": 8.37,
+    "classification": "third_party_consensus_Nov17_vintage"
+  },
+  "reported_growth": {
+    "period_end": "2026-09-30",
+    "revenue": 0.27,
+    "license": 0.5,
+    "royalty": 0.08,
+    "data_center_royalty": 1.0,
+    "physical_ai_royalty": 0.5,
+    "edge_ai_royalty": "roughly_flat",
+    "classification": "issuer_reported_and_management_segment_descriptions"
+  },
+  "sensitivity": {
+    "fy31_adjusted_eps_cases": [
+      5,
+      7,
+      9
+    ],
+    "exit_adjusted_pe_cases": [
+      25,
+      30,
+      35
+    ],
+    "discount_rate_cases": [
+      0.1,
+      0.12,
+      0.15
+    ],
+    "classification": "unweighted_hypothetical_future_share_price_sensitivity_not_DCF_or_target",
+    "gaap_eps_available": false
+  },
+  "sources": {
+    "investor_session": {
+      "url": "https://investors.arm.com/static-files/01d3c055-162f-4cf4-a983-5bb338aeb5e5",
+      "class": "issuer_hosted_investor_session",
+      "source_event": "Arm Everywhere March 2026",
+      "facts": [
+        "FYE31 target",
+        "20% core-count assumption",
+        "robotics largely beyond FYE31",
+        "mid-teens adjusted opex growth"
+      ]
+    },
+    "november_call": {
+      "url": "https://investors.arm.com/static-files/6f3ab670-7d16-479b-948a-7b1df5ff5b32",
+      "class": "issuer_hosted_earnings_call",
+      "event_date": "2026-11-04",
+      "facts": [
+        "segment growth",
+        "memory pressure",
+        "first shipments FYE27 Q4",
+        "supply constraints"
+      ]
+    },
+    "filing": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000142/arm-20260930.htm",
+      "class": "issuer_filing",
+      "available_date": "2026-11-04",
+      "facts": [
+        "royalties accrued in shipment quarter",
+        "some volume discounts",
+        "buy-downs/minimum commitments classified as licensing",
+        "contract rates percentage ASP or fixed-per-chip"
+      ]
+    },
+    "results": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000141/exhibit992fye27q230-sepx26.htm",
+      "class": "issuer_filing",
+      "available_date": "2026-11-04",
+      "facts": [
+        "headline growth",
+        "license-to-production timing"
+      ]
+    },
+    "consensus": {
+      "url": "https://stockanalysis.com/stocks/arm/forecast/",
+      "class": "third_party_consensus",
+      "data_as_of_date": "2026-11-17"
+    }
+  },
+  "unknowns": [
+    "Quarter-matched absolute royalties by cloud, edge and physical AI needed to reconcile weighted 8% total growth exactly",
+    "No analyst-level model proves a disclosed growth driver is omitted from consensus",
+    "No quantified signed accelerator-compute expansion contract established in this review",
+    "Future GAAP bridge and diluted shares for FYE31 remain unknown",
+    "Royalty rate coverage is not guaranteed shipment volume or take-or-pay backlog"
+  ],
+  "five_year_eps_series": {
+    "classification": "third_party_adjusted_eps_forecast_series",
+    "provider": "ChartMill",
+    "source_url": "https://www.chartmill.com/stock/quote/ARM/estimates",
+    "observed_at": "2026-11-21T03:41:45.943593+00:00",
+    "source_as_of": null,
+    "fy27_history_last_observation_date": "2026-11-14",
+    "basis": "adjusted_or_normalized_EPS; FY26 actual 1.77 agrees with issuer adjusted EPS, not GAAP EPS",
+    "fiscal_year_end": "March 31",
+    "actual_base": {
+      "fiscal_year": 2026,
+      "eps": 1.77
+    },
+    "forecasts": [
+      {
+        "fiscal_year": 2027,
+        "eps": 2.28
+      },
+      {
+        "fiscal_year": 2028,
+        "eps": 3.1
+      },
+      {
+        "fiscal_year": 2029,
+        "eps": 4.15
+      },
+      {
+        "fiscal_year": 2030,
+        "eps": 6.2
+      },
+      {
+        "fiscal_year": 2031,
+        "eps": 10.4
+      }
+    ],
+    "annual_panel_counts_verified": false,
+    "crosscheck": {
+      "provider": "S&P Global via Stock Analysis",
+      "as_of": "2026-11-17",
+      "FY27_eps": 2.27,
+      "FY28_eps": 3.09
+    },
+    "limitations": [
+      "Do not splice vendor estimates silently.",
+      "No verified five-year GAAP EPS consensus.",
+      "Far-year contributor counts and exact table timestamp not verified.",
+      "FY27 already in progress; five fiscal forecasts do not mean five full future years.",
+      "No direct inference of cash payback from EPS.",
+      "YoY rates recomputed from rounded EPS inputs can differ slightly from vendor percentages."
+    ]
+  },
+  "earnings_calendar": {
+    "observed_at": "2026-11-21T04:22:03.000486+00:00",
+    "available_at": null,
+    "source_url": "https://investors.arm.com/news-events/investor-events-presentations",
+    "source_class": "issuer_investor_calendar",
+    "events": [
+      {
+        "period": "Q3 FY2026",
+        "date": "2026-02-04",
+        "status": "reported"
+      },
+      {
+        "period": "Q4 and FY2026",
+        "date": "2026-05-06",
+        "status": "reported"
+      },
+      {
+        "period": "Q1 FY2027",
+        "date": "2026-07-29",
+        "status": "reported"
+      },
+      {
+        "period": "Q2 FY2027",
+        "date": "2026-11-04",
+        "status": "reported"
+      },
+      {
+        "period": "Q3 FY2027",
+        "date": "2027-02-03",
+        "status": "issuer_tentative"
+      },
+      {
+        "period": "Q4 and FY2027",
+        "date": "2027-05-05",
+        "status": "issuer_tentative"
+      }
+    ],
+    "later_annual_report_month": "May; timing assumption only, exact FY2028-FY2030 dates unannounced",
+    "date_conflict": "ChartMill says expected February 2, 2027; prefer issuer tentative February 3."
+  },
+  "historical_adjusted_eps": {
+    "FY2025": 1.63,
+    "FY2026": 1.77,
+    "source_url": "https://investors.arm.com/node/8141/html",
+    "source_class": "issuer_filed_6K",
+    "available_at": "2026-05-06",
+    "vendor_difference": "ChartMill FY2025 1.64 implies 7.9% FY2026 growth; issuer diluted non-GAAP EPS 1.63 implies 8.6%. Use issuer actuals for FY2026 growth; leave forecast series unchanged."
+  }
+}

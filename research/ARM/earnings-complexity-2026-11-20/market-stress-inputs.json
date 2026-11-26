@@ -1,0 +1,211 @@
+{
+  "model_version": "arm-market-stress/0.1.0",
+  "as_of_date": "2026-11-20",
+  "observed_at": "2026-11-21T04:43:22.020Z",
+  "currency": "USD",
+  "units": "revenue/expenses/shares in billions; EPS and share prices USD",
+  "reference_price": 152.2,
+  "reference_price_status": "previously_verified_Nov20_regular_close_not_live",
+  "period_end": "2031-03-31",
+  "source_revision_base": "0149fb341f6c106bbcbf556206f22a5c2b17a95d",
+  "sources": {
+    "results": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000141/exhibit992fye27q230-sepx26.htm",
+      "class": "issuer_filing",
+      "period_end": "2026-09-30",
+      "available_date": "2026-11-04"
+    },
+    "long_term": {
+      "url": "https://investors.arm.com/static-files/01d3c055-162f-4cf4-a983-5bb338aeb5e5",
+      "class": "issuer_investor_session",
+      "available_date": "2026-03-24"
+    },
+    "november_call": {
+      "url": "https://investors.arm.com/static-files/6f3ab670-7d16-479b-948a-7b1df5ff5b32",
+      "class": "issuer_hosted_call_transcript",
+      "available_date": "2026-11-05"
+    },
+    "meta": {
+      "url": "https://about.fb.com/news/2026/03/meta-partners-with-arm-to-develop-new-class-of-data-center-silicon/",
+      "class": "customer_announcement",
+      "available_date": "2026-03-24"
+    },
+    "aws": {
+      "url": "https://www.aboutamazon.com/news/company-news/amazon-custom-chips-demand-q3-2026-earnings",
+      "class": "customer_announcement",
+      "available_date": "2026-10-30"
+    },
+    "n4": {
+      "url": "https://newsroom.arm.com/news/arm-agi-cpu-neoverse-css-n4-agentic-ai",
+      "class": "issuer_technology_announcement",
+      "available_date": "2026-09-08"
+    },
+    "physical": {
+      "url": "https://newsroom.arm.com/news/arm-total-design-and-robotics-capability-framework-for-physical-ai",
+      "class": "issuer_market_estimate_and_ecosystem_announcement",
+      "available_date": "2026-09-08"
+    },
+    "oracle": {
+      "url": "https://newsroom.arm.com/news/arm-agi-cpu-oracle-cloud-infrastructure",
+      "class": "issuer_partner_announcement",
+      "available_date": "2026-10-28"
+    },
+    "annual": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1973239/000197323926000097/arm-20260331.htm",
+      "class": "issuer_annual_filing",
+      "available_date": "2026-05-26"
+    }
+  },
+  "observations": {
+    "q2_royalty_b": 0.67,
+    "q2_royalty_yoy": 0.08,
+    "q2_license_other_b": 0.773,
+    "q2_license_other_yoy": 0.5,
+    "q2_total_b": 1.443,
+    "q2_datacenter_royalty_yoy": 1,
+    "q2_physical_royalty_yoy": 0.5,
+    "q2_edge_royalty_yoy": "roughly_flat_management_description",
+    "commercial_shipments": "FY2027 Q4 January–March 2027, issuer plan",
+    "near_chip_revenue_b": 2,
+    "near_chip_revenue_period": "FY2027 and FY2028 COMBINED, up-to outlook, not annual floor or disclosed signed backlog value",
+    "fy31_ip_revenue_target_b": 10,
+    "fy31_chip_revenue_target_b": 15,
+    "fy31_adjusted_eps_target": "greater than $9; not GAAP",
+    "h1_fy27_sbc_b": 0.72,
+    "q3_adjusted_opex_guidance_b": 0.825
+  },
+  "tam": [
+    {
+      "market": "Data-center CPU",
+      "future_b": 100,
+      "future_period": "2030",
+      "qualifier": "more than",
+      "classification": "issuer_market_estimate_not_ARM_revenue",
+      "source": "long_term",
+      "capture_note": "$15B direct-chip target is roughly 15% of a $100B market, approximate cross-horizon comparison, with competing Arm licensees included."
+    },
+    {
+      "market": "Physical AI compute",
+      "future_b": 200,
+      "future_period": "2030s, not specified year",
+      "classification": "issuer_market_estimate_not_ARM_revenue",
+      "source": "physical",
+      "capture_note": "No disclosed Arm revenue entitlement or adoption timetable; overlaps existing automotive/embedded markets."
+    },
+    {
+      "market": "Edge AI",
+      "growth_over_five_years": 0.4,
+      "classification": "issuer_market_growth_estimate",
+      "source": "long_term",
+      "capture_note": "About 7% annual TAM growth does not by itself generate 30–50% ARM EPS growth."
+    }
+  ],
+  "streams": [
+    {
+      "stream": "Royalties on customer chips",
+      "economics": "Contractual fee per chip or percentage of chip ASP; richer IP/CSS can raise content. Customer cloud revenue and capex are not ARM revenue.",
+      "partners": "AWS Graviton, Google Axion, Microsoft Cobalt, NVIDIA Vera/BlueField; customer designs can also compete with ARM direct silicon.",
+      "status": "Established; datacenter growth strong but consolidated royalty growth only 8% in latest quarter.",
+      "source": "results"
+    },
+    {
+      "stream": "License and other",
+      "economics": "Design-access/subscription and delivery-linked recognition; not an independent annuity on top of royalties.",
+      "partners": "Semiconductor, hyperscaler and OEM licensees; counterparty amounts undisclosed.",
+      "status": "Established, lumpy, +50% latest quarter; monitor ACV/RPO and subsequent royalties.",
+      "source": "results"
+    },
+    {
+      "stream": "Direct AGI CPU sales",
+      "economics": "Full chip revenue less manufacturing/packaging, engineering, selling and compensation. No extra internal third-party royalty.",
+      "partners": "Meta multigeneration co-development independently confirmed; OCI planned fall 2027; OpenAI, SAP, Cloudflare and Cerebras in announced ecosystem, without verified individual order dollars.",
+      "status": "Multiple-customer purchase orders reported; first commercial shipments planned Jan–Mar 2027.",
+      "source": "meta"
+    },
+    {
+      "stream": "Mobile/PC and local AI",
+      "economics": "Armv9, CSS for Mobile 2, SME2 and GPU capability increase licensable content; hardware performance is not automatically a higher contracted fee.",
+      "partners": "OPPO, vivo, Xiaomi, Google; KleidiAI/software framework integration supports adoption.",
+      "status": "Edge royalties roughly flat despite technology expansion; no separate software SaaS revenue assumed.",
+      "source": "results"
+    },
+    {
+      "stream": "Automotive/robotics/industrial",
+      "economics": "Zena CSS, safety/real-time CPU content and richer silicon per vehicle/machine; long design/validation cycles.",
+      "partners": "Tensor, NXP, Siemens, AWS and Unitree ecosystem participation; 80+ partners do not establish purchase orders.",
+      "status": "Physical AI royalties +50%; robotics revenue and timing not separately quantified.",
+      "source": "physical"
+    }
+  ],
+  "common_assumptions": {
+    "ip_gross_margin_before_restored_costs": 0.99,
+    "tax_rate": 0.15,
+    "net_interest_b": 0,
+    "equity_gains_b": 0,
+    "terminal_gaap_pe": 30,
+    "required_return": 0.12,
+    "extra_development_b": 0,
+    "classification": "unweighted_hypothetical_GAAP_style_earnings_sensitivity_not_consensus_or_guidance",
+    "expense_treatment": "Non-SBC operating expense includes ordinary chip R&D and SG&A; manufacturing and packaging included in chip gross margin. Aggregate SBC, employer tax and acquisition costs charged exactly once; no duplicate cash buyback or internal royalty.",
+    "expense_anchor": "$0.825B quarterly adjusted opex guidance annualizes to $3.3B; a hypothetical 14% four-year CAGR produces ~$5.57B. Rounded $5.6B is a scenario budget, not issuer guidance.",
+    "exclusions_note": "No modeled purchase-commitment losses, restructuring, discrete tax items or unannounced acquisitions; therefore GAAP-style, not comprehensive forward GAAP reconciliation."
+  },
+  "scenarios": [
+    {
+      "id": "delayed_ramp",
+      "label": "Delayed chip ramp",
+      "ip_revenue_b": 8,
+      "chip_revenue_b": 5,
+      "chip_gross_margin": 0.35,
+      "non_sbc_opex_b": 5.6,
+      "sbc_b": 2.5,
+      "employer_tax_b": 0.3,
+      "acquisition_b": 0.05,
+      "diluted_shares_b": 1.2
+    },
+    {
+      "id": "partial_scale",
+      "label": "Partial scale",
+      "ip_revenue_b": 9,
+      "chip_revenue_b": 10,
+      "chip_gross_margin": 0.45,
+      "non_sbc_opex_b": 5.6,
+      "sbc_b": 2.5,
+      "employer_tax_b": 0.3,
+      "acquisition_b": 0.05,
+      "diluted_shares_b": 1.2
+    },
+    {
+      "id": "revenue_targets",
+      "label": "Issuer revenue levels, modeled costs",
+      "ip_revenue_b": 10,
+      "chip_revenue_b": 15,
+      "chip_gross_margin": 0.5,
+      "non_sbc_opex_b": 5.6,
+      "sbc_b": 2.5,
+      "employer_tax_b": 0.3,
+      "acquisition_b": 0.05,
+      "diluted_shares_b": 1.2
+    },
+    {
+      "id": "strong_execution",
+      "label": "Stronger scale and margins",
+      "ip_revenue_b": 12,
+      "chip_revenue_b": 20,
+      "chip_gross_margin": 0.55,
+      "non_sbc_opex_b": 6.3,
+      "sbc_b": 3,
+      "employer_tax_b": 0.35,
+      "acquisition_b": 0.05,
+      "diluted_shares_b": 1.25
+    }
+  ],
+  "unknowns": [
+    "Quarter-matched absolute segment royalties and realized royalty per chip; no exact weighted bridge for the 8% consolidated royalty rate.",
+    "Individual counterparty order value, acceptance terms, cancellations and chip supply allocation.",
+    "Future diluted share count, SBC grant/vesting schedule, tax rates and full GAAP adjustments.",
+    "TAM estimates are management expectations; no independent market sizing audit or calibrated scenario probabilities.",
+    "Long-term analyst model assumptions are not available; this does not prove growth is absent from consensus.",
+    "Potential customer/channel conflict, RISC-V and x86 competition, Arm China exposure, supply/yield/packaging constraints and working capital can change outcomes."
+  ]
+}
