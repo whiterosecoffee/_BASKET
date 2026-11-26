@@ -14,5 +14,30 @@
   ],
   "analysis_need": "October 1 onward cumulative share volume and turnover, with regular/extended-session boundaries and complete-period qualification.",
   "state": "awaiting_owner_resolution_not_acknowledged",
-  "raw_data_created_by_consumer": false
+  "raw_data_created_by_consumer": false,
+  "fetch_routing": {
+    "owner": "_FETCH",
+    "request_kinds": [
+      "missing_range",
+      "qc_repair",
+      "refresh"
+    ],
+    "consumer_provider_calls": false,
+    "consumer_source_writes": false,
+    "receiver_acceptance_required": true,
+    "qualification_requires": [
+      "acknowledged request",
+      "resolved input revision",
+      "purpose-specific coverage and QC evidence",
+      "consumer read acceptance"
+    ],
+    "qc_policy": "Reuse owner automated risk-based QC; reassess changed revisions and new failures. Consumer routing metadata is not runtime enforcement or evidence of request delivery."
+  },
+  "temporal_policy": {
+    "historical_wall_clock_expiry": false,
+    "historical_interval": "Require explicit coverage, revisions, units and adjustment; report gaps without extrapolation.",
+    "current_session": "Require separately timestamped observations with measured lag and partial-session labeling."
+  },
+  "provenance_policy": "Distinguish user-asserted source, artifact labels, independent provider evidence and unknown adjustment/vintages. Decimal volume alone is not invalid. Private delivery receipts remain local.",
+  "publication_status_note": "Public structural snapshot only; existing state fields are historical snapshot values, not the active local delivery ledger."
 }
