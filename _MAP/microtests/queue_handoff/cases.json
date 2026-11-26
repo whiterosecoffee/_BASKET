@@ -1,0 +1,143 @@
+{
+  "fixture_class": "synthetic_offline",
+  "as_of": "2026-01-01T00:01:00Z",
+  "task_id": "T-MAP-QUEUE",
+  "attempt_id": "ATT-MAP-1",
+  "head_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "cases": [
+    {
+      "id": "normal",
+      "expected_outcome": "next_proposal",
+      "expected_next": true,
+      "expected_external_effects": 0
+    },
+    {
+      "id": "stale_claim",
+      "expected_outcome": "stale_fence",
+      "expected_next": false,
+      "expected_external_effects": 0
+    },
+    {
+      "id": "expired_claim",
+      "expected_outcome": "lease_expired",
+      "expected_next": false,
+      "expected_external_effects": 0
+    },
+    {
+      "id": "duplicate_result",
+      "expected_outcome": "duplicate_result_rejected",
+      "expected_next": false,
+      "expected_external_effects": 0
+    },
+    {
+      "id": "wrong_head_acceptance",
+      "expected_outcome": "acceptance_blocked",
+      "expected_next": false,
+      "expected_external_effects": 0
+    },
+    {
+      "id": "missing_acceptance",
+      "expected_outcome": "acceptance_blocked",
+      "expected_next": false,
+      "expected_external_effects": 0
+    },
+    {
+      "id": "failed_ci",
+      "expected_outcome": "acceptance_blocked",
+      "expected_next": false,
+      "expected_external_effects": 0
+    },
+    {
+      "id": "uncertain_matching",
+      "expected_outcome": "next_proposal",
+      "expected_next": true,
+      "expected_external_effects": 0,
+      "readback": {
+        "status": "observed",
+        "result": {
+          "envelope": {
+            "target_scope": "synthetic-queue-only",
+            "task_id": "T-MAP-QUEUE",
+            "attempt_id": "ATT-MAP-1",
+            "step_id": "S1",
+            "head_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "event_id": "result-1",
+            "kind": "attempt_passed",
+            "payload": {
+              "result_url": "https://example.invalid/synthetic/result"
+            }
+          },
+          "sha256": "8dbc722f728549bfc58753e28adf2db14a9b11af0f1a0159c01a8ab39e9e6761"
+        }
+      }
+    },
+    {
+      "id": "uncertain_absent",
+      "expected_outcome": "retry_requires_fresh_authority_and_state",
+      "expected_next": false,
+      "expected_external_effects": 0,
+      "readback": {
+        "status": "observed",
+        "result": null
+      }
+    },
+    {
+      "id": "uncertain_unknown",
+      "expected_outcome": "inspect_before_retry",
+      "expected_next": false,
+      "expected_external_effects": 0,
+      "readback": {
+        "status": "unavailable",
+        "result": null
+      }
+    },
+    {
+      "id": "uncertain_mismatch",
+      "expected_outcome": "write_conflict",
+      "expected_next": false,
+      "expected_external_effects": 0,
+      "readback": {
+        "status": "observed",
+        "result": {
+          "envelope": {
+            "target_scope": "synthetic-queue-only",
+            "task_id": "T-MAP-QUEUE",
+            "attempt_id": "ATT-OTHER",
+            "step_id": "S1",
+            "head_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "event_id": "result-1",
+            "kind": "attempt_passed",
+            "payload": {
+              "result_url": "https://example.invalid/synthetic/result"
+            }
+          },
+          "sha256": "861f01c0f67b718e769f03a88a44b18e67f377dc4fd592d4a32dfc0302189905"
+        }
+      }
+    },
+    {
+      "id": "uncertain_changed_payload",
+      "expected_outcome": "write_conflict",
+      "expected_next": false,
+      "expected_external_effects": 0,
+      "readback": {
+        "status": "observed",
+        "result": {
+          "envelope": {
+            "target_scope": "synthetic-queue-only",
+            "task_id": "T-MAP-QUEUE",
+            "attempt_id": "ATT-MAP-1",
+            "step_id": "S1",
+            "head_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "event_id": "result-1",
+            "kind": "attempt_passed",
+            "payload": {
+              "result_url": "https://example.invalid/synthetic/changed"
+            }
+          },
+          "sha256": "8dbc722f728549bfc58753e28adf2db14a9b11af0f1a0159c01a8ab39e9e6761"
+        }
+      }
+    }
+  ]
+}

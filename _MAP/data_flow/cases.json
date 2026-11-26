@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "id": "valid_projection"
+    },
+    {
+      "id": "source_digest_drift"
+    },
+    {
+      "id": "missing_definition"
+    },
+    {
+      "id": "wrong_instance_binding"
+    },
+    {
+      "id": "changed_effects"
+    },
+    {
+      "id": "false_contract_coverage"
+    },
+    {
+      "id": "unsafe_availability_alias"
+    },
+    {
+      "id": "false_production"
+    },
+    {
+      "id": "transform_identity_drift"
+    },
+    {
+      "id": "input_contract_drift"
+    },
+    {
+      "id": "output_contract_drift"
+    },
+    {
+      "id": "reported_schema_sha256_drift"
+    },
+    {
+      "id": "reported_transform_sha256_drift"
+    },
+    {
+      "id": "reported_contract_sha256_drift"
+    }
+  ]
+}

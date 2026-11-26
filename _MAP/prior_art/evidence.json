@@ -1,0 +1,60 @@
+{
+  "evidence_class": "executed_offline_projection_checks",
+  "results": [
+    {
+      "id": "valid_projection",
+      "result": "accepted"
+    },
+    {
+      "id": "duplicate_family",
+      "result": "rejected"
+    },
+    {
+      "id": "missing_source",
+      "result": "rejected"
+    },
+    {
+      "id": "dangling_pointer",
+      "result": "rejected"
+    },
+    {
+      "id": "unknown_family",
+      "result": "rejected"
+    },
+    {
+      "id": "dangling_edge",
+      "result": "rejected"
+    },
+    {
+      "id": "wrong_endpoint_kind",
+      "result": "rejected"
+    },
+    {
+      "id": "false_production_evidence",
+      "result": "rejected"
+    },
+    {
+      "id": "unknown_relation",
+      "result": "rejected"
+    },
+    {
+      "id": "instance_pointer_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "contract_pointer_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "evidence_pointer_drift",
+      "result": "rejected"
+    }
+  ],
+  "external_effects": 0,
+  "production_qualified": false,
+  "experiment_files": {
+    "families.json": "d2fc65989b31c6a7d2b2f36cb034411cf5cc593a7033d15d6986f680ed71e5fa",
+    "cases.json": "81f2f6427792827ef56f6f0c798ff89bf4b6034930ae1b76ca93731f692d8c43",
+    "run.py": "d932628b2e6b79f05aae6c0e6dd00859a2867d3b8dded115a383758dd8102a97"
+  }
+}

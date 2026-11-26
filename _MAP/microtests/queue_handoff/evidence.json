@@ -1,0 +1,298 @@
+{
+  "evidence_class": "executed_offline_microtest",
+  "archive_commit": "74d913e8913d630d85451344689e093aeea07efc",
+  "cases": [
+    {
+      "id": "normal",
+      "outcome": "next_proposal",
+      "next_proposal": true,
+      "external_effects": 0,
+      "result_count": 1,
+      "trace": [
+        {
+          "stage": "claim",
+          "result": "valid"
+        },
+        {
+          "stage": "result",
+          "result": "one_observed_result"
+        },
+        {
+          "stage": "acceptance",
+          "result": {
+            "required": 1,
+            "verified": 1,
+            "missing": [],
+            "head_ci": true,
+            "component_verified": true,
+            "integrated": false
+          }
+        },
+        {
+          "stage": "next",
+          "result": "eligible_proposal_only"
+        }
+      ]
+    },
+    {
+      "id": "stale_claim",
+      "outcome": "stale_fence",
+      "next_proposal": false,
+      "external_effects": 0,
+      "result_count": 0,
+      "trace": [
+        {
+          "stage": "claim",
+          "result": "stale_fence"
+        }
+      ]
+    },
+    {
+      "id": "expired_claim",
+      "outcome": "lease_expired",
+      "next_proposal": false,
+      "external_effects": 0,
+      "result_count": 0,
+      "trace": [
+        {
+          "stage": "claim",
+          "result": "lease_expired"
+        }
+      ]
+    },
+    {
+      "id": "duplicate_result",
+      "outcome": "duplicate_result_rejected",
+      "next_proposal": false,
+      "external_effects": 0,
+      "result_count": 1,
+      "trace": [
+        {
+          "stage": "claim",
+          "result": "valid"
+        },
+        {
+          "stage": "result",
+          "result": "duplicate_rejected"
+        }
+      ]
+    },
+    {
+      "id": "wrong_head_acceptance",
+      "outcome": "acceptance_blocked",
+      "next_proposal": false,
+      "external_effects": 0,
+      "result_count": 1,
+      "trace": [
+        {
+          "stage": "claim",
+          "result": "valid"
+        },
+        {
+          "stage": "result",
+          "result": "one_observed_result"
+        },
+        {
+          "stage": "acceptance",
+          "result": {
+            "required": 1,
+            "verified": 0,
+            "missing": [
+              "A1"
+            ],
+            "head_ci": true,
+            "component_verified": false,
+            "integrated": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "missing_acceptance",
+      "outcome": "acceptance_blocked",
+      "next_proposal": false,
+      "external_effects": 0,
+      "result_count": 1,
+      "trace": [
+        {
+          "stage": "claim",
+          "result": "valid"
+        },
+        {
+          "stage": "result",
+          "result": "one_observed_result"
+        },
+        {
+          "stage": "acceptance",
+          "result": {
+            "required": 1,
+            "verified": 0,
+            "missing": [
+              "A1"
+            ],
+            "head_ci": true,
+            "component_verified": false,
+            "integrated": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "failed_ci",
+      "outcome": "acceptance_blocked",
+      "next_proposal": false,
+      "external_effects": 0,
+      "result_count": 1,
+      "trace": [
+        {
+          "stage": "claim",
+          "result": "valid"
+        },
+        {
+          "stage": "result",
+          "result": "one_observed_result"
+        },
+        {
+          "stage": "acceptance",
+          "result": {
+            "required": 1,
+            "verified": 1,
+            "missing": [],
+            "head_ci": false,
+            "component_verified": false,
+            "integrated": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "uncertain_matching",
+      "outcome": "next_proposal",
+      "next_proposal": true,
+      "external_effects": 0,
+      "result_count": 1,
+      "trace": [
+        {
+          "stage": "claim",
+          "result": "valid"
+        },
+        {
+          "stage": "readback",
+          "result": "matching",
+          "implementation": "new_offline_model"
+        },
+        {
+          "stage": "result",
+          "result": "one_observed_result"
+        },
+        {
+          "stage": "acceptance",
+          "result": {
+            "required": 1,
+            "verified": 1,
+            "missing": [],
+            "head_ci": true,
+            "component_verified": true,
+            "integrated": false
+          }
+        },
+        {
+          "stage": "next",
+          "result": "eligible_proposal_only"
+        }
+      ]
+    },
+    {
+      "id": "uncertain_absent",
+      "outcome": "retry_requires_fresh_authority_and_state",
+      "next_proposal": false,
+      "external_effects": 0,
+      "result_count": 0,
+      "trace": [
+        {
+          "stage": "claim",
+          "result": "valid"
+        },
+        {
+          "stage": "readback",
+          "result": "absent",
+          "implementation": "new_offline_model"
+        }
+      ]
+    },
+    {
+      "id": "uncertain_unknown",
+      "outcome": "inspect_before_retry",
+      "next_proposal": false,
+      "external_effects": 0,
+      "result_count": 0,
+      "trace": [
+        {
+          "stage": "claim",
+          "result": "valid"
+        },
+        {
+          "stage": "readback",
+          "result": "unknown",
+          "implementation": "new_offline_model"
+        }
+      ]
+    },
+    {
+      "id": "uncertain_mismatch",
+      "outcome": "write_conflict",
+      "next_proposal": false,
+      "external_effects": 0,
+      "result_count": 0,
+      "trace": [
+        {
+          "stage": "claim",
+          "result": "valid"
+        },
+        {
+          "stage": "readback",
+          "result": "mismatch",
+          "implementation": "new_offline_model"
+        }
+      ]
+    },
+    {
+      "id": "uncertain_changed_payload",
+      "outcome": "write_conflict",
+      "next_proposal": false,
+      "external_effects": 0,
+      "result_count": 0,
+      "trace": [
+        {
+          "stage": "claim",
+          "result": "valid"
+        },
+        {
+          "stage": "readback",
+          "result": "mismatch",
+          "implementation": "new_offline_model"
+        }
+      ]
+    }
+  ],
+  "archive_hashes_verified": true,
+  "external_effects": 0,
+  "not_claimed": [
+    "live queue execution",
+    "autonomous orchestration",
+    "real independent acceptance",
+    "production uncertain-write adapter"
+  ],
+  "experiment_files": {
+    "contract.json": "12617b91744f25eaa2f0b774f7a0b08d588b61843217cd8544033ddac57cd457",
+    "cases.json": "ca840ba15b2bb6aeb69f433488b617763973b3edf25e40d4e532714ff51d9d9d",
+    "run.py": "07973f0f6ce108ad4021dab3523a15cf7026d7d5785154a49c3653e524239949"
+  },
+  "note": "Actual local test results on synthetic fixtures; no real queue or agent was used.",
+  "review_history": [
+    {
+      "finding": "Initial readback digest was symbolic and did not bind actual result payload.",
+      "correction": "Canonical SHA256 binds actual scoped envelope; consumed observed fields are verified. Added changed-payload negative; 12 traces pass."
+    }
+  ]
+}

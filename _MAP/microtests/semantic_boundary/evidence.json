@@ -1,0 +1,105 @@
+{
+  "evidence_class": "executed_offline_microtest",
+  "results": [
+    {
+      "id": "compatible",
+      "archived_shape": "accepted",
+      "outcome": "compatible",
+      "input_unchanged": true
+    },
+    {
+      "id": "basis_mismatch",
+      "archived_shape": "accepted",
+      "outcome": "basis_mismatch",
+      "input_unchanged": true
+    },
+    {
+      "id": "interval_mismatch",
+      "archived_shape": "accepted",
+      "outcome": "interval_mismatch",
+      "input_unchanged": true
+    },
+    {
+      "id": "unit_mismatch",
+      "archived_shape": "accepted",
+      "outcome": "unit_mismatch",
+      "input_unchanged": true
+    },
+    {
+      "id": "session_mismatch",
+      "archived_shape": "accepted",
+      "outcome": "session_mismatch",
+      "input_unchanged": true
+    },
+    {
+      "id": "rights_unknown",
+      "archived_shape": "accepted",
+      "outcome": "rights_unknown",
+      "input_unchanged": true
+    },
+    {
+      "id": "time_basis_mismatch",
+      "archived_shape": "accepted",
+      "outcome": "time_basis_mismatch",
+      "input_unchanged": true
+    },
+    {
+      "id": "freshness_unknown",
+      "archived_shape": "accepted",
+      "outcome": "freshness_unknown",
+      "input_unchanged": true
+    },
+    {
+      "id": "fractional_volume_rejected",
+      "archived_shape": "accepted",
+      "outcome": "fractional_volume_mismatch",
+      "input_unchanged": true
+    },
+    {
+      "id": "major_version_mismatch",
+      "archived_shape": "accepted",
+      "outcome": "schema_version_mismatch",
+      "input_unchanged": true
+    },
+    {
+      "id": "changed_payload",
+      "archived_shape": "accepted",
+      "outcome": "payload_hash_mismatch",
+      "input_unchanged": true
+    },
+    {
+      "id": "rights_not_allowed",
+      "archived_shape": "accepted",
+      "outcome": "rights_mismatch",
+      "input_unchanged": true
+    },
+    {
+      "id": "integer_consumer_compatible",
+      "archived_shape": "accepted",
+      "outcome": "compatible",
+      "input_unchanged": true
+    },
+    {
+      "id": "both_unknown_major",
+      "archived_shape": "accepted",
+      "outcome": "schema_version_unsupported",
+      "input_unchanged": true
+    }
+  ],
+  "external_effects": 0,
+  "archive_hash_verified": true,
+  "not_claimed": [
+    "production compatibility",
+    "real entitlement",
+    "live freshness",
+    "full system completion"
+  ],
+  "experiment_files": {
+    "request.schema.json": "bffab8d71c422acd3ee61dfab623420ea1b10234c5eaf3b04e1178b803d1e579",
+    "contract.json": "7f80210b6db545f1e59651ebc4bc76df087fb7f2849e23ce897b5a67bc522525",
+    "cases.json": "b3db6f5be12a76b8558ae2eda024865601f68af683fa315eb1e8134d905df8b2",
+    "run.py": "41efb3a51f9a41ad9c0acee1e06d1e2c884e39cafb439083630b474e123bb046"
+  },
+  "note": "Synthetic input shape accepted by pinned archive; compatibility outcomes are from new bounded offline model.",
+  "independent_review_note": "Reviewer reproduced all 14 cases and hashes, rejected equal-unknown semantic mutations and EUR-vs-USD conflict. Canonical-content digest wording clarified; malformed request errors remain distinct from semantic outcomes."
+}

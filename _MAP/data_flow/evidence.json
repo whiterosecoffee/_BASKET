@@ -1,0 +1,69 @@
+{
+  "evidence_class": "executed_offline_pinned_projection_checks",
+  "results": [
+    {
+      "id": "valid_projection",
+      "result": "accepted"
+    },
+    {
+      "id": "source_digest_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "missing_definition",
+      "result": "rejected"
+    },
+    {
+      "id": "wrong_instance_binding",
+      "result": "rejected"
+    },
+    {
+      "id": "changed_effects",
+      "result": "rejected"
+    },
+    {
+      "id": "false_contract_coverage",
+      "result": "rejected"
+    },
+    {
+      "id": "unsafe_availability_alias",
+      "result": "rejected"
+    },
+    {
+      "id": "false_production",
+      "result": "rejected"
+    },
+    {
+      "id": "transform_identity_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "input_contract_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "output_contract_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "reported_schema_sha256_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "reported_transform_sha256_drift",
+      "result": "rejected"
+    },
+    {
+      "id": "reported_contract_sha256_drift",
+      "result": "rejected"
+    }
+  ],
+  "external_effects": 0,
+  "source_implementation_executed": false,
+  "production_qualified": false,
+  "experiment_files": {
+    "projection.json": "2cf2263e5bf71f57328278eb4dacba2c82d7168c4cebe653dddf94ccbc2e0155",
+    "cases.json": "69f7daf7224945c7f5fa1df251dec4b178834a9944d8cad0d6dbc52f46fa9ba8",
+    "run.py": "25fbbddb474dedf8ae259f25887462e6176ba47e2662eabb44358194c5001a91"
+  }
+}
