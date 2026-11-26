@@ -1,0 +1,11 @@
+# CPO and valuation compression
+November20 2026. Nothing guarantees multiple retention. Correction to prior47x sensitivity:47x usedFY2026 EPS0.70;8.78x usesFY2027 EPS3.75 at same historical32.93 price. This is a denominator/horizon shift, not evidence of actual market derating. 47x*3.75 is mechanical upside, not justified base valuation. At end2027 market likely considers2028 and later sustainable cash earnings, not just achieved2027 EPS.
+
+CPO may replace pluggable content, centralize light sources and shift economic control to platform/package owners. NVIDIA explicitly describes replacement: https://www.nvidia.com/en-us/networking/products/silicon-photonics/ . Its March2025 announcement describes coexistence with pluggables and fewer lasers: https://nvidianews.nvidia.com/news/nvidia-spectrum-x-co-packaged-optics-networking-switches-ai-factories . Broadcom claims40% lower optics cost/bit https://www.broadcom.com/info/optics/cpo ; vendor system claim, not forecast40% AAOI revenue loss.
+AAOI OBO/ELSFP demonstration https://newsroom.ao-inc.com/news-releases/aoi-showcases-25dbm-ultra-high-power-elsfp-as-the-foundation-for-next-gen-ai-infrastructure-at-ofc-2026/ supports adaptation potential, not proven CPO revenue/margins or customer award. Avoid assuming OBO equalsGPU CPO.
+
+Potential protection: qualified repeat orders; profitable CPO/OBO/ELSFP conversion; aggregate bandwidth demand outpacing lower value/bit; diversified customers; returns on capital and FCF/diluted share improvement. Risk: terminal growth gets discounted before current sales weaken; forecastEPS and PE decline together.
+
+Illustrative FY2027 EPS3.75 price sensitivities6x22.50 (-31.67%),8x30(-8.90%),10x37.50(+13.88%),15x56.25(+70.82%) versus historical32.93. Combined stressEPS2.80*8x22.40(-31.98%). Not probabilities, current quote, targets or validated bounds.
+
+Conclusion: AAOI can grow with modest share yet deserve a lower multiple if earnings duration/cash conversion uncertain. Strong growth alone does not protect premium valuation. Next evidence:2028 product-mix earnings durability and qualified new-architecture gross profit, net of displaced products and capex/dilution. No canonical ingestion performed.

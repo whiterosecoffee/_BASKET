@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "purpose": "AAOI FY2027 source-verified valuation updates",
+  "owner": "B11-273",
+  "issue": 273,
+  "branch": "work/273-aaoi-forward-valuation",
+  "parent": "../../../orchestration/sparks.json#B11",
+  "guidance": "AGENTS.md",
+  "feature_designs": [
+    "feature-design.md"
+  ],
+  "evidence": [
+    "2026-11-19.json",
+    "2026-11-19.md",
+    "2026-11-20.md",
+    "aaoi-lite-relative-valuation-2026-11-21.md"
+  ],
+  "status": "research_active_receiver_pending",
+  "objectives": {
+    "now": "Compare AAOI earnings discount against LITE technology premium on aligned fiscal periods",
+    "next": "Verify consensus diluted-share assumptions",
+    "later": "Build quarterly capacity-to-EPS bridge only with sourced inputs"
+  },
+  "planned_nodes": [
+    {
+      "id": "quarterly-capacity-bridge",
+      "status": "planned",
+      "input": "Quarterly qualified capacity, utilization, yields, ASP, costs, share count",
+      "output": "Revenue, net income and diluted EPS with assumptions"
+    }
+  ],
+  "dependencies": {
+    "canonical_events": "B03; no promotion requested",
+    "market_ingestion": "B02/FETCH owns canonical ingestion; Nov20 private six-instrument snapshot capture exists, canonical_ingestion=false"
+  },
+  "unknowns": [
+    "Actual new ATM sales and weighted-average 2027 diluted shares",
+    "Whether current consensus incorporates November 17 authorization",
+    "2027 quarterly capacity, utilization, yield, ASP and margin bridge",
+    "Exact analyst estimate revision timestamps"
+  ],
+  "next_action": "Replace LITE calendar2027 interpolation with quarterly estimates; reconcile AAOI FY2027 diluted earnings bridge.",
+  "integration": "Draft PR277 unmerged; validate/stores/worker-qc passed at 66994ce26fd05b661f67d88147850776760d2e0c. Closeout commit checks must be verified separately.",
+  "handoff": "HANDOFF.md"
+}
