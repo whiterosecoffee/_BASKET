@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "currency",
+    "price_cutoff_date",
+    "evaluated_at",
+    "replay_class",
+    "return_basis",
+    "dates_supplied",
+    "complete_common_dates",
+    "missing_prices",
+    "calendar_completeness",
+    "windows",
+    "correlation_window"
+  ],
+  "properties": {
+    "schema": {
+      "const": "basket.ticker_comparison_research@1"
+    },
+    "currency": {
+      "const": "USD"
+    },
+    "price_cutoff_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "evaluated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "replay_class": {
+      "const": "current_revision_historical_diagnostic"
+    },
+    "return_basis": {
+      "const": "split_adjusted_price_return_not_total_return"
+    },
+    "dates_supplied": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "complete_common_dates": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "missing_prices": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "NVDA",
+        "CRWV",
+        "SMH",
+        "QQQ"
+      ],
+      "properties": {
+        "NVDA": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "CRWV": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "SMH": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "QQQ": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "calendar_completeness": {
+      "const": "not_independently_certified"
+    },
+    "windows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sessions",
+          "start",
+          "end",
+          "price_return_pct",
+          "relative_to_qqq_pp"
+        ],
+        "properties": {
+          "sessions": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "start": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "end": {
+            "type": "string",
+            "format": "date"
+          },
+          "price_return_pct": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "NVDA",
+              "CRWV",
+              "SMH",
+              "QQQ"
+            ],
+            "properties": {
+              "NVDA": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "CRWV": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "SMH": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "QQQ": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "relative_to_qqq_pp": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "NVDA",
+              "CRWV",
+              "SMH",
+              "QQQ"
+            ],
+            "properties": {
+              "NVDA": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "CRWV": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "SMH": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "QQQ": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "correlation_window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requested_returns",
+        "start",
+        "end",
+        "method",
+        "pairs"
+      ],
+      "properties": {
+        "requested_returns": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "start": {
+          "type": "string",
+          "format": "date"
+        },
+        "end": {
+          "type": "string",
+          "format": "date"
+        },
+        "method": {
+          "const": "Pearson correlation of arithmetic daily price returns, not price levels"
+        },
+        "pairs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "a",
+              "b",
+              "paired_returns",
+              "pearson",
+              "status"
+            ],
+            "properties": {
+              "a": {
+                "enum": [
+                  "NVDA",
+                  "CRWV",
+                  "SMH",
+                  "QQQ"
+                ]
+              },
+              "b": {
+                "enum": [
+                  "NVDA",
+                  "CRWV",
+                  "SMH",
+                  "QQQ"
+                ]
+              },
+              "paired_returns": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "pearson": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "status": {
+                "enum": [
+                  "complete",
+                  "constant_series",
+                  "insufficient_paired_returns"
+                ]
+              }
+            }
+          },
+          "minItems": 6,
+          "maxItems": 6
+        }
+      }
+    }
+  }
+}
