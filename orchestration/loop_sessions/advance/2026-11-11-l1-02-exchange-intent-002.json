@@ -1,0 +1,150 @@
+{
+  "record_type": "immutable_prior_intent_reconciliation",
+  "record_id": "B00-236-L1-02-002",
+  "previous_checkpoint": {
+    "pr": 238,
+    "revision": "f4d53b26b8e97819f60902ae9b89ebca63f64292",
+    "path": "orchestration/loop_sessions/advance/2026-11-11-baseline-001.json"
+  },
+  "owner": "B00-236",
+  "canonical_item": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+  "date": "2026-11-11",
+  "status": "source_review_proposal_not_executed_or_accepted",
+  "sources": [
+    {
+      "path": "architecture/COMPONENT_INDEX.md",
+      "commit": "6900bf0b0c4ba518c9fde48180588471a3846164",
+      "blob_sha": "8ba79ac62d2426a18c674c9836c1b6d7e5fd843f",
+      "owner_issue": 224
+    },
+    {
+      "path": "orchestration/component_conformance.py",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "blob_sha": "edff49e860a602bf6af2fc3ff7f7fff559dfad2c",
+      "owner_issue": 103
+    },
+    {
+      "path": "architecture/BLACK_BOX_COMPONENT_CONTRACT.md",
+      "commit": "74d913e8913d630d85451344689e093aeea07efc",
+      "blob_sha": "eef8ff04f04d5454a635de395949ffb8e5011e63",
+      "owner_issue": 103
+    }
+  ],
+  "verified_delta": {
+    "main_unchanged": true,
+    "queue_body_updated_at": "2026-11-11T21:12:25Z",
+    "baseline_ci": {
+      "run": 43104453248,
+      "sha": "f4d53b26b8e97819f60902ae9b89ebca63f64292",
+      "conclusion": "success"
+    },
+    "map_head": "14d9401638ab3c1feaee7965c85c4f4104fe3ae5",
+    "map_action": "read-only; hosted-gate work stays with existing owner",
+    "index_head_unchanged": true
+  },
+  "candidate": {
+    "identity": "check_exchange",
+    "goal": "Verify that a completed component exchange matches approved manifest, exact supplied artifacts and independently expected input identity.",
+    "consumer": "A parent/composition reviewer receiving a child's completed call/result and an approved reference-to-bytes map.",
+    "useful_behavior": [
+      {
+        "behavior": "Reject unavailable or changed referenced bytes.",
+        "evidence": "_bytes requires supplied bytes and matching SHA-256."
+      },
+      {
+        "behavior": "Reject undeclared or missing required ports and mismatched schema pins.",
+        "evidence": "_bindings compares declarations, required names and schema hashes."
+      },
+      {
+        "behavior": "Preserve call/result component, version, run, as-of, method and input identity.",
+        "evidence": "check_exchange explicitly compares these fields."
+      },
+      {
+        "behavior": "Keep validation effect-free.",
+        "evidence": "Empty reference registry; no adapter invocation or manifest command execution."
+      }
+    ],
+    "nesting_mismatch": {
+      "observation": "Function requires a result and describes itself as post-execution. Input preflight is a separate owner responsibility.",
+      "risk": "A nested parent that invokes a child before semantic/permission checks can perform an invalid effect before post-execution rejection. Passing this checker cannot authorize that invocation.",
+      "classification": "Responsibility boundary, not a demonstrated defect in this checker.",
+      "evidence": "check_exchange docstring and contract mandatory semantic gates 2–4."
+    },
+    "decision": {
+      "disposition": "retain_required_behavior_as_evidence; defer_implementation_choice",
+      "rationale": "Current clean-system direction requires cohesive boundary design. Preserve identity/hash/failure invariants without importing old implementation or labeling structural pass as semantic qualification.",
+      "rejected_options": [
+        "Treat a successful exchange check as preflight authorization.",
+        "Copy the checker into each child or create a competing registry."
+      ],
+      "open_question": "Which accepted clean parent contract owns preflight and supplies a revision-bound semantic/permission decision before any effect?"
+    }
+  },
+  "proposed_acceptance_cases": [
+    {
+      "id": "PI-01",
+      "input": "Same approved method/artifact bytes, matching ports and identities.",
+      "expected": "Structural evidence may pass; semantic qualification stays separate.",
+      "execution": "not_run"
+    },
+    {
+      "id": "PI-02",
+      "input": "Valid envelope but unavailable reference bytes.",
+      "expected": "Reject structural evidence; no implicit fetch.",
+      "execution": "not_run"
+    },
+    {
+      "id": "PI-03",
+      "input": "Structurally valid payload with incompatible units or unavailable-at-as-of source.",
+      "expected": "Parent preflight blocks child effect even if a later structural check could pass.",
+      "execution": "not_run"
+    },
+    {
+      "id": "PI-04",
+      "input": "Permission or source revision changes after preflight and before invocation.",
+      "expected": "Revalidate current decision; no effect under stale approval.",
+      "execution": "not_run"
+    },
+    {
+      "id": "PI-05",
+      "input": "Returned child result uses a different run, method or input digest.",
+      "expected": "Reject acceptance; preserve original evidence.",
+      "execution": "not_run"
+    }
+  ],
+  "routing": {
+    "existing_owner": 103,
+    "independent_acceptance": 105,
+    "planning_owner": 230,
+    "existing_index_handoff": "https://github.com/whiterosecoffee/_BASKET/issues/224#issuecomment-6802671754",
+    "status": "proposal retained in B00-236; no new owner claim or duplicate handoff",
+    "limit": "One candidate reconciled; L1-02 remains open. No changes to index, checker, schemas or _MAP."
+  },
+  "method_improvement": "Record goal/consumer/invariants/phase boundary before considering implementation reuse. Keep proposed cases distinct from executed results.",
+  "horizon": {
+    "authority": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+    "retained_count": 25,
+    "status": "All 25 canonical entries and older obligations retained. This candidate is partial L1-02 progress, not an item completion."
+  },
+  "score_history": {
+    "previous_total": 12,
+    "current_total": 13,
+    "maximum": 30,
+    "dimensions": {
+      "coverage": 2,
+      "correctness_evidence": 3,
+      "progress": 2,
+      "coordination": 3,
+      "continuity": 2,
+      "efficiency": 1
+    },
+    "rationale": "Progress rises from initialization to one source-backed candidate reconciliation; no independent acceptance or measured efficiency claim.",
+    "token_use": null
+  },
+  "checks": {
+    "source_review": "Actual pinned source inspected; no runtime executed.",
+    "json": "Roundtrip and required record fields checked in tool orchestration.",
+    "independent_review": "pending"
+  },
+  "next_action": "Have the existing contract/planning owner reconcile PI-03/PI-04 with its current parent preflight boundary before any implementation allocation."
+}

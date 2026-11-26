@@ -1,0 +1,122 @@
+{
+  "record_type": "immutable_handoff_resolution",
+  "record_id": "B00-236-preflight-reconciled-005",
+  "previous_revision": "dfd1c9b5374d330a3dc61a502bab28a8b5540271",
+  "owner": "B00-236",
+  "source_handoff": "https://github.com/whiterosecoffee/_BASKET/issues/230#issuecomment-6808749146",
+  "source": {
+    "pr": 231,
+    "head": "77a60124d065dae45031248162cde974a1fee850",
+    "disposition_path": "_MAP/compositions/admission/residual-disposition.json",
+    "disposition_blob": "a8625ca32206d5d987bff0d4677d69a7af23d906",
+    "run": 43117223344,
+    "job": 130848199223
+  },
+  "verification": {
+    "current_pr_head_matches": true,
+    "ci_conclusion": "success",
+    "checkout_head_matches": true,
+    "scoped_changes": [],
+    "named_suites": [
+      {
+        "suite": "freshness",
+        "count": 7,
+        "result": "pass"
+      },
+      {
+        "suite": "semantic_boundary",
+        "count": 14,
+        "result": "pass"
+      },
+      {
+        "suite": "queue_handoff",
+        "count": 12,
+        "result": "pass"
+      },
+      {
+        "suite": "admission",
+        "count": 12,
+        "result": "pass"
+      }
+    ],
+    "total_fixtures": 45,
+    "orchestration_tests": 247,
+    "integration_tests": 113,
+    "interface_revision": 2,
+    "available_at_required": true,
+    "own_prior_head_ci": {
+      "run": 43116994607,
+      "conclusion": "success"
+    },
+    "independent_review": "Owner reports read-only review and timezone-equivalent/market probes; not independently rerun by this session."
+  },
+  "plan_reconciliation": [
+    {
+      "id": "PI-03b",
+      "previous": "pending owner decision; not executed",
+      "now": "adopted_offline_and_hosted_verified",
+      "cases": [
+        "filing_unavailable",
+        "filing_available_boundary",
+        "filing_unknown_availability",
+        "filing_invalid_availability",
+        "filing_missing_availability"
+      ],
+      "limit": "Synthetic exact-revision publication availability only. Local ingestion/access policy deferred; no real source qualification."
+    },
+    {
+      "id": "PI-04a",
+      "previous": "pending owner decision; not executed",
+      "now": "requirement_adopted_runtime_deferred",
+      "acceptance": "Changed/unknown source revision or digest before effect => zero effects and requalification.",
+      "runtime_owners": [
+        32,
+        24
+      ],
+      "contract_owner": 103,
+      "acceptance_owner": 105,
+      "executed": false
+    },
+    {
+      "id": "PI-04b",
+      "previous": "pending owner decision; not executed",
+      "now": "requirement_adopted_runtime_deferred",
+      "acceptance": "Revoked/expired/unknown action-target permission => zero effects; check/use coupling required.",
+      "runtime_owners": [
+        32,
+        24
+      ],
+      "contract_owner": 103,
+      "acceptance_owner": 105,
+      "executed": false
+    }
+  ],
+  "decision": "The #230 disposition wait is resolved. Do not re-request or duplicate the availability implementation. Keep runtime acceptance gates open and allocate no additional implementation ownership.",
+  "remaining": {
+    "dependency_delta_request": "https://github.com/whiterosecoffee/_BASKET/issues/32#issuecomment-6809258570",
+    "status": "No new disposition checked in this receipt; remains pending from prior checkpoint",
+    "scope": "This evidence branch only; no merges, effect execution or schedule changes"
+  },
+  "horizon": {
+    "authority": "https://github.com/whiterosecoffee/_BASKET/issues/136#issuecomment-6803494794",
+    "retained_count": 25,
+    "complete_items": 0,
+    "note": "Partial predicate closure, not completion of L1-02 or broad runtime qualification."
+  },
+  "score": {
+    "previous": 13,
+    "current": 14,
+    "maximum": 30,
+    "dimensions": {
+      "coverage": 2,
+      "correctness_evidence": 3,
+      "progress": 3,
+      "coordination": 3,
+      "continuity": 2,
+      "efficiency": 1
+    },
+    "basis": "One bounded source-review finding now has owner disposition and independently inspected hosted implementation evidence. Other loop operation and efficiency remain unproven.",
+    "token_use": null
+  },
+  "next_action": "Read #32's dependency-delta disposition before selecting the next eligible source review; keep PI-04 runtime guards explicitly deferred."
+}
