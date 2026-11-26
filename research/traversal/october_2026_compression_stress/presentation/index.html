@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; img-src 'none'; connect-src 'none'; base-uri 'none'">
+<title>Battle-zone presentation research</title>
+<style>
+:root{color-scheme:light dark;--green:light-dark(#22764c,#7bce9d);--red:light-dark(#b53a3a,#ef9999);--background:light-dark(#fff,#15171a);--foreground:light-dark(#17202a,#eef2f6);--muted:light-dark(#eff2f5,#242b34);--border:light-dark(#d3dbe3,#414b58);--viz-series-1:light-dark(#1269b0,#7cbdf6);--viz-series-2:light-dark(#a45b13,#eab674);--viz-series-3:light-dark(#22764c,#7bce9d);--viz-series-4:light-dark(#8553a0,#c4a1e1);--muted-foreground:light-dark(#566472,#bac4ce)}
+*{box-sizing:border-box}body{margin:0;padding:20px;font:16px system-ui,sans-serif;background:var(--background);color:var(--foreground)}main{max-width:1000px;margin:auto}h1{font-size:1.3rem;font-weight:500}h2{font-size:1.05rem;font-weight:500}label{display:flex;flex-direction:column;gap:5px}button,select,input{font:inherit;color:inherit}button,select{padding:8px;background:var(--muted);border:1px solid var(--border);border-radius:5px}button:disabled{opacity:.45}.controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:18px 0}.check{flex-direction:row;align-items:center;padding:8px 0}input[type=file]{max-width:100%;width:100%}.secondary{color:var(--muted-foreground);font-size:.85rem;margin:10px 0;line-height:1.5}.chart{display:block;width:100%;height:340px}svg text{fill:var(--foreground);font-size:12px}.tabular{font-variant-numeric:tabular-nums}#error{color:var(--foreground);font-weight:500}a{color:var(--viz-series-1)}
+.matrix-scroll{overflow-x:auto;max-width:100%}.matrix-scroll table{border-collapse:collapse;width:100%;font-size:.85rem}.matrix-scroll th,.matrix-scroll td{padding:8px;text-align:right;border-bottom:1px solid var(--border);min-width:95px}.matrix-scroll th:first-child{text-align:left}.matrix-scroll caption{text-align:left;margin:8px 0}.matrix-scroll button{white-space:nowrap}.matrix-scroll button[aria-pressed="true"]{background:var(--foreground);color:var(--background)}
+@media(max-width:450px){body{padding:12px}.controls{gap:8px}.chart{height:320px}}
+</style><script src="density.js" defer></script><script src="zones.js" defer></script><script src="context.js" defer></script><script src="controller.js" defer></script></head>
+<body><main id="battle-presentation" class="tabular">
+<h1>Battle zones · density and nested relativity</h1>
+<p class="secondary">Offline presentation research · source data remains local · no live feed</p>
+<label>Load supplied observation JSON<input id="data-file" type="file" accept=".json,application/json"></label>
+<p id="error" role="alert"></p>
+<div class="controls">
+ <label>Presentation<select id="model"><option value="rails">Volume Rails</option><option value="ribbons">Rolling Ribbons</option><option value="threads">Revisit Threads</option><option value="heatmap">Time–Price Heatmap</option><option value="nested">Nested Profiles</option><option value="compression">Compression / Expansion</option><option value="swings">Swing Structure — separate</option><option value="movement" selected>Movement / Shares & Turns</option></select></label>
+ <label>Backdrop<select id="window"><option value="pm">Premarket</option><option value="5">5 sessions</option><option value="21" selected>21 sessions</option><option value="63">63 sessions</option><option value="252">252 sessions</option></select></label>
+ <button id="earlier" type="button" disabled>Earlier</button><button id="later" type="button" disabled>Later</button>
+ <label class="check"><input id="structure" type="checkbox" checked>EMA slope turns</label>
+ <label><span id="granularity-label">Completed movement block</span><output id="granularity-value">15 supplied bars</output><input id="granularity" type="range" min="3" max="90" step="1" value="15" aria-label="Trend smoothing bars, fewer is finer"><span class="secondary">Finer ← → Broader</span></label>
+ <label>Density slices · ribbons / heatmap<select id="slices" disabled><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8" selected>8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option></select></label>
+</div>
+<h2 id="model-title">Load data to inspect the eight views</h2>
+<div id="dates" class="secondary" aria-live="polite"></div>
+<svg id="plot" class="chart" role="img" aria-label="No observations loaded"></svg>
+<div id="detail" class="secondary" aria-live="polite"></div>
+<div id="method" class="secondary"></div><div id="trend-state" class="secondary" aria-live="polite"></div>
+<label>Analysis matrix<select id="matrix-view"><option value="zones">Zone Participation</option><option value="context">Nested Context</option></select></label>
+<section id="zone-panel" aria-labelledby="zone-title">
+<h2 id="zone-title">Zone Participation</h2>
+<div class="controls">
+<label>Fixed zone width · USD<select id="zone-width"><option value="0.5">$0.50</option><option value="1">$1</option><option value="2" selected>$2</option><option value="5">$5</option><option value="10">$10</option></select></label>
+<label>Time blocks<select id="zone-blocks"><option value="2">2</option><option value="4" selected>4</option><option value="8">8</option></select></label>
+<label>Block cells<select id="zone-mode"><option value="shares">Shares</option><option value="share">% of block shares</option><option value="samples">Samples · % of block</option></select></label>
+</div>
+<p class="secondary">Fixed zero-origin USD bands stay constant across backdrops at the selected width. Columns divide supplied observations into nonoverlapping groups; their actual ET spans are shown. Percentages include unallocated observations. Select a zone to highlight its price interval; chart density bins retain their own definitions.</p>
+<div id="zone-summary" class="secondary" aria-live="polite">Load qualified data to calculate participation.</div>
+<div id="zone-matrix" class="matrix-scroll" role="region" aria-label="Zone participation matrix" tabindex="0"></div>
+<div id="zone-selection" class="secondary" aria-live="polite"></div>
+<p class="secondary">Samples are bar-VWAP assignments, not minutes spent at a price. Episodes count consecutive same-zone samples and reset at invalid VWAP or known minute gaps. Daily gap continuity is unverified. Coverage, exact dwell and signed buying are not inferred.</p>
+</section>
+<section id="context-panel" aria-labelledby="context-title" hidden>
+<h2 id="context-title">Nested Context</h2>
+<label>Structure confirmation · neighbors each side<select id="context-pivots"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="5">5</option></select></label>
+<p class="secondary">All rows position the same selected price inside their own observed range. Values below 0% or above 100% remain visible. Window returns describe each row's own period; they are distinct from that common-price position. Compare minute and daily speed units separately. Overlapping horizons are not additive.</p>
+<div id="context-summary" class="secondary" aria-live="polite">Load qualified data for nested context.</div>
+<div id="context-matrix" class="matrix-scroll" role="region" aria-label="Nested range context matrix" tabindex="0"></div>
+<p class="secondary">Range-width change compares the preceding disjoint equal-count window; missing baselines are unknown. Premarket daily context excludes labels with the same or later UTC or ET date. Source bar completion, calendar coverage, source availability and input-manifest identity remain unverified. Confirmed pivot relationships are descriptive and delayed, not a reversal probability.</p>
+</section>
+<p class="secondary">Density assigns whole-bar volume at qualified bar VWAP. It is not exact volume at price or signed buying. One selectable past-only smoothed trend is displayed. Adjust 3–90 bars to reveal fine or broad turns. Green rises; red falls. EMA diamonds mark slope switches; movement diamonds mark completed-block direction switches. Swing structure uses confirmed high/low circles. These are distinct observations, not interchangeable confirmations. The readout identifies the latest slope turn, including when it predates the visible window. Flat pauses alone do not count as a reversal. These are slope reversals, not guaranteed durable price reversals. Offscreen portions are clipped. Windows count supplied observations; calendars, missing-session coverage and canonical data qualification remain caller responsibilities.</p>
+<p class="secondary">Source boundaries: <a href="README.md">README and input contract</a>. Preserve unmodified authoritative source data outside this presentation directory.</p>
+</main></body></html>
