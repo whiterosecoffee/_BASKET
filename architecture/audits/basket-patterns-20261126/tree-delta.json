@@ -1,0 +1,1805 @@
+{
+  "basket_revision": "7eb29bbae71614559f41ec283908753e9a677a55",
+  "patterns_revision": "5b9a0810f5d3a0428a8c1b1a4bababe4c6e88761",
+  "basket_paths": 256,
+  "patterns_paths": 193681,
+  "counts": {
+    "no_exact_match": 252,
+    "same_path_different_object": 2,
+    "same_blob_at_other_path": 2
+  },
+  "rows": [
+    {
+      "path": ".github/workflows/domain-source-acceptance.yml",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "2d64ed43580c691ca9eaa1989ebff069cddc9ddd",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": ".github/workflows/narrative.yml",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "0c5c07b95beb7be3f6546b058f17b9a5de2fd9ee",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": ".github/workflows/nvda-pilot.yml",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "59a6bbe2190fcc52c84ed95b9f62eb0285501b99",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": ".github/workflows/openai-research.yml",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "a52843520b0901eaf69b593b3ec61eaba4c5841b",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": ".github/workflows/project-sync-acceptance.yml",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "6a08f6557b985bc945bc50bf6ca2adfde98d9153",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": ".github/workflows/ticker-data.yml",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8c44637c053b614fe7ff63e7099d9a6b50a0bb1d",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8f281c6abf5762184b03b0c8bd31b7102d832ad5",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "AGENTS.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "2a3294420db34f3e5b3aba4387acadcdf3785be0",
+      "disposition": "same_path_different_object"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8c871845c8d7ccb772026771e27b5c62a853b793",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1acdd43afa0df8f899f686fd6d8e813115ad092a",
+      "disposition": "same_path_different_object"
+    },
+    {
+      "path": "architecture/BLACK_BOX_COMPONENT_CONTRACT.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "eef8ff04f04d5454a635de395949ffb8e5011e63",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "architecture/BLOCK_ENGINEERING_METHOD.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "bdb72326b304fae10c8903008385e50d88ec7764",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "architecture/BRANCH_PLAN.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "4d75947bac43c0e4ff90f6f2df8db5d42d64fea6",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "architecture/COMPONENT_QUICKSTART.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "0525feddb99b1c80015c1679dabbd81cee94eab0",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "architecture/PROJECT_MAP.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "7f2aac2d8200b67d5493226c925f0281c9d7df33",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "architecture/SFTBY_USD.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "86fddeca28ffb6d9aaf7e9328bb996d6add897e0",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "architecture/VERSIONING.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "46d6e7e15716cd557dc75b2011ee59f48905329c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "architecture/basket.architecture.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "24ada4fa4b790f8def4671a654d1f68e1db910ed",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "architecture/contracts/handoff-request.schema.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "46d4e89306cdf44da97f5904580e82c1114ed06b",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "architecture/examples/handoff-request.example.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "b6d3692540b1ab71774ac8d747d294d624395c54",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "architecture/examples/orchestrator-blueprint.example.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "39133639b6572c140731a2892dfc1649b290dadf",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "architecture/version-manifest.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "92f9701fb2eff3b589f7a28e01531d50b6deb1ce",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/composites/market_context/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8040e25fe395ac17d42211f37f13e3d4ef28db8c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/composites/market_context/context.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "97fcef9eb54dc3589ec5d958e151599c21ea987a",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/composites/market_context/policy.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "90245479429c46e80a9ec784fd6bbe0d241b3135",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/composites/market_context/tests/test_context.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "3cc6996e2bfc9a3ed133a890a073e2cb42347308",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/composites/market_context/tests/test_freshness.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "5c192f4bb5c47ca28e075e1e3f3173a8412a10d5",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/economics/freshness.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1784667da358c29cdfac9cc880924620a6b5eaf2",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/narrative/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1e3a6e38a7dab2db1aea0e6646b44cf80dbd062e",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/narrative/cases/coreweave_2026-10-16.jsonl",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "5abff24004cbe316e2eabe9a68bf1ace56ac8553",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/narrative/engine.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "cadf8dd611d99db678a6cad28237929e1c2f3e5e",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/traversal/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "f9bfd23af7b80b7f992d0916b7cc4c3fd6b5d8a9",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/traversal/metrics.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "3cf584ba3937545c6c317cd8f7a3c81e7ae1f379",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/traversal/range.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "6cc17c56691f3eeae40c00b41108a938e1c725c7",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/traversal/run_metrics.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "0aee2e8dec67c4052c15058917afa367ff6a0a6e",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/traversal/sftby_zoom.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "cbc21e056c7064d17210faa71829b2088c74e873",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "engines/traversal/tests/test_metrics.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "139b7a64c208c3824e1c7f1aad3d121c0a338c7a",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "fx/JPYUSD/history.jsonl",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "6727721b1aa6f73dab192f67748c317e4e450224",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "fx/JPYUSD/meta.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "f6568d80fa7b99af65d38a157dac088adc147dec",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/EXECUTION_LOOP.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "6f8295e82217939136577c39f39c7b7c881c16b3",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/LAUNCHPAD.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "51c560c2c141e00673b5784540624494a446b424",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/PROGRESS_TRACKER.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1caa3771edbc0b0be62a2932f158bb2b68c7bca1",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/PROJECT_INSTRUCTIONS.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "4c3f411a4596a126dffcd405df49479240e814f6",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8233c77a57bb6bdae0db51f6bc72376c66159660",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/WORKER_PROTOCOL.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "cd56782cf54821d9e57c856c5476a4f5d5463585",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "d4d96c668626b66faeb23e5893bacfb75043cd19",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/WORKER_CONTRACT.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8c24d5c7b60406e107ac3b30487c555769f0a9b1",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/__init__.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1303f3bac11baffdd79f0bdb317b34736bf5748e",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/cli.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "c1a80daf5513d7302423401e50ff598ac92cae08",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/dependency_gate.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "3a094bc59f7d921c81e04ad5d18f1b5309ae18c5",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/github_adapter.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "dcee11c3b42dd53b5aef2034ac7e9054a1bead13",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/manager.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "e8a22a8796c3a219b6ae122205bcd8e541f31ff9",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/massive_worker_contract.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "156e0be712dfce846b5e9d25e33ee577b2a6a8c0",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/massive_worker_jobs.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8cd6da7ac1cfc7af4d5d11d3ffb52f350ae49aef",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/massive_workers.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "37c9f05e2b6662eb01db9ae226ec0590aa7395c3",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/tests/test_dependency_gate.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "fe6bf27f686ce5386156ebbdd3edd8700e3a5c48",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/tests/test_manager.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "018604f3aeb6c758a0e335a7f6354740f919992f",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/agentic/tests/test_massive_worker_contract.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "fbaf169fbed5071ab40ef90e70d44534a01b937f",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/audits/mrie-dispatch-readiness-2026-10-17.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "38d73ae7493b13cf3d56b30a74b5077ab9d393da",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/audits/mrie-implementation-readiness-2026-10-17.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "32bfc02d7dce606ee7a89d6f4ad4de1dfb63788f",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/component_conformance.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "edff49e860a602bf6af2fc3ff7f7fff559dfad2c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/EXTERNAL_AGENTS.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "52d63848e473926d69b6acc18eb6776f3fa9fa53",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/EXTERNAL_AGENTS.request.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "75a67a005cc0598d2680b10a6df3cb1cdb837d1e",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/HANDOFF_PROMPT.v2-source.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "f3e6c4b8a656b27feeed4ea32b86792faa1a7be2",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/HANDOFF_PROMPT.v3-candidate.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "175a85b93fb64c9a736cb9174c9da40c473f21ef",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/QC_HANDOFF.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "c75171d72870ec84c00362007e2cdff5022155c6",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/QC_QUEUE.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "ccadbc8769018fbf4262b90b0543e2a6a49e9fb9",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/QC_WORKER.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8354917188c8373d582afdf6a3f25dc8cea17090",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "bdb85c998f450771e9d7d238ea00f82a052eb9a6",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/VALIDATION.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "6b84c0aa793dd62b2039119978b70c82b20b07d1",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/acceptance_cases.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "527902ea81c7151696feadfdc99694eda9886c0e",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/qc_archive/4341c2e000c9336d7b7f1eeac5eff7c7dc50acc48cc14d24e3408e57f5443266.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "ec0f61ff1b0c5e029f7ca78501a379b9c9da7a0a",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/qc_archive/de1836eb14f1a727226825556520667a936aca5cb3ff31bae9bf0cd165d7002d.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "38d824d87b55754058b150732215449c38e53b23",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/qc_intake.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "d87b6dd485aa2015c8d08a402e71e880bed318ef",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/qc_submit.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "925924653b76062191dd4c9ace3928408b0ed026",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/test_acceptance.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "b3608e82e6b876f2a07e5d301f3813dc61b0be72",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/test_qc_intake.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "45b2c686ca3957d2a812853175590e628fd6cbce",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/conversation_closeout/versions/test_qc_submit.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "551e9cfc7bb3b2ca6f1a34b258052fcaa4ba5c8b",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/examples/B05.resolution.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "20fd09edfac54ece57919f46b839e79f7a63704e",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/examples/B05.task.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "496079426386ee7b9c576af3e6b0c2c6b08435fb",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/examples/github-evidence-2026-10-16.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "5e40759dbf17b292289062cce8b9bced7e63624f",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/execution_loop.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "26ab58c6027026208c3bdb5eb0ee8ba0cba8ea93",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/github_snapshot.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "538e53e57f2364b00740ed3932ad68d0caaef765",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/handoffs.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "65cebdc4b52a9ba335ded417e9507534ad2ddcd5",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/launch-pack.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "5a3a2d0bb93695dc8e1bc951a282ee4150b097b5",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/migrations/2026-11-03-standards-consolidation.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "6455f8a9009f752765de7ce585ac210ecc5f77a1",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "a7699cacd7ae6c0e93960973621945ce2a8f18e1",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/__init__.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "fd7f197e34d81a2264bc0ea3edd754fb0fa75181",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/cli.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8f788a64c5e24b284ca34eed277635b2cd3c7f31",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/execution.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "af6f90c2567ba5324e58f757409df1929d9539c5",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/nvda-b01-fifth.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "d09aefdc7b884fff8a8484ec292bcac2903cd07c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/nvda-b01-final-acceptance.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "0e7fdd18ea02744e9453a5491e4f936f5b667ca0",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/nvda-b01-final.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "62bb60525eac9eb51f8e929259dd36f9760ae1b2",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/nvda-b01-first.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "d19f59f4dfbc8f0bffd75937c43afc8cdb84672e",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/nvda-b01-fourth.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "e7d08f3338413620bcbe6a109781694256c0d445",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/nvda-b01-second.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "4ba6be1c77c3d5c7b10fe721c635761ac2d8d901",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/nvda-b01-seventh.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1e6022b22249a8ef0504931c640790c7e9889e51",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/nvda-b01-sixth.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "7539b567c28d543bbd29af2bc369046934517d98",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/nvda-b01-third.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "024bb6efb15eb0314ad7d44fdc1861be72019145",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/prior-23-test-code-fingerprints.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "02fd5dcffab1252d81ec189b9ebda78104493873",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/prior-parent-package-result.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "553231e65a207ffbcdbacb52fee498c10e9377a0",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/evidence/review-history.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "19fb206b3170d30dac4e18a927c604d4a3abd011",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/nvda_pilot/store.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "c6ccc8b34bddb34e35b46fd313e50ead5cf52052",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/planner.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "b0ac1f690af0aecb7625b0eae80ee5f678249a1f",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/planner/NEXT_BATCH.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "e61445f310e064a6489d2c602cc9b8f10f23f686",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/planner/PROGRESS.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "05df529696aeeac38f9298bca54236701bdcd197",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/planner/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "41da1ad571531454fa1d22c2b81f17e00d46a9e8",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/planner/WORKER_JOBS.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "c65d93a7e5b352aae258ab6fc5a8633a6d6024f3",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/planner/attempts/T-001.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "4d15522a6b40033308a4498981fa795112863e8d",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/planner/goals.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "23a560101322bacee302ecd3f1229bb9e2775c73",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/planner/queue.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "b818f43dbe4c80c1d48b37dbd72f3ea8cdcdaf0c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/planner/worker-library.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "7bd751001563a3d4bd2eb6dc31d22ac244081832",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/planner/worker-scopes.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8284b759cc58809a26372b56856524b392bd4a0c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/progress_tracker.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "570941100ee74c56e1d9df6284a785ae58a87e0d",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/sparks.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "a19d5ec188d80ffb38641cefc3594067c4a78a2b",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/strategic-review-2026-10-16.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "0a95ba1bdd7b0264550fff2caf4382c780378d9c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_agentic_controller.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "9fdc5036578528ad203f48a46f35d8c9cb91ae30",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_closeout_versions.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "55830b064849c6b4b05f02938ed42ae3c9a6925d",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_component_blackbox_contract.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "7af1b46ff7c0d205ad8c8d4ead3a2414cc7fb38b",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_component_conformance.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "98e0d6752fe70309095e1839dfb3ecabf098332f",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_controller_fail_closed.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "99b4bd303de526ead16ffd2f8c169ab2976e4516",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_execution_loop.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "02123eb0171bfa330a4a44055ec212b2be0e4772",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_github_snapshot.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "7939d71e3be40c27eb8a1e70a405f7ed7db9ad62",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_goals.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "b5f53e8e995e068c0fe0cd10dcd9373803acd27a",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_nvda_pilot.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "f428fb8070b05663572e5f8afb3d5be722fb7943",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_planner.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "4581c1a333bca34e476c96816ed0d253bf680de8",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_planner_maturity.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "912f85aaf0da18a820c991ddff174b7496fb654b",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_worker_attempts.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "2ef327286f769c5b7ee286806c1ddc9307a039d4",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_worker_bridge.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "4cb2cf2016ed685a4ddbedf8746f10578a4bb12f",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_worker_protocol.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "23bd46e2258de7584ffd79952865ac0f8137c6cc",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_worker_scopes.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "abe1ee8e818ca1c5d8c86c7feb21937ccc33ba38",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/tests/test_worker_v2_contract.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "6a7785a9b5fe672326f54be8d36e291e124693da",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/validate_goals.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "cbc78996a2a1f70ec9ee7e85e17393eb23acd38f",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/validate_planner.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "f5d908435e8b2f7fd30304638397b27983a8d7dd",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/validate_sparks.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "c45fea99c2bcfc79b52e1ede18789bf6f57f04a9",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/validate_versions.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "b84a510f6a3287010b148010a4d8f265e109aecf",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/validate_worker_attempts.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "690659d5e4bb7cef092688b9f60088648a93c12f",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/validate_worker_scopes.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "36c83c4cb24e72658f7e3c1a51f3f8ba8b9d47be",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/.gitignore",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "43ae0e2a6c6d8fca34872506ca0f2e64194fec7c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/COMMANDS.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "42fb31581fb7c2722293aaa6e27e045126e9b541",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "b5ab63a9da4ce33cc05d4d8875794e6bf92da198",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/bridge.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "6f271fdd06b7b693f66a808c4b8d604052443355",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/cli.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "5b84acebd9a2df0904758d341109c60a49094861",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/controller-lock.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "83849b498eb7d164d2cc8118dbbc51f4763277d1",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-engineer-1/events.jsonl",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "disposition": "same_blob_at_other_path"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-engineer-1/invocation.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "df8fff1cbaec336ddf92b39042857126328c3aef",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-engineer-1/prompt.txt",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1704781b4a56710fd8204096c6ae9de09b6c7db6",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-engineer-1/publication-check.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "d354886d3f3a3de90d6cee57e31743506c89195e",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-engineer-1/stderr.txt",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "7ea8a234a887e494bc586052b09a8ff1585367d2",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-engineer-host-2/assignment.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "855f4a80d6676e992f1e7faa8edeb9e27043e71f",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-engineer-host-2/host-receipt.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8a54a1105056c315bd1fb8fba1b8feb6a30b81c2",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-engineer-host-2/source-evidence.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1e969cb847fa994912dfdc947563690960f81f7d",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-qa-host-1/assignment.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "e0c84950fa89963d6c2d95f645cf338efddf5e96",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-qa-host-1/host-receipt.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "a13acd99ffb4322c84f0ab9d6ade00133b9647b9",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-qa-host-2/assignment.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "623457b1aaa0c73bbf95a8c406e89cff8f933c66",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-qa-host-2/host-receipt.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "e7ac816defa654da1d31b8e4728d6377f57c85cf",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/ATT-136-qa-host-2/source-evidence.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "e6bbc07253bdfa4b23596071354d55f8c1cf9bb8",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/agent-profile-tests.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1916d8245c34d3aedd2bd51860faa77de5565448",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/controller-baseline.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "b63e7bd5f85c472f2a200a734262f7e913e77fef",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/controller-repair-59a8e0e/bridge-tests.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "dd64060b546094a671c5e7de968e3f4bab5724c6",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/controller-repair-59a8e0e/controller-tests.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "3fbcf610ca7ae03690432bf156a6640f6b2c8ab2",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/controller-repair-59a8e0e/negative-scenarios.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "063e81a28c195db97c55f6ab580bc15c3277efaa",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/controller-repair-59a8e0e/orchestration-discovery.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "54e928daee1d2e82c11251f85f9118b8ac9a4901",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/controller-repair-59a8e0e/verification.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "35a93475b9bb4d28c6b02c094e51fdd268da24b0",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/full-orchestration-tests.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "a83c673f08d86aab5546a6819386375fb9a70ef5",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/negative-scenarios.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "637bd877ca862ced58d1036679378219be349ee3",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/publication-preflight.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "29801262101402d4f2bbe1413ed7a88862fdeeb8",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/source-fingerprints.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "27688f1985c6dc0ff4f1b980910117ece0aa504d",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/evidence/worker-v2-tests.log",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "229062e5a5349f3a807e0a82fb814c4bcc01e0c0",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/implementation-instruction.txt",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "d7d81c2bc30421ead247ef7c6e3836cf16d6efd6",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/scenarios.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "01bff1d59a0dcd880ca49f1dae7b962c3ec251d2",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/task.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "08212fa9b4354a1347ad0301d3a28416ad75d9ef",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/test_agent_profiles.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "5c996d73b918243e4873ba060dcdce6d4c0e5a5c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_bridge/test_guards.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "e8e58e53cb1b3b75fbef7e622a310aeb09af5b97",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_contracts/worker-v2.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "4ddf8ae3175494242b879b22cdba2fca40aeeab4",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "orchestration/worker_protocol.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "c36a4b27342308426816d1269fd2084f3f417373",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/NVDA/tape/2026-11-10/ANALYSIS.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "41eace288ee8773d15e80d2233f2736bee59c77c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/NVDA/tape/2026-11-10/evidence.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "2fe4f0cd6509eab3b3a3d7cf4e2783508967d4c6",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/composites/market_context/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "dc3a7a5a563fdedc17076626d4d3be3a49cb0586",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/composites/market_context/VALIDATION.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "ff3bcee3fccc464bfcc45d2014985df2017901eb",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/composites/market_context/fixtures/basket-report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "2f2b203e0648b8da7ec57d1d6ef856fcd84a0c09",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/composites/market_context/fixtures/basket.csv",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "c6cee5a78c802c7ef1527958ddd21b590d59926b",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/composites/market_context/fixtures/basket.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "0f21e9c9035f93d509c19c7ad80e5fb568f7efd2",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/composites/market_context/fixtures/midday-report.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "58a2c0c22e4634a0b960e44c172cc8723a64b074",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/composites/market_context/fixtures/midday.csv",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "bed115c8bb3e1dfafce91a278e267c08f7852217",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/composites/market_context/fixtures/midday.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "fa2b0239f088ef07534dbe66e0e8798842cce6a4",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/composites/market_context/fixtures/premarket.csv",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "93bb23ed4edcc518848419dd0784f5108bf124c5",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/composites/market_context/fixtures/premarket.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "d48b6c4a21b31800f585e562ab6276f60ce50d5c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/composites/market_context/registry.working.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "a3b0d29714395da4685294e260781c1d01676c06",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/graph/SFTBY/relationships-context-2026-10-16.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "74e8b27dbe80f8b1b8eaa85d723dec4286bad4b3",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "research/traversal/data-mapping.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "f61e2ef8c35c11f5734aa47abcdacc7e44c5354e",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "runtime/README.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "bb2175ac563ee553c035237f562bb5d82a7c0783",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "runtime/TICKER_DATA.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "b3bd78deb51376cf28fc7e6a95426a7248116d18",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "runtime/feeds.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "aa6ca4488751377f4e1aeba56ba97df35f30e68a",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "runtime/fixtures/nvda/capture-evidence.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "948f58ba3e6d898279e5e4283366099848c3fbe9",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "runtime/fixtures/nvda/revenue.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8285b2094fdaea4d4ecb42c03a66978e22564c6c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "runtime/observations.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "e05de0422ad8da480ba36bd915963c0515670a34",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "runtime/test_observations.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "dc5652cfe48317d500ca92af3377642ecbef66d7",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "runtime/test_ticker_data.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "0c74a7ba84dae0b902acacd8ccb6153257773daf",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "runtime/ticker_data.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "45abc742b08b0d6901858ed3c7cc902cb9d68895",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "runtime/ttd.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "0e29dd0dd2c68df9ec91394adad8da01e0fb9bdb",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/architecture.schema.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "3cc2affe84bbad049e339fe612862c6f9f7dfd34",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/component-blackbox.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "7d77bfe0f8b0da18f348da65bdd0925b5305e068",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/entity.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "3e41eb84b3b1893bed954f3815197e011ef13bfe",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/events.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "9cbb9247edefac3072578fc3c72e024366b52408",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/freshness.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "dd1c35d5fba9a281bc93368ce8c09f3f6cd909b5",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/history/market.daily.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "3742322dbb581ba33ab285eaff9d2fa6768cc3ea",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/progress-report.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "d56f22fb07f93aeaf63572933bca60214ac25f17",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/project-goals.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1a6f2eb9351ab757daef4b199c7a67a912624480",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/relationships.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "00a0f2b1c3d8b712cefb6e058b5836d989f72b41",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/task-queue.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "9cf44df8a48d1c5181fd34ec2304702173dab31a",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/ticker-data.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "89226db6d35dbbd3587849b9fdfda70c50a49600",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/worker-attempts.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "36c9581fc5b3cbbd41fa410da15f3f9b7ac2c225",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/worker-evidence.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "680c1632703b2b64b1146968e9acd0a0d4e5a3ab",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/worker-library.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "d5795f4b38f0f8db0947086b7256c7dcd3cc5e8f",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/worker-resolution.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "e7ae9f86d583e567537397ae310c8ab8230be9fa",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "schemas/worker-task.v1.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "240208c6033a44314df1000a65b3d971546442a9",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/DOMAIN_SOURCE_GATE.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1878ad0d68e1bda2a0e237ee4682b19a853ad286",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/OPENAI_WORKER.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "ca32abeb88e7b416a73b3bf4b3abeb3c8da2072b",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/PROJECT_SYNC_GATE.md",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "2231f095ca723fba4d718046c42b533491d1bbc5",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/domain_source_gate.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "07666dbdd55b69ac2be8ab8826a68bd598f24c9c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/openai_gate.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "fef7de1c7ee723c769925e7b5d52fad17774c281",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/openai_research_acceptance.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "97af41577f0b92ac77a76b482fe9ead6e4ac9fe2",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/project_sync_gate.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "37c4e9693ecad8beff212e9cb9d91d3ef8a78f7f",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/test_ci_contract.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "280dc7fd82bcfa25d5a998e08932b9a706d768fc",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/test_domain_source_gate.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "b689bccbb9641aee19562399ee68e9b4795a2481",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/test_nvda_pilot_acceptance.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "b7dacf204bff782abfc80f2967c513127c65326c",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/test_openai_gate.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "47eff767806c912589abc7ccb92c89e2aa807b83",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/test_openai_workflow_hotfix.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "4a5e7b029e81bd0bb2890f07ab56ded378caa767",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/test_project_sync_gate.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "6032c253de0922b5406c4b4fbd31dd1d55772750",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/test_relationship_contract.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1937bd40752b9762b4a9138db061d9bcf8a3f840",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/integration/test_worker_qc.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "2ad261761366a59bef59efe6d17a92bf987d34d2",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/test_narrative.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "4c37ef16ef61d154cded593eee819d9c71530985",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/test_ttd.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "696bac1264ab83fc5335e28b50e75fba5f6435a0",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tests/validate_stores.py",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8d56771b1872d13b2f05720c194ad3dc4ddf30f0",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/AAOI/entity.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "d89cb6110332b80a3d80d828a8d67cb981879d3a",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/AAOI/events.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "459f6b6e6b27dbb26fe88a68f1b104448355d458",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/AAOI/history.jsonl",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "59fbc7e5908b3f4dca4c1ae1450ed267958e3fb3",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/AAOI/history.meta.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "abdcdc8bd0d55891776582cdcfb33667d780fc95",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/AAOI/relationships.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "93e788d0a04f961c2bcbb87cd367e0f70fe42664",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/CRWV/entity.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "216589c957880986a3d0890d782fa35e32101c9a",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/CRWV/events.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "6ce2b6fd1cbc536577b4b4e1be4e16ae6705262b",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/CRWV/history.jsonl",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "66a01994787953af043ccfc0ea58ac5cbeab8736",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/CRWV/history.meta.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "69329eb9aff49f37a46d37845da276c5dccfbe92",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/CRWV/relationships.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8b09dbc14c82423965626d5735981384378ed814",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/OPENAI/entity.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "6ce2d61bc72ca77334aabe2ff3b3f694daee3f31",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/OPENAI/events.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "d9be08c7f7c642f4a68adb5789d06babf59d1b1a",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/OPENAI/history.jsonl",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "disposition": "same_blob_at_other_path"
+    },
+    {
+      "path": "tickers/OPENAI/relationships.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "dea73ce3c3a83052214db60273e1bf15bc9d23f2",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/SFTBY/entity.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "1a968148f3de1691916f4414f39e3cb4ae3d6053",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/SFTBY/events.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "27f3640fb624bb6867d30e4e0300181a9199d119",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/SFTBY/history.jsonl",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "04c1e311e8c1d25902fc3dced896f9b94f9ecdb8",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/SFTBY/history.meta.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8c8c42dc643784e2bf308a3557c5269b5c873412",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/SFTBY/intraday/2026-10-16.5m.jsonl",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "8945d257e3efc34d79ea716ca0f9df9d254b36a8",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/SFTBY/intraday/2026-10-16.meta.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "6a76c867e5c3d57a79ed3fc6735aaf870f69e5bf",
+      "disposition": "no_exact_match"
+    },
+    {
+      "path": "tickers/SFTBY/relationships.json",
+      "mode": "100644",
+      "kind": "blob",
+      "source_object": "772a78dc0b2df2daa9f69a69d9749fc370b0fde2",
+      "disposition": "no_exact_match"
+    }
+  ]
+}
