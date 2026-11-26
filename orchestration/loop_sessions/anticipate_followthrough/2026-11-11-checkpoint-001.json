@@ -1,0 +1,133 @@
+{
+  "format": "followthrough_checkpoint_v1",
+  "checkpoint": "AF-001",
+  "date": "2026-11-11",
+  "owner_issue": 239,
+  "branch": "work/239-anticipate-followthrough",
+  "base_revision": "74d913e8913d630d85451344689e093aeea07efc",
+  "role": "Review prompt burden and next-action closure; no queue execution",
+  "privacy": "Private source-message references and excerpts remain in the owning conversation; this file records sanitized owner evidence only.",
+  "records": [
+    {
+      "key": "continuation:receipts:v1",
+      "classification": "unverified_promised_outcome",
+      "expected_behavior": "Existing owners produce an actual continuation receipt with source delta, outcome and checkpoint.",
+      "owner": 234,
+      "last_verified_outcome": "All four role bootstrap receipts exist; no recurring-operation proof established by this review.",
+      "sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/234#issuecomment-6807568874",
+        "https://github.com/whiterosecoffee/_BASKET/issues/235#issuecomment-6807572438",
+        "https://github.com/whiterosecoffee/_BASKET/issues/236#issuecomment-6807600944",
+        "https://github.com/whiterosecoffee/_BASKET/issues/237#issuecomment-6807582568"
+      ],
+      "next_trigger": "Next owner continuation receipt",
+      "status": "awaiting_evidence",
+      "closure_evidence": "A source-linked continuation receipt for each role; configuration is insufficient.",
+      "smallest_owner_action": "Coalesce with #234's existing receipt comparison."
+    },
+    {
+      "key": "scope:independent-role-score:v1",
+      "classification": "one_off_request_observed_result",
+      "expected_behavior": "Each existing role owns its branch and independent score.",
+      "owner": 234,
+      "last_verified_outcome": "Four issue claims and score receipts found; scales differ, so raw totals are not comparable.",
+      "sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/234#issuecomment-6807568874",
+        "https://github.com/whiterosecoffee/_BASKET/issues/235#issuecomment-6807572438",
+        "https://github.com/whiterosecoffee/_BASKET/issues/236#issuecomment-6807600944",
+        "https://github.com/whiterosecoffee/_BASKET/issues/237#issuecomment-6807582568"
+      ],
+      "next_trigger": "Changed owner or score receipt",
+      "status": "bounded_evidence_present",
+      "closure_evidence": "Branch/receipt identity readback; independent review remains separate.",
+      "smallest_owner_action": "Retain original scales and compare criteria, not raw sums."
+    },
+    {
+      "key": "progress:next-outcome:v1",
+      "classification": "repeated_direction_not_proven_failure",
+      "expected_behavior": "Continue to one useful authorized outcome and report evidence.",
+      "owner": 236,
+      "last_verified_outcome": "Baseline artifact published in draft PR238; next action is one L1-02 intent reconciliation.",
+      "sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/236#issuecomment-6807600944",
+        "https://github.com/whiterosecoffee/_BASKET/pull/238"
+      ],
+      "next_trigger": "Changed #236 receipt or concrete blocker",
+      "status": "already_owned",
+      "closure_evidence": "A substantive scoped outcome beyond bootstrap with source and readback.",
+      "smallest_owner_action": "Continue the existing #236 next action; no duplicate executor."
+    },
+    {
+      "key": "coverage:bounded-delta:v1",
+      "classification": "known_evidence_gap",
+      "expected_behavior": "Only claim coverage for a verified bounded source window.",
+      "owner": 237,
+      "last_verified_outcome": "#237 explicitly reports no complete coverage delta and unknown historical coverage.",
+      "sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/237#issuecomment-6807582568"
+      ],
+      "next_trigger": "#237 bounded-window receipt",
+      "status": "already_owned",
+      "closure_evidence": "Window, obligations, owners, persistence/readback and overlap semantics.",
+      "smallest_owner_action": "Use #237's stated next action; this role only reviews follow-through closure."
+    },
+    {
+      "key": "handoff:acknowledgement:v1",
+      "classification": "proposed_improvement",
+      "expected_behavior": "Separate proposed, posted, acknowledged and verified handoffs.",
+      "owner": 239,
+      "last_verified_outcome": "Closure rule and deduplication replay established in this bounded artifact; no owner handoff claimed complete.",
+      "sources": [
+        "https://github.com/whiterosecoffee/_BASKET/issues/239#issuecomment-6807675609"
+      ],
+      "next_trigger": "First genuinely new owner delta",
+      "status": "defined_and_bounded_replay",
+      "closure_evidence": "Owner acknowledgement or resulting receipt, not a posted comment alone.",
+      "smallest_owner_action": "Compare existing owner receipt before routing a new delta."
+    }
+  ],
+  "score": {
+    "scale": "0 absent, 1 defined, 2 one bounded observed result, 3 corroborated repeated result, 4 sustained measured operation; null unknown",
+    "coverage": 1,
+    "correctness_evidence": 2,
+    "progress": 2,
+    "coordination": 2,
+    "continuity": 2,
+    "efficiency": 1,
+    "total": 10,
+    "maximum": 24,
+    "meaning": "Self-assessed evidence maturity, not operating health or completion percentage",
+    "reasons": {
+      "coverage": "Partial recent window only; historical coverage unknown",
+      "correctness_evidence": "Fresh owner receipts and false-positive status-question exclusion; no independent review",
+      "progress": "One bounded closure/dedup improvement, no measured burden reduction",
+      "coordination": "Existing owners preserved and active work coalesced",
+      "continuity": "Checkpoint persistence/readback intended; restart not tested",
+      "efficiency": "Batched reads, but bootstrap over-fetched; cost savings unknown"
+    }
+  },
+  "coverage": {
+    "kind": "bounded_partial_sample",
+    "full_history": false,
+    "previous_checkpoint": null,
+    "private_source_cursor": "Retained in owning session; source reports partial=true; not a complete high-water mark."
+  },
+  "wake": {
+    "coalesced": true,
+    "new_verified_source_delta": false
+  },
+  "replay": {
+    "method": "Canonical JSON record comparison by stable key; duplicate-only replay must emit zero deltas.",
+    "observed_input_records": 5,
+    "duplicate_replay_new_records": 0
+  },
+  "next_action": "On the next verified delta, compare #234 continuation evidence and #237 coverage receipt with overlapping reads; route only a genuinely new gap and require acknowledgement before closure.",
+  "unknowns": [
+    "Actual recurring operation",
+    "Measured reduction in user prompting",
+    "Historical completeness",
+    "Independent review",
+    "Restart recovery",
+    "Costs and latency"
+  ]
+}
