@@ -3,11 +3,13 @@
 Written: 2026-11-25. Refreshed: 2026-11-26 (pin updated; earlier pin `9fcb09c` is in git history).
 Status: **pointer only. Not a QC submission, not accepted by any receiver, not integrated.**
 
+Key principle (owner, 2026-11-26): "Patterns is the destination. Anything older gets a pointer to the new work." This file is such a pointer.
+
 The handoff is for the wp-problem-tree (v0.4/v0.5) project, which is a different project from the basket work. Per the owner's statement of 2026-11-25, `_PATTERNS` is the receiver of record. The handoff text is not kept here.
 
 | Item | Location |
 |---|---|
-| Handoff | `whiterosecoffee/_PATTERNS` (private), branch `handoff/wp-problem-tree-2026-11-24`, path `_HANDOFF_RECEIPTS/wp-problem-tree-2026-11-24/HANDOFF.md`, commit `371ef1d80118ac87e3634bcd394c0958a8c9701a` as of 2026-11-26 (follow the branch head; the pin records the state when this pointer was written). The handoff points back here under "Related locations" |
+| Handoff | `whiterosecoffee/_PATTERNS` (private), branch `handoff/wp-problem-tree-2026-11-24`, path `_HANDOFF_RECEIPTS/wp-problem-tree-2026-11-24/HANDOFF.md`, commit `d548af5a0ab9b741bfac3f8c6c152f0aea4d5767` as of 2026-11-26 (principle added) (follow the branch head; the pin records the state when this pointer was written). The handoff points back here under "Related locations" |
 | Draft PR for it | `whiterosecoffee/_PATTERNS#39`. Its `validate` check is red, and it is also red on `_PATTERNS` `main`, so it is not caused by the file |
 | Source of truth | `whiterosecoffee/wp-prompt-builder` `main` at `d0e81c71412a80ac12c0a4f9ab465cc7a58a35f7` or later, `reviews/conversation-recovery-2026-11-04.md` (section 9 is the 2026-11-24 delta) |
 
