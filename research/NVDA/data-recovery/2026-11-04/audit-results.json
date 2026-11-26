@@ -1,0 +1,217 @@
+{
+  "algorithm_version": "nvda-recovery-preflight@0.2.0",
+  "input_manifest_sha256": "f5f56b07b0aaacc859ab807ae37a1a7fc4f10243c7c56c68e46897af61c602c9",
+  "checker_source_sha256": "482f04f48c8329d552c7eb97544e10525f9272f482174781bc79ad00b3c6473d",
+  "coverage_policy": "eight_declared_full_US_equity_sessions_390_minutes",
+  "status": "qualified_with_warnings",
+  "errors": [],
+  "warnings": [
+    "2026-10-26: vwap_outside_ohlc_review_required",
+    "2026-10-27: vwap_outside_ohlc_review_required",
+    "2026-10-28: vwap_outside_ohlc_review_required",
+    "2026-10-29: vwap_outside_ohlc_review_required",
+    "2026-10-30: vwap_outside_ohlc_review_required",
+    "2026-11-02: vwap_outside_ohlc_review_required",
+    "2026-11-03: vwap_outside_ohlc_review_required",
+    "2026-11-04: vwap_outside_ohlc_review_required"
+  ],
+  "days": [
+    {
+      "date_et": "2026-10-26",
+      "records": 934,
+      "regular_minutes": 390,
+      "vwap_flags": 279,
+      "sessions": {
+        "premarket": {
+          "bars": 316,
+          "vwap_flags": 113,
+          "fractional_volume_bars": 310
+        },
+        "regular": {
+          "bars": 390,
+          "vwap_flags": 5,
+          "fractional_volume_bars": 390
+        },
+        "after_hours": {
+          "bars": 228,
+          "vwap_flags": 161,
+          "fractional_volume_bars": 228
+        }
+      },
+      "errors": []
+    },
+    {
+      "date_et": "2026-10-27",
+      "records": 914,
+      "regular_minutes": 390,
+      "vwap_flags": 286,
+      "sessions": {
+        "premarket": {
+          "bars": 308,
+          "vwap_flags": 127,
+          "fractional_volume_bars": 303
+        },
+        "regular": {
+          "bars": 390,
+          "vwap_flags": 5,
+          "fractional_volume_bars": 390
+        },
+        "after_hours": {
+          "bars": 216,
+          "vwap_flags": 154,
+          "fractional_volume_bars": 216
+        }
+      },
+      "errors": []
+    },
+    {
+      "date_et": "2026-10-28",
+      "records": 946,
+      "regular_minutes": 390,
+      "vwap_flags": 191,
+      "sessions": {
+        "premarket": {
+          "bars": 316,
+          "vwap_flags": 151,
+          "fractional_volume_bars": 307
+        },
+        "regular": {
+          "bars": 390,
+          "vwap_flags": 1,
+          "fractional_volume_bars": 390
+        },
+        "after_hours": {
+          "bars": 240,
+          "vwap_flags": 39,
+          "fractional_volume_bars": 240
+        }
+      },
+      "errors": []
+    },
+    {
+      "date_et": "2026-10-29",
+      "records": 943,
+      "regular_minutes": 390,
+      "vwap_flags": 143,
+      "sessions": {
+        "premarket": {
+          "bars": 313,
+          "vwap_flags": 117,
+          "fractional_volume_bars": 311
+        },
+        "regular": {
+          "bars": 390,
+          "vwap_flags": 3,
+          "fractional_volume_bars": 390
+        },
+        "after_hours": {
+          "bars": 240,
+          "vwap_flags": 23,
+          "fractional_volume_bars": 240
+        }
+      },
+      "errors": []
+    },
+    {
+      "date_et": "2026-10-30",
+      "records": 953,
+      "regular_minutes": 390,
+      "vwap_flags": 229,
+      "sessions": {
+        "premarket": {
+          "bars": 323,
+          "vwap_flags": 85,
+          "fractional_volume_bars": 319
+        },
+        "regular": {
+          "bars": 390,
+          "vwap_flags": 8,
+          "fractional_volume_bars": 390
+        },
+        "after_hours": {
+          "bars": 240,
+          "vwap_flags": 136,
+          "fractional_volume_bars": 240
+        }
+      },
+      "errors": []
+    },
+    {
+      "date_et": "2026-11-02",
+      "records": 944,
+      "regular_minutes": 390,
+      "vwap_flags": 80,
+      "sessions": {
+        "premarket": {
+          "bars": 316,
+          "vwap_flags": 44,
+          "fractional_volume_bars": 313
+        },
+        "regular": {
+          "bars": 390,
+          "vwap_flags": 1,
+          "fractional_volume_bars": 390
+        },
+        "after_hours": {
+          "bars": 238,
+          "vwap_flags": 35,
+          "fractional_volume_bars": 236
+        }
+      },
+      "errors": []
+    },
+    {
+      "date_et": "2026-11-03",
+      "records": 955,
+      "regular_minutes": 390,
+      "vwap_flags": 51,
+      "sessions": {
+        "premarket": {
+          "bars": 325,
+          "vwap_flags": 27,
+          "fractional_volume_bars": 321
+        },
+        "regular": {
+          "bars": 390,
+          "vwap_flags": 7,
+          "fractional_volume_bars": 390
+        },
+        "after_hours": {
+          "bars": 240,
+          "vwap_flags": 17,
+          "fractional_volume_bars": 240
+        }
+      },
+      "errors": []
+    },
+    {
+      "date_et": "2026-11-04",
+      "records": 848,
+      "regular_minutes": 390,
+      "vwap_flags": 27,
+      "sessions": {
+        "premarket": {
+          "bars": 329,
+          "vwap_flags": 9,
+          "fractional_volume_bars": 328
+        },
+        "regular": {
+          "bars": 390,
+          "vwap_flags": 4,
+          "fractional_volume_bars": 390
+        },
+        "after_hours": {
+          "bars": 129,
+          "vwap_flags": 14,
+          "fractional_volume_bars": 129
+        }
+      },
+      "errors": []
+    }
+  ],
+  "vwap_flag_interpretation": "provider_documented_differing_trade_eligibility_not_standalone_error",
+  "individual_trade_reconciliation": "not_performed",
+  "exact_volume_at_price": "unavailable_from_minute_bars",
+  "predictive_probability": null,
+  "canonical_integration": false
+}
