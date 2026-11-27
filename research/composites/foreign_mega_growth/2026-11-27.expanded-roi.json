@@ -1,0 +1,821 @@
+{
+  "as_of": "2026-11-27",
+  "status": "provisional research scenario; not qualified execution",
+  "source_revision": "aa3aaf186e2c76564ce5cfb1708cc05e70db4a0b",
+  "quote_source": "Massive grouped US daily aggregates adjusted, 2026-11-27, historical session-date only; foreign entry prices retained from prior snapshot",
+  "growth_baseline": 2026,
+  "exit": "2029-12-31",
+  "formula": "CY30 EPS * structural_earnings_factor * terminal PE / entry price; stress extra EPS -30%, multiple -25%, FX -10% for foreign; severe extra EPS -50%, multiple -40%, FX -15% for foreign",
+  "calendarization": "month/12 * FY ending CY + (1-month/12) * FY ending CY+1; uniform quarterly interpolation; FY2030/31 extrapolated as specified",
+  "rows": [
+    {
+      "ticker": "AAOI",
+      "entry_price": 40.9,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/AAOI/estimates",
+      "source_eps": {
+        "2026": 0.69,
+        "2027": 3.9,
+        "2028": 8.42,
+        "2029": null
+      },
+      "fiscal_month": 12,
+      "calendar_eps": {
+        "2026": 0.69,
+        "2027": 3.9,
+        "2028": 8.42,
+        "2029": 10.525,
+        "2030": 12.10375
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": 0.25,
+        "fy2030_31": 0.15
+      },
+      "terminal_pe": 18,
+      "structural_earnings_factor": 1,
+      "fx_stress": 1,
+      "risk": "execution and valuation risk",
+      "outputs": {
+        "growth": 14.253623188405799,
+        "entry_pe": 10.487179487179487,
+        "constant_price_pe": 3.379118041929154,
+        "base_return": 4.3268337408312965,
+        "stress_return": 1.7965877139364306,
+        "severe_return": 0.5980501222493888,
+        "normalized_pe": 3.379118041929154
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "entry_price": 150.49,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/NVDA/estimates",
+      "source_eps": {
+        "2026": 4.93,
+        "2027": 9.48,
+        "2028": 16.16,
+        "2029": 21.41
+      },
+      "fiscal_month": 1,
+      "calendar_eps": {
+        "2026": 9.100833333333332,
+        "2027": 15.603333333333332,
+        "2028": 20.9725,
+        "2029": 24.353875,
+        "2030": 28.006956249999995
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0.15
+      },
+      "terminal_pe": 25,
+      "structural_earnings_factor": 1,
+      "fx_stress": 1,
+      "risk": "execution and valuation risk",
+      "outputs": {
+        "growth": 1.676004944602143,
+        "entry_pe": 9.644734031189918,
+        "constant_price_pe": 5.373307925955004,
+        "base_return": 3.6526274586351244,
+        "stress_return": 1.4426294157834403,
+        "severe_return": 0.3957882375905373,
+        "normalized_pe": 5.373307925955004
+      }
+    },
+    {
+      "ticker": "AVGO",
+      "entry_price": 312.34,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/AVGO/estimates",
+      "source_eps": {
+        "2026": 11.78,
+        "2027": 19.62,
+        "2028": 30.61,
+        "2029": 41.48
+      },
+      "fiscal_month": 10,
+      "calendar_eps": {
+        "2026": 13.086666666666666,
+        "2027": 21.451666666666668,
+        "2028": 32.42166666666667,
+        "2029": 42.516999999999996,
+        "2030": 48.89454999999999
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0.15
+      },
+      "terminal_pe": 25,
+      "structural_earnings_factor": 1,
+      "fx_stress": 1,
+      "risk": "execution and valuation risk",
+      "outputs": {
+        "growth": 2.248879266428935,
+        "entry_pe": 14.56017403465154,
+        "constant_price_pe": 6.388033022085285,
+        "base_return": 2.913567746686303,
+        "stress_return": 1.0546230670103092,
+        "severe_return": 0.17407032400589095,
+        "normalized_pe": 6.388033022085285
+      }
+    },
+    {
+      "ticker": "CLS",
+      "entry_price": 203.24,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/CLS/estimates",
+      "source_eps": {
+        "2026": 11.64,
+        "2027": 22.09,
+        "2028": 32.26,
+        "2029": null
+      },
+      "fiscal_month": 12,
+      "calendar_eps": {
+        "2026": 11.64,
+        "2027": 22.09,
+        "2028": 32.26,
+        "2029": 40.324999999999996,
+        "2030": 46.373749999999994
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": 0.25,
+        "fy2030_31": 0.15
+      },
+      "terminal_pe": 16,
+      "structural_earnings_factor": 1,
+      "fx_stress": 1,
+      "risk": "execution and valuation risk",
+      "outputs": {
+        "growth": 2.4643470790378004,
+        "entry_pe": 9.20054323223178,
+        "constant_price_pe": 4.382651823499287,
+        "base_return": 2.650757724857311,
+        "stress_return": 0.9166478055500882,
+        "severe_return": 0.09522731745719337,
+        "normalized_pe": 4.382651823499287
+      }
+    },
+    {
+      "ticker": "CRDO",
+      "entry_price": 115.57,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/CRDO/estimates",
+      "source_eps": {
+        "2026": 3.42,
+        "2027": 6.43,
+        "2028": 9.84,
+        "2029": 12.58
+      },
+      "fiscal_month": 4,
+      "calendar_eps": {
+        "2026": 5.426666666666667,
+        "2027": 8.703333333333333,
+        "2028": 11.666666666666668,
+        "2029": 13.838000000000001,
+        "2030": 15.9137
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0.15
+      },
+      "terminal_pe": 25,
+      "structural_earnings_factor": 1,
+      "fx_stress": 1,
+      "risk": "execution and valuation risk",
+      "outputs": {
+        "growth": 1.5500000000000003,
+        "entry_pe": 13.27882037533512,
+        "constant_price_pe": 7.262296009099077,
+        "base_return": 2.4424374837760667,
+        "stress_return": 0.8072796789824348,
+        "severe_return": 0.032731245132819886,
+        "normalized_pe": 7.262296009099077
+      }
+    },
+    {
+      "ticker": "3661.TW",
+      "entry_price": 3595,
+      "currency": "TWD",
+      "calendar_eps": {
+        "2026": 124.2,
+        "2027": 219.12,
+        "2029": 491.28,
+        "2030": 564.972
+      },
+      "terminal_pe": 20,
+      "structural_earnings_factor": 1,
+      "fx_stress": 0.9,
+      "source": "2026-11-27.snapshot.json",
+      "risk": "prior foreign scenario",
+      "outputs": {
+        "growth": 2.9555555555555553,
+        "entry_pe": 16.406535231836436,
+        "constant_price_pe": 6.3631472002152325,
+        "base_return": 2.143098748261474,
+        "stress_return": 0.48511415855354634,
+        "severe_return": -0.19850981919332422,
+        "normalized_pe": 6.3631472002152325
+      }
+    },
+    {
+      "ticker": "KXIAY",
+      "valuation_ticker": "285A.T",
+      "entry_price": 8450,
+      "currency": "JPY",
+      "calendar_eps": {
+        "2026": 2696.645,
+        "2027": 4596.9400000000005,
+        "2028": 5563.2525,
+        "2029": 6248.83,
+        "2030": 6710.81
+      },
+      "terminal_pe": 7,
+      "structural_earnings_factor": 0.5,
+      "fx_stress": 0.9,
+      "source": "https://perpequities.com/stocks/kioxia-perp/financials",
+      "risk": "primary listing valuation proxy; ADR price/share/FX not reconciled",
+      "outputs": {
+        "growth": 1.3172608927018574,
+        "entry_pe": 1.8381793105848672,
+        "constant_price_pe": 1.2591624557989274,
+        "base_return": 1.7796254437869825,
+        "stress_return": 0.31337302218934915,
+        "severe_return": -0.29119551183431946,
+        "normalized_pe": 2.5183249115978548
+      }
+    },
+    {
+      "ticker": "MRVL",
+      "entry_price": 140.54,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/MRVL/estimates",
+      "source_eps": {
+        "2026": 2.85,
+        "2027": 4.3,
+        "2028": 7.51,
+        "2029": 13.03
+      },
+      "fiscal_month": 1,
+      "calendar_eps": {
+        "2026": 4.179166666666666,
+        "2027": 7.2425,
+        "2028": 12.569999999999999,
+        "2029": 14.821625,
+        "2030": 17.04486875
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0.15
+      },
+      "terminal_pe": 22,
+      "structural_earnings_factor": 1,
+      "fx_stress": 1,
+      "risk": "standalone only; merger contingent",
+      "outputs": {
+        "growth": 2.546550348953141,
+        "entry_pe": 19.404901622367966,
+        "constant_price_pe": 8.245296696696476,
+        "base_return": 1.6681877935107443,
+        "stress_return": 0.4007985915931407,
+        "severe_return": -0.19954366194677675,
+        "normalized_pe": 8.245296696696476
+      }
+    },
+    {
+      "ticker": "LITE",
+      "entry_price": 514.63,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/LITE/estimates",
+      "source_eps": {
+        "2026": 8.37,
+        "2027": 24.21,
+        "2028": 39.7,
+        "2029": 54.95
+      },
+      "fiscal_month": 6,
+      "calendar_eps": {
+        "2026": 16.29,
+        "2027": 31.955000000000002,
+        "2028": 47.325,
+        "2029": 59.07125,
+        "2030": 67.93193749999999
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0.15
+      },
+      "terminal_pe": 20,
+      "structural_earnings_factor": 1,
+      "fx_stress": 1,
+      "risk": "standalone only; merger contingent",
+      "outputs": {
+        "growth": 2.626227747084101,
+        "entry_pe": 16.10483492411203,
+        "constant_price_pe": 7.575670869095999,
+        "base_return": 1.6400302158832556,
+        "stress_return": 0.38601586333870896,
+        "severe_return": -0.20799093523502332,
+        "normalized_pe": 7.575670869095999
+      }
+    },
+    {
+      "ticker": "3037.TW",
+      "entry_price": 646,
+      "currency": "TWD",
+      "calendar_eps": {
+        "2026": 25,
+        "2027": 50,
+        "2029": 96,
+        "2030": 110.39999999999999
+      },
+      "terminal_pe": 15,
+      "structural_earnings_factor": 1,
+      "fx_stress": 0.9,
+      "source": "2026-11-27.snapshot.json",
+      "risk": "prior foreign scenario",
+      "outputs": {
+        "growth": 2.84,
+        "entry_pe": 12.92,
+        "constant_price_pe": 5.851449275362319,
+        "base_return": 1.5634674922600618,
+        "stress_return": 0.21123839009287915,
+        "severe_return": -0.34631578947368435,
+        "normalized_pe": 5.851449275362319
+      }
+    },
+    {
+      "ticker": "SMHN.DE",
+      "entry_price": 43.3,
+      "currency": "EUR",
+      "calendar_eps": {
+        "2026": 0.98,
+        "2027": 3.78,
+        "2029": 5.268,
+        "2030": 6.321599999999999
+      },
+      "terminal_pe": 17.5,
+      "structural_earnings_factor": 1,
+      "fx_stress": 0.9,
+      "source": "2026-11-27.global-equity-expansion.json",
+      "risk": "prior foreign scenario",
+      "outputs": {
+        "growth": 4.375510204081633,
+        "entry_pe": 11.455026455026454,
+        "constant_price_pe": 6.849531764110353,
+        "base_return": 1.554919168591224,
+        "stress_return": 0.20719930715935342,
+        "severe_return": -0.34849561200923795,
+        "normalized_pe": 6.849531764110353
+      }
+    },
+    {
+      "ticker": "COHR",
+      "entry_price": 223.79,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/COHR/estimates",
+      "source_eps": {
+        "2026": 5.6,
+        "2027": 10.55,
+        "2028": 16.14,
+        "2029": 21.88
+      },
+      "fiscal_month": 6,
+      "calendar_eps": {
+        "2026": 8.075,
+        "2027": 13.345,
+        "2028": 19.009999999999998,
+        "2029": 23.520999999999997,
+        "2030": 27.049149999999994
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0.15
+      },
+      "terminal_pe": 20,
+      "structural_earnings_factor": 1,
+      "fx_stress": 1,
+      "risk": "execution and valuation risk",
+      "outputs": {
+        "growth": 1.9128173374613002,
+        "entry_pe": 16.769576620457098,
+        "constant_price_pe": 8.273457761149613,
+        "base_return": 1.4173689619732777,
+        "stress_return": 0.2691187050359707,
+        "severe_return": -0.27478931140801677,
+        "normalized_pe": 8.273457761149613
+      }
+    },
+    {
+      "ticker": "AMD",
+      "entry_price": 424.54,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/AMD/estimates",
+      "source_eps": {
+        "2026": 8.14,
+        "2027": 17.94,
+        "2028": 26.74,
+        "2029": 31.79
+      },
+      "fiscal_month": 12,
+      "calendar_eps": {
+        "2026": 8.14,
+        "2027": 17.94,
+        "2028": 26.74,
+        "2029": 31.79,
+        "2030": 36.558499999999995
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0.15
+      },
+      "terminal_pe": 25,
+      "structural_earnings_factor": 1,
+      "fx_stress": 1,
+      "risk": "execution and valuation risk",
+      "outputs": {
+        "growth": 2.905405405405405,
+        "entry_pe": 23.6644370122631,
+        "constant_price_pe": 11.612620867924015,
+        "base_return": 1.1528301220144153,
+        "stress_return": 0.1302358140575679,
+        "severe_return": -0.3541509633956754,
+        "normalized_pe": 11.612620867924015
+      }
+    },
+    {
+      "ticker": "3443.TW",
+      "entry_price": 5090,
+      "currency": "TWD",
+      "calendar_eps": {
+        "2026": 62.97,
+        "2027": 175.43,
+        "2029": 363.10799999999995,
+        "2030": 417.5741999999999
+      },
+      "terminal_pe": 25,
+      "structural_earnings_factor": 1,
+      "fx_stress": 0.9,
+      "source": "2026-11-27.snapshot.json",
+      "risk": "prior foreign scenario",
+      "outputs": {
+        "growth": 4.766364935683658,
+        "entry_pe": 29.014421706663626,
+        "constant_price_pe": 12.1894504018687,
+        "base_return": 1.050953831041257,
+        "stress_return": -0.030924314833006172,
+        "severe_return": -0.4770067730844796,
+        "normalized_pe": 12.1894504018687
+      }
+    },
+    {
+      "ticker": "2454.TW",
+      "entry_price": 3680,
+      "currency": "TWD",
+      "calendar_eps": {
+        "2026": 73.57,
+        "2027": 150.48,
+        "2029": 305.03999999999996,
+        "2030": 350.79599999999994
+      },
+      "terminal_pe": 20,
+      "structural_earnings_factor": 1,
+      "fx_stress": 0.9,
+      "source": "2026-11-27.snapshot.json",
+      "risk": "prior foreign scenario",
+      "outputs": {
+        "growth": 3.146255267092565,
+        "entry_pe": 24.455077086656036,
+        "constant_price_pe": 10.490427484920012,
+        "base_return": 0.9064999999999994,
+        "stress_return": -0.09917875000000032,
+        "severe_return": -0.5138425000000002,
+        "normalized_pe": 10.490427484920012
+      }
+    },
+    {
+      "ticker": "SNDK",
+      "entry_price": 85.36,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/SNDK/estimates",
+      "source_eps": {
+        "2026": 8.76,
+        "2027": 29.08375,
+        "2028": 35.495,
+        "2029": 32.34625
+      },
+      "fiscal_month": 6,
+      "calendar_eps": {
+        "2026": 18.921875,
+        "2027": 32.289375,
+        "2028": 33.920625,
+        "2029": 32.34625,
+        "2030": 32.34625
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0
+      },
+      "terminal_pe": 10,
+      "structural_earnings_factor": 0.5,
+      "fx_stress": 1,
+      "risk": "memory cycle normalization",
+      "outputs": {
+        "growth": 0.7094632535094962,
+        "entry_pe": 2.643594061514043,
+        "constant_price_pe": 2.638945781968544,
+        "base_return": 0.89469599343955,
+        "stress_return": -0.005284603444236313,
+        "severe_return": -0.43159120196813505,
+        "normalized_pe": 5.277891563937088
+      }
+    },
+    {
+      "ticker": "DELL",
+      "entry_price": 316.96,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/DELL/estimates",
+      "source_eps": {
+        "2026": 10.35,
+        "2027": 26.46,
+        "2028": 30.89,
+        "2029": 36.55
+      },
+      "fiscal_month": 1,
+      "calendar_eps": {
+        "2026": 25.1175,
+        "2027": 30.520833333333336,
+        "2028": 36.07833333333333,
+        "2029": 41.575624999999995,
+        "2030": 47.811968749999984
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0.15
+      },
+      "terminal_pe": 12,
+      "structural_earnings_factor": 1,
+      "fx_stress": 1,
+      "risk": "execution and valuation risk",
+      "outputs": {
+        "growth": 0.6552453468697121,
+        "entry_pe": 10.385037542662115,
+        "constant_price_pe": 6.629302417085682,
+        "base_return": 0.8101452075971727,
+        "stress_return": -0.04967376601148432,
+        "severe_return": -0.45695643772084826,
+        "normalized_pe": 6.629302417085682
+      }
+    },
+    {
+      "ticker": "MU",
+      "entry_price": 646.95,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/MU/estimates",
+      "source_eps": {
+        "2026": 75.51,
+        "2027": 178.97,
+        "2028": 212.26,
+        "2029": 210.33
+      },
+      "fiscal_month": 8,
+      "calendar_eps": {
+        "2026": 109.99666666666667,
+        "2027": 190.06666666666666,
+        "2028": 211.61666666666667,
+        "2029": 210.33,
+        "2030": 210.33
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0
+      },
+      "terminal_pe": 10,
+      "structural_earnings_factor": 0.5,
+      "fx_stress": 1,
+      "risk": "memory cycle normalization",
+      "outputs": {
+        "growth": 0.9121488529955455,
+        "entry_pe": 3.4038056822167664,
+        "constant_price_pe": 3.075880758807588,
+        "base_return": 0.6255506607929515,
+        "stress_return": -0.14658590308370045,
+        "severe_return": -0.5123348017621145,
+        "normalized_pe": 6.151761517615176
+      }
+    },
+    {
+      "ticker": "INTC",
+      "entry_price": 57.4,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/INTC/estimates",
+      "source_eps": {
+        "2026": 1.51,
+        "2027": 1.79,
+        "2028": 3.1,
+        "2029": 4.82
+      },
+      "fiscal_month": 12,
+      "calendar_eps": {
+        "2026": 1.51,
+        "2027": 1.79,
+        "2028": 3.1,
+        "2029": 4.82,
+        "2030": 5.543
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0.15
+      },
+      "terminal_pe": 15,
+      "structural_earnings_factor": 1,
+      "fx_stress": 1,
+      "risk": "execution and valuation risk",
+      "outputs": {
+        "growth": 2.1920529801324506,
+        "entry_pe": 32.06703910614525,
+        "constant_price_pe": 10.35540321125744,
+        "base_return": 0.4485191637630661,
+        "stress_return": -0.23952743902439022,
+        "severe_return": -0.5654442508710802,
+        "normalized_pe": 10.35540321125744
+      }
+    },
+    {
+      "ticker": "SKHY",
+      "entry_price": 119.5,
+      "currency": "USD",
+      "calendar_eps": {
+        "2026": 25.24,
+        "2027": 38.8,
+        "2028": 46.34,
+        "2029": 33.79,
+        "2030": 33.79
+      },
+      "terminal_pe": 10,
+      "structural_earnings_factor": 0.5,
+      "fx_stress": 0.9,
+      "source": "https://therighttrader.com/earnings-calendar/skhy",
+      "outer_assumption": {
+        "2030": "flat versus 2029 estimate; two analysts in 2029"
+      },
+      "risk": "secondary ADR EPS basis unverified; memory downturn and FX",
+      "outputs": {
+        "growth": 0.3387480190174328,
+        "entry_pe": 3.079896907216495,
+        "constant_price_pe": 3.5365492749334124,
+        "base_return": 0.413807531380753,
+        "stress_return": -0.33197594142259435,
+        "severe_return": -0.6394790794979079,
+        "normalized_pe": 7.073098549866825
+      }
+    },
+    {
+      "ticker": "WDC",
+      "entry_price": 292.11,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/WDC/estimates",
+      "source_eps": {
+        "2026": 10.19,
+        "2027": 25.25,
+        "2028": 41.46,
+        "2029": 54.35
+      },
+      "fiscal_month": 6,
+      "calendar_eps": {
+        "2026": 17.72,
+        "2027": 33.355000000000004,
+        "2028": 47.905,
+        "2029": 54.35,
+        "2030": 54.35
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0
+      },
+      "terminal_pe": 10,
+      "structural_earnings_factor": 0.75,
+      "fx_stress": 1,
+      "risk": "HDD substitution; reduced sustainable EPS and multiple",
+      "outputs": {
+        "growth": 2.067155756207675,
+        "entry_pe": 8.75760755508919,
+        "constant_price_pe": 5.374609015639375,
+        "base_return": 0.3954503440484749,
+        "stress_return": -0.2673885693745508,
+        "severe_return": -0.5813648967854576,
+        "normalized_pe": 7.166145354185832,
+        "ssd_disruption_return": -0.4790318715552361
+      }
+    },
+    {
+      "ticker": "BE",
+      "entry_price": 163.02,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/BE/estimates",
+      "source_eps": {
+        "2026": 3.36,
+        "2027": 5.55,
+        "2028": 8.86,
+        "2029": 9.75
+      },
+      "fiscal_month": 12,
+      "calendar_eps": {
+        "2026": 3.36,
+        "2027": 5.55,
+        "2028": 8.86,
+        "2029": 9.75,
+        "2030": 11.212499999999999
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0.15
+      },
+      "terminal_pe": 20,
+      "structural_earnings_factor": 1,
+      "fx_stress": 1,
+      "risk": "execution and valuation risk",
+      "outputs": {
+        "growth": 1.9017857142857144,
+        "entry_pe": 29.372972972972974,
+        "constant_price_pe": 14.539130434782612,
+        "base_return": 0.3755980861244017,
+        "stress_return": -0.2778110047846891,
+        "severe_return": -0.5873205741626795,
+        "normalized_pe": 14.539130434782612
+      }
+    },
+    {
+      "ticker": "STX",
+      "entry_price": 509.66,
+      "currency": "USD",
+      "source": "https://www.chartmill.com/stock/quote/STX/estimates",
+      "source_eps": {
+        "2026": 15.53,
+        "2027": 40.6,
+        "2028": 66.5,
+        "2029": 90.37
+      },
+      "fiscal_month": 6,
+      "calendar_eps": {
+        "2026": 28.065,
+        "2027": 53.55,
+        "2028": 78.435,
+        "2029": 90.37,
+        "2030": 90.37
+      },
+      "outer_assumption": {
+        "fy2029_if_missing": null,
+        "fy2030_31": 0
+      },
+      "terminal_pe": 10,
+      "structural_earnings_factor": 0.75,
+      "fx_stress": 1,
+      "risk": "HDD substitution; reduced sustainable EPS and multiple",
+      "outputs": {
+        "growth": 2.2200249420986995,
+        "entry_pe": 9.51746031746032,
+        "constant_price_pe": 5.639703441407547,
+        "base_return": 0.32985715967507767,
+        "stress_return": -0.30182499117058426,
+        "severe_return": -0.6010428520974767,
+        "normalized_pe": 7.5196045885433955,
+        "ssd_disruption_return": -0.5035199937213044
+      }
+    },
+    {
+      "ticker": "PTCIL.NS",
+      "entry_price": 25462.75,
+      "currency": "INR",
+      "calendar_eps": {
+        "2026": 115.12500000000001,
+        "2027": 218.57500000000002,
+        "2029": 579.9300000000001,
+        "2030": 811.902
+      },
+      "terminal_pe": 35,
+      "structural_earnings_factor": 1,
+      "fx_stress": 0.9,
+      "source": "2026-11-27.india-expansion.json",
+      "risk": "prior foreign scenario",
+      "outputs": {
+        "growth": 4.0373941368078174,
+        "entry_pe": 116.4943383278051,
+        "constant_price_pe": 31.361851553512615,
+        "base_return": 0.11600553750085907,
+        "stress_return": -0.47268738353084416,
+        "severe_return": -0.715418587937281,
+        "normalized_pe": 31.361851553512615
+      }
+    }
+  ],
+  "limitations": [
+    "FY estimates captured November 20 in issue #291; provider basis and vintages differ; CY conversion uniform and outer estimates scenario only",
+    "DELL FY27 later guidance differs; old coherent series retained, not current consensus",
+    "SKHY 2029 two analysts and ADR share unit unverified; conflicting prior estimates not mixed",
+    "HDD structural factor 0.75 and terminal 10x, disruption 0.4 and 7x are assumptions not forecasts",
+    "MRVL/LITE standalone scenarios not merger-adjusted; no joint allocation",
+    "No probability, dividends, taxes, transaction costs, or pathwise losses",
+    "No full universe qualification; source prices not refreshed for foreign primary listings"
+  ]
+}
