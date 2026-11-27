@@ -1,0 +1,402 @@
+{
+  "id": "foreign_mega_growth",
+  "version": "0.1.0-research",
+  "as_of": "2026-11-27",
+  "model_state": "provisional",
+  "entry_proxy": "Nov 27 observed prices, not Jan 1 2027 price",
+  "reporting": "USD dimensionless price ratios at constant FX; original source currencies retained; FX observed rates unavailable, not used",
+  "growth_baseline": 2026,
+  "growth_end": 2029,
+  "exit_forward_year": 2030,
+  "cutoff": 1.5,
+  "formula": {
+    "calendarization": "0.25*FY ending CY + 0.75*FY ending CY+1",
+    "growth": "CY29/CY26-1",
+    "entry_pe": "P0/CY27",
+    "constant_price_pe": "P0/CY30",
+    "exit_return": "CY30*(1-haircut)*terminal_pe/P0-1",
+    "stress": "CY30*(1-haircut)*0.7*terminal_pe*0.75/P0-1"
+  },
+  "rows": [
+    {
+      "ticker": "3443.TW",
+      "name": "Global Unichip",
+      "price": 5090,
+      "currency": "TWD",
+      "price_source": "https://stockanalysis.com/quote/tpe/3443/",
+      "price_observed_at": "2026-11-27T13:30:00+08:00",
+      "eps_source": "https://www.kgi.com.hk/en/-/media/files/kgishk/research-reports/tw-reports/semiconductor-sector_20261110_tc.pdf",
+      "source_eps": [
+        62.97,
+        175.43,
+        302.59
+      ],
+      "source_period": "CY2026-2028",
+      "calendar_eps": [
+        62.97,
+        175.43,
+        302.59,
+        363.10799999999995,
+        417.5741999999999
+      ],
+      "terminal_pe": 25,
+      "eps_haircut": 0,
+      "basis": "provider EPS; GAAP/adjusted reconciliation pending",
+      "scenario": "2029 +20%, 2030 +15%",
+      "outputs": {
+        "growth_2026_2029": 4.766364935683658,
+        "forward_pe_2027": 29.014421706663626,
+        "constant_price_pe_2030": 12.1894504018687,
+        "growth_2027_2030": 1.3802895741891348,
+        "scenario_return": 1.050953831041257,
+        "stress_return": 0.07675076129665981,
+        "qualifies": true
+      },
+      "available_at": null,
+      "ingested_at": null,
+      "validity": "historical research; not current execution input"
+    },
+    {
+      "ticker": "2454.TW",
+      "name": "MediaTek",
+      "price": 3680,
+      "currency": "TWD",
+      "price_source": "https://stockanalysis.com/quote/tpe/2454/history/",
+      "price_observed_at": "2026-11-27T13:30:00+08:00",
+      "eps_source": "https://www.kgi.com.hk/en/-/media/files/kgishk/research-reports/tw-reports/semiconductor-sector_20261110_tc.pdf",
+      "source_eps": [
+        73.57,
+        150.48,
+        254.2
+      ],
+      "source_period": "CY2026-2028",
+      "calendar_eps": [
+        73.57,
+        150.48,
+        254.2,
+        305.03999999999996,
+        350.79599999999994
+      ],
+      "terminal_pe": 20,
+      "eps_haircut": 0,
+      "basis": "provider EPS; GAAP/adjusted reconciliation pending",
+      "scenario": "2029 +20%, 2030 +15%",
+      "outputs": {
+        "growth_2026_2029": 3.146255267092565,
+        "forward_pe_2027": 24.455077086656036,
+        "constant_price_pe_2030": 10.490427484920012,
+        "growth_2027_2030": 1.3311802232854864,
+        "scenario_return": 0.9064999999999994,
+        "stress_return": 0.0009124999999996497,
+        "qualifies": true
+      },
+      "available_at": null,
+      "ingested_at": null,
+      "validity": "historical research; not current execution input"
+    },
+    {
+      "ticker": "3661.TW",
+      "name": "Alchip",
+      "price": 3595,
+      "currency": "TWD",
+      "price_source": "https://stockanalysis.com/quote/tpe/3661/history/",
+      "price_observed_at": "2026-11-27T13:30:00+08:00",
+      "eps_source": "https://www.kgi.com.hk/en/-/media/files/kgishk/research-reports/tw-reports/semiconductor-sector_20261110_tc.pdf",
+      "source_eps": [
+        124.2,
+        219.12,
+        409.4
+      ],
+      "source_period": "CY2026-2028",
+      "calendar_eps": [
+        124.2,
+        219.12,
+        409.4,
+        491.28,
+        564.972
+      ],
+      "terminal_pe": 20,
+      "eps_haircut": 0,
+      "basis": "provider EPS; GAAP/adjusted reconciliation pending",
+      "scenario": "2029 +20%, 2030 +15%",
+      "outputs": {
+        "growth_2026_2029": 2.9555555555555553,
+        "forward_pe_2027": 16.406535231836436,
+        "constant_price_pe_2030": 6.3631472002152325,
+        "growth_2027_2030": 1.5783680175246437,
+        "scenario_return": 2.143098748261474,
+        "stress_return": 0.6501268428372735,
+        "qualifies": true
+      },
+      "available_at": null,
+      "ingested_at": null,
+      "validity": "historical research; not current execution input"
+    },
+    {
+      "ticker": "3037.TW",
+      "name": "Unimicron",
+      "price": 646,
+      "currency": "TWD",
+      "price_source": "https://stockanalysis.com/quote/tpe/3037/history/",
+      "price_observed_at": "2026-11-27T13:30:00+08:00",
+      "eps_source": "https://www.reportgem.com/en/research/real-time/924797.html",
+      "source_eps": [
+        25,
+        50,
+        80
+      ],
+      "source_period": "CY2026-2028",
+      "calendar_eps": [
+        25,
+        50,
+        80,
+        96,
+        110.39999999999999
+      ],
+      "terminal_pe": 15,
+      "eps_haircut": 0,
+      "basis": "provider EPS; GAAP/adjusted reconciliation pending",
+      "scenario": "2029 +20%, 2030 +15%",
+      "outputs": {
+        "growth_2026_2029": 2.84,
+        "forward_pe_2027": 12.92,
+        "constant_price_pe_2030": 5.851449275362319,
+        "growth_2027_2030": 1.2079999999999997,
+        "scenario_return": 1.5634674922600618,
+        "stress_return": 0.34582043343653224,
+        "qualifies": true
+      },
+      "available_at": null,
+      "ingested_at": null,
+      "validity": "historical research; not current execution input"
+    },
+    {
+      "ticker": "CLS",
+      "name": "Celestica",
+      "price": 203.24,
+      "currency": "USD",
+      "price_source": "https://markets.financialcontent.com/wss/quote/ny%3Acls",
+      "price_observed_at": "2026-11-27T13:10:00-05:00",
+      "eps_source": "https://www.sec.gov/Archives/edgar/data/1030894/000103089426000049/cls-20260930prcondensedfs.htm",
+      "source_eps": [
+        11.55,
+        21.5
+      ],
+      "source_period": "CY2026-27 guidance",
+      "calendar_eps": [
+        11.55,
+        21.5,
+        29.025000000000002,
+        36.28125,
+        41.723437499999996
+      ],
+      "terminal_pe": 16,
+      "eps_haircut": 0,
+      "basis": "non-GAAP adjusted",
+      "scenario": "2028 +35%, 2029 +25%, 2030 +15%",
+      "outputs": {
+        "growth_2026_2029": 2.141233766233766,
+        "forward_pe_2027": 9.453023255813953,
+        "constant_price_pe_2030": 4.871123094783359,
+        "growth_2027_2030": 0.9406249999999998,
+        "scenario_return": 2.2846634520763622,
+        "stress_return": 0.7244483123400902,
+        "qualifies": true
+      },
+      "available_at": null,
+      "ingested_at": null,
+      "validity": "historical research; not current execution input"
+    },
+    {
+      "ticker": "4062.T",
+      "name": "Ibiden",
+      "price": 5120,
+      "currency": "JPY",
+      "price_source": "https://stockanalysis.com/quote/tyo/4062/",
+      "price_observed_at": "2026-11-27T15:30:00+09:00",
+      "eps_source": "https://perpequities.com/stocks/ibiden-perp/financials",
+      "source_eps": [
+        107.49669749009247,
+        162.75,
+        241.46,
+        337.12,
+        414.85,
+        486.3
+      ],
+      "source_period": "FY ending March 2026-2031",
+      "calendar_eps": [
+        148.93667437252313,
+        221.7825,
+        313.205,
+        395.4175,
+        468.4375
+      ],
+      "terminal_pe": 16,
+      "eps_haircut": 0,
+      "basis": "provider EPS; diluted and adjustment basis pending; FY26 inferred from reported growth (rounded)",
+      "scenario": "uniform quarterly allocation; terminal P/E assumption",
+      "outputs": {
+        "growth_2026_2029": 1.6549370842736462,
+        "forward_pe_2027": 23.085680790864924,
+        "constant_price_pe_2030": 10.929953302201467,
+        "growth_2027_2030": 1.1121481631778884,
+        "scenario_return": 0.4638671875,
+        "stress_return": -0.23146972656249998,
+        "qualifies": true
+      },
+      "available_at": null,
+      "ingested_at": null,
+      "validity": "historical research; not current execution input"
+    },
+    {
+      "ticker": "5803.T",
+      "name": "Fujikura",
+      "price": 2199.5,
+      "currency": "JPY",
+      "price_source": "https://www.marketscreener.com/quote/stock/FUJIKURA-LTD-6491074/",
+      "price_observed_at": "2026-11-27T15:30:00+09:00",
+      "eps_source": "https://perpequities.com/stocks/fujikura-perp/financials",
+      "source_eps": [
+        94.93,
+        211.72,
+        237.86,
+        287.5,
+        283.6,
+        329.2
+      ],
+      "source_period": "FY ending March 2026-2031",
+      "calendar_eps": [
+        182.52249999999998,
+        231.32500000000002,
+        275.09000000000003,
+        284.57500000000005,
+        317.79999999999995
+      ],
+      "terminal_pe": 16,
+      "eps_haircut": 0,
+      "basis": "provider EPS; diluted and adjustment basis pending",
+      "scenario": "uniform quarterly allocation; terminal P/E assumption",
+      "outputs": {
+        "growth_2026_2029": 0.5591228478680714,
+        "forward_pe_2027": 9.508267588890089,
+        "constant_price_pe_2030": 6.921019509125237,
+        "growth_2027_2030": 0.3738247055009183,
+        "scenario_return": 1.311798135939986,
+        "stress_return": 0.21369402136849258,
+        "qualifies": false
+      },
+      "available_at": null,
+      "ingested_at": null,
+      "validity": "historical research; not current execution input"
+    },
+    {
+      "ticker": "6857.T",
+      "name": "Advantest",
+      "price": 26585,
+      "currency": "JPY",
+      "price_source": "https://www.google.com/finance/quote/285A%3ATYO",
+      "price_observed_at": "2026-11-27T15:30:00+09:00",
+      "eps_source": "https://resilience.buildbespoke.app/scores/6857.T",
+      "source_eps": [
+        513.3284241531665,
+        1040.3,
+        1430.84,
+        1782.35,
+        1923,
+        2005
+      ],
+      "source_period": "FY ending March 2026-2031",
+      "calendar_eps": [
+        908.5571060382915,
+        1333.205,
+        1694.4724999999999,
+        1887.8375,
+        1984.5
+      ],
+      "terminal_pe": 20,
+      "eps_haircut": 0,
+      "basis": "provider EPS; diluted and adjustment basis pending; FY26 derived from S&P Global EPS/growth, provider displays erroneous USD label; infer JPY pending validation",
+      "scenario": "uniform quarterly allocation; terminal P/E assumption",
+      "baseline_source": "https://stockanalysis.com/quote/tyo/6857/forecast/",
+      "outputs": {
+        "growth_2026_2029": 1.0778413238456763,
+        "forward_pe_2027": 19.94066928941911,
+        "constant_price_pe_2030": 13.396321491559586,
+        "growth_2027_2030": 0.48851826988347646,
+        "scenario_return": 0.4929471506488621,
+        "stress_return": -0.2162027459093474,
+        "qualifies": false
+      },
+      "available_at": null,
+      "ingested_at": null,
+      "validity": "historical research; not current execution input"
+    },
+    {
+      "ticker": "285A.T",
+      "name": "Kioxia",
+      "price": 8450,
+      "currency": "JPY",
+      "price_source": "https://stockanalysis.com/quote/tyo/285A/",
+      "price_observed_at": "2026-11-27T15:30:00+09:00",
+      "eps_source": "https://perpequities.com/stocks/kioxia-perp/financials",
+      "source_eps": [
+        336.38,
+        3483.4,
+        4968.12,
+        5761.63,
+        6411.23,
+        6810.67
+      ],
+      "source_period": "FY ending March 2026-2031",
+      "calendar_eps": [
+        2696.645,
+        4596.9400000000005,
+        5563.2525,
+        6248.83,
+        6710.81
+      ],
+      "terminal_pe": 7,
+      "eps_haircut": 0.5,
+      "basis": "provider EPS; diluted and adjustment basis pending",
+      "scenario": "uniform quarterly allocation; terminal P/E assumption",
+      "baseline_source": "https://stockanalysis.com/quote/tyo/285A/forecast/",
+      "alternate_baseline": {
+        "calendar_2026_eps_approx": 2449.2,
+        "previous_conversation_claim": "quarterly reconstruction not independently reverified here",
+        "classification": "borderline"
+      },
+      "outputs": {
+        "growth_2026_2029": 1.3172608927018574,
+        "forward_pe_2027": 1.8381793105848672,
+        "constant_price_pe_2030": 1.2591624557989274,
+        "growth_2027_2030": 0.459842851984146,
+        "scenario_return": 1.7796254437869825,
+        "stress_return": 0.4593033579881658,
+        "qualifies": false
+      },
+      "available_at": null,
+      "ingested_at": null,
+      "validity": "historical research; not current execution input"
+    }
+  ],
+  "checks": {
+    "nine_rows": true,
+    "six_qualifiers": true,
+    "positive_eps": true,
+    "stress_below_base": true,
+    "pe_identity": true
+  },
+  "limitations": [
+    "Mixed source vintage and basis; issuer basis, historical multiples, quarterly seasonal pattern and FX not independently reconciled",
+    "2029–2030 Taiwanese and CLS scenario extensions are not consensus",
+    "Terminal multiples subjective, stress not full downside",
+    "Kioxia 50% structural earnings haircut scenario only; alternate baseline unverified",
+    "No active feed or account eligibility verified"
+  ],
+  "dependencies": [
+    "https://github.com/whiterosecoffee/_PATTERNS/tree/work/83-ticker-forward-growth/_TICKERS/skills/analyze-forward-growth",
+    "https://github.com/whiterosecoffee/_BASKET/issues/306",
+    "https://github.com/whiterosecoffee/_BASKET/issues/322",
+    "https://github.com/whiterosecoffee/_BASKET/issues/311"
+  ]
+}
