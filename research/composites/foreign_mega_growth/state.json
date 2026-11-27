@@ -1,6 +1,6 @@
 {
   "id": "foreign_mega_growth",
-  "purpose": "Screen allied-market foreign equities for >=150% CY2026–2029 cumulative EPS growth, then rank modeled USD return entering 2030.",
+  "purpose": "Screen allied-market foreign equities for >=180% CY2026–2029 cumulative EPS growth, retain top six plus explicit separate exception, then rank modeled USD return entering 2030.",
   "parent_refs": [
     "../../../AGENTS.md",
     "https://github.com/whiterosecoffee/_PATTERNS/tree/work/83-ticker-forward-growth/_TICKERS/skills/analyze-forward-growth"
@@ -24,18 +24,17 @@
   ],
   "membership": {
     "as_of": "2026-11-27",
-    "status": "research_watchlist_not_allocated",
-    "growth_cutoff": 1.5,
+    "status": "top6_research_watchlist_not_allocated",
+    "growth_cutoff": 1.8,
     "baseline_year": 2026,
     "end_year": 2029,
     "core_candidates": [
       "3443.TW",
+      "SMHN.DE",
       "PTCIL.NS",
       "2454.TW",
       "3661.TW",
-      "3037.TW",
-      "CLS",
-      "4062.T"
+      "3037.TW"
     ],
     "exceptions": [
       {
@@ -53,11 +52,12 @@
       }
     ],
     "weights": null,
-    "notes": "Provisional membership; all estimates require qualification. ETF look-through should include Kioxia as fifth issuer alongside the four Taiwan leaders; existing four-issuer snapshot unchanged.",
+    "notes": "User cropped to six after 180% cutoff; KXIAY separate exception. No ETF research or allocation implied.",
     "evidence_refs": [
       "2026-11-27.snapshot.json",
       "2026-11-27.india-expansion.json",
-      "2026-11-27.etf-competition.json"
+      "2026-11-27.etf-competition.json",
+      "2026-11-27.top6-stress.json"
     ]
   },
   "etf_eligibility": {
@@ -134,6 +134,8 @@
         "status": "proxy_pending_diluted_eps"
       }
     ],
-    "evidence_ref": "2026-11-27.global-equity-expansion.json"
+    "evidence_ref": "2026-11-27.global-equity-expansion.json",
+    "stress_test_ref": "2026-11-27.top6-stress.json",
+    "active_etf_research": false
   }
 }
