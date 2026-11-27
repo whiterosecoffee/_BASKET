@@ -43,3 +43,18 @@ The input is a supplied, point-in-time snapshot: nothing is downloaded. `input_m
 ## November 4 source probe — NOT a validated input fixture
 
 Connected Massive historical endpoint `/v1/open-close/{symbol}/2026-11-04` returned SPY/QQQ/NVDA/CRWV/ORCL OHLC, but omitted event-level observed/available/ingested/expiry and official closing-auction eligibility. Volumes contained fractional values; direct close differences against some public summaries require source/adjustment reconciliation. The B02 handoff is recorded in issue #152. **Do not construct invented timestamps to make these bars pass the AH-MRI consumer.** An actual sourced RTH/AH sample, same-clock comparison and provider-vintage manifest remain pending.
+
+## In-process callable interface (experimental)
+
+For a Python process running from the repository root:
+
+```python
+from research.traversal.ah_mri.api import analyze_eod
+
+result = analyze_eod(caller_supplied_snapshot)
+assert result["status"] in ("research_provisional", "invalid_request", "invalid_observations")
+```
+
+The response is `basket.ah_mri.invoke@0.1`: `status`, `report`, `markdown`, `input_manifest_hash` on success, with `source_certified=false`, `production_ready=false`, and `transport=in_process_offline`. Invalid requests return a bounded error without exposing input values or traces. This callable **does not fetch data**, verify third-party entitlements, certify timestamps, start a listener, or schedule deliveries. The existing `run.py` offline CLI remains unchanged for backward compatibility. No B00-approved shared API or MCP tool has been registered.
+
+Additional synthetic tests: `test_api.py` defines six invocation/validation/replay checks. Include it in the same unittest discovery command. **Exact current-head execution has not been verified.** Consumers must distinguish invocation success from data qualification.
