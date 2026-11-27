@@ -1,0 +1,33 @@
+{
+  "as_of": "2026-11-20",
+  "systems": [
+    {
+      "life_years": 4,
+      "pue": 1.2,
+      "annual_opex_fraction": 0.1,
+      "usd_kwh": 0.08,
+      "power_source": "https://semianalysis.com/2025/04/16/huawei-ai-cloudmatrix-384-chinas-answer-to-nvidia-gb200-nvl72/",
+      "system": "CloudMatrix384",
+      "output_tokens_s": 633016,
+      "it_kw": 559,
+      "price_usd": 8200000,
+      "benchmark_source": "https://arxiv.org/abs/2606.04415",
+      "cost_source": "https://margins.ashitaorbis.com/research/dive-ascend",
+      "workload": "R1 fixed 1024/1024, 50 ms TPOT"
+    },
+    {
+      "life_years": 4,
+      "pue": 1.2,
+      "annual_opex_fraction": 0.1,
+      "usd_kwh": 0.08,
+      "power_source": "https://semianalysis.com/2025/04/16/huawei-ai-cloudmatrix-384-chinas-answer-to-nvidia-gb200-nvl72/",
+      "system": "GB200 NVL72",
+      "output_tokens_s": 240274,
+      "it_kw": 145,
+      "price_usd": 3000000,
+      "benchmark_source": "https://developer.nvidia.com/ai-hardware-benchmarks",
+      "cost_source": "https://www.bancaditalia.it/pubblicazioni/qef/2026-1006/QEF_1006_26.pdf",
+      "workload": "R1 MLPerf interactive, 15 ms TPOT"
+    }
+  ]
+}
