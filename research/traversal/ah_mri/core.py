@@ -4,7 +4,11 @@ from zoneinfo import ZoneInfo
 from hashlib import sha256
 import json
 import math
-from readiness import evaluate as evaluate_readiness
+try:
+    from .readiness import evaluate as evaluate_readiness
+except ImportError:
+    # Supports the existing direct-script and unittest discovery entrypoints.
+    from readiness import evaluate as evaluate_readiness
 
 VERSION = "ah-mri-research-0.2"
 
