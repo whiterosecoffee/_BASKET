@@ -264,5 +264,37 @@
       "CPRT": 10,
       "GOOG": 10
     }
+  },
+  "persistence": {
+    "status": "verified_ready_to_archive",
+    "source_evidence_revision": "5d9bcfcde86e30f855f983a30902c34ac7023b2f",
+    "range_method": {
+      "repository": "whiterosecoffee/_PATTERNS",
+      "branch": "archive/qqq-range-breadth-method-20261126",
+      "revision": "d8f9aabac0e84ee6c609ee9036aa17ac33e922f7",
+      "path": "_REFERENCES/_EQUITY_RANGE_BREADTH"
+    },
+    "paper_instance": {
+      "repository": "whiterosecoffee/_PATTERNS",
+      "branch": "archive/qqq-rebound-vetf-20261126",
+      "revision": "be39f5e1365da2a18df8f1dbe6f17291e14d9435",
+      "path": "_REFERENCES/_QQQ_REBOUND_VETF"
+    },
+    "validation": {
+      "unique_rows": 103,
+      "full_equity_lines": 99,
+      "short_equity_lines": 2,
+      "advances": 57,
+      "top_ten_median_recapture_pct": 29.5425,
+      "rest_median_recapture_pct": 33.8647,
+      "basket_weight_pct": 100,
+      "low_stress_pct": -24.402523358300762,
+      "all_range_formulas": true
+    },
+    "open_research": [
+      "Comparable earnings and cash-flow bridge",
+      "Forward paper performance and weight sensitivity"
+    ],
+    "receiver_required": false
   }
 }
