@@ -2,32 +2,65 @@
   "id": "SFTBY_CAPITAL_CONVERSION",
   "parent": "research/SFTBY",
   "spark": "B09",
-  "status": "research_prototype",
+  "status": "research_prototype_design_extended",
   "issue": 300,
   "branch": "work/300-sftby-capital-conversion-rotation",
-  "as_of": "2026-11-20",
+  "as_of": "2026-11-26",
   "objective": "2027-2030 quarterly capital conversion, NAV alpha per dollar invested and quarterly LTV/liquidity",
   "design": "feature-design.md",
   "workbook": "local chat workbook, not committed",
   "links": {
     "official_nav": "https://group.softbank/en/ir/stock/sotp",
     "arm": "https://newsroom.arm.com/news/arm-q2-fye27-results",
-    "sbenergy": "https://www.sec.gov/Archives/edgar/data/2133037/000162828026075026/sbenergy-sx1a3.htm"
+    "sbenergy": "https://www.sec.gov/Archives/edgar/data/2133037/000162828026075026/sbenergy-sx1a3.htm",
+    "design": "feature-design-moat-and-interfaces.md",
+    "existing_rotation_pr": "https://github.com/whiterosecoffee/_BASKET/pull/298",
+    "patterns_index": "https://github.com/whiterosecoffee/_PATTERNS/blob/main/Snapshot.json"
   },
   "evidence": {
     "local_workbook_formula_error_scan": "0 matches",
     "repo_ci": "not_run",
     "current_nav": "unverified scenario",
-    "unrestricted_cash": "unverified"
+    "unrestricted_cash": "unverified",
+    "design_extended_commit": "95c8c91a5cab151da1442879635d5c483b5fad74",
+    "new_design_tests": "not_run",
+    "patterns_registration": "not_requested_or_verified"
   },
   "dependencies": [
     28,
     30
   ],
   "next_actions": [
-    "Reconcile unrestricted cash with post-October finance flows",
-    "Verify OpenAI fund rights and NAV embedded mark",
-    "Verify SB Energy parent participation"
+    "B09: reconcile parent unrestricted cash, collateral, and OpenAI economic entitlement with consistent effective/available times",
+    "B04: reuse existing valuation/rotation engine; no engine duplication",
+    "_PATTERNS System Design owner: review generalized interface and register by canonical receipt only after separate owner action",
+    "B01: independent scenario fixture execution and strict validation"
   ],
-  "review": "Confirm no operating revenue is double-added as equity NAV, and stress-case capital constraints are explicitly flagged."
+  "review": "Confirm no operating revenue is double-added as equity NAV, and stress-case capital constraints are explicitly flagged.",
+  "feature_designs": [
+    "feature-design.md",
+    "feature-design-moat-and-interfaces.md"
+  ],
+  "methodology_review": {
+    "timestamp": "2026-11-26",
+    "basis": "analyst rubric; not Microsoft official certification",
+    "dimensions": {
+      "source_grounding": 2,
+      "typed_contracts": 2,
+      "deterministic_workflow": 2,
+      "finance_double_count_gates": 2,
+      "robust_stress_evaluation": 1,
+      "system_discoverability": 1,
+      "ownership_and_approvals": 4,
+      "production_monitoring": 0
+    },
+    "score_out_of_40": 14,
+    "issues": [
+      "No integrated reproducible scenario engine in repo",
+      "Local workbook not committed and no CI",
+      "NAV private entitlement and parent unrestricted cash unresolved",
+      "No _PATTERNS canonical registered public component for this methodology"
+    ],
+    "proposed_target": ">=32/40 after tests, canonical route, financial data reconciliation and independent review"
+  }
 }
