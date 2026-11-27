@@ -21,5 +21,43 @@
     "qualified issuer estimates",
     "terminal multiple evidence",
     "FX and ADR execution qualification"
-  ]
+  ],
+  "membership": {
+    "as_of": "2026-11-27",
+    "status": "research_watchlist_not_allocated",
+    "growth_cutoff": 1.5,
+    "baseline_year": 2026,
+    "end_year": 2029,
+    "core_candidates": [
+      "3443.TW",
+      "PTCIL.NS",
+      "2454.TW",
+      "3661.TW",
+      "3037.TW",
+      "CLS",
+      "4062.T"
+    ],
+    "exceptions": [
+      {
+        "issuer": "Kioxia Holdings",
+        "display_ticker": "KXIAY",
+        "primary_ticker": "285A.T",
+        "reason": "Explicit user inclusion; valuation exception; do not count ADR and primary as separate exposures",
+        "growth_qualification": "borderline/unreconciled",
+        "growth_scenarios": [
+          1.32,
+          1.57
+        ],
+        "adr_eligibility": "unverified",
+        "evidence_ref": "2026-11-27.snapshot.json"
+      }
+    ],
+    "weights": null,
+    "notes": "Provisional membership; all estimates require qualification. ETF look-through should include Kioxia as fifth issuer alongside the four Taiwan leaders; existing four-issuer snapshot unchanged.",
+    "evidence_refs": [
+      "2026-11-27.snapshot.json",
+      "2026-11-27.india-expansion.json",
+      "2026-11-27.etf-competition.json"
+    ]
+  }
 }
