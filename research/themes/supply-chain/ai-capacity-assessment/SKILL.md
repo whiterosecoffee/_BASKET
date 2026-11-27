@@ -16,4 +16,17 @@ Inherit the repository AGENTS.md and B19 supply-chain ownership. Use for domesti
 
 ## Evaluation and improvement
 
-Replay expected costs $0.16732 and $0.15466 per million within $0.00001. Zero throughput must fail. Unlike latency targets must remain a scenario. A model download alone yields no demonstrated hardware displacement. Improve next with a second independent buyer case and a fresh-agent discovery test before promoting the skill to a shared catalog.
+Replay expected costs $0.16732 and $0.15466 per million within $0.00001. Zero throughput must fail. Unlike latency targets must remain a scenario. A model download alone yields no demonstrated hardware displacement. Use the buyer case below to check procurement judgments. Shared-catalog discovery still requires independent verification.
+
+## Buyer acceptance example — Deutsche Telekom, Germany
+
+Source: [buyer's November 9, 2026 expansion announcement](https://www.telekom.com/en/newsroom/latest-updates/media-information/2026/11/ai-demand-rises-deutsche-telekom-expands-ai-factory-in-munich). Reviewed 2026-11-26. Apply the procurement assessment to the Munich expansion only.
+
+| Input evidence | Expected classification |
+|---|---|
+| Buyer reports initial phase sold out | Allocated capacity; actual hardware utilization unknown |
+| Additional NVIDIA B300 systems will join B200 systems | Announced incumbent expansion; commissioning date unverified |
+| Expansion target of 20 MW | Planned total site capacity; incremental or metered IT power unknown |
+| No disclosed competing bid, delivered token rate or invoice | Chinese displacement unestablished; buyer TCO unknown |
+
+Skip the calculator for this buyer until a sourced throughput, system power and price are available. The China example remains the positive numeric replay. Reopen this case on commissioned capacity or an identified supplier change. System-wide discovery remains tracked in [#327](https://github.com/whiterosecoffee/_BASKET/issues/327).
