@@ -59,5 +59,49 @@
       "2026-11-27.india-expansion.json",
       "2026-11-27.etf-competition.json"
     ]
+  },
+  "etf_eligibility": {
+    "decision_date": "2026-11-27",
+    "user_rule": "US-tradable ETFs only; foreign underlying listings allowed",
+    "implementation": "Require US exchange listing and verify broker purchase eligibility separately; exclude foreign-listed funds from investable ranking, retain historical research.",
+    "shortlist": [
+      "FLTW",
+      "EWT",
+      "CHPS",
+      "FLJP",
+      "EWJ",
+      "SMIN"
+    ],
+    "excluded": [
+      "00947.TW",
+      "00904.TW",
+      "00892.TW",
+      "00981A.TW"
+    ],
+    "concentration_targets": [
+      "3443.TW",
+      "2454.TW",
+      "3661.TW",
+      "3037.TW",
+      "285A.T"
+    ],
+    "broker_eligibility": "unverified",
+    "notes": "US listing does not establish Merrill order or margin eligibility. Direct KXIAY exception remains separate.",
+    "kioxia_etf_evidence": [
+      {
+        "ticker": "CHPS",
+        "weight_pct": 1.38,
+        "holdings_date": "2026-11-24",
+        "source": "https://stockanalysis.com/etf/chps/holdings/",
+        "fee_pct": 0.15
+      },
+      {
+        "ticker": "EWJ",
+        "weight_pct": 1.2,
+        "holdings_date": null,
+        "observed_date": "2026-11-27",
+        "source": "https://www.schwab.wallst.com/schwab/Prospect/research/etfs/schwabETF/index.asp?YYY101_z5K6INmijHk1FjmWAV7fGvwy6A90%2F7axjYPZo6XA3uS%2F6cqJ3coaQJT%2Fv8DaV2fm8px5g1mqTUzS01s+PdYcV715PLshc%2FBUbkl4KQn3GTU=&symbol=EWJ&type=holdings"
+      }
+    ]
   }
 }
