@@ -1,0 +1,25 @@
+{
+  "id": "foreign_mega_growth",
+  "purpose": "Screen allied-market foreign equities for >=150% CY2026–2029 cumulative EPS growth, then rank modeled USD return entering 2030.",
+  "parent_refs": [
+    "../../../AGENTS.md",
+    "https://github.com/whiterosecoffee/_PATTERNS/tree/work/83-ticker-forward-growth/_TICKERS/skills/analyze-forward-growth"
+  ],
+  "issue": 329,
+  "branch": "work/329-foreign-mega-growth",
+  "spark": "B17",
+  "owner": "B17-329",
+  "status": "research_provisional",
+  "design_ref": "feature-design.md",
+  "evidence_ref": "2026-11-27.snapshot.json",
+  "objectives": {
+    "primary": "compare consistent calendar forward earnings",
+    "secondary": "rank valuation sensitivity, not automatic trades"
+  },
+  "next_action": "Reconcile fiscal quarters, GAAP/adjusted basis, FX and through-cycle multiples with ticker growth and valuation owners; independently verify calculator.",
+  "ghost_nodes": [
+    "qualified issuer estimates",
+    "terminal multiple evidence",
+    "FX and ADR execution qualification"
+  ]
+}
