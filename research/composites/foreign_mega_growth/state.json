@@ -103,5 +103,37 @@
         "source": "https://www.schwab.wallst.com/schwab/Prospect/research/etfs/schwabETF/index.asp?YYY101_z5K6INmijHk1FjmWAV7fGvwy6A90%2F7axjYPZo6XA3uS%2F6cqJ3coaQJT%2Fv8DaV2fm8px5g1mqTUzS01s+PdYcV715PLshc%2FBUbkl4KQn3GTU=&symbol=EWJ&type=holdings"
       }
     ]
+  },
+  "current_scope": {
+    "user_decision": "Individual companies only; stop ETF wrapper research",
+    "as_of": "2026-11-27",
+    "prior_etf_research": "historical, retained",
+    "proposed_additions": [
+      {
+        "ticker": "SMHN.DE",
+        "status": "scenario_candidate"
+      },
+      {
+        "ticker": "5274.TWO",
+        "status": "scenario_candidate"
+      },
+      {
+        "ticker": "092870.KQ",
+        "status": "proxy_pending_diluted_eps"
+      },
+      {
+        "ticker": "3017.TW",
+        "status": "scenario_candidate"
+      },
+      {
+        "ticker": "RHM.DE",
+        "status": "scenario_candidate"
+      },
+      {
+        "ticker": "2345.TW",
+        "status": "proxy_pending_diluted_eps"
+      }
+    ],
+    "evidence_ref": "2026-11-27.global-equity-expansion.json"
   }
 }
