@@ -148,6 +148,22 @@
     "evidence_ref": "2026-11-27.global-equity-expansion.json",
     "stress_test_ref": "2026-11-27.top6-stress.json",
     "active_etf_research": false,
-    "stress_test_coverage": "Existing stress test covers core six only; memory exceptions need normalized cycle stress."
+    "stress_test_coverage": "Existing stress test covers core six only; memory exceptions need normalized cycle stress.",
+    "expanded_analysis": {
+      "status": "partial_universe_scenario_research",
+      "evidence_refs": [
+        "2026-11-27.expanded-roi.json",
+        "2026-11-27.basket-coverage-and-risk.json"
+      ],
+      "coverage_counts": {
+        "scenario_modeled": 27,
+        "earnings_model_not_qualified": 261,
+        "earnings_series_conflict": 1,
+        "identity_or_listing_status_review": 10,
+        "alternative_method_required": 3
+      },
+      "storage_thesis": "HDD structural substitution risk; prioritize workload-specific TCO falsification",
+      "membership_changed": false
+    }
   }
 }
