@@ -1,0 +1,222 @@
+{
+  "id": "fmg_top6_stress",
+  "as_of": "2026-11-27",
+  "status": "historical research scenario",
+  "source_revision": "7cbf43c84703e8f08ec85877333ec4c916482984",
+  "entry_proxy": "November 27 recorded prices, not Jan 2027 execution quotes",
+  "exit_date": "2029-12-31",
+  "exit_eps_year": 2030,
+  "growth_baseline_year": 2026,
+  "growth_cutoff": 1.8,
+  "formulas": {
+    "return": "CY2030 EPS * terminal PE * EPS shock factor * PE shock factor * FX factor / entry price - 1",
+    "growth": "CY2029 EPS / CY2026 EPS - 1",
+    "breakeven": "entry price / (CY2030 EPS * EPS shock * FX factor)"
+  },
+  "scenarios": {
+    "base": {
+      "eps": 1,
+      "pe": 1,
+      "fx": 1
+    },
+    "moderate": {
+      "eps": 0.8,
+      "pe": 0.8,
+      "fx": 0.95
+    },
+    "stress": {
+      "eps": 0.7,
+      "pe": 0.75,
+      "fx": 0.9
+    },
+    "severe": {
+      "eps": 0.5,
+      "pe": 0.6,
+      "fx": 0.85
+    }
+  },
+  "rows": [
+    {
+      "ticker": "3443.TW",
+      "source": "2026-11-27.snapshot.json",
+      "source_revision": "7cbf43c84703e8f08ec85877333ec4c916482984",
+      "currency": "TWD",
+      "entry_price": 5090,
+      "entry_observed_at": "2026-11-27T13:30:00+08:00",
+      "eps": {
+        "2026": 62.97,
+        "2027": 175.43,
+        "2029": 363.10799999999995,
+        "2030": 417.5741999999999
+      },
+      "base_terminal_pe": 25,
+      "entry_forward_pe": 29.014421706663626,
+      "constant_price_2030_pe": 12.1894504018687,
+      "base_growth": 4.766364935683658,
+      "stress_growth": 3.0364554549785607,
+      "eps_haircut_to_growth_cutoff": 0.5144254601936613,
+      "stress_breakeven_terminal_pe": 19.34833397122016,
+      "returns": {
+        "base": 1.050953831041257,
+        "moderate": 0.24697992927308432,
+        "stress": -0.030924314833006172,
+        "severe": -0.4770067730844795
+      }
+    },
+    {
+      "ticker": "SMHN.DE",
+      "source": "2026-11-27.global-equity-expansion.json",
+      "source_revision": "7cbf43c84703e8f08ec85877333ec4c916482984",
+      "currency": "EUR",
+      "entry_price": 43.3,
+      "entry_observed_at": "2026-11-27T17:30:00+01:00",
+      "eps": {
+        "2026": 0.98,
+        "2027": 3.78,
+        "2029": 5.268,
+        "2030": 6.321599999999999
+      },
+      "base_terminal_pe": 17.5,
+      "entry_forward_pe": 11.455026455026454,
+      "constant_price_2030_pe": 6.849531764110353,
+      "base_growth": 4.375510204081633,
+      "stress_growth": 2.762857142857143,
+      "eps_haircut_to_growth_cutoff": 0.4791192103264996,
+      "stress_breakeven_terminal_pe": 10.872272641445004,
+      "returns": {
+        "base": 1.554919168591224,
+        "moderate": 0.553390854503464,
+        "stress": 0.2071993071593532,
+        "severe": -0.34849561200923795
+      }
+    },
+    {
+      "ticker": "PTCIL.NS",
+      "source": "2026-11-27.india-expansion.json",
+      "source_revision": "7cbf43c84703e8f08ec85877333ec4c916482984",
+      "currency": "INR",
+      "entry_price": 25462.75,
+      "entry_observed_at": "2026-11-27T15:29:00+05:30",
+      "eps": {
+        "2026": 115.12500000000001,
+        "2027": 218.57500000000002,
+        "2029": 579.9300000000001,
+        "2030": 811.902
+      },
+      "base_terminal_pe": 35,
+      "entry_forward_pe": 116.4943383278051,
+      "constant_price_2030_pe": 31.361851553512615,
+      "base_growth": 4.0373941368078174,
+      "stress_growth": 2.526175895765472,
+      "eps_haircut_to_growth_cutoff": 0.4441570534374839,
+      "stress_breakeven_terminal_pe": 49.78071675160732,
+      "returns": {
+        "base": 0.11600553750085907,
+        "moderate": -0.3214686331994776,
+        "stress": -0.47268738353084416,
+        "severe": -0.715418587937281
+      }
+    },
+    {
+      "ticker": "2454.TW",
+      "source": "2026-11-27.snapshot.json",
+      "source_revision": "7cbf43c84703e8f08ec85877333ec4c916482984",
+      "currency": "TWD",
+      "entry_price": 3680,
+      "entry_observed_at": "2026-11-27T13:30:00+08:00",
+      "eps": {
+        "2026": 73.57,
+        "2027": 150.48,
+        "2029": 305.03999999999996,
+        "2030": 350.79599999999994
+      },
+      "base_terminal_pe": 20,
+      "entry_forward_pe": 24.455077086656036,
+      "constant_price_2030_pe": 10.490427484920012,
+      "base_growth": 3.146255267092565,
+      "stress_growth": 1.9023786869647954,
+      "eps_haircut_to_growth_cutoff": 0.3246918436926305,
+      "stress_breakeven_terminal_pe": 16.651472198285735,
+      "returns": {
+        "base": 0.9064999999999994,
+        "moderate": 0.15915199999999974,
+        "stress": -0.09917875000000032,
+        "severe": -0.5138425000000002
+      }
+    },
+    {
+      "ticker": "3661.TW",
+      "source": "2026-11-27.snapshot.json",
+      "source_revision": "7cbf43c84703e8f08ec85877333ec4c916482984",
+      "currency": "TWD",
+      "entry_price": 3595,
+      "entry_observed_at": "2026-11-27T13:30:00+08:00",
+      "eps": {
+        "2026": 124.2,
+        "2027": 219.12,
+        "2029": 491.28,
+        "2030": 564.972
+      },
+      "base_terminal_pe": 20,
+      "entry_forward_pe": 16.406535231836436,
+      "constant_price_2030_pe": 6.3631472002152325,
+      "base_growth": 2.9555555555555553,
+      "stress_growth": 1.7688888888888883,
+      "eps_haircut_to_growth_cutoff": 0.2921348314606741,
+      "stress_breakeven_terminal_pe": 10.100233651135289,
+      "returns": {
+        "base": 2.143098748261474,
+        "moderate": 0.9110040389429763,
+        "stress": 0.4851141585535461,
+        "severe": -0.19850981919332422
+      }
+    },
+    {
+      "ticker": "3037.TW",
+      "source": "2026-11-27.snapshot.json",
+      "source_revision": "7cbf43c84703e8f08ec85877333ec4c916482984",
+      "currency": "TWD",
+      "entry_price": 646,
+      "entry_observed_at": "2026-11-27T13:30:00+08:00",
+      "eps": {
+        "2026": 25,
+        "2027": 50,
+        "2029": 96,
+        "2030": 110.39999999999999
+      },
+      "base_terminal_pe": 15,
+      "entry_forward_pe": 12.92,
+      "constant_price_2030_pe": 5.851449275362319,
+      "base_growth": 2.84,
+      "stress_growth": 1.6879999999999997,
+      "eps_haircut_to_growth_cutoff": 0.27083333333333337,
+      "stress_breakeven_terminal_pe": 9.288014722797332,
+      "returns": {
+        "base": 1.5634674922600618,
+        "moderate": 0.5585882352941174,
+        "stress": 0.21123839009287915,
+        "severe": -0.34631578947368435
+      }
+    }
+  ],
+  "equal_weight_buy_hold": {
+    "base": 1.2224907962758123,
+    "moderate": 0.35127440413569405,
+    "stress": 0.0501269012403213,
+    "severe": -0.4332648469496679
+  },
+  "checks": {
+    "six_unique": true,
+    "all_base_growth_pass": true,
+    "four_stress_growth_pass": true,
+    "monotonic": true,
+    "stress_breakeven": true
+  },
+  "limitations": [
+    "Uniform deterministic shocks, not probabilities or forecasts; base terminal multiples assumptions, SUSS and PTC midpoint of prior ranges",
+    "FX modeled proportional decline in USD per local currency; no actual FX rates required for ratios",
+    "Source earnings/share bases not independently verified; no taxes, dividends, trading costs, leverage or pathwise drawdown",
+    "Four of six in Taiwan; correlated geopolitical and AI capital spending shocks not bounded by model; severe loss is not maximum",
+    "KXIAY retained separate, not included in equal weight calculation"
+  ]
+}
