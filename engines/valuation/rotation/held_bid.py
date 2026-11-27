@@ -1,8 +1,9 @@
-"""Price-only, USD rotation scenarios. Run: python rotation.py input.json"""
+"""Price-only, USD rotation scenarios. Run: python held_bid.py --help"""
+import argparse
 import json
 import sys
 from datetime import date, datetime
-from decimal import Decimal as D, ROUND_CEILING
+from decimal import Decimal as D, DecimalException, ROUND_CEILING
 
 
 def number(value):
@@ -24,6 +25,8 @@ def ceiling(value, unit="1"):
 
 
 def analyze(data):
+    if not isinstance(data, dict) or not isinstance(data.get("alternatives"), dict) or not data["alternatives"]:
+        raise ValueError("provide a nonempty alternatives mapping")
     h = data["held"]
     n = number(data["shares"])
     edge = number(data["terminal_edge"])
@@ -73,6 +76,23 @@ def analyze(data):
     return output
 
 
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("input", help="JSON request file or - for stdin")
+    args = parser.parse_args()
+    try:
+        if args.input == "-":
+            data = json.load(sys.stdin, parse_float=D)
+        else:
+            with open(args.input, encoding="utf-8") as source:
+                data = json.load(source, parse_float=D)
+        result = analyze(data)
+    except (OSError, ValueError, KeyError, TypeError, AttributeError, DecimalException) as exc:
+        print(json.dumps({"error": "invalid_input", "detail": str(exc)}), file=sys.stderr)
+        return 2
+    print(json.dumps(result, default=str, indent=2))
+    return 0
+
+
 if __name__ == "__main__":
-    with open(sys.argv[1]) as source:
-        print(json.dumps(analyze(json.load(source)), default=str, indent=2))
+    sys.exit(main())

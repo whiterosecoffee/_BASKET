@@ -1,5 +1,5 @@
 # Held-bid rotation threshold
-B04 #297. Inherit root AGENTS.md and architecture/BLACK_BOX_COMPONENT_CONTRACT.md. Read-only analytical CLI, Python 3.11+. Run `python engines/valuation/rotation/rotation.py input.json`. Input contract is illustrated by example.json (entirely hypothetical). Output is JSON, with decimals serialized as strings.
+B04 #297. Inherit root AGENTS.md and architecture/BLACK_BOX_COMPONENT_CONTRACT.md. Read-only analytical CLI, Python 3.11+. Run `python engines/valuation/rotation/held_bid.py input.json`. Input contract is illustrated by example.json (entirely hypothetical). Output is JSON, with decimals serialized as strings.
 
 Compare continuing to hold N shares with selling and buying whole replacement shares at matched bid/ask. High value means the replacement position beats the held position by the configured cumulative terminal wealth hurdle under a named scenario. Cash left after buying earns zero and is conservatively excluded from the hurdle. Include estimated adverse slippage and commissions per share on each leg, incremental to the quoted spread. USD price-only, before tax, dividends and financing. Tick size assumed $0.01. Liquidity and account constraints require separate evaluation.
 
@@ -8,3 +8,11 @@ Supply two consolidated as-of quote snapshots per chosen window, using prices in
 Supply FY1/FY2/FY3 scenarios aligned to common calendar endpoints for both issuers, using calendarized diluted EPS, consistent GAAP or adjusted basis and a documented terminal P/E convention. Each scenario records its source and latest input availability. Use independently justified normalized multiples: using current implied multiples for both legs mechanically reproduces current prices. Re-run bear/base/bull, including weaker candidate EPS or multiple and stronger held EPS. Missing horizon or case means unknown. Loss-making companies require a separately supported valuation method. No probability or predicted time to threshold.
 
 Minimum whole shares = ceil(N × held terminal price × (1 + hurdle) / candidate terminal price). Required bid is the cent-rounded-up sale price that funds those shares including both legs’ costs. Recompute whenever the replacement ask changes. A relative compression rate alone provides no assurance of a rebound. Inputs are supplied offline; #291 tracks earnings comparison and B02 owns price refresh.
+
+## Routing and evidence
+
+Use B04's existing rotation-swap-decision skill when the user asks what held bid buys enough whole shares to clear a terminal-value hurdle. Dispatch this inverse calculation to held_bid.py. The companion portfolio.swap evaluates a proposed spot swap with fractional shares and its own friction model. Keep the hurdle, units and rounding explicit. No order interface.
+
+The caller may pipe one JSON request on stdin with the argument `-`. Exit 0 returns one JSON object keyed by replacement ticker. For malformed requests or unreadable files the CLI emits an error object on stderr and exits 2. Use example.json for a synthetic replay. Historical quote classification, quote age and displayed size are upstream responsibilities. A quote ratio alone does not establish a fill for the modeled size.
+
+Route quote provenance to B02, assumptions and the inverse calculation to B04, and independent replay to B01. For Nov 20, preserve separate fields for the $130 held-bid alert, the 1,639 / 3,277 share-count alerts and the $96 / $48 exit targets. Only a contemporaneous bid and ask can establish a paired threshold; label minute closes and raw touches separately. Report missing synchronized coverage as unknown. Register this function under the existing swap skill after integration.
