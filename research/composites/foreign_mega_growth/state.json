@@ -1,6 +1,6 @@
 {
   "id": "foreign_mega_growth",
-  "purpose": "Screen allied-market foreign equities for >=180% CY2026–2029 cumulative EPS growth, retain top six plus explicit separate exception, then rank modeled USD return entering 2030.",
+  "purpose": "Screen allied-market foreign equities for >=180% CY2026–2029 cumulative EPS growth, retain top six plus explicit Kioxia and SK Hynix value-growth exceptions, then rank modeled USD return entering 2030.",
   "parent_refs": [
     "../../../AGENTS.md",
     "https://github.com/whiterosecoffee/_PATTERNS/tree/work/83-ticker-forward-growth/_TICKERS/skills/analyze-forward-growth"
@@ -24,7 +24,7 @@
   ],
   "membership": {
     "as_of": "2026-11-27",
-    "status": "top6_research_watchlist_not_allocated",
+    "status": "top8_research_watchlist_not_allocated",
     "growth_cutoff": 1.8,
     "baseline_year": 2026,
     "end_year": 2029,
@@ -49,10 +49,21 @@
         ],
         "adr_eligibility": "unverified",
         "evidence_ref": "2026-11-27.snapshot.json"
+      },
+      {
+        "issuer": "SK Hynix",
+        "display_ticker": "000660.KS",
+        "primary_ticker": "000660.KS",
+        "reason": "Explicit user inclusion as value-growth exception",
+        "growth_qualification": "below 180% cutoff under prior provisional 2029 scenario",
+        "growth_scenario": 1.16,
+        "ttm_pe_observation": 4.19,
+        "evidence_ref": "2026-11-27.trailing-pe-screen.json",
+        "broker_eligibility": "unverified"
       }
     ],
     "weights": null,
-    "notes": "User cropped to six after 180% cutoff; KXIAY separate exception. No ETF research or allocation implied.",
+    "notes": "Six growth-screen candidates plus two explicit user-selected memory value-growth exceptions: Kioxia and SK Hynix. No duplicate share-class exposure. No ETF research or allocation implied.",
     "evidence_refs": [
       "2026-11-27.snapshot.json",
       "2026-11-27.india-expansion.json",
@@ -136,6 +147,7 @@
     ],
     "evidence_ref": "2026-11-27.global-equity-expansion.json",
     "stress_test_ref": "2026-11-27.top6-stress.json",
-    "active_etf_research": false
+    "active_etf_research": false,
+    "stress_test_coverage": "Existing stress test covers core six only; memory exceptions need normalized cycle stress."
   }
 }
