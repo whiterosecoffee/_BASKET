@@ -1,0 +1,108 @@
+{
+  "as_of": "2026-11-27",
+  "status": "research only",
+  "parent_revision": "349a09029a60b6a61a73bc0011741649db99be71",
+  "reason": "User highlighted high current P/E among top six; separate historical trailing multiple from modeled calendar forward P/E.",
+  "rows": [
+    {
+      "ticker": "000660.KS",
+      "ttm_pe": 4.19,
+      "provider_forward_pe": 2.11,
+      "source": "https://stockanalysis.com/quote/krx/000660/",
+      "observed_date": "2026-11-27",
+      "quote_status": "delayed",
+      "passes_proposed_ttm_ceiling": true
+    },
+    {
+      "ticker": "285A.T",
+      "ttm_pe": 5.19,
+      "provider_forward_pe": 1.73,
+      "source": "https://stockanalysis.com/quote/tyo/285A/",
+      "observed_date": "2026-11-27",
+      "quote_status": "delayed",
+      "passes_proposed_ttm_ceiling": true
+    },
+    {
+      "ticker": "3037.TW",
+      "ttm_pe": 32.28,
+      "provider_forward_pe": 17.6,
+      "source": "https://stockanalysis.com/quote/tpe/3037/",
+      "observed_date": "2026-11-27",
+      "quote_status": "delayed",
+      "passes_proposed_ttm_ceiling": false
+    },
+    {
+      "ticker": "3661.TW",
+      "ttm_pe": 39.89,
+      "provider_forward_pe": 18.86,
+      "source": "https://stockanalysis.com/quote/tpe/3661/",
+      "observed_date": "2026-11-27",
+      "quote_status": "delayed",
+      "passes_proposed_ttm_ceiling": false
+    },
+    {
+      "ticker": "SMHN.DE",
+      "ttm_pe": 51.29,
+      "provider_forward_pe": 13.61,
+      "source": "https://stockanalysis.com/quote/etr/SMHN/",
+      "observed_date": "2026-11-27",
+      "quote_status": "delayed",
+      "passes_proposed_ttm_ceiling": false
+    },
+    {
+      "ticker": "2454.TW",
+      "ttm_pe": 59.16,
+      "provider_forward_pe": 26.72,
+      "source": "https://stockanalysis.com/quote/tpe/2454/",
+      "observed_date": "2026-11-27",
+      "quote_status": "delayed",
+      "passes_proposed_ttm_ceiling": false
+    },
+    {
+      "ticker": "3443.TW",
+      "ttm_pe": 102.98,
+      "provider_forward_pe": 43.47,
+      "source": "https://stockanalysis.com/quote/tpe/3443/",
+      "observed_date": "2026-11-27",
+      "quote_status": "delayed",
+      "passes_proposed_ttm_ceiling": false
+    },
+    {
+      "ticker": "PTCIL.NS",
+      "ttm_pe": 271.37,
+      "provider_forward_pe": 121.58,
+      "source": "https://stockanalysis.com/quote/nse/PTCIL/",
+      "observed_date": "2026-11-27",
+      "quote_status": "delayed",
+      "passes_proposed_ttm_ceiling": false
+    }
+  ],
+  "conflicts": [
+    {
+      "ticker": "SMHN.DE",
+      "other_ttm_pe": 42.08,
+      "source": "https://finance.yahoo.com/quote/SMHN.DE/",
+      "resolution": "unreconciled EPS basis"
+    },
+    {
+      "ticker": "285A.T",
+      "other_ttm_pe": 9.79,
+      "source": "https://finance.yahoo.com/quote/285A.T/",
+      "resolution": "different vintage and EPS/share basis; use primary listing matched price/EPS for comparison"
+    }
+  ],
+  "proposed_screen_not_authorized": {
+    "ttm_pe_max": 15,
+    "calendar_2027_pe_max": 10,
+    "normalized_pe_max": 15,
+    "growth_2026_to_2029_min": 1.5,
+    "stress_return_min": 0
+  },
+  "membership_changed": false,
+  "limitations": [
+    "Provider forward period not necessarily calendar 2027",
+    "Memory earnings may be near cycle peak; normalized P/E not established",
+    "Do not infer ADR valuation from primary listing without reconciling ratio and FX",
+    "No full global rerun or independent validation"
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "id": "foreign_mega_growth",
+  "purpose": "Screen allied-market foreign equities for >=180% CY2026–2029 cumulative EPS growth, retain top six plus explicit Kioxia and SK Hynix value-growth exceptions, then rank modeled USD return entering 2030.",
+  "parent_refs": [
+    "../../../AGENTS.md",
+    "https://github.com/whiterosecoffee/_PATTERNS/tree/work/83-ticker-forward-growth/_TICKERS/skills/analyze-forward-growth"
+  ],
+  "issue": 329,
+  "branch": "work/329-foreign-mega-growth",
+  "spark": "B17",
+  "owner": "B17-329",
+  "status": "research_provisional",
+  "design_ref": "feature-design.md",
+  "evidence_ref": "2026-11-27.snapshot.json",
+  "objectives": {
+    "primary": "compare consistent calendar forward earnings",
+    "secondary": "rank valuation sensitivity, not automatic trades"
+  },
+  "next_action": "Reconcile fiscal quarters, GAAP/adjusted basis, FX and through-cycle multiples with ticker growth and valuation owners; independently verify calculator.",
+  "ghost_nodes": [
+    "qualified issuer estimates",
+    "terminal multiple evidence",
+    "FX and ADR execution qualification"
+  ],
+  "membership": {
+    "as_of": "2026-11-27",
+    "status": "top8_research_watchlist_not_allocated",
+    "growth_cutoff": 1.8,
+    "baseline_year": 2026,
+    "end_year": 2029,
+    "core_candidates": [
+      "3443.TW",
+      "SMHN.DE",
+      "PTCIL.NS",
+      "2454.TW",
+      "3661.TW",
+      "3037.TW"
+    ],
+    "exceptions": [
+      {
+        "issuer": "Kioxia Holdings",
+        "display_ticker": "KXIAY",
+        "primary_ticker": "285A.T",
+        "reason": "Explicit user inclusion; valuation exception; do not count ADR and primary as separate exposures",
+        "growth_qualification": "borderline/unreconciled",
+        "growth_scenarios": [
+          1.32,
+          1.57
+        ],
+        "adr_eligibility": "unverified",
+        "evidence_ref": "2026-11-27.snapshot.json"
+      },
+      {
+        "issuer": "SK Hynix",
+        "display_ticker": "000660.KS",
+        "primary_ticker": "000660.KS",
+        "reason": "Explicit user inclusion as value-growth exception",
+        "growth_qualification": "below 180% cutoff under prior provisional 2029 scenario",
+        "growth_scenario": 1.16,
+        "ttm_pe_observation": 4.19,
+        "evidence_ref": "2026-11-27.trailing-pe-screen.json",
+        "broker_eligibility": "unverified"
+      }
+    ],
+    "weights": null,
+    "notes": "Six growth-screen candidates plus two explicit user-selected memory value-growth exceptions: Kioxia and SK Hynix. No duplicate share-class exposure. No ETF research or allocation implied.",
+    "evidence_refs": [
+      "2026-11-27.snapshot.json",
+      "2026-11-27.india-expansion.json",
+      "2026-11-27.etf-competition.json",
+      "2026-11-27.top6-stress.json"
+    ]
+  },
+  "etf_eligibility": {
+    "decision_date": "2026-11-27",
+    "user_rule": "US-tradable ETFs only; foreign underlying listings allowed",
+    "implementation": "Require US exchange listing and verify broker purchase eligibility separately; exclude foreign-listed funds from investable ranking, retain historical research.",
+    "shortlist": [
+      "FLTW",
+      "EWT",
+      "CHPS",
+      "FLJP",
+      "EWJ",
+      "SMIN"
+    ],
+    "excluded": [
+      "00947.TW",
+      "00904.TW",
+      "00892.TW",
+      "00981A.TW"
+    ],
+    "concentration_targets": [
+      "3443.TW",
+      "2454.TW",
+      "3661.TW",
+      "3037.TW",
+      "285A.T"
+    ],
+    "broker_eligibility": "unverified",
+    "notes": "US listing does not establish Merrill order or margin eligibility. Direct KXIAY exception remains separate.",
+    "kioxia_etf_evidence": [
+      {
+        "ticker": "CHPS",
+        "weight_pct": 1.38,
+        "holdings_date": "2026-11-24",
+        "source": "https://stockanalysis.com/etf/chps/holdings/",
+        "fee_pct": 0.15
+      },
+      {
+        "ticker": "EWJ",
+        "weight_pct": 1.2,
+        "holdings_date": null,
+        "observed_date": "2026-11-27",
+        "source": "https://www.schwab.wallst.com/schwab/Prospect/research/etfs/schwabETF/index.asp?YYY101_z5K6INmijHk1FjmWAV7fGvwy6A90%2F7axjYPZo6XA3uS%2F6cqJ3coaQJT%2Fv8DaV2fm8px5g1mqTUzS01s+PdYcV715PLshc%2FBUbkl4KQn3GTU=&symbol=EWJ&type=holdings"
+      }
+    ]
+  },
+  "current_scope": {
+    "user_decision": "Individual companies only; stop ETF wrapper research",
+    "as_of": "2026-11-27",
+    "prior_etf_research": "historical, retained",
+    "proposed_additions": [
+      {
+        "ticker": "SMHN.DE",
+        "status": "scenario_candidate"
+      },
+      {
+        "ticker": "5274.TWO",
+        "status": "scenario_candidate"
+      },
+      {
+        "ticker": "092870.KQ",
+        "status": "proxy_pending_diluted_eps"
+      },
+      {
+        "ticker": "3017.TW",
+        "status": "scenario_candidate"
+      },
+      {
+        "ticker": "RHM.DE",
+        "status": "scenario_candidate"
+      },
+      {
+        "ticker": "2345.TW",
+        "status": "proxy_pending_diluted_eps"
+      }
+    ],
+    "evidence_ref": "2026-11-27.global-equity-expansion.json",
+    "stress_test_ref": "2026-11-27.top6-stress.json",
+    "active_etf_research": false,
+    "stress_test_coverage": "Existing stress test covers core six only; memory exceptions need normalized cycle stress.",
+    "expanded_analysis": {
+      "status": "partial_universe_scenario_research",
+      "evidence_refs": [
+        "2026-11-27.expanded-roi.json",
+        "2026-11-27.basket-coverage-and-risk.json"
+      ],
+      "coverage_counts": {
+        "scenario_modeled": 27,
+        "earnings_model_not_qualified": 261,
+        "earnings_series_conflict": 1,
+        "identity_or_listing_status_review": 10,
+        "alternative_method_required": 3
+      },
+      "storage_thesis": "HDD structural substitution risk; prioritize workload-specific TCO falsification",
+      "membership_changed": false
+    }
+  }
+}

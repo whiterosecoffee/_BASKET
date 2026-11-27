@@ -1,0 +1,105 @@
+{
+  "as_of": "2026-11-27",
+  "status": "provisional research",
+  "parent": "2026-11-27.snapshot.json",
+  "scope": "India extension; 300% CY26 to CY29 EPS growth threshold, not return",
+  "rows": [
+    {
+      "ticker": "PTCIL.NS",
+      "source": "https://images.moneycontrol.com/static-mcnews/2026/11/20261117055620_PTC-Industries-1711026-icici.pdf",
+      "source_date": "2026-11-16",
+      "fy_end": "March",
+      "fy26_to29_eps": [
+        67.8,
+        130.9,
+        247.8,
+        446.1
+      ],
+      "currency": "INR",
+      "price": 25462.75,
+      "price_venue": "BSE",
+      "price_source": "https://twelvedata.com/markets/753487/stock/bse/ptcil/analysis",
+      "price_observed_at": "2026-11-27T15:29:00+05:30",
+      "cy26": 115.12500000000001,
+      "cy27": 218.57500000000002,
+      "pe27": 116.4943383278051,
+      "scenarios": [
+        {
+          "fy30_fy31_growth_assumed": 0.3,
+          "cy29": 546.4725000000001,
+          "cy30": 710.4142500000002,
+          "growth": 3.7467752442996742,
+          "constant_price_pe2030": 35.84211606115727,
+          "return_at_30x": -0.16299584687435542,
+          "return_at_40x": 0.11600553750085929
+        },
+        {
+          "fy30_fy31_growth_assumed": 0.4,
+          "cy29": 579.9300000000001,
+          "cy30": 811.902,
+          "growth": 4.0373941368078174,
+          "constant_price_pe2030": 31.361851553512615,
+          "return_at_30x": -0.04342382499926356,
+          "return_at_40x": 0.2754349000009819
+        },
+        {
+          "fy30_fy31_growth_assumed": 0.5,
+          "cy29": 613.3875,
+          "cy30": 920.0812500000001,
+          "growth": 4.328013029315961,
+          "constant_price_pe2030": 27.674458098129918,
+          "return_at_30x": 0.08403206645001049,
+          "return_at_40x": 0.44537608860001376
+        }
+      ],
+      "qualification": "scenario only; elevated valuation, capex and certification risk"
+    },
+    {
+      "ticker": "NETWEB.NS",
+      "source": "https://www.netwebindia.com/investors/research-report/BOFA/BOFA-Q2-FY27.pdf",
+      "source_date": "2026-10-26",
+      "fy26_to29_eps": [
+        36.3,
+        71.48,
+        91.23,
+        115.79
+      ],
+      "currency": "INR",
+      "cy26": 62.685,
+      "cy29": 139.15063250000003,
+      "fy30_growth_assumed": 0.269,
+      "growth": 1.2198393953896471,
+      "qualification": "below 300%"
+    },
+    {
+      "ticker": "E2E.NS",
+      "source": "https://nsearchives.nseindia.in/corporate/E2E_26102026165101_Press_Release_26102026.pdf",
+      "source_date": "2026-10-26",
+      "planned_capacity_mw": 14.6,
+      "planned_capacity_increase": 0.59,
+      "qualification": "unquantified; no consistent EPS forecast; financing and dilution required"
+    },
+    {
+      "ticker": "UNIMECH.NS",
+      "fy26_29_pat_cagr": 0.539
+    },
+    {
+      "ticker": "ZENTEC.NS",
+      "fy26_29_pat_cagr": 0.534
+    },
+    {
+      "ticker": "SYRMA.NS",
+      "fy26_29_pat_cagr": 0.388
+    }
+  ],
+  "additional_sources": [
+    "https://investmentguruindia.com/editorial/uploads/news-pdf/c2c13b9f_DEFENCE-20261125-MOFSL-SU-PG008.pdf",
+    "https://www.plindia.com/pl-research/syrma-sgs-technology-syrma-in-q2fy27-result-update-healthy-order-book-underpins-multi-year-growth-upgrade-to-accumulate/"
+  ],
+  "limitations": [
+    "March fiscal interpolation assumes equal quarter shares; FY30/31 modeled not consensus",
+    "PAT growth not EPS",
+    "constant FX not USD target; FX and trading eligibility unverified",
+    "no comprehensive global screen"
+  ]
+}

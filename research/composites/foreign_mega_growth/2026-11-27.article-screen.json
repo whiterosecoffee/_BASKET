@@ -1,0 +1,75 @@
+{
+  "as_of": "2026-11-27",
+  "status": "provisional article discovery, no membership change",
+  "article": {
+    "date": "2026-07-06",
+    "source": "https://simplywall.st/stocks/cn/capital-goods/shse-603308/anhui-yingliu-electromechanical-shares/news/global-stocks-that-might-be-priced-below-intrinsic-value-est/amp"
+  },
+  "rows": [
+    {
+      "ticker": "603308.SS",
+      "issuer": "Anhui Yingliu",
+      "currency": "CNY",
+      "price": 27.68,
+      "price_observed_at": "2026-11-27T15:00:01+08:00",
+      "ttm_pe": 46.76,
+      "price_source": "https://www.google.com/finance/beta/quote/603308%3ASHA",
+      "eps_2026_28": [
+        0.77,
+        1.24,
+        1.9
+      ],
+      "estimate_source": "https://reportify.cn/transcripts/1317171392755666944",
+      "estimate_date": "2026-11-09",
+      "growth_2026_2029_range": [
+        2.2077922077922074,
+        2.701298701298701
+      ],
+      "qualification": "excluded allied-market scope; affiliate export control exposure, not claim of stock purchase ban",
+      "risk_source": "https://seed.nih.gov/small-business-funding/small-business-program-basics/foreign-disclosure-and-risk-management/restricted-entity-search-tool"
+    },
+    {
+      "ticker": "089030.KQ",
+      "issuer": "Techwing",
+      "ttm_pe": null,
+      "provider_forward_pe": 10.41,
+      "source": "https://stockanalysis.com/quote/kosdaq/089030/",
+      "qualification": "priority turnaround research; loss TTM, calendar growth not established"
+    },
+    {
+      "ticker": "CNTL.SW",
+      "issuer": "Centiel",
+      "reported_ttm_pe": 3.02,
+      "provider_forward_pe": 28.51,
+      "source": "https://stockanalysis.com/quote/swx/CNTL/",
+      "qualification": "share count/earnings basis conflict; do not treat trailing PE as reliable",
+      "contract_source": "https://www.centiel.com/eqs-news/421d3e5e-4cef-4a0f-993b-68e708869cef/en/"
+    },
+    {
+      "ticker": "CAMBI.OL",
+      "issuer": "Cambi",
+      "ttm_pe": 72.93,
+      "provider_forward_pe": 24.97,
+      "source": "https://stockanalysis.com/quote/osl/CAMBI/",
+      "qualification": "recovery screen, not cheap current earnings"
+    },
+    {
+      "ticker": "JST.DE",
+      "issuer": "JOST Werke",
+      "ttm_pe_range": [
+        29.32,
+        101.65
+      ],
+      "provider_forward_pe": 12.01,
+      "source": "https://stockanalysis.com/quote/etr/JST/",
+      "alternate_source": "https://finance.yahoo.com/quote/JST.DE/",
+      "qualification": "reconcile earnings basis; not qualified"
+    }
+  ],
+  "limitations": [
+    "Article DCF estimates historical and not independently validated",
+    "Current observations delayed, source bases differ",
+    "No 2029 consensus for new candidates; no current USD monetary targets",
+    "No trades"
+  ]
+}

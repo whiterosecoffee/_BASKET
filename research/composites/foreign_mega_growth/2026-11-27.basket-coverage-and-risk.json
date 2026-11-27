@@ -1,0 +1,2536 @@
+{
+  "id": "basket_expansion_coverage",
+  "as_of": "2026-11-27",
+  "status": "coverage inventory, partial scenario analysis",
+  "source_revision": "5be19554a6546c10eb2ec6b026f6d766c691fd92",
+  "scopes": {
+    "working_registry": 66,
+    "rotation_company_models": 44,
+    "integrator_research": 24,
+    "foreign_watchlist": 8,
+    "ticker_store_catalog": 263
+  },
+  "catalog_note": "ticker-store directory names are candidate instruments, not verified active companies or canonical basket membership; exclude known funds, indices, FX, tools and preserve unresolved identities. Candidate union includes overlapping research groups and foreign additions; not personal holdings.",
+  "counts": {
+    "scenario_modeled": 27,
+    "earnings_model_not_qualified": 261,
+    "earnings_series_conflict": 1,
+    "identity_or_listing_status_review": 10,
+    "alternative_method_required": 3
+  },
+  "inventory": [
+    {
+      "ticker": "2454.TW",
+      "status": "scenario_modeled",
+      "sources": [
+        "foreign_watchlist"
+      ]
+    },
+    {
+      "ticker": "3037.TW",
+      "status": "scenario_modeled",
+      "sources": [
+        "foreign_watchlist"
+      ]
+    },
+    {
+      "ticker": "3443.TW",
+      "status": "scenario_modeled",
+      "sources": [
+        "foreign_watchlist"
+      ]
+    },
+    {
+      "ticker": "3661.TW",
+      "status": "scenario_modeled",
+      "sources": [
+        "foreign_watchlist"
+      ]
+    },
+    {
+      "ticker": "AAOI",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "AAON",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "AAPL",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ABBNY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ACLS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ACN",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ADBE",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ADI",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ADSK",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "AEP",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "AKAM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ALAB",
+      "status": "earnings_series_conflict",
+      "sources": [
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "AMAT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "AMD",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "AMT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "AMZN",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ANET",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "APH",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "APLD",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "APO",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ARM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ASML",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ATEYY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ATKR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ATUS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "AVAV",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "AVGO",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "AXON",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry"
+      ]
+    },
+    {
+      "ticker": "BA",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "BAM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "BBY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "BE",
+      "status": "scenario_modeled",
+      "sources": [
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "BITF",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "BKR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "BLK",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "BN",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "BRK.B",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "BSLAF",
+      "status": "identity_or_listing_status_review",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "BTDR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "BX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CABO",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CAP",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "CBRS",
+      "status": "identity_or_listing_status_review",
+      "sources": [
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CCI",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CDNS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CEG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CGNX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CHTR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CIEN",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CIFR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CINT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "CLS",
+      "status": "scenario_modeled",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CLSK",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CMCSA",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CNP",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "COFORGE",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "COHR",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "COHU",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "COP",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CORZ",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CRDO",
+      "status": "scenario_modeled",
+      "sources": [
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CRM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CRWD",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CRWV",
+      "status": "alternative_method_required",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CSCO",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CSGP",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CTSH",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "CVS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "CVX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "D",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "DASTY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "DAVA",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "DBRG",
+      "status": "identity_or_listing_status_review",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "DDOG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "DE",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "DELL",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "DLR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "DNA",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "DTEGY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry"
+      ]
+    },
+    {
+      "ticker": "DUK",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "DVN",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "DXC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "EME",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "EOG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "EPAM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "EQIX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ERIC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ET",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ETN",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ETR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ETSY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "EXC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "EXLS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "FANG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "FANUY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "FAST",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "FCX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "FIX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "FJTSY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "FLEX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "rotation_company_models"
+      ]
+    },
+    {
+      "ticker": "FN",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "FORM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "FSLY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "FTNT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "FYBR",
+      "status": "identity_or_listing_status_review",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "G",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "GD",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "GDYN",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "GE",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "GEV",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "GFS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "GIB",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "GLOB",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "GLW",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "GLXY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "GOOG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "GS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "HAL",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "HCLTECH",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "HES",
+      "status": "identity_or_listing_status_review",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "HII",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "HIMX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "rotation_company_models"
+      ]
+    },
+    {
+      "ticker": "HIVE",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "HON",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry"
+      ]
+    },
+    {
+      "ticker": "HOOD",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "HP",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "HPE",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "HUBB",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "HUT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "IBIDY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "IBM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "integrator_research",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "IESC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "INFY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "INOD",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "rotation_company_models"
+      ]
+    },
+    {
+      "ticker": "INTC",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "IONQ",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "IREN",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "IRM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ISRG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "JBL",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "JNJ",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "KD",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "KEYS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "KKR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "KLAC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "KLIC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "KMI",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "KTOS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "KXIAY",
+      "status": "scenario_modeled",
+      "sources": [
+        "foreign_watchlist"
+      ]
+    },
+    {
+      "ticker": "KYCCF",
+      "status": "identity_or_listing_status_review",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "LBRDK",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "LDOS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "LEU",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "LFUS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "LGRDY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "LHX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "LITE",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "LLY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "LMT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "LNG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "LRCX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "LSCC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "rotation_company_models"
+      ]
+    },
+    {
+      "ticker": "LTIM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "LUMN",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "M",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MANH",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MARA",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MBLY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry"
+      ]
+    },
+    {
+      "ticker": "MCK",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MDB",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MDT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MELI",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "META",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MOD",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MP",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MPC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MPWR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MRAAY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MRNA",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MRVL",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MSFT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MTSI",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MU",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "MYRG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NBIS",
+      "status": "alternative_method_required",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NDAQ",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NEE",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NET",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NFLX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NOC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NOK",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NOW",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NRG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NVDA",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NVO",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NVT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "NXPI",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "OKLO",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "OKTA",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "OMRNY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ONTO",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ORCL",
+      "status": "scenario_modeled",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "OXY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "PANW",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "PATH",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "PAYP",
+      "status": "identity_or_listing_status_review",
+      "sources": [
+        "working_registry"
+      ]
+    },
+    {
+      "ticker": "PCB",
+      "status": "identity_or_listing_status_review",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "PCG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "PEG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "PENG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "rotation_company_models"
+      ]
+    },
+    {
+      "ticker": "PERSISTENT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "PLTR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "integrator_research",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "POWL",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "PSX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "PTCIL.NS",
+      "status": "scenario_modeled",
+      "sources": [
+        "foreign_watchlist"
+      ]
+    },
+    {
+      "ticker": "PWR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "QBTS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "QCOM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "RGTI",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "RIOT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "RKLB",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "RKUNY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ROK",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "RTX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "RXRX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SAP",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SBAC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SBGSY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SDGR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry"
+      ]
+    },
+    {
+      "ticker": "SDIG",
+      "status": "identity_or_listing_status_review",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SFTBY",
+      "status": "alternative_method_required",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SHOP",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SIEGY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SKHY",
+      "status": "scenario_modeled",
+      "sources": [
+        "rotation_company_models",
+        "foreign_watchlist",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SLB",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SMCI",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SMHN.DE",
+      "status": "scenario_modeled",
+      "sources": [
+        "foreign_watchlist"
+      ]
+    },
+    {
+      "ticker": "SMR",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SMTC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "rotation_company_models"
+      ]
+    },
+    {
+      "ticker": "SNDK",
+      "status": "scenario_modeled",
+      "sources": [
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SNOW",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SNPS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SO",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SPOT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SPXC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SRE",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "STX",
+      "status": "scenario_modeled",
+      "sources": [
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SYK",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "SYM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "T",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TCS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "TDG",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TDS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TECHM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research"
+      ]
+    },
+    {
+      "ticker": "TEL",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TEM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TER",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TGT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TLN",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TMUS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TRGP",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TRI",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TRMB",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TSLA",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TSM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TTDKY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TTMI",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "rotation_company_models"
+      ]
+    },
+    {
+      "ticker": "TXN",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TXT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TYL",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "TYOYY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "UL",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "UMC",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "UNH",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "USM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "VEEV",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry"
+      ]
+    },
+    {
+      "ticker": "VIAV",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "VKTX",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "VLO",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "VRT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "VS",
+      "status": "identity_or_listing_status_review",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "VSH",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "VST",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "VZ",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "W",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "WDC",
+      "status": "scenario_modeled",
+      "sources": [
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "WIT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "integrator_research",
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "WMB",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "WMT",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "WOW",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "WULF",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "XEL",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "XOM",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "YAGOY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "YASKY",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ZBRA",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "ticker_store_catalog"
+      ]
+    },
+    {
+      "ticker": "ZS",
+      "status": "earnings_model_not_qualified",
+      "sources": [
+        "working_registry",
+        "rotation_company_models",
+        "ticker_store_catalog"
+      ]
+    }
+  ],
+  "excluded_catalog": [
+    "ACWX",
+    "BNO",
+    "CPER",
+    "C_USDJPY",
+    "EEM",
+    "EFA",
+    "EMB",
+    "EWG",
+    "EWJ",
+    "EWT",
+    "EWU",
+    "EWY",
+    "EWZ",
+    "EZU",
+    "FXI",
+    "GDX",
+    "GLD",
+    "HYG",
+    "IEF",
+    "IGV",
+    "ILF",
+    "INDA",
+    "ITA",
+    "IWB",
+    "IWC",
+    "IWD",
+    "IWL",
+    "IWM",
+    "IWN",
+    "IWV",
+    "IWY",
+    "I_COMP",
+    "I_COR1M",
+    "I_COR3M",
+    "I_DSPX",
+    "I_DWCF",
+    "I_NDX",
+    "I_RUI",
+    "I_RUT",
+    "I_SIXB",
+    "I_SIXC",
+    "I_SIXE",
+    "I_SIXI",
+    "I_SIXM",
+    "I_SIXR",
+    "I_SIXRE",
+    "I_SIXT",
+    "I_SIXU",
+    "I_SIXV",
+    "I_SKEW",
+    "I_SPX",
+    "I_TNX",
+    "I_TYX",
+    "I_VIX",
+    "I_VIX3M",
+    "I_VIX6M",
+    "I_VIX9D",
+    "I_VVIX",
+    "JNK",
+    "LQD",
+    "MDY",
+    "NLR",
+    "OIH",
+    "PSQ",
+    "QQQ",
+    "QQQM",
+    "RSP",
+    "SHY",
+    "SLV",
+    "SMH",
+    "SPHB",
+    "SPLV",
+    "SPY",
+    "SQQQ",
+    "TIP",
+    "TLT",
+    "UNG",
+    "URA",
+    "USO",
+    "UUP",
+    "VGK",
+    "XBI",
+    "XLB",
+    "XLC",
+    "XLE",
+    "XLF",
+    "XLI",
+    "XLK",
+    "XLP",
+    "XLRE",
+    "XLU",
+    "XLV",
+    "XLY",
+    "_MASSIVE-API",
+    "skills"
+  ],
+  "additional_ordinary_models": [
+    {
+      "ticker": "ORCL",
+      "price": 107.13,
+      "fy": [
+        7.55,
+        8.15,
+        11.09,
+        15.82
+      ],
+      "m": 5,
+      "outer": [
+        0.2,
+        0.15
+      ],
+      "pe": 18,
+      "source": "https://www.qddresearch.com/us/orcl/",
+      "risk": "capex, project funding, FCF and dilution",
+      "calendar_eps": {
+        "2026": 7.9,
+        "2027": 9.864999999999998,
+        "2028": 13.849166666666665,
+        "2029": 17.665666666666667,
+        "2030": 20.645099999999996
+      },
+      "growth": 1.2361603375527426,
+      "entry_pe": 10.859604662949824,
+      "base_return": 2.468793055166619,
+      "stress_return": 0.8211163539624748,
+      "severe_return": 0.04063791654998572
+    },
+    {
+      "ticker": "FN",
+      "price": 307.59,
+      "fy": [
+        14.09,
+        19.71,
+        23.7,
+        28.8
+      ],
+      "m": 6,
+      "outer": [
+        0.15,
+        0.15
+      ],
+      "pe": 18,
+      "source": "https://www.qddresearch.com/int/fn/",
+      "risk": "customer concentration, optical manufacturing economics",
+      "calendar_eps": {
+        "2026": 16.9,
+        "2027": 21.705,
+        "2028": 26.25,
+        "2029": 30.96,
+        "2030": 35.604
+      },
+      "growth": 0.8319526627218936,
+      "entry_pe": 14.171389080856946,
+      "base_return": 1.0835267726519069,
+      "stress_return": 0.09385155564225123,
+      "severe_return": -0.37494196820442793
+    },
+    {
+      "ticker": "CIEN",
+      "price": 256.58,
+      "fy": [
+        7.22,
+        11.98,
+        18.04,
+        12.67,
+        14.93,
+        18.08
+      ],
+      "m": 10,
+      "pe": 20,
+      "source": "https://www.chartmill.com/stock/quote/CIEN/estimates",
+      "risk": "2029 estimate drops; analyst cohorts and margins need reconciliation",
+      "calendar_eps": {
+        "2026": 8.013333333333334,
+        "2027": 12.99,
+        "2028": 17.145,
+        "2029": 13.046666666666667,
+        "2030": 15.454999999999998
+      },
+      "growth": 0.6281198003327786,
+      "entry_pe": 19.752117013086988,
+      "base_return": 0.20469249356925712,
+      "stress_return": -0.36753644087614,
+      "severe_return": -0.6385922519292229
+    }
+  ],
+  "turnaround_models": [
+    {
+      "ticker": "CRWV",
+      "price": 44.15,
+      "eps": [
+        -3.78,
+        -1.79,
+        1.51,
+        6.99,
+        19.59
+      ],
+      "source": "https://github.com/whiterosecoffee/_BASKET/blob/60225d72694594c1a39a611b655b5dc965ade5c8/research/CRWV/assessments/2026-11-20-eps-2026-2030.md",
+      "source_date": "2026-11-20",
+      "risk": "debt, funding, depreciation and customer concentration",
+      "growth": null,
+      "entry_pe": null,
+      "full_forecast_terminal_pe": 15,
+      "normalized_eps_factor": 0.5,
+      "illustrative_return": 2.3278595696489246,
+      "stress_return": 0.7471262740656852,
+      "qualification": "separate turnaround scenario; not ordinary EPS growth ranking"
+    },
+    {
+      "ticker": "NBIS",
+      "price": 89.46,
+      "eps": [
+        -1.11,
+        -2.85,
+        2.24,
+        11.35,
+        21.2
+      ],
+      "source": "https://deltascreener.com/stock/NBIS/forecast",
+      "source_date": "2026-11-25",
+      "risk": "capex, financing, dilution, delivery and utilization",
+      "growth": null,
+      "entry_pe": null,
+      "full_forecast_terminal_pe": 15,
+      "normalized_eps_factor": 0.5,
+      "illustrative_return": 0.7773306505700872,
+      "stress_return": -0.06690140845070425,
+      "qualification": "separate turnaround scenario; not ordinary EPS growth ranking"
+    }
+  ],
+  "alternative_or_pending": [
+    {
+      "ticker": "ALAB",
+      "eps": [
+        4.44,
+        7.31,
+        9.24,
+        4.49,
+        null
+      ],
+      "source": "https://www.chartmill.com/stock/quote/ALAB/estimates",
+      "status": "2029 drops despite near-term growth; reconcile coverage before 2030 return model"
+    },
+    {
+      "ticker": "SFTBY",
+      "source": "https://group.softbank/en/ir/stock/sotp",
+      "status": "NAV valuation required; no ordinary P/E ranking"
+    }
+  ],
+  "storage_risk": {
+    "user_thesis": "HDD must retain workload-specific TCO advantage as flash density, latency, energy efficiency and capacity improve",
+    "evidence": [
+      {
+        "source": "https://americas.kioxia.com/pt-br/business/news/2026/ssd-20261111-1.html",
+        "date": "2026-11-11",
+        "claim": "157 PB raw flash rack collaboration; issuer announced configuration"
+      },
+      {
+        "source": "https://investor.wdc.com/news-releases/news-release-details/western-digital-accelerates-storage-innovation-ai-era",
+        "date": "2026-02-03",
+        "claim": "100TB+ roadmap, bandwidth improvements and power-optimized HDD; roadmap not shipped capacity"
+      },
+      {
+        "source": "https://stockanalysis.com/stocks/stx/transcripts/717301-q1-2027/",
+        "date": "2026-10-27",
+        "claim": "50TB+ planned qualification late 2027"
+      }
+    ],
+    "disruption_scenario": {
+      "terminal_eps_factor": 0.4,
+      "terminal_pe": 7,
+      "returns": [
+        {
+          "ticker": "WDC",
+          "return": -0.4790318715552361
+        },
+        {
+          "ticker": "STX",
+          "return": -0.5035199937213044
+        }
+      ]
+    },
+    "falsification": [
+      "Compare usable TB/rack, watts/TB, latency, IOPS/TB, workload throughput, durability/rebuild/retention and annualized TCO per usable TB at matched SLA.",
+      "Track actual customer qualification and deployed volumes, not roadmap alone.",
+      "Compare NAND and HDD prices per usable TB, flash endurance and replacement cost, energy and cooling; separate archive, warm object storage and hot data.",
+      "Separate unit shipment from exabyte growth, margin and contracts; reprice terminal multiple when advantage erodes."
+    ]
+  },
+  "limitations": [
+    "Unranked companies remain missing, not low growth or excluded by fundamental rule.",
+    "Full source qualification and formal calculator pending.",
+    "No optimized allocation; common factors are qualitative, not estimated correlations.",
+    "All terminal multiples and normalized earnings discounts are assumptions."
+  ]
+}
