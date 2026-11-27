@@ -10,6 +10,7 @@ Discovery: these live under B04 paths. Tools that discover skills in `.github/sk
 | rotation-valuation-tiers | EPS, multiples, tiers | ratios, fundamentals | models/ |
 | rotation-relativity-ratios | 1:x ratios and weights | history | profiles/ |
 | rotation-group-sympathy | nested-group movement | returns, hierarchy | relativity/ |
+| rotation-stress-rebound | 52-week position and rebound frequencies | daily ticker store | relativity/rebound_*.json |
 | rotation-swap-decision | rotation scenarios | models, ratios | scenario output |
 | rotation-evidence-curator | news, guidance, industry | web, filings | csv, NEWS md |
 | rotation-audit-qa | gates, goldens, scoring | all | reports |

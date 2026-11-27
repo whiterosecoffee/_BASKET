@@ -9,7 +9,7 @@ metadata:
 # Audit and QA
 
 ## Procedure
-1. `python -m unittest engines.valuation.rotation.test_rotation` must pass.
+1. `python -m unittest engines.valuation.relative_value.test_rotation` must pass.
 2. `python research/models/rotation/skills/validate_skills.py` must pass (name, description, size, references).
 3. Check goldens in `../AGENTS.md` section 9; a formula change must keep them or update them with the reason.
 4. Re-score with `../prompts/AUDIT_AND_DECOMPOSITION.md` section 1 after structural changes.

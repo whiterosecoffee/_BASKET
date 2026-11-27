@@ -3,20 +3,20 @@ import unittest
 from datetime import date
 from pathlib import Path
 
-from engines.valuation.rotation import cli, store
-from engines.valuation.rotation.calendarize import calendarize, extend, ntm
-from engines.valuation.rotation.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
-from engines.valuation.rotation import portfolio as pf
-from engines.valuation.rotation import cohort as co
-from engines.valuation.rotation import bands as bnd
-from engines.valuation.rotation import models as mdl
-from engines.valuation.rotation import multiplepoints as mpt
-from engines.valuation.rotation import pointcompare as pc
-from engines.valuation.rotation import anchors as an, history as hist, profile as prof, trading as trd
-from engines.valuation.rotation.implied import implied_growth, pv
-from engines.valuation.rotation.macro import equity_duration, multiple_factor
-from engines.valuation.rotation.tape import tape_stats
-from engines.valuation.rotation.rotation import Params, decide
+from engines.valuation.relative_value import cli, store
+from engines.valuation.relative_value.calendarize import calendarize, extend, ntm
+from engines.valuation.relative_value.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
+from engines.valuation.relative_value import portfolio as pf
+from engines.valuation.relative_value import cohort as co
+from engines.valuation.relative_value import bands as bnd
+from engines.valuation.relative_value import models as mdl
+from engines.valuation.relative_value import multiplepoints as mpt
+from engines.valuation.relative_value import pointcompare as pc
+from engines.valuation.relative_value import anchors as an, history as hist, profile as prof, trading as trd
+from engines.valuation.relative_value.implied import implied_growth, pv
+from engines.valuation.relative_value.macro import equity_duration, multiple_factor
+from engines.valuation.relative_value.tape import tape_stats
+from engines.valuation.relative_value.rotation import Params, decide
 
 ASOF = date(2026, 7, 1)
 
@@ -564,6 +564,84 @@ class TestSkills(unittest.TestCase):
         spec = importlib.util.spec_from_file_location("validate_skills", root / "validate_skills.py")
         m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
         self.assertEqual(m.main(root), 0)
+
+
+class TestRebound(unittest.TestCase):
+    """Synthetic _TICKERS/<T>/snapshots store; no real data."""
+
+    def _store(self, root, sym, closes, start="2025-01-02", price_only=False):
+        import json
+        from datetime import datetime, timedelta
+        d = root / sym / "snapshots"; d.mkdir(parents=True)
+        day = datetime.strptime(start, "%Y-%m-%d")
+        for c in closes:
+            while day.weekday() >= 5:
+                day += timedelta(days=1)
+            ds = day.strftime("%Y-%m-%d")
+            from engines.valuation.relative_value import snapshots as sn
+            s0 = sn._day_start_ms(ds)
+            rows = []
+            for m, px in ((540, c * 1.5), (570, c * 1.2), (700, c * 0.9), (959, c), (990, c * 3)):   # pre-market and after-hours must be ignored
+                r = {"ticker": sym, "t": s0 + m * 60000, "px": px, "vol": 100, "src": "x", "grain": "1min"}
+                r.update({"o": None, "h": None, "l": None, "c": None, "class": "moment"} if price_only else
+                         {"o": px, "h": px * 1.01, "l": px * 0.99, "c": px, "class": "bar"})
+                rows.append(r)
+            (d / f"{ds}.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
+            day += timedelta(days=1)
+
+    def test_daily_bars_regular_session_only(self):
+        import tempfile
+        from pathlib import Path
+        from engines.valuation.relative_value import snapshots as sn
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t); self._store(root, "AAA", [100.0])
+            b = sn.daily_bars(root, "AAA")[0]
+            self.assertEqual(b["minutes"], 3); self.assertEqual(b["c"], 100.0)           # 09:00 and 16:30 minutes excluded
+            self.assertAlmostEqual(b["h"], 120.0 * 1.01); self.assertAlmostEqual(b["l"], 90.0 * 0.99)
+
+    def test_tickers_skips_tooling_and_non_equities(self):
+        import tempfile
+        from pathlib import Path
+        from engines.valuation.relative_value import snapshots as sn
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t)
+            for n in ("AAA", "I_VIX", "C_USDJPY", "_MASSIVE-API"):
+                (root / n / "snapshots").mkdir(parents=True)
+            self.assertEqual(sn.tickers(root), ["AAA"])
+
+    def test_features_distance_and_drawdown(self):
+        from engines.valuation.relative_value import rebound as rb
+        bars = [{"date": f"2025-{1 + i // 28:02d}-{1 + i % 28:02d}", "o": c, "h": c, "l": c, "c": c, "v": 1, "minutes": 1, "price_only": 0}
+                for i, c in enumerate([100, 120, 80, 90])]
+        f = rb.features(bars)[-1]
+        self.assertAlmostEqual(f["dist_low"], 90 / 80 - 1); self.assertAlmostEqual(f["dd"], 90 / 120 - 1)
+        self.assertEqual((f["lo_date"], f["hi_date"]), (bars[2]["date"], bars[1]["date"]))
+
+    def test_split_guard_excludes_and_reports(self):
+        from engines.valuation.relative_value import rebound as rb
+        mk = lambda cs: [{"date": f"2025-{1 + i // 28:02d}-{1 + i % 28:02d}", "o": c, "h": c, "l": c, "c": c, "v": 1, "minutes": 1, "price_only": 0} for i, c in enumerate(cs)]
+        per = {"OK": mk([10 + (i % 3) for i in range(200)]), "SPLIT": mk([80.0] * 100 + [10.0] * 100)}
+        r = rb.ranking(per, min_window_days=150)
+        self.assertEqual([x["ticker"] for x in r["rows"]], ["OK"]); self.assertIn("SPLIT", r["split_suspect"])
+
+    def test_forward_study_counts_and_buckets(self):
+        import random
+        from engines.valuation.relative_value import rebound as rb
+        random.seed(3)
+        def mk(start):
+            from datetime import datetime, timedelta
+            d, c, out = datetime(2025, 1, 2), 100.0, []
+            while len(out) < 420:
+                if d.weekday() < 5:
+                    c *= 1 + random.uniform(-0.02, 0.02)
+                    out.append({"date": d.strftime("%Y-%m-%d"), "o": c, "h": c * 1.01, "l": c * 0.99, "c": c, "v": 1, "minutes": 1, "price_only": 0})
+                d += timedelta(days=1)
+            return out
+        per = {f"T{i}": mk(i) for i in range(40)}
+        st = rb.forward_study(per, horizon=20, boot=20)
+        self.assertGreater(st["all"]["n"], 1000); self.assertEqual(st["all"]["tickers"], 40)
+        self.assertEqual(set(st["by_dist_low"]), {l for _, l in rb.LOW_BUCKETS})
+        self.assertAlmostEqual(st["all"]["p_beat_median_stock"], 0.5, delta=0.06)   # random walk: no edge by construction
 
 
 if __name__ == "__main__":

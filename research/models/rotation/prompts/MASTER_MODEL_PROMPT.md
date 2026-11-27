@@ -1,5 +1,5 @@
 # MASTER MODEL PROMPT: per-stock models, tiered price bands and relativity at anchor moments
-PROMPT_VERSION: 3.0.0  |  owner: B04  |  supersedes the top level of RELATIVE_ROTATION_PROFILE_PROMPT.md (that file stays as the profile sub-prompt)  |  status: draft for review
+PROMPT_VERSION: 3.1.0  |  owner: B04  |  supersedes the top level of RELATIVE_ROTATION_PROFILE_PROMPT.md (that file stays as the profile sub-prompt)  |  status: draft for review
 Load this first in any session on this universe. Facts live in repository files; this prompt tells you how to build, refresh and read them.
 
 ## 0. Stance
@@ -61,10 +61,10 @@ For each equity, at the stress moment and after it, record: drawdown from a0; Fr
 Breakpoint/quantile sorting as the method for tiers (Fama and French portfolio sorts); the 52-week-high anchoring effect (George and Hwang 2004) and reference-price behaviour (Grinblatt and Han 2005); short-term reversal and overreaction (Jegadeesh 1990; De Bondt and Thaler 1985); volume and returns (Gervais, Kaniel and Mingelgrin 2001); event-study logic for EPS updates (Ball and Brown 1968; Bernard and Thomas 1989); relative strength and industry momentum (Levy 1967; Moskowitz and Grinblatt 1999); practitioner multiple-band charts (valuation band analysis, evidence grade C); selection-bias and multiple-testing hygiene (Bailey and Lopez de Prado 2014).
 
 ## 8. Known limits (state them when relevant)
-Cohort EPS comes from Massive ratios (can lag the newest quarter or include one-offs); only three names have reported-quarter histories; eight tickers lack ratios and use price-only tiers; the cohort was assembled from a user watchlist and is not a market sample; peer groups (`cohort/peer_groups_by_industry.json`, formerly themes.json) are hand-assigned; headline-sourced news is unverified.
+Cohort EPS comes from Massive ratios (can lag the newest quarter or include one-offs); only three names have reported-quarter histories; eight tickers lack ratios and use price-only tiers; the cohort was assembled from a user watchlist and is not a market sample; peer groups (`cohort/peer_groups_by_industry.json`, formerly themes.json) are hand-assigned; headline-sourced news is unverified. Price history is the `_PATTERNS` snapshot store: unadjusted for splits, 26.7M price-only minute rows, only a 3,670-row pilot verified. Rebound frequencies come from one 14-month window and a hand-picked universe.
 
 ## 9. Change control
-Write only under B04 paths. Bump PROMPT_VERSION when this text changes and note the reason here. v3.0.0: adds the skill router (section 10); detailed procedures move into `skills/`, this file stays the persistent top level. v2.0.1: scope coverage statements to cohort versus basket; rename themes file. v2.0.0: introduces models, tiers, relativity tracker and the anchor-moment registry.
+Write only under B04 paths. Bump PROMPT_VERSION when this text changes and note the reason here. v3.1.0: price history source corrected to the `_PATTERNS` daily snapshot store (earlier text wrongly said only 6 names had history), package renamed to `engines/valuation/relative_value`, adds `rotation-stress-rebound`, boundaries with other work in `RELATED_WORK.md`. v3.0.0: adds the skill router (section 10); detailed procedures move into `skills/`, this file stays the persistent top level. v2.0.1: scope coverage statements to cohort versus basket; rename themes file. v2.0.0: introduces models, tiers, relativity tracker and the anchor-moment registry.
 
 ## 10. Skill router (persistent top level; load a skill only when its trigger matches)
 Skills follow the Agent Skills format (folder with `SKILL.md`, name and description advertised, body loaded on demand, detail in `references/`). Index and validator: `skills/README.md`, `skills/validate_skills.py`.
@@ -78,5 +78,6 @@ Skills follow the Agent Skills format (folder with `SKILL.md`, name and descript
 | did the group move together, who led, residuals | rotation-group-sympathy |
 | should I swap A for B, share count, weights | rotation-swap-decision |
 | why did it move, guidance, news, industry forecast | rotation-evidence-curator |
+| where each name sits against its 52-week low and peak, rebound frequencies | rotation-stress-rebound |
 | score, review, verify before commit | rotation-audit-qa |
-Rules for every session: state the universe (cohort 43 or basket 243) and status (final or provisional) of each number; run `rotation-audit-qa` before reporting; chain skills in this order when several apply: data-steward, universe-hierarchy, valuation-tiers, relativity-ratios, group-sympathy, two-point-compare, swap-decision; evidence-curator may run at any step. Keep at most two skills loaded at once.
+Rules for every session: state the universe (cohort 43 or basket 243) and status (final or provisional) of each number; run `rotation-audit-qa` before reporting; chain skills in this order when several apply: data-steward, universe-hierarchy, valuation-tiers, relativity-ratios, group-sympathy, stress-rebound, two-point-compare, swap-decision; evidence-curator may run at any step. Keep at most two skills loaded at once.

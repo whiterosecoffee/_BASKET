@@ -1,6 +1,9 @@
 # AGENTS.md: Two-Point Evaluation and Comparison
-Scope: `research/models/rotation/**` and `engines/valuation/rotation/**` (spark B04). This file adds rules for agents that compare **point A with point B**. It does not override the repository-root `AGENTS.md`; where they conflict the root file wins. Version 1.3.0.
+Scope: `research/models/rotation/**` and `engines/valuation/relative_value/**` (spark B04). This file adds rules for agents that compare **point A with point B**. It does not override the repository-root `AGENTS.md`; where they conflict the root file wins. Version 1.4.0.
 Key words MUST, MUST NOT, SHOULD follow RFC 2119.
+
+## 0. Branch and component purpose
+Component: B04 relative-value and spot-rotation core (`engines/valuation/relative_value/`, `research/models/rotation/`). Purpose, in one sentence: compare tickers on one apples-to-apples basis (calendarized EPS and multiples, price and valuation ratios over time, relativity to NVDA, MSFT, SMH and QQQ and to peer groups) and state, as scenarios, when swapping one name for another improves share count or expected end value. It is offline and read-only, gives no trading instruction, and writes nothing outside its two paths. Related and overlapping work and the boundaries with it: `RELATED_WORK.md`. Data: prices come from the `_PATTERNS` snapshot store (`_TICKERS/<T>/snapshots/<date>.jsonl`, read through `snapshots.py`); estimates, guidance and events are the csv files here, each row with source, date and evidence class.
 
 ## 1. Purpose
 Evaluate how a price moved between two named points, compare that move across instruments and against references (NVDA, MSFT, SMH, QQQ), and report facts, assumptions and flags without forecasting. Typical pair: `fri_close` (A) vs `mon_high` (B).
@@ -53,7 +56,7 @@ Zone track: dwell days, visits and volume share of the corridor [A, B] in the pr
 ## 7. Procedure
 1. Fix the pair and the snapshot time; state it.
 2. Run the validity gate (section 4). Stop on failure.
-3. `python -m engines.valuation.rotation.cli compare --a <A> --b <B>` writes `comparisons/<A>__vs__<B>__<date>.json` (schema `rotation.compare/1`).
+3. `python -m engines.valuation.relative_value.cli compare --a <A> --b <B>` writes `comparisons/<A>__vs__<B>__<date>.json` (schema `rotation.compare/1`).
 4. Join with `profiles/<T>.json` for ratios, zones and valuation context; keep valuation and price tracks separate in the write-up.
 5. Report: (a) pair and status, (b) the three subjects (NVDA, CRWV, SNDK) first, (c) cohort summary and theme table, (d) flags, (e) limitations, (f) files and as-of times.
 6. Refresh when a provisional session closes: regenerate with final points, keep the old snapshot file, and state what changed.
@@ -71,7 +74,7 @@ Snapshot `massive_mon_20261123_1351ET.csv`, pair `fri_close` -> `mon_high`:
 Any change to the formulas MUST keep these values or update this section with the reason.
 
 ## 10. Testing and change control
-- Run `python -m unittest engines.valuation.rotation.test_rotation`; the `PC` and `C` test classes cover this contract.
+- Run `python -m unittest engines.valuation.relative_value.test_rotation`; the `PC` and `C` test classes cover this contract.
 - Generated JSON is regenerated, never hand-edited. Input snapshots are append-only; new snapshots get a new file name with the time in it.
 - Write only under B04 paths. Changes to shared schemas or the root `AGENTS.md` go through B00.
 - Bump the version in this file for any change to definitions, validity checks or required metrics.

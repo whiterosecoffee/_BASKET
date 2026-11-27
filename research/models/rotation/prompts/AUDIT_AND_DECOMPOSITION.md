@@ -69,3 +69,13 @@ Measured on 2026-11-20 and 2026-11-23 (43 equities in 8 peer groups, Monday prov
 3. Done: split into nine skills (Agent Skills format, `skills/`). Open: add a history contract (`history/<T>.jsonl`, fields t, date, open, high, low, close, volume; adjusted basis stated in SOURCE.json) and extend it to every priced basket name (about 243 per-ticker fetches; not yet done).
 4. Open: hierarchy file (market > sector > peer group > name) for all 297 identifiers; today only 46 names have a peer group and the manifest's `basket_groups` (convexity, general, previous, signals, screenshots) are list buckets, not economic groups.
 5. Open: rolling-beta, lead-lag and down/up-beta code (needs history).
+
+## 7. Re-score after the 2026-11-27 update (self-assessed, 0-5; the independent receiver review is still pending)
+| Component | Before | After | What changed and what is still weak |
+|---|---|---|---|
+| Valuation and rotation core (`engines/valuation/relative_value`) | 3.5 | 4 | Package renamed to avoid the path collision with PR #298; 69 tests; rebound module with split guard. Still thin on rolling betas and lead-lag; most names lack reported-quarter histories. |
+| Data foundation | 1.5 | 3 | Source of truth found and read: the `_PATTERNS` daily store (83.8M rows). Weak: unadjusted prices, 26.7M price-only rows, 3,670 rows verified, no real-store run of `cli rebound` yet. |
+| Evidence files (estimates, guidance, events, news) | 3 | 3.5 | SMCI, DELL, HPE, CLS rows added with source and class. Consensus is secondary; Dell's Q3 call transcript not yet published when checked. |
+| Persistent prompts (MASTER v3.1.0, PROFILE v1.1.0, AGENTS v1.4.0) | 3.5 | 4 | Purpose, boundaries and data source stated; PROFILE prompt still the weakest and not yet rewritten. |
+| Skills (10 here) | 4 | 4 | Added `rotation-stress-rebound`; `rotation-data-steward` corrected; none shown to be discovered by a real client. |
+| Related-work discipline | 1 | 3.5 | `RELATED_WORK.md` maps 9 overlapping PRs and branches; handoff posted on #298. No reconciliation with PRs #308, #319 or `etf_forward` yet. |

@@ -1,4 +1,4 @@
-"""python -m engines.valuation.rotation.cli {report,ingest-ratios,ingest-prices,ingest-estimates} ..."""
+"""python -m engines.valuation.relative_value.cli {report,ingest-ratios,ingest-prices,ingest-estimates} ..."""
 from __future__ import annotations
 
 import argparse
@@ -271,6 +271,22 @@ def cmd_history_export(a) -> int:
     return 0
 
 
+def cmd_rebound(a) -> int:
+    import json
+    from . import rebound, snapshots
+    root = Path(a.snapshots)
+    per = {t: bars for t in snapshots.tickers(root) if len(bars := snapshots.daily_bars(root, t)) >= 30}
+    rk = rebound.ranking(per, as_of_floor=a.as_of_floor)
+    out = {"schema": "rotation.rebound/1", "source": str(root), "provisional_last_day": a.provisional_last_day,
+           "tickers": len(per), "ranking_top": rk["rows"][: a.top], "ranked": len(rk["rows"]), "split_suspect": rk["split_suspect"], "too_short": rk["too_short"],
+           "stale": rk["stale"], "study": [rebound.forward_study(per, h) for h in a.horizons],
+           "caveats": ["unadjusted prices; split_suspect names are excluded and need a human check", "price-only minutes understate highs and lows",
+                       "one 14-month window and a hand-picked universe; frequencies, not forecasts"]}
+    Path(a.out).write_text(json.dumps(out, indent=1) + "\n")
+    print(f"ranked {out['ranked']} of {out['tickers']} tickers; split-suspect {len(rk['split_suspect'])}; wrote {a.out}")
+    return 0
+
+
 def cmd_basket(a) -> int:
     import json
     d_ = Path(a.data)
@@ -419,6 +435,11 @@ def main(argv=None) -> int:
     s = sub.add_parser("multiples"); s.set_defaults(fn=cmd_multiples); s.add_argument("--asof"); s.add_argument("--out")
     s = sub.add_parser("models"); s.set_defaults(fn=cmd_models)
     s = sub.add_parser("basket"); s.set_defaults(fn=cmd_basket)
+    s = sub.add_parser("rebound"); s.set_defaults(fn=cmd_rebound)
+    s.add_argument("--snapshots", required=True, help="path to _PATTERNS/_TICKERS"); s.add_argument("--out", required=True)
+    s.add_argument("--top", type=int, default=60); s.add_argument("--horizons", type=int, nargs="+", default=[20])
+    s.add_argument("--as-of-floor", default=None, help="tickers whose last day is earlier are listed as stale")
+    s.add_argument("--provisional-last-day", action="store_true", help="mark that the last day in the store may be incomplete")
     s = sub.add_parser("history-export"); s.set_defaults(fn=cmd_history_export)
     s = sub.add_parser("simulate"); s.set_defaults(fn=cmd_simulate)
     s.add_argument("a"); s.add_argument("b"); s.add_argument("--asof"); s.add_argument("--lookback", type=int, default=60)

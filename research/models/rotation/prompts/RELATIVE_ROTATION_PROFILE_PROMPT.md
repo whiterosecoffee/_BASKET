@@ -70,7 +70,7 @@ Citations are from memory; verify before relying on any specific claim. Evidence
 Evidence from this repository: a price-only ratio-reversion rule did not accumulate shares versus holding the stronger name (in sample, 2025-26), and went wrong when a ratio trended. Treat ratio reversion as a hypothesis the valuation track must support.
 
 ## 8. Procedure
-1. Run `python -m engines.valuation.rotation.cli profile --asof <today>`; open each `profiles/<T>.json`.
+1. Run `python -m engines.valuation.relative_value.cli profile --asof <today>`; open each `profiles/<T>.json`.
 2. For each subject: (i) valuation block, (ii) trading block, (iii) reconciliation, (iv) exchange grid. Do not mix inputs between (i) and (ii).
 3. State the data cut-off and mark provisional numbers.
 4. Build the relationship table `x_now`, median, band, weight, and the weighted relative return.

@@ -1,7 +1,7 @@
 ---
 name: rotation-group-sympathy
 description: Measures sympathetic response and relative movement inside nested groups (market, sector, peer group, name) - intraclass correlation, sequential betas, up/down asymmetry, lead-lag, idiosyncratic residuals. Use when asked whether a move was shared by a peer group, who leads, which names diverged, or how a group-relative ratio should be built.
-compatibility: Python 3 stdlib; engines.valuation.rotation.sympathy; basket output key sympathy_peer_groups.
+compatibility: Python 3 stdlib; engines.valuation.relative_value.sympathy; basket output key sympathy_peer_groups.
 metadata:
   owner: B04
   version: 1.0.0

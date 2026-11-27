@@ -1,7 +1,7 @@
 ---
 name: rotation-two-point-compare
 description: Compares a price at point A with point B (for example Friday close versus Monday high) across tickers, references and groups, under the validity gate V1-V8. Use when asked how far a stock moved between two named moments, how much of a drop was recovered, or to produce comparisons/<A>__vs__<B>.json.
-compatibility: Python 3 stdlib; CLI engines.valuation.rotation.cli compare
+compatibility: Python 3 stdlib; CLI engines.valuation.relative_value.cli compare
 metadata:
   owner: B04
   version: 1.0.0
@@ -13,7 +13,7 @@ Contract: `../AGENTS.md` (validity gate V1-V8, required metrics, output schema `
 ## Procedure
 1. Fix pair (A, B) and snapshot time; points come from the registry in `pointcompare.POINTS`.
 2. Run the gate: same adjustment and share basis, provisional points labelled, A not later than B (path comparisons labelled), missing points excluded not imputed.
-3. `python -m engines.valuation.rotation.cli compare --a fri_close --b mon_high`.
+3. `python -m engines.valuation.relative_value.cli compare --a fri_close --b mon_high`.
 4. Report subjects first (NVDA, CRWV, SNDK), then cohort and peer-group medians, flags, limits.
 
 ## Formulas

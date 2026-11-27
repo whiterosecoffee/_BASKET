@@ -4,3 +4,12 @@ SNDK,FQ2 FY2027,revenue,12.2,12.6,gaap,1,4,Sandisk FQ1 FY27 release 2026-10-29 (
 NVDA,Q4 FY2027,revenue,126.1,133.9,gaap,1,3.7143,NVIDIA Q3 FY27 release 2026-11-17: ~130B +/-3%; Q4 has 14 weeks so annualize=52/14 (USD billions),2026-11-17
 CRWV,FY2026,revenue,13.0,13.3,gaap,1,1,CoreWeave Q3 2026 release 2026-11-10 (USD billions),2026-11-10
 CRWV,FY2026,adj_operating_income,1.275,1.375,non_gaap,1,1,"CoreWeave Q3 2026 release 2026-11-10 (USD billions); FY26 capex guide 37-39B, Q4 interest expense 1.05-1.15B",2026-11-10
+SMCI,FQ2 FY2027,eps,1.66,1.9,non_gaap,1,4,Supermicro Q1 FY2027 press release 2026-11-03 (ir.supermicro.com; issuer): non-GAAP EPS guide; GAAP 1.59-1.83,2026-11-03
+SMCI,FQ2 FY2027,revenue,19.5,21.5,gaap,1,4,Supermicro Q1 FY2027 press release 2026-11-03 (ir.supermicro.com; issuer) (USD billions),2026-11-03
+SMCI,FY2027,revenue,72.0,82.0,gaap,1,1,Supermicro Q1 FY2027 press release 2026-11-03 (ir.supermicro.com; issuer) (USD billions; raised from 65-72 on 2026-08-11),2026-11-03
+DELL,FQ4 FY2027,eps,8.4,8.4,non_gaap,1,1,"Benzinga 2026-11-24 earnings summary (secondary) cross-checked to Dell Q3 FY27 slide deck (issuer, files.quartr.com): point guide",2026-11-24
+DELL,FQ4 FY2027,revenue,56.3,56.3,gaap,1,1,"Benzinga 2026-11-24 earnings summary (secondary) cross-checked to Dell Q3 FY27 slide deck (issuer, files.quartr.com) (USD billions, point)",2026-11-24
+DELL,FY2027,eps,29.68,29.68,non_gaap,1,1,"Benzinga 2026-11-24 earnings summary (secondary) cross-checked to Dell Q3 FY27 slide deck (issuer, files.quartr.com): raised from 25.50",2026-11-24
+DELL,FY2027,revenue,202.0,202.0,gaap,1,1,"Benzinga 2026-11-24 earnings summary (secondary) cross-checked to Dell Q3 FY27 slide deck (issuer, files.quartr.com) (USD billions; raised from 192)",2026-11-24
+HPE,FQ1 FY2027,eps,1.3,1.4,non_gaap,1,1,HPE Q4 FY2026 earnings call 2026-11-23 via fiscal.ai transcript (issuer words),2026-11-23
+HPE,FY2027,eps,5.05,5.35,non_gaap,1,1,"HPE Q4 FY2026 earnings call 2026-11-23 via fiscal.ai transcript (issuer words); operating margin 14-15%, FCF at least 5.5B",2026-11-23

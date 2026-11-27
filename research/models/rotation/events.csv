@@ -3,3 +3,7 @@ NVDA,2027-02-24,Q4 FY27,false,fn2.ai estimate (unconfirmed)
 CRWV,2027-02-25,Q4 2026,false,Zacks earnings calendar (unconfirmed)
 SNDK,2027-01-28,FQ2 2027,false,public.com (unconfirmed; Zacks says 2027-02-04)
 SNDK,2027-02-04,FQ2 2027,false,Zacks earnings calendar (unconfirmed; conflicts with 2027-01-28)
+SMCI,2027-02-02,Q2 FY27,false,Yahoo earnings calendar (secondary; not company-confirmed)
+DELL,2027-03-04,Q4 FY27,false,TipRanks estimate (secondary; unconfirmed)
+HPE,2027-03-02,Q1 FY27,false,Yahoo earnings calendar flagged is_estimate=true
+CLS,2027-01-27,Q4 2026,false,Yahoo earnings calendar (secondary; not company-confirmed)

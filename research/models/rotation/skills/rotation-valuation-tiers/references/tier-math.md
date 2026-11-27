@@ -5,4 +5,4 @@ band_k(E) = E * [bounds[k], bounds[k+1]]
 band_shift_pct = E_new / E_old - 1
 tier_before/after = tier(price / E_old), tier(price / E_new)
 ```
-Regression anchors: NVDA multiples 13.4 to 48.1 on E 9.31; the 2026-11-17 update (+18%) moved the unchanged price from tier 2 to tier 1. Code: `engines/valuation/rotation/bands.py`, `models.py`.
+Regression anchors: NVDA multiples 13.4 to 48.1 on E 9.31; the 2026-11-17 update (+18%) moved the unchanged price from tier 2 to tier 1. Code: `engines/valuation/relative_value/bands.py`, `models.py`.

@@ -1,4 +1,4 @@
-# Rotation engine (B04: `engines/valuation/rotation`)
+# Rotation engine (B04: `engines/valuation/relative_value`)
 
 ## Virtual ETF: spot rotation for share count and expected end value
 A paper portfolio of N names. At spot, sell the name whose price is rich relative to its expected end price and buy the one that is cheap relative to its own; keep rotating where expected return per unit of risk is highest.
@@ -11,9 +11,9 @@ A paper portfolio of N names. At spot, sell the name whose price is rich relativ
 - **Price-only sanity test** (`simulate A B`): swaps on ratio vs its rolling mean. It is a mechanics check, not a forecast.
 
 ```
-python -m engines.valuation.rotation.cli swap NVDA --tax 0.2
-python -m engines.valuation.rotation.cli rebalance --horizon 12 --record
-python -m engines.valuation.rotation.cli simulate NVDA SNDK
+python -m engines.valuation.relative_value.cli swap NVDA --tax 0.2
+python -m engines.valuation.relative_value.cli rebalance --horizon 12 --record
+python -m engines.valuation.relative_value.cli simulate NVDA SNDK
 ```
 
 **Warning from the price-only test (2025-26 data, in sample):** rotating on a rolling-mean ratio did not accumulate shares versus holding the stronger name, and starting in SNDK it sold out of a 16x winner early. A ratio anchored to history mean-reverts only if there is no fundamental trend. This is why the engine anchors the fair ratio on *expected end values*, not on past ratios, and why target quality is the whole game.
@@ -61,10 +61,10 @@ Reverse DCF on trailing FCF: the constant 10-year FCF growth that justifies toda
 **Entitlement gap (checked 2026-11-22):** Massive Benzinga earnings, guidance and consensus endpoints return NOT_ENTITLED and Quartr requires Pro, so no forward-estimate feed is wired. Ratios, income statements and aggs work. Until an estimate source is entitled, load estimates from any export (or derive `guidance` rows from earnings-call transcripts) via `ingest-estimates`.
 
 ```
-python -m engines.valuation.rotation.cli ingest-ratios ratios_export.csv
-python -m engines.valuation.rotation.cli ingest-estimates my_estimates.csv
-python -m engines.valuation.rotation.cli report --hold NVDA --tax 0.2 --rerate AAOI=1.1
-python -m unittest engines.valuation.rotation.test_rotation
+python -m engines.valuation.relative_value.cli ingest-ratios ratios_export.csv
+python -m engines.valuation.relative_value.cli ingest-estimates my_estimates.csv
+python -m engines.valuation.relative_value.cli report --hold NVDA --tax 0.2 --rerate AAOI=1.1
+python -m unittest engines.valuation.relative_value.test_rotation
 ```
 
 ## Basket universe (300+ names)
@@ -72,3 +72,10 @@ python -m unittest engines.valuation.rotation.test_rotation
 (291 symbols, read-only copy in `research/models/rotation/universe/`) plus 6 additions = 297 identifiers; 243 have Massive daily bars.
 `low52w_friday_classification.csv` holds the exact Friday 52-week-low flag (39 of 243 hit). Gaps: 20 tradable names without Massive bars
 (mostly OTC ADRs), plus indices/futures/FX, which need their own feed. Names still missing from the manifest must be added to `ADDITIONS` in `basket.py`.
+
+
+## Layout and related work
+Package `engines/valuation/relative_value/` (renamed from `.../rotation/` on 2026-11-26 so it cannot collide with PR #298, which adds `engines/valuation/rotation/rotation.py`). Data, prompts and skills stay under `research/models/rotation/`. Boundaries with other open work: `research/models/rotation/RELATED_WORK.md`.
+
+## Rebound study (`cli rebound`)
+`snapshots.py` reads the `_PATTERNS` daily store (`_TICKERS/<T>/snapshots/<date>.jsonl`, read-only) and builds regular-session daily bars. `rebound.py` ranks tickers by distance above the 52-week low and drawdown from the 52-week high, excludes `split_suspect` names (unadjusted prices), and tabulates forward 20-day returns by bucket with a date-clustered interval. Run: `python -m engines.valuation.relative_value.cli rebound --snapshots <path>/_TICKERS --out research/models/rotation/relativity/rebound_<date>.json --as-of-floor <date>`. Tests use a synthetic store; the first real-store run is pending because the workstation holding the store was offline.
