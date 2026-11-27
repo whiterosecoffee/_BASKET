@@ -1,0 +1,16 @@
+{
+  "_doc": "Editable static identity for each profile. Roles describe why the name is in the relationship set; they are not forecasts.",
+  "NVDA": {"name": "NVIDIA", "kind": "stock", "role": "AI accelerator bellwether; supplier to the AI capex cycle", "sector": "semiconductors", "fye_month": 1, "currency": "USD",
+           "drivers": ["hyperscaler/neocloud capex", "export controls and legal/regulatory headlines", "leadership", "rates (long-duration equity)"]},
+  "CRWV": {"name": "CoreWeave", "kind": "stock", "role": "levered AI-cloud (neocloud) customer of NVDA GPUs; equity is a call on backlog conversion vs financing cost", "sector": "ai infrastructure", "fye_month": 12, "currency": "USD",
+           "drivers": ["backlog conversion", "financing cost and capex funding", "NVDA/hyperscaler news", "credit spreads"]},
+  "SNDK": {"name": "Sandisk", "kind": "stock", "role": "NAND memory supplier; cyclical, priced on contract-price direction", "sector": "memory/storage", "fye_month": 6, "currency": "USD",
+           "split": {"ratio": "8-for-1", "effective": "2026-11-20", "note": "Massive history mixes split-adjusted and unadjusted share counts"},
+           "drivers": ["NAND contract prices (TrendForce)", "enterprise SSD demand incl. China CSP orders", "AI storage demand"]},
+  "MSFT": {"name": "Microsoft", "kind": "stock", "role": "hyperscaler: demand-side customer of AI compute and a mega-cap quality reference", "sector": "software/cloud", "fye_month": 6, "currency": "USD",
+           "drivers": ["Azure growth and AI capex guidance", "rates", "AI monetisation evidence"]},
+  "SMH": {"name": "VanEck Semiconductor ETF", "kind": "etf", "role": "industry benchmark for semiconductors (NVDA-heavy)", "sector": "semiconductors", "currency": "USD",
+          "drivers": ["semiconductor cycle", "AI capex", "export policy"]},
+  "QQQ": {"name": "Invesco QQQ (Nasdaq-100)", "kind": "etf", "role": "broad growth/tech market benchmark", "sector": "broad market", "currency": "USD",
+          "drivers": ["rates", "mega-cap earnings", "risk appetite"]}
+}

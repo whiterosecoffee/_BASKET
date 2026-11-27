@@ -1,0 +1,22 @@
+ticker,date,timing,type,status,eps_changed,description,source,analog_date
+*,2026-11-05,INTRADAY,policy_shock,realized,no,Post-midterm selloff: AI-returns reassessment and fear of data-center regulation (new governors in TX/OH/GA/MI),"Motley Fool via Massive news (secondary, unverified)",
+*,2026-11-12,INTRADAY,leadership,realized,no,NVDA CEO Jensen Huang resigns (CFO Kress interim) amid reported relationship/export-control allegations; yields >5%,"Motley Fool/Zacks via Massive news (secondary, unverified)",
+NVDA,2026-11-17,AMC,earnings,realized,yes,"Q3 FY27: revenue $115.8B, non-GAAP EPS $2.68, Q4 guide ~$130B +/-3%",NVIDIA release 2026-11-17 (primary),
+CRWV,2026-11-10,AMC,earnings,realized,yes,"Q3 2026: revenue $3.66B (+168%), FY26 revenue guide raised to $13.0-13.3B, backlog ~$133B",CoreWeave release 2026-11-10 (primary),
+CRWV,2026-11-13,INTRADAY,financing,realized,no,Reported $4B loan talks; Microsoft news read as negative for neoclouds,Motley Fool via Massive news (secondary),
+SNDK,2026-10-29,AMC,earnings,realized,yes,"FQ1 FY27: revenue $11.0B, non-GAAP EPS $49.51 pre-split, FQ2 guide $55-57 pre-split, 8-for-1 split announced",Sandisk release 2026-10-29 (primary),
+*,2026-11-19,INTRADAY,ipo_supply,realized,no,Anthropic IPO prices above range; profit-taking in AI names,Motley Fool via Massive news (secondary),
+NVDA,2026-11-20,INTRADAY,probe,realized,no,"Reports of SEC accounting probe; AI trade unwinds (S&P -3.7%, Nasdaq -5.3%)","Motley Fool via Massive news (secondary, unverified)",
+SNDK,2026-11-20,INTRADAY,industry_data,realized,no,"TrendForce: NAND contract prices to fall from 1Q27, Chinese CSP orders cut; MU -12.6%",TrendForce 2026-11-19; Motley Fool (secondary),
+*,2026-11-23,INTRADAY,leadership,realized_provisional,no,NVDA reports Jensen Huang reinstated as CEO; Nasdaq +6.8% midday,Motley Fool via Massive news (secondary); session still open at 13:42 ET,
+NVDA,2027-02-24,AMC,earnings,scheduled,,Q4 FY27 report (date unconfirmed),fn2.ai estimate,
+CRWV,2027-02-25,AMC,earnings,scheduled,,Q4 2026 report (date unconfirmed),Zacks calendar,
+SNDK,2027-01-28,AMC,earnings,scheduled,,FQ2 FY27 report (unconfirmed; Zacks says 2027-02-04),public.com,
+NVDA,,,probe,hypothetical,no,SEC/state probe escalates to enforcement,analog: the 2026-11-20 probe-headline day,2026-11-20
+NVDA,,,probe,hypothetical,no,Probe closes without action (reverse of the headline shock),analog: inverse of 2026-11-20,2026-11-20
+SNDK,,,industry_data,hypothetical,no,NAND contract prices turn negative in 2Q27 and decline widens,analog: the 2026-11-20 TrendForce day,2026-11-20
+CRWV,,,financing,hypothetical,no,Financing stress: debt raise at wider spreads,analog: 2026-11-13 loan-talk day,2026-11-13
+SMCI,2026-11-03,AMC,earnings,realized,yes,"Q1 FY27: revenue 19.95B (vs 5.0B a year ago), GAAP EPS 1.75, non-GAAP 1.81; gross margin 12.7% vs 17.5% in Q4 FY26; FY27 revenue guide raised to 72-82B",Supermicro Q1 FY2027 press release 2026-11-03 (ir.supermicro.com; issuer),
+HPE,2026-11-23,AMC,earnings,realized,yes,"Q4 FY26 record AI orders; FY27 EPS guide 5.05-5.35 (consensus 5.28); gross margin 38.1% FY26, down 220bp q/q; CFO: margin moderates in H2 FY27 on AI mix and costs rising faster than pricing; component supply constrained to at least 2H CY2028",HPE Q4 FY2026 earnings call 2026-11-23 via fiscal.ai transcript (issuer words),
+HPE,2026-11-24,INTRADAY,sector_selloff,realized,no,"HPE -16.3% (worst day on record per Benzinga) on the margin warning; read-across: DELL -11.8%, FLEX -10.1%, MU -11.0%, SMCI -7.8%, CLS -7.8%, SMH -7.3% vs QQQ -2.0% and SPY -0.5%",Massive grouped daily 2026-11-23/24 (verified); cause per Benzinga/Seeking Alpha (secondary),
+DELL,2026-11-24,AMC,earnings,realized,yes,"Q3 FY27: revenue 54.94B vs 49.24B est, non-GAAP EPS 9.45 vs 6.61 est; AI backlog 132.3B; FY27 EPS guide raised 25.50 to 29.68; Q4 EPS guide 8.40 (below Q3 9.45). Stock +1.4% after hours after -11.8% regular session","Benzinga 2026-11-24 earnings summary (secondary) cross-checked to Dell Q3 FY27 slide deck (issuer, files.quartr.com)",

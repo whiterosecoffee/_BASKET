@@ -1,0 +1,248 @@
+{
+  "schema": "rotation.model/1",
+  "ticker": "LSCC",
+  "theme": "foundry_chips_ip",
+  "provisional_monday": true,
+  "monday_snapshot_et": "2026-11-23T13:51",
+  "window_52w": {
+    "basis": "daily bars 2025-11-21..2026-11-19 plus Friday low; n=250",
+    "low": 62.68,
+    "low_date": "2025-11-21",
+    "high": 157.01,
+    "high_date": "2026-06-22",
+    "hit_52w_low_on_friday": false,
+    "prior_52w_low_before_friday": 62.68,
+    "range_log_width": 0.9182670800996101
+  },
+  "anchor_moments": {
+    "a0_52w_high": {
+      "price": 157.01,
+      "date": "2026-06-22"
+    },
+    "a1_pre_compression_thu_close": 110.92,
+    "a2_stress_low_fri_low": 97.1,
+    "a2_fri_close": 98.31,
+    "a3_rebound_peak_mon_high": 115.24,
+    "a4_last_snapshot": 112.55,
+    "mon_open": 112.965,
+    "mon_low": 109.575
+  },
+  "stress_relativity": {
+    "drawdown_52w_high_to_fri_low": -0.3815680529902554,
+    "drawdown_52w_high_to_fri_close": -0.37386153748168904,
+    "fri_close_vs_52w_low": 0.5684428844926612,
+    "rebound_fri_low_to_peak": 0.18681771369721933,
+    "rebound_fri_close_to_last": 0.14484793001729224,
+    "recovery_of_friday_drop_at_peak": 1.342585249801744,
+    "recovery_of_friday_drop_at_last": 1.129262490087232,
+    "recovery_of_52w_range_at_peak": 0.3027875146052412,
+    "recovery_of_52w_range_at_last": 0.2578868302453681,
+    "position_in_52w_log_range": {
+      "fri_low": 0.4766575730472438,
+      "fri_close": 0.49014425502675024,
+      "mon_high": 0.6631779641522683,
+      "mon_last": 0.6374563158699141,
+      "thu_close": 0.6215694928297356
+    }
+  },
+  "relativity": {
+    "NVDA": {
+      "unit": "1 LSCC = x NVDA",
+      "x": {
+        "fri_low": 0.7799196787148593,
+        "fri_close": 0.7831594041265036,
+        "mon_high": 0.6719533527696793,
+        "mon_last": 0.6839658472851022
+      },
+      "x_change_fri_close_to_last": -0.12665819540536183,
+      "x_change_fri_low_to_peak": -0.1384326218349632
+    },
+    "MSFT": {
+      "unit": "1 LSCC = x MSFT",
+      "x": {
+        "fri_low": 0.20185851194312204,
+        "fri_close": 0.20290184099727568,
+        "mon_high": 0.22633801433762152,
+        "mon_last": 0.22682843265684516
+      },
+      "x_change_fri_close_to_last": 0.11792200377270468,
+      "x_change_fri_low_to_peak": 0.12127059770160753
+    },
+    "SMH": {
+      "unit": "1 LSCC = x SMH",
+      "x": {
+        "fri_low": 0.2446768300365377,
+        "fri_close": 0.24573813927910815,
+        "mon_high": 0.24553105358474483,
+        "mon_last": 0.24583897601677515
+      },
+      "x_change_fri_close_to_last": 0.00041034223650759927,
+      "x_change_fri_low_to_peak": 0.0034912318754480864
+    },
+    "QQQ": {
+      "unit": "1 LSCC = x QQQ",
+      "x": {
+        "fri_low": 0.16017041736517848,
+        "fri_close": 0.16157449256307008,
+        "mon_high": 0.17526196523352547,
+        "mon_last": 0.17316183823868792
+      },
+      "x_change_fri_close_to_last": 0.07171519149964056,
+      "x_change_fri_low_to_peak": 0.09422181771518523
+    }
+  },
+  "eps_state": {
+    "basis": "eps_ttm_massive",
+    "e_now": 0.31,
+    "note": "52-week extremes may have occurred under different earnings; tiers are a constant-current-E counterfactual",
+    "tiers_basis": "constant_current_E_counterfactual"
+  },
+  "bands": {
+    "tiers_basis": "constant_current_E_counterfactual",
+    "multiple_bounds": [
+      202.19354838709677,
+      242.95562536799955,
+      291.93530836576707,
+      350.7892609669985,
+      421.508128970817,
+      506.48387096774206
+    ],
+    "price_bands_at_current_E": [
+      {
+        "tier": 1,
+        "label": "T1_compression_floor",
+        "price_low": 62.68,
+        "price_high": 75.31624386407987,
+        "spread_abs": 12.636243864079866,
+        "spread_pct_of_low": 0.20159929585322067
+      },
+      {
+        "tier": 2,
+        "label": "T2_depressed",
+        "price_low": 75.31624386407987,
+        "price_high": 90.49994559338779,
+        "spread_abs": 15.183701729307927,
+        "spread_pct_of_low": 0.20159929585322023
+      },
+      {
+        "tier": 3,
+        "label": "T3_mid",
+        "price_low": 90.49994559338779,
+        "price_high": 108.74467089976953,
+        "spread_abs": 18.24472530638174,
+        "spread_pct_of_low": 0.20159929585322045
+      },
+      {
+        "tier": 4,
+        "label": "T4_elevated",
+        "price_low": 108.74467089976953,
+        "price_high": 130.66751998095327,
+        "spread_abs": 21.92284908118374,
+        "spread_pct_of_low": 0.20159929585322045
+      },
+      {
+        "tier": 5,
+        "label": "T5_expansion_ceiling",
+        "price_low": 130.66751998095327,
+        "price_high": 157.01000000000005,
+        "spread_abs": 26.342480019046775,
+        "spread_pct_of_low": 0.20159929585322023
+      }
+    ],
+    "tier_at_points": {
+      "thu_close": {
+        "tier": 4,
+        "label": "T4_elevated",
+        "position_in_tier": 0.10784746414867834
+      },
+      "fri_low": {
+        "tier": 3,
+        "label": "T3_mid",
+        "position_in_tier": 0.38328786523621416
+      },
+      "fri_close": {
+        "tier": 3,
+        "label": "T3_mid",
+        "position_in_tier": 0.45072127513375115
+      },
+      "mon_high": {
+        "tier": 4,
+        "label": "T4_elevated",
+        "position_in_tier": 0.3158898207613415
+      },
+      "mon_last": {
+        "tier": 4,
+        "label": "T4_elevated",
+        "position_in_tier": 0.18728157934957093
+      }
+    },
+    "tier_migration_fri_low_to_peak": 1,
+    "after_eps_update_scenarios_at_mon_last": [
+      {
+        "eps_old": 0.31,
+        "eps_new": 0.23249999999999998,
+        "eps_change": -0.25,
+        "band_shift_pct": -0.25,
+        "tier_before": 4,
+        "tier_after": 5,
+        "tier_moves": 1,
+        "multiple_before": 363.06451612903226,
+        "multiple_after": 484.0860215053764,
+        "spread_abs_widening_pct": -0.25,
+        "scenario": "EPS -25% (hypothetical)"
+      },
+      {
+        "eps_old": 0.31,
+        "eps_new": 0.279,
+        "eps_change": -0.09999999999999987,
+        "band_shift_pct": -0.09999999999999987,
+        "tier_before": 4,
+        "tier_after": 4,
+        "tier_moves": 0,
+        "multiple_before": 363.06451612903226,
+        "multiple_after": 403.4050179211469,
+        "spread_abs_widening_pct": -0.09999999999999987,
+        "scenario": "EPS -10% (hypothetical)"
+      },
+      {
+        "eps_old": 0.31,
+        "eps_new": 0.341,
+        "eps_change": 0.10000000000000009,
+        "band_shift_pct": 0.10000000000000009,
+        "tier_before": 4,
+        "tier_after": 3,
+        "tier_moves": -1,
+        "multiple_before": 363.06451612903226,
+        "multiple_after": 330.0586510263929,
+        "spread_abs_widening_pct": 0.10000000000000009,
+        "scenario": "EPS +10% (hypothetical)"
+      },
+      {
+        "eps_old": 0.31,
+        "eps_new": 0.3875,
+        "eps_change": 0.25,
+        "band_shift_pct": 0.25,
+        "tier_before": 4,
+        "tier_after": 2,
+        "tier_moves": -2,
+        "multiple_before": 363.06451612903226,
+        "multiple_after": 290.4516129032258,
+        "spread_abs_widening_pct": 0.25,
+        "scenario": "EPS +25% (hypothetical)"
+      },
+      {
+        "eps_old": 0.31,
+        "eps_new": 0.46499999999999997,
+        "eps_change": 0.5,
+        "band_shift_pct": 0.5,
+        "tier_before": 4,
+        "tier_after": 1,
+        "tier_moves": -3,
+        "multiple_before": 363.06451612903226,
+        "multiple_after": 242.0430107526882,
+        "spread_abs_widening_pct": 0.5,
+        "scenario": "EPS +50% (hypothetical)"
+      }
+    ]
+  }
+}

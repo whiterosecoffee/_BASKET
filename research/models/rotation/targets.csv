@@ -1,0 +1,10 @@
+ticker,scenario,target_price,horizon_date,source,as_of
+CRWV,bear,31.1375,2027-11-22,"auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R ANCHOR_DISAGREE(base spread 162pp)",2026-11-22
+CRWV,base,57.7289,2027-11-22,"auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R ANCHOR_DISAGREE(base spread 162pp)",2026-11-22
+CRWV,bull,86.3055,2027-11-22,"auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R ANCHOR_DISAGREE(base spread 162pp)",2026-11-22
+NVDA,bear,118.1589,2027-11-22,"auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R",2026-11-22
+NVDA,base,162.0088,2027-11-22,"auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R",2026-11-22
+NVDA,bull,213.6918,2027-11-22,"auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R",2026-11-22
+SNDK,bear,50.1116,2027-11-22,"auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R",2026-11-22
+SNDK,base,77.5503,2027-11-22,"auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R",2026-11-22
+SNDK,bull,105.8749,2027-11-22,"auto:build-targets w=F0.5/I0.3/R0.2 ANCHORS=F,I,R",2026-11-22

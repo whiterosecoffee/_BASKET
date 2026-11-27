@@ -1,0 +1,136 @@
+{
+  "schema": "rotation.model/1",
+  "ticker": "SKHY",
+  "theme": "memory_storage",
+  "provisional_monday": true,
+  "monday_snapshot_et": "2026-11-23T13:51",
+  "window_52w": {
+    "basis": "daily bars 2026-07-13..2026-11-19 plus Friday low; n=93 (since listing)",
+    "low": 102.45,
+    "low_date": "2026-11-20",
+    "high": 199.865,
+    "high_date": "2026-09-09",
+    "hit_52w_low_on_friday": true,
+    "prior_52w_low_before_friday": 117.4,
+    "range_log_width": 0.6682672639480605
+  },
+  "anchor_moments": {
+    "a0_52w_high": {
+      "price": 199.865,
+      "date": "2026-09-09"
+    },
+    "a1_pre_compression_thu_close": 119.2,
+    "a2_stress_low_fri_low": 102.45,
+    "a2_fri_close": 103.57,
+    "a3_rebound_peak_mon_high": 128.1,
+    "a4_last_snapshot": 123.59,
+    "mon_open": 127.11,
+    "mon_low": 120.815
+  },
+  "stress_relativity": {
+    "drawdown_52w_high_to_fri_low": -0.48740399769844645,
+    "drawdown_52w_high_to_fri_close": -0.4818002151452231,
+    "fri_close_vs_52w_low": 0.010932162030258485,
+    "rebound_fri_low_to_peak": 0.25036603221083453,
+    "rebound_fri_close_to_last": 0.1932992179202473,
+    "recovery_of_friday_drop_at_peak": 1.5694177863083805,
+    "recovery_of_friday_drop_at_last": 1.2808701215611002,
+    "recovery_of_52w_range_at_peak": 0.2633064723091925,
+    "recovery_of_52w_range_at_last": 0.21700970076476928,
+    "position_in_52w_log_range": {
+      "fri_low": 0.0,
+      "fri_close": 0.01627019383179597,
+      "mon_high": 0.3343517575554117,
+      "mon_last": 0.2807181662744386,
+      "thu_close": 0.22659778222820465
+    }
+  },
+  "relativity": {
+    "NVDA": {
+      "unit": "1 SKHY = x NVDA",
+      "x": {
+        "fri_low": 0.8228915662650602,
+        "fri_close": 0.8250617382299051,
+        "mon_high": 0.746938775510204,
+        "mon_last": 0.7510558779739297
+      },
+      "x_change_fri_close_to_last": -0.08969736060570244,
+      "x_change_fri_low_to_peak": -0.09229987749126012
+    },
+    "MSFT": {
+      "unit": "1 SKHY = x MSFT",
+      "x": {
+        "fri_low": 0.21298047938797998,
+        "fri_close": 0.2137579460084207,
+        "mon_high": 0.25159579691642936,
+        "mon_last": 0.249077974163123
+      },
+      "x_change_fri_close_to_last": 0.16523375534919715,
+      "x_change_fri_low_to_peak": 0.1813091868297707
+    },
+    "SMH": {
+      "unit": "1 SKHY = x SMH",
+      "x": {
+        "fri_low": 0.2581579942043593,
+        "fri_close": 0.2588861670749387,
+        "mon_high": 0.2729306487695749,
+        "mon_last": 0.26995325673845616
+      },
+      "x_change_fri_close_to_last": 0.04274886444710613,
+      "x_change_fri_low_to_peak": 0.05722330858180391
+    },
+    "QQQ": {
+      "unit": "1 SKHY = x QQQ",
+      "x": {
+        "fri_low": 0.16899546095841955,
+        "fri_close": 0.17021940997616894,
+        "mon_high": 0.19482000821255305,
+        "mon_last": 0.19014723756481067
+      },
+      "x_change_fri_close_to_last": 0.11707141736322346,
+      "x_change_fri_low_to_peak": 0.15281207618048098
+    }
+  },
+  "eps_state": {
+    "basis": null,
+    "note": "no earnings basis in the loaded data; price-only tiers"
+  },
+  "bands": {
+    "tiers_basis": "price_only",
+    "bounds": [
+      102.45,
+      117.10000665957664,
+      133.84491517494283,
+      152.98428949083726,
+      174.86053019216828,
+      199.8650000000001
+    ],
+    "tier_at_points": {
+      "thu_close": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.13298891114102387
+      },
+      "fri_low": {
+        "tier": 1,
+        "label": "T1_compression_floor",
+        "position_in_tier": 0.0
+      },
+      "fri_close": {
+        "tier": 1,
+        "label": "T1_compression_floor",
+        "position_in_tier": 0.08135096915897996
+      },
+      "mon_high": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.6717587877770563
+      },
+      "mon_last": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.40359083137219215
+      }
+    }
+  }
+}

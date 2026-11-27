@@ -1,0 +1,1 @@
+{"_doc":"Optional manual override of relationship weights per subject; values need not sum to 1 (they are normalised). Empty = use the data-derived default (250d R^2)."}

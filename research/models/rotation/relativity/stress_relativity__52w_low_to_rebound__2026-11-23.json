@@ -1,0 +1,1891 @@
+{
+  "schema": "rotation.relativity/1",
+  "comparison_id": "stress_relativity__52w_low_to_rebound__2026-11-23",
+  "provisional": true,
+  "as_of_et": "2026-11-23T13:51",
+  "definition": {
+    "stress_moment": "Friday 2026-11-20 (many names set or approached their 52-week lows)",
+    "hit_52w_low_on_friday": "Friday low <= the lowest low of the prior 52 weeks (since listing for new issues)",
+    "recovery_of_52w_range": "(price - fri_low) / (52w_high - fri_low)",
+    "recovery_of_friday_drop": "(price - fri_close) / (thu_close - fri_close)"
+  },
+  "n_equities": 43,
+  "hit_52w_low_on_friday": [
+    "CRWV",
+    "FN",
+    "HIMX",
+    "INOD",
+    "IONQ",
+    "IREN",
+    "NVDA",
+    "SKHY",
+    "SYM"
+  ],
+  "share_hit_52w_low_on_friday": 0.20930232558139536,
+  "group_stats": {
+    "hit_low": {
+      "recovery_of_52w_range_at_last": {
+        "n": 9,
+        "median": 0.08441952106698997,
+        "min": 0.04583761562178826,
+        "max": 0.3369647514091024
+      },
+      "recovery_of_friday_drop_at_last": {
+        "n": 9,
+        "median": 1.50462962962963,
+        "min": 1.088803088803089,
+        "max": 2.359223300970879
+      },
+      "rebound_fri_close_to_last": {
+        "n": 9,
+        "median": 0.1562700964630226,
+        "min": 0.13223938223938236,
+        "max": 0.3108818609097428
+      }
+    },
+    "did_not_hit_low": {
+      "recovery_of_52w_range_at_last": {
+        "n": 34,
+        "median": 0.10806526513338711,
+        "min": 0.02765481223576226,
+        "max": 0.3266760122268692
+      },
+      "recovery_of_friday_drop_at_last": {
+        "n": 34,
+        "median": 1.135247437367524,
+        "min": 0.6552292972616303,
+        "max": 3.2925407925407986
+      },
+      "rebound_fri_close_to_last": {
+        "n": 34,
+        "median": 0.15635419164119446,
+        "min": 0.12531549722362456,
+        "max": 0.20757499460470474
+      }
+    }
+  },
+  "rebound_order_by_change_fri_close_to_last": [
+    {
+      "rank": 1,
+      "ticker": "NVDA",
+      "value": 0.3108818609097428,
+      "hit_52w_low_friday": true,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 2,
+      "ticker": "IREN",
+      "value": 0.23857868020304562,
+      "hit_52w_low_friday": true,
+      "theme": "ai_cloud_neocloud"
+    },
+    {
+      "rank": 3,
+      "ticker": "DELL",
+      "value": 0.20757499460470474,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 4,
+      "ticker": "CRWV",
+      "value": 0.20564414072386739,
+      "hit_52w_low_friday": true,
+      "theme": "ai_cloud_neocloud"
+    },
+    {
+      "rank": 5,
+      "ticker": "NBIS",
+      "value": 0.20268109703603487,
+      "hit_52w_low_friday": false,
+      "theme": "ai_cloud_neocloud"
+    },
+    {
+      "rank": 6,
+      "ticker": "CRDO",
+      "value": 0.2012317244141799,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 7,
+      "ticker": "ALAB",
+      "value": 0.19841973939561952,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 8,
+      "ticker": "UMC",
+      "value": 0.1964285714285714,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 9,
+      "ticker": "SKHY",
+      "value": 0.1932992179202473,
+      "hit_52w_low_friday": true,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 10,
+      "ticker": "MU",
+      "value": 0.1832769844073272,
+      "hit_52w_low_friday": false,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 11,
+      "ticker": "BE",
+      "value": 0.18133295877519506,
+      "hit_52w_low_friday": false,
+      "theme": "power_cooling_robotics"
+    },
+    {
+      "rank": 12,
+      "ticker": "PENG",
+      "value": 0.1761442441054093,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 13,
+      "ticker": "LITE",
+      "value": 0.17351370130716126,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 14,
+      "ticker": "MRVL",
+      "value": 0.17329080798168128,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 15,
+      "ticker": "CBRS",
+      "value": 0.17086004596588844,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 16,
+      "ticker": "TTMI",
+      "value": 0.1707731520815634,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 17,
+      "ticker": "HPE",
+      "value": 0.16646296748961142,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 18,
+      "ticker": "SMTC",
+      "value": 0.16457491726577667,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 19,
+      "ticker": "AAOI",
+      "value": 0.15942909201336164,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 20,
+      "ticker": "MPWR",
+      "value": 0.15816295258526347,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 21,
+      "ticker": "ARM",
+      "value": 0.15732588699080163,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 22,
+      "ticker": "SYM",
+      "value": 0.1562700964630226,
+      "hit_52w_low_friday": true,
+      "theme": "power_cooling_robotics"
+    },
+    {
+      "rank": 23,
+      "ticker": "GLW",
+      "value": 0.1553824962915873,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 24,
+      "ticker": "FN",
+      "value": 0.15194358686500142,
+      "hit_52w_low_friday": true,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 25,
+      "ticker": "TSM",
+      "value": 0.15018355244579706,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 26,
+      "ticker": "INOD",
+      "value": 0.14864864864864846,
+      "hit_52w_low_friday": true,
+      "theme": "software_other"
+    },
+    {
+      "rank": 27,
+      "ticker": "ZS",
+      "value": 0.14777743558156264,
+      "hit_52w_low_friday": false,
+      "theme": "software_other"
+    },
+    {
+      "rank": 28,
+      "ticker": "COHR",
+      "value": 0.14597799380408083,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 29,
+      "ticker": "LSCC",
+      "value": 0.14484793001729224,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 30,
+      "ticker": "WDC",
+      "value": 0.1417410286852283,
+      "hit_52w_low_friday": false,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 31,
+      "ticker": "HIMX",
+      "value": 0.13921282798833823,
+      "hit_52w_low_friday": true,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 32,
+      "ticker": "LRCX",
+      "value": 0.13870246085011173,
+      "hit_52w_low_friday": false,
+      "theme": "semicap_test"
+    },
+    {
+      "rank": 33,
+      "ticker": "FLEX",
+      "value": 0.13813405797101463,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 34,
+      "ticker": "SMCI",
+      "value": 0.13602771362586608,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 35,
+      "ticker": "CIEN",
+      "value": 0.13525621879933425,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 36,
+      "ticker": "TER",
+      "value": 0.1348309119765596,
+      "hit_52w_low_friday": false,
+      "theme": "semicap_test"
+    },
+    {
+      "rank": 37,
+      "ticker": "STX",
+      "value": 0.13408393689415976,
+      "hit_52w_low_friday": false,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 38,
+      "ticker": "INTC",
+      "value": 0.13348283931357252,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 39,
+      "ticker": "KLAC",
+      "value": 0.13336486166942518,
+      "hit_52w_low_friday": false,
+      "theme": "semicap_test"
+    },
+    {
+      "rank": 40,
+      "ticker": "IONQ",
+      "value": 0.13223938223938236,
+      "hit_52w_low_friday": true,
+      "theme": "software_other"
+    },
+    {
+      "rank": 41,
+      "ticker": "ONTO",
+      "value": 0.12978960977903164,
+      "hit_52w_low_friday": false,
+      "theme": "semicap_test"
+    },
+    {
+      "rank": 42,
+      "ticker": "VRT",
+      "value": 0.12797762271414803,
+      "hit_52w_low_friday": false,
+      "theme": "power_cooling_robotics"
+    },
+    {
+      "rank": 43,
+      "ticker": "SNDK",
+      "value": 0.12531549722362456,
+      "hit_52w_low_friday": false,
+      "theme": "memory_storage"
+    }
+  ],
+  "order_by_recovery_of_friday_drop_at_last": [
+    {
+      "rank": 1,
+      "ticker": "CBRS",
+      "value": 3.2925407925407986,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 2,
+      "ticker": "ZS",
+      "value": 2.643709825528006,
+      "hit_52w_low_friday": false,
+      "theme": "software_other"
+    },
+    {
+      "rank": 3,
+      "ticker": "SYM",
+      "value": 2.359223300970879,
+      "hit_52w_low_friday": true,
+      "theme": "power_cooling_robotics"
+    },
+    {
+      "rank": 4,
+      "ticker": "NVDA",
+      "value": 1.9083129584352092,
+      "hit_52w_low_friday": true,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 5,
+      "ticker": "UMC",
+      "value": 1.7389705882352928,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 6,
+      "ticker": "DELL",
+      "value": 1.6717844727694082,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 7,
+      "ticker": "FN",
+      "value": 1.623922009748784,
+      "hit_52w_low_friday": true,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 8,
+      "ticker": "INTC",
+      "value": 1.5416666666666672,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 9,
+      "ticker": "INOD",
+      "value": 1.5199999999999987,
+      "hit_52w_low_friday": true,
+      "theme": "software_other"
+    },
+    {
+      "rank": 10,
+      "ticker": "CRWV",
+      "value": 1.50462962962963,
+      "hit_52w_low_friday": true,
+      "theme": "ai_cloud_neocloud"
+    },
+    {
+      "rank": 11,
+      "ticker": "HPE",
+      "value": 1.486899563318776,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 12,
+      "ticker": "TSM",
+      "value": 1.4339424805272623,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 13,
+      "ticker": "IONQ",
+      "value": 1.3768844221105523,
+      "hit_52w_low_friday": true,
+      "theme": "software_other"
+    },
+    {
+      "rank": 14,
+      "ticker": "SMCI",
+      "value": 1.344748858447488,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 15,
+      "ticker": "HIMX",
+      "value": 1.3263888888888895,
+      "hit_52w_low_friday": true,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 16,
+      "ticker": "MRVL",
+      "value": 1.3088326127239036,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 17,
+      "ticker": "SKHY",
+      "value": 1.2808701215611002,
+      "hit_52w_low_friday": true,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 18,
+      "ticker": "GLW",
+      "value": 1.2653149266609147,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 19,
+      "ticker": "LRCX",
+      "value": 1.2454679078882898,
+      "hit_52w_low_friday": false,
+      "theme": "semicap_test"
+    },
+    {
+      "rank": 20,
+      "ticker": "TER",
+      "value": 1.2187155153387765,
+      "hit_52w_low_friday": false,
+      "theme": "semicap_test"
+    },
+    {
+      "rank": 21,
+      "ticker": "MPWR",
+      "value": 1.1743709771796382,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 22,
+      "ticker": "KLAC",
+      "value": 1.1581108829568791,
+      "hit_52w_low_friday": false,
+      "theme": "semicap_test"
+    },
+    {
+      "rank": 23,
+      "ticker": "FLEX",
+      "value": 1.1466165413533835,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 24,
+      "ticker": "ALAB",
+      "value": 1.14512,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 25,
+      "ticker": "MU",
+      "value": 1.1358282080683828,
+      "hit_52w_low_friday": false,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 26,
+      "ticker": "VRT",
+      "value": 1.1346666666666654,
+      "hit_52w_low_friday": false,
+      "theme": "power_cooling_robotics"
+    },
+    {
+      "rank": 27,
+      "ticker": "LSCC",
+      "value": 1.129262490087232,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 28,
+      "ticker": "CRDO",
+      "value": 1.122625698324022,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 29,
+      "ticker": "CIEN",
+      "value": 1.121726822363765,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 30,
+      "ticker": "TTMI",
+      "value": 1.0983606557377055,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 31,
+      "ticker": "IREN",
+      "value": 1.088803088803089,
+      "hit_52w_low_friday": true,
+      "theme": "ai_cloud_neocloud"
+    },
+    {
+      "rank": 32,
+      "ticker": "LITE",
+      "value": 1.0710360541482384,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 33,
+      "ticker": "NBIS",
+      "value": 1.0557335041639977,
+      "hit_52w_low_friday": false,
+      "theme": "ai_cloud_neocloud"
+    },
+    {
+      "rank": 34,
+      "ticker": "WDC",
+      "value": 1.0375665825623783,
+      "hit_52w_low_friday": false,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 35,
+      "ticker": "SMTC",
+      "value": 1.017045133991537,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 36,
+      "ticker": "BE",
+      "value": 1.003888024883359,
+      "hit_52w_low_friday": false,
+      "theme": "power_cooling_robotics"
+    },
+    {
+      "rank": 37,
+      "ticker": "COHR",
+      "value": 0.9859307359307364,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 38,
+      "ticker": "PENG",
+      "value": 0.9829721362229104,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 39,
+      "ticker": "ARM",
+      "value": 0.9589507408890678,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 40,
+      "ticker": "STX",
+      "value": 0.951812674743709,
+      "hit_52w_low_friday": false,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 41,
+      "ticker": "ONTO",
+      "value": 0.8570042685292976,
+      "hit_52w_low_friday": false,
+      "theme": "semicap_test"
+    },
+    {
+      "rank": 42,
+      "ticker": "AAOI",
+      "value": 0.8039816232771821,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 43,
+      "ticker": "SNDK",
+      "value": 0.6552292972616303,
+      "hit_52w_low_friday": false,
+      "theme": "memory_storage"
+    }
+  ],
+  "order_by_recovery_of_52w_range_at_last": [
+    {
+      "rank": 1,
+      "ticker": "NVDA",
+      "value": 0.3369647514091024,
+      "hit_52w_low_friday": true,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 2,
+      "ticker": "MPWR",
+      "value": 0.3266760122268692,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 3,
+      "ticker": "ZS",
+      "value": 0.30892108991626804,
+      "hit_52w_low_friday": false,
+      "theme": "software_other"
+    },
+    {
+      "rank": 4,
+      "ticker": "TSM",
+      "value": 0.28459840581339607,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 5,
+      "ticker": "LSCC",
+      "value": 0.2578868302453681,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 6,
+      "ticker": "HPE",
+      "value": 0.21886336154776304,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 7,
+      "ticker": "SKHY",
+      "value": 0.21700970076476928,
+      "hit_52w_low_friday": true,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 8,
+      "ticker": "DELL",
+      "value": 0.19111969111969113,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 9,
+      "ticker": "MU",
+      "value": 0.1765104276627278,
+      "hit_52w_low_friday": false,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 10,
+      "ticker": "UMC",
+      "value": 0.14357163871726975,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 11,
+      "ticker": "SMTC",
+      "value": 0.14142353951890027,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 12,
+      "ticker": "COHR",
+      "value": 0.1314481642716801,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 13,
+      "ticker": "BE",
+      "value": 0.13068046915807974,
+      "hit_52w_low_friday": false,
+      "theme": "power_cooling_robotics"
+    },
+    {
+      "rank": 14,
+      "ticker": "PENG",
+      "value": 0.1248386501936197,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 15,
+      "ticker": "LITE",
+      "value": 0.12281084858278386,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 16,
+      "ticker": "ALAB",
+      "value": 0.12195681263057945,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 17,
+      "ticker": "ONTO",
+      "value": 0.11724467069678658,
+      "hit_52w_low_friday": false,
+      "theme": "semicap_test"
+    },
+    {
+      "rank": 18,
+      "ticker": "VRT",
+      "value": 0.11066947057056359,
+      "hit_52w_low_friday": false,
+      "theme": "power_cooling_robotics"
+    },
+    {
+      "rank": 19,
+      "ticker": "MRVL",
+      "value": 0.10944964647429771,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 20,
+      "ticker": "TER",
+      "value": 0.10668088379247652,
+      "hit_52w_low_friday": false,
+      "theme": "semicap_test"
+    },
+    {
+      "rank": 21,
+      "ticker": "LRCX",
+      "value": 0.10485724301795656,
+      "hit_52w_low_friday": false,
+      "theme": "semicap_test"
+    },
+    {
+      "rank": 22,
+      "ticker": "SMCI",
+      "value": 0.10455987973943541,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 23,
+      "ticker": "CRDO",
+      "value": 0.10455520975336169,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 24,
+      "ticker": "FN",
+      "value": 0.1030967411704488,
+      "hit_52w_low_friday": true,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 25,
+      "ticker": "KLAC",
+      "value": 0.09947466148613049,
+      "hit_52w_low_friday": false,
+      "theme": "semicap_test"
+    },
+    {
+      "rank": 26,
+      "ticker": "SYM",
+      "value": 0.09790635044739818,
+      "hit_52w_low_friday": true,
+      "theme": "power_cooling_robotics"
+    },
+    {
+      "rank": 27,
+      "ticker": "FLEX",
+      "value": 0.09552061702758821,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 28,
+      "ticker": "STX",
+      "value": 0.09351456900479484,
+      "hit_52w_low_friday": false,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 29,
+      "ticker": "CIEN",
+      "value": 0.08775204460053539,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 30,
+      "ticker": "GLW",
+      "value": 0.08724549890627635,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    },
+    {
+      "rank": 31,
+      "ticker": "ARM",
+      "value": 0.08525452320312243,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 32,
+      "ticker": "CRWV",
+      "value": 0.08441952106698997,
+      "hit_52w_low_friday": true,
+      "theme": "ai_cloud_neocloud"
+    },
+    {
+      "rank": 33,
+      "ticker": "NBIS",
+      "value": 0.07810575299968066,
+      "hit_52w_low_friday": false,
+      "theme": "ai_cloud_neocloud"
+    },
+    {
+      "rank": 34,
+      "ticker": "INTC",
+      "value": 0.076986301369863,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 35,
+      "ticker": "WDC",
+      "value": 0.07594983333026392,
+      "hit_52w_low_friday": false,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 36,
+      "ticker": "TTMI",
+      "value": 0.06848244348244352,
+      "hit_52w_low_friday": false,
+      "theme": "servers_hardware_pcb"
+    },
+    {
+      "rank": 37,
+      "ticker": "HIMX",
+      "value": 0.056010928961748654,
+      "hit_52w_low_friday": true,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 38,
+      "ticker": "IONQ",
+      "value": 0.05551373729770416,
+      "hit_52w_low_friday": true,
+      "theme": "software_other"
+    },
+    {
+      "rank": 39,
+      "ticker": "SNDK",
+      "value": 0.05054415971954472,
+      "hit_52w_low_friday": false,
+      "theme": "memory_storage"
+    },
+    {
+      "rank": 40,
+      "ticker": "IREN",
+      "value": 0.04901910897168427,
+      "hit_52w_low_friday": true,
+      "theme": "ai_cloud_neocloud"
+    },
+    {
+      "rank": 41,
+      "ticker": "CBRS",
+      "value": 0.04773540959430952,
+      "hit_52w_low_friday": false,
+      "theme": "foundry_chips_ip"
+    },
+    {
+      "rank": 42,
+      "ticker": "INOD",
+      "value": 0.04583761562178826,
+      "hit_52w_low_friday": true,
+      "theme": "software_other"
+    },
+    {
+      "rank": 43,
+      "ticker": "AAOI",
+      "value": 0.02765481223576226,
+      "hit_52w_low_friday": false,
+      "theme": "optical_networking"
+    }
+  ],
+  "recovery_tiers_by_52w_range_terciles": {
+    "AAOI": "laggard",
+    "INOD": "laggard",
+    "CBRS": "laggard",
+    "IREN": "laggard",
+    "SNDK": "laggard",
+    "IONQ": "laggard",
+    "HIMX": "laggard",
+    "TTMI": "laggard",
+    "WDC": "laggard",
+    "INTC": "laggard",
+    "NBIS": "laggard",
+    "CRWV": "laggard",
+    "ARM": "laggard",
+    "GLW": "laggard",
+    "CIEN": "laggard",
+    "STX": "middle",
+    "FLEX": "middle",
+    "SYM": "middle",
+    "KLAC": "middle",
+    "FN": "middle",
+    "CRDO": "middle",
+    "SMCI": "middle",
+    "LRCX": "middle",
+    "TER": "middle",
+    "MRVL": "middle",
+    "VRT": "middle",
+    "ONTO": "middle",
+    "ALAB": "middle",
+    "LITE": "middle",
+    "PENG": "leader",
+    "BE": "leader",
+    "COHR": "leader",
+    "SMTC": "leader",
+    "UMC": "leader",
+    "MU": "leader",
+    "DELL": "leader",
+    "SKHY": "leader",
+    "HPE": "leader",
+    "LSCC": "leader",
+    "TSM": "leader",
+    "ZS": "leader",
+    "MPWR": "leader",
+    "NVDA": "leader"
+  },
+  "ratio_change_vs_reference_fri_close_to_last": {
+    "NVDA": [
+      {
+        "rank": 1,
+        "ticker": "IREN",
+        "x_change": -0.055156137912015235
+      },
+      {
+        "rank": 2,
+        "ticker": "DELL",
+        "x_change": -0.07880715218177137
+      },
+      {
+        "rank": 3,
+        "ticker": "CRWV",
+        "x_change": -0.08028009489187782
+      },
+      {
+        "rank": 4,
+        "ticker": "NBIS",
+        "x_change": -0.08254043869263494
+      },
+      {
+        "rank": 5,
+        "ticker": "CRDO",
+        "x_change": -0.0836460857116953
+      },
+      {
+        "rank": 6,
+        "ticker": "ALAB",
+        "x_change": -0.08579119512423117
+      },
+      {
+        "rank": 7,
+        "ticker": "UMC",
+        "x_change": -0.08731014814846971
+      },
+      {
+        "rank": 8,
+        "ticker": "SKHY",
+        "x_change": -0.08969736060570244
+      },
+      {
+        "rank": 9,
+        "ticker": "MU",
+        "x_change": -0.09734277382849643
+      },
+      {
+        "rank": 10,
+        "ticker": "BE",
+        "x_change": -0.09882576454650294
+      },
+      {
+        "rank": 11,
+        "ticker": "PENG",
+        "x_change": -0.10278395088236736
+      },
+      {
+        "rank": 12,
+        "ticker": "LITE",
+        "x_change": -0.10479064795911441
+      },
+      {
+        "rank": 13,
+        "ticker": "MRVL",
+        "x_change": -0.10496068107355938
+      },
+      {
+        "rank": 14,
+        "ticker": "CBRS",
+        "x_change": -0.1068149763295071
+      },
+      {
+        "rank": 15,
+        "ticker": "TTMI",
+        "x_change": -0.10688126291635847
+      },
+      {
+        "rank": 16,
+        "ticker": "HPE",
+        "x_change": -0.1101692667559726
+      },
+      {
+        "rank": 17,
+        "ticker": "SMTC",
+        "x_change": -0.11160955689968144
+      },
+      {
+        "rank": 18,
+        "ticker": "AAOI",
+        "x_change": -0.115535025247259
+      },
+      {
+        "rank": 19,
+        "ticker": "MPWR",
+        "x_change": -0.11650089369494632
+      },
+      {
+        "rank": 20,
+        "ticker": "ARM",
+        "x_change": -0.11713944520704123
+      },
+      {
+        "rank": 21,
+        "ticker": "SYM",
+        "x_change": -0.11794484999542276
+      },
+      {
+        "rank": 22,
+        "ticker": "GLW",
+        "x_change": -0.11862195156948785
+      },
+      {
+        "rank": 23,
+        "ticker": "FN",
+        "x_change": -0.1212453072883618
+      },
+      {
+        "rank": 24,
+        "ticker": "TSM",
+        "x_change": -0.12258794118367167
+      },
+      {
+        "rank": 25,
+        "ticker": "INOD",
+        "x_change": -0.12375883525347242
+      },
+      {
+        "rank": 26,
+        "ticker": "ZS",
+        "x_change": -0.12442343600283456
+      },
+      {
+        "rank": 27,
+        "ticker": "COHR",
+        "x_change": -0.12579613161419434
+      },
+      {
+        "rank": 28,
+        "ticker": "LSCC",
+        "x_change": -0.12665819540536183
+      },
+      {
+        "rank": 29,
+        "ticker": "WDC",
+        "x_change": -0.12902828032659774
+      },
+      {
+        "rank": 30,
+        "ticker": "HIMX",
+        "x_change": -0.13095690621751943
+      },
+      {
+        "rank": 31,
+        "ticker": "LRCX",
+        "x_change": -0.13134623736431872
+      },
+      {
+        "rank": 32,
+        "ticker": "FLEX",
+        "x_change": -0.13177984080033156
+      },
+      {
+        "rank": 33,
+        "ticker": "SMCI",
+        "x_change": -0.13338665557743634
+      },
+      {
+        "rank": 34,
+        "ticker": "CIEN",
+        "x_change": -0.13397518674072229
+      },
+      {
+        "rank": 35,
+        "ticker": "TER",
+        "x_change": -0.13429963002997458
+      },
+      {
+        "rank": 36,
+        "ticker": "STX",
+        "x_change": -0.13486945642293535
+      },
+      {
+        "rank": 37,
+        "ticker": "INTC",
+        "x_change": -0.1353280008566572
+      },
+      {
+        "rank": 38,
+        "ticker": "KLAC",
+        "x_change": -0.13541799954201972
+      },
+      {
+        "rank": 39,
+        "ticker": "IONQ",
+        "x_change": -0.13627656617842265
+      },
+      {
+        "rank": 40,
+        "ticker": "ONTO",
+        "x_change": -0.1381453634616886
+      },
+      {
+        "rank": 41,
+        "ticker": "VRT",
+        "x_change": -0.13952762918594397
+      },
+      {
+        "rank": 42,
+        "ticker": "SNDK",
+        "x_change": -0.14155841896945343
+      }
+    ],
+    "MSFT": [
+      {
+        "rank": 1,
+        "ticker": "NVDA",
+        "x_change": 0.2800509467099064
+      },
+      {
+        "rank": 2,
+        "ticker": "IREN",
+        "x_change": 0.20944828015876937
+      },
+      {
+        "rank": 3,
+        "ticker": "DELL",
+        "x_change": 0.17917377695211822
+      },
+      {
+        "rank": 4,
+        "ticker": "CRWV",
+        "x_change": 0.17728833524159726
+      },
+      {
+        "rank": 5,
+        "ticker": "NBIS",
+        "x_change": 0.17439498001954834
+      },
+      {
+        "rank": 6,
+        "ticker": "CRDO",
+        "x_change": 0.17297969550607317
+      },
+      {
+        "rank": 7,
+        "ticker": "ALAB",
+        "x_change": 0.17023384617176007
+      },
+      {
+        "rank": 8,
+        "ticker": "UMC",
+        "x_change": 0.16828950891507577
+      },
+      {
+        "rank": 9,
+        "ticker": "SKHY",
+        "x_change": 0.16523375534919715
+      },
+      {
+        "rank": 10,
+        "ticker": "MU",
+        "x_change": 0.1554472369153712
+      },
+      {
+        "rank": 11,
+        "ticker": "BE",
+        "x_change": 0.15354893324282548
+      },
+      {
+        "rank": 12,
+        "ticker": "PENG",
+        "x_change": 0.14848225307634766
+      },
+      {
+        "rank": 13,
+        "ticker": "LITE",
+        "x_change": 0.14591357858349774
+      },
+      {
+        "rank": 14,
+        "ticker": "MRVL",
+        "x_change": 0.14569592753438054
+      },
+      {
+        "rank": 15,
+        "ticker": "CBRS",
+        "x_change": 0.14332233513652493
+      },
+      {
+        "rank": 16,
+        "ticker": "TTMI",
+        "x_change": 0.1432374849282716
+      },
+      {
+        "rank": 17,
+        "ticker": "HPE",
+        "x_change": 0.13902867250058737
+      },
+      {
+        "rank": 18,
+        "ticker": "SMTC",
+        "x_change": 0.1371850277385962
+      },
+      {
+        "rank": 19,
+        "ticker": "AAOI",
+        "x_change": 0.13216022826399954
+      },
+      {
+        "rank": 20,
+        "ticker": "MPWR",
+        "x_change": 0.13092386744314055
+      },
+      {
+        "rank": 21,
+        "ticker": "ARM",
+        "x_change": 0.13010648897556032
+      },
+      {
+        "rank": 22,
+        "ticker": "SYM",
+        "x_change": 0.12907552981370785
+      },
+      {
+        "rank": 23,
+        "ticker": "GLW",
+        "x_change": 0.1282088053028072
+      },
+      {
+        "rank": 24,
+        "ticker": "FN",
+        "x_change": 0.12485077633130537
+      },
+      {
+        "rank": 25,
+        "ticker": "TSM",
+        "x_change": 0.12313213654252952
+      },
+      {
+        "rank": 26,
+        "ticker": "INOD",
+        "x_change": 0.12163333247998387
+      },
+      {
+        "rank": 27,
+        "ticker": "ZS",
+        "x_change": 0.1207826096615785
+      },
+      {
+        "rank": 28,
+        "ticker": "COHR",
+        "x_change": 0.11902548934471313
+      },
+      {
+        "rank": 29,
+        "ticker": "LSCC",
+        "x_change": 0.11792200377270468
+      },
+      {
+        "rank": 30,
+        "ticker": "WDC",
+        "x_change": 0.11488817432549414
+      },
+      {
+        "rank": 31,
+        "ticker": "HIMX",
+        "x_change": 0.11241943492797035
+      },
+      {
+        "rank": 32,
+        "ticker": "LRCX",
+        "x_change": 0.11192107122492634
+      },
+      {
+        "rank": 33,
+        "ticker": "FLEX",
+        "x_change": 0.1113660367361613
+      },
+      {
+        "rank": 34,
+        "ticker": "SMCI",
+        "x_change": 0.10930923195954079
+      },
+      {
+        "rank": 35,
+        "ticker": "CIEN",
+        "x_change": 0.10855588208680844
+      },
+      {
+        "rank": 36,
+        "ticker": "TER",
+        "x_change": 0.10814057814724731
+      },
+      {
+        "rank": 37,
+        "ticker": "STX",
+        "x_change": 0.10741117133347777
+      },
+      {
+        "rank": 38,
+        "ticker": "INTC",
+        "x_change": 0.10682421109698326
+      },
+      {
+        "rank": 39,
+        "ticker": "KLAC",
+        "x_change": 0.10670900819458273
+      },
+      {
+        "rank": 40,
+        "ticker": "IONQ",
+        "x_change": 0.10560999915884128
+      },
+      {
+        "rank": 41,
+        "ticker": "ONTO",
+        "x_change": 0.10321784342718776
+      },
+      {
+        "rank": 42,
+        "ticker": "VRT",
+        "x_change": 0.10144847287825032
+      },
+      {
+        "rank": 43,
+        "ticker": "SNDK",
+        "x_change": 0.09884895849330011
+      }
+    ],
+    "SMH": [
+      {
+        "rank": 1,
+        "ticker": "NVDA",
+        "x_change": 0.14549691423605715
+      },
+      {
+        "rank": 2,
+        "ticker": "IREN",
+        "x_change": 0.08231572845666513
+      },
+      {
+        "rank": 3,
+        "ticker": "DELL",
+        "x_change": 0.055223564592106644
+      },
+      {
+        "rank": 4,
+        "ticker": "CRWV",
+        "x_change": 0.05353631326283348
+      },
+      {
+        "rank": 5,
+        "ticker": "NBIS",
+        "x_change": 0.05094709641395334
+      },
+      {
+        "rank": 6,
+        "ticker": "CRDO",
+        "x_change": 0.04968058116538554
+      },
+      {
+        "rank": 7,
+        "ticker": "ALAB",
+        "x_change": 0.0472233649526268
+      },
+      {
+        "rank": 8,
+        "ticker": "UMC",
+        "x_change": 0.0454834089504923
+      },
+      {
+        "rank": 9,
+        "ticker": "SKHY",
+        "x_change": 0.04274886444710613
+      },
+      {
+        "rank": 10,
+        "ticker": "MU",
+        "x_change": 0.03399106719233602
+      },
+      {
+        "rank": 11,
+        "ticker": "BE",
+        "x_change": 0.03229230590101917
+      },
+      {
+        "rank": 12,
+        "ticker": "PENG",
+        "x_change": 0.027758215667314623
+      },
+      {
+        "rank": 13,
+        "ticker": "LITE",
+        "x_change": 0.02545955035809455
+      },
+      {
+        "rank": 14,
+        "ticker": "MRVL",
+        "x_change": 0.02526477795018023
+      },
+      {
+        "rank": 15,
+        "ticker": "CBRS",
+        "x_change": 0.023140688456409375
+      },
+      {
+        "rank": 16,
+        "ticker": "TTMI",
+        "x_change": 0.023064757375715894
+      },
+      {
+        "rank": 17,
+        "ticker": "HPE",
+        "x_change": 0.019298359123441466
+      },
+      {
+        "rank": 18,
+        "ticker": "SMTC",
+        "x_change": 0.01764851120821853
+      },
+      {
+        "rank": 19,
+        "ticker": "AAOI",
+        "x_change": 0.013151899329136851
+      },
+      {
+        "rank": 20,
+        "ticker": "MPWR",
+        "x_change": 0.012045500002753284
+      },
+      {
+        "rank": 21,
+        "ticker": "ARM",
+        "x_change": 0.011314041216067716
+      },
+      {
+        "rank": 22,
+        "ticker": "SYM",
+        "x_change": 0.010391452516265831
+      },
+      {
+        "rank": 23,
+        "ticker": "GLW",
+        "x_change": 0.009615834752549901
+      },
+      {
+        "rank": 24,
+        "ticker": "FN",
+        "x_change": 0.006610788871636242
+      },
+      {
+        "rank": 25,
+        "ticker": "TSM",
+        "x_change": 0.0050728058876099436
+      },
+      {
+        "rank": 26,
+        "ticker": "INOD",
+        "x_change": 0.0037315503437560515
+      },
+      {
+        "rank": 27,
+        "ticker": "ZS",
+        "x_change": 0.0029702522361625405
+      },
+      {
+        "rank": 28,
+        "ticker": "COHR",
+        "x_change": 0.0013978336491646814
+      },
+      {
+        "rank": 29,
+        "ticker": "LSCC",
+        "x_change": 0.00041034223650759927
+      },
+      {
+        "rank": 30,
+        "ticker": "WDC",
+        "x_change": -0.002304582727245319
+      },
+      {
+        "rank": 31,
+        "ticker": "HIMX",
+        "x_change": -0.00451381773401216
+      },
+      {
+        "rank": 32,
+        "ticker": "LRCX",
+        "x_change": -0.004959795361286656
+      },
+      {
+        "rank": 33,
+        "ticker": "FLEX",
+        "x_change": -0.005456486759241375
+      },
+      {
+        "rank": 34,
+        "ticker": "SMCI",
+        "x_change": -0.0072970881281639866
+      },
+      {
+        "rank": 35,
+        "ticker": "CIEN",
+        "x_change": -0.007971248759639726
+      },
+      {
+        "rank": 36,
+        "ticker": "TER",
+        "x_change": -0.00834289754632278
+      },
+      {
+        "rank": 37,
+        "ticker": "STX",
+        "x_change": -0.008995631921109526
+      },
+      {
+        "rank": 38,
+        "ticker": "INTC",
+        "x_change": -0.009520893154978394
+      },
+      {
+        "rank": 39,
+        "ticker": "KLAC",
+        "x_change": -0.009623986371346094
+      },
+      {
+        "rank": 40,
+        "ticker": "IONQ",
+        "x_change": -0.010607471804011892
+      },
+      {
+        "rank": 41,
+        "ticker": "ONTO",
+        "x_change": -0.01274817332532574
+      },
+      {
+        "rank": 42,
+        "ticker": "VRT",
+        "x_change": -0.014331554447114425
+      },
+      {
+        "rank": 43,
+        "ticker": "SNDK",
+        "x_change": -0.0166578178775868
+      }
+    ],
+    "QQQ": [
+      {
+        "rank": 1,
+        "ticker": "NVDA",
+        "x_change": 0.22714289624218487
+      },
+      {
+        "rank": 2,
+        "ticker": "IREN",
+        "x_change": 0.159458433419301
+      },
+      {
+        "rank": 3,
+        "ticker": "DELL",
+        "x_change": 0.13043525926924748
+      },
+      {
+        "rank": 4,
+        "ticker": "CRWV",
+        "x_change": 0.12862774808596877
+      },
+      {
+        "rank": 5,
+        "ticker": "NBIS",
+        "x_change": 0.1258539832478045
+      },
+      {
+        "rank": 6,
+        "ticker": "CRDO",
+        "x_change": 0.12449719636261314
+      },
+      {
+        "rank": 7,
+        "ticker": "ALAB",
+        "x_change": 0.12186484058535751
+      },
+      {
+        "rank": 8,
+        "ticker": "UMC",
+        "x_change": 0.12000086817193756
+      },
+      {
+        "rank": 9,
+        "ticker": "SKHY",
+        "x_change": 0.11707141736322346
+      },
+      {
+        "rank": 10,
+        "ticker": "MU",
+        "x_change": 0.10768940283803596
+      },
+      {
+        "rank": 11,
+        "ticker": "BE",
+        "x_change": 0.10586956131324143
+      },
+      {
+        "rank": 12,
+        "ticker": "PENG",
+        "x_change": 0.10101230106918213
+      },
+      {
+        "rank": 13,
+        "ticker": "LITE",
+        "x_change": 0.09854979700654232
+      },
+      {
+        "rank": 14,
+        "ticker": "MRVL",
+        "x_change": 0.09834114207802513
+      },
+      {
+        "rank": 15,
+        "ticker": "CBRS",
+        "x_change": 0.0960656568271534
+      },
+      {
+        "rank": 16,
+        "ticker": "TTMI",
+        "x_change": 0.09598431371298255
+      },
+      {
+        "rank": 17,
+        "ticker": "HPE",
+        "x_change": 0.09194946315838282
+      },
+      {
+        "rank": 18,
+        "ticker": "SMTC",
+        "x_change": 0.09018202134000308
+      },
+      {
+        "rank": 19,
+        "ticker": "AAOI",
+        "x_change": 0.08536491074284958
+      },
+      {
+        "rank": 20,
+        "ticker": "MPWR",
+        "x_change": 0.0841796521385656
+      },
+      {
+        "rank": 21,
+        "ticker": "ARM",
+        "x_change": 0.08339605818661378
+      },
+      {
+        "rank": 22,
+        "ticker": "SYM",
+        "x_change": 0.08240771142195191
+      },
+      {
+        "rank": 23,
+        "ticker": "GLW",
+        "x_change": 0.08157681103530368
+      },
+      {
+        "rank": 24,
+        "ticker": "FN",
+        "x_change": 0.0783575787005708
+      },
+      {
+        "rank": 25,
+        "ticker": "TSM",
+        "x_change": 0.0767099750536877
+      },
+      {
+        "rank": 26,
+        "ticker": "INOD",
+        "x_change": 0.07527312071367942
+      },
+      {
+        "rank": 27,
+        "ticker": "ZS",
+        "x_change": 0.07445756062526243
+      },
+      {
+        "rank": 28,
+        "ticker": "COHR",
+        "x_change": 0.07277306695707964
+      },
+      {
+        "rank": 29,
+        "ticker": "LSCC",
+        "x_change": 0.07171519149964056
+      },
+      {
+        "rank": 30,
+        "ticker": "WDC",
+        "x_change": 0.06880675862505536
+      },
+      {
+        "rank": 31,
+        "ticker": "HIMX",
+        "x_change": 0.06644005906350192
+      },
+      {
+        "rank": 32,
+        "ticker": "LRCX",
+        "x_change": 0.06596229411242116
+      },
+      {
+        "rank": 33,
+        "ticker": "FLEX",
+        "x_change": 0.06543020073613226
+      },
+      {
+        "rank": 34,
+        "ticker": "SMCI",
+        "x_change": 0.0634584093968309
+      },
+      {
+        "rank": 35,
+        "ticker": "CIEN",
+        "x_change": 0.06273619756058757
+      },
+      {
+        "rank": 36,
+        "ticker": "TER",
+        "x_change": 0.06233805928294811
+      },
+      {
+        "rank": 37,
+        "ticker": "STX",
+        "x_change": 0.0616388008727351
+      },
+      {
+        "rank": 38,
+        "ticker": "INTC",
+        "x_change": 0.06107610132828167
+      },
+      {
+        "rank": 39,
+        "ticker": "KLAC",
+        "x_change": 0.06096566008086812
+      },
+      {
+        "rank": 40,
+        "ticker": "IONQ",
+        "x_change": 0.059912076132055736
+      },
+      {
+        "rank": 41,
+        "ticker": "ONTO",
+        "x_change": 0.057618794821379105
+      },
+      {
+        "rank": 42,
+        "ticker": "VRT",
+        "x_change": 0.05592255725714024
+      },
+      {
+        "rank": 43,
+        "ticker": "SNDK",
+        "x_change": 0.05343048800054517
+      }
+    ]
+  },
+  "caveats": [
+    "Monday values are intraday and provisional",
+    "Recovery of the 52-week range is small for names far above their lows; it measures distance travelled back from the stress low, not valuation",
+    "Terciles are rank-based and relative to this cohort only"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "_doc": "Per-ticker translation of industry/company drivers into scenarios. Every number here is an editable assumption unless its _src says otherwise.",
+  "NVDA": {"fundamental": "eps_estimates",
+           "industry": {"type": "linear", "driver": "ai_capex_growth_yoy", "beta": 1.0,
+                        "_note": "NTM EPS growth = beta x hyperscaler capex growth (constant share and margins)"}},
+  "SNDK": {"fundamental": "eps_runrate", "ref_metric": "eps",
+           "industry": {"type": "memory_pnl", "gm": 0.85, "opex": 0.045, "opex_growth": 0.10, "cost_per_bit_change": -0.10,
+                        "bits": "nand_bits_growth_yoy", "asp": "nand_asp_change",
+                        "_src": "gm and opex from Sandisk FQ1 FY27 release (85.1% non-GAAP GM; opex 513M on 11.0B revenue = 4.6%); cost/bit and opex growth are assumptions"}},
+  "CRWV": {"fundamental": "ev_sales_levered", "ref_revenue_b": 13.15, "backlog_b": 133.0, "backlog_conv_24m": 0.36,
+           "capex_2027_b": 38.0, "ocf_2027_b": 10.0, "scen_mult": {"bear": 0.8, "base": 1.0, "bull": 1.15},
+           "industry": {"type": "linear_revenue", "driver": "ai_capex_growth_yoy", "beta": 1.0},
+           "_src": "backlog 133B and 36% converting within 24 months per CoreWeave Q3 2026 call/Zacks summary; capex 37-39B 2026 and 'in line' for 2027 per CFO; 2027 OCF is an assumption (Q3 2026 OCF was 2B)"}
+}

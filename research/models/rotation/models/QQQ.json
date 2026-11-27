@@ -1,0 +1,125 @@
+{
+  "schema": "rotation.model/1",
+  "ticker": "QQQ",
+  "theme": "benchmarks",
+  "provisional_monday": true,
+  "monday_snapshot_et": "2026-11-23T13:51",
+  "window_52w": {
+    "basis": "daily bars 2025-11-21..2026-11-19 plus Friday low; n=250",
+    "low": 555.6,
+    "low_date": "2026-03-30",
+    "high": 762.86,
+    "high_date": "2026-10-06",
+    "hit_52w_low_on_friday": false,
+    "prior_52w_low_before_friday": 555.6,
+    "range_log_width": 0.31702591733007685
+  },
+  "anchor_moments": {
+    "a0_52w_high": {
+      "price": 762.86,
+      "date": "2026-10-06"
+    },
+    "a1_pre_compression_thu_close": 645.04,
+    "a2_stress_low_fri_low": 606.2293,
+    "a2_fri_close": 608.45,
+    "a3_rebound_peak_mon_high": 657.53,
+    "a4_last_snapshot": 649.97,
+    "mon_open": 655.98,
+    "mon_low": 641.9501
+  },
+  "stress_relativity": {
+    "drawdown_52w_high_to_fri_low": -0.2053203733319351,
+    "drawdown_52w_high_to_fri_close": -0.2024093542720813,
+    "fri_close_vs_52w_low": 0.09512239020878344,
+    "rebound_fri_low_to_peak": 0.08462260072220196,
+    "rebound_fri_close_to_last": 0.06823896786917572,
+    "recovery_of_friday_drop_at_peak": 1.3413500956545514,
+    "recovery_of_friday_drop_at_last": 1.1347362667395484,
+    "recovery_of_52w_range_at_peak": 0.3275264683104908,
+    "recovery_of_52w_range_at_last": 0.27926006842847567,
+    "position_in_52w_log_range": {
+      "fri_low": 0.27508693040978216,
+      "fri_close": 0.2866205061967014,
+      "mon_high": 0.5313186408412257,
+      "mon_last": 0.4948415524491104,
+      "thu_close": 0.4708249746697173
+    }
+  },
+  "relativity": {
+    "NVDA": {
+      "unit": "1 QQQ = x NVDA",
+      "x": {
+        "fri_low": 4.869311646586345,
+        "fri_close": 4.847048514299371,
+        "mon_high": 3.8339941690962096,
+        "mon_last": 3.9498647868493815
+      },
+      "x_change_fri_close_to_last": -0.1850989782345257,
+      "x_change_fri_low_to_peak": -0.21262091084598167
+    },
+    "MSFT": {
+      "unit": "1 QQQ = x MSFT",
+      "x": {
+        "fri_low": 1.2602733717231773,
+        "fri_close": 1.2557789152150582,
+        "mon_high": 1.2914268879505058,
+        "mon_last": 1.3099216026119027
+      },
+      "x_change_fri_close_to_last": 0.04311482438576553,
+      "x_change_fri_low_to_peak": 0.024719649661987253
+    },
+    "SMH": {
+      "unit": "1 QQQ = x SMH",
+      "x": {
+        "fri_low": 1.5276031246062742,
+        "fri_close": 1.5208968654701795,
+        "mon_high": 1.4009374667092787,
+        "mon_last": 1.4197064348433883
+      },
+      "x_change_fri_close_to_last": -0.06653339415983905,
+      "x_change_fri_low_to_peak": -0.0829179096695305
+    }
+  },
+  "eps_state": {
+    "basis": null,
+    "note": "no earnings basis in the loaded data; price-only tiers"
+  },
+  "bands": {
+    "tiers_basis": "price_only",
+    "bounds": [
+      555.6,
+      591.9687192280752,
+      630.7180787338511,
+      672.0039115588015,
+      715.9922513349901,
+      762.8600000000002
+    ],
+    "tier_at_points": {
+      "thu_close": {
+        "tier": 3,
+        "label": "T3_mid",
+        "position_in_tier": 0.35412487334859316
+      },
+      "fri_low": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.37543465204891463
+      },
+      "fri_close": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.4331025309835109
+      },
+      "mon_high": {
+        "tier": 3,
+        "label": "T3_mid",
+        "position_in_tier": 0.6565932042061361
+      },
+      "mon_last": {
+        "tier": 3,
+        "label": "T3_mid",
+        "position_in_tier": 0.47420776224555883
+      }
+    }
+  }
+}

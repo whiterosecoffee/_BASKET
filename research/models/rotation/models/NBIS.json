@@ -1,0 +1,136 @@
+{
+  "schema": "rotation.model/1",
+  "ticker": "NBIS",
+  "theme": "ai_cloud_neocloud",
+  "provisional_monday": true,
+  "monday_snapshot_et": "2026-11-23T13:51",
+  "window_52w": {
+    "basis": "daily bars 2025-11-21..2026-11-19 plus Friday low; n=250",
+    "low": 73.52,
+    "low_date": "2026-02-05",
+    "high": 299.86,
+    "high_date": "2026-06-22",
+    "hit_52w_low_on_friday": false,
+    "prior_52w_low_before_friday": 73.52,
+    "range_log_width": 1.4057582210193256
+  },
+  "anchor_moments": {
+    "a0_52w_high": {
+      "price": 299.86,
+      "date": "2026-06-22"
+    },
+    "a1_pre_compression_thu_close": 96.92,
+    "a2_stress_low_fri_low": 80.67,
+    "a2_fri_close": 81.31,
+    "a3_rebound_peak_mon_high": 110.05,
+    "a4_last_snapshot": 97.79,
+    "mon_open": 110.0,
+    "mon_low": 96.7235
+  },
+  "stress_relativity": {
+    "drawdown_52w_high_to_fri_low": -0.7309744547455479,
+    "drawdown_52w_high_to_fri_close": -0.7288401253918495,
+    "fri_close_vs_52w_low": 0.1059575625680087,
+    "rebound_fri_low_to_peak": 0.3641998264534523,
+    "rebound_fri_close_to_last": 0.20268109703603487,
+    "recovery_of_friday_drop_at_peak": 1.8411274823830874,
+    "recovery_of_friday_drop_at_last": 1.0557335041639977,
+    "recovery_of_52w_range_at_peak": 0.13403896163146126,
+    "recovery_of_52w_range_at_last": 0.07810575299968066,
+    "position_in_52w_log_range": {
+      "fri_low": 0.06602079896367573,
+      "fri_close": 0.07164214348274482,
+      "mon_high": 0.2869464491785417,
+      "mon_last": 0.20292596551198153,
+      "thu_close": 0.1965689503138925
+    }
+  },
+  "relativity": {
+    "NVDA": {
+      "unit": "1 NBIS = x NVDA",
+      "x": {
+        "fri_low": 0.6479518072289157,
+        "fri_close": 0.6477336094957381,
+        "mon_high": 0.6416909620991254,
+        "mon_last": 0.594269393211996
+      },
+      "x_change_fri_close_to_last": -0.08254043869263494,
+      "x_change_fri_low_to_peak": -0.009662516656240183
+    },
+    "MSFT": {
+      "unit": "1 NBIS = x MSFT",
+      "x": {
+        "fri_low": 0.1677026380891005,
+        "fri_close": 0.167815570048708,
+        "mon_high": 0.2161445546499067,
+        "mon_last": 0.19708176303432154
+      },
+      "x_change_fri_close_to_last": 0.17439498001954834,
+      "x_change_fri_low_to_peak": 0.2888560198741119
+    },
+    "SMH": {
+      "unit": "1 NBIS = x SMH",
+      "x": {
+        "fri_low": 0.20327579690059216,
+        "fri_close": 0.20324451332300156,
+        "mon_high": 0.23447320762757,
+        "mon_last": 0.21359923113887555
+      },
+      "x_change_fri_close_to_last": 0.05094709641395334,
+      "x_change_fri_low_to_peak": 0.15347331656131358
+    },
+    "QQQ": {
+      "unit": "1 NBIS = x QQQ",
+      "x": {
+        "fri_low": 0.13306846105920647,
+        "fri_close": 0.1336346454104692,
+        "mon_high": 0.16736878925676396,
+        "mon_last": 0.1504530978352847
+      },
+      "x_change_fri_close_to_last": 0.1258539832478045,
+      "x_change_fri_low_to_peak": 0.257764521544261
+    }
+  },
+  "eps_state": {
+    "basis": null,
+    "note": "no earnings basis in the loaded data; price-only tiers"
+  },
+  "bands": {
+    "tiers_basis": "price_only",
+    "bounds": [
+      73.52,
+      97.38859625774941,
+      129.00623886092114,
+      170.88869030409458,
+      226.36846660828405,
+      299.86000000000007
+    ],
+    "tier_at_points": {
+      "thu_close": {
+        "tier": 1,
+        "label": "T1_compression_floor",
+        "position_in_tier": 0.9828447515694606
+      },
+      "fri_low": {
+        "tier": 1,
+        "label": "T1_compression_floor",
+        "position_in_tier": 0.330103994818378
+      },
+      "fri_close": {
+        "tier": 1,
+        "label": "T1_compression_floor",
+        "position_in_tier": 0.3582107174137234
+      },
+      "mon_high": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.4347322458927069
+      },
+      "mon_last": {
+        "tier": 2,
+        "label": "T2_depressed",
+        "position_in_tier": 0.014629827559905736
+      }
+    }
+  }
+}

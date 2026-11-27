@@ -1,0 +1,648 @@
+import tempfile
+import unittest
+from datetime import date
+from pathlib import Path
+
+from engines.valuation.relative_value import cli, store
+from engines.valuation.relative_value.calendarize import calendarize, extend, ntm
+from engines.valuation.relative_value.metrics import View, add_growth_adjusted_residuals, build_view, ratio_stats
+from engines.valuation.relative_value import portfolio as pf
+from engines.valuation.relative_value import cohort as co
+from engines.valuation.relative_value import bands as bnd
+from engines.valuation.relative_value import models as mdl
+from engines.valuation.relative_value import multiplepoints as mpt
+from engines.valuation.relative_value import pointcompare as pc
+from engines.valuation.relative_value import anchors as an, history as hist, profile as prof, trading as trd
+from engines.valuation.relative_value.implied import implied_growth, pv
+from engines.valuation.relative_value.macro import equity_duration, multiple_factor
+from engines.valuation.relative_value.tape import tape_stats
+from engines.valuation.relative_value.rotation import Params, decide
+
+ASOF = date(2026, 7, 1)
+
+
+def est(t, vals, fye=12, as_of="2026-06-15", kind="consensus"):
+    return {(t, "eps"): {y: store.Est(t, "eps", y, v, "non_gaap", kind, "test", date.fromisoformat(as_of), fye)
+                         for y, v in vals.items()}}
+
+
+def snap(price=100.0):
+    return {"price": price, "market_cap": 1e9, "enterprise_value": 1e9, "asof": ASOF, "earnings_per_share": "4"}
+
+
+class T(unittest.TestCase):
+    def test_calendarize_jan_fye(self):
+        cy = calendarize({2026: 12.0, 2027: 24.0}, 1)
+        self.assertAlmostEqual(cy[2026], 12 / 12 + 24 * 11 / 12)
+
+    def test_calendarize_dec_identity(self):
+        self.assertEqual(calendarize({2026: 5.0}, 12), {2026: 5.0})
+
+    def test_extend_fades_growth_and_marks(self):
+        v, e = extend({2026: 10.0, 2027: 20.0}, 2029)
+        self.assertEqual(e, {2028, 2029})
+        self.assertAlmostEqual(v[2028], 20 * (1 + 0.4))  # g capped 0.5 -> *0.8 = 0.4
+
+    def test_ntm_blend(self):
+        self.assertAlmostEqual(ntm({2026: 10, 2027: 20}, 2026, 0.5), 15)
+
+    def test_point_in_time_excludes_future_and_prefers_kind(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "e.csv"
+            p.write_text("ticker,metric,fiscal_year,value,basis,kind,source,as_of,fye_month\n"
+                         "AAA,eps,2027,5,non_gaap,guidance,x,2026-06-01,12\n"
+                         "AAA,eps,2027,6,non_gaap,consensus,x,2026-06-01,12\n"
+                         "AAA,eps,2027,9,non_gaap,consensus,x,2026-09-01,12\n")
+            self.assertEqual(store.load_estimates(p, ASOF)[("AAA", "eps")][2027].value, 6.0)
+
+    def test_stale_and_missing_flags(self):
+        v = build_view("AAA", snap(), est("AAA", {2026: 4, 2027: 5}, as_of="2025-01-01"), ASOF)
+        self.assertIn("STALE_ESTIMATES", v.flags)
+        self.assertFalse(v.usable)
+        self.assertIn("NO_ESTIMATES", build_view("ZZZ", snap(), {}, ASOF).flags)
+
+    def test_pe_and_cagr(self):
+        v = build_view("AAA", snap(100), est("AAA", {2026: 4, 2027: 5, 2028: 6, 2029: 7, 2030: 8}), ASOF)
+        self.assertAlmostEqual(v.pe(2026), 25.0)
+        self.assertAlmostEqual(v.cagr, 2 ** 0.25 - 1)
+        self.assertEqual(v.extrapolated, set())
+
+    def test_residuals_need_four(self):
+        vs = []
+        for i, (pe, g) in enumerate([(20, 10), (30, 20), (40, 30), (50, 40)]):
+            v = View(f"T{i}", pe, ASOF, ASOF, eps={2026: 1.0, 2030: (1 + g / 100) ** 4}, ntm_eps=1.0)
+            vs.append(v)
+        add_growth_adjusted_residuals(vs)
+        self.assertTrue(all(abs(v.resid) < 1e-6 for v in vs))
+        for v in vs[:3]:
+            v.resid = None
+        add_growth_adjusted_residuals(vs[:3])
+        self.assertIsNone(vs[0].resid)
+
+    def test_ratio_stats(self):
+        a = [(date(2026, 1, 1).fromordinal(date(2026, 1, 1).toordinal() + i), 100 + i) for i in range(60)]
+        b = [(t, 100.0) for t, _ in a]
+        s = ratio_stats(a, b)
+        self.assertGreater(s["z"], 1.0)
+        self.assertEqual(s["pctile"], 1.0)
+
+    def _bars(self, closes, vols=None):
+        vols = vols or [100.0] * len(closes)
+        return [{"date": date.fromordinal(738000 + i), "open": c, "high": c * 1.01, "low": c * 0.99, "close": c, "volume": v}
+                for i, (c, v) in enumerate(zip(closes, vols))]
+
+    def test_tape_new_low_heavy_volume_excludes_last_from_avg(self):
+        closes = [100.0] * 60 + [80.0]
+        vols = [100.0] * 60 + [300.0]
+        t = tape_stats(self._bars(closes, vols))
+        self.assertAlmostEqual(t["vol_ratio_20d"], 3.0)
+        self.assertIn("TAPE:NEW_52W_LOW", t["flags"])
+        self.assertIn("TAPE:HEAVY_VOLUME", t["flags"])
+        self.assertIn("TAPE:GAP_DOWN_10PCT", t["flags"])
+        self.assertAlmostEqual(t["low_win"], 80 * 0.99)
+        self.assertAlmostEqual(t["pct_below_high"], 80 / 101 - 1)
+
+    def test_tape_needs_history_and_lowest_low_is_all_history(self):
+        self.assertIsNone(tape_stats(self._bars([1.0] * 10)))
+        closes = [50.0] * 5 + [100.0] * 300
+        t = tape_stats(self._bars(closes), window=252)
+        self.assertAlmostEqual(t["low_ever"], 50 * 0.99)
+        self.assertAlmostEqual(t["low_win"], 100 * 0.99)
+
+    def test_ratio_half_life_mean_reverting(self):
+        import math
+        import random
+        rng = random.Random(7)
+        a, b, x = [], [], 0.0
+        for i in range(250):
+            x = 0.8 * x + rng.gauss(0, 0.05)
+            a.append((date.fromordinal(738000 + i), 100 * math.exp(x)))
+            b.append((date.fromordinal(738000 + i), 100.0))
+        hl = ratio_stats(a, b)["half_life_days"]
+        self.assertIsNotNone(hl)
+        self.assertTrue(1.5 < hl < 8, hl)  # true AR(0.8) half-life ~3.1 days
+
+    def test_duration_inverse_of_fcf_yield_and_capped(self):
+        self.assertAlmostEqual(equity_duration(0.05)[0], 20.0)
+        self.assertEqual(equity_duration(-0.1), (40.0, "NEG_FCF_DURATION_CAPPED"))
+        self.assertEqual(equity_duration(0.5)[0], 3.0)
+        self.assertAlmostEqual(multiple_factor(20.0, 50), 0.90)
+
+    def test_rate_shock_favours_short_duration_candidate(self):
+        h, c = self._pair({2026: 4, 2027: 4.6, 2028: 5.3}, {2026: 4, 2027: 4.4, 2028: 4.8})
+        h.duration, c.duration = 30.0, 5.0
+        base = decide(h, c, Params(), None, {})
+        shock = decide(h, c, Params(rate_shock_bp=100), None, {})
+        self.assertGreater(shock["edge"]["base"], base["edge"]["base"])
+
+    def _pair(self, held_eps, cand_eps):
+        h = build_view("HLD", snap(100), est("HLD", held_eps), ASOF)
+        c = build_view("CND", snap(100), est("CND", cand_eps), ASOF)
+        return h, c
+
+    def test_rotate_when_candidate_grows_faster(self):
+        h, c = self._pair({2026: 4, 2027: 4.4, 2028: 4.8}, {2026: 4, 2027: 6, 2028: 8})
+        r = decide(h, c, Params(), None, {})
+        self.assertEqual(r["signal"], "ROTATE")
+        self.assertTrue(r["robust"])
+
+    def test_tax_and_cost_can_flip_to_hold(self):
+        h, c = self._pair({2026: 4, 2027: 5, 2028: 6}, {2026: 4, 2027: 5.2, 2028: 6.4})
+        self.assertEqual(decide(h, c, Params(tax_rate=0.4), 50.0, {})["signal"], "HOLD")
+
+    def test_wait_for_print(self):
+        h, c = self._pair({2026: 4, 2027: 4.4, 2028: 4.8}, {2026: 4, 2027: 5.0, 2028: 6.0})
+        r = decide(h, c, Params(hurdle=0.10), None, {"HLD": date(2026, 7, 10)})
+        self.assertEqual(r["signal"], "WAIT_FOR_PRINT")
+
+    def test_stale_data_blocks_signal(self):
+        h, c = self._pair({2026: 4, 2027: 5}, {2026: 4, 2027: 9})
+        c.flags.append("STALE_ESTIMATES")
+        self.assertEqual(decide(h, c, Params(), None, {})["signal"], "INSUFFICIENT_DATA")
+
+    def test_cli_report_end_to_end(self):
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            (d / "ratios.csv").write_text("ticker,date,price,market_cap,enterprise_value,earnings_per_share\n"
+                                          "HLD,2026-06-30,100,1e9,1e9,4\nCND,2026-06-30,100,1e9,1e9,4\n")
+            (d / "estimates.csv").write_text(",".join(store.EST_FIELDS) + "\n" + "".join(
+                f"{t},eps,{y},{v},non_gaap,consensus,test,2026-06-15,12,USD\n"
+                for t, vals in (("HLD", {2026: 4, 2027: 4.4, 2028: 4.8}), ("CND", {2026: 4, 2027: 6, 2028: 8}))
+                for y, v in vals.items()))
+            self.assertEqual(cli.main(["--data", str(d), "report", "--asof", "2026-07-01", "--hold", "HLD"]), 0)
+
+
+class P(unittest.TestCase):
+    def nm(self, t, price, bear, base, bull, sigma=0.4, flags=None):
+        ret = {"bear": bear, "base": base, "bull": bull}
+        return pf.Name(t, price, ret, 0.25 * bear + 0.5 * base + 0.25 * bull, sigma, "user_target", flags or [])
+
+    def test_swap_identity_no_costs(self):
+        a, b = self.nm("A", 200, 0.0, 0.10, 0.20), self.nm("B", 100, 0.2, 0.60, 1.0)
+        r = pf.swap(a, b, 10, None, pf.Costs(0.0, 0.0))
+        self.assertAlmostEqual(r["share_multiplier"], 2.0)             # P_A/P_B
+        self.assertAlmostEqual(r["edge_base"], 1.60 / 1.10 - 1)        # (1+rB)/(1+rA)-1
+        self.assertAlmostEqual(r["rich_pct"], r["spot_ratio"] / r["fair_ratio"] - 1)
+        self.assertEqual(r["signal"], "SWAP")
+
+    def test_tax_and_cost_reduce_shares(self):
+        a, b = self.nm("A", 200, 0.0, 0.1, 0.2), self.nm("B", 100, 0.2, 0.6, 1.0)
+        r = pf.swap(a, b, 10, 100.0, pf.Costs(0.002, 0.25))
+        gross = 2000.0
+        fric = gross * 0.002 + 0.25 * (100 * 10)
+        self.assertAlmostEqual(r["shares_b"], (gross - fric) / 100)
+        self.assertLess(r["share_multiplier"], 2.0)
+
+    def test_contested_when_bear_case_loses(self):
+        a, b = self.nm("A", 100, 0.1, 0.2, 0.3), self.nm("B", 100, -0.5, 0.6, 1.5)
+        r = pf.swap(a, b, 1, None, pf.Costs(0, 0))
+        self.assertEqual(r["signal"], "CONTESTED")
+
+    def test_weights_cap_and_sum(self):
+        ns = [self.nm("A", 1, 0, 1.0, 0, 0.3), self.nm("B", 1, 0, 0.2, 0, 0.3), self.nm("C", 1, 0, -0.1, 0, 0.3)]
+        w = pf.target_weights(ns, max_w=0.5)
+        self.assertAlmostEqual(sum(w.values()), 1.0)
+        self.assertLessEqual(max(w.values()), 0.5 + 1e-9)
+        self.assertEqual(w["C"], 0.0)
+
+    def test_propose_self_financing_and_band(self):
+        ns = [self.nm("A", 100, 0, 0.0, 0, 0.3), self.nm("B", 50, 0, 0.5, 0, 0.3)]
+        hold = {"A": {"shares": 10.0, "basis_price": 100.0}, "B": {"shares": 0.0, "basis_price": 50.0}}
+        r = pf.propose(ns, hold, pf.Costs(0.0, 0.0), max_w=1.0, band=0.10)
+        sell = sum(o["shares"] * o["price"] for o in r["orders"] if o["side"] == "SELL")
+        buy = sum(o["shares"] * o["price"] for o in r["orders"] if o["side"] == "BUY")
+        self.assertAlmostEqual(sell, buy)
+        self.assertAlmostEqual(buy, 1000.0)
+        hold2 = {"A": {"shares": 0.05, "basis_price": 100.0}, "B": {"shares": 19.9, "basis_price": 50.0}}
+        self.assertEqual(pf.propose(ns, hold2, pf.Costs(0, 0), max_w=1.0, band=0.10)["orders"], [])
+
+    def test_staging_limits_buy_into_new_low(self):
+        ns = [self.nm("A", 100, 0, 0.0, 0, 0.3), self.nm("B", 50, 0, 0.5, 0, 0.3, ["TAPE:NEW_52W_LOW"])]
+        hold = {"A": {"shares": 10.0, "basis_price": 100.0}, "B": {"shares": 0.0, "basis_price": 50.0}}
+        r = pf.propose(ns, hold, pf.Costs(0, 0), max_w=1.0, band=0.10, stage=0.33)
+        buy = sum(o["shares"] * o["price"] for o in r["orders"] if o["side"] == "BUY")
+        self.assertAlmostEqual(buy, 330.0)
+
+    def test_horizon_normalisation_and_targets_point_in_time(self):
+        row = {s: {"target_price": "121", "horizon_date": "2028-07-01"} for s in pf.SCEN}
+        r = pf.normalise_returns(row, 100.0, date(2026, 7, 1), 12)
+        self.assertAlmostEqual(r["base"], 0.10, places=3)              # 21% over ~2y -> ~10% per 12m
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "t.csv"
+            p.write_text("ticker,scenario,target_price,horizon_date,source,as_of\n"
+                         "AAA,base,150,2027-07-01,me,2026-06-01\nAAA,base,999,2027-07-01,me,2026-09-01\n")
+            tg = pf.load_targets(p, date(2026, 7, 1), 12)
+            self.assertEqual(tg["AAA"]["raw"]["base"]["target_price"], "150")
+            self.assertIn("BEAR_MISSING_USING_BASE", tg["AAA"]["flags"])
+
+    def test_holdings_ledger_replay_average_cost(self):
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            (d / "h.csv").write_text("ticker,shares,basis_price,as_of\nAAA,10,100,2026-01-01\n")
+            (d / "l.csv").write_text("date,ticker,delta_shares,price,fee,reason\n2026-02-01,AAA,10,50,0,x\n2026-03-01,AAA,-5,70,0,x\n2026-12-01,AAA,100,1,0,future\n")
+            h = pf.load_holdings(d / "h.csv", d / "l.csv", date(2026, 6, 1))
+            self.assertAlmostEqual(h["AAA"]["shares"], 15)
+            self.assertAlmostEqual(h["AAA"]["basis_price"], 75.0)
+
+    def test_simulate_pair_runs_and_counts(self):
+        import math
+        a = [(date.fromordinal(738000 + i), 100 * math.exp(0.2 * math.sin(i / 6))) for i in range(300)]
+        b = [(t, 100.0) for t, _ in a]
+        r = pf.simulate_pair(a, b, lookback=30, band=0.05)
+        self.assertGreater(r["swaps"], 2)
+        self.assertGreater(r["rotator_A_units"], 1.0)                  # oscillating ratio: rotation accumulates A-share units
+
+
+class I(unittest.TestCase):
+    def test_implied_growth_roundtrip(self):
+        mcap = pv(100.0, 0.07, 0.095, 10, 0.03)
+        self.assertAlmostEqual(implied_growth(mcap, 100.0, 0.095, 10, 0.03), 0.07, places=6)
+
+    def test_implied_growth_guards(self):
+        self.assertIsNone(implied_growth(1000, -5.0, 0.095))
+        self.assertIsNone(implied_growth(1000, 10.0, 0.02, g_term=0.03))      # r <= terminal g
+        self.assertIsNone(implied_growth(1e9, 1.0, 0.095))                    # price far above any solvable growth
+
+    def test_guidance_split_adjusts_eps_only_and_is_point_in_time(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "g.csv"
+            p.write_text("ticker,period,metric,low,high,basis,split_factor,annualize,source,as_of\n"
+                         "ZZZ,Q2,eps,55,57,non_gaap,8,4,x,2026-10-29\nZZZ,Q2,revenue,12.2,12.6,gaap,8,4,x,2026-10-29\n"
+                         "ZZZ,Q3,eps,100,100,non_gaap,8,4,x,2027-01-01\n")
+            g = store.load_guidance(p, date(2026, 11, 20))
+            self.assertAlmostEqual(g[("ZZZ", "eps")]["mid"], 7.0)             # 56/8
+            self.assertAlmostEqual(g[("ZZZ", "revenue")]["mid"], 12.4)        # split never applied to revenue
+            self.assertEqual(g[("ZZZ", "eps")]["period"], "Q2")               # later guidance excluded
+
+    def test_actual_kind_outranks_consensus(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "e.csv"
+            p.write_text("ticker,metric,fiscal_year,value,basis,kind,source,as_of,fye_month\n"
+                         "AAA,eps,2026,4.0,non_gaap,consensus,x,2026-06-01,12\nAAA,eps,2026,4.77,non_gaap,actual,x,2026-06-01,12\n")
+            self.assertEqual(store.load_estimates(p, ASOF)[("AAA", "eps")][2026].value, 4.77)
+
+
+class A(unittest.TestCase):
+    def test_memory_pnl_matches_hand_calc(self):
+        cfg = {"industry": {"type": "memory_pnl", "gm": 0.85, "opex": 0.045, "opex_growth": 0.10, "cost_per_bit_change": -0.10,
+                            "bits": "b", "asp": "a"}}
+        ind = {"b": {"bear": .1, "base": .2, "bull": .3}, "a": {"bear": -.35, "base": -.2, "bull": -.05}}
+        r = an.anchor_I("X", None, cfg, ind, {}, {})["ret"]
+        op0 = 1 - 0.15 - 0.045
+        base = (1.2 * 0.8 - 0.15 * 1.2 * 0.9 - 0.045 * 1.1) / op0 - 1
+        self.assertAlmostEqual(r["base"], base)
+        self.assertLess(r["bear"], r["base"])
+        self.assertLess(r["base"], r["bull"])
+
+    def test_std_factors_default_is_flat_and_hist_is_like_for_like(self):
+        f, _ = an.std_factors(16.0, {"median": 44.0, "p25": 33.0, "p75": 50.0}, True, 0.0, 0.2)
+        self.assertEqual(f, {"bear": 0.8, "base": 1.0, "bull": 1.2})
+        f2, _ = an.std_factors(16.0, {"median": 32.0, "p25": 24.0, "p75": 40.0}, True, 0.5, 0.2)
+        self.assertAlmostEqual(f2["base"], 1.5)             # halfway to a median that is 2x today's trailing multiple
+        self.assertEqual(an.std_factors(16.0, None, True, 0.5, 0.2)[0]["base"], 1.0)
+
+    def test_blend_renormalises_and_flags_disagreement(self):
+        a = {"ret": {"bear": -.2, "base": 0.0, "bull": .2}, "flags": []}
+        b = {"ret": {"bear": .3, "base": .9, "bull": 1.5}, "flags": []}
+        r = an.blend({"F": a, "I": b, "R": None}, {"F": .5, "I": .3, "R": .2})
+        self.assertAlmostEqual(r["weights"]["F"], 0.5 / 0.8)
+        self.assertAlmostEqual(r["ret"]["base"], 0.3 / 0.8 * 0.9)
+        self.assertTrue(any(f.startswith("ANCHOR_DISAGREE") for f in r["flags"]))
+        self.assertTrue(any(f.startswith("MISSING_ANCHOR") for f in r["flags"]))
+
+    def test_ratio_anchor_rich_name_gets_negative_return(self):
+        a = [(date.fromordinal(738000 + i), 100.0 + (50 if i > 280 else 0)) for i in range(300)]
+        b = [(t, 100.0) for t, _ in a]
+        r = an.anchor_R({"A": a, "B": b}, lookback=250, lam=0.5)
+        self.assertLess(r["A"]["ret"]["base"], 0)
+        self.assertGreater(r["B"]["ret"]["base"], 0)
+
+    def test_history_normalises_split_and_bad_filing_dates(self):
+        mk = lambda pe, fd, ni, sh: {"period_end": pe, "filing": fd, "revenue": 1.0, "ni": ni, "sh": sh}
+        rows = [mk(date(2026, 1, 2), date(2026, 1, 30), 800.0, 1248.0), mk(date(2026, 7, 3), date(2026, 8, 17), 6903.0, 158.0),
+                mk(date(2025, 6, 27), date(2026, 8, 17), -23.0, 145.0), mk(date(2026, 10, 2), date(2026, 10, 30), 8101.0, 1232.0)]
+        rows.sort(key=lambda r: r["period_end"])
+        out = hist.normalise(rows)
+        by = {r["period_end"]: r for r in out}
+        self.assertEqual(by[date(2026, 7, 3)]["split_k"], 8.0)
+        self.assertAlmostEqual(by[date(2026, 7, 3)]["eps_norm"], 6903 / (158 * 8))
+        self.assertEqual(by[date(2026, 1, 2)]["split_k"], 1.0)
+        self.assertEqual(by[date(2025, 6, 27)]["avail"], date(2025, 6, 27) + __import__("datetime").timedelta(days=45))  # filing date a year late
+        self.assertEqual(by[date(2026, 1, 2)]["avail"], date(2026, 1, 30))
+
+    def test_disagreeing_anchors_halve_the_weight_cap(self):
+        a = pf.Name("A", 1, {"bear": 0, "base": 1, "bull": 2}, 1.0, 0.3, "auto_anchors", ["ANCHOR_DISAGREE"])
+        b = pf.Name("B", 1, {"bear": 0, "base": .1, "bull": .2}, 0.1, 0.3, "auto_anchors", [])
+        w = pf.target_weights([a, b], max_w=0.8)
+        self.assertAlmostEqual(w["A"], 0.4)
+
+
+class T2(unittest.TestCase):
+    def _cl(self, vals, start=738000):
+        return [(date.fromordinal(start + i), v) for i, v in enumerate(vals)]
+
+    def test_zone_dwell_visits_and_entry_direction(self):
+        vals = [100, 100.5, 120, 100.2, 120.5, 119.8]
+        z = {(round(x["low"]), round(x["high"])): x for x in trd.zones(self._cl(vals), [1.0] * 6, top=10)}
+        lo = next(v for v in z.values() if v["low"] <= 100 < v["high"])
+        self.assertEqual(lo["dwell_days"], 3)
+        self.assertEqual(lo["visits"], 2)
+        self.assertEqual(lo["entries_from_above"], 1)
+        self.assertAlmostEqual(sum(x["volume_share"] for x in z.values()), 1.0)
+
+    def test_level_crossings_counts_sign_changes(self):
+        r = trd.level_crossings(self._cl([90, 110, 90, 110, 110, 90]), 100)
+        self.assertEqual(r["crossings"], 4)
+
+    def _bars(self, n=30, last=None):
+        bars = [{"date": date.fromordinal(738000 + i), "open": 100.0, "high": 101.0, "low": 99.0, "close": 100.0, "volume": 10.0} for i in range(n)]
+        if last:
+            bars[-1] = {"date": bars[-1]["date"], **last}
+        return bars
+
+    def test_extremes_flags_new_low_and_volume_multiple(self):
+        bars = self._bars(last={"open": 90.0, "high": 92.0, "low": 80.0, "close": 81.0, "volume": 30.0})
+        e = trd.extremes_and_rebound(bars, None)
+        self.assertTrue(e["last_final_bar"]["made_52w_low"])
+        self.assertAlmostEqual(e["last_final_bar"]["volume_vs_prior20d"], 3.0)
+        self.assertAlmostEqual(e["last_final_bar"]["close_location_in_range"], (81 - 80) / (92 - 80))
+
+    def test_provisional_gap_unfilled_only_when_session_low_clears_prior_high(self):
+        bars = self._bars(last={"open": 90.0, "high": 92.0, "low": 80.0, "close": 81.0, "volume": 30.0})
+        filled = trd.extremes_and_rebound(bars, {"open": 95.0, "high": 99.0, "low": 90.0, "close": 98.0})["provisional_next_session"]
+        self.assertTrue(filled["session_low_above_prior_low"])
+        self.assertFalse(filled["gap_unfilled_vs_prior_high"])             # session low 90 <= prior high 92
+        full = trd.extremes_and_rebound(bars, {"open": 95.0, "high": 99.0, "low": 93.0, "close": 98.0})["provisional_next_session"]
+        self.assertTrue(full["gap_unfilled_vs_prior_high"])                # session low 93 > prior high 92
+        self.assertAlmostEqual(full["last_vs_prior_close"], 98 / 81 - 1)
+
+    def test_relationship_x_and_relative_return(self):
+        a = self._cl([100.0 + i for i in range(80)])
+        b = self._cl([50.0] * 80)
+        r = trd.relationship(a, b)
+        self.assertAlmostEqual(r["x_now"], 179.0 / 50.0)
+        self.assertGreater(r["relative_return"]["20d"], 0)
+
+    def test_event_reaction_amc_uses_next_day(self):
+        cl = self._cl([100, 100, 110, 121])
+        m = prof._react(cl, date.fromordinal(738001), "AMC")
+        self.assertEqual(m["day"], date.fromordinal(738002))
+        self.assertAlmostEqual(m["modifier"], 1.10)
+        m2 = prof._react(cl, date.fromordinal(738003), "INTRADAY")
+        self.assertAlmostEqual(m2["modifier"], 1.10)
+
+
+class C(unittest.TestCase):
+    def _rows(self):
+        mk = lambda t, thu, fl, fh, fc, mo, mh, ml, ml_last: {"ticker": t, "thu": thu, "f_low": fl, "f_high": fh, "f_close": fc, "m_open": mo, "m_high": mh, "m_low": ml, "m_last": ml_last}
+        return [mk("AAA", 100, 80, 100, 85, 95, 105, 90, 102), mk("BBB", 100, 90, 100, 92, 94, 96, 91, 95),
+                mk("CCC", 100, 70, 100, 75, 90, 100, 85, 100), mk("DDD", 100, 95, 100, 97, 98, 99, 96, 98),
+                mk("EEE", 100, 60, 100, 65, 90, 100, 80, 98), mk("QQQ", 100, 95, 100, 96, 97, 99, 95, 98)]
+
+    def test_recovery_and_flags(self):
+        ms = {m["ticker"]: m for m in co.metrics(self._rows(), {}, {"benchmarks": ["QQQ"]})}
+        a = ms["AAA"]
+        self.assertAlmostEqual(a["fri_change"], -0.15)
+        self.assertAlmostEqual(a["recovery_of_fri_drop"], (102 - 85) / (100 - 85))   # 113%: above Thursday's close
+        self.assertTrue(a["above_thu_close"])
+        self.assertFalse(a["gap_unfilled"])                                            # session low 90 <= Friday high 100
+        self.assertEqual(ms["QQQ"]["theme"], "benchmarks")
+
+    def test_user_snapshot_overrides_massive_last_and_sets_order(self):
+        shots = {"AAA": {"order": 1, "name": "x", "price": 90.0, "pct": 0.0588}}
+        m = {x["ticker"]: x for x in co.metrics(self._rows(), shots, {})}["AAA"]
+        self.assertAlmostEqual(m["mon_change"], 0.0588)
+        self.assertAlmostEqual(m["recovery_of_fri_drop"], (90 - 85) / 15)
+        self.assertEqual(m["snapshot_order"], 1)
+        self.assertEqual(m["theme"], "other")
+
+    def test_cross_section_sign_and_theme_table(self):
+        ms = co.metrics(self._rows(), {}, {"g1": ["AAA", "BBB"], "benchmarks": ["QQQ"]})
+        cs = co.cross_section(ms)
+        self.assertEqual(cs["n"], 5)
+        self.assertIsNotNone(cs["pearson_fri_vs_mon"])
+        tt = {r["theme"]: r for r in co.theme_table(ms)}
+        self.assertEqual(tt["g1"]["n"], 2)
+        self.assertIn("other", tt)
+
+
+class PC(unittest.TestCase):
+    PTS = {"thu_close": 145.98, "fri_low": 124.5, "fri_high": 143.725, "fri_close": 125.53, "mon_open": 167.035, "mon_high": 171.5, "mon_low": 156.93, "mon_last": 164.555}
+
+    def test_golden_nvda_fri_close_to_mon_high(self):
+        c = pc.compare_one(self.PTS, "fri_close", "mon_high")
+        self.assertAlmostEqual(c["change"], 171.5 / 125.53 - 1)
+        self.assertAlmostEqual(c["share_of_friday_drop_recovered_at_b"], (171.5 - 125.53) / (145.98 - 125.53))
+        self.assertAlmostEqual(c["giveback_from_b_to_last"], 164.555 / 171.5 - 1)
+        self.assertAlmostEqual(c["giveback_share_of_move"], (171.5 - 164.555) / (171.5 - 125.53))
+        self.assertTrue(c["gap_unfilled"])
+        self.assertTrue(c["monday_low_held_above_friday_low"])
+        self.assertFalse(c["peak_at_open_proxy"])
+
+    def test_missing_point_returns_none_and_provisional_labels(self):
+        self.assertIsNone(pc.compare_one({"fri_close": 1.0}, "fri_close", "mon_high"))
+        self.assertIn("mon_high", pc.PROVISIONAL)
+        self.assertNotIn("fri_close", pc.PROVISIONAL)
+
+    def test_peak_at_open_proxy_true_when_open_equals_high(self):
+        p = dict(self.PTS, mon_open=171.45, mon_high=171.5)
+        self.assertTrue(pc.compare_one(p, "fri_close", "mon_high")["peak_at_open_proxy"])
+
+    def test_summarize_handles_missing(self):
+        s = pc.summarize([{"x": 1.0}, {"x": 3.0}, {}], "x")
+        self.assertEqual((s["n"], s["median"], s["max"]), (2, 2.0, 3.0))
+        self.assertEqual(pc.summarize([{}], "x"), {})
+
+
+class MP(unittest.TestCase):
+    RAT = {"price": 100.0, "mcap": 1000.0, "eps": 5.0, "pe": 20.0, "ps": 4.0, "evs": 5.0, "ev": 1250.0, "date": "2026-11-20"}
+
+    def test_pe_ps_scale_with_price_and_eps_is_fixed(self):
+        m = mpt.multiples_at({"fri_low": 80.0, "mon_high": 120.0, "fri_close": 100.0}, self.RAT)
+        self.assertAlmostEqual(m["pe"]["fri_low"], 16.0)
+        self.assertAlmostEqual(m["pe"]["mon_high"], 24.0)
+        self.assertAlmostEqual(m["pe"]["fri_close"], 20.0)               # equals the ratio-snapshot P/E at the snapshot price
+        self.assertAlmostEqual(m["ps"]["mon_high"], 4.8)
+
+    def test_ev_to_sales_moves_less_than_price_when_net_debt_exists(self):
+        m = mpt.multiples_at({"fri_low": 50.0, "fri_close": 100.0}, self.RAT)
+        ev_at = 1000 * 0.5 + 250                                          # mcap halves, net debt 250 unchanged
+        self.assertAlmostEqual(m["evs"]["fri_low"], 5.0 * ev_at / 1250)
+        self.assertGreater(m["evs"]["fri_low"] / m["evs"]["fri_close"], 0.5)
+
+    def test_negative_eps_gives_no_pe_but_has_ps(self):
+        m = mpt.multiples_at({"fri_low": 80.0}, dict(self.RAT, eps=-2.0))
+        self.assertIsNone(m["pe"]["fri_low"])
+        self.assertAlmostEqual(m["ps"]["fri_low"], 3.2)
+
+    def test_summarize_pair_turns_and_expansion(self):
+        s = mpt.summarize_pair({"fri_low": 16.0, "mon_high": 24.0})
+        self.assertAlmostEqual(s["turns_added"], 8.0)
+        self.assertAlmostEqual(s["expansion"], 0.5)
+        self.assertIsNone(mpt.summarize_pair({"fri_low": None, "mon_high": 24.0}))
+
+
+class B(unittest.TestCase):
+    def test_tier_bounds_are_log_equal_and_span_the_range(self):
+        b = bnd.tier_bounds(10.0, 100.0)
+        self.assertEqual(len(b), 6)
+        self.assertAlmostEqual(b[0], 10.0); self.assertAlmostEqual(b[-1], 100.0)
+        ratios = [b[i + 1] / b[i] for i in range(5)]
+        self.assertAlmostEqual(max(ratios), min(ratios))
+        with self.assertRaises(ValueError):
+            bnd.tier_bounds(10.0, 10.0)
+
+    def test_tier_of_edges_and_outside(self):
+        b = bnd.tier_bounds(10.0, 100.0)
+        self.assertEqual(bnd.tier_of(10.0, b)["tier"], 1)
+        self.assertEqual(bnd.tier_of(100.0, b)["tier"], 5)
+        self.assertEqual(bnd.tier_of(9.0, b)["tier"], 0)
+        self.assertEqual(bnd.tier_of(120.0, b)["tier"], 6)
+
+    def test_price_bands_scale_with_eps_and_keep_equal_pct_spread(self):
+        b = bnd.tier_bounds(10.0, 100.0)
+        pb1, pb2 = bnd.price_bands(5.0, b), bnd.price_bands(6.0, b)
+        for x, y in zip(pb1, pb2):
+            self.assertAlmostEqual(y["price_low"] / x["price_low"], 1.2)
+            self.assertAlmostEqual(y["spread_abs"] / x["spread_abs"], 1.2)       # dollar spreads widen with EPS
+            self.assertAlmostEqual(y["spread_pct_of_low"], x["spread_pct_of_low"])  # percentage spreads do not
+
+    def test_eps_update_moves_unchanged_price_to_lower_tier(self):
+        b = bnd.tier_bounds(10.0, 100.0)
+        eff = bnd.eps_update_effect(50.0, 2.0, 4.0, b)                       # multiple 25 -> 12.5
+        self.assertEqual(eff["tier_before"], 2)                 # 25 sits just under the 25.1 boundary
+        self.assertEqual(eff["tier_after"], 1)
+        self.assertAlmostEqual(eff["band_shift_pct"], 1.0)
+        self.assertEqual(len(bnd.scenario_grid(50.0, 2.0, b)), 5)
+
+    def test_log_position_and_relativity_tiers(self):
+        self.assertAlmostEqual(mdl._log_pos(10.0, 10.0, 1000.0), 0.0)
+        self.assertAlmostEqual(mdl._log_pos(100.0, 10.0, 1000.0), 0.5)
+        mk = lambda hit, rr, rb: {"theme": "x", "window_52w": {"hit_52w_low_on_friday": hit},
+                                  "stress_relativity": {"recovery_of_52w_range_at_last": rr, "rebound_fri_close_to_last": rb, "recovery_of_friday_drop_at_last": 1.0},
+                                  "relativity": {r: {"x_change_fri_close_to_last": rb} for r in mdl.REFS}}
+        models = {"A": mk(True, 0.1, 0.30), "B": mk(False, 0.2, 0.20), "C": mk(False, 0.3, 0.10)}
+        rel = mdl.relativity(models, {"as_of_et": "t"})
+        self.assertEqual(rel["hit_52w_low_on_friday"], ["A"])
+        self.assertEqual(rel["rebound_order_by_change_fri_close_to_last"][0]["ticker"], "A")
+        self.assertEqual(rel["recovery_tiers_by_52w_range_terciles"], {"A": "laggard", "B": "middle", "C": "leader"})
+        self.assertAlmostEqual(rel["share_hit_52w_low_on_friday"], 1 / 3)
+
+
+class TestBasket(unittest.TestCase):
+    def test_universe_and_low52(self):
+        from pathlib import Path
+        from . import basket
+        udir = Path(__file__).resolve().parents[3] / "research/models/rotation/universe"
+        uni = basket.load_universe(udir)
+        self.assertGreaterEqual(len(uni), 290)
+        self.assertIn("FLEX", uni)
+        low = basket.load_low52(udir / "low52w_friday_classification.csv")
+        self.assertTrue(low["NVDA"] and low["ORCL"])
+        self.assertFalse(low["EMB"] or low["XLC"])
+        out = basket.run(udir)
+        self.assertEqual(out["friday_52w_low"]["n_hit"], sum(low.values()))
+        self.assertEqual(out["universe"]["total_identifiers"], len(uni))
+
+
+class TestSympathy(unittest.TestCase):
+    def test_icc_extremes(self):
+        from . import sympathy as sy
+        self.assertGreater(sy.icc1([[1.0, 1.01, 0.99], [5.0, 5.02, 4.98], [9.0, 9.01, 8.99]]), 0.99)
+        self.assertLess(sy.icc1([[1, 5, 9], [1.1, 5.1, 9.1], [0.9, 4.9, 8.9]]), 0)
+
+    def test_loo_excludes_self(self):
+        from . import sympathy as sy
+        self.assertEqual(sy.loo_mean({"A": 1.0, "B": 3.0, "C": 5.0}, ["A", "B", "C"], "A"), 4.0)
+
+
+class TestSkills(unittest.TestCase):
+    def test_skills_valid(self):
+        from pathlib import Path
+        import importlib.util
+        root = Path(__file__).resolve().parents[3] / "research/models/rotation/skills"
+        spec = importlib.util.spec_from_file_location("validate_skills", root / "validate_skills.py")
+        m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+        self.assertEqual(m.main(root), 0)
+
+
+class TestRebound(unittest.TestCase):
+    """Synthetic _TICKERS/<T>/snapshots store; no real data."""
+
+    def _store(self, root, sym, closes, start="2025-01-02", price_only=False):
+        import json
+        from datetime import datetime, timedelta
+        d = root / sym / "snapshots"; d.mkdir(parents=True)
+        day = datetime.strptime(start, "%Y-%m-%d")
+        for c in closes:
+            while day.weekday() >= 5:
+                day += timedelta(days=1)
+            ds = day.strftime("%Y-%m-%d")
+            from engines.valuation.relative_value import snapshots as sn
+            s0 = sn._day_start_ms(ds)
+            rows = []
+            for m, px in ((540, c * 1.5), (570, c * 1.2), (700, c * 0.9), (959, c), (990, c * 3)):   # pre-market and after-hours must be ignored
+                r = {"ticker": sym, "t": s0 + m * 60000, "px": px, "vol": 100, "src": "x", "grain": "1min"}
+                r.update({"o": None, "h": None, "l": None, "c": None, "class": "moment"} if price_only else
+                         {"o": px, "h": px * 1.01, "l": px * 0.99, "c": px, "class": "bar"})
+                rows.append(r)
+            (d / f"{ds}.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
+            day += timedelta(days=1)
+
+    def test_daily_bars_regular_session_only(self):
+        import tempfile
+        from pathlib import Path
+        from engines.valuation.relative_value import snapshots as sn
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t); self._store(root, "AAA", [100.0])
+            b = sn.daily_bars(root, "AAA")[0]
+            self.assertEqual(b["minutes"], 3); self.assertEqual(b["c"], 100.0)           # 09:00 and 16:30 minutes excluded
+            self.assertAlmostEqual(b["h"], 120.0 * 1.01); self.assertAlmostEqual(b["l"], 90.0 * 0.99)
+
+    def test_tickers_skips_tooling_and_non_equities(self):
+        import tempfile
+        from pathlib import Path
+        from engines.valuation.relative_value import snapshots as sn
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t)
+            for n in ("AAA", "I_VIX", "C_USDJPY", "_MASSIVE-API"):
+                (root / n / "snapshots").mkdir(parents=True)
+            self.assertEqual(sn.tickers(root), ["AAA"])
+
+    def test_features_distance_and_drawdown(self):
+        from engines.valuation.relative_value import rebound as rb
+        bars = [{"date": f"2025-{1 + i // 28:02d}-{1 + i % 28:02d}", "o": c, "h": c, "l": c, "c": c, "v": 1, "minutes": 1, "price_only": 0}
+                for i, c in enumerate([100, 120, 80, 90])]
+        f = rb.features(bars)[-1]
+        self.assertAlmostEqual(f["dist_low"], 90 / 80 - 1); self.assertAlmostEqual(f["dd"], 90 / 120 - 1)
+        self.assertEqual((f["lo_date"], f["hi_date"]), (bars[2]["date"], bars[1]["date"]))
+
+    def test_split_guard_excludes_and_reports(self):
+        from engines.valuation.relative_value import rebound as rb
+        mk = lambda cs: [{"date": f"2025-{1 + i // 28:02d}-{1 + i % 28:02d}", "o": c, "h": c, "l": c, "c": c, "v": 1, "minutes": 1, "price_only": 0} for i, c in enumerate(cs)]
+        per = {"OK": mk([10 + (i % 3) for i in range(200)]), "SPLIT": mk([80.0] * 100 + [10.0] * 100)}
+        r = rb.ranking(per, min_window_days=150)
+        self.assertEqual([x["ticker"] for x in r["rows"]], ["OK"]); self.assertIn("SPLIT", r["split_suspect"])
+
+    def test_forward_study_counts_and_buckets(self):
+        import random
+        from engines.valuation.relative_value import rebound as rb
+        random.seed(3)
+        def mk(start):
+            from datetime import datetime, timedelta
+            d, c, out = datetime(2025, 1, 2), 100.0, []
+            while len(out) < 420:
+                if d.weekday() < 5:
+                    c *= 1 + random.uniform(-0.02, 0.02)
+                    out.append({"date": d.strftime("%Y-%m-%d"), "o": c, "h": c * 1.01, "l": c * 0.99, "c": c, "v": 1, "minutes": 1, "price_only": 0})
+                d += timedelta(days=1)
+            return out
+        per = {f"T{i}": mk(i) for i in range(40)}
+        st = rb.forward_study(per, horizon=20, boot=20)
+        self.assertGreater(st["all"]["n"], 1000); self.assertEqual(st["all"]["tickers"], 40)
+        self.assertEqual(set(st["by_dist_low"]), {l for _, l in rb.LOW_BUCKETS})
+        self.assertAlmostEqual(st["all"]["p_beat_median_stock"], 0.5, delta=0.06)   # random walk: no edge by construction
+
+
+if __name__ == "__main__":
+    unittest.main()
