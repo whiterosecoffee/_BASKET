@@ -2,7 +2,7 @@
   "id": "SFTBY_CAPITAL_CONVERSION",
   "parent": "research/SFTBY",
   "spark": "B09",
-  "status": "research_prototype_design_extended",
+  "status": "research_fixture_committed_pending_independent_tests",
   "issue": 300,
   "branch": "work/300-sftby-capital-conversion-rotation",
   "as_of": "2026-11-26",
@@ -24,22 +24,30 @@
     "unrestricted_cash": "unverified",
     "design_extended_commit": "95c8c91a5cab151da1442879635d5c483b5fad74",
     "new_design_tests": "not_run",
-    "patterns_registration": "not_requested_or_verified"
+    "patterns_registration": "not_requested_or_verified",
+    "fixture_commit": "7734fd90f768ba696a966259ef309cce514d8a61",
+    "fixture_tests_commit": "501c9c1c318f7c93e4de40155a26929ae2d440df",
+    "local_synthetic_analogue_tests": "11/11 passed in isolated container; source not byte-identical to committed fixture",
+    "committed_fixture_readback": "verified both files on branch, Git blob SHA read",
+    "committed_fixture_independent_ci": "not_run",
+    "live_finance": "not_implemented"
   },
   "dependencies": [
     28,
     30
   ],
   "next_actions": [
-    "B09: reconcile parent unrestricted cash, collateral, and OpenAI economic entitlement with consistent effective/available times",
-    "B04: reuse existing valuation/rotation engine; no engine duplication",
-    "_PATTERNS System Design owner: review generalized interface and register by canonical receipt only after separate owner action",
-    "B01: independent scenario fixture execution and strict validation"
+    "Independently run committed test_capital_fixture.py against exact GitHub branch head and inspect test expectations",
+    "Reconcile ARM sale availability, parent unrestricted cash, loan recourse, current marks and SVF2/OpenAI rights before real financial use",
+    "Integrate source- and time-qualified fixture with the existing B04 rotation model (owner handoff, not B09 engine changes)",
+    "Review fee, tax, duration and risk model: one-period asset-mark fixture is not multi-quarter DCF or actual project FCF"
   ],
   "review": "Confirm no operating revenue is double-added as equity NAV, and stress-case capital constraints are explicitly flagged.",
   "feature_designs": [
     "feature-design.md",
-    "feature-design-moat-and-interfaces.md"
+    "feature-design-moat-and-interfaces.md",
+    "capital_fixture.py",
+    "test_capital_fixture.py"
   ],
   "methodology_review": {
     "timestamp": "2026-11-26",
